@@ -15,8 +15,8 @@ int main(object me, string arg)
 	int j = 0;
 
 	list = sort_array(SECURITY_D->query_wizlist(), (: level :) );
-	str = HIC+CHINESE_MUD_NAME+NOR +"Î×Ê¦¶­ÊÂ»á³ÉÔ±£º\n";
-	str += "©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤\n";
+	str = HIC+CHINESE_MUD_NAME+NOR +"å·«å¸ˆè‘£äº‹ä¼šæˆå‘˜ï¼š\n";
+	str += "â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€\n";
 	for(int i=0; i<sizeof(list); i++, j++)
 	{
 		if (hood!= wiz_rank(wizhood(list[i])))
@@ -31,8 +31,8 @@ int main(object me, string arg)
 		str += sprintf(" %s%s", list[i],
 			( j%7==6 ) ? "\n" : ( i<sizeof(list)-1 && hood ==wizhood(list[i+1]) ) ? ", " : "" );
 	}
-	str += "\n©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤\n";
-	str += sprintf("Ä¿Ç°Ò»¹²ÓĞ: %s¸öÎ×Ê¦\n",chinese_number(sizeof(list)) );
+	str += "\nâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€\n";
+	str += sprintf("ç›®å‰ä¸€å…±æœ‰: %sä¸ªå·«å¸ˆ\n",chinese_number(sizeof(list)) );
 	me->start_more(str);
 	return 1;
 }
@@ -42,15 +42,15 @@ string wiz_rank(string hood)
 	switch(hood)
 	{
 		case "(admin)":
-			return HIM "¡¾ Ìì  µÛ / Ìì  ºó ¡¿" NOR;
+			return HIM "ã€ å¤©  å¸ / å¤©  å ã€‘" NOR;
 		case "(arch)":
-			return HIY "¡¾ ÏÉ  ¹Ù / ÏÉ  åú ¡¿" NOR;
+			return HIY "ã€ ä»™  å®˜ / ä»™  å¦ƒ ã€‘" NOR;
 		case "(wizard)":
-			return HIG "¡¾ Éñ  ÏÉ / Éñ  Å® ¡¿" NOR;
+			return HIG "ã€ ç¥  ä»™ / ç¥  å¥³ ã€‘" NOR;
 		case "(apprentice)":
-			return HIC "¡¾ °ë  ÏÉ / ÏÉ  Å® ¡¿" NOR;
+			return HIC "ã€ åŠ  ä»™ / ä»™  å¥³ ã€‘" NOR;
 		case "(immortal)":
-			return HIC "¡¾ ÏÉ  Í¯ / Å®ÏÉÍ¯ ¡¿" NOR;
+			return HIC "ã€ ä»™  ç«¥ / å¥³ä»™ç«¥ ã€‘" NOR;
 	}
 }
 
@@ -64,9 +64,9 @@ int level(mixed ob1, mixed ob2)
 int help(object me)
 {
 	write(@HELP
-Ö¸Áî¸ñÊ½ : wizlist
+æŒ‡ä»¤æ ¼å¼ : wizlist
  
-    Õâ¸öÖ¸Áî»áÏÔÊ¾Õâ¸öÓÎÏ·Ä¿Ç°µÄÎ×Ê¦Ãûµ¥¡£
+    è¿™ä¸ªæŒ‡ä»¤ä¼šæ˜¾ç¤ºè¿™ä¸ªæ¸¸æˆç›®å‰çš„å·«å¸ˆåå•ã€‚
  
 HELP
 	);

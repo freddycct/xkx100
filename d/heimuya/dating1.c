@@ -3,10 +3,10 @@
 inherit ROOM;
 void create()
 {
-	set("short", "ÌÃÌü");
+	set("short", "å ‚åŽ…");
 	set("long", @LONG
-ÕâÊÇ¡ºÈÕÔÂÉñ½Ì¡»ÏÂµÚÒ»´óÌÃ£º·çÀ×ÌÃµÄ´óÌü£¬ËÄÄ¿ÍûÈ¥£¬ÂúÆÓËØ
-µÄ£¬ÌÃÁºÉÏÓÐÒ»¸±Áª×Ó(vote)¡£
+è¿™æ˜¯ã€Žæ—¥æœˆç¥žæ•™ã€ä¸‹ç¬¬ä¸€å¤§å ‚ï¼šé£Žé›·å ‚çš„å¤§åŽ…ï¼Œå››ç›®æœ›åŽ»ï¼Œæ»¡æœ´ç´ 
+çš„ï¼Œå ‚æ¢ä¸Šæœ‰ä¸€å‰¯è”å­(vote)ã€‚
 LONG    );
 
 	set("exits", ([
@@ -18,7 +18,7 @@ LONG    );
 		__DIR__"npc/jiaotu" : 2,
 	]));
 	set("item_desc", ([
-		"vote": "ÈÕÔÂÉñ½Ì£¬ÎÄ³ÉÎäµÂ£¬Ôó±»²ÔÉú¡£\n"
+		"vote": "æ—¥æœˆç¥žæ•™ï¼Œæ–‡æˆæ­¦å¾·ï¼Œæ³½è¢«è‹ç”Ÿã€‚\n"
 	]) );
 //	set("no_clean_up", 0);
 	set("coor/x", -3030);

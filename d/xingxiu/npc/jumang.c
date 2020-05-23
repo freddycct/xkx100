@@ -5,10 +5,10 @@ inherit NPC;
 
 void create()
 {
-	set_name("¾Þòþ", ({ "ju mang", "mang" }));
-	set("race", "ÅÀÉß");
+	set_name("å·¨èŸ’", ({ "ju mang", "mang" }));
+	set("race", "çˆ¬è›‡");
 	set("age", 200);
-	set("long", "Ò»ÌõÅÓ´óÎÞ±È, É«²Ê°ßìµµÄ¾Þòþ¡£ »ëÉí·¢³öÕóÕóÇ¿ÁÒµÄÐÈ³ôÎ¶¡£\n");
+	set("long", "ä¸€æ¡åºžå¤§æ— æ¯”, è‰²å½©æ–‘æ–“çš„å·¨èŸ’ã€‚ æµ‘èº«å‘å‡ºé˜µé˜µå¼ºçƒˆçš„è…¥è‡­å‘³ã€‚\n");
 	set("attitude", "peaceful");
 	set("str", 70);
 	set("con", 50);
@@ -27,7 +27,7 @@ init()
 	if (interactive(ob = this_player()) && !is_fighting())
 	{
 		myfam = (mapping)ob->query("family");
-		if ((!myfam || myfam["family_name"] != "ÐÇËÞÅÉ") &&
+		if ((!myfam || myfam["family_name"] != "æ˜Ÿå®¿æ´¾") &&
 			(!wizardp(ob)))
 		{
 			remove_call_out("do_killing");

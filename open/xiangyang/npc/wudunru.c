@@ -5,11 +5,11 @@
 inherit NPC;
 void create()
 {
-	set_name("Îä¶ØÈå", ({"wu dunru", "wu", "dunru"}));
-	set("title", HIY"¹ù¾¸´óµÜ×Ó"NOR);
-	set("gender", "ÄĞĞÔ");
+	set_name("æ­¦æ•¦å„’", ({"wu dunru", "wu", "dunru"}));
+	set("title", HIY"éƒ­é–å¤§å¼Ÿå­"NOR);
+	set("gender", "ç”·æ€§");
 	set("age", 23);
-	set("long", "ËûÊÇ¹ù¾¸´óµÜ×Ó£¬ÏàÃ²ºÍ°ª£¬Ò»Ììµ½ÍíĞ¦ºÇºÇµÄ¡£\n");
+	set("long", "ä»–æ˜¯éƒ­é–å¤§å¼Ÿå­ï¼Œç›¸è²Œå’Œè”¼ï¼Œä¸€å¤©åˆ°æ™šç¬‘å‘µå‘µçš„ã€‚\n");
  	set("attitude", "peaceful");
 	
 	set("per", 24);
@@ -19,8 +19,8 @@ void create()
 	set("dex", 25);
 
 	set("inquiry", ([
-		"»ÆÈØ" : "ÄÇÊÇÎÒÊ¦Ä¸¡£\n",
-		"¹ù¾¸" : "ÄÇÊÇÎÒÊ¦¸¸¡£\n",
+		"é»„è“‰" : "é‚£æ˜¯æˆ‘å¸ˆæ¯ã€‚\n",
+		"éƒ­é–" : "é‚£æ˜¯æˆ‘å¸ˆçˆ¶ã€‚\n",
 	]));
 
 	set("qi", 1000);
@@ -33,13 +33,13 @@ void create()
 	set("combat_exp", 80000);
 	set("score", 20000);
 	 
-	set_skill("force", 50);			// »ù±¾ÄÚ¹¦
-	set_skill("huntian-qigong", 50);	// »ìÌìÆø¹¦
-	set_skill("unarmed", 50);		// »ù±¾È­½Å
-	set_skill("xianglong-zhang", 50);	// ½µÁúÊ®°ËÕÆ
-	set_skill("dodge", 50);			// »ù±¾¶ãÉÁ
-	set_skill("xiaoyaoyou", 50);		// åĞÒ£ÓÎ
-	set_skill("parry", 50);			// »ù±¾ÕĞ¼Ü
+	set_skill("force", 50);			// åŸºæœ¬å†…åŠŸ
+	set_skill("huntian-qigong", 50);	// æ··å¤©æ°”åŠŸ
+	set_skill("unarmed", 50);		// åŸºæœ¬æ‹³è„š
+	set_skill("xianglong-zhang", 50);	// é™é¾™åå…«æŒ
+	set_skill("dodge", 50);			// åŸºæœ¬èº²é—ª
+	set_skill("xiaoyaoyou", 50);		// é€é¥æ¸¸
+	set_skill("parry", 50);			// åŸºæœ¬æ‹›æ¶
 	
 	map_skill("force", "huntian-qigong");
 	map_skill("unarmed", "xianglong-zhang");

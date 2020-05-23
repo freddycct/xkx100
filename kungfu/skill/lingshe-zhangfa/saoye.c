@@ -1,23 +1,23 @@
 // Last Modified by winder on May. 15 2001
-// saoye.c ¿ñ·çÉ¨ÂäÒ¶
+// saoye.c ç‹‚é£æ‰«è½å¶
 #include <ansi.h>
 #include <skill.h>
 #include <weapon.h>
 #include <combat.h>
 inherit F_SSERVER;
-#define PNAME "¡¸¿ñ·çÉ¨ÂäÒ¶¡¹"
+#define PNAME "ã€Œç‹‚é£æ‰«è½å¶ã€"
 int perform(object me, object target)
 {
 	string msg;
 	string *staff_msg = ({
-	YEL"$NÉíĞÎ¼Ó¿ì£¬Ëùµ½Ö®´¦£¬¿ñ·çËÄÆğ£¡" NOR,
-	YEL"$NÍ»ÈçÆğÀ´µÄ´Ó¿ñ·çÖĞÉÁ³ö£¬¶Ô×Å$nĞØÇ°¾ÍÊÇÒ»ÕÈ£¡" NOR,
-	YEL"$NÓùÕÈ»ØÉí£¬Á¢ÓÚ$nÉí²à£¬·´ÊÖÒ»Åü£¡" NOR,
-	YEL"$N½èÁ¦´òÁ¦£¬Ò»¸ö×İÉí£¬¾Ó¸ßÁÙÏÂ£¬µ±Í·ÓÖÊÇÒ»ÕÈ£¡" NOR,
-	YEL"ÈËÔÚ°ë¿Õ£¬$N»¯ĞéÎªÕÆ£¬»¯ÊµÎªÕÈ£¬³¯$nµã´Ì¹ıÈ¥£¡" NOR,
-	YEL"$N³ÖÕÈÂÒÎè£¬ÃÜ²»Í¸·ç£¬Ê¹$n½¥½¥¸Ğµ½Í¸²»¹ıÆøÀ´£¡" NOR,
-	YEL"$N¼ûÓĞ»ú¿É³Ë£¬Ò»ÕÈ½Ó×ÅÒ»ÕÈ£¬ÕĞÕĞÖÂÃü£¡" NOR,
-	YEL"$N¾ÛÆğÌìµØÖ®ÁéÆø£¬ÊÖÖĞÕÈ¾íÆğÇ§²ã´óÀË³¯$n»ÓÈ¥£¡" NOR,
+	YEL"$Nèº«å½¢åŠ å¿«ï¼Œæ‰€åˆ°ä¹‹å¤„ï¼Œç‹‚é£å››èµ·ï¼" NOR,
+	YEL"$Nçªå¦‚èµ·æ¥çš„ä»ç‹‚é£ä¸­é—ªå‡ºï¼Œå¯¹ç€$nèƒ¸å‰å°±æ˜¯ä¸€æ–ï¼" NOR,
+	YEL"$Nå¾¡æ–å›èº«ï¼Œç«‹äº$nèº«ä¾§ï¼Œåæ‰‹ä¸€åŠˆï¼" NOR,
+	YEL"$Nå€ŸåŠ›æ‰“åŠ›ï¼Œä¸€ä¸ªçºµèº«ï¼Œå±…é«˜ä¸´ä¸‹ï¼Œå½“å¤´åˆæ˜¯ä¸€æ–ï¼" NOR,
+	YEL"äººåœ¨åŠç©ºï¼Œ$NåŒ–è™šä¸ºæŒï¼ŒåŒ–å®ä¸ºæ–ï¼Œæœ$nç‚¹åˆºè¿‡å»ï¼" NOR,
+	YEL"$NæŒæ–ä¹±èˆï¼Œå¯†ä¸é€é£ï¼Œä½¿$næ¸æ¸æ„Ÿåˆ°é€ä¸è¿‡æ°”æ¥ï¼" NOR,
+	YEL"$Nè§æœ‰æœºå¯ä¹˜ï¼Œä¸€æ–æ¥ç€ä¸€æ–ï¼Œæ‹›æ‹›è‡´å‘½ï¼" NOR,
+	YEL"$Nèšèµ·å¤©åœ°ä¹‹çµæ°”ï¼Œæ‰‹ä¸­æ–å·èµ·åƒå±‚å¤§æµªæœ$næŒ¥å»ï¼" NOR,
 	});
 	int extra,attack_time,i;
 	object weapon,ob;
@@ -31,18 +31,18 @@ int perform(object me, object target)
    !me->query("can_perform/"+sskill+"/"+pfname) &&
    !me->query_temp("murong/xingyi") &&
    !SCBORN_D->valid_perform(me,sskill,pfname))
-   return notify_fail("ÄãËùÊ¹ÓÃµÄÍâ¹¦ÖĞÃ»ÓĞÕâÖÖ¹¦ÄÜ¡£\n");
+   return notify_fail("ä½ æ‰€ä½¿ç”¨çš„å¤–åŠŸä¸­æ²¡æœ‰è¿™ç§åŠŸèƒ½ã€‚\n");
 
 	if( !objectp(target) ) {flag =1;target = offensive_target(me);}
 	
 	if( !target || !target->is_character() || target == me ||	
 	  	!me->is_fighting(target) ||
   	!living(target) || target->query_temp("noliving") )
-		return notify_fail(PNAME"Ö»ÄÜ¶ÔÕ½¶·ÖĞµÄ¶ÔÊÖÊ¹ÓÃ¡£\n");
+		return notify_fail(PNAME"åªèƒ½å¯¹æˆ˜æ–—ä¸­çš„å¯¹æ‰‹ä½¿ç”¨ã€‚\n");
  
 	if (!objectp(weapon = me->query_temp("weapon")) ||
 		(string)weapon->query("skill_type") != "staff")
-		return notify_fail("ÄãÊ¹ÓÃµÄÎäÆ÷²»¶Ô¡£\n");
+		return notify_fail("ä½ ä½¿ç”¨çš„æ­¦å™¨ä¸å¯¹ã€‚\n");
 		
 	fskill = "hamagong";
 	bskill = "staff";
@@ -56,16 +56,16 @@ int perform(object me, object target)
 	}
 
 	if( (int)me->query_skill(fskill, 1) < 180 )
-		return notify_fail("ÄãµÄ"+to_chinese(fskill)+"ĞŞÎª²»¹»£¬ÎŞ·¨Ê¹ÓÃ"+PNAME+"¡£\n");
+		return notify_fail("ä½ çš„"+to_chinese(fskill)+"ä¿®ä¸ºä¸å¤Ÿï¼Œæ— æ³•ä½¿ç”¨"+PNAME+"ã€‚\n");
 
 	if( (int)me->query_skill(sskill, 1) < 170 )
-		return notify_fail("ÄãµÄ"+to_chinese(sskill)+"»ğºò²»¹»£¬ÎŞ·¨Ê¹ÓÃ"+PNAME+"¡£\n");
+		return notify_fail("ä½ çš„"+to_chinese(sskill)+"ç«å€™ä¸å¤Ÿï¼Œæ— æ³•ä½¿ç”¨"+PNAME+"ã€‚\n");
 
 	if( (int)me->query("neili") < 1200 )
-		return notify_fail("ÄãµÄÕæÆø²»¹»£¡\n");
+		return notify_fail("ä½ çš„çœŸæ°”ä¸å¤Ÿï¼\n");
 
 	if( !userp(me))
-		return notify_fail("Ö»ÓĞÍæ¼Ò²ÅÄÜÉ¨ÂäÒ¶¡£\n");
+		return notify_fail("åªæœ‰ç©å®¶æ‰èƒ½æ‰«è½å¶ã€‚\n");
 
 	extra = me->query_skill("staff", 1);
 	extra = extra / 3;
@@ -74,7 +74,7 @@ int perform(object me, object target)
 	me->add_temp("apply/damage",extra*2);
 	weapon = me->query_temp("weapon");
 
-	msg = HIY"$NÌø³öÊıÕÉÍâ£¬Í»È»Ò»Éù±©ºÈ£º¡°------ ¿ñ ----- ·ç ----- É¨ ----- Âä ----- Ò¶ ----- £¡£¡£¡¡±" NOR;
+	msg = HIY"$Nè·³å‡ºæ•°ä¸ˆå¤–ï¼Œçªç„¶ä¸€å£°æš´å–ï¼šâ€œ------ ç‹‚ ----- é£ ----- æ‰« ----- è½ ----- å¶ ----- ï¼ï¼ï¼â€" NOR;
 	message_combatd(msg, me, target);		
 	
 	attack_time = 3 + random(6);
@@ -93,20 +93,20 @@ int perform(object me, object target)
 	return 1;
 }
 
-string name() {return replace_string(replace_string(PNAME,"¡¸",""),"¡¹","");}
+string name() {return replace_string(replace_string(PNAME,"ã€Œ",""),"ã€","");}
 
 int help(object me)
 {
-	write(WHT"\n"+to_chinese(explode(__FILE__,"/")[<2])+"Ö®"+name()+WHT"£º"NOR"\n");
+	write(WHT"\n"+to_chinese(explode(__FILE__,"/")[<2])+"ä¹‹"+name()+WHT"ï¼š"NOR"\n");
 	write(@HELP
 
-	Ê¹ÓÃ¹¦Ğ§£º
-		Á¬Ğø³öÊÖ°ËÕÈ
+	ä½¿ç”¨åŠŸæ•ˆï¼š
+		è¿ç»­å‡ºæ‰‹å…«æ–
 
-	³öÊÖÒªÇó£º
-		¸òó¡¹¦180¼¶
-		ÁéÉßÕÈ·¨170¼¶
-		ÄÚÁ¦1200
+	å‡ºæ‰‹è¦æ±‚ï¼š
+		è›¤èŸ†åŠŸ180çº§
+		çµè›‡æ–æ³•170çº§
+		å†…åŠ›1200
 HELP
 	);
 	return 1;

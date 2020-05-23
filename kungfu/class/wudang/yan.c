@@ -1,4 +1,4 @@
-// yan.c Óáá·ÑÒ
+// yan.c ä¿å²±å²©
 
 #include <ansi.h>
 
@@ -9,10 +9,10 @@ string ask_yao2();
 
 void create()
 {
-	set_name("Óáá·ÑÒ", ({ "yu daiyan", "yu" }));
-	set("nickname", "Îäµ±ÈıÏÀ");
-	set("long","Ëû¾ÍÊÇÕÅÈı·áµÄµÜ×Ó¡¢Îäµ±ÆßÏÀÖ®ÈıµÄÓáá·ÑÒ¡£\nÉí´©Ò»¼ş¸É¸É¾»¾»µÄÇà²¼³¤ÉÀ¡£\nËû²»¹ıÈıÊ®³öÍ·Äê¼Í£¬Ë«ÍÈ²Ğ·Ï£¬ÕÅÕæÈËÃüËûÖ÷³ÖÕæÎä½£Õó¡£\n");
-	set("gender", "ÄĞĞÔ");
+	set_name("ä¿å²±å²©", ({ "yu daiyan", "yu" }));
+	set("nickname", "æ­¦å½“ä¸‰ä¾ ");
+	set("long","ä»–å°±æ˜¯å¼ ä¸‰ä¸°çš„å¼Ÿå­ã€æ­¦å½“ä¸ƒä¾ ä¹‹ä¸‰çš„ä¿å²±å²©ã€‚\nèº«ç©¿ä¸€ä»¶å¹²å¹²å‡€å‡€çš„é’å¸ƒé•¿è¡«ã€‚\nä»–ä¸è¿‡ä¸‰åå‡ºå¤´å¹´çºªï¼ŒåŒè…¿æ®‹åºŸï¼Œå¼ çœŸäººå‘½ä»–ä¸»æŒçœŸæ­¦å‰‘é˜µã€‚\n");
+	set("gender", "ç”·æ€§");
 	set("age", 31);
 	set("attitude", "peaceful");
 	set("class", "swordsman");
@@ -63,12 +63,12 @@ void create()
 		(: exert_function, "recover" :),
 	}) );
 	set("inquiry", ([
-		"ÑÓÄê¾Û¾«µ¤" : (: ask_yao1 :),
-		"¾Å×ª½áÆøÍè" : (: ask_yao2 :),
+		"å»¶å¹´èšç²¾ä¸¹" : (: ask_yao1 :),
+		"ä¹è½¬ç»“æ°”ä¸¸" : (: ask_yao2 :),
 	]));
 	set("yao1_count", 1);
 	set("yao2_count", 1);
-	create_family("Îäµ±ÅÉ", 2, "µÜ×Ó");
+	create_family("æ­¦å½“æ´¾", 2, "å¼Ÿå­");
 
 	setup();
 	carry_object(WEAPON_DIR"changjian")->wield();
@@ -91,20 +91,20 @@ void greeting(object ob)
 	int i;
 	if (((int)ob->query_skill("taiji-shengong", 1) == 0))
 	{
-		message_vision( CYN"Ê®ÈıµÜ×Ó¶Ô$NÆëÉùºÈµÀ£ºÄãÕâ¸öĞ°Ä§ÍâµÀ£¬¸ÒÀ´ÕæÎä½£Õó£¿\n\n"NOR,ob);
+		message_vision( CYN"åä¸‰å¼Ÿå­å¯¹$Né½å£°å–é“ï¼šä½ è¿™ä¸ªé‚ªé­”å¤–é“ï¼Œæ•¢æ¥çœŸæ­¦å‰‘é˜µï¼Ÿ\n\n"NOR,ob);
 		ob->set("qi",30);
 		if ((int)ob->query("combat_exp") <2000) ob->set("combat_exp",1);
 		else ob->add("combat_exp",0);
-		message_vision( CYN"ÕæÎä½£Õó¶ÙÊ±Æô¶¯£¬¸ßÌ¨ÉÏ½£Æø×İºá£¬°Ñ$NÎ§ÔÚÖĞÑë¡£\n"NOR,ob);
-		message_vision( CYN"Ê®Èı¿Ú³¤½£Æë³ö£¬ÔÚ$NÉíÉÏ»®³öÁËÊ®ÈıµÀ¿Ú×Ó£¬ÏÊÑªÁÜÀì¡£\n"NOR,ob);
-		message_vision("Óáá·ÑÒ¾Ó¸ßÁÙÏÂ£¬ÆğÊÖÒ»ÕÆ°Ñ$NÅüÂä¸ßÌ¨¡£\n\n\n"NOR,ob);
+		message_vision( CYN"çœŸæ­¦å‰‘é˜µé¡¿æ—¶å¯åŠ¨ï¼Œé«˜å°ä¸Šå‰‘æ°”çºµæ¨ªï¼ŒæŠŠ$Nå›´åœ¨ä¸­å¤®ã€‚\n"NOR,ob);
+		message_vision( CYN"åä¸‰å£é•¿å‰‘é½å‡ºï¼Œåœ¨$Nèº«ä¸Šåˆ’å‡ºäº†åä¸‰é“å£å­ï¼Œé²œè¡€æ·‹æ¼“ã€‚\n"NOR,ob);
+		message_vision("ä¿å²±å²©å±…é«˜ä¸´ä¸‹ï¼Œèµ·æ‰‹ä¸€æŒæŠŠ$NåŠˆè½é«˜å°ã€‚\n\n\n"NOR,ob);
 		ob->move("/d/wudang/nanyangong");
 	}
 }
 
 void attempt_apprentice(object me)
 {
-	command("say " + RANK_D->query_respect(me) + "£¬ÎÒÊÇ¸ö·ÏÈËÁË£¬ÔõÃ´ÄÜÊÕÍ½ÄØ£¿");
+	command("say " + RANK_D->query_respect(me) + "ï¼Œæˆ‘æ˜¯ä¸ªåºŸäººäº†ï¼Œæ€ä¹ˆèƒ½æ”¶å¾’å‘¢ï¼Ÿ");
 	return;
 }
 
@@ -114,16 +114,16 @@ string ask_yao1()
 	object ob;
 
 	if (!(fam = this_player()->query("family")) ||
-		fam["family_name"] != "Îäµ±ÅÉ")
-		return RANK_D->query_respect(this_player()) +"Óë±¾ÅÉËØÎŞÀ´Íù£¬²»Öª´Ë»°´ÓºÎÌ¸Æğ£¿";
+		fam["family_name"] != "æ­¦å½“æ´¾")
+		return RANK_D->query_respect(this_player()) +"ä¸æœ¬æ´¾ç´ æ— æ¥å¾€ï¼Œä¸çŸ¥æ­¤è¯ä»ä½•è°ˆèµ·ï¼Ÿ";
 	if (ob = present("jujing dan", this_player()))
-		return "ÄãÉíÉÏ²»ÊÇ´ø×Å±¾ÃÅÑÓÄê¾Û¾«µ¤£¿£¡";
+		return "ä½ èº«ä¸Šä¸æ˜¯å¸¦ç€æœ¬é—¨å»¶å¹´èšç²¾ä¸¹ï¼Ÿï¼";
 	if (query("yao1_count") < 1)
-		return "ÄãÀ´ÍíÁË£¬±¾ÃÅÑÓÄê¾Û¾«µ¤ÒÑ¾¡Êı¸øÁË±¾ÅÉµÜ×Ó¡£";
+		return "ä½ æ¥æ™šäº†ï¼Œæœ¬é—¨å»¶å¹´èšç²¾ä¸¹å·²å°½æ•°ç»™äº†æœ¬æ´¾å¼Ÿå­ã€‚";
 	add("yao1_count", -1);
 	ob = new("/clone/medicine/nostrum/jujingdan");
 	ob->move(this_player());
-	return "ÎÒÕâÀïÓĞ±¾ÃÅÑÓÄê¾Û¾«µ¤£¬ÄãÄÃÈ¥°É¡£";
+	return "æˆ‘è¿™é‡Œæœ‰æœ¬é—¨å»¶å¹´èšç²¾ä¸¹ï¼Œä½ æ‹¿å»å§ã€‚";
 }
 
 string ask_yao2()
@@ -132,16 +132,16 @@ string ask_yao2()
 	object ob;
 
 	if (!(fam = this_player()->query("family")) ||
-		fam["family_name"] != "Îäµ±ÅÉ")
+		fam["family_name"] != "æ­¦å½“æ´¾")
 		return RANK_D->query_respect(this_player()) +
-		"Óë±¾ÅÉËØÎŞÀ´Íù£¬²»Öª´Ë»°´ÓºÎÌ¸Æğ£¿";
+		"ä¸æœ¬æ´¾ç´ æ— æ¥å¾€ï¼Œä¸çŸ¥æ­¤è¯ä»ä½•è°ˆèµ·ï¼Ÿ";
 	if (ob = present("jieqi wan", this_player()))
-		return "ÄãÉíÉÏ²»ÊÇ´ø×Å±¾ÃÅ¾Å×ª½áÆøÍè£¿£¡";
+		return "ä½ èº«ä¸Šä¸æ˜¯å¸¦ç€æœ¬é—¨ä¹è½¬ç»“æ°”ä¸¸ï¼Ÿï¼";
 	if (query("yao2_count") < 1)
-		return "ÄãÀ´ÍíÁË£¬±¾ÃÅ¾Å×ª½áÆøÍèÒÑ¾¡Êı¸øÁË±¾ÅÉµÜ×Ó¡£";
+		return "ä½ æ¥æ™šäº†ï¼Œæœ¬é—¨ä¹è½¬ç»“æ°”ä¸¸å·²å°½æ•°ç»™äº†æœ¬æ´¾å¼Ÿå­ã€‚";
 	add("yao2_count", -1);
 	ob = new("/clone/medicine/nostrum/jieqiwan");
 	ob->move(this_player());
-	return "ÎÒÕâÀïÓĞ±¾ÃÅ¾Å×ª½áÆøÍè£¬ÄãÄÃÈ¥°É¡£";
+	return "æˆ‘è¿™é‡Œæœ‰æœ¬é—¨ä¹è½¬ç»“æ°”ä¸¸ï¼Œä½ æ‹¿å»å§ã€‚";
 }
 

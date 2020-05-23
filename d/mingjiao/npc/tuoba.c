@@ -7,16 +7,16 @@ inherit F_UNIQUE;
 
 void create()
 {
-        set_name("ÍØ°Ï", ({ "tuoba", }));
+        set_name("æ‹“è·‹", ({ "tuoba", }));
 	set("long",
-        "ËûÊÇÒ»Î»´ø·¢ĞŞĞĞµÄÍ·ÍÓ£¬Éí´©Ò»¼ş°×²¼³¤ÅÛ¡£\n"
-        "Ëû¸ö×Ó²»¸ß£¬µ«ºÜ½áÊµ£¬¿´ÉÏÈ¥ÆÄÎª´¿ÆÓ¡£¿ÉÊÇÁ³ÉÏ¾­³£¸¡ÏÖ³öÆæ¹ÖµÄĞ¦Èİ£¬ÈÃ\n"
-        "ÈËÓĞĞ©Ãş²»×ÅÍ·ÄÔ¡£\n"
+        "ä»–æ˜¯ä¸€ä½å¸¦å‘ä¿®è¡Œçš„å¤´é™€ï¼Œèº«ç©¿ä¸€ä»¶ç™½å¸ƒé•¿è¢ã€‚\n"
+        "ä»–ä¸ªå­ä¸é«˜ï¼Œä½†å¾ˆç»“å®ï¼Œçœ‹ä¸Šå»é¢‡ä¸ºçº¯æœ´ã€‚å¯æ˜¯è„¸ä¸Šç»å¸¸æµ®ç°å‡ºå¥‡æ€ªçš„ç¬‘å®¹ï¼Œè®©\n"
+        "äººæœ‰äº›æ‘¸ä¸ç€å¤´è„‘ã€‚\n"
 	);
 
 	set("level",5);
 
-	set("gender", "ÄĞĞÔ");
+	set("gender", "ç”·æ€§");
 	set("attitude", "friendly");
 	set("class", "bonze");
 
@@ -53,9 +53,9 @@ void create()
 	map_skill("sword", "damo-jian");
 
 	prepare_skill("finger", "nianhua-zhi");
-	set("party/party_name",HIG"Ã÷½Ì"NOR);
-	set("party/rank",HIC"·ç×ÖÃÅÃÅÖ÷"NOR);
-	create_family("Ã÷½Ì", 35, "µÜ×Ó");
+	set("party/party_name",HIG"æ˜æ•™"NOR);
+	set("party/rank",HIC"é£å­—é—¨é—¨ä¸»"NOR);
+	create_family("æ˜æ•™", 35, "å¼Ÿå­");
 	setup();
 
         carry_object("/d/mingjiao/obj/baipao")->wear();

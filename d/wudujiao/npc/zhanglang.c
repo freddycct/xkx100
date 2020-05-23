@@ -3,12 +3,12 @@
 inherit NPC;
 void create()
 {
-        set_name("ó¯òë", ({ "zhang lang","lang" }) );
-	set("race", "À¥³æ");
-	set("subrace", "ÅÀ³æ");
+        set_name("èŸ‘è‚", ({ "zhang lang","lang" }) );
+	set("race", "æ˜†è™«");
+	set("subrace", "çˆ¬è™«");
         set("age", 4);
         set("per", 10);
-        set("long", "Ò»Ö»ÁîÈË¶ñĞÄµÄĞ¡³æ×Ó£¬ÕıºÃÆæµÄ¿´×ÅÄã¡£\n");
+        set("long", "ä¸€åªä»¤äººæ¶å¿ƒçš„å°è™«å­ï¼Œæ­£å¥½å¥‡çš„çœ‹ç€ä½ ã€‚\n");
         set("combat_exp", 60);
         set("attitude", "friendly");
         set_skill("dodge", 5);
@@ -17,7 +17,7 @@ void create()
         set("max_qi", 100);
         set("chat_chance",10);
         set("chat_msg",({
-            "ß´ß´...ß´ß´ß´ß´£¬....ß´ß´ß´..~~~~¡£\n",
+            "å½å½...å½å½å½å½ï¼Œ....å½å½å½..~~~~ã€‚\n",
  //       (:random_move:)
         }));
 

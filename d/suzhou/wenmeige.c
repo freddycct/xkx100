@@ -5,11 +5,11 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "��÷��");
+	set("short", "问梅阁");
 	set("long", @LONG
-��÷���ڵ����ʡ���������ƺ���黭��ȡ����÷���������Ҷ�
-����Ѷ������ǰ��ֲ������֦÷���Է���������Ϊ��ʱ�������顢�滭
-֮����
+问梅阁内的桌凳、花窗、地坪、书画皆取材于梅花，并悬匾额“绮
+窗春讯”。阁前种植了许多枝梅，以符阁名。曾为旧时文人著书、绘画
+之处。
 LONG );
 	set("outdoors", "suzhou");
 	set("no_clean_up", 0);

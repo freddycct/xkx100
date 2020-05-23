@@ -5,11 +5,11 @@ inherit NPC;
 
 void create()
 {
-	set_name(HIG"±Ì¾¦¾Þòþ"NOR, ({ "ju man", "snake" }) );
-	set("race", "ÅÀÉß");
+	set_name(HIG"ç¢§ç›å·¨èŸ’"NOR, ({ "ju man", "snake" }) );
+	set("race", "çˆ¬è›‡");
 	set("age", 20);
-	set("long", "Ò»Ö»ÅÓÈ»´óÎï£¬ËüÑÛÖÐÅç»ð£¬Öì¹ÚÀ÷³Ý£¬ÖÒÐÄÊØÎÀÕâ¸ö¹ûÔ°£¬
-ºÃÏóÒªÒ»¿Ú°ÑÄãÍÌÏÂ¡£\n");
+	set("long", "ä¸€åªåºžç„¶å¤§ç‰©ï¼Œå®ƒçœ¼ä¸­å–·ç«ï¼Œæœ±å† åŽ‰é½¿ï¼Œå¿ å¿ƒå®ˆå«è¿™ä¸ªæžœå›­ï¼Œ
+å¥½è±¡è¦ä¸€å£æŠŠä½ åžä¸‹ã€‚\n");
 	set("attitude", "aggressive");
         set("qi", 5000);
 	set("max_qi", 5000);
@@ -32,13 +32,13 @@ int hit_ob(object me, object ob, int damage)
 	if( random(damage) > (int)ob->query_temp("apply/armor")
 	&&	(int)ob->query_condition("snake_poison") < 10 ) {
 		ob->apply_condition("snake_poison", 40);
-        tell_object(ob, HIG "Äã¾õµÃ±»Ò§ÖÐµÄµØ·½Ò»ÕóÂéÄ¾£¡\n" NOR );
+        tell_object(ob, HIG "ä½ è§‰å¾—è¢«å’¬ä¸­çš„åœ°æ–¹ä¸€é˜µéº»æœ¨ï¼\n" NOR );
 	}
 }
 void die()
 {
 	object ob, corpse;
-	message_vision("$NÎ²°ÍÒ»ÕóÅúÖ¦É¨Ò¶°ãÂÒ½Á£¬ÖÕÓÚÍ½ÀÍµØÂýÂýÎ¯¶ÙÔÚµØ£¬ËÀÁË£¡\n", this_object());
+	message_vision("$Nå°¾å·´ä¸€é˜µæ‰¹æžæ‰«å¶èˆ¬ä¹±æ…ï¼Œç»ˆäºŽå¾’åŠ³åœ°æ…¢æ…¢å§”é¡¿åœ¨åœ°ï¼Œæ­»äº†ï¼\n", this_object());
 	if( objectp(corpse = CHAR_D->make_corpse(this_object())) )
 	ob = new("/clone/medicine/nostrum/shedan");
 	ob->move(corpse);

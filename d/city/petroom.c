@@ -6,38 +6,38 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "³èÎïÆÌ");
+	set("short", "å® ç‰©é“º");
 	set("long", @LONG
-ÕâÊ±Ò»¼ä³èÎïÆÌ¡£¸ß¸ßµÄ¹ñÌ¨ºó×ø×ÅÒ»¸öÀÏÍ·¡£ÀÏÍ·µÄÉíºóÊÇÒ»ÅÅ
-ÅÅµÄÁý×Ó£¬Îå»¨°ËÃÅµÄÑøÁË²»ÉÙ¶«¶«£¬¹ñÌ¨ÉÏ°Ú×ÅµÄÅÆ×Ó (paizi)ÁÐ³ö
-ÁË³èÎïÖÖÀà£¬ÄãÏëÒª¾Í¹ºÂò(goumai)Ò»Ö»°É¡£ÀÏÍ·»¹¼æÂô¸÷ÖÖ³èÎïµÄËÇ
-ÁÏ³èÎï£¬Ëæ±ãÂò¶¼³É¡£³èÎïÍæÄåÁË²»ÏëÍæ£¬Ïë»»¸öÖÖ£¬Ò²¿ÉÒÔ°Ñ¾ÉµÄ³è
-Îï·µ»¹(return)¸øÀÏÍ·£¬È»ºóÔÙÂòÒ»Ö»ÐÂµÄ¡£
+è¿™æ—¶ä¸€é—´å® ç‰©é“ºã€‚é«˜é«˜çš„æŸœå°åŽåç€ä¸€ä¸ªè€å¤´ã€‚è€å¤´çš„èº«åŽæ˜¯ä¸€æŽ’
+æŽ’çš„ç¬¼å­ï¼Œäº”èŠ±å…«é—¨çš„å…»äº†ä¸å°‘ä¸œä¸œï¼ŒæŸœå°ä¸Šæ‘†ç€çš„ç‰Œå­ (paizi)åˆ—å‡º
+äº†å® ç‰©ç§ç±»ï¼Œä½ æƒ³è¦å°±è´­ä¹°(goumai)ä¸€åªå§ã€‚è€å¤´è¿˜å…¼å–å„ç§å® ç‰©çš„é¥²
+æ–™å® ç‰©ï¼Œéšä¾¿ä¹°éƒ½æˆã€‚å® ç‰©çŽ©è…»äº†ä¸æƒ³çŽ©ï¼Œæƒ³æ¢ä¸ªç§ï¼Œä¹Ÿå¯ä»¥æŠŠæ—§çš„å® 
+ç‰©è¿”è¿˜(return)ç»™è€å¤´ï¼Œç„¶åŽå†ä¹°ä¸€åªæ–°çš„ã€‚
 LONG );
 	set("no_fight", 1);
 	set("no_steal", 1);
 	set("no_beg",1);
 	set("item_desc", ([
 		"paizi" : HIR"
-                                 ÑïÖÝ³èÎïµê"HIC"
+                                 æ‰¬å·žå® ç‰©åº—"HIC"
 
-   ©³©¥"HIM"³èÎï"HIC"©¥"HIM"Ãû³Æ"HIC"©¥©¥©¥©¥"HIM"¼ÛÄ¿"HIC"©¥©¥©¥©¥©×©¥"HIM"³èÎï"HIC"©¥"HIM"Ãû³Æ"HIC"©¥©¥©¥©¥"HIM"¼ÛÄ¿"HIC"©¥©¥©¥©¥©·"HIC"
-   ©§  "HIG"Áú   dragon     "HIY"¾ÅÊ®¾ÅÁ½»Æ½ð"HIC"  ©§  "HIG"·ï»Ë phenix     "HIY"¾ÅÊ®¾ÅÁ½»Æ½ð"HIC"  ©§
-   ©§  "HIG"÷è÷ë kylin      "HIY"¾ÅÊ®¾ÅÁ½»Æ½ð"HIC"  ©§  "HIG"Ïó   elephant   "HIY"ËÄÊ®¾ÅÁ½»Æ½ð"HIC"  ©§
-   ©§  "HIG"Ê¨   lion       "HIY"ËÄÊ®¾ÅÁ½»Æ½ð"HIC"  ©§  "HIG"»¢   tiger      "HIY"ËÄÊ®¾ÅÁ½»Æ½ð"HIC"  ©§
-   ©§  "HIG"±ª   panther    "HIY"ËÄÊ®¾ÅÁ½»Æ½ð"HIC"  ©§  "HIG"µñ   vulture    "HIY"ËÄÊ®¾ÅÁ½»Æ½ð"HIC"  ©§
-   ©§  "HIG"ÐÜ   bear       "HIY"ÈýÊ®¾ÅÁ½»Æ½ð"HIC"  ©§  "HIG"ºü   fox        "HIY"ÈýÊ®¾ÅÁ½»Æ½ð"HIC"  ©§
-   ©§  "HIG"ÀÇ   wolf       "HIY"ÈýÊ®¾ÅÁ½»Æ½ð"HIC"  ©§  "HIG"¹·   dog        "HIY"ÈýÊ®¾ÅÁ½»Æ½ð"HIC"  ©§
-   ©§  "HIG"Öí   pig        "HIY"ÈýÊ®¾ÅÁ½»Æ½ð"HIC"  ©§  "HIG"öù   crocodile  "HIY"ÈýÊ®¾ÅÁ½»Æ½ð"HIC"  ©§
-   ©§  "HIG"Âí   horse      "HIY"ÈýÊ®¾ÅÁ½»Æ½ð"HIC"  ©§  "HIG"Â¿   donkey     "HIY"¶þÊ®¾ÅÁ½»Æ½ð"HIC"  ©§
-   ©§  "HIG"Å£   cattle     "HIY"¶þÊ®¾ÅÁ½»Æ½ð"HIC"  ©§  "HIG"ºï   monkey     "HIY"¶þÊ®¾ÅÁ½»Æ½ð"HIC"  ©§
-   ©§  "HIG"Ó¥   eagle      "HIY"¶þÊ®¾ÅÁ½»Æ½ð"HIC"  ©§  "HIG"Â¹   deer       "HIY"¶þÊ®¾ÅÁ½»Æ½ð"HIC"  ©§
-   ©§  "HIG"Éß   snake      "HIY"Ê®¾ÅÁ½»Æ½ð"HIC"    ©§  "HIG"õõ   marten     "HIY"Ê®¾ÅÁ½»Æ½ð"HIC"    ©§
-   ©§  "HIG"Ã¨   cat        "HIY"¾ÅÁ½»Æ½ð"HIC"      ©§  "HIG"Êó   mouse      "HIY"¾ÅÁ½»Æ½ð"HIC"      ©§
-   ©§  "HIG"ÍÃ   rabbit     "HIY"¾ÅÁ½»Æ½ð"HIC"      ©§  "HIG"¹ê   tortise    "HIY"¾ÅÁ½»Æ½ð"HIC"      ©§
-   ©§  "HIG"¼¦   chicken    "HIY"¾ÅÁ½»Æ½ð"HIC"      ©§  "HIG"Ñ¼   duck       "HIY"¾ÅÁ½»Æ½ð"HIC"      ©§
-   ©»©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©ß©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¿"HIB"
-        goumai£º¹ºÂò    return£º·µ»¹    zancun£ºÔÝ´æ    lingqu£ºÁìÈ¡
+   â”â”"HIM"å® ç‰©"HIC"â”"HIM"åç§°"HIC"â”â”â”â”"HIM"ä»·ç›®"HIC"â”â”â”â”â”³â”"HIM"å® ç‰©"HIC"â”"HIM"åç§°"HIC"â”â”â”â”"HIM"ä»·ç›®"HIC"â”â”â”â”â”“"HIC"
+   â”ƒ  "HIG"é¾™   dragon     "HIY"ä¹åä¹ä¸¤é»„é‡‘"HIC"  â”ƒ  "HIG"å‡¤å‡° phenix     "HIY"ä¹åä¹ä¸¤é»„é‡‘"HIC"  â”ƒ
+   â”ƒ  "HIG"éº’éºŸ kylin      "HIY"ä¹åä¹ä¸¤é»„é‡‘"HIC"  â”ƒ  "HIG"è±¡   elephant   "HIY"å››åä¹ä¸¤é»„é‡‘"HIC"  â”ƒ
+   â”ƒ  "HIG"ç‹®   lion       "HIY"å››åä¹ä¸¤é»„é‡‘"HIC"  â”ƒ  "HIG"è™Ž   tiger      "HIY"å››åä¹ä¸¤é»„é‡‘"HIC"  â”ƒ
+   â”ƒ  "HIG"è±¹   panther    "HIY"å››åä¹ä¸¤é»„é‡‘"HIC"  â”ƒ  "HIG"é›•   vulture    "HIY"å››åä¹ä¸¤é»„é‡‘"HIC"  â”ƒ
+   â”ƒ  "HIG"ç†Š   bear       "HIY"ä¸‰åä¹ä¸¤é»„é‡‘"HIC"  â”ƒ  "HIG"ç‹   fox        "HIY"ä¸‰åä¹ä¸¤é»„é‡‘"HIC"  â”ƒ
+   â”ƒ  "HIG"ç‹¼   wolf       "HIY"ä¸‰åä¹ä¸¤é»„é‡‘"HIC"  â”ƒ  "HIG"ç‹—   dog        "HIY"ä¸‰åä¹ä¸¤é»„é‡‘"HIC"  â”ƒ
+   â”ƒ  "HIG"çŒª   pig        "HIY"ä¸‰åä¹ä¸¤é»„é‡‘"HIC"  â”ƒ  "HIG"é³„   crocodile  "HIY"ä¸‰åä¹ä¸¤é»„é‡‘"HIC"  â”ƒ
+   â”ƒ  "HIG"é©¬   horse      "HIY"ä¸‰åä¹ä¸¤é»„é‡‘"HIC"  â”ƒ  "HIG"é©´   donkey     "HIY"äºŒåä¹ä¸¤é»„é‡‘"HIC"  â”ƒ
+   â”ƒ  "HIG"ç‰›   cattle     "HIY"äºŒåä¹ä¸¤é»„é‡‘"HIC"  â”ƒ  "HIG"çŒ´   monkey     "HIY"äºŒåä¹ä¸¤é»„é‡‘"HIC"  â”ƒ
+   â”ƒ  "HIG"é¹°   eagle      "HIY"äºŒåä¹ä¸¤é»„é‡‘"HIC"  â”ƒ  "HIG"é¹¿   deer       "HIY"äºŒåä¹ä¸¤é»„é‡‘"HIC"  â”ƒ
+   â”ƒ  "HIG"è›‡   snake      "HIY"åä¹ä¸¤é»„é‡‘"HIC"    â”ƒ  "HIG"è²‚   marten     "HIY"åä¹ä¸¤é»„é‡‘"HIC"    â”ƒ
+   â”ƒ  "HIG"çŒ«   cat        "HIY"ä¹ä¸¤é»„é‡‘"HIC"      â”ƒ  "HIG"é¼    mouse      "HIY"ä¹ä¸¤é»„é‡‘"HIC"      â”ƒ
+   â”ƒ  "HIG"å…”   rabbit     "HIY"ä¹ä¸¤é»„é‡‘"HIC"      â”ƒ  "HIG"é¾Ÿ   tortise    "HIY"ä¹ä¸¤é»„é‡‘"HIC"      â”ƒ
+   â”ƒ  "HIG"é¸¡   chicken    "HIY"ä¹ä¸¤é»„é‡‘"HIC"      â”ƒ  "HIG"é¸­   duck       "HIY"ä¹ä¸¤é»„é‡‘"HIC"      â”ƒ
+   â”—â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”»â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”›"HIB"
+        goumaiï¼šè´­ä¹°    returnï¼šè¿”è¿˜    zancunï¼šæš‚å­˜    lingquï¼šé¢†å–
 \n"NOR,
 	]));
 	set("exits", ([

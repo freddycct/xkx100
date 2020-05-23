@@ -1,4 +1,4 @@
-// guozhendian.c �����
+// guozhendian.c 过真殿
 // Winder Oct.10 1998
 
 #include <ansi.h>
@@ -6,11 +6,11 @@ inherit ROOM;
 
 void create()
 {
-        set("short", "�����");
+        set("short", "过真殿");
         set("long", @LONG
-�����Ǵ����Աߵ�һ����Ҳ�ǽӴ���Ҫ���˵ĵط����
-��ֻ�ڷ���һ�����Ӻͼ������ӡ����ϰڷ���һ����ɽ��������
-����ǽ���Ϲ���һЩ�ֻ���������������������һ���Ĳ��С����
+这里是大堂旁边的一个侧殿，也是接待重要客人的地方。殿不
+大，只摆放着一张桌子和几把椅子。桌上摆放着一盆青山隐隐的盆
+景，墙壁上挂着一些字画。从这里往北，好象有一座四层的小塔。
 LONG
         );
         set("exits", ([

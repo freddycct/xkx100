@@ -1,4 +1,4 @@
-// kurong-changong.c ¿ÝÈÙìø¹¦
+// kurong-changong.c æž¯è£ç¦…åŠŸ
 // Last Modified by winder on Mar. 10 2000
 
 #include <ansi.h>
@@ -17,16 +17,16 @@ int valid_enable(string usage) { return usage == "force"; }
 int valid_learn(object me)
 {
 	if ( me->query_skill("force", 1) < 10)
-		return notify_fail("ÄãµÄ»ù±¾ÄÚ¹¦²»µ½»ðºò£¬ÄÑÒÔÁì»á¿ÝÈÙìø¹¦¡£\n");
-	if ( me->query("gender") == "ÎÞÐÔ")
-		return notify_fail("ÄãÎÞ¸ùÎÞÐÔ£¬ÒõÑô²»µ÷£¬ÄÑÒÔÁì»á¸ßÉîµÄ¿ÝÈÙìø¹¦¡£\n");
+		return notify_fail("ä½ çš„åŸºæœ¬å†…åŠŸä¸åˆ°ç«å€™ï¼Œéš¾ä»¥é¢†ä¼šæž¯è£ç¦…åŠŸã€‚\n");
+	if ( me->query("gender") == "æ— æ€§")
+		return notify_fail("ä½ æ— æ ¹æ— æ€§ï¼Œé˜´é˜³ä¸è°ƒï¼Œéš¾ä»¥é¢†ä¼šé«˜æ·±çš„æž¯è£ç¦…åŠŸã€‚\n");
 
 	return valid_public(me);
 }
 
 int practice_skill(object me)
 {
-	return notify_fail("¿ÝÈÙìø¹¦Ö»ÄÜÓÃÑ§(learn)µÄÀ´Ôö¼ÓÊìÁ·¶È¡£\n");
+	return notify_fail("æž¯è£ç¦…åŠŸåªèƒ½ç”¨å­¦(learn)çš„æ¥å¢žåŠ ç†Ÿç»ƒåº¦ã€‚\n");
 }
 
 string exert_function_file(string func)
@@ -37,18 +37,18 @@ string exert_function_file(string func)
 
 int help(object me)
 {
-	write(HIC"\n¿ÝÈÙìø¹¦£º"NOR"\n");
+	write(HIC"\næž¯è£ç¦…åŠŸï¼š"NOR"\n");
 	write(@HELP
 
-    ÓÐ³£ÎÞ³££¬Ë«Ê÷¿ÝÈÙ£¬ÄÏ±±Î÷¶«£¬·Ç¼Ù·Ç¿Õ£¡
-    ·ðÃÅÆæ¹¦£¬ÌìÁúËÂ¿ÝÈÙ³¤ÀÏ¾«ÉÃ´Ë¼¼¡£Ïà´«ÊÍåÈÄ²ÄáÔÚèøé¡Ë«
-Ê÷Ö®¼äÈëÃð£¬´ú±íÁË·Ç¿Ý·ÇÈÙ¡¢·Ç¼Ù·Ç¿ÕµÄ×î¸ß¾³½ç£¬ºóÊÀµÜ×Ó±ã
-ÒÔ´ËÎªÐÞÐÐÖ®·¨£¬¾²²Î¿Ýìø¡£ÊÇÎª¿ÝÈÙìø¹¦Ö®À´ÓÉ¡£
-    ÎªÌìÄÏ´óÀí¶Î¼ÒµÄ±¾ÃÅÄÚ¹¦¡£
+    æœ‰å¸¸æ— å¸¸ï¼ŒåŒæ ‘æž¯è£ï¼Œå—åŒ—è¥¿ä¸œï¼Œéžå‡éžç©ºï¼
+    ä½›é—¨å¥‡åŠŸï¼Œå¤©é¾™å¯ºæž¯è£é•¿è€ç²¾æ“…æ­¤æŠ€ã€‚ç›¸ä¼ é‡Šè¿¦ç‰Ÿå°¼åœ¨æ¡«æ¤¤åŒ
+æ ‘ä¹‹é—´å…¥ç­ï¼Œä»£è¡¨äº†éžæž¯éžè£ã€éžå‡éžç©ºçš„æœ€é«˜å¢ƒç•Œï¼ŒåŽä¸–å¼Ÿå­ä¾¿
+ä»¥æ­¤ä¸ºä¿®è¡Œä¹‹æ³•ï¼Œé™å‚æž¯ç¦…ã€‚æ˜¯ä¸ºæž¯è£ç¦…åŠŸä¹‹æ¥ç”±ã€‚
+    ä¸ºå¤©å—å¤§ç†æ®µå®¶çš„æœ¬é—¨å†…åŠŸã€‚
 
-	Ñ§Ï°ÒªÇó£º
-		»ù±¾ÄÚ¹¦10¼¶
-		²»ÄÜÊÇÌ«¼à
+	å­¦ä¹ è¦æ±‚ï¼š
+		åŸºæœ¬å†…åŠŸ10çº§
+		ä¸èƒ½æ˜¯å¤ªç›‘
 HELP
 	);
 	return 1;

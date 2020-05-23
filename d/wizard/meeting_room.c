@@ -11,15 +11,15 @@ private string filename;
 
 void create()
 {
-        set("short", "Î×Ê¦»áÒéÊÒ");
+        set("short", "å·«å¸ˆä¼šè®®å®¤");
         set("long",
-"ÕâÊÇÒ»¼ä¿í³¨µÄ»áÒéÊÒ£¬ÀïÃæ¾²ÇÄÇÄµÄ£¬Ö»Ìý¼û´°ÍâÑîÁøÇá»÷´°ÁºµÄ\n"
-"ÉùÒô¡£ÕâÊ±²»¶Ï×ßÀ´ÈýÁ½¸öÈË£¬Î§×ÅÔ²×À×øÁËÏÂÀ´£¬Ô­À´ÊÇ"+MUD_NAME+
-"\nµÄÎ×Ê¦ÃÇÕýÇ°À´¿ª»á¡£Ç½ÉÏ¶©×Å¸ö±ã¼ã(pad)¡£\n");
+"è¿™æ˜¯ä¸€é—´å®½æ•žçš„ä¼šè®®å®¤ï¼Œé‡Œé¢é™æ‚„æ‚„çš„ï¼Œåªå¬è§çª—å¤–æ¨æŸ³è½»å‡»çª—æ¢çš„\n"
+"å£°éŸ³ã€‚è¿™æ—¶ä¸æ–­èµ°æ¥ä¸‰ä¸¤ä¸ªäººï¼Œå›´ç€åœ†æ¡Œåäº†ä¸‹æ¥ï¼ŒåŽŸæ¥æ˜¯"+MUD_NAME+
+"\nçš„å·«å¸ˆä»¬æ­£å‰æ¥å¼€ä¼šã€‚å¢™ä¸Šè®¢ç€ä¸ªä¾¿ç¬º(pad)ã€‚\n");
         set("item_desc", ([
-                "pad" : "\n»áÒéÊÒµÄÊ¹ÓÃ·½·¨£º\n"
-"start  :       ¿ªÊ¼»áÒé¡£\n"
-"stop   :       ½áÊø»áÒé¡£\n\n"
+                "pad" : "\nä¼šè®®å®¤çš„ä½¿ç”¨æ–¹æ³•ï¼š\n"
+"start  :       å¼€å§‹ä¼šè®®ã€‚\n"
+"stop   :       ç»“æŸä¼šè®®ã€‚\n\n"
         ]));
         set("no_fight",1);
         set("exits", ([
@@ -48,7 +48,7 @@ int do_start()
         int i;
         me = this_player();
         if(wiz_level(me) < 4 )
-                return notify_fail("ÄãÃ»ÓÐÕÙ¿ª»áÒéµÄÈ¨Á¦¡£\n");
+                return notify_fail("ä½ æ²¡æœ‰å¬å¼€ä¼šè®®çš„æƒåŠ›ã€‚\n");
 
         set("meeting_trigger", 1);
 
@@ -56,22 +56,22 @@ int do_start()
         for ( i=sizeof(ob); i>0; i-- ) {
                 if( wiz_level(ob[i-1]) < 1) continue;
                 ob[i-1]->set_temp("meeting",1);
-                message_vision("$Nµ½ÁË¡£\n",ob[i-1]);
+                message_vision("$Nåˆ°äº†ã€‚\n",ob[i-1]);
         if (file_name(environment(ob[i-1])) == "/d/wizard/meeting_room") continue;
         //       if(environment(ob[i-1])==find_object("/d/wizard/meeting_room") continue;
 
                 ob[i-1]->move("/d/wizard/meeting_room");
                 tell_object(ob[i-1],
-                sprintf(HIG"%s(%s)¸æËßÄã£ºÎ×Ê¦»áÒéÏÖÔÚÕÙ¿ª£¬Çëµ½Î×Ê¦»áÒéÊÒ¿ª»á¡£
+                sprintf(HIG"%s(%s)å‘Šè¯‰ä½ ï¼šå·«å¸ˆä¼šè®®çŽ°åœ¨å¬å¼€ï¼Œè¯·åˆ°å·«å¸ˆä¼šè®®å®¤å¼€ä¼šã€‚
 \n"NOR,
                         me->query("name"),me->query("id")) );
-                message_vision("$Nµ½ÁË¡£\n",ob[i-1]);
+                message_vision("$Nåˆ°äº†ã€‚\n",ob[i-1]);
         }
         str = me->query("id");
         if( !str )
                 return notify_fail("Put meeting record to where??\n");
 
-        message_vision(HIW"\n$N´óÉùÐû²¼£º¡°»áÒéÏÖÔÚ¿ªÊ¼¡£¡±\n"NOR, me);
+        message_vision(HIW"\n$Nå¤§å£°å®£å¸ƒï¼šâ€œä¼šè®®çŽ°åœ¨å¼€å§‹ã€‚â€\n"NOR, me);
         add_action("do_fail", "update");
         add_action("do_fail", "call");
         add_action("do_fail", "home");
@@ -86,7 +86,7 @@ int do_say(string msg)
         else
         "/cmds/std/say.c"->main(this_player(), msg);
         if ((int)query("meeting_trigger") == 1)
-        log_file(filename,sprintf("%s(%s)£º" + msg + "\n",this_player()->name(1)
+        log_file(filename,sprintf("%s(%s)ï¼š" + msg + "\n",this_player()->name(1)
 ,this_player()->query("id")) );
         return 1;
 }
@@ -98,11 +98,11 @@ int do_stop()
         me = this_player(); 
         ob = users();
         if( !wizardp(me) )
-                return notify_fail("ÄãÃ»ÓÐÈ¨Á¦ÖÕÖ¹»áÒé¡£\n");
+                return notify_fail("ä½ æ²¡æœ‰æƒåŠ›ç»ˆæ­¢ä¼šè®®ã€‚\n");
         if ( (int)query("meeting_trigger") == 0 )
-                return notify_fail("ÏÖÔÚÃ»ÓÐ½øÐÐÈÎºÎ»áÒé¡£\n");
+                return notify_fail("çŽ°åœ¨æ²¡æœ‰è¿›è¡Œä»»ä½•ä¼šè®®ã€‚\n");
         delete("meeting_trigger");
-        message_vision(HIW"\n$N´óÉùÐû²¼£º¡°»áÒéÏÖÔÚ½áÊø¡£¡±\n"NOR, this_player()
+        message_vision(HIW"\n$Nå¤§å£°å®£å¸ƒï¼šâ€œä¼šè®®çŽ°åœ¨ç»“æŸã€‚â€\n"NOR, this_player()
 );
           for ( i=sizeof(ob); i>0; i-- ) {
                   if( wiz_level(ob[i-1]) < 1) continue;
@@ -119,7 +119,7 @@ int do_stop()
 
 int do_fail()
 {
-        write("ÕýÔÚ½øÐÐ»áÒé£¡\n");
+        write("æ­£åœ¨è¿›è¡Œä¼šè®®ï¼\n");
         return 1;
 }
 
@@ -128,7 +128,7 @@ int valid_leave(object obj, string dir)
 {
     obj = this_player();
     if (obj->query_temp("meeting"))
-      return notify_fail(HIY"ÌìÉñ»ÓÎè×ÅÒ»¸ù¼¦Ã«µ§×Ó×·ÁË³öÀ´£º¡°»á»¹Ã»¿ªÍê£¬ÄãÏëÍùÄÄÀïÅÜ£¿¡±\n"NOR);
+      return notify_fail(HIY"å¤©ç¥žæŒ¥èˆžç€ä¸€æ ¹é¸¡æ¯›æŽ¸å­è¿½äº†å‡ºæ¥ï¼šâ€œä¼šè¿˜æ²¡å¼€å®Œï¼Œä½ æƒ³å¾€å“ªé‡Œè·‘ï¼Ÿâ€\n"NOR);
     else  return 1;
 }
 

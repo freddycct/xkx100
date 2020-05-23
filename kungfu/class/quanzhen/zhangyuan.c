@@ -1,16 +1,16 @@
-// zhangyuan.c ÕÆÔ°µÀ³¤
+// zhangyuan.c æŒå›­é“é•¿
 
 inherit NPC;
 
 void create()
 {
-        set_name("ÕÆÔ°µÀ³¤", ({"zhangyuan"}));
-        set("gender", "ÄĞĞÔ");
+        set_name("æŒå›­é“é•¿", ({"zhangyuan"}));
+        set("gender", "ç”·æ€§");
         set("age", 52);
         set("class", "quanzhen");
         set("long",
-                "Ëû±¾ÊÇ·şÊÌÖØÑô×æÊ¦µÄÍ¯×Ó£¬ÏÖÔÚÄê¼Í´óÁË¡£ÖØÑô×æÊ¦¼ûËûÖÒ\n"
-                "ĞÄ¹¢¹¢£¬¾Í·ÖÅäËûÒ»¸öÏĞ²î£¬µ½Ğ¡»¨Ô°À´´òÀí»¨Ä¾¡£\n");
+                "ä»–æœ¬æ˜¯æœä¾é‡é˜³ç¥–å¸ˆçš„ç«¥å­ï¼Œç°åœ¨å¹´çºªå¤§äº†ã€‚é‡é˜³ç¥–å¸ˆè§ä»–å¿ \n"
+                "å¿ƒè€¿è€¿ï¼Œå°±åˆ†é…ä»–ä¸€ä¸ªé—²å·®ï¼Œåˆ°å°èŠ±å›­æ¥æ‰“ç†èŠ±æœ¨ã€‚\n");
         set("attitude", "friendly");
         set("shen_type",1);
         set("str", 18);
@@ -31,17 +31,17 @@ void create()
 
         set_skill("array", 20);
         set_skill("force", 40);
-        set_skill("xiantian-qigong", 40);    //ÏÈÌìÆø¹¦
+        set_skill("xiantian-qigong", 40);    //å…ˆå¤©æ°”åŠŸ
         set_skill("sword", 40);
-        set_skill("quanzhen-jian", 40);  //È«Õæ½£
+        set_skill("quanzhen-jian", 40);  //å…¨çœŸå‰‘
         set_skill("dodge", 50);
-        set_skill("jinyan-gong", 40);   //½ğÑã¹¦
+        set_skill("jinyan-gong", 40);   //é‡‘é›åŠŸ
         set_skill("parry", 50);
         set_skill("unarmed", 50);
         set_skill("strike", 50);
-        set_skill("haotian-zhang", 50);    //ê»ÌìÕÆ
+        set_skill("haotian-zhang", 50);    //æ˜Šå¤©æŒ
         set_skill("cuff", 50);
-        set_skill("chunyang-quan", 50);    //´¿ÑôÈ­
+        set_skill("chunyang-quan", 50);    //çº¯é˜³æ‹³
         set_skill("literate", 40);
         set_skill("taoism", 30);
 
@@ -54,11 +54,11 @@ void create()
         prepare_skill("cuff", "chunyang-quan");
         prepare_skill("strike", "haotian-zhang");
 
-        create_family("È«Õæ½Ì", 4, "µÜ×Ó");
+        create_family("å…¨çœŸæ•™", 4, "å¼Ÿå­");
 
         set("book_count",1);
         set("inquiry", ([
-                "È«Õæ½Ì" :  "ÎÒÈ«Õæ½ÌÊÇÌìÏÂµÀ¼ÒĞşÃÅÕı×Ú¡£\n",
+                "å…¨çœŸæ•™" :  "æˆ‘å…¨çœŸæ•™æ˜¯å¤©ä¸‹é“å®¶ç„é—¨æ­£å®—ã€‚\n",
         ]) );
 
         setup();
@@ -68,6 +68,6 @@ void create()
 }
 void attempt_apprentice(object ob)
 {
-        command("say ÎÒ²»ÊÕµÜ×Ó£¬ÄãÈ¥ÕÒ±ğµÄµÀ³¤°É¡£");
+        command("say æˆ‘ä¸æ”¶å¼Ÿå­ï¼Œä½ å»æ‰¾åˆ«çš„é“é•¿å§ã€‚");
 }
 

@@ -5,10 +5,10 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "�軨��");
+	set("short", "茶花林");
 	set("long", @LONG
-һ��������ȥ�����Ǻ���ͷ׵Ĳ軨���������ݡ�����ˮ�ߣ�С��
-��Ȼ��֪��ʲôʱ���Ѿ������ˡ�������ֻ���������֣�һѰ��·�ˡ�
+一眼望将出去，都是红白缤纷的茶花，不见房屋。回望水边，小船
+居然不知道什么时候已经撑走了。看来，只有免力入林，一寻出路了。
 LONG );
 	set("outdoors", "mantuo");
 	set("exits", ([

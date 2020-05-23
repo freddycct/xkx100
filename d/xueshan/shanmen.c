@@ -1,14 +1,14 @@
-// shanmen.c Ñ©É½ËÂÉ½ÃÅ
+// shanmen.c é›ªå±±å¯ºå±±é—¨
 
 inherit ROOM;
 
 void create()
 {
-	set("short","Ñ©É½ËÂÉ½ÃÅ");
+	set("short","é›ªå±±å¯ºå±±é—¨");
 	set("long",@LONG
-ÕâÀïÊÇÑ©É½´óÂÖËÂµÄÉ½ÃÅ£¬ÃÅÇ°ÊÇÂçÒï²»¾øµÄ½øÏã³¯Ê¥µÄĞÅÍ½£¬ÓĞ
-µÄÉõÖÁÀ´×ÔÎÚË¿²ØÎ÷ÄÏµÄ²¨Ë¿¡£É½ÃÅ(gate)Ç°Õ¾ÁË¸öÊÖ³Ö·¨Æ÷µÄ¸ğÂ×²¼
-ÔÚÎ¬³ÖÖÈĞò£¬¶«·½ÊÇÒ»ÌõÇàÊ¯°åÆÌ³ÉµÄÉ½Â·¡£
+è¿™é‡Œæ˜¯é›ªå±±å¤§è½®å¯ºçš„å±±é—¨ï¼Œé—¨å‰æ˜¯ç»œç»ä¸ç»çš„è¿›é¦™æœåœ£çš„ä¿¡å¾’ï¼Œæœ‰
+çš„ç”šè‡³æ¥è‡ªä¹Œä¸è—è¥¿å—çš„æ³¢ä¸ã€‚å±±é—¨(gate)å‰ç«™äº†ä¸ªæ‰‹æŒæ³•å™¨çš„è‘›ä¼¦å¸ƒ
+åœ¨ç»´æŒç§©åºï¼Œä¸œæ–¹æ˜¯ä¸€æ¡é’çŸ³æ¿é“ºæˆçš„å±±è·¯ã€‚
 LONG );
 	set("outdoors","xueshansi");
 	set("no_fight", 1);
@@ -17,7 +17,7 @@ LONG );
 		"eastdown" : "/d/xuedao/nroad4",
 	]));
 	set("item_desc",([
-		"gate" : "Á½ÉÈºñºñµÄÍ­É«´óÃÅ£¬·ÇºÏÊıÈËÖ®Á¦£¬ÊÇÄÑÒÔÍÆ¶¯µÄ¡£\n",
+		"gate" : "ä¸¤æ‰‡åšåšçš„é“œè‰²å¤§é—¨ï¼Œéåˆæ•°äººä¹‹åŠ›ï¼Œæ˜¯éš¾ä»¥æ¨åŠ¨çš„ã€‚\n",
 	]));
 	set("objects",([
 		CLASS_D("xueshan")+"/gelunbu": 1,
@@ -34,11 +34,11 @@ int valid_leave(object me, string dir)
 	mapping myfam;
 	myfam = (mapping)me->query("family");
 
-	if ((!myfam || myfam["family_name"] != "Ñ©É½ËÂ") &&
+	if ((!myfam || myfam["family_name"] != "é›ªå±±å¯º") &&
 		(dir == "north") &&
 		(me->query_temp("marks/xueshangate") != 1) &&
 		objectp(present("gelunbu", environment(me))))
-	return notify_fail("¸ğÂ×²¼µ²×¡ÄãËµ£ºÄã×¼±¸ÓÃÊ²÷á¹©·îÎÒÃÇ·ğÒ¯Ñ½£¿\n");
+	return notify_fail("è‘›ä¼¦å¸ƒæŒ¡ä½ä½ è¯´ï¼šä½ å‡†å¤‡ç”¨ä»€éº½ä¾›å¥‰æˆ‘ä»¬ä½›çˆ·å‘€ï¼Ÿ\n");
 
 	return ::valid_leave(me, dir);
 }

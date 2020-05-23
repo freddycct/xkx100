@@ -4,8 +4,8 @@ inherit NPC;
  
 void create()
 {
-        set_name("×ÏÉÀÊÌÕß", ({ "zishan shizhe","shizhe","zhe" }) );
-        set("gender", "ÄĞĞÔ" );
+        set_name("ç´«è¡«ä¾è€…", ({ "zishan shizhe","shizhe","zhe" }) );
+        set("gender", "ç”·æ€§" );
         set("age",18);
         set("class", "hemuya");
         set("combat_exp", 1000);
@@ -14,8 +14,8 @@ void create()
         set_skill("force",100);
         set("force",300);
         set("max_force",300);
-	set("party/party_name", HIB"ÈÕÔÂÉñ½Ì"NOR);
-	set("party/rank", HIW"½ÌÖÚ"NOR);
+	set("party/party_name", HIB"æ—¥æœˆç¥æ•™"NOR);
+	set("party/rank", HIW"æ•™ä¼—"NOR);
 
         setup();
 	carry_object(__DIR__"obj/zichoush")->wear();

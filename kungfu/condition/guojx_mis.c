@@ -1,4 +1,4 @@
-//guojx_mis.c  ¹ù¼éÏ¸ÈÎÎñ
+//guojx_mis.c  éƒ­å¥¸ç»†ä»»åŠ¡
 
 #include <ansi.h>
 #include <login.h>
@@ -14,7 +14,7 @@ int update_condition(object me, int duration)
 	{	
 		if(environment(ob_list[i]))
 		{
-			message_vision("$N¹ş¹ş´óĞ¦µÀ£ºÏåÑôÊØ¾üµÄ³Ç·ÀÍ¼×ÜËãµ½ÊÖÁË£¬³·ºô£¡\n",ob_list[i]);	
+			message_vision("$Nå“ˆå“ˆå¤§ç¬‘é“ï¼šè¥„é˜³å®ˆå†›çš„åŸé˜²å›¾æ€»ç®—åˆ°æ‰‹äº†ï¼Œæ’¤å‘¼ï¼\n",ob_list[i]);	
 			destruct(ob_list[i]);
         }
 	}
@@ -23,13 +23,13 @@ int update_condition(object me, int duration)
 	{	
 		if(environment(ob_list[i]))
 		{
-			message_vision("$N¹ş¹ş´óĞ¦µÀ£ºÏåÑôÊØ¾üµÄ³Ç·ÀÍ¼×ÜËãËÍ³öÈ¥ÁË£¬´ó¹¦¸æ³É£¡\n",ob_list[i]);
+			message_vision("$Nå“ˆå“ˆå¤§ç¬‘é“ï¼šè¥„é˜³å®ˆå†›çš„åŸé˜²å›¾æ€»ç®—é€å‡ºå»äº†ï¼Œå¤§åŠŸå‘Šæˆï¼\n",ob_list[i]);
 			destruct(ob_list[i]);
         }
 	}
 //	if (duration < 1)
 //	{
-		tell_object(me, HIY "ÄãµÄ¶¯×÷Ì«Âı£¬ÈÎÎñ±»È¡ÏûÁË¡£\n" NOR);
+		tell_object(me, HIY "ä½ çš„åŠ¨ä½œå¤ªæ…¢ï¼Œä»»åŠ¡è¢«å–æ¶ˆäº†ã€‚\n" NOR);
 		me->delete_temp("guojx_mis_where");
 		me->delete_temp("guojx_mis_tcount");
 		me->delete_temp("guojx_mis_flag");

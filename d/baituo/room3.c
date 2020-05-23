@@ -5,16 +5,16 @@ inherit ROOM;
 int do_da(string arg);
 void create()
 {
-	set("short","Á·¹¦ÊÒ");
+	set("short","ç»ƒåŠŸå®¤");
 	set("long", @LONG
-ÕâÀïÊÇ°×ÍÕÉ½µÜ×ÓµÄÁ·¹¦ÊÒ¡£Õâ¸öÁ·¹¦ÊÒ¿ÕÎŞÒ»ÈË£¬Ö»ÓĞ¼¸¸ö´ó´ó
-µÄÄ¾×®(zhuang)Á¢ÔÚÎİ×Óµ±ÖĞ¡£
+è¿™é‡Œæ˜¯ç™½é©¼å±±å¼Ÿå­çš„ç»ƒåŠŸå®¤ã€‚è¿™ä¸ªç»ƒåŠŸå®¤ç©ºæ— ä¸€äººï¼Œåªæœ‰å‡ ä¸ªå¤§å¤§
+çš„æœ¨æ¡©(zhuang)ç«‹åœ¨å±‹å­å½“ä¸­ã€‚
 LONG	);
 	set("exits",([
 		"out" : __DIR__"liangong",
 	]));
 	set("item_desc", ([
-		"zhuang":"Ò»¸öÄ¾×®£¬×ö³ÉÄ¾ÈËµÄÑù×Ó¹Ì¶¨ÔÚµØÉÏ£¬¹©ÈË»÷´ò(da)Á·¹¦¡£\n",
+		"zhuang":"ä¸€ä¸ªæœ¨æ¡©ï¼Œåšæˆæœ¨äººçš„æ ·å­å›ºå®šåœ¨åœ°ä¸Šï¼Œä¾›äººå‡»æ‰“(da)ç»ƒåŠŸã€‚\n",
 	]));     
 	set_temp("full",0);
 	set("no_clean_up", 0);
@@ -29,7 +29,7 @@ void init()
 	object ob=this_player();
 	if((int)query_temp("full")==2)
 	{
-		message_vision("$NÒ»¼û·¿¼äÀïÒÑ¾­ÓĞÈËÁË£¬Ö»ºÃÍËÁË³öÈ¥¡£\n",ob);
+		message_vision("$Nä¸€è§æˆ¿é—´é‡Œå·²ç»æœ‰äººäº†ï¼Œåªå¥½é€€äº†å‡ºå»ã€‚\n",ob);
 		ob->move(__DIR__"liangong");
 		return;
 	}
@@ -51,25 +51,25 @@ int do_da(string arg)
 
 	exp = me->query("combat_exp");
 	lvl = me->query_skill("staff",1);
-	if (me->is_busy()) return notify_fail("ÄãÏÖÔÚÕıÃ¦×ÅÄØ£¡\n");
+	if (me->is_busy()) return notify_fail("ä½ ç°åœ¨æ­£å¿™ç€å‘¢ï¼\n");
 	if (me->is_fighting())
-		return notify_fail("ÄãÕıÔÚÕ½¶·ÖĞ£¬ÎŞ·¨×¨ĞÄÁ·¹¦£¡\n");
-	if (!living(me)) return notify_fail("Äã·¢·èÁË£¿\n");
+		return notify_fail("ä½ æ­£åœ¨æˆ˜æ–—ä¸­ï¼Œæ— æ³•ä¸“å¿ƒç»ƒåŠŸï¼\n");
+	if (!living(me)) return notify_fail("ä½ å‘ç–¯äº†ï¼Ÿ\n");
 	if (!objectp(weapon = me->query_temp("weapon")) ||
 		(string)weapon->query("skill_type") != "staff")
-		return notify_fail("¿ÕÊÖÊÇÁ·²»ÁËÕÈ·¨µÄ¡£\n");
-	if (!arg || arg!="zhuang") return notify_fail("ÄãÒª´òÊ²Ã´£¿´òÈËÂğ£¿\n");
+		return notify_fail("ç©ºæ‰‹æ˜¯ç»ƒä¸äº†æ–æ³•çš„ã€‚\n");
+	if (!arg || arg!="zhuang") return notify_fail("ä½ è¦æ‰“ä»€ä¹ˆï¼Ÿæ‰“äººå—ï¼Ÿ\n");
 	jing1 = random((int)me->query("con"))+1;
 	qi1 = random((int)me->query("str"))+1;
 	if ((int)me->query("jing") < jing1 || (int)me->query("qi") < qi1)
 	{
-		message_vision("$NÂí²½Ò»ËÉ£¬Ò»²»Ğ¡ĞÄÄÔ´ü×²ÔÚÁËÄ¾×®ÉÏ£¡\n",me);
+		message_vision("$Né©¬æ­¥ä¸€æ¾ï¼Œä¸€ä¸å°å¿ƒè„‘è¢‹æ’åœ¨äº†æœ¨æ¡©ä¸Šï¼\n",me);
 		me->unconcious();
 		return 1;
 	}
 	me->receive_damage("jing", jing1);
 	me->receive_damage("qi", qi1);       
-	message_vision("$NÕ¾ºÃÂí²½£¬ÌáÆğ¸ÖÕÈ£¬¿ªÊ¼ºÍÄ¾×®¶Ô´òÆğÀ´¡£\n", me);
+	message_vision("$Nç«™å¥½é©¬æ­¥ï¼Œæèµ·é’¢æ–ï¼Œå¼€å§‹å’Œæœ¨æ¡©å¯¹æ‰“èµ·æ¥ã€‚\n", me);
 	if ( lvl < 30 && lvl*lvl*lvl/10 < exp && random(10) > 4 )
 	{
 		me->improve_skill("staff", (int)(me->query("int") / 5));

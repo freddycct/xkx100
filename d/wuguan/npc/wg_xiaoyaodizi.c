@@ -3,11 +3,11 @@ inherit NPC;
 
 void create()
 {
-       set_name("��ң����", ({ "xiaoyao dizi", "dizi" }) );
-       set("gender", "����" );
+       set_name("逍遥弟子", ({ "xiaoyao dizi", "dizi" }) );
+       set("gender", "男性" );
        set("age", 26);
        set("long",
-               "����һ���������ң���ӡ�\n");
+               "他是一个清秀的逍遥弟子。\n");
        set("combat_exp", 12500);
        set("attitude", "friendly");
  
@@ -31,15 +31,15 @@ void greeting(object ob)
 	if (!ob || !present(ob, environment())) return;
 	switch( random(3) ) {
 		case 0:
-			say( "��ң�ɵ���˵������λ" + RANK_D->query_respect(ob)
-            + "�������ң���𣬿��Կ�"BRED"(help xiaoyao)"NOR"��\n");
+			say( "逍遥派弟子说道：这位" + RANK_D->query_respect(ob)
+            + "想加入逍遥派吗，可以看"BRED"(help xiaoyao)"NOR"。\n");
 			break;
 		case 1:
-			say( "��ң�ɵ���˵�����貨΢������������ʮ���Զ��ţ��ھ��б�һ���죬
-�Ų���̤����ʮ����һ���졣��������Ѹ�ݣ������貨���У����������������Ѽ���\n");
+			say( "逍遥派弟子说道：凌波微步，按伏羲六十四卦而排，内劲行遍一周天，
+脚步亦踏遍六十四卦一周天。步法轻灵迅捷，有如凌波而行，罗袜生尘，巧妙已极。\n");
 			break;
 		case 2:
-			say( "��ң�ɵ���˵������ڤ�񹦲���������潣����Ƿ���ѧ��֮�󶨿ɶ������֡�\n");
+			say( "逍遥派弟子说道：北冥神功博大精深，天羽奇剑曼妙非凡，学成之后定可独步武林。\n");
 			break;
 	}
 

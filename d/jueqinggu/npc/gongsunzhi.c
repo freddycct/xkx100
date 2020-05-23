@@ -5,10 +5,10 @@ inherit NPC;
 
 void create()
 {
-	set_name("¹«ËïÖ¹", ({ "gongsun zhi", "gongsun", "zhi" }));
+	set_name("å…¬å­™æ­¢", ({ "gongsun zhi", "gongsun", "zhi" }));
 	set("long",
-		"ÃæÄ¿Ó¢¿¡£¬Í¸³öÐùÐù¸ß¾ÙÖ®¸Å£¬Ö»ÊÇÃæÉ«À¯»Æ£¬ÈÝÑÕ¿ÝéÂ¡£\n");
-	set("gender", "ÄÐÐÔ");
+		"é¢ç›®è‹±ä¿Šï¼Œé€å‡ºè½©è½©é«˜ä¸¾ä¹‹æ¦‚ï¼Œåªæ˜¯é¢è‰²èœ¡é»„ï¼Œå®¹é¢œæž¯æ§ã€‚\n");
+	set("gender", "ç”·æ€§");
 	set("age", 48);
 	set("attitude", "friendly");
 	set("shen", -7000);
@@ -37,8 +37,8 @@ void create()
 	map_skill("dodge", "kunlun-shenfa");
 	map_skill("sword", "liangyi-jian");
 	set("inquiry", ([
-		"¾øÇéµ¤": "µ¤Ò©ÎÞ¶à£¬¶øÇÒÒ²ºÜÄÑÁ¶ÖÆ£¬·ÇÍò²»µÃÒÑ¡£¡£¡£",
-//		"Çé»¨": "ÓÐÐ©Íâ±íÃÀÀöµÄ£¬ÍùÍùÊÇÓÐ¶¾µÄ¡£",
+		"ç»æƒ…ä¸¹": "ä¸¹è¯æ— å¤šï¼Œè€Œä¸”ä¹Ÿå¾ˆéš¾ç‚¼åˆ¶ï¼Œéžä¸‡ä¸å¾—å·²ã€‚ã€‚ã€‚",
+//		"æƒ…èŠ±": "æœ‰äº›å¤–è¡¨ç¾Žä¸½çš„ï¼Œå¾€å¾€æ˜¯æœ‰æ¯’çš„ã€‚",
 	]) );
 	setup();
 	carry_object("/clone/weapon/changjian")->wield();

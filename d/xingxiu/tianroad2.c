@@ -5,11 +5,11 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "��ɽɽ·");
+	set("short", "天山山路");
 	set("long", @LONG
-��������ɽ��´��ɽ���ɽ�ϴ����������ɪɪ������·����һƬ
-��ԭ��·��ͷ������һλ׳�����ڳ�Х���������Ͼ������˺��µ�����
-���ˡ�
+这里是天山东麓，山风从山上吹来，你冷得瑟瑟发抖。路边是一片
+草原。路尽头松林下一位壮汉正在长啸练功。北上就是人人害怕的灵鹫
+宫了。
 LONG );
 	set("exits", ([
 		"northup"   : "/d/lingjiu/shanjiao",

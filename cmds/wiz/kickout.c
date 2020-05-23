@@ -20,11 +20,11 @@ int main(object me, string arg)
 
         wiz_status=SECURITY_D->get_status(me) ;
 
-//      if (wiz_status != "(admin)" && !me->query("marks/Ãﬂ»À") )
+//      if (wiz_status != "(admin)" && !me->query("marks/Ë∏¢‰∫∫") )
 //              return notify_fail("you r not admin!\n");
 
         ob = LOGIN_D->find_body(arg);
-        if (!ob) return notify_fail("ﬂ◊... ”–’‚∏ˆ»À¬?\n");
+        if (!ob) return notify_fail("Âí¶... ÊúâËøô‰∏™‰∫∫Âêó?\n");
 
 //              if (    !living(ob)
 //              ||      !ob->is_character()
@@ -33,8 +33,8 @@ int main(object me, string arg)
 	      return notify_fail("ob error!\n");
         log_file("kickout_player", sprintf("[%s] %s kickout %s\n",
                         ctime(time()), geteuid(me), geteuid(ob)));
-//      message_vision( HIW "\n$N∞—$nÃﬂ¡À≥ˆ»•\n\n" NOR, me,ob);
-        tell_object( me, "ƒ„∞— " + ob->query("name") + " Ãﬂ¡À≥ˆ»•!\n");
+//      message_vision( HIW "\n$NÊää$nË∏¢‰∫ÜÂá∫Âéª\n\n" NOR, me,ob);
+        tell_object( me, "‰Ω†Êää " + ob->query("name") + " Ë∏¢‰∫ÜÂá∫Âéª!\n");
 //      seteuid(getuid(ob));
 //      command("quit");
 //me->save();
@@ -55,7 +55,7 @@ int main(object me, string arg)
 int help(object me)
 {
 write(@HELP
-÷∏¡Ó∏Ò Ω : kickout <ƒ≥»À>
+Êåá‰ª§Ê†ºÂºè : kickout <Êüê‰∫∫>
 
 HELP
     );

@@ -1,4 +1,4 @@
-// kangguangling.c ¿µ¹ãÁê
+// kangguangling.c åº·å¹¿é™µ
 // Modified by Winder June 25. 2000
 inherit NPC;
 inherit F_MASTER;
@@ -7,10 +7,10 @@ inherit F_MASTER;
 
 void create()
 {
-	set_name("¿µ¹ãÁê", ({ "kang guangling", "kang" }));
-	set("long","Ö»¼ûËû¸ß¶îÍ¹òª£¬ÈÝÃ²Ææ¹Å£¬Ð¦ÃÐÃÐµÄÁ³É«¼«ÎªºÍÚÓ£¬ÊÖÖÐ±§×ÅÒ»¾ßÑþÇÙ¡£\n");
-	set("nickname","¡°º¯¹È°ËÓÑ¡±ÇÙµß");
-	set("gender", "ÄÐÐÔ");
+	set_name("åº·å¹¿é™µ", ({ "kang guangling", "kang" }));
+	set("long","åªè§ä»–é«˜é¢å‡¸é¢¡ï¼Œå®¹è²Œå¥‡å¤ï¼Œç¬‘çœ¯çœ¯çš„è„¸è‰²æžä¸ºå’Œè°Ÿï¼Œæ‰‹ä¸­æŠ±ç€ä¸€å…·ç‘¶ç´ã€‚\n");
+	set("nickname","â€œå‡½è°·å…«å‹â€ç´é¢ ");
+	set("gender", "ç”·æ€§");
 	set("age", 50);
 	set("attitude", "friendly");
 	set("class", "scholar");
@@ -55,7 +55,7 @@ void create()
 	}) );
 	set("book_count", 1);
 
-	create_family("åÐÒ£ÅÉ", 3, "µÜ×Ó");
+	create_family("é€é¥æ´¾", 3, "å¼Ÿå­");
 	setup();
 	carry_object("/clone/misc/cloth")->wear();
 	carry_object("/clone/weapon/gangdao")->wield();
@@ -64,6 +64,6 @@ void create()
 
 void attempt_apprentice(object ob)
 {
-	command("say ºÃ°É£¬ÎÒ¾ÍÊÕÏÂÄãÁË£¬ÒÔºóÒª¶àÎªåÐÒ£ÅÉ³öÁ¦°¡¡£");
+	command("say å¥½å§ï¼Œæˆ‘å°±æ”¶ä¸‹ä½ äº†ï¼Œä»¥åŽè¦å¤šä¸ºé€é¥æ´¾å‡ºåŠ›å•Šã€‚");
 	command("recruit " + ob->query("id"));
 }

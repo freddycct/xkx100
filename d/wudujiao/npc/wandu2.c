@@ -4,10 +4,10 @@ inherit NPC;
 
 void create()
 {
-        set_name("����֩��",({"zhi zhu"}));
-	set("race", "����");
-	set("subrace", "����");
-        set("long", "һֻ�����С�����������Դ��Ĵ�֩�롣\n");
+        set_name("人面蜘蛛",({"zhi zhu"}));
+	set("race", "昆虫");
+	set("subrace", "爬虫");
+        set("long", "一只面盆大小，长着人样脑袋的大蜘蛛。\n");
         set("age", 10000);
         set("attitude", "peaceful");
 
@@ -33,7 +33,7 @@ void init()
         object me,ob;
         add_action("do_train", "xun");
         if (interactive(me = this_player()) && 
-            (string)me->query("family/family_name") != "�嶾��")
+            (string)me->query("family/family_name") != "五毒教")
         {
                remove_call_out("kill_ob");
                call_out("kill_ob", 1, me);
@@ -43,10 +43,10 @@ void init()
 
 int hit_ob(object me, object ob, int damage)
 {
-        if ((string)ob->query("family/family_name") != "�嶾��") {
+        if ((string)ob->query("family/family_name") != "五毒教") {
                 ob->apply_condition("zhizhu_poison", 20
               +(int)ob->query_condition("zhizhu_poison") );
-              tell_object(ob, HIG "����ñ�ҧ�еĵط�һ����ľ��\n" NOR );
+              tell_object(ob, HIG "你觉得被咬中的地方一阵麻木！\n" NOR );
         }
 }
 

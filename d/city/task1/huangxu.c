@@ -1,12 +1,12 @@
-// huangxu.c »ÆĞëµÀÈË
+// huangxu.c é»„é¡»é“äºº
 
 inherit NPC;
  
 void create()
 {
-	set_name("»ÆĞëµÀÈË", ({ "huangxu  daoren"}));
-	set("long", "Îäµ±µÄÅÑÍ½£¬ÎªÈË¼éÕ©£¬³£³£¸ÉĞ©»µÊÂ¡£\n");
-	set("gender", "ÄĞĞÔ");
+	set_name("é»„é¡»é“äºº", ({ "huangxu  daoren"}));
+	set("long", "æ­¦å½“çš„å›å¾’ï¼Œä¸ºäººå¥¸è¯ˆï¼Œå¸¸å¸¸å¹²äº›åäº‹ã€‚\n");
+	set("gender", "ç”·æ€§");
 	set("age", 35);
 	set("attitude", "peaceful");
 	set("str", 25);

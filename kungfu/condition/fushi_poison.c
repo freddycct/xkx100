@@ -1,5 +1,5 @@
 // Last Modified by winder on May. 15 2001
-// fushi_poison.c ¸®Ê¬¶¾
+// fushi_poison.c åºœå°¸æ¯’
 
 #include <ansi.h>
 #include <condition.h>
@@ -8,9 +8,9 @@ inherit F_CLEAN_UP;
 int update_condition(object me, int duration)
 {         
   if (me->is_ghost()) return 1;
-	tell_object(me,HIB"ÄãÍ»È»¾õµÃÒ»¹É¶ñ³ô´Ó¸¹ÖÐÉýÆð£¬²»½û´óÅ»ÆðÀ´£¡\n"NOR);
-	tell_room(environment(me),HIB + me->name()+"Á³ÉÏ¸¡×ÅÒ»²ãºÚÆø£¬½Å²½õçõÇ£¬Í»È»ÍÂ³öÒ»¶Ñ»àÎï£¡\n" NOR, ({ me }));             
-	me->receive_wound("jing", 25,"¸¯Ê¬¶¾·¢×÷");
+	tell_object(me,HIB"ä½ çªç„¶è§‰å¾—ä¸€è‚¡æ¶è‡­ä»Žè…¹ä¸­å‡èµ·ï¼Œä¸ç¦å¤§å‘•èµ·æ¥ï¼\n"NOR);
+	tell_room(environment(me),HIB + me->name()+"è„¸ä¸Šæµ®ç€ä¸€å±‚é»‘æ°”ï¼Œè„šæ­¥è¹’è·šï¼Œçªç„¶åå‡ºä¸€å †ç§½ç‰©ï¼\n" NOR, ({ me }));             
+	me->receive_wound("jing", 25,"è…å°¸æ¯’å‘ä½œ");
 	if ((int)me->query("eff_jing")<0 || (int)me->query("eff_qi")<0) return 0;
 	me->apply_condition("fushi_poison", duration - 1);   
 	if( duration < 1 ) return 0;   

@@ -1,6 +1,6 @@
-// jinshe-zhui.c ����׶��
+// jinshe-zhui.c 金蛇锥法
 //last Modified by Sega by 3/18/2000
-//���ǰ����е������,�����ܴ��ױ�����,��������.
+//算是暗器中的特殊吧,威力很大但易被还击,而且难练.
 
 #include <ansi.h>
 inherit SKILL;
@@ -8,23 +8,23 @@ string type() { return "martial"; }
 string martialtype() { return "skill"; }
 
 mapping *action = ({
-([	"name":		"ǧ����",
-	"action":"$N˫��һ�Σ�һ�С�ǧ���򻯡������е�$w�ó������⣬
-��һ�����������$n��$l",
+([	"name":		"千变万化",
+	"action":"$N双手一晃，一招「千变万化」，手中的$w幻出万道金光，
+如一条金龙般飞向$n的$l",
 	"dodge":	-20,
 	"force":	200,
 	"damage":	300,
 	"post_action":  (: call_other, WEAPON_D, "throw_weapon" :),
-	"damage_type":  "����"
+	"damage_type":  "刺伤"
 ]),
-([	"name":		"���Ī��",
-	"action":"$N����һ����һ�����ð����ֻһɲ�Ǽ䣬����$wѸ�װ�Խ
-�����ֵ�$w������һ�С����Ī�⡹�����ȷ���$n��$l",
+([	"name":		"奇诡莫测",
+	"action":"$N右手一抖，一道金光冒出，只一刹那间，左手$w迅雷般越
+过右手的$w，正是一招「奇诡莫测」，抢先飞向$n的$l",
 	"dodge":	-30,
 	"force":	300,
 	"damage":	400,
 	"post_action":  (: call_other, WEAPON_D, "throw_weapon" :),
-	"damage_type":  "����"
+	"damage_type":  "刺伤"
 ]),
 });
 
@@ -34,13 +34,13 @@ int valid_learn(object me)
 	object ob;
 
 	if( (int)me->query("max_neili") < 500 )
-		return notify_fail("�������������û�а취������׶����\n");
+		return notify_fail("你的内力不够，没有办法练金蛇锥法。\n");
 
 	if( !(ob = me->query_temp("weapon")) ||
 		(string)ob->query("skill_type") != "throwing" )
-		return notify_fail("���������һЩ��������������׶����\n");
+		return notify_fail("你必须先找一些暗器才能练金蛇锥法。\n");
 
-	return notify_fail("����׶��û�����ڡ�\n");
+	return notify_fail("金蛇锥法没法教授。\n");
 }
 mapping query_action(object me, object weapon)
 {
@@ -52,13 +52,13 @@ int practice_skill(object me)
 
 	if (!objectp(weapon = me->query_temp("weapon"))
 		|| (string)weapon->query("skill_type") != "throwing")
-		return notify_fail("��ʹ�õ��������ԡ�\n");
+		return notify_fail("你使用的武器不对。\n");
 	if( (int)me->query("qi") < 30
 	|| (int)me->query("neili") < 500 )
-		return notify_fail("�����������������û�а취��ϰ����׶����\n");
+		return notify_fail("你的内力或气不够，没有办法练习金蛇锥法。\n");
 	me->receive_damage("qi", 30);
 	me->add("neili", -30);
-//	write("�㰴����ѧ����һ�����׶����\n");
+//	write("你按著所学练了一遍金蛇锥法。\n");
 	return 1;
 }
 int learn_bonus() { return 20; }
@@ -73,20 +73,20 @@ string perform_action_file(string action)
  
 int help(object me)
 {
-	write(HIC"\n����׶����"NOR"\n");
+	write(HIC"\n金蛇锥法："NOR"\n");
 	write(@HELP
 
-    ����׶�����ڡ��������š����˽����ɾ���ѩ�˵Ķ����书��
-��ѩ����ʱȫ�Ҳ��ұ��¼����Ͻ������ţ���־���𡣺����置��
-ʶ�嶾�̽���֮�úκ�ҩ��������������嶾�̵ġ�������������
-�߽�������׶���ر�ͼ��������ɾ����书��
-    ��ѩ������Ź֣�Ϊ�����ݣ��书���������˰�����Ѳ⡣��
-����������������Ϊ֮ɫ�䣬���ǳ������Ѳ������ѩ�����µ�
-���������š�������һ���书�������߽���������׶���ͽ�������
-�ơ� 
+    金蛇锥法载于「金蛇密笈」，乃金蛇郎君夏雪宜的独门武功。
+夏雪宜幼时全家不幸被温家五老劫掠灭门，立志报仇。后于苗疆得
+识五毒教教主之妹何红药，并得其助获得五毒教的「三宝」──金
+蛇剑、金蛇锥及藏宝图，因而练成绝世武功。
+    夏雪宜性情古怪，为人阴狠，武功便正如其人般诡异难测。江
+湖上人人闻其名而为之色变，乃是出名的难缠人物。夏雪宜留下的
+「金蛇密笈」载有他一身武功，即金蛇剑法、金蛇锥法和金蛇游身
+掌。 
 
-	ѧϰҪ��
-		����500
+	学习要求：
+		内力500
 HELP
 	);
 	return 1;

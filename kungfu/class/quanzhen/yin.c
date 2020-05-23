@@ -1,19 +1,19 @@
-// yin.c ÒüÖ¾Æ½
+// yin.c å°¹å¿—å¹³
 #include <ansi.h>
 inherit NPC;
 
 void create()
 {
-        set_name("ÒüÖ¾Æ½", ({"yin zhiping", "yin"}));
-        set("gender", "ÄĞĞÔ");
+        set_name("å°¹å¿—å¹³", ({"yin zhiping", "yin"}));
+        set("gender", "ç”·æ€§");
         set("class", "quanzhen");
-        set("nickname", HIM"ÇåºÍÕæÈË"NOR);
+        set("nickname", HIM"æ¸…å’ŒçœŸäºº"NOR);
         set("age", 24);
         set("long",
-                "ËûÊÇÇğ´¦»úµÄµÃÒâ´óµÜ×ÓÒüÖ¾Æ½£¬Ëû´ÖÃ¼´óÑÛ£¬³¤µÄÓĞĞ©Ó¢ĞÛÆø\n"
-                "¸Å£¬ÔÚÈ«Õæ½ÌµÚÈı´úµÜ×ÓÖĞËãµÃÉÏÄêÇáÓĞÎª¡£Éí²Ä²»¸ß£¬Ã¼Óî¼ä\n"
-		"ËÆºõÓĞÒ»¹ÉÓÇÓôÖ®É«¡£³¤µÄµ¹ÊÇ³¤Ã¼¿¡Ä¿£¬ÈİÃ²ĞãÑÅ£¬Ãæ°×ÎŞĞë£¬\n"
-		"¿ÉÏ§ÖìÈ¸ºÍĞşÎäÉÔÓĞ²»ºÍ¡£\n");
+                "ä»–æ˜¯ä¸˜å¤„æœºçš„å¾—æ„å¤§å¼Ÿå­å°¹å¿—å¹³ï¼Œä»–ç²—çœ‰å¤§çœ¼ï¼Œé•¿çš„æœ‰äº›è‹±é›„æ°”\n"
+                "æ¦‚ï¼Œåœ¨å…¨çœŸæ•™ç¬¬ä¸‰ä»£å¼Ÿå­ä¸­ç®—å¾—ä¸Šå¹´è½»æœ‰ä¸ºã€‚èº«æä¸é«˜ï¼Œçœ‰å®‡é—´\n"
+		"ä¼¼ä¹æœ‰ä¸€è‚¡å¿§éƒä¹‹è‰²ã€‚é•¿çš„å€’æ˜¯é•¿çœ‰ä¿Šç›®ï¼Œå®¹è²Œç§€é›…ï¼Œé¢ç™½æ— é¡»ï¼Œ\n"
+		"å¯æƒœæœ±é›€å’Œç„æ­¦ç¨æœ‰ä¸å’Œã€‚\n");
         set("attitude", "friendly");
         set("shen_type",1);
         set("str", 28);
@@ -47,17 +47,17 @@ void create()
 
         set_skill("array", 40);
         set_skill("force", 80);
-        set_skill("xiantian-qigong", 80);    //ÏÈÌìÆø¹¦
+        set_skill("xiantian-qigong", 80);    //å…ˆå¤©æ°”åŠŸ
         set_skill("sword", 80);
-        set_skill("quanzhen-jian", 120);  //È«Õæ½£
+        set_skill("quanzhen-jian", 120);  //å…¨çœŸå‰‘
         set_skill("dodge", 70);
-        set_skill("jinyan-gong", 100);   //½ğÑã¹¦
+        set_skill("jinyan-gong", 100);   //é‡‘é›åŠŸ
         set_skill("parry", 80);
         set_skill("unarmed", 80);
         set_skill("strike", 80);
-        set_skill("haotian-zhang", 120);    //ê»ÌìÕÆ
+        set_skill("haotian-zhang", 120);    //æ˜Šå¤©æŒ
         set_skill("cuff", 80);
-        set_skill("chunyang-quan", 120);    //´¿ÑôÈ­
+        set_skill("chunyang-quan", 120);    //çº¯é˜³æ‹³
         set_skill("literate", 60);
         set_skill("taoism", 60);
 
@@ -70,10 +70,10 @@ void create()
         prepare_skill("cuff", "chunyang-quan");
         prepare_skill("strike", "haotian-zhang");
 
-        create_family("È«Õæ½Ì", 3, "µÜ×Ó");
+        create_family("å…¨çœŸæ•™", 3, "å¼Ÿå­");
 
         set("inquiry", ([
-                "È«Õæ½Ì" :  "ÎÒÈ«Õæ½ÌÊÇÌìÏÂµÀ¼ÒĞşÃÅÕı×Ú¡£\n",
+                "å…¨çœŸæ•™" :  "æˆ‘å…¨çœŸæ•™æ˜¯å¤©ä¸‹é“å®¶ç„é—¨æ­£å®—ã€‚\n",
         ]) );
 
         setup();

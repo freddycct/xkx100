@@ -5,11 +5,11 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "����");
+	set("short", "洞口");
 	set("long", @LONG
-ɽ�������ѵĶ��ڲ�������֮�£��������е���ɭ��������һ��ʯ
-���͵����棬����ľ�壬��ǿ����š�����ʱ�⣬������������ֵ���
-�����ر�ɭ�ϡ�
+山贼的老窝的洞口藏在藤蔓之下，看起来有点阴森。洞口有一条石
+砌就的门面，铺上木板，勉强算个门。往常时光，都有两个贼伙持刀护
+卫，守备森严。
 LONG	);
 	set("outdoors", "baituo");
 	set("exits", ([

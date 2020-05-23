@@ -1,4 +1,4 @@
-// roar.c ÷öÈ»Ïú»êÒ÷
+// roar.c é»¯ç„¶é”€é­‚åŸ
 // Last Modified by winder on Mar. 10 2000
 
 #include <ansi.h>
@@ -14,12 +14,12 @@ int exert(object me, object target)
   !me->query("perform/roar") &&
   !me->query("can_perform/yunv-xinfa/roar") && 
   !me->query_temp("murong/xingyi"))
-   return notify_fail("ÄãËùÊ¹ÓÃµÄÄÚ¹¦ÖĞÃ»ÓĞÕâÖÖ¹¦ÄÜ¡£");
+   return notify_fail("ä½ æ‰€ä½¿ç”¨çš„å†…åŠŸä¸­æ²¡æœ‰è¿™ç§åŠŸèƒ½ã€‚");
 	if( environment(me)->query("no_fight") )
-		return notify_fail("ÕâÀï²»ÄÜ¹¥»÷±ğÈË! \n");
+		return notify_fail("è¿™é‡Œä¸èƒ½æ”»å‡»åˆ«äºº! \n");
 
 	if( ((int)me->query("neili") < 150 ) || ((int)me->query("max_neili") < 150 ) || ( (int)me->query_skill("yunv-xinfa",1) < 100) )
-		return notify_fail("Äã³¤Ì¾Ò»Éù£¬´ó¼ÒÏÅÁËÒ»Ìø¡£\n");
+		return notify_fail("ä½ é•¿å¹ä¸€å£°ï¼Œå¤§å®¶å“äº†ä¸€è·³ã€‚\n");
 
 	skill = me->query_skill("force");
 
@@ -27,7 +27,7 @@ int exert(object me, object target)
 	me->receive_damage("qi", 10);
 
 	me->start_busy(3);
-	message_combatd(MAG"$NÓÒÊÖ¸§ĞØ£¬µÍÉù³¤Ò÷³öÒ»Çú¡¸÷öÈ»Ïú»ê¡¹¡£\n"NOR, me);
+	message_combatd(MAG"$Nå³æ‰‹æŠšèƒ¸ï¼Œä½å£°é•¿åŸå‡ºä¸€æ›²ã€Œé»¯ç„¶é”€é­‚ã€ã€‚\n"NOR, me);
 
 	ob = all_inventory(environment(me));
 	for(i=0; i<sizeof(ob); i++)
@@ -45,7 +45,7 @@ int exert(object me, object target)
 			ob[i]->receive_damage("jing", damage * 2 );
 			if( (int)ob[i]->query("neili") < skill * 2 )
 				ob[i]->receive_wound("jing", damage);
-			tell_object(ob[i], "ÄãºöÈ»¾õµÃÒ»Õóº®ÒâÆËÃæ¶øÀ´£¬ĞÄÉñëüëÊÖĞÆ¯ÒÆ²»¶¨¡£\n");
+			tell_object(ob[i], "ä½ å¿½ç„¶è§‰å¾—ä¸€é˜µå¯’æ„æ‰‘é¢è€Œæ¥ï¼Œå¿ƒç¥æœ¦èƒ§ä¸­æ¼‚ç§»ä¸å®šã€‚\n");
 		}
 		if( userp(ob[i]) ) ob[i]->fight_ob(me);
 		else if( !ob[i]->is_killing(me) ) ob[i]->kill_ob(me);
@@ -55,15 +55,15 @@ int exert(object me, object target)
 
 int help(object me)
 {
-	write(WHT"\nÓñÅ®ĞÄ·¨Ö®÷öÈ»Ïú»êÒ÷£º"NOR"\n");
+	write(WHT"\nç‰å¥³å¿ƒæ³•ä¹‹é»¯ç„¶é”€é­‚åŸï¼š"NOR"\n");
 	write(@HELP
 
-	Ê¹ÓÃ¹¦Ğ§£º
-		ÉËº¦×Ô¼ºÖÜÎ§µÄËùÓĞÉúÎïµÄ¾«Æø
+	ä½¿ç”¨åŠŸæ•ˆï¼š
+		ä¼¤å®³è‡ªå·±å‘¨å›´çš„æ‰€æœ‰ç”Ÿç‰©çš„ç²¾æ°”
 
-	³öÊÖÒªÇó£º
-		ÓñÅ®ĞÄ·¨100¼¶
-	        ÄÚÁ¦150
+	å‡ºæ‰‹è¦æ±‚ï¼š
+		ç‰å¥³å¿ƒæ³•100çº§
+	        å†…åŠ›150
 HELP
 	);
 	return 1;

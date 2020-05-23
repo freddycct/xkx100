@@ -4,12 +4,12 @@ inherit NPC;
 
 void create()
 {
-	set_name("ÕÅ³ËÔÆ", ({"zhang chengyun", "zhang", "chengyun"}));
-	set("nickname", HIW "°×Ô³ÉñÄ§" NOR );
-	set("gender", "ÄĞĞÔ");
+	set_name("å¼ ä¹˜äº‘", ({"zhang chengyun", "zhang", "chengyun"}));
+	set("nickname", HIW "ç™½çŒ¿ç¥é­”" NOR );
+	set("gender", "ç”·æ€§");
 	set("age", 42);
 	set("shen_type", -1);
-	set("long", "ËûÊÇÈÕÔÂÉñ½ÌÇ°±²³¤ÀÏ¡£\n");
+	set("long", "ä»–æ˜¯æ—¥æœˆç¥æ•™å‰è¾ˆé•¿è€ã€‚\n");
 	set("attitude", "peaceful");
 	set("env/wimpy", 40);
 
@@ -47,13 +47,13 @@ void create()
 	map_skill("dodge", "lingxu-bu");
 
 	set("inquiry", ([
-		"ÈÕÔÂÉñ½Ì" : "ÄãÏë¼ÓÈëÎÒÈÕÔÂÉñ½Ì£¬¾ÍµÃÕÒËÄ´óÌÃ³¤ÀÏ¡£",
-		"Èë½Ì"     : "ÄãÏë¼ÓÈëÎÒÈÕÔÂÉñ½Ì£¬¾ÍµÃÕÒËÄ´óÌÃ³¤ÀÏ¡£",
+		"æ—¥æœˆç¥æ•™" : "ä½ æƒ³åŠ å…¥æˆ‘æ—¥æœˆç¥æ•™ï¼Œå°±å¾—æ‰¾å››å¤§å ‚é•¿è€ã€‚",
+		"å…¥æ•™"     : "ä½ æƒ³åŠ å…¥æˆ‘æ—¥æœˆç¥æ•™ï¼Œå°±å¾—æ‰¾å››å¤§å ‚é•¿è€ã€‚",
 	]));
 
-	set("party/party_name", HIB"ÈÕÔÂÉñ½Ì"NOR);
-	set("party/rank", HIR"Ç°±²³¤ÀÏ"NOR);
-	create_family("ºÚÄ¾ÑÂ", 4, "µÜ×Ó");
+	set("party/party_name", HIB"æ—¥æœˆç¥æ•™"NOR);
+	set("party/rank", HIR"å‰è¾ˆé•¿è€"NOR);
+	create_family("é»‘æœ¨å´–", 4, "å¼Ÿå­");
 
 	setup();
 	carry_object("/d/heimuya/npc/obj/shutonggun")->wield();
@@ -61,7 +61,7 @@ void create()
 }
 void attempt_apprentice(object ob)
 {
-	command("say ÀÏ·ò²»ÊÕµÜ×Ó¡£\n");
+	command("say è€å¤«ä¸æ”¶å¼Ÿå­ã€‚\n");
 	return;
 }
 

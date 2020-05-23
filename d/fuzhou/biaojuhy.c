@@ -4,11 +4,11 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "��Ժ");
+	set("short", "后院");
 	set("long", @LONG
-�������ھֻ��������֮�࣬��Ϣ���ɵ�Ժ�ӡ�Ժ�ӵ����������
-�˵ļ��ż�����ͣ������������ɹ�·��ġ�Ժ�ӵ���Χ�м���С����
-��ƽʱ��ʦ�������Ϣ�����ڡ�
+这里是镖局伙计们辛苦之余，休息放松的院子。院子的中央横七竖
+八的架着几根竹竿，想必是用来晾晒衣服的。院子的周围有几间小房，
+是平时镖师伙计们休息的所在。
 LONG );
 	set("exits", ([
 		"south" : __DIR__"biaojuzt",

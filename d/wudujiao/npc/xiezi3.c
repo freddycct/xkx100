@@ -4,10 +4,10 @@ inherit NPC;
 
 void create()
 {
-        set_name("¾ÅÎ²Ð«",({"xie zi"}));
-	set("race", "À¥³æ");
-	set("subrace", "ÅÀ³æ");
-        set("long", "Ò»ÌõÒ»ÕÉÀ´³¤£¬ÓÐ¾ÅÖ»Î²ÕÝµÄ´óÐ«×Ó¡£\n");
+        set_name("ä¹å°¾èŽ",({"xie zi"}));
+	set("race", "æ˜†è™«");
+	set("subrace", "çˆ¬è™«");
+        set("long", "ä¸€æ¡ä¸€ä¸ˆæ¥é•¿ï¼Œæœ‰ä¹åªå°¾è›°çš„å¤§èŽå­ã€‚\n");
         set("age", 10000);
         set("attitude", "peaceful");
 
@@ -58,16 +58,16 @@ int init()
 
 int hit_ob(object me, object ob, int damage)
 {
-        if ((string)ob->query("family/family_name") != "Îå¶¾½Ì") {
+        if ((string)ob->query("family/family_name") != "äº”æ¯’æ•™") {
                 ob->apply_condition("xiezi_poison", 20
               +(int)ob->query_condition("xiezi_poison") );
-              tell_object(ob, HIG "Äã¾õµÃ±»Ò§ÖÐµÄµØ·½Ò»ÕóÂéÄ¾£¡\n" NOR );
+              tell_object(ob, HIG "ä½ è§‰å¾—è¢«å’¬ä¸­çš„åœ°æ–¹ä¸€é˜µéº»æœ¨ï¼\n" NOR );
         }
 }
 void die()
 {
         object ob;
-        message_vision("$Nµ¹ÔÚµØÉÏ£¬ËÀÁË£¡\n", this_object());
+        message_vision("$Nå€’åœ¨åœ°ä¸Šï¼Œæ­»äº†ï¼\n", this_object());
         ob=new(__DIR__"obj/xiezidu.c");
         ob->move(environment(this_object()));
         destruct(this_object());

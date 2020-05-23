@@ -5,10 +5,10 @@ inherit NPC;
 
 void create()
 {
-        set_name("秃鹰", ({ "eagle" }) );
-	set("race", "飞禽");
+        set_name("绉冮拱", ({ "eagle" }) );
+	set("race", "椋炵");
         set("age", 3);
-        set("long", "一只黑色的秃鹰，秃头黑羽，好吃腐尸，看起来讨厌极了。\n");
+        set("long", "涓�鍙粦鑹茬殑绉冮拱锛岀澶撮粦缇斤紝濂藉悆鑵愬案锛岀湅璧锋潵璁ㄥ帉鏋佷簡銆俓n");
         set("attitude", "peaceful");
 
         set("combat_exp", 3000);

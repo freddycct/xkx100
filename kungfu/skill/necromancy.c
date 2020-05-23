@@ -1,4 +1,4 @@
-// necromancy.c ½µ·ü·¨
+// necromancy.c é™ä¼æ³•
 // Last Modified by winder on Mar. 10 2000
 // by Java
 
@@ -15,27 +15,27 @@ int valid_learn(object me)
 {
 	if( (int)me->query_skill("longxiang",1) <
 		(int)me->query_skill("necromancy",1) )
-		return notify_fail("ÄãµÄÁúÏà°ãÈô¹¦Ì«µÍÁË£¬ÎÞ·¨ÐÞÁ¶¸ü¸ßÉîµÄ½µ·ü·¨¡£\n");
+		return notify_fail("ä½ çš„é¾™ç›¸èˆ¬è‹¥åŠŸå¤ªä½Žäº†ï¼Œæ— æ³•ä¿®ç‚¼æ›´é«˜æ·±çš„é™ä¼æ³•ã€‚\n");
 	return 1;
 }
 int practice_skill(object me)
 {
-	return notify_fail("½µ·ü·¨Ö»ÄÜ¿¿Ñ§(learn)À´Ìá¸ß¡£\n");
+	return notify_fail("é™ä¼æ³•åªèƒ½é å­¦(learn)æ¥æé«˜ã€‚\n");
 }
 
 int help(object me)
 {
-	write(HIC"\n½µ·ü·¨£º"NOR"\n");
+	write(HIC"\né™ä¼æ³•ï¼š"NOR"\n");
 	write(@HELP
 
-    ½µ·ü·¨ÎªÃÜ×ÚÃÜ¼¼£¬ÉíÎªÃÜ×ÚµÜ×Ó£¬ÇÒÓÐÏàµ±µÄ½µ·ü·¨ÐÞÎª£¬
-¿ÉÀûÓÃÉåÐÄÊõÓÕ»óÄ³ÈË×ö°ÑÉíÉÏµÄ¶«Î÷¸øÄã, »òÍùÄÇÀïÀë¿ª£¬»òÕß
-¸ú×ÅÄã¡£¶Ô·½Èç¹ûÄÚ¹¦Éîºñ£¬¶øÄãÑ§ÒÕ²»¾«£¬±ØÈ»Ò²»áÕÐÖÂÒÔÑÀ»¹
-ÑÀ¡£
-    Çëhelp shexin¡£
+    é™ä¼æ³•ä¸ºå¯†å®—å¯†æŠ€ï¼Œèº«ä¸ºå¯†å®—å¼Ÿå­ï¼Œä¸”æœ‰ç›¸å½“çš„é™ä¼æ³•ä¿®ä¸ºï¼Œ
+å¯åˆ©ç”¨æ…‘å¿ƒæœ¯è¯±æƒ‘æŸäººåšæŠŠèº«ä¸Šçš„ä¸œè¥¿ç»™ä½ , æˆ–å¾€é‚£é‡Œç¦»å¼€ï¼Œæˆ–è€…
+è·Ÿç€ä½ ã€‚å¯¹æ–¹å¦‚æžœå†…åŠŸæ·±åŽšï¼Œè€Œä½ å­¦è‰ºä¸ç²¾ï¼Œå¿…ç„¶ä¹Ÿä¼šæ‹›è‡´ä»¥ç‰™è¿˜
+ç‰™ã€‚
+    è¯·help shexinã€‚
 
-	Ñ§Ï°ÒªÇó£º
-		ÁúÏó°ãÈô¹¦µÈ¼¶²»ÄÜµÍÓÚ½µ·ü·¨µÈ¼¶
+	å­¦ä¹ è¦æ±‚ï¼š
+		é¾™è±¡èˆ¬è‹¥åŠŸç­‰çº§ä¸èƒ½ä½ŽäºŽé™ä¼æ³•ç­‰çº§
 HELP
 	);
 	return 1;

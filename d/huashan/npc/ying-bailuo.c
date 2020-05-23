@@ -4,11 +4,11 @@ inherit NPC;
 
 void create()
 {
-        set_name("Ó¢°×ÂŞ", ({ "ying bailuo", "ying", "bailuo" }) );
-        set("gender", "ÄĞĞÔ");
+        set_name("è‹±ç™½ç½—", ({ "ying bailuo", "ying", "bailuo" }) );
+        set("gender", "ç”·æ€§");
         set("age", 17);
         set("long",
-                "Ó¢°×ÂŞÊÇÔÀ²»ÈºµÄµÚ°ËÎ»µÜ×Ó¡£\n");
+                "è‹±ç™½ç½—æ˜¯å²³ä¸ç¾¤çš„ç¬¬å…«ä½å¼Ÿå­ã€‚\n");
         set("attitude", "peaceful");
         set("str", 26);
         set("con", 30);
@@ -50,7 +50,7 @@ void create()
         map_skill("unarmed", "huashan-ken");
         map_skill("dodge", "feiyan-huixiang");
 
-        create_family("»ªÉ½ÅÉ", 14, "µÜ×Ó");
+        create_family("åå±±æ´¾", 14, "å¼Ÿå­");
 
         setup();
 

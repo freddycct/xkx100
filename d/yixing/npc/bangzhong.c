@@ -14,12 +14,12 @@ int do_destroy(object);
 
 void create()
 {
-	set_name("°ïÖÚ", ({ "bangzhong" }));
-	set("gender", "ÄÐÐÔ");
-	set("party/party_name", HIC"³¤ÀÖ°ï"NOR);
-	set("party/rank", "±ª½ÝÌÃ");
+	set_name("å¸®ä¼—", ({ "bangzhong" }));
+	set("gender", "ç”·æ€§");
+	set("party/party_name", HIC"é•¿ä¹å¸®"NOR);
+	set("party/rank", "è±¹æ·å ‚");
 	set("age", 20 + random(10));
-	set("long", "Ò»ÃûÉí²Ä¸ß´óµÄ×³ºº£¬ÂúÁ³É±Æø£¬Ò»¸¶Ð×Éñ¶ñÉ·µÄÄ£Ñù¡£\n");
+	set("long", "ä¸€åèº«æé«˜å¤§çš„å£®æ±‰ï¼Œæ»¡è„¸æ€æ°”ï¼Œä¸€ä»˜å‡¶ç¥žæ¶ç…žçš„æ¨¡æ ·ã€‚\n");
 	set("attitude", "friendly");
 	set("shen_type", -1);
 
@@ -75,12 +75,12 @@ int auto_check()
 
 	room = environment();
 	if( room != dest ) {
-		message("vision", me->name() + "¼±¼±Ã¦Ã¦µØÀë¿ªÁË¡£\n", room, ({me}));
+		message("vision", me->name() + "æ€¥æ€¥å¿™å¿™åœ°ç¦»å¼€äº†ã€‚\n", room, ({me}));
 		me->move(dest);
-		message("vision", me->name() + "×ßÁË¹ýÀ´¡£\n", dest, ({me}));
+		message("vision", me->name() + "èµ°äº†è¿‡æ¥ã€‚\n", dest, ({me}));
 
 		me->set_leader(ob);
-		message_vision("$N³Ï»Ì³Ï¿ÖµØËµµÀ£ºÍû°ïÖ÷Ë¡×ï£¡\n", me);
+		message_vision("$Nè¯šæƒ¶è¯šæåœ°è¯´é“ï¼šæœ›å¸®ä¸»æ•ç½ªï¼\n", me);
 		return 1;
 	}
 
@@ -92,7 +92,7 @@ int auto_check()
 
 int do_destroy(object ob)
 {
-	message("vision", ob->name() + "¼±¼±Ã¦Ã¦µØÀë¿ªÁË¡£\n", environment(ob), ({ob}));
+	message("vision", ob->name() + "æ€¥æ€¥å¿™å¿™åœ°ç¦»å¼€äº†ã€‚\n", environment(ob), ({ob}));
 
 	destruct(ob);
 	return 1;
@@ -109,7 +109,7 @@ int accept_kill(object me)
 	||  ob->is_busy()
 	||  ob->is_killing() ) return 1;
 
-	message_vision("$N¶Ô$nºÈµÀ£º¸ÒÉËÎÒµÜÐÖ£¬µ¨×Ó²»Ð¡£¡\n", ob, me);
+	message_vision("$Nå¯¹$nå–é“ï¼šæ•¢ä¼¤æˆ‘å¼Ÿå…„ï¼Œèƒ†å­ä¸å°ï¼\n", ob, me);
 	ob->kill_ob(me);
 	return 1;
 }
@@ -130,7 +130,7 @@ void die()
 		record = bonus + random(bonus);
 		killer->add("combat_exp", record);
 
-		log_file("BangJob", sprintf("%sÓÚ%sÊ±ÒòÉ±ÈËÊ¾ÍþµÃ%s¾­Ñéµã\n", killer->query("name"), ctime(time()), chinese_number(record)));
+		log_file("BangJob", sprintf("%säºŽ%sæ—¶å› æ€äººç¤ºå¨å¾—%sç»éªŒç‚¹\n", killer->query("name"), ctime(time()), chinese_number(record)));
 
 		bonus /= 4;
 		if( obj = present("bang ling", killer) ) {

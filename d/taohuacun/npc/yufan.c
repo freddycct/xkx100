@@ -3,8 +3,8 @@ inherit __DIR__"changer.c";
 
 void  create()
 {
-	set_name("Óã··", ({ "yu fan" }));
-	set("gender", "ÄĞĞÔ");
+	set_name("é±¼è´©", ({ "yu fan" }));
+	set("gender", "ç”·æ€§");
 	set("age", 25);
 	set("per", 15);
 	set("combat_exp", 100);

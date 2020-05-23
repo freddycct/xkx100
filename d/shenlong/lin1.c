@@ -12,17 +12,17 @@ string* npcs = ({
  
 void create()
 {
-	set("short", "¹àÄ¾ÁÖ");
+	set("short", "çŒæœ¨æž—");
 	set("long",@LONG
-·å¶¥±±ÆÂÊÇÒ»Æ¬ÒõÓô³±ÊªµÄ¹àÄ¾ÁÖ£¬Ð¡Â·ÒþÃ»ÔÚ¹ÞÄ¾ÁÖÖÐ¡£Äã¶ÔÕâ
-ÑùÒ»¸ö¹ÂµºÉÏ¾¹ÓÐÕâÑù´óÒ»Æ¬¹àÄ¾ÁÖ(bush)¸Ðµ½·Ç³£³Ô¾ª¡£ËÄÖÜµÄÃÜÁÖ
-ÖÐ³¤ÂúÁË²»ÖªÃûµÄÔÓ²Ý¡£
+å³°é¡¶åŒ—å¡æ˜¯ä¸€ç‰‡é˜´éƒæ½®æ¹¿çš„çŒæœ¨æž—ï¼Œå°è·¯éšæ²¡åœ¨ç½æœ¨æž—ä¸­ã€‚ä½ å¯¹è¿™
+æ ·ä¸€ä¸ªå­¤å²›ä¸Šç«Ÿæœ‰è¿™æ ·å¤§ä¸€ç‰‡çŒæœ¨æž—(bush)æ„Ÿåˆ°éžå¸¸åƒæƒŠã€‚å››å‘¨çš„å¯†æž—
+ä¸­é•¿æ»¡äº†ä¸çŸ¥åçš„æ‚è‰ã€‚
 LONG);
 	set("exits", ([
 		"southup" : __DIR__"fengding",
 	]));
 	set("item_desc", ([
-		"bush" : "ÕâÆ¬¹àÄ¾ÁÖÌ«ÉîÁË£¬ÒªÏë¹ýÈ¥¿ÖÅÂÖ»ÓÐ¿³³öÒ»ÌõÂ·ÁË(kan)¡£\n",
+		"bush" : "è¿™ç‰‡çŒæœ¨æž—å¤ªæ·±äº†ï¼Œè¦æƒ³è¿‡åŽ»ææ€•åªæœ‰ç å‡ºä¸€æ¡è·¯äº†(kan)ã€‚\n",
 	]));
 	set("objects", ([
 		__DIR__"npc/dushe" : 1+random(2),
@@ -47,21 +47,21 @@ int do_kan ( string arg )
 	object ob, weapon, me = this_player();
 	string dir;
 
-	if( !arg || arg !="bush" ) return notify_fail("ÄãÒª¿³Ê²Ã´£¿\n" ) ;
+	if( !arg || arg !="bush" ) return notify_fail("ä½ è¦ç ä»€ä¹ˆï¼Ÿ\n" ) ;
 	if (!objectp(weapon = me->query_temp("weapon")))
-		return notify_fail("²»ÓÃÎäÆ÷¿ÖÅÂ²»ÐÐ°É£¡\n");
-	message_vision("$N³é³ö±øÈÐ£¬¶Ô×Å¹àÄ¾´ÔÒ»ÕóÂÒ¿³¡£\n", me);
+		return notify_fail("ä¸ç”¨æ­¦å™¨ææ€•ä¸è¡Œå§ï¼\n");
+	message_vision("$NæŠ½å‡ºå…µåˆƒï¼Œå¯¹ç€çŒæœ¨ä¸›ä¸€é˜µä¹±ç ã€‚\n", me);
 	if(me->query("neili")>100)
 	{
 		set("exits/north", __DIR__"lin2");
-		message_vision( "$NÀÛµÃÆø´­ÓõÓõ£¬ÖÕÓÚ¿³³öÒ»ÌõÐ¡Â·¡£\n", me);
+		message_vision( "$Nç´¯å¾—æ°”å–˜ååï¼Œç»ˆäºŽç å‡ºä¸€æ¡å°è·¯ã€‚\n", me);
 		me->add("neili",-50);
 		remove_call_out("close");
 		call_out("close", 20, this_object());
 	}
 	else	
 	{
-		message_vision("$NÀÛµÃÆø´­ÓõÓõ£¬Ò²Ã»¿³¿ªÒ»ÌõÂ·À´¡£\n", me);
+		message_vision("$Nç´¯å¾—æ°”å–˜ååï¼Œä¹Ÿæ²¡ç å¼€ä¸€æ¡è·¯æ¥ã€‚\n", me);
 		me->set("neili",0);
 	}
 	return 1;
@@ -69,6 +69,6 @@ int do_kan ( string arg )
 
 void close(object room)
 {
-	message("vision","¹àÄ¾´Ô½¥½¥ºÏÂ£ÆðÀ´£¬ÖÕÓÚÓÖ»Ö¸´ÁËÔ­×´¡£\n", room);
+	message("vision","çŒæœ¨ä¸›æ¸æ¸åˆæ‹¢èµ·æ¥ï¼Œç»ˆäºŽåˆæ¢å¤äº†åŽŸçŠ¶ã€‚\n", room);
 	room->delete("exits/north");
 }

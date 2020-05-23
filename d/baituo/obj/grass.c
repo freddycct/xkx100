@@ -4,13 +4,13 @@ inherit ITEM;
 
 void create()
 {
-	set_name("¶Ï³¦²Ý", ({"duanchang cao", "cao", "duanchang"}));
+	set_name("æ–­è‚ è‰", ({"duanchang cao", "cao", "duanchang"}));
 	set_weight(25);
 	if (clonep())
 		set_default_object(__FILE__);
 	else {
-		set("long", HIM"\nÕâÊÇÒ»ÖêÉî×ÏÉ«µÄÐ¡²Ý£¬É¢·¢³öÒ»¹É¶ñ³ô£¬ÖÐÈËÓûÅ»¡£\n"NOR);
-		set("unit", "Öê");
+		set("long", HIM"\nè¿™æ˜¯ä¸€æ ªæ·±ç´«è‰²çš„å°è‰ï¼Œæ•£å‘å‡ºä¸€è‚¡æ¶è‡­ï¼Œä¸­äººæ¬²å‘•ã€‚\n"NOR);
+		set("unit", "æ ª");
 		set("value", 100);
 	}
 	setup();
@@ -27,17 +27,17 @@ int do_eat(string arg)
 	object me = this_player();
 	int damage;
 
-	if(!id(arg)) return notify_fail("ÄãÒª³ÔÊ²Ã´£¿\n");
+	if(!id(arg)) return notify_fail("ä½ è¦åƒä»€ä¹ˆï¼Ÿ\n");
 	if(!present(this_object(), me))
-		return notify_fail("ÄãÒª³ÔÊ²Ã´£¿\n");
+		return notify_fail("ä½ è¦åƒä»€ä¹ˆï¼Ÿ\n");
 	if( me->is_busy() )
-		return notify_fail("±ð¼±£¬ÂýÂý³Ô£¬Ð¡ÐÄ±ðÒ­×ÅÁË¡£\n");
-	if(!id(arg)) return notify_fail("ÄãÒªÊ²Ã´£¿\n");
+		return notify_fail("åˆ«æ€¥ï¼Œæ…¢æ…¢åƒï¼Œå°å¿ƒåˆ«å™Žç€äº†ã€‚\n");
+	if(!id(arg)) return notify_fail("ä½ è¦ä»€ä¹ˆï¼Ÿ\n");
 
-	message_vision("$N·þÏÂÒ»Öê" + name() + "¡£\n", me);	
-	tell_room(environment(me),HIR+me->name()+"Í»È»Â¶³ö·Ç³£Í´¿àµÄÑù×Ó£¬È«Éí´óº¹ÁÜÀì¡£\n" NOR, ({ me }));
-	tell_object(me, HIR "Äã¸¹ÖÐÃÍµØÒ»¶¯£¬¸ú×Å±ãÒ»ÕóÕó¾ÞÍ´´«À´£¡\n" NOR);
-	message_vision(RED"$NºöµØ¡°ÍÛ¡±µÄÒ»Éù£¬ÍÂ³öÒ»´ó¿ÚÑªÀ´¡£\n"NOR,me);
+	message_vision("$Næœä¸‹ä¸€æ ª" + name() + "ã€‚\n", me);	
+	tell_room(environment(me),HIR+me->name()+"çªç„¶éœ²å‡ºéžå¸¸ç—›è‹¦çš„æ ·å­ï¼Œå…¨èº«å¤§æ±—æ·‹æ¼“ã€‚\n" NOR, ({ me }));
+	tell_object(me, HIR "ä½ è…¹ä¸­çŒ›åœ°ä¸€åŠ¨ï¼Œè·Ÿç€ä¾¿ä¸€é˜µé˜µå·¨ç—›ä¼ æ¥ï¼\n" NOR);
+	message_vision(RED"$Nå¿½åœ°â€œå“‡â€çš„ä¸€å£°ï¼Œåå‡ºä¸€å¤§å£è¡€æ¥ã€‚\n"NOR,me);
 
 	damage = me->query_con()*10;
 	damage = me->query_skill("force") + damage;

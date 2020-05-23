@@ -1,4 +1,4 @@
-// cexiang.c ²àÏá
+// cexiang.c ä¾§åŽ¢
 // Java Oct.10 1998
 
 inherit ROOM;
@@ -8,18 +8,18 @@ int do_sleep(string arg);
 
 void create()
 {
-	set("short", "²àÏá");
+	set("short", "ä¾§åŽ¢");
 	set("long", @LONG
-ÕâÀïÊÇ¹ÅÄ¹ÖÐµÄ²àÏá·¿¡£·¿¼äÀïÃæºÚºôºôµÄ£¬Ê²Ã´¶«Î÷¶¼Ã»ÓÐ£¬Ö»
-ÓÐÒ»ÌõÏ¸Éþ(rope)£¬ÔÚÊÒ¶«µÄÒ»¸ùÌú¶¤ÉÏÏµ×¡£¬À­Éþºá¹ýÊÒÖÐ£¬Éþ×ÓµÄ
-Áí¶ËÏµÔÚÎ÷±ÚµÄÒ»¿Ú¶¤ÉÏ£¬ÉþË÷ÀëµØÔ¼ÄªÒ»ÈËÀ´¸ß¡£
+è¿™é‡Œæ˜¯å¤å¢“ä¸­çš„ä¾§åŽ¢æˆ¿ã€‚æˆ¿é—´é‡Œé¢é»‘å‘¼å‘¼çš„ï¼Œä»€ä¹ˆä¸œè¥¿éƒ½æ²¡æœ‰ï¼Œåª
+æœ‰ä¸€æ¡ç»†ç»³(rope)ï¼Œåœ¨å®¤ä¸œçš„ä¸€æ ¹é“é’‰ä¸Šç³»ä½ï¼Œæ‹‰ç»³æ¨ªè¿‡å®¤ä¸­ï¼Œç»³å­çš„
+å¦ç«¯ç³»åœ¨è¥¿å£çš„ä¸€å£é’‰ä¸Šï¼Œç»³ç´¢ç¦»åœ°çº¦èŽ«ä¸€äººæ¥é«˜ã€‚
 LONG );
 
 	set("exits", ([
 		"west" : __DIR__"mudao14",
 	]));
 	set("item_desc", ([
-		"rope" : "Ò»ÌõÏ¸ÂéÉþ£¬¿´À´ÊÇ¹ÅÄ¹µÜ×ÓÃÇË¯ÃßÖ®Ëù¡£\n"
+		"rope" : "ä¸€æ¡ç»†éº»ç»³ï¼Œçœ‹æ¥æ˜¯å¤å¢“å¼Ÿå­ä»¬ç¡çœ ä¹‹æ‰€ã€‚\n"
 	]));
 	set("no_clean_up", 0);
 	set("coor/x", -3180);
@@ -42,11 +42,11 @@ int do_sleep(string arg)
 		room = load_object(__DIR__"rope");
 	if( !arg || arg != "rope" )
 	{
-		return notify_fail("ÄãÒªË¯ÔÚÄÄ¶ù£¿\n");
+		return notify_fail("ä½ è¦ç¡åœ¨å“ªå„¿ï¼Ÿ\n");
 	}
 	if((int)me->query_skill("yunv-xinfa",1) < 10)
 	{
-		message_vision("$NµÄÓñÅ®ÐÄ·¨²»¹»æµÊì£¬Ìø²»ÉÏÉþÈ¥¡£\n",me) ;
+		message_vision("$Nçš„çŽ‰å¥³å¿ƒæ³•ä¸å¤Ÿå¨´ç†Ÿï¼Œè·³ä¸ä¸Šç»³åŽ»ã€‚\n",me) ;
 		return 1;
 	}
 	me->receive_damage("qi",random(30));
@@ -56,10 +56,10 @@ int do_sleep(string arg)
 		if( living(ob[i]) && ob[i] != me ) j++;
 	if (j > 0)
 	{
-		message_vision("$NÇáÇá×ÝÆð£¬·¢ÏÖÉþÉÏÓÐÈË£¬Ö»ºÃ·ÉÉíÏÂµØ¡£\n",me);
+		message_vision("$Nè½»è½»çºµèµ·ï¼Œå‘çŽ°ç»³ä¸Šæœ‰äººï¼Œåªå¥½é£žèº«ä¸‹åœ°ã€‚\n",me);
 		return 1;
 	}
-	message_vision("$NÇáÇá×ÝÆð£¬ºáÎÔÉþÉÏ£¬ÒÔÉþÎª´²£¬Ë¯Æð¾õÀ´¡£\n", me);
+	message_vision("$Nè½»è½»çºµèµ·ï¼Œæ¨ªå§ç»³ä¸Šï¼Œä»¥ç»³ä¸ºåºŠï¼Œç¡èµ·è§‰æ¥ã€‚\n", me);
 	me->move(room) ;
 	call_out("back", 6 , me);
 	return 1 ;
@@ -69,12 +69,12 @@ void back( object me )
 {
 	int c_exp,c_skill;
 	me->move(__DIR__"cexiang");
-	message_vision("$NÒ»¾õÐÑÀ´£¬·ÉÉíÔ¾ÏÂÉþÀ´¡£\n",me);
+	message_vision("$Nä¸€è§‰é†’æ¥ï¼Œé£žèº«è·ƒä¸‹ç»³æ¥ã€‚\n",me);
 	c_exp=me->query("combat_exp");
 	c_skill=me->query_skill("dodge",1);
 	if ((random(10)>3) && c_skill*c_skill*c_skill/10<c_exp && c_skill<101)
 	{
 		me->improve_skill("dodge",me->query("int"));
-		tell_object(me,"ÄãµÄ»ù±¾Çá¹¦½ø²½ÁË!\n");
+		tell_object(me,"ä½ çš„åŸºæœ¬è½»åŠŸè¿›æ­¥äº†!\n");
 	}
 }

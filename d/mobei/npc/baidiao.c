@@ -5,18 +5,18 @@ inherit NPC;
 void random_leave();
 void create()
 {
-	set_name("´ó°×µñ", ({ "bai diao", "diao"}) );
-	set("race", "·ÉÇİ");
+	set_name("å¤§ç™½é›•", ({ "bai diao", "diao"}) );
+	set("race", "é£ç¦½");
 	set("age", 18);
-	set("long", "Éú³¤ÔÚ´ó²İÔ­ÖĞµÄÒ»ÖÖÃÍÇİ¡£\n");
+	set("long", "ç”Ÿé•¿åœ¨å¤§è‰åŸä¸­çš„ä¸€ç§çŒ›ç¦½ã€‚\n");
 	set("str", 28);
 	set("cor", 24);
 	set("combat_exp",180000);
 	set("env/wimpy",50);
 	set("chat_chance", 6);
 	set("chat_msg", ({
-		"´ó°×µñÔÚÔÆ²ãÖĞÅÌĞı£¬Ë«³áÂÓ¹ıÖØÖØ°×ÔÆ¡£\n",
-		"ÔÆ²ãÖĞÒ»µÀÉÁµçÅüÏÂ£¬ÔÚÄãÑÛÇ°ÉÁ¹ıÒ»µÀ½ğ¹â¡£\n",
+		"å¤§ç™½é›•åœ¨äº‘å±‚ä¸­ç›˜æ—‹ï¼ŒåŒç¿…æ è¿‡é‡é‡ç™½äº‘ã€‚\n",
+		"äº‘å±‚ä¸­ä¸€é“é—ªç”µåŠˆä¸‹ï¼Œåœ¨ä½ çœ¼å‰é—ªè¿‡ä¸€é“é‡‘å…‰ã€‚\n",
 		(:random_leave:),
 	}));
 	set_temp("apply/attack", 28);
@@ -44,26 +44,26 @@ void init()
 void random_leave()
 {
 mapping default_dirs = ([
-	"east":         "¶«",
-	"west":         "Î÷",
-	"south":        "ÄÏ",
-	"north":        "±±",
-	"eastup":       "¶«±ß",
-	"westup":       "Î÷±ß",
-	"southup":      "ÄÏ±ß",
-	"northup":      "±±±ß",
-	"eastdown":     "¶«±ß",
-	"westdown":     "Î÷±ß",
-	"southdown":    "ÄÏ±ß",
-	"northdown":    "±±±ß",
-	"southeast":    "¶«ÄÏ",
-	"southwest":    "Î÷ÄÏ",
-	"northeast":    "¶«±±",
-	"northwest":    "Î÷±±",
-	"up":           "ÉÏ",
-	"down":         "ÏÂ",
-	"out":          "Íâ",
-	"enter":        "Àï",
+	"east":         "ä¸œ",
+	"west":         "è¥¿",
+	"south":        "å—",
+	"north":        "åŒ—",
+	"eastup":       "ä¸œè¾¹",
+	"westup":       "è¥¿è¾¹",
+	"southup":      "å—è¾¹",
+	"northup":      "åŒ—è¾¹",
+	"eastdown":     "ä¸œè¾¹",
+	"westdown":     "è¥¿è¾¹",
+	"southdown":    "å—è¾¹",
+	"northdown":    "åŒ—è¾¹",
+	"southeast":    "ä¸œå—",
+	"southwest":    "è¥¿å—",
+	"northeast":    "ä¸œåŒ—",
+	"northwest":    "è¥¿åŒ—",
+	"up":           "ä¸Š",
+	"down":         "ä¸‹",
+	"out":          "å¤–",
+	"enter":        "é‡Œ",
 ]);
 
 	mapping exits;
@@ -77,9 +77,9 @@ mapping default_dirs = ([
         
 	if( !undefinedp(default_dirs[dirs[i]]) ) dir = default_dirs[dirs[i]];
 	else dir =dirs[i];
-	message_vision("$NÒ»Éù³¤Ãù£¬Õñ³áÏò"+dir+"·ÉÈ¥¡£\n",this_object());
+	message_vision("$Nä¸€å£°é•¿é¸£ï¼ŒæŒ¯ç¿…å‘"+dir+"é£å»ã€‚\n",this_object());
 	move(where[i]);
-	tell_room(where[i],"Ò»Ö»´ó°×µñ·ÉÁË¹ıÀ´£¬ÔÚÔÆ²ãÖĞÅÌĞı¡£\n");
+	tell_room(where[i],"ä¸€åªå¤§ç™½é›•é£äº†è¿‡æ¥ï¼Œåœ¨äº‘å±‚ä¸­ç›˜æ—‹ã€‚\n");
 	return;
 }
 void do_kill(string arg)

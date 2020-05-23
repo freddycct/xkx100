@@ -1,18 +1,18 @@
-// qiu.c Çð´¦»ú
+// qiu.c ä¸˜å¤„æœº
 
 #include <ansi.h>
 inherit NPC;
 
 void create()
 {
-        set_name("Çð´¦»ú", ({"qiu chuji", "qiu"}));
-        set("gender", "ÄÐÐÔ");
+        set_name("ä¸˜å¤„æœº", ({"qiu chuji", "qiu"}));
+        set("gender", "ç”·æ€§");
         set("age", 36);
         set("class", "quanzhen");
-        set("nickname",HIM"³¤´º×Ó"NOR);
+        set("nickname",HIM"é•¿æ˜¥å­"NOR);
         set("long",
-                "Ëû¾ÍÊÇ½­ºþÉÏÈË³Æ¡®³¤´º×Ó¡¯µÄÇð´¦»úÇðÕæÈË£¬Ëû·½Ãæ´ó¶ú£¬\n"
-                "ÂúÃæºì¹â£¬½£Ä¿Ô²Õö£¬Ë«Ã¼Èçµ¶£¬ÏàÃ²ÍþÑÏ£¬Æ½Éú¼²¶ñÈç³ð¡£\n");
+                "ä»–å°±æ˜¯æ±Ÿæ¹–ä¸Šäººç§°â€˜é•¿æ˜¥å­â€™çš„ä¸˜å¤„æœºä¸˜çœŸäººï¼Œä»–æ–¹é¢å¤§è€³ï¼Œ\n"
+                "æ»¡é¢çº¢å…‰ï¼Œå‰‘ç›®åœ†çï¼ŒåŒçœ‰å¦‚åˆ€ï¼Œç›¸è²Œå¨ä¸¥ï¼Œå¹³ç”Ÿç–¾æ¶å¦‚ä»‡ã€‚\n");
         set("attitude", "heroism");
         set("shen_type",1);
         set("str", 32);
@@ -20,7 +20,7 @@ void create()
         set("con", 30);
         set("dex", 30);
 
-        set("title","È«ÕæÆß×ÓÖ®ËÄ");
+        set("title","å…¨çœŸä¸ƒå­ä¹‹å››");
 
         
         set("chat_chance_combat", 60);
@@ -47,16 +47,16 @@ void create()
 
         set_skill("array", 100);
         set_skill("force", 150);
-        set_skill("xiantian-qigong", 150);    //ÏÈÌìÆø¹¦
+        set_skill("xiantian-qigong", 150);    //å…ˆå¤©æ°”åŠŸ
         set_skill("sword", 150);
-        set_skill("quanzhen-jian", 220);  //È«Õæ½£
+        set_skill("quanzhen-jian", 220);  //å…¨çœŸå‰‘
         set_skill("dodge", 120);
-        set_skill("jinyan-gong", 180);   //½ðÑã¹¦
+        set_skill("jinyan-gong", 180);   //é‡‘é›åŠŸ
         set_skill("parry", 150);
         set_skill("strike", 150);
-        set_skill("haotian-zhang", 220);    //ê»ÌìÕÆ
+        set_skill("haotian-zhang", 220);    //æ˜Šå¤©æŽŒ
         set_skill("cuff", 150);
-        set_skill("chunyang-quan", 220);    //´¿ÑôÈ­
+        set_skill("chunyang-quan", 220);    //çº¯é˜³æ‹³
         set_skill("literate", 80);
         set_skill("taoism", 100);
 
@@ -69,11 +69,11 @@ void create()
         prepare_skill("cuff", "chunyang-quan");
         prepare_skill("strike", "haotian-zhang");
 
-        create_family("È«Õæ½Ì", 2, "µÜ×Ó");
+        create_family("å…¨çœŸæ•™", 2, "å¼Ÿå­");
 
         set("book_count",1);
         set("inquiry", ([
-                "È«Õæ½Ì" :  "ÎÒÈ«Õæ½ÌÊÇÌìÏÂµÀ¼ÒÐþÃÅÕý×Ú¡£\n",
+                "å…¨çœŸæ•™" :  "æˆ‘å…¨çœŸæ•™æ˜¯å¤©ä¸‹é“å®¶çŽ„é—¨æ­£å®—ã€‚\n",
         ]) );
 
         setup();
@@ -99,13 +99,13 @@ void greeting(object ob)
         me = this_object();
         if (interactive(ob) && !environment(ob)->query("no_fight"))
         {
-             if (!(fam = ob->query("family")) || fam["family_name"] != "È«Õæ½Ì")
+             if (!(fam = ob->query("family")) || fam["family_name"] != "å…¨çœŸæ•™")
              {
                   if (ob->query("shen")>-5000) {
-                        command("say ÕâÀïÊÇ±¾½ÌÖØµØ£¬Äã×ß¶¯Ð¡ÐÄÐ©¡£");
+                        command("say è¿™é‡Œæ˜¯æœ¬æ•™é‡åœ°ï¼Œä½ èµ°åŠ¨å°å¿ƒäº›ã€‚");
                   }
                   else {
-                        command( "say ÄãÕâÄ§Í·£¬¾¹¸Ò´³ÈëÎÒÈ«ÕæÖØµØ£¬ÎÒÒ»¶¨ÒªÉ±ÁËÄã£¡");
+                        command( "say ä½ è¿™é­”å¤´ï¼Œç«Ÿæ•¢é—¯å…¥æˆ‘å…¨çœŸé‡åœ°ï¼Œæˆ‘ä¸€å®šè¦æ€äº†ä½ ï¼");
                         me->set_leader(ob);
                         remove_call_out("kill_ob");
                         call_out("kill_ob", 1, ob);

@@ -4,11 +4,11 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "��Ժ");
+	set("short", "后院");
 	set("long", @LONG
-�����Ǻ�Ժ���ˣ����ܶ��ǲ˵أ������Ǹ�Сɽ�£������涼����
-���Χ��Ĳ˵أ����Ÿ����Ĳˣ���ʺ����ã�ҡҡ��׹����������û
-ʲô�˴�����
+这里是后院外了，四周都是菜地，往北是个小山坡，东西面都是用
+篱笆围起的菜地，种着各样的菜，篱笆很破烂，摇摇欲坠，看来这里没
+什么人打理。
 LONG);
 	set("exits", ([
 		"north" : __DIR__"wg_caidi2",

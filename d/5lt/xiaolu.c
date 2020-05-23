@@ -4,10 +4,10 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "С·");
+	set("short", "小路");
 	set("long", @LONG
-����һ��ȥ����ԡ����С·��·���Զ������˴��������������ȴ�
-ֲ�һ�����ǰ���΢����ˮ��Ϣ�ķ�Ʈ�˹������㲻�����˸����硣
+这是一条去海滨浴场的小路，路两旁都栽上了村里新引进的亚热带
+植物。一阵雨星伴着微带海水气息的风飘了过来，你不禁打了个喷嚏。
 LONG);
 	set("outdoors", "5lt");
 	set("exits", ([

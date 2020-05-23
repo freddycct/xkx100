@@ -1,13 +1,13 @@
-// xi.c ÕÅËÉÏª
+// xi.c å¼ æ¾æºª
 
 inherit NPC;
 
 void create()
 {
-	set_name("ÕÅËÉÏª", ({ "zhang songxi", "zhang" }));
-	set("nickname", "Îäµ±ËÄÏÀ");
-	set("long","Ëû¾ÍÊÇÕÅÈý·áµÄËÄµÜ×ÓÕÅËÉÏª¡£\nËû½ñÄêËÄÊ®Ëê£¬¾«Ã÷ÄÜ¸É£¬ÒÔ×ãÖÇ¶àÄ±Öø³Æ¡£\n");
-	set("gender", "ÄÐÐÔ");
+	set_name("å¼ æ¾æºª", ({ "zhang songxi", "zhang" }));
+	set("nickname", "æ­¦å½“å››ä¾ ");
+	set("long","ä»–å°±æ˜¯å¼ ä¸‰ä¸°çš„å››å¼Ÿå­å¼ æ¾æºªã€‚\nä»–ä»Šå¹´å››åå²ï¼Œç²¾æ˜Žèƒ½å¹²ï¼Œä»¥è¶³æ™ºå¤šè°‹è‘—ç§°ã€‚\n");
+	set("gender", "ç”·æ€§");
 	set("age", 40);
 	set("attitude", "peaceful");
 	set("class", "swordsman");
@@ -58,7 +58,7 @@ void create()
 		(: exert_function, "recover" :),
 	}) );
 
-	create_family("Îäµ±ÅÉ", 2, "µÜ×Ó");
+	create_family("æ­¦å½“æ´¾", 2, "å¼Ÿå­");
 
 	setup();
 	carry_object(WEAPON_DIR"changjian")->wield();

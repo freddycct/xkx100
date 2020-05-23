@@ -4,11 +4,11 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "��Ժ");
+	set("short", "大院");
 	set("long", @LONG
-��Ժ���Ե���Щ���ң������ֺ���ʦ�ǽ����������ƺ�����������
-æµ��ʲô��һ�úܴ����������Ժ�����룬���������ĸ��ݴ���һ��
-��ˬ��
+大院里显得有些凌乱，趟子手和镖师们进进出出，似乎都在满地里
+忙碌着什么。一棵很大的榕树栽在院子中央，给火辣辣的福州带来一点
+凉爽。
 LONG );
 	set("exits", ([
 		"out"   : __DIR__"biaoju",

@@ -6,10 +6,10 @@ inherit NPC;
 
 void create()
 {
-	set_name("ÎÅÍò·ò",({"wen wanfu","wen"}));
-	set("gender", "ÄĞĞÔ");
+	set_name("é—»ä¸‡å¤«",({"wen wanfu","wen"}));
+	set("gender", "ç”·æ€§");
 	set("age", 20);
-	set("long", "ËûÊÇÁèÏö³ÇµÚÁù´úµÜ×ÓÎÅÍò·ò¡£\n");
+	set("long", "ä»–æ˜¯å‡Œéœ„åŸç¬¬å…­ä»£å¼Ÿå­é—»ä¸‡å¤«ã€‚\n");
 	set("attitude", "peaceful");
 
 	set("str", 25);
@@ -52,7 +52,7 @@ void create()
 	map_skill("dodge", "snowstep");
 	prepare_skill("strike", "snow-strike");
 
-	create_family("ÁèÏö³Ç", 6, "µÜ×Ó");
+	create_family("å‡Œéœ„åŸ", 6, "å¼Ÿå­");
 	setup();
 	carry_object("/clone/weapon/changjian")->wield();
 	carry_object(CLOTH_DIR+"bai")->wear();

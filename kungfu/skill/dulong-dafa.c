@@ -1,4 +1,4 @@
-// dulong-dafa.c Éßµº  ¶¾Áú´ó·¨
+// dulong-dafa.c è›‡å²›  æ¯’é¾™å¤§æ³•
 // Last Modified by winder on Mar. 10 2000
 
 #include <ansi.h>
@@ -24,25 +24,25 @@ int valid_learn(object me)
 	for (j = 1; j < lvl / 10; j++) t *= 2;
 /*
 	if (!me->query("yijin_wan"))
-		return notify_fail("ÄãÎ´Ôø·şÊ³½ÌÖ÷µÄ±ªÌ¥Ò×¾­Íè£¬Ã»ÓĞ¸ù»ù£¬ÎŞ·¨Ñ§Ï°¶¾Áú´ó·¨¡£\n");
+		return notify_fail("ä½ æœªæ›¾æœé£Ÿæ•™ä¸»çš„è±¹èƒæ˜“ç»ä¸¸ï¼Œæ²¡æœ‰æ ¹åŸºï¼Œæ— æ³•å­¦ä¹ æ¯’é¾™å¤§æ³•ã€‚\n");
 
 	if (me->query("yijin_wan") < me->query("age") - 13 )
-		return notify_fail("ÄãÎ´ÔøÃ¿Äê°´ÆÚ·şÊ³½ÌÖ÷µÄ±ªÌ¥Ò×¾­Íè£¬ÎŞ·¨¼ÌĞøÑ§Ï°¶¾Áú´ó·¨¡£\n");
+		return notify_fail("ä½ æœªæ›¾æ¯å¹´æŒ‰æœŸæœé£Ÿæ•™ä¸»çš„è±¹èƒæ˜“ç»ä¸¸ï¼Œæ— æ³•ç»§ç»­å­¦ä¹ æ¯’é¾™å¤§æ³•ã€‚\n");
 
 */
 	if ( (int)me->query_skill("force", 1) < 10 ||
 		(int)me->query_skill("force", 1)/2 < lvl/3 )
-		return notify_fail("ÄãµÄ»ù±¾ÄÚ¹¦»ğºò»¹²»¹»£¬ÎŞ·¨Áì»á¶¾Áú´ó·¨¡£\n");
+		return notify_fail("ä½ çš„åŸºæœ¬å†…åŠŸç«å€™è¿˜ä¸å¤Ÿï¼Œæ— æ³•é¢†ä¼šæ¯’é¾™å¤§æ³•ã€‚\n");
 	if (lvl > 10 && (int)me->query("shen") > t * 100 &&
 		(me->query_skill("taoism", 1) ||
 		me->query_skill("buddhism", 1)) )
-		return notify_fail("ÄãÉĞ²»ÊÊÒËÑ§Ï°¶¾Áú´ó·¨¡£\n");
+		return notify_fail("ä½ å°šä¸é€‚å®œå­¦ä¹ æ¯’é¾™å¤§æ³•ã€‚\n");
 	return valid_public(me);
 }
 
 int practice_skill(object me)
 {
-	return notify_fail("¶¾Áú´ó·¨Ö»ÄÜÓÃÑ§(learn)µÄÀ´Ôö¼ÓÊìÁ·¶È¡£\n");
+	return notify_fail("æ¯’é¾™å¤§æ³•åªèƒ½ç”¨å­¦(learn)çš„æ¥å¢åŠ ç†Ÿç»ƒåº¦ã€‚\n");
 }
 
 string exert_function_file(string func)
@@ -52,17 +52,17 @@ string exert_function_file(string func)
 
 int help(object me)
 {
-	write(HIC"\n¶¾Áú´ó·¨£º"NOR"\n");
+	write(HIC"\næ¯’é¾™å¤§æ³•ï¼š"NOR"\n");
 	write(@HELP
 
-    ¶¾Áú´ó·¨ÎªÉñÁú½Ì±¾ÃÅÄÚ¹¦¡£
+    æ¯’é¾™å¤§æ³•ä¸ºç¥é¾™æ•™æœ¬é—¨å†…åŠŸã€‚
 
-	Ñ§Ï°ÒªÇó£º
-		»ù±¾ÄÚ¹¦10¼¶
-		²»ÄÜĞŞÏ°ìø×Ú»òµÀ¼ÒĞÄ·¨
+	å­¦ä¹ è¦æ±‚ï¼š
+		åŸºæœ¬å†…åŠŸ10çº§
+		ä¸èƒ½ä¿®ä¹ ç¦…å®—æˆ–é“å®¶å¿ƒæ³•
 HELP
 	);
-/*		¶¨ÆÚ·şÊ³±ªÌ¥Ò×¾­Íè */
+/*		å®šæœŸæœé£Ÿè±¹èƒæ˜“ç»ä¸¸ */
 	return 1;
 }
 

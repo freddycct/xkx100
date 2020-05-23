@@ -1,4 +1,4 @@
-// ansuan.c °µËã
+// ansuan.c æš—ç®—
 //by King 97.05
 
 #include <ansi.h>
@@ -25,49 +25,49 @@ mapping default_where = ([
 ]);
 
 mapping default_dirs = ([
-	"north":		"±±±ß",
-	"south":		"ÄÏ±ß",
-	"east":			"¶«±ß",
-	"west":			"Î÷±ß",
-	"northup":		"±±±ß",
-	"southup":		"ÄÏ±ß",
-	"eastup":		"¶«±ß",
-	"westup":		"Î÷±ß",
-	"northdown":		"±±±ß",
-	"southdown":		"ÄÏ±ß",
-	"eastdown":		"¶«±ß",
-	"westdown":		"Î÷±ß",
-	"northeast":		"¶«±±",
-	"northwest":		"Î÷±±",
-	"southeast":		"¶«ÄÏ",
-	"southwest":		"Î÷ÄÏ",
-	"up":			"ÉÏÃæ",
-	"down":			"ÏÂÃæ",
-	"enter":		"ÀïÃæ",
-	"out":			"ÍâÃæ",
+	"north":		"åŒ—è¾¹",
+	"south":		"å—è¾¹",
+	"east":			"ä¸œè¾¹",
+	"west":			"è¥¿è¾¹",
+	"northup":		"åŒ—è¾¹",
+	"southup":		"å—è¾¹",
+	"eastup":		"ä¸œè¾¹",
+	"westup":		"è¥¿è¾¹",
+	"northdown":		"åŒ—è¾¹",
+	"southdown":		"å—è¾¹",
+	"eastdown":		"ä¸œè¾¹",
+	"westdown":		"è¥¿è¾¹",
+	"northeast":		"ä¸œåŒ—",
+	"northwest":		"è¥¿åŒ—",
+	"southeast":		"ä¸œå—",
+	"southwest":		"è¥¿å—",
+	"up":			"ä¸Šé¢",
+	"down":			"ä¸‹é¢",
+	"enter":		"é‡Œé¢",
+	"out":			"å¤–é¢",
 ]);
 
 mapping default_undirs = ([
-	"south":		"±±±ß",
-	"north":		"ÄÏ±ß",
-	"west":			"¶«±ß",
-	"east":			"Î÷±ß",
-	"southup":		"±±±ß",
-	"northup":		"ÄÏ±ß",
-	"westup":		"¶«±ß",
-	"eastup":		"Î÷±ß",
-	"southdown":		"±±±ß",
-	"northdown":		"ÄÏ±ß",
-	"westdown":		"¶«±ß",
-	"eastdown":		"Î÷±ß",
-	"southwest":		"¶«±±",
-	"southeast":		"Î÷±±",
-	"northwest":		"¶«ÄÏ",
-	"northeast":		"Î÷ÄÏ",
-	"down":			"ÉÏÃæ",
-	"up":			"ÏÂÃæ",
-	"out":			"ÀïÃæ",
-	"enter":		"ÍâÃæ",
+	"south":		"åŒ—è¾¹",
+	"north":		"å—è¾¹",
+	"west":			"ä¸œè¾¹",
+	"east":			"è¥¿è¾¹",
+	"southup":		"åŒ—è¾¹",
+	"northup":		"å—è¾¹",
+	"westup":		"ä¸œè¾¹",
+	"eastup":		"è¥¿è¾¹",
+	"southdown":		"åŒ—è¾¹",
+	"northdown":		"å—è¾¹",
+	"westdown":		"ä¸œè¾¹",
+	"eastdown":		"è¥¿è¾¹",
+	"southwest":		"ä¸œåŒ—",
+	"southeast":		"è¥¿åŒ—",
+	"northwest":		"ä¸œå—",
+	"northeast":		"è¥¿å—",
+	"down":			"ä¸Šé¢",
+	"up":			"ä¸‹é¢",
+	"out":			"é‡Œé¢",
+	"enter":		"å¤–é¢",
 ]);
 
 int main(object me, string arg)
@@ -80,19 +80,19 @@ int main(object me, string arg)
 	string gen;
 
 	if( !arg || sscanf(arg, "%s at %s", who, where_temp)!=2 ) 
-		return notify_fail("Ö¸Áî¸ñÊ½£ºansuan <ÈËÎï> at <·½Ïò>\n");
+		return notify_fail("æŒ‡ä»¤æ ¼å¼ï¼šansuan <äººç‰©> at <æ–¹å‘>\n");
 	if(me->is_busy())
-		return notify_fail("ÄãÉÏÒ»¸ö¶¯×÷»¹Ã»ÓĞÍê³É£¡\n");
+		return notify_fail("ä½ ä¸Šä¸€ä¸ªåŠ¨ä½œè¿˜æ²¡æœ‰å®Œæˆï¼\n");
 	env = environment(me);
 	old_env = env;
 	if( where_temp == "leitai" )
-		return notify_fail("ÄÇÀï½ûÖ¹°µËã¡£\n");
+		return notify_fail("é‚£é‡Œç¦æ­¢æš—ç®—ã€‚\n");
 	if( !undefinedp(default_where[where_temp]) )
 		where = default_where[where_temp];
 	else where = where_temp;
 
 	if( !mapp(exits = env->query("exits")) || undefinedp(exits[where]) )
-		return notify_fail("Ã»ÓĞÕâ¸ö·½Ïò¡£\n");
+		return notify_fail("æ²¡æœ‰è¿™ä¸ªæ–¹å‘ã€‚\n");
 
 	if( !objectp(env = find_object(exits[where])) )
 	{	call_other(exits[where], "???");
@@ -100,44 +100,44 @@ int main(object me, string arg)
 	}
 
 	if( env->query("no_fight") )
-		return notify_fail("ÄÇÀï½ûÖ¹Õ½¶·¡£\n");
+		return notify_fail("é‚£é‡Œç¦æ­¢æˆ˜æ–—ã€‚\n");
 
 	ob = all_inventory(env);
 	for(i=0; i<sizeof(ob); i++)
 		if( living(ob[i]) && !ob->query_temp("noliving") && ob[i]!=me)
 			count++;
 	if (count > 2)
-		return notify_fail("ÄÇÀïÈËÌ«¶àÁË£¬Äã»¹Ïë¸ã°µËã£¿\n");
+		return notify_fail("é‚£é‡Œäººå¤ªå¤šäº†ï¼Œä½ è¿˜æƒ³ææš—ç®—ï¼Ÿ\n");
 
 	if( !objectp(target = present(who, env)) )
-		return notify_fail("Õâ¸ö·½ÏòÃ»ÓĞ´ËÈË¡£\n");
+		return notify_fail("è¿™ä¸ªæ–¹å‘æ²¡æœ‰æ­¤äººã€‚\n");
 
 	if( !target->is_character() || target->is_corpse())
-		return notify_fail("¿´Çå³şÒ»µã£¬ÄÇ²¢²»ÊÇÉúÎï¡£\n");
+		return notify_fail("çœ‹æ¸…æ¥šä¸€ç‚¹ï¼Œé‚£å¹¶ä¸æ˜¯ç”Ÿç‰©ã€‚\n");
 
 	if(me->query("id") != target->query_temp("bt_ownname") &&
 		me->query_temp("bt/working"))
-		return notify_fail("ÄãÉíÎª²¶¿ì£¬Ö´ĞĞ¹«Îñ£¬¿É²»ÄÜÉ±Á¼Ã°¹¦£¡\n");
+		return notify_fail("ä½ èº«ä¸ºæ•å¿«ï¼Œæ‰§è¡Œå…¬åŠ¡ï¼Œå¯ä¸èƒ½æ€è‰¯å†’åŠŸï¼\n");
 
 	if( me->is_busy() )
-		return notify_fail("ÄãµÄ¶¯×÷»¹Ã»ÓĞÍê³É£¬²»ÄÜ°µËã¡£\n");
+		return notify_fail("ä½ çš„åŠ¨ä½œè¿˜æ²¡æœ‰å®Œæˆï¼Œä¸èƒ½æš—ç®—ã€‚\n");
 
 	if( me->is_fighting() )
-		return notify_fail("ÄãÕıÃ¦×ÅÕ½¶·ÄØ£¬»¹ÓĞĞÄË¼°µËã±ğÈË£¿\n");
+		return notify_fail("ä½ æ­£å¿™ç€æˆ˜æ–—å‘¢ï¼Œè¿˜æœ‰å¿ƒæ€æš—ç®—åˆ«äººï¼Ÿ\n");
 
 	if( !living(target) || target->query_temp("noliving") )
-		return notify_fail(target->name()+ "¶¼ÒÑ¾­ÕâÑùÁË£¬Äã»¹ÓÃµÃ×Å°µËãÂğ£¿\n"); 
+		return notify_fail(target->name()+ "éƒ½å·²ç»è¿™æ ·äº†ï¼Œä½ è¿˜ç”¨å¾—ç€æš—ç®—å—ï¼Ÿ\n"); 
 
 	if((int)target->query("age") <= 15 && userp(target))
-		return notify_fail("ÎªÁËÊÀ½ç¸üÃÀºÃ£¬·Å¹ıĞ¡º¢×Ó°É.\n");
+		return notify_fail("ä¸ºäº†ä¸–ç•Œæ›´ç¾å¥½ï¼Œæ”¾è¿‡å°å­©å­å§.\n");
 
 	if( (int)me->query("jing", 1) < 100 )
-		return notify_fail("ÄãÎŞ·¨¼¯ÖĞ¾«Á¦£¬°µËã²»ÁË±ğÈË¡£\n");
+		return notify_fail("ä½ æ— æ³•é›†ä¸­ç²¾åŠ›ï¼Œæš—ç®—ä¸äº†åˆ«äººã€‚\n");
 
 	if (userp(me) && target->query("owner") && me->query("id") != target->query("owner"))
-			return notify_fail("²»ÊÇÄãÒª×¥µÄÈË£¬´ÕÊ²Ã´ÈÈÄÖ£¡\n");						
+			return notify_fail("ä¸æ˜¯ä½ è¦æŠ“çš„äººï¼Œå‡‘ä»€ä¹ˆçƒ­é—¹ï¼\n");						
 
-	notify_fail("´ËÈËÀ´Í·²»Ğ¡£¬»¹ÊÇÉÙÈÇÎªÃî¡£\n");
+	notify_fail("æ­¤äººæ¥å¤´ä¸å°ï¼Œè¿˜æ˜¯å°‘æƒ¹ä¸ºå¦™ã€‚\n");
 	if (!userp(target) && !target->accept_ansuan(me)) return 0;
 	if( !undefinedp(default_dirs[where]) )
 		dir = default_dirs[where];
@@ -152,15 +152,15 @@ int main(object me, string arg)
 	me->delete("env/combatd");
 	target->delete("env/combatd");
 
-	if(me->query("gender") == "Å®ĞÔ")
-		gen = "Ù»Ó°";
+	if(me->query("gender") == "å¥³æ€§")
+		gen = "å€©å½±";
 	else
-		gen = "ÈËÓ°";
+		gen = "äººå½±";
 
-	write( CYN"ÄãŞğÏ¢¾²Æø£¬×İÉí¶øÆğ£¬Ïò" + dir + "µÄ" + target->name() + "ÆËÈ¥£¡\n"NOR);
-	message("vision", CYN"\nÒ»Ìõ" + gen + "ºöÈ»Ïò" + dir + "ÆËÈ¥£¬×ªÑÛ¼äÓÖ»Øµ½Ô­´¦£¡\n\n"NOR, environment(me), me);
-	tell_object(target, CYN"\nÒ»Ìõ" + gen + "ºöÈ»´Ó" + undir + "ÏòÄãÆËÀ´£¡\n\n"NOR);
-	message("vision", CYN"\nÒ»Ìõ" + gen + "ºöÈ»´Ó" + undir + "Ïò" + target->name() + "ÆËÀ´£¡\n\n"NOR, environment(target), target);
+	write( CYN"ä½ æ‘’æ¯é™æ°”ï¼Œçºµèº«è€Œèµ·ï¼Œå‘" + dir + "çš„" + target->name() + "æ‰‘å»ï¼\n"NOR);
+	message("vision", CYN"\nä¸€æ¡" + gen + "å¿½ç„¶å‘" + dir + "æ‰‘å»ï¼Œè½¬çœ¼é—´åˆå›åˆ°åŸå¤„ï¼\n\n"NOR, environment(me), me);
+	tell_object(target, CYN"\nä¸€æ¡" + gen + "å¿½ç„¶ä»" + undir + "å‘ä½ æ‰‘æ¥ï¼\n\n"NOR);
+	message("vision", CYN"\nä¸€æ¡" + gen + "å¿½ç„¶ä»" + undir + "å‘" + target->name() + "æ‰‘æ¥ï¼\n\n"NOR, environment(target), target);
 
 	count = me->query_str();
 
@@ -176,12 +176,12 @@ int main(object me, string arg)
 
 	if( random(me->query("combat_exp")) > (int)target->query("combat_exp")/2 )
 	{
-		message_vision(CYN"$NÒ»Ê±Ã»ÓĞ·À·¶£¬±»$n¹¥ÁË¸ö´ëÊÖ²»¼°£¡\n"NOR, target, me);
+		message_vision(CYN"$Nä¸€æ—¶æ²¡æœ‰é˜²èŒƒï¼Œè¢«$næ”»äº†ä¸ªæªæ‰‹ä¸åŠï¼\n"NOR, target, me);
 		COMBAT_D->do_attack(me, target, me->query_temp("weapon") );
 	}
 	else
 	{
-		message_vision(CYN"$N¾­Ñé·á¸»£¬²»¼°Ï¸¿´£¬Á¢¿ÌÏò$n·´»÷£¡\n"NOR, target, me);
+		message_vision(CYN"$Nç»éªŒä¸°å¯Œï¼Œä¸åŠç»†çœ‹ï¼Œç«‹åˆ»å‘$nåå‡»ï¼\n"NOR, target, me);
 		COMBAT_D->do_attack(target, me, target->query_temp("weapon") );
 	}
 
@@ -194,17 +194,17 @@ int main(object me, string arg)
 		me->delete_temp("apply/short");
 		me->delete_temp("apply/long");
 
-		tell_object(target, CYN"ÄãÒ»¶¨Éñ£¬Ô­À´ÊÇ" + me->name() + "ÔÚ°µËãÎÒ£¡\n"NOR);
-		write( CYN "²»ºÃ£¬±»" + target->name() + "·¢¾õÁË£¡\n"NOR);
-		message_vision(CYN"$NºÈµÀ£º$n£¡Äã¸Ò°µËãÎÒ£¬ÎÒ¸úÄãÃ»Íê£¡\n"NOR, target, me);
+		tell_object(target, CYN"ä½ ä¸€å®šç¥ï¼ŒåŸæ¥æ˜¯" + me->name() + "åœ¨æš—ç®—æˆ‘ï¼\n"NOR);
+		write( CYN "ä¸å¥½ï¼Œè¢«" + target->name() + "å‘è§‰äº†ï¼\n"NOR);
+		message_vision(CYN"$Nå–é“ï¼š$nï¼ä½ æ•¢æš—ç®—æˆ‘ï¼Œæˆ‘è·Ÿä½ æ²¡å®Œï¼\n"NOR, target, me);
 		if( !target->is_killing(me) ) target->kill_ob(me);
 		me->start_busy(3);
 	}
 
 	else
 	{
-		message("vision", CYN"\n" + gen + "×ªË²²»¼û£¡\n\n"NOR, environment(target), me);
-		tell_object(me, CYN"\nÄãÁ¢¿ÌÍË»ØÔ­´¦£¡\n\n"NOR);
+		message("vision", CYN"\n" + gen + "è½¬ç¬ä¸è§ï¼\n\n"NOR, environment(target), me);
+		tell_object(me, CYN"\nä½ ç«‹åˆ»é€€å›åŸå¤„ï¼\n\n"NOR);
 
 		me->move(old_env);
 
@@ -213,10 +213,10 @@ int main(object me, string arg)
 		me->delete_temp("apply/short");
 		me->delete_temp("apply/long");
 
-		tell_object(target, CYN"ÄãÒ»¶¨Éñ£¬¿ÉÊÇÊ²Ã´¶¼Ã»¿´¼û¡£\n"NOR);
-		message("vision", CYN"" + target->name() + "Ò»Á³»Ì¿Ö£¬¾¹²»ÖªµÀË­ÔÚ°µËãËû£¡\n"NOR, environment(target), target);
-		write( CYN "¹ş¹ş£¬" + target->name() + "¾ÓÈ»Ã»¿´³öÀ´¡£\n"NOR);
-		write( CYN"Äã´ëÁË´ëÊÖ£¬Ò»Á³ÎŞ¹¼µÄÑù×Ó¡£\n"NOR);
+		tell_object(target, CYN"ä½ ä¸€å®šç¥ï¼Œå¯æ˜¯ä»€ä¹ˆéƒ½æ²¡çœ‹è§ã€‚\n"NOR);
+		message("vision", CYN"" + target->name() + "ä¸€è„¸æƒ¶æï¼Œç«Ÿä¸çŸ¥é“è°åœ¨æš—ç®—ä»–ï¼\n"NOR, environment(target), target);
+		write( CYN "å“ˆå“ˆï¼Œ" + target->name() + "å±…ç„¶æ²¡çœ‹å‡ºæ¥ã€‚\n"NOR);
+		write( CYN"ä½ æªäº†æªæ‰‹ï¼Œä¸€è„¸æ— è¾œçš„æ ·å­ã€‚\n"NOR);
 	}
 
 	me->start_busy(3);
@@ -229,10 +229,10 @@ int main(object me, string arg)
 int help(object me)
 {
 	write(@HELP
-Ö¸Áî¸ñÊ½ : ansuan <ÈËÎï> at <·½Ïò>
+æŒ‡ä»¤æ ¼å¼ : ansuan <äººç‰©> at <æ–¹å‘>
 
-    Õâ¸öÖ¸ÁîÈÃÄã°µËãÎ»ÓÚ<·½Ïò>µÄ<ÈËÎï>¡£
-    Èç¹û°µËã³É¹¦£¬ÔòµĞÈË·¢ÏÖ²»ÁËÄã¡£·ñÔò...:)
+    è¿™ä¸ªæŒ‡ä»¤è®©ä½ æš—ç®—ä½äº<æ–¹å‘>çš„<äººç‰©>ã€‚
+    å¦‚æœæš—ç®—æˆåŠŸï¼Œåˆ™æ•Œäººå‘ç°ä¸äº†ä½ ã€‚å¦åˆ™...:)
 HELP
 	);
 	return 1;

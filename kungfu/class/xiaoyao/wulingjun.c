@@ -1,4 +1,4 @@
-// wulingjun.c ÎâÁì¾ü
+// wulingjun.c å´é¢†å†›
 // Modified by Winder June 25. 2000
 inherit NPC;
 inherit F_MASTER;
@@ -7,10 +7,10 @@ inherit F_MASTER;
 
 void create()
 {
-	set_name("ÎâÁì¾ü", ({ "wu lingjun", "wu" }));
-	set("long","ËûÑÅÉÃµ¤Çà£¬É½Ë®ÈËÎï£¬ôáÃ«»¨»Ü£¬²¢½Ô¾«ÇÉ¡£°ÝÈëÊ¦ÃÅÖ®Ç°£¬ÔÚ´óËÎ³¯Í¢×ö¹ýÁì¾ü½«¾üÖ®Ö°£¬Òò´Ë´ó¼Ò±ã½ÐËûÎâÁì¾ü¡£\n");
-	set("nickname","¡°º¯¹È°ËÓÑ¡±»­¿ñ");
-	set("gender", "ÄÐÐÔ");
+	set_name("å´é¢†å†›", ({ "wu lingjun", "wu" }));
+	set("long","ä»–é›…æ“…ä¸¹é’ï¼Œå±±æ°´äººç‰©ï¼Œç¿Žæ¯›èŠ±å‰ï¼Œå¹¶çš†ç²¾å·§ã€‚æ‹œå…¥å¸ˆé—¨ä¹‹å‰ï¼Œåœ¨å¤§å®‹æœå»·åšè¿‡é¢†å†›å°†å†›ä¹‹èŒï¼Œå› æ­¤å¤§å®¶ä¾¿å«ä»–å´é¢†å†›ã€‚\n");
+	set("nickname","â€œå‡½è°·å…«å‹â€ç”»ç‹‚");
+	set("gender", "ç”·æ€§");
 	set("age", 40);
 	set("attitude", "friendly");
 	set("class", "scholar");
@@ -56,7 +56,7 @@ void create()
 		(: exert_function, "recover" :),
 	}) );
 
-	create_family("åÐÒ£ÅÉ", 3, "µÜ×Ó");
+	create_family("é€é¥æ´¾", 3, "å¼Ÿå­");
 	setup();
 	carry_object("/clone/misc/cloth")->wear();
 	carry_object("/clone/weapon/gangdao")->wield();

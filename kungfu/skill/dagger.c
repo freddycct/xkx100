@@ -1,4 +1,4 @@
-// dagger.c »ù±¾´Ì·¨
+// dagger.c åŸºæœ¬åˆºæ³•
 // Last Modified by winder on Mar. 10 2000
 
 #include <ansi.h>
@@ -13,13 +13,13 @@ int power_point() { return 1; }
 
 int help(object me)
 {
-	write(HIC"\n»ù±¾´Ì·¨£º"NOR"\n");
+	write(HIC"\nåŸºæœ¬åˆºæ³•ï¼š"NOR"\n");
 	write(@HELP
 
-    ´ÌÀàÎä¼¼µÄ»ù±¾¹¦¡£
+    åˆºç±»æ­¦æŠ€çš„åŸºæœ¬åŠŸã€‚
 
-	Ñ§Ï°ÒªÇó£º
-		ÎŞ
+	å­¦ä¹ è¦æ±‚ï¼š
+		æ— 
 HELP
 	);
 	return 1;

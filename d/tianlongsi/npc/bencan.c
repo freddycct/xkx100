@@ -5,10 +5,10 @@ inherit F_MASTER;
 
 void create()
 {
-	set_name("±¾²Î", ({ "ben can","can"}) );
-	set("gender", "ÄĞĞÔ" );
-	set("long", "ËûÉí²Ä¿ıÎ°£¬Îª±¾Òò·½ÕÉµÄÊ¦ĞÖ¡£\n" );
-	set("title", "ÌìÁúËÂµÚÊ®Æß´úÉ®ÈË");
+	set_name("æœ¬å‚", ({ "ben can","can"}) );
+	set("gender", "ç”·æ€§" );
+	set("long", "ä»–èº«æé­ä¼Ÿï¼Œä¸ºæœ¬å› æ–¹ä¸ˆçš„å¸ˆå…„ã€‚\n" );
+	set("title", "å¤©é¾™å¯ºç¬¬åä¸ƒä»£åƒ§äºº");
 	set("class", "bonze");
 	set("age", 49);
 	set("shen_type", 1);
@@ -45,7 +45,7 @@ void create()
 	map_skill("finger", "six-finger");
 	map_skill("sword", "duanjia-sword");
 	prepare_skill("finger","six-finger");
-	create_family("´óÀí¶Î¼Ò",17,"¸ßÉ®");
+	create_family("å¤§ç†æ®µå®¶",17,"é«˜åƒ§");
 	setup();
 	carry_object("/d/xueshan/obj/b-jiasha")->wear();
 }

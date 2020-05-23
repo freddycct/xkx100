@@ -1,4 +1,4 @@
-// sun.c ËïÆÅÆÅ
+// sun.c å­™å©†å©†
 // Last Modified by winder on Feb. 28 2001
 
 #include <ansi.h>
@@ -7,11 +7,11 @@ inherit NPC;
 
 void create()
 {
-	set_name("ËïÆÅÆÅ", ({"sun popo", "sun"}));
-	set("gender", "Å®ÐÔ");
+	set_name("å­™å©†å©†", ({"sun popo", "sun"}));
+	set("gender", "å¥³æ€§");
 	set("age", 55);
 	set("long",
-		"ÕâÊÇÒ»Î»´ÈÏéµÄÀÏÆÅÆÅ£¬Õý¿´×ÅÄãÎ¢Î¢Ò»Ð¦¡£\n"
+		"è¿™æ˜¯ä¸€ä½æ…ˆç¥¥çš„è€å©†å©†ï¼Œæ­£çœ‹ç€ä½ å¾®å¾®ä¸€ç¬‘ã€‚\n"
 	);
 	set("attitude", "friendly");
 
@@ -27,16 +27,16 @@ void create()
 	set("score", 0);
 
 	set_skill("force", 100);
-	set_skill("yunv-xinfa", 100);    //ÓñÅ®ÐÄ·¨
+	set_skill("yunv-xinfa", 100);    //çŽ‰å¥³å¿ƒæ³•
 	set_skill("sword", 90);
-	set_skill("yunv-jian", 120);     //ÓñÅ®½£
+	set_skill("yunv-jian", 120);     //çŽ‰å¥³å‰‘
 	set_skill("dodge", 70);
-	set_skill("yunv-shenfa", 120);   //ÓñÅ®Éí·¨
+	set_skill("yunv-shenfa", 120);   //çŽ‰å¥³èº«æ³•
 	set_skill("quanzhen-jian", 50);
 	set_skill("qufeng", 100);
 	set_skill("parry", 60);
 	set_skill("unarmed",80);
-	set_skill("meinv-quan", 120);    //ÃÀÅ®È­·¨
+	set_skill("meinv-quan", 120);    //ç¾Žå¥³æ‹³æ³•
 	set_skill("literate",80);
 
 	map_skill("force", "yunv-xinfa");
@@ -45,9 +45,9 @@ void create()
 	map_skill("parry", "meinv-quan");
 	map_skill("unarmed", "meinv-quan");
 
-	create_family("¹ÅÄ¹ÅÉ", 3, "µÜ×Ó");
+	create_family("å¤å¢“æ´¾", 3, "å¼Ÿå­");
 	set("inquiry", ([
-		"Ð¡ÁúÅ®" : "Áú¹ÃÄïÊÇÎÒÒ»ÊÖ´ø´óµÄ£¬Ëý´ÓÐ¡Ã»ÁË¸¸Ä¸£¬ÏÖÔÚÓÖ¶À¸ö¶ù×¡ÔÚÕâ¹ÅÄ¹Àï£¬°¦..\n",
+		"å°é¾™å¥³" : "é¾™å§‘å¨˜æ˜¯æˆ‘ä¸€æ‰‹å¸¦å¤§çš„ï¼Œå¥¹ä»Žå°æ²¡äº†çˆ¶æ¯ï¼ŒçŽ°åœ¨åˆç‹¬ä¸ªå„¿ä½åœ¨è¿™å¤å¢“é‡Œï¼Œå”‰..\n",
 	]) );
 
 	set("env/wimpy", 50);
@@ -60,6 +60,6 @@ void create()
 
 void attempt_apprentice(object ob)
 {
-	if (ob->query("family/family_name") == "¹ÅÄ¹ÅÉ")
+	if (ob->query("family/family_name") == "å¤å¢“æ´¾")
 		command("recruit " + ob->query("id"));
 }

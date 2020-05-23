@@ -5,10 +5,10 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "ˮ��С·");
+	set("short", "水边小路");
 	set("long", @LONG
-�����ں��ߵ�С·�ϡ����漸����Ĺ�ľ���⣬����̫��ˮ�ˡ���
-ˮ������û��ľ�ԣ����㡢ˮ��������ʳ������ˮ������
+你走在湖边的小路上。西面几尺外的灌木丛外，就是太湖水了。湖
+水常常淹没灌木丛，游鱼、水鸟争嬉猎食，溅起水花阵阵。
 LONG );
 	set("outdoors", "mantuo");
 	set("no_clean_up", 0);

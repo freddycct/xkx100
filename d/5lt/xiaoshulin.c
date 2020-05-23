@@ -4,10 +4,10 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "С����");
+	set("short", "小树林");
 	set("long", @LONG
-����·��һƬС�����֣�����㲻�ϴ������п鿪���أ�ϰ���
-�����Ǿ������������д����ա�
+这是路边一片小松树林，面积算不上大。林中有块开阔地，习武的
+村民们经常到这里来切磋武艺。
 LONG );
 	set("exits", ([
 		"north" : __DIR__"eroad2",

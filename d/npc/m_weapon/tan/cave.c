@@ -4,9 +4,9 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "湖心小洞");
+	set("short", "婀栧績灏忔礊");
 	set("long",
-	     "这里是潭中的一个小洞，里面零零落落的有几块石头。\n"
+	     "杩欓噷鏄江涓殑涓�涓皬娲烇紝閲岄潰闆堕浂钀借惤鐨勬湁鍑犲潡鐭冲ご銆俓n"
 	);
 	set("objects" , ([
 		__DIR__"item/stone" : 1,

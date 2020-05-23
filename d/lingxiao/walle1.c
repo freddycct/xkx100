@@ -4,11 +4,11 @@
 inherit ROOM;
 void create()
 {
-	set("short", "��ͷ");
+	set("short", "城头");
 	set("long", @LONG 
-���������ǵĳ�ͷ�����⼫ĿԶ����ֻ������ѩɽ��һƬ��ã����
-������֮�£����������ɽ���򶫱��ڶ�ȥ�����ŵ�ѩ��֮�䣬ֻż��
-����һ������໡�
+这是凌霄城的城头，从这极目远望，只见万里雪山，一片苍茫。黄
+云万丈之下，无数起伏的山脉向东奔腾而去。沉寂的雪岭之间，只偶尔
+传来一阵阵狼嗷。
 LONG );
 	set("outdoors", "lingxiao");
 	set("exits", ([

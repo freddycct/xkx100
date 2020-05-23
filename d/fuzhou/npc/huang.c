@@ -8,15 +8,15 @@ int ask_diubiao();
 
 void create()
 {
-	set_name("»ÆÏÈÉú", ({ "huang xiansheng", "huang" }));
-	set("title", HIR"¸£"HIC"Íş"YEL"ïÚ¾Ö"HIY"ÕË·¿"NOR);
-	set("gender", "ÄĞĞÔ");
+	set_name("é»„å…ˆç”Ÿ", ({ "huang xiansheng", "huang" }));
+	set("title", HIR"ç¦"HIC"å¨"YEL"é•–å±€"HIY"è´¦æˆ¿"NOR);
+	set("gender", "ç”·æ€§");
 	set("age", 36);
 
 	set("inquiry", ([
-		"¶ªïÚ" : (: ask_diubiao :),
-		"Ê§ïÚ" : (: ask_diubiao :),
-		"Ê§°Ü" : (: ask_diubiao :),
+		"ä¸¢é•–" : (: ask_diubiao :),
+		"å¤±é•–" : (: ask_diubiao :),
+		"å¤±è´¥" : (: ask_diubiao :),
 	]) );
 
 	set("combat_exp", 10000);
@@ -38,7 +38,7 @@ int accept_object(object who, object ob)
 	object myenv ;
 	if(who->query_temp("fuwei_diubiao_ask")&&(ob->query("money_id") && ob->value() >= 100000))
     {
-		message_vision(HIY"»ÆÀÏÏÈÉú¶Ô$NËµ£ººÃ°É£¡¾ÍÔÙ¸øÄãÒ»´Î»ú»áÁË£¡\n"NOR , who);
+		message_vision(HIY"é»„è€å…ˆç”Ÿå¯¹$Nè¯´ï¼šå¥½å§ï¼å°±å†ç»™ä½ ä¸€æ¬¡æœºä¼šäº†ï¼\n"NOR , who);
 	    who->delete_temp("fuwei_destm");
 	    who->delete_temp("fuwei_dest");
 	    who->delete_temp("fuwei_diubiao_ask");
@@ -48,24 +48,24 @@ int accept_object(object who, object ob)
          }
 	if(who->query_temp("fuwei_ready"))
 	{
-		message_vision(HIY"»ÆÀÏÏÈÉú¶Ô$NËµ£ºÓÖ¸øÎÒÇ®£¿ºÃ£¡ºÃ£¡Áô×ÅÎÒºÈÀÏ¾Æ£¡\n"NOR , who);
+		message_vision(HIY"é»„è€å…ˆç”Ÿå¯¹$Nè¯´ï¼šåˆç»™æˆ‘é’±ï¼Ÿå¥½ï¼å¥½ï¼ç•™ç€æˆ‘å–è€é…’ï¼\n"NOR , who);
 		return 1;
 	}
 	if(!who->query_temp("fuwei_prepare"))
 	{
-		message_vision(HIY"»ÆÀÏÏÈÉú¶Ô$NËµ£ºÒªÑºïÚ£¬¸ÃÏÈÈ¥ÕÒ×ÜïÚÍ·£¡\n"NOR, who);
+		message_vision(HIY"é»„è€å…ˆç”Ÿå¯¹$Nè¯´ï¼šè¦æŠ¼é•–ï¼Œè¯¥å…ˆå»æ‰¾æ€»é•–å¤´ï¼\n"NOR, who);
 		return 1;
 	}
 	if ( wizardp(who) || (ob->query("money_id") && ob->value() >= 200000))
 	{
-		message_vision(HIY "»ÆÀÏÏÈÉú¶Ô$NËµ£ºïÚ³µ×¼±¸ºÃÁË£¬ÔÚÔº×ÓÀïÄØ¡£¸Ï¿ì½ÓïÚ(jiebiao)°É£¡\n¶ªÁËïÚÑº½ğ¾ÍÅâ³¥¸øïÚÖ÷£¡\n"NOR , who);
+		message_vision(HIY "é»„è€å…ˆç”Ÿå¯¹$Nè¯´ï¼šé•–è½¦å‡†å¤‡å¥½äº†ï¼Œåœ¨é™¢å­é‡Œå‘¢ã€‚èµ¶å¿«æ¥é•–(jiebiao)å§ï¼\nä¸¢äº†é•–æŠ¼é‡‘å°±èµ”å¿ç»™é•–ä¸»ï¼\n"NOR , who);
 		who->set_temp("fuwei_ready",1);
 		who->delete_temp("fuwei_prepare",1);
 		return 1;
 	}
 	else
 	{
-		message_vision(HIR"»ÆÀÏÏÈÉúÖå×ÅÃ¼¶Ô$NËµ£º¾ÍÕâµã£¿Äã»¹±£Ê²Ã´ïÚ£¿³öÈ¥³öÈ¥£¡\n"NOR, who);
+		message_vision(HIR"é»„è€å…ˆç”Ÿçš±ç€çœ‰å¯¹$Nè¯´ï¼šå°±è¿™ç‚¹ï¼Ÿä½ è¿˜ä¿ä»€ä¹ˆé•–ï¼Ÿå‡ºå»å‡ºå»ï¼\n"NOR, who);
 		return 0;
 	}
 }
@@ -75,13 +75,13 @@ int ask_diubiao()
 	object me = this_player();
 	if (me->query_temp("fuwei_dest"))
 	{
-message_vision(HIR"»ÆÀÏÏÈÉúÖå×ÅÃ¼¶Ô$NËµ£ºÄÇÉÏÃæ¿ÉÊÇÓĞºÃ¼¸ÍòïÚÒø°¡£¡ÄãÒª»¹Ïë¼ÌĞø±£ïÚ¾ÍÏÈ½»Ê®Á½»Æ½ğÀ´°É£¡\n"NOR, me);
+message_vision(HIR"é»„è€å…ˆç”Ÿçš±ç€çœ‰å¯¹$Nè¯´ï¼šé‚£ä¸Šé¢å¯æ˜¯æœ‰å¥½å‡ ä¸‡é•–é“¶å•Šï¼ä½ è¦è¿˜æƒ³ç»§ç»­ä¿é•–å°±å…ˆäº¤åä¸¤é»„é‡‘æ¥å§ï¼\n"NOR, me);
         me->set_temp("fuwei_diubiao_ask",1);
         return 1;
 	}
         else 
         {
-          message_vision(HIR"»ÆÏÈÉúÖåÃ¼µÀ:ÄãºÃÏóÃ»½Ó¹ıïÚ°É£¿\n",me);
+          message_vision(HIR"é»„å…ˆç”Ÿçš±çœ‰é“:ä½ å¥½è±¡æ²¡æ¥è¿‡é•–å§ï¼Ÿ\n",me);
           return 1;
         }
           

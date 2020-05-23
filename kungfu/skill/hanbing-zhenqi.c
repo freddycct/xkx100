@@ -1,4 +1,4 @@
-// hanbing-zhenqi.c º®±ùÕæÆø
+// hanbing-zhenqi.c å¯’å†°çœŸæ°”
 // Last Modified by winder on Jul. 20 2001
 
 #include <ansi.h>
@@ -25,23 +25,23 @@ int valid_learn(object me)
 	if(i <= 100) for (j = 1; j < i / 10; j++) t *= 2;
 
 	if ((int)me->query_skill("force", 1) < 10)
-		return notify_fail("ÄãµÄ»ù±¾ÄÚ¹¦»ðºò»¹²»¹»£¬»¹²»ÄÜÑ§Ï°º®±ùÕæÆø¡£\n");
+		return notify_fail("ä½ çš„åŸºæœ¬å†…åŠŸç«å€™è¿˜ä¸å¤Ÿï¼Œè¿˜ä¸èƒ½å­¦ä¹ å¯’å†°çœŸæ°”ã€‚\n");
 
 	if(i<=100)
 	{
 		if (i > 10 && (int)me->query("shen") < t * 100) 
-			return notify_fail("ÄãµÄÏÀÒåÕýÆøÌ«µÍÁË£¬ÎÞ·¨Áì»á¸ü¸ßÉîµÄº®±ùÕæÆø¡£\n");
+			return notify_fail("ä½ çš„ä¾ ä¹‰æ­£æ°”å¤ªä½Žäº†ï¼Œæ— æ³•é¢†ä¼šæ›´é«˜æ·±çš„å¯’å†°çœŸæ°”ã€‚\n");
 	}
 	else
 	{
 		if ((int)me->query("shen") < (51200 + (i - 100) * 1000)) 
-			return notify_fail("ÄãµÄÏÀÒåÕýÆøÌ«µÍÁË£¬ÎÞ·¨Áì»á¸ü¸ßÉîµÄº®±ùÕæÆø¡£\n");
+			return notify_fail("ä½ çš„ä¾ ä¹‰æ­£æ°”å¤ªä½Žäº†ï¼Œæ— æ³•é¢†ä¼šæ›´é«˜æ·±çš„å¯’å†°çœŸæ°”ã€‚\n");
 	}
 	return valid_public(me);
 }
 int practice_skill(object me)
 {
-	return notify_fail("º®±ùÕæÆøÖ»ÄÜÓÃÑ§(learn)µÄÀ´Ôö¼ÓÊìÁ·¶È¡£\n");
+	return notify_fail("å¯’å†°çœŸæ°”åªèƒ½ç”¨å­¦(learn)çš„æ¥å¢žåŠ ç†Ÿç»ƒåº¦ã€‚\n");
 }
 string exert_function_file(string func)
 {
@@ -49,14 +49,14 @@ string exert_function_file(string func)
 }
 int help(object me)
 {
-	write(HIM"\nº®±ùÕæÆø£º"NOR"\n");
+	write(HIM"\nå¯’å†°çœŸæ°”ï¼š"NOR"\n");
 	write(@HELP
 
-    áÔÉ½ÅÉ±¾ÃÅÄÚ¹¦¡£
+    åµ©å±±æ´¾æœ¬é—¨å†…åŠŸã€‚
 
-	Ñ§Ï°ÒªÇó£º
-		»ù±¾ÄÚ¹¦10¼¶
-		ÏàÓ¦µÄÕýÆø
+	å­¦ä¹ è¦æ±‚ï¼š
+		åŸºæœ¬å†…åŠŸ10çº§
+		ç›¸åº”çš„æ­£æ°”
 HELP
 	);
 	return 1;

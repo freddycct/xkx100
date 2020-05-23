@@ -3,12 +3,12 @@ inherit ITEM;
 
 void create()
 {
-	set_name(HIC "Ğ¡Öí¶ú¶ä" NOR,({"erduo"}));
+	set_name(HIC "å°çŒªè€³æœµ" NOR,({"erduo"}));
 	set_weight(300);
 	if( clonep() )
                 set_default_object(__FILE__);
         else {
-                set("long", "Ò»¿éĞ¡Öí¶ú¶ä¡£\n");
-                set("unit", "¿é");
+                set("long", "ä¸€å—å°çŒªè€³æœµã€‚\n");
+                set("unit", "å—");
         }
 }

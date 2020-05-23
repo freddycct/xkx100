@@ -2,8 +2,8 @@
 inherit NPC;
 #include <ansi.h>
 
-string *first_name = ({"Îå¶¾", "¾ŞÑÛ", "´ó¶Ç", "»¨°ß"});
-string *name_words = ({"ó¸òÜ"});
+string *first_name = ({"äº”æ¯’", "å·¨çœ¼", "å¤§è‚š", "èŠ±æ–‘"});
+string *name_words = ({"èŸ¾èœ"});
 
 void create()
 {
@@ -12,8 +12,8 @@ void create()
 	name += name_words[random(sizeof(name_words))];
 
 	set_name(name,({"chan chu"}));
-	set("race", "Ò°ÊŞ");
-	set("long", "Ò»Ö»È­Í·´óĞ¡£¬¹íÍ·¹íÄÔµÄĞ¡¸òó¡¡£\n");
+	set("race", "é‡å…½");
+	set("long", "ä¸€åªæ‹³å¤´å¤§å°ï¼Œé¬¼å¤´é¬¼è„‘çš„å°è›¤èŸ†ã€‚\n");
 	set("age", 100);
 	set("attitude", "peaceful");
 
@@ -23,7 +23,7 @@ void create()
 	set("str", 20);
 	set("con", 50);
 
-	set("limbs", ({ "Í·²¿", "ÉíÌå", "Î²°Í" }) );
+	set("limbs", ({ "å¤´éƒ¨", "èº«ä½“", "å°¾å·´" }) );
 	set("verbs", ({ "bite" }) );
 
 	set_temp("apply/attack", 50);
@@ -40,7 +40,7 @@ void init()
 	object me,ob;
 	add_action("do_train", "xun");
 	if (interactive(me = this_player()) && 
-	    (string)me->query("family/family_name") != "Îå¶¾½Ì")
+	    (string)me->query("family/family_name") != "äº”æ¯’æ•™")
 	{
 		if (!(ob = present("xionghuang", this_player())))
 		{
@@ -53,10 +53,10 @@ void init()
 
 int hit_ob(object me, object ob, int damage)
 {
-       if ((string)ob->query("family/family_name") != "Îå¶¾½Ì") {
+       if ((string)ob->query("family/family_name") != "äº”æ¯’æ•™") {
 		ob->apply_condition("chanchu_poison", 20
 	      +(int)ob->query_condition("chanchu_poison") );
-	      tell_object(ob, HIG "Äã¾õµÃ±»Ò§ÖĞµÄµØ·½Ò»ÕóÂéÄ¾£¡\n" NOR );
+	      tell_object(ob, HIG "ä½ è§‰å¾—è¢«å’¬ä¸­çš„åœ°æ–¹ä¸€é˜µéº»æœ¨ï¼\n" NOR );
        }
 }
 #include "baidu.h";

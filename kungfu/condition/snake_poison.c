@@ -5,9 +5,9 @@
 int update_condition(object me, int duration)
 {
   if (me->is_ghost()) return 0;
-	tell_object(me, HIG"Äã¸Ðµ½ÉË¿ÚÒ»ÕóÕóÂéÑ÷£¬ºÞ²»µÃÓÃÊÖÊ¹¾¢ÄÓ¡£ÄãÖÐµÄÉß¶¾·¢×÷ÁË£¡\n" NOR );
-	me->receive_wound("jing", 10,"Éß¶¾·¢×÷");
-	me->receive_damage("qi", 10,"Éß¶¾·¢×÷");
+	tell_object(me, HIG"ä½ æ„Ÿåˆ°ä¼¤å£ä¸€é˜µé˜µéº»ç—’ï¼Œæ¨ä¸å¾—ç”¨æ‰‹ä½¿åŠ²æŒ ã€‚ä½ ä¸­çš„è›‡æ¯’å‘ä½œäº†ï¼\n" NOR );
+	me->receive_wound("jing", 10,"è›‡æ¯’å‘ä½œ");
+	me->receive_damage("qi", 10,"è›‡æ¯’å‘ä½œ");
 	if ((int)me->query("eff_jing")<0 || (int)me->query("eff_qi")<0) return 0;
 	me->apply_condition("snake_poison", duration - 1);
 	if( duration < 1 ) return 0;

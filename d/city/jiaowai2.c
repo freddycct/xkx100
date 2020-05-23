@@ -7,12 +7,12 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "Ê÷ÁÖ");
+	set("short", "æ ‘æž—");
 	set("long", @LONG
-ÑïÖÝ½¼ÍâµÄÊ÷ÁÖ£¬ËÉÖ¦Í¦°Î£¬ÇÇÄ¾ºáÐ±¡£ÁÖ¼äÐ¡µÀ£¬åÔåÆËæÔ¶¡£ÁÖ
-ÖÐ²õÃùØËÄÖ£¬ÄñÌäÍð×ª£¬Ê¹Äã¶ÙÊ±·³Òâ¾¡Ïû¡£ÎÞÊýµÄÐ¡ÄñÐ¡È¸ÔÚÊ÷
-ÉÒÉÏ»¶¸è£¬Ò»µãÒ²²»ÅÂÈË¡£ÕâÕýÊÇ¸ö´òÄñ£¨da£©µÄºÃ»ú»á¡£
-    µØÉÏÂäÁËºÜ¶àÊ÷Ö¦Ê¯¿é¡£
+æ‰¬å·žéƒŠå¤–çš„æ ‘æž—ï¼Œæ¾æžæŒºæ‹”ï¼Œä¹”æœ¨æ¨ªæ–œã€‚æž—é—´å°é“ï¼Œé€¶è¿¤éšè¿œã€‚æž—
+ä¸­è‰é¸£åŽ®é—¹ï¼Œé¸Ÿå•¼å®›è½¬ï¼Œä½¿ä½ é¡¿æ—¶çƒ¦æ„å°½æ¶ˆã€‚æ— æ•°çš„å°é¸Ÿå°é›€åœ¨æ ‘
+æ¢¢ä¸Šæ¬¢æ­Œï¼Œä¸€ç‚¹ä¹Ÿä¸æ€•äººã€‚è¿™æ­£æ˜¯ä¸ªæ‰“é¸Ÿï¼ˆdaï¼‰çš„å¥½æœºä¼šã€‚
+    åœ°ä¸Šè½äº†å¾ˆå¤šæ ‘æžçŸ³å—ã€‚
 LONG );
 	set("exits", ([
 		"north" : __DIR__"jiaowai1",
@@ -43,23 +43,23 @@ int do_da()
         me = this_player();
 
         if (me->query("combat_exp")>=MAX_EXP)
-            return notify_fail("ÕâÑùµÄÓÎÏ·»¹ÊÇÈÃÐ¡º¢ÃÇÍæ°É£¡\n");
+            return notify_fail("è¿™æ ·çš„æ¸¸æˆè¿˜æ˜¯è®©å°å­©ä»¬çŽ©å§ï¼\n");
         
         if(me->is_busy())
-             return notify_fail("Äã»¹ÊÇµÈ¹­×°ºÃÁË¼ýÔÙ´òÄñ°É£¡\n");
+             return notify_fail("ä½ è¿˜æ˜¯ç­‰å¼“è£…å¥½äº†ç®­å†æ‰“é¸Ÿå§ï¼\n");
 
         if(me->query("qi")<10)
-             return notify_fail(HIR"ÄãÌ«ÀÛÁË£¬»¹ÊÇÏÈÐÝÏ¢Ò»ÏÂ°É£¬Éä¼ýÒ²ÒªÓÃÁ¦ÆøÓ´¡£¡£\n"NOR);
+             return notify_fail(HIR"ä½ å¤ªç´¯äº†ï¼Œè¿˜æ˜¯å…ˆä¼‘æ¯ä¸€ä¸‹å§ï¼Œå°„ç®­ä¹Ÿè¦ç”¨åŠ›æ°”å“Ÿã€‚ã€‚\n"NOR);
              
 
         me->start_busy(3);
-        message_vision("$NÄÃÆð¶ùÊ±ÍæË£ÓÃµÄÐ¡¹­Ð¡¼ý£¬Ãé×¼Ê÷ÉÏµÄÐ¡È¸ÉäÈ¥......\n", me);
-        message_vision("$NÖ»ÌýÊ÷ÉÏÒ»ÕóÄñ¶ù¼±Ãù¡­\n",me);
+        message_vision("$Næ‹¿èµ·å„¿æ—¶çŽ©è€ç”¨çš„å°å¼“å°ç®­ï¼Œçž„å‡†æ ‘ä¸Šçš„å°é›€å°„åŽ»......\n", me);
+        message_vision("$Nåªå¬æ ‘ä¸Šä¸€é˜µé¸Ÿå„¿æ€¥é¸£â€¦\n",me);
         kar = random((int)me->query("kar"));
         
         if (kar<=5) 
            {
-           	message_vision("$NÊ²Ã´Ò²Ã»´òµ½¡£\n",me ); 
+           	message_vision("$Nä»€ä¹ˆä¹Ÿæ²¡æ‰“åˆ°ã€‚\n",me ); 
            	          	           	          
             }
         else 
@@ -68,28 +68,28 @@ int do_da()
                 if (kar>5 && kar<=8) 
                    
                    {
-                      message_vision("$N´òµ½Ò»Ö»"YEL"ÂéÈ¸¡£\n"NOR, me);
+                      message_vision("$Næ‰“åˆ°ä¸€åª"YEL"éº»é›€ã€‚\n"NOR, me);
                       add_exp=4+random(5);
                       add_pot=4+random(5);  
                    }
                  if (kar>8 && kar<=10) 
 
                     {
-                      message_vision("$N´òµ½Ò»Ö»"HIG"ðÐðÄ¡£\n"NOR, me);
+                      message_vision("$Næ‰“åˆ°ä¸€åª"HIG"é¹¦é¹‰ã€‚\n"NOR, me);
                       add_exp=6+random(5);
                       add_pot=6+random(5);                 
                      }  
                  if (kar>10 && kar<=15)
                 
                    {
-                      message_vision("$N´òµ½Ò»Ö»"HIY"½ðË¿È¸¡£\n"NOR, me);                    
+                      message_vision("$Næ‰“åˆ°ä¸€åª"HIY"é‡‘ä¸é›€ã€‚\n"NOR, me);                    
                       add_exp=8+random(5);
                       add_pot=8+random(5);   
                     }       
                 if (kar >15) 
                 
                    {
-                      message_vision("$N´òµ½Ò»Ö»"HIW"°ÙÁéÄñ¡£\n"NOR, me);                    
+                      message_vision("$Næ‰“åˆ°ä¸€åª"HIW"ç™¾çµé¸Ÿã€‚\n"NOR, me);                    
                       add_exp=10+random(5);
                       add_pot=10+random(5);                                                                                                                              
                     }        
@@ -99,10 +99,10 @@ int do_da()
                 me->add("combat_exp",add_exp);
                 me->add("potential",add_pot);
                 me->add("score",add_score);
-                tell_object(me,HIW"ÄãµÃµ½ÁË:"
-                            + chinese_number(add_exp) + "µãÊµÕ½¾­Ñé£¬"
-                            + chinese_number(add_pot) + "µãÇ±ÄÜ£¬"
-                            + chinese_number(add_score) + "µã½­ºþÔÄÀú¡£\n"NOR);
+                tell_object(me,HIW"ä½ å¾—åˆ°äº†:"
+                            + chinese_number(add_exp) + "ç‚¹å®žæˆ˜ç»éªŒï¼Œ"
+                            + chinese_number(add_pot) + "ç‚¹æ½œèƒ½ï¼Œ"
+                            + chinese_number(add_score) + "ç‚¹æ±Ÿæ¹–é˜…åŽ†ã€‚\n"NOR);
 
              }                   
          me->receive_damage("qi", 5);

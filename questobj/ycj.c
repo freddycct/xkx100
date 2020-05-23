@@ -5,15 +5,15 @@
 inherit SWORD;
 void create()
 {
-	set_name(HIC"Óã³¦½£"NOR, ({"yuchang jian","jian"}) );
+	set_name(HIC"é±¼è‚ å‰‘"NOR, ({"yuchang jian","jian"}) );
 	set_weight(10000);
 	set("taskobj", 1);
-	set("unit", "±ú");
-	set("long", "Õâ¾ÍÊÇ´«ËµÖĞµÄÓã³¦½£¡£½£ÉíÏ¸³¤£¬¿´ÉÏÈ¥Òì³£·æÀû¡£\n");
+	set("unit", "æŸ„");
+	set("long", "è¿™å°±æ˜¯ä¼ è¯´ä¸­çš„é±¼è‚ å‰‘ã€‚å‰‘èº«ç»†é•¿ï¼Œçœ‹ä¸Šå»å¼‚å¸¸é”‹åˆ©ã€‚\n");
 	set("value",0);
 	set("material", "steel");
-	set("wield_msg", HIB "àÍµØÒ»Éù£¬$n"HIB"ÒÑÔÚ$NÊÖÖĞ£¬ÖÜÔâ¶ÙÊ±ÃÖÂşÀäÀäµÄÉ±Æø¡£\n" NOR);
-	set("unwield_msg", HIG "$NÒ»ÑïÊÖ£¬$n"HIG"ÒÑÈëÇÊ¡£ÎŞÉùÎŞÏ¢£¬È´°µ²ØÉ±»ú¡£\n" NOR);
+	set("wield_msg", HIB "å—¤åœ°ä¸€å£°ï¼Œ$n"HIB"å·²åœ¨$Næ‰‹ä¸­ï¼Œå‘¨é­é¡¿æ—¶å¼¥æ¼«å†·å†·çš„æ€æ°”ã€‚\n" NOR);
+	set("unwield_msg", HIG "$Nä¸€æ‰¬æ‰‹ï¼Œ$n"HIG"å·²å…¥é˜ã€‚æ— å£°æ— æ¯ï¼Œå´æš—è—æ€æœºã€‚\n" NOR);
 	setup();
 }
 

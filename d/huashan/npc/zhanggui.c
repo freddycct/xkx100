@@ -1,4 +1,4 @@
-//laoban.c ÀÏ°å
+//laoban.c è€æ¿
 #include <ansi.h>
 #define MIN_EXP 20000
 #define MAX_EXP 60000
@@ -10,21 +10,21 @@ string do_finish();
 
 void create()
 {
-	set_name("ÕÆ¹ñ",({"zhang gui","boss"}));
-	set("long","Ëû¾ÍÊÇ»ªÉ½²ÉÊ¯³¡µÄÕÆ¹ñ£¬Ò»¸±ºÜ¾«Ã÷µÄÑù×Ó£¬ÓÒÊÖ
-ÕıÄÃ×ÅËãÅÌ£¬Ğ¡ÑÛ¾¦ÃĞ·ì×Å£¬Í¸¹ıÀÏ»¨¾µ´òÁ¿×ÅÄã¡£\n");
-	set("gender","ÄĞĞÔ");
-	set("title",CYN"²ÉÊ¯³¡"NOR);
+	set_name("æŒæŸœ",({"zhang gui","boss"}));
+	set("long","ä»–å°±æ˜¯åå±±é‡‡çŸ³åœºçš„æŒæŸœï¼Œä¸€å‰¯å¾ˆç²¾æ˜çš„æ ·å­ï¼Œå³æ‰‹
+æ­£æ‹¿ç€ç®—ç›˜ï¼Œå°çœ¼ç›çœ¯ç¼ç€ï¼Œé€è¿‡è€èŠ±é•œæ‰“é‡ç€ä½ ã€‚\n");
+	set("gender","ç”·æ€§");
+	set("title",CYN"é‡‡çŸ³åœº"NOR);
 	set("age",50);
 	set("inquiry",([
-	      "¹¤×÷" : (:do_ask:),
-	      "²ÉÊ¯" : (:do_ask:),
+	      "å·¥ä½œ" : (:do_ask:),
+	      "é‡‡çŸ³" : (:do_ask:),
 	      "work" : (:do_ask:),
-	      "¹¤¾ß" : (:do_tool:),
+	      "å·¥å…·" : (:do_tool:),
 	      "tool" : (:do_tool:),
-	      "·ÅÆú" : (:do_abort:),
+	      "æ”¾å¼ƒ" : (:do_abort:),
 	      "abort" : (:do_abort:),
-	      "½»¹¤" : (:do_finish:),
+	      "äº¤å·¥" : (:do_finish:),
 	      "finish" : (:do_finish:),
 	]) );
 	set("per",18);
@@ -47,11 +47,11 @@ string do_ask()
 	int i;
 	
 	if (me->query("combat_exp")>=MAX_EXP)
-		return("´óÏÀÄú¾Í²»ÒªÀ´ºÍĞ¡±²ÃÇ½ÁºÍÁË°É¡£");
+		return("å¤§ä¾ æ‚¨å°±ä¸è¦æ¥å’Œå°è¾ˆä»¬æ…å’Œäº†å§ã€‚");
 	if (me->query_str()<18 || me->query("combat_exp")<MIN_EXP)
-	return ("¡°ÕâÎ»"+RANK_D->query_respect(me)+"Ò²Ì«ÊİÈõÁË°É£¬³öÁËÊÂÎÒ¿É¸ºµ£²»Æğ¡£¡±");
+	return ("â€œè¿™ä½"+RANK_D->query_respect(me)+"ä¹Ÿå¤ªç˜¦å¼±äº†å§ï¼Œå‡ºäº†äº‹æˆ‘å¯è´Ÿæ‹…ä¸èµ·ã€‚â€");
 	if (me->query_temp("caishi/count")>=1)
-	return ("¡°ÕâÎ»"+RANK_D->query_respect(me)+"²»ÊÇÒÑ¾­ÓĞ¹¤×÷ÁËÂğ£¿²»Ïë×ö¾Í·ÅÆú°É¡£¡±");
+	return ("â€œè¿™ä½"+RANK_D->query_respect(me)+"ä¸æ˜¯å·²ç»æœ‰å·¥ä½œäº†å—ï¼Ÿä¸æƒ³åšå°±æ”¾å¼ƒå§ã€‚â€");
 	room = find_object("/d/huashan/caishi");
 	if (!room) room = load_object("/d/huashan/caishi");
 	inv = all_inventory(room);
@@ -60,13 +60,13 @@ string do_ask()
 		if (inv[i] != me 
 		&& (query_ip_name(inv[i])==query_ip_name(me))
 		&& inv[i]->query_temp("caishi/count"))
-		return "ÄãÏÈĞª»á¶ù°É£¬ÕâÀïÒÑ¾­ÓĞÈË°ïÃ¦ÁË¡£";
+		return "ä½ å…ˆæ­‡ä¼šå„¿å§ï¼Œè¿™é‡Œå·²ç»æœ‰äººå¸®å¿™äº†ã€‚";
 	}
-	titles=replace_string( me->query("title"), HIW"Ê¯½³"NOR, "");
+	titles=replace_string( me->query("title"), HIW"çŸ³åŒ "NOR, "");
 	me->set("title",titles);
-	me->add("title",HIW"Ê¯½³"NOR);
+	me->add("title",HIW"çŸ³åŒ "NOR);
 	me->set_temp("caishi/count",1);
-	return("¡°ºÃ°É£¬ÕâÎ»"+RANK_D->query_respect(me)+"Äã¾ÍÔÚÕâÀïºÃºÃ¸É°É£¡¡±");
+	return("â€œå¥½å§ï¼Œè¿™ä½"+RANK_D->query_respect(me)+"ä½ å°±åœ¨è¿™é‡Œå¥½å¥½å¹²å§ï¼â€");
 }
 
 string do_tool()
@@ -74,11 +74,11 @@ string do_tool()
 	object me=this_player();
 	object ob;
 	if (present("hammer",me))
-		return ("¡°ÕâÎ»"+RANK_D->query_respect(me)+"ÄãÉíÉÏÒÑ¾­ÓĞ¹¤¾ßÁË¡£");
+		return ("â€œè¿™ä½"+RANK_D->query_respect(me)+"ä½ èº«ä¸Šå·²ç»æœ‰å·¥å…·äº†ã€‚");
 	ob=new(__DIR__"obj/hammer");
 	ob->move(me);
-	message_vision("ÀÏ°å¸ø$NÒ»°ÑÌú´¸¡£\n",me);
-	return ("¡°ÕâÎ»"+RANK_D->query_respect(me)+"Çë°Ñ¹¤¾ßÊÕºÃ£¬±ğÅª¶ªÁË¡£¡±");
+	message_vision("è€æ¿ç»™$Nä¸€æŠŠé“é”¤ã€‚\n",me);
+	return ("â€œè¿™ä½"+RANK_D->query_respect(me)+"è¯·æŠŠå·¥å…·æ”¶å¥½ï¼Œåˆ«å¼„ä¸¢äº†ã€‚â€");
 }
 
 string do_abort()
@@ -86,11 +86,11 @@ string do_abort()
 	object me=this_player();
 	string titles;
 	if (me->query_temp("caishi/count")<1)
-		return ("¡°ÕâÎ»"+RANK_D->query_respect(me)+"»¹Ã»¹¤×÷¾ÍÏë·ÅÆú£¿À´µ·ÂÒµÄ°É¡£¡±");
-	titles=replace_string( me->query("title"), HIW"Ê¯½³"NOR, "");
+		return ("â€œè¿™ä½"+RANK_D->query_respect(me)+"è¿˜æ²¡å·¥ä½œå°±æƒ³æ”¾å¼ƒï¼Ÿæ¥æ£ä¹±çš„å§ã€‚â€");
+	titles=replace_string( me->query("title"), HIW"çŸ³åŒ "NOR, "");
 	me->delete_temp("caishi/count");
 	me->delete_temp("caishi/finish");
-	return("¡°ÆäÊµÕâ·İ¹¤Ò²ºÜ²»´íµÄ£¬ÕæÊÇ¿ÉÏ§£¡¡±\n");
+	return("â€œå…¶å®è¿™ä»½å·¥ä¹Ÿå¾ˆä¸é”™çš„ï¼ŒçœŸæ˜¯å¯æƒœï¼â€\n");
 }
 
 string do_finish()
@@ -99,14 +99,14 @@ string do_finish()
 	object ob1;
 	string titles;
 	int add_exp,add_pot,add_score;
-//      if (!strsrch(me->query("title"),HIW"Ê¯½³"NOR))
+//      if (!strsrch(me->query("title"),HIW"çŸ³åŒ "NOR))
 	if (me->query_temp("caishi/count")<1)
-		return ("¡°ÕâÎ»"+RANK_D->query_respect(me)+"Ê²Ã´Ê±ºòÌæÎÒ×ö¹ıÊÂ°¡£¿¡±");
+		return ("â€œè¿™ä½"+RANK_D->query_respect(me)+"ä»€ä¹ˆæ—¶å€™æ›¿æˆ‘åšè¿‡äº‹å•Šï¼Ÿâ€");
 	if (!me->query_temp("caishi/finish") )
-		return ("¡°ÕâÎ»"+RANK_D->query_respect(me)+"×öÊÂÒªÓĞºãĞÄ£¬²»Ïë×ö¾Í³ÃÔç·ÅÆú!¡±");
+		return ("â€œè¿™ä½"+RANK_D->query_respect(me)+"åšäº‹è¦æœ‰æ’å¿ƒï¼Œä¸æƒ³åšå°±è¶æ—©æ”¾å¼ƒ!â€");
 	else 
 	{
-		titles=replace_string(me->query("title"),HIW"Ê¯½³"NOR, "");
+		titles=replace_string(me->query("title"),HIW"çŸ³åŒ "NOR, "");
 		me->delete_temp("caishi/count");
 		me->delete_temp("caishi/finish");	       
 //		me->add("potential",2+random(2));
@@ -122,10 +122,10 @@ string do_finish()
 		ob1 = new("/clone/money/silver");
 		ob1->set_amount(add_pot);
 		ob1->move(me);	
-		tell_object(me,HIW"ÄãµÃµ½ÁË:"
-			+ chinese_number(add_exp) + "µãÊµÕ½¾­Ñé£¬"
-			+ chinese_number(add_pot) + "µãÇ±ÄÜ£¬"
-			+ chinese_number(add_score) + "µã½­ºşÔÄÀú¡£\n"NOR);
-		return("¡°àÅ£¬ÕâÎ»"+RANK_D->query_respect(me)+"¸ÉµÃÕæÊÇ²»´í£¬ÕâÊÇÄãµÄ¹¤Ç®£¬ÇëÊÕºÃÁË¡£¡±");
+		tell_object(me,HIW"ä½ å¾—åˆ°äº†:"
+			+ chinese_number(add_exp) + "ç‚¹å®æˆ˜ç»éªŒï¼Œ"
+			+ chinese_number(add_pot) + "ç‚¹æ½œèƒ½ï¼Œ"
+			+ chinese_number(add_score) + "ç‚¹æ±Ÿæ¹–é˜…å†ã€‚\n"NOR);
+		return("â€œå—¯ï¼Œè¿™ä½"+RANK_D->query_respect(me)+"å¹²å¾—çœŸæ˜¯ä¸é”™ï¼Œè¿™æ˜¯ä½ çš„å·¥é’±ï¼Œè¯·æ”¶å¥½äº†ã€‚â€");
 	}
 }

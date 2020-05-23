@@ -4,10 +4,10 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "�ݵ�");
+	set("short", "草地");
 	set("long", @LONG
-һƬƽ���Ĳݵ�һֱ��ɽ�����죬ż����Щ�в�����Ŀ�Ĵ���С��
-�ڲݴ��г�û��ʮ�����ڵ����ҡ�
+一片平缓的草地一直沿山脚延伸，偶尔有些叫不出名目的大鸟小兽
+在草丛中出没，十分自在地游嬉。
 LONG);
 	set("exits", ([
 		"south"      : __DIR__"qsroad",

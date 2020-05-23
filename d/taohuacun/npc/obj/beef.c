@@ -3,12 +3,12 @@ inherit ITEM;
 
 void create()
 {
-	set_name("Å£Èâ",({"beef"}));
+	set_name("ç‰›è‚‰",({"beef"}));
 	set_weight(500);
 	if( clonep() )
                 set_default_object(__FILE__);
         else {
-                set("long", "Ò»¿éÅ£Èâ¡£\n");
-                set("unit", "¿é");
+                set("long", "ä¸€å—ç‰›è‚‰ã€‚\n");
+                set("unit", "å—");
         }
 }

@@ -4,10 +4,10 @@ inherit NPC;
 
 void create()
 {
-	set_name("麻雀", ({ "maque"}));
-	set("race", "飞禽");
+	set_name("楹婚泙", ({ "maque"}));
+	set("race", "椋炵");
 	set("age", 3);
-	set("long", "一只叽叽喳喳，飞来飞去的小麻雀。\n");
+	set("long", "涓�鍙徑鍙藉柍鍠筹紝椋炴潵椋炲幓鐨勫皬楹婚泙銆俓n");
 	set("attitude", "peaceful");
 
 	set("combat_exp", 300);
@@ -17,8 +17,8 @@ void create()
 
 	set("chat_chance", 10);
 	set("chat_msg", ({
-		"麻雀在你头上打个转，又飞回树上。\n",
-		"麻雀唧唧喳喳叫了几声。\n",
+		"楹婚泙鍦ㄤ綘澶翠笂鎵撲釜杞紝鍙堥鍥炴爲涓娿�俓n",
+		"楹婚泙鍞у敡鍠冲柍鍙簡鍑犲０銆俓n",
 	}) );
 
 	setup();

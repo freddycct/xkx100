@@ -1,4 +1,4 @@
-// persuading.c ��������
+// persuading.c 渡世济人
 // Last Modified by winder on Mar. 10 2000
 
 #include <ansi.h>
@@ -15,21 +15,21 @@ void skill_improved(object me)
 
 int valid_learn(object me)
 {
-	return notify_fail("��������Ҫ��ʵ������ߡ�\n");
+	return notify_fail("渡世济人要在实践中提高。\n");
 }
 int help(object me)
 {
-	write(HIC"\n�������ˣ�"NOR"\n");
+	write(HIC"\n渡世济人："NOR"\n");
 	write(@HELP
 
-    ���ҵ��ӳ��Ŵ�˷�̣��������ˣ��������˶ɼ�����������
-ֻ���Լ����У����Զ������˵Ĺ�ҵ���Ƕ����ɿ������˵��ӵ���
-Ҫ��׼�����ҵ��ӿ�������persuadeȰ��ս���е���һ��ߣΣУ�
-�ն�����ʵ����������Ϊ����ȡ��ʵս�����Ǳ�ܡ�
-    ��help persuade��
+    峨嵋弟子崇信大乘佛教，悲天悯人，讲究渡人渡己，不仅仅是
+只顾自己修行，所以渡世济人的功业乃是峨嵋派考量门人弟子的重
+要标准。峨嵋弟子可用命令persuade劝服战斗中的玩家或者ＮＰＣ
+罢斗，在实用中增长修为，并取得实战经验和潜能。
+    请help persuade。
 
-	ѧϰҪ��
-		ʵ���л��
+	学习要求：
+		实践中获得
 HELP
 	);
 	return 1;

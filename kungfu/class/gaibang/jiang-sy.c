@@ -6,11 +6,11 @@ inherit NPC;
 inherit F_MASTER;
 void create()
 {
-	set_name("½­ÉÏÓÎ", ({"jiang shangyou", "jiang", "shangyou"}));
-	set("gender", "ÄÐÐÔ");
+	set_name("æ±Ÿä¸Šæ¸¸", ({"jiang shangyou", "jiang", "shangyou"}));
+	set("gender", "ç”·æ€§");
 	set("age", 19);
 	set("long",
-		"ÕâÊÇÎ»Ø¤°ïÎå´üµÜ×Ó£¬¿´À´ÊÇ¸öÓ¢ÐÛÈËÎï¡£\n");
+		"è¿™æ˜¯ä½ä¸å¸®äº”è¢‹å¼Ÿå­ï¼Œçœ‹æ¥æ˜¯ä¸ªè‹±é›„äººç‰©ã€‚\n");
 	set("attitude", "peaceful");
 	set("class", "beggar");
  	set("beggarlvl", 5);
@@ -43,10 +43,10 @@ void create()
 	map_skill("parry", "suohou-hand");
 	map_skill("dodge", "xiaoyaoyou");
 
-	set("party/party_name", HIC"Ø¤°ï"NOR);
-	set("party/rank", YEL"Îå´üµÜ×Ó"NOR);
+	set("party/party_name", HIC"ä¸å¸®"NOR);
+	set("party/rank", YEL"äº”è¢‹å¼Ÿå­"NOR);
 	set("party/level", 5);
-	create_family("Ø¤°ï", 20, "µÜ×Ó");
+	create_family("ä¸å¸®", 20, "å¼Ÿå­");
 	setup();
 
 	carry_object(__DIR__"obj/cloth")->wear();
@@ -54,8 +54,8 @@ void create()
 										
 void attempt_apprentice(object ob)
 {
-	if( ob->query("gender") != "ÄÐÐÔ") return;
-	command("say ºÃ°É£¬Ï£ÍûÄãÄÜºÃºÃÑ§Ï°±¾ÃÅÎä¹¦£¬½«À´ÎªØ¤°ïÕùÒ»¿ÚÆø£¡¡£");
+	if( ob->query("gender") != "ç”·æ€§") return;
+	command("say å¥½å§ï¼Œå¸Œæœ›ä½ èƒ½å¥½å¥½å­¦ä¹ æœ¬é—¨æ­¦åŠŸï¼Œå°†æ¥ä¸ºä¸å¸®äº‰ä¸€å£æ°”ï¼ã€‚");
 	command("recruit " + ob->query("id"));
 }
 #include "/kungfu/class/gaibang/gaibang.h"

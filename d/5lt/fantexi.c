@@ -4,11 +4,11 @@ inherit  ROOM;
 
 void  create  ()
 {
-	set("short",  "����Ϫ");
+	set("short",  "饭特溪");
 	set("long",  @LONG
-������Ǵ�˵�еķ���Ϫ�ˡ���һ��������СϪ��������������
-���ʵ�СϪ��������ˮ˿һ���ӿ��ָ�����������ƵĴ�������չ������
-��Ȫˮ����һ���������
+这里就是传说中的饭特溪了。好一条清亮的小溪！你把手伸进湍湍
+流淌的小溪，冰凉的水丝一般地涌入指缝又伸懒腰似的从其中舒展开来，
+被泉水滋润一样的舒服。
 LONG);
 	set("exits",  ([
 		"northeast"  :  __DIR__"kongdi",

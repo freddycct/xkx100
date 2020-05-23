@@ -3,11 +3,11 @@
 
 inherit NPC;
 void create()
-{       set_name("Ò¶ÖñÑ©", ({ "august"}));
-	set("gender", "ÄĞĞÔ");
+{       set_name("å¶ç«¹é›ª", ({ "august"}));
+	set("gender", "ç”·æ€§");
 	set("class", "fighter");
-	set("title", HIG"½øÊ¿Ã÷½Ì"NOR"Ìì×ÖÃÅ½ÌÖÚ"HIR"Ã÷½ÌÊ¹Õß"NOR);
-	set("nickname", HIM"Æ¦×Ó¶şÈË×éÖ®Æ¦×ÓË£¡îÆ¦"NOR);
+	set("title", HIG"è¿›å£«æ˜æ•™"NOR"å¤©å­—é—¨æ•™ä¼—"HIR"æ˜æ•™ä½¿è€…"NOR);
+	set("nickname", HIM"ç—å­äºŒäººç»„ä¹‹ç—å­è€â˜†ç—"NOR);
 	set("age", 17);
 	set("attitude", "friendly");
 

@@ -1,4 +1,4 @@
-// /d/shenlong/dating ´óÌü
+// /d/shenlong/dating å¤§å…
 // Last Modified by winder on Jul. 12 2002
 
 #include <ansi.h>
@@ -14,12 +14,12 @@ string look_jia();
 
 void create()
 {
-	set("short", "´óÌü");
+	set("short", "å¤§å…");
 	set("long", @LONG
-ÄãÀ´µ½ÁËÒ»¸ö´óÌüÖ®ÖĞ£¬ÕâÌüË¶´óÎŞÅó£¬×ã¿ÉÈİµÃÏÂÇ§ÈËÖ®ÖÚ£¬Ò»
-ÈºÈºÉÙÄĞÉÙÅ®·ÖÎåÉ«Õ¾ºÃ£¬Çà¡¢°×¡¢ºÚ¡¢»ÆËÄÉ«µÄ¶¼ÊÇÉÙÄê£¬´©ºìµÄÈ´
-ÊÇÉÙÅ®£¬±³ÉÏ¸÷¸º¶Ì½££¬Ã¿Ò»¶ÓÔ¼ÓĞ°ÙÈË¡£Ã¿¸ö¶ÓÁĞÖ®Ç°¶¼Õ¾×ÅÒ»¸öÍ·
-Ä¿¡£´óÌüËÄÖÜÓĞºÜ¶à³ö¿Ú¡£ËÄÖÜÊú×ÅÒ»ÅÅ±øÆ÷¼Ü(shelf)¡£
+ä½ æ¥åˆ°äº†ä¸€ä¸ªå¤§å…ä¹‹ä¸­ï¼Œè¿™å…ç¡•å¤§æ— æœ‹ï¼Œè¶³å¯å®¹å¾—ä¸‹åƒäººä¹‹ä¼—ï¼Œä¸€
+ç¾¤ç¾¤å°‘ç”·å°‘å¥³åˆ†äº”è‰²ç«™å¥½ï¼Œé’ã€ç™½ã€é»‘ã€é»„å››è‰²çš„éƒ½æ˜¯å°‘å¹´ï¼Œç©¿çº¢çš„å´
+æ˜¯å°‘å¥³ï¼ŒèƒŒä¸Šå„è´ŸçŸ­å‰‘ï¼Œæ¯ä¸€é˜Ÿçº¦æœ‰ç™¾äººã€‚æ¯ä¸ªé˜Ÿåˆ—ä¹‹å‰éƒ½ç«™ç€ä¸€ä¸ªå¤´
+ç›®ã€‚å¤§å…å››å‘¨æœ‰å¾ˆå¤šå‡ºå£ã€‚å››å‘¨ç«–ç€ä¸€æ’å…µå™¨æ¶(shelf)ã€‚
 LONG
 	);
 	set("exits", ([
@@ -55,25 +55,25 @@ int do_get(string arg)
 	if( sscanf(arg, "%s from shelf", type) != 1) return 0;
 	if( time() < me->query("sg/weapontime") + 300 && !wizardp(me))
 	{
-		tell_object(me, "ÄãÌ«Ì°ĞÄÁË£¬»¹ÊÇµÈÒ»ÏÂÔÙÀ´°É¡£\n");
+		tell_object(me, "ä½ å¤ªè´ªå¿ƒäº†ï¼Œè¿˜æ˜¯ç­‰ä¸€ä¸‹å†æ¥å§ã€‚\n");
 		return 1;
 	}
 	if(query("weapon_count") < 1)
 	{
-		tell_object(me, "±øÆ÷¼Ü¿Õ¿ÕÈçÒ²£¬¿´À´¶¼¸ø±ğÈËÈ¡¹âÁË°É¡£\n");
+		tell_object(me, "å…µå™¨æ¶ç©ºç©ºå¦‚ä¹Ÿï¼Œçœ‹æ¥éƒ½ç»™åˆ«äººå–å…‰äº†å§ã€‚\n");
 		return 1;
 	}
 	if( type != "armor" )
 	{
 		if( (int)me->query_skill(type, 1) < 1 )
 		{
-			tell_object(me, "Äã²»»áÓÃÕâÖÖÎäÆ÷¡£\n");
+			tell_object(me, "ä½ ä¸ä¼šç”¨è¿™ç§æ­¦å™¨ã€‚\n");
 			return 1;
 		}
 	}
 	switch(type)
 	{
-		case "sword":   if(me->query("gender") == "ÎŞĞÔ") 
+		case "sword":   if(me->query("gender") == "æ— æ€§") 
 					weapon = new(WEAPON_DIR"treasure/zhen");
 				else weapon = new(WEAPON_DIR"sword/changjian");
 				break;
@@ -91,12 +91,12 @@ int do_get(string arg)
 				break;
 		case "armor":   weapon = new(ARMOR_DIR"tiejia");
 				break;
-		default:	tell_object(me, "ÕÒ²»µ½"+type+"ÕâÖÖ±øÆ÷¡£\n");
+		default:	tell_object(me, "æ‰¾ä¸åˆ°"+type+"è¿™ç§å…µå™¨ã€‚\n");
 				return 1;
 	}
 	if( weapon->move(me) )
 	{
-		message_vision("$N´Ó±øÆ÷¼ÜÉÏÈ¡ÏÂÒ»"+weapon->query("unit")+weapon->name()+"¡£\n", me);
+		message_vision("$Nä»å…µå™¨æ¶ä¸Šå–ä¸‹ä¸€"+weapon->query("unit")+weapon->name()+"ã€‚\n", me);
 		me->set("sg/weapontime", time());
 	}
 	else
@@ -111,19 +111,19 @@ string look_jia()
 {
 	string msg;
 
-	msg ="ÕâÊÇÒ»¸ö±øÆ÷¼Ü£¬Ê®°Ë°ãÎäÆ÷ÊÇÓ¦ÓĞ¾¡ÓĞ¡£\n";
-	msg+="Ä¿Ç°´æ·ÅÓĞ½£(sword)£¬µ¶(blade)£¬¹³(hook)£¬°ô(stick)£¬ÕÈ(staff)£¬´¸(hammer)£¬±Ş(whip)¡£»¹ÓĞÒ»Ğ©Ìú¼×(armor)¡£\n";
-	msg+= "ÇëÓÃÖ¸Áî¡°get ÖÖÀà from shelf¡±ÄÃÈ¡Äã³ÆÊÖµÄ±øÆ÷»ò¼×ëĞ¡£\n";
+	msg ="è¿™æ˜¯ä¸€ä¸ªå…µå™¨æ¶ï¼Œåå…«èˆ¬æ­¦å™¨æ˜¯åº”æœ‰å°½æœ‰ã€‚\n";
+	msg+="ç›®å‰å­˜æ”¾æœ‰å‰‘(sword)ï¼Œåˆ€(blade)ï¼Œé’©(hook)ï¼Œæ£’(stick)ï¼Œæ–(staff)ï¼Œé”¤(hammer)ï¼Œé­(whip)ã€‚è¿˜æœ‰ä¸€äº›é“ç”²(armor)ã€‚\n";
+	msg+= "è¯·ç”¨æŒ‡ä»¤â€œget ç§ç±» from shelfâ€æ‹¿å–ä½ ç§°æ‰‹çš„å…µå™¨æˆ–ç”²èƒ„ã€‚\n";
 	return msg;
 }
 
 int valid_leave(object me, string dir)
 {
 	if (dir == "east" &&
-		me->query("party/party_name") !=HIY "ÉñÁú½Ì" NOR &&
+		me->query("party/party_name") !=HIY "ç¥é¾™æ•™" NOR &&
 		present("wugen daozhang", environment(me)) &&
 		living(present("wugen daozhang", environment(me))))
-			return notify_fail("ÎŞ¸ùµÀ³¤ºÈµÀ£ººóÃæÊÇ±¾½ÌÖØµØ£¬ÕâÎ»" + RANK_D->query_respect(me) + "ÇëÖ¹²½¡£\n");
+			return notify_fail("æ— æ ¹é“é•¿å–é“ï¼šåé¢æ˜¯æœ¬æ•™é‡åœ°ï¼Œè¿™ä½" + RANK_D->query_respect(me) + "è¯·æ­¢æ­¥ã€‚\n");
 	else return ::valid_leave(me, dir);
 
 }

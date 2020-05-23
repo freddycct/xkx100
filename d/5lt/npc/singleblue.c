@@ -5,15 +5,15 @@ inherit NPC;
 
 void create()
 {
-	set_name("Ï¸¸ì²²Â¹", ({ "singleblue" }));
-	set("title", HIM"µçÊÓÌ¨ÃØÊé"NOR);
+	set_name("ç»†èƒ³è†Šé¹¿", ({ "singleblue" }));
+	set("title", HIM"ç”µè§†å°ç§˜ä¹¦"NOR);
 	set("shen_type", 1);
 
-	set("gender", "Å®ĞÔ" );
+	set("gender", "å¥³æ€§" );
 	set("long", @LONG
-Ï¸¸ì²²Â¹ÀÁµÃÀíÄã£¬¼ÌĞøÂñÍ·Ğ´×÷Òµ¡£
+ç»†èƒ³è†Šé¹¿æ‡’å¾—ç†ä½ ï¼Œç»§ç»­åŸ‹å¤´å†™ä½œä¸šã€‚
 LONG);
-	set("nickname", HIW"ÄÔ×ÓÓĞĞ¡°ü"NOR);
+	set("nickname", HIW"è„‘å­æœ‰å°åŒ…"NOR);
 	set("age", 20);
 	set("per", 30);
 	set("attitude", "friendly");		

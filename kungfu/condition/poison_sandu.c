@@ -5,11 +5,11 @@
 int update_condition(object me, int duration)
 {
   if (me->is_ghost()) return 1;
-	tell_object(me, HIG "ÄãµÄÌåÄÚ¶¾ÖÊÔÚ·´ÆË×ÔÉíÁË£¡\n" NOR );
-	me->receive_wound("jing", 10,"ÌåÄÚ¾Þ¶¾·´ÆË¶ø");
-	me->receive_damage("jing", 10,"ÌåÄÚ¾Þ¶¾·´ÆË¶ø");
-	me->receive_wound("qi", 10,"ÌåÄÚ¾Þ¶¾·´ÆË¶ø");
-	me->receive_damage("qi", 10,"ÌåÄÚ¾Þ¶¾·´ÆË¶ø");
+	tell_object(me, HIG "ä½ çš„ä½“å†…æ¯’è´¨åœ¨åæ‰‘è‡ªèº«äº†ï¼\n" NOR );
+	me->receive_wound("jing", 10,"ä½“å†…å·¨æ¯’åæ‰‘è€Œ");
+	me->receive_damage("jing", 10,"ä½“å†…å·¨æ¯’åæ‰‘è€Œ");
+	me->receive_wound("qi", 10,"ä½“å†…å·¨æ¯’åæ‰‘è€Œ");
+	me->receive_damage("qi", 10,"ä½“å†…å·¨æ¯’åæ‰‘è€Œ");
 //	if ((int)me->query("eff_jing")<0 || (int)me->query("eff_qi")<0) return 0;
 	me->apply_condition("poison_sandu", duration);
 	if( duration < 1 ) return 0;

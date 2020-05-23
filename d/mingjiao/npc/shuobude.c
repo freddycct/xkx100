@@ -6,14 +6,14 @@ inherit F_UNIQUE;
 
 void create()
 {
-	set_name("Ëµ²»µÃ", ({ "shuo bude", "shuo", "bude", }));
+	set_name("è¯´ä¸å¾—", ({ "shuo bude", "shuo", "bude", }));
 	set("long",
-	"ËûÊÇÒ»Î»Ğ¦ÎûÎûµÄÉ®ÈË£¬Éí´©Ò»¼ş°×²¼³¤ÅÛ¡£\n"
+	"ä»–æ˜¯ä¸€ä½ç¬‘å˜»å˜»çš„åƒ§äººï¼Œèº«ç©¿ä¸€ä»¶ç™½å¸ƒé•¿è¢ã€‚\n"
 	"\n"
 	);
 
-	set("nickname", "²¼´üºÍÉĞ");
-	set("gender", "ÄĞĞÔ");
+	set("nickname", "å¸ƒè¢‹å’Œå°š");
+	set("gender", "ç”·æ€§");
 	set("attitude", "friendly");
 	set("class", "bonze");
 
@@ -47,9 +47,9 @@ void create()
 	map_skill("parry", "jingang-quan");
 	prepare_skill("cuff", "jingang-quan");
 
-	set("party/party_name",HIG"Ã÷½Ì"NOR);
-	set("party/rank",HIY"ÎåÉ¢ÈË"NOR);
-	create_family("Ã÷½Ì", 35, "µÜ×Ó");
+	set("party/party_name",HIG"æ˜æ•™"NOR);
+	set("party/rank",HIY"äº”æ•£äºº"NOR);
+	create_family("æ˜æ•™", 35, "å¼Ÿå­");
 	setup();
 
 	carry_object("/d/mingjiao/obj/baipao")->wear();

@@ -4,11 +4,11 @@ inherit ROOM;
 #include <ansi.h>
 void create()
 {
-	set("short","�ɵµ�");
+	set("short","成德殿");
 	set("long", @LONG
-�����������̽���ƽ�շ���ʩ��ĵط��������޴�����ڵ�����
-�λε����򣬴��˶˸���һ��������һ��Ӣ���������ˣ���������
-���Ķ������ܵ��ͷ����ͤ�ˣ� 
+这就是日月神教教主平日发号施令的地方，殿中无窗，殿口点着明
+晃晃的蜡烛，大殿彼端高设一座，坐着一个英俊的中年人，自是名震江
+湖的东方不败的姘头杨莲亭了！ 
 LONG );
 	set("valid_startroom", 1);
 	set("exits",([

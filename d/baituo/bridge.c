@@ -5,11 +5,11 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "С��");
+	set("short", "小桥");
 	set("long", @LONG
-����һ��С���ţ�������ɽ���ϵı�ѩ�ڻ��γ�һ���峺��СϪ��
-�����»�����������ʱ����Ƥ��С��Ծ��ˮ�棬�������»���һ������
-ɫ�Ļ��ߡ�
+这是一座小竹桥，『白驼山』上的冰雪融化形成一条清澈的小溪，
+从桥下缓缓流过。不时有顽皮的小鱼跃出水面，在阳光下划出一条银白
+色的弧线。
 LONG	);
 	set("outdoors", "baituo");
 //	set("no_clean_up", 0);

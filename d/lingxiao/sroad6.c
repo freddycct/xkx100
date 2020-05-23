@@ -5,12 +5,12 @@
 inherit ROOM;
 void create()
 {
-	set("short","ɽ·");
+	set("short","山路");
 	set("long",@LONG 
-�ߵ��������ů��һЩ�ˣ������ڹΣ�������ֻ������������ˮ
-����һ���ײ����ҷ��д��£�����������������һˬ������������ڣ�
-������������Ȼ�Ǹ���Ȫ���ұ����������м���ľ�ݣ�����������Ѳɽ
-����ʱס��֮�ء�
+走到这里，反觉暖和一些了，风仍在刮，但耳边只听到叮当的流水
+声。一道白波从岩缝中垂下，簌簌清流令人心神一爽，左边热气腾腾，
+烟雾弥漫，显然是个温泉，右边零零落落有几间木屋，是凌霄弟子巡山
+看守时住宿之地。
 LONG);
 	set("outdoors", "lingxiao");
 	set("exits",([ /* sizeof() == 1 */
@@ -19,7 +19,7 @@ LONG);
 		"south"   : __DIR__"sroad5",
 		"northup" : __DIR__"fentianya", 
 	]));
-	create_door("east", "ľ��", "west", DOOR_CLOSED);
+	create_door("east", "木门", "west", DOOR_CLOSED);
 	set("no_clean_up", 0);
 	set("coor/x", -31000);
 	set("coor/y", -8950);

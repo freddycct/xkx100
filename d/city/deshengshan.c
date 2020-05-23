@@ -6,11 +6,11 @@ string look_gaoshi();
 
 void create()
 {
-	set("short", "��ʤɽ");
+	set("short", "得胜山");
 	set("long", @LONG
-��ʤɽ�ǵ������ɴ��ƽ��֮�������ڵ�ɽ���Ѿ����������ܵ���
-ľ��һ���ߵ����ɽ���µĿյؾ�������ȥ�ˡ��м�յĴ�Լ�Ǽ��ɼ�
-�������ϵĲ�Ҳû�У����ó������˵��˻����١�
+得胜山是当年岳飞大破金兵之处，现在的山由已经长满了密密的树
+木，一般走到这块山脚下的空地就爬不上去了。中间空的大约是几丈见
+方，地上的草也没有，看得出，来此的人还不少。
 LONG );
 	set("outdoors", "yangzhoue");
 	set("exits", ([

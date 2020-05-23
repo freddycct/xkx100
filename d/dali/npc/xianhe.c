@@ -4,10 +4,10 @@ inherit NPC;
 #include <ansi.h>
 void create()
 {
-        set_name(HIR"µ¤"NOR"¶¥º×", ({ "danding he", "he"}));
-	set("race", "·ÉÇİ");
+        set_name(HIR"ä¸¹"NOR"é¡¶é¹¤", ({ "danding he", "he"}));
+	set("race", "é£ç¦½");
         set("age", 3);
-        set("long", "Ò»Ö»È«Éí½à°×µÄµ¤¶¥º×£¬¿´À´ÊÇĞŞÁË³á°ò£¬Ã»·¨¸ß·ÉÁË¡£\n");
+        set("long", "ä¸€åªå…¨èº«æ´ç™½çš„ä¸¹é¡¶é¹¤ï¼Œçœ‹æ¥æ˜¯ä¿®äº†ç¿…è†€ï¼Œæ²¡æ³•é«˜é£äº†ã€‚\n");
         set("attitude", "peaceful");
 
         set("combat_exp", 300);

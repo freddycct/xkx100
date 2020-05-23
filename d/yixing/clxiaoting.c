@@ -9,11 +9,11 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "Ğ¡Ìü");
+	set("short", "å°å…");
 	set("long", @LONG
-ÕâÊÇ°ïÖ÷¼°×Ü¹ÜÉÌÌÖ»úÃÜ´óÊÂµÄËùÔÚ£¬ÕıÖĞÊÇÒ»ÕÅÌ«Ê¦ÒÎ£¬ÃÅÉÏµõ
-×Å°ë¾ÉµÄºì³ñÈíÁ±¡£Ç½ÉÏ¸½Ó¹·çÑÅµØ¹Ò×Å¼¸ÕÅÉ½Ë®×Ö»­£¬Ò»Íû¿ÉÖª¾ùÊÇ
-Ë×ÊÖÖ®×÷¡£´°Ç°¼¸Åè¾Õ»¨µ¹ÊÇÊ®·Ö·±Ã¯¡£
+è¿™æ˜¯å¸®ä¸»åŠæ€»ç®¡å•†è®¨æœºå¯†å¤§äº‹çš„æ‰€åœ¨ï¼Œæ­£ä¸­æ˜¯ä¸€å¼ å¤ªå¸ˆæ¤…ï¼Œé—¨ä¸ŠåŠ
+ç€åŠæ—§çš„çº¢ç»¸è½¯å¸˜ã€‚å¢™ä¸Šé™„åº¸é£é›…åœ°æŒ‚ç€å‡ å¼ å±±æ°´å­—ç”»ï¼Œä¸€æœ›å¯çŸ¥å‡æ˜¯
+ä¿—æ‰‹ä¹‹ä½œã€‚çª—å‰å‡ ç›†èŠèŠ±å€’æ˜¯ååˆ†ç¹èŒ‚ã€‚
 LONG );
 	set("exits", ([
 		"south" : __DIR__"clzoulang2",
@@ -39,7 +39,7 @@ int valid_leave(object me, string dir)
 		return ::valid_leave(me, dir);
 
 	if( ob->is_fighting() || ob->is_busy() )
-		return notify_fail(sprintf("%sÀ¹ÔÚÄãÃæÇ°£¬ºÈµÀ£º" + RANK_D->query_rude(me) + "²»µÃÎŞÀñ£¡Ã»¼û°ïÖ÷ÕıÃ¦×Å£¿\n", ob->name()));
+		return notify_fail(sprintf("%sæ‹¦åœ¨ä½ é¢å‰ï¼Œå–é“ï¼š" + RANK_D->query_rude(me) + "ä¸å¾—æ— ç¤¼ï¼æ²¡è§å¸®ä¸»æ­£å¿™ç€ï¼Ÿ\n", ob->name()));
 
 	if( stringp(beauty = me->query_temp("bangs/beauty")) )
 	{
@@ -49,7 +49,7 @@ int valid_leave(object me, string dir)
 			if( (string)inv[i]->query("name") == beauty &&
 				inv[i]->query_leader() == me )
 			{
-				message_vision("$NÔÚ$nµÄÍ·ÉÏµ¯ÁË¸öÇå´àµÄÄÔ±À¶ù£¬$nµÄÄÔÃÅ¶ùÉÏÁ¢¿Ì³¤³öÁË¸öĞ¡ëû°ü¡£\n", ob, me);
+				message_vision("$Nåœ¨$nçš„å¤´ä¸Šå¼¹äº†ä¸ªæ¸…è„†çš„è„‘å´©å„¿ï¼Œ$nçš„è„‘é—¨å„¿ä¸Šç«‹åˆ»é•¿å‡ºäº†ä¸ªå°è‡ŒåŒ…ã€‚\n", ob, me);
 				return ::valid_leave(me, dir);
 			}
 		}
@@ -64,13 +64,13 @@ int valid_leave(object me, string dir)
 			if( userp(leader) &&
 			(string)leader->query_temp("bangs/beauty") == beauty )
 			{
-				tell_object(leader, ob->name() + "ËµµÀ£ººÃ£¡ºÃ£¡ºÃ£¡"+ob->query("party/party_name") + "ÉÏÉÏÏÂÏÂ¼¸Ç§ÈËÖĞÊıÄã×îÌÖ°ïÖ÷µÄ»¶ĞÄ£¡\n");
+				tell_object(leader, ob->name() + "è¯´é“ï¼šå¥½ï¼å¥½ï¼å¥½ï¼"+ob->query("party/party_name") + "ä¸Šä¸Šä¸‹ä¸‹å‡ åƒäººä¸­æ•°ä½ æœ€è®¨å¸®ä¸»çš„æ¬¢å¿ƒï¼\n");
 				leader->delete_temp("bangs/beauty");
 				bonus = bonus * 25000 / (100000 + (int)leader->query("combat_exp"));
 				record = bonus + random(bonus);
 				leader->add("combat_exp", record);
 				leader->add("shen", -record);
-				write_file("/log/test/BangWomen",  sprintf("%sÓÚ%sÊ±ÉÏ¹±%sµÃ%s¾­Ñéµã\n", leader->query("name"), ctime(time()), beauty, chinese_number(record)));
+				write_file("/log/test/BangWomen",  sprintf("%säº%sæ—¶ä¸Šè´¡%så¾—%sç»éªŒç‚¹\n", leader->query("name"), ctime(time()), beauty, chinese_number(record)));
 				if( ling = present("bang ling", leader) )
 				{
 					if( (string)ling->query("owner") ==
@@ -84,7 +84,7 @@ int valid_leave(object me, string dir)
 			}
 		}
 	}
-	return notify_fail(sprintf("%sÀ¹ÔÚÄãÃæÇ°£¬ºÈµÀ£º" + RANK_D->query_rude(me) + "²»µÃÎŞÀñ£¡ºóÃæÊÇ°ïÖ÷µÄÎÔ·¿¡£\n", ob->name()));
+	return notify_fail(sprintf("%sæ‹¦åœ¨ä½ é¢å‰ï¼Œå–é“ï¼š" + RANK_D->query_rude(me) + "ä¸å¾—æ— ç¤¼ï¼åé¢æ˜¯å¸®ä¸»çš„å§æˆ¿ã€‚\n", ob->name()));
 }
 
 void destroy_beauty(object me, object leader)
@@ -100,10 +100,10 @@ void destroy_beauty(object me, object leader)
 	if( room != environment(leader) ) { destruct(me); return; }
 	if( !(ob = present("shijian", room)) ) { destruct(me); return; }
 	if( !living(ob) ) { destruct(me); return; }
-	message_vision("$N¶Ô$nºÈµÀ£ºÎÒÒª¸øÕâÎ»Ğ¡½ã¸üÒÂ£¬Äã¿ì³öÈ¥°É£¡\n", ob, leader);
-	message_vision("$N·ÉÆğÒ»½Å½«$nÌßÁË³öÈ¥¡£\n", ob, leader);
+	message_vision("$Nå¯¹$nå–é“ï¼šæˆ‘è¦ç»™è¿™ä½å°å§æ›´è¡£ï¼Œä½ å¿«å‡ºå»å§ï¼\n", ob, leader);
+	message_vision("$Né£èµ·ä¸€è„šå°†$nè¸¢äº†å‡ºå»ã€‚\n", ob, leader);
 	leader->move(this_object());
-	message("vision", leader->name() + "±»ÈË´ÓÎÔ·¿ÖĞÌßÁË³öÀ´£¬ÀÇ±·²»¿°¡£\n", this_object(), ({leader}));
+	message("vision", leader->name() + "è¢«äººä»å§æˆ¿ä¸­è¸¢äº†å‡ºæ¥ï¼Œç‹¼ç‹ˆä¸å ªã€‚\n", this_object(), ({leader}));
 
 	destruct(me);
 }

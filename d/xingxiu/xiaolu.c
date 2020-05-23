@@ -6,18 +6,18 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "Ğ¡Â·");
+	set("short", "å°è·¯");
 	set("long", @LONG
-Äã×ßÔÚÒ»ÌõÔÚĞÇËŞº£º£±ßÂÒÊ¯¶ÑÀïÆéá«µÄĞ¡Â·ÉÏ£¬Â·±ßÓĞÒ»ÈºĞÇËŞ
-µÜ×ÓÕıÔÚ³¤Ğ¥Á·¹¦¡£ÕâÀï£¬Òõ·çÁİÙı£¬Î÷ÃæÊÇÍûºÆºÆ°ÙÀï·½Ô²µÄĞÇËŞº£¡£
-¶«ÃæÊÇ×ù¶¸ÇÍÖ®¼«µÄÉ½±Ú£¬±ÚÉÏÓĞÒ»Í¹³öµÄ¾ŞÊ¯(jushi) ¡£
+ä½ èµ°åœ¨ä¸€æ¡åœ¨æ˜Ÿå®¿æµ·æµ·è¾¹ä¹±çŸ³å †é‡Œå´å²–çš„å°è·¯ä¸Šï¼Œè·¯è¾¹æœ‰ä¸€ç¾¤æ˜Ÿå®¿
+å¼Ÿå­æ­£åœ¨é•¿å•¸ç»ƒåŠŸã€‚è¿™é‡Œï¼Œé˜´é£å‡›å†½ï¼Œè¥¿é¢æ˜¯æœ›æµ©æµ©ç™¾é‡Œæ–¹åœ†çš„æ˜Ÿå®¿æµ·ã€‚
+ä¸œé¢æ˜¯åº§é™¡å³­ä¹‹æçš„å±±å£ï¼Œå£ä¸Šæœ‰ä¸€å‡¸å‡ºçš„å·¨çŸ³(jushi) ã€‚
 LONG);
 	set("exits", ([
 		"west"    : __DIR__"xxh1",
 		"northup" : __DIR__"shanbi",
 	]));
 	set("item_desc", ([
-		"jushi" : "Ò»ÊıÃ×¸ßµÄºÚºÖÉ«¾ŞÊ¯¡£\n"
+		"jushi" : "ä¸€æ•°ç±³é«˜çš„é»‘è¤è‰²å·¨çŸ³ã€‚\n"
 	]));
 	set("objects", ([
 		CLASS_D("xingxiu")+"/tianlang"  : 1,
@@ -45,21 +45,21 @@ int do_pa(string arg)
 	if( !arg || arg=="" ) return 0;
 	if( arg=="jushi" )
 	{
-		if ((!myfam || myfam["family_name"] != "ĞÇËŞÅÉ") &&
+		if ((!myfam || myfam["family_name"] != "æ˜Ÿå®¿æ´¾") &&
 			(present("tianlang zi", environment(me)))) 
-			return notify_fail("ÌìÀÇ×ÓÉÁÉíÀ¹ÔÚÄãÃæÇ°, ºÈµÀ£º²»ÏëËÀµÄ¾Í¿ì¹ö¿ª£¡\n");
+			return notify_fail("å¤©ç‹¼å­é—ªèº«æ‹¦åœ¨ä½ é¢å‰, å–é“ï¼šä¸æƒ³æ­»çš„å°±å¿«æ»šå¼€ï¼\n");
 		if(me->query_skill("dodge") < 100)
-			return notify_fail("ÄãÏëÅÀÉÏ¾ŞÊ¯£¬ÔõÄÎÉí·¨²»¹»ÉÏ²»È¥¡£\n");       
-		message_vision("$NºÜ·Ñ¾¢µØÅÀÉÏ¾ŞÊ¯¡£\n", me);
-		message("vision", me->name() + "Ò»×ªÑÛ±ãÏûÊ§ÔÚÉ½±ÚÉÏ¡£\n", environment(me), ({me}) );
+			return notify_fail("ä½ æƒ³çˆ¬ä¸Šå·¨çŸ³ï¼Œæ€å¥ˆèº«æ³•ä¸å¤Ÿä¸Šä¸å»ã€‚\n");       
+		message_vision("$Nå¾ˆè´¹åŠ²åœ°çˆ¬ä¸Šå·¨çŸ³ã€‚\n", me);
+		message("vision", me->name() + "ä¸€è½¬çœ¼ä¾¿æ¶ˆå¤±åœ¨å±±å£ä¸Šã€‚\n", environment(me), ({me}) );
 		if ( time()-me->query_temp("LAST_PKER_TIME")<7200)
 		{
-			write( WHT"ÄãÅÀÉÏ¾ŞÊ¯£¬È´·¢ÏÖÉÏÃæÒÑÎŞÈİÉíÖ®´¦£¬Ö»ºÃã¬ã¬µÄÍËÁËÏÂÀ´¡£\n"NOR );
+			write( WHT"ä½ çˆ¬ä¸Šå·¨çŸ³ï¼Œå´å‘ç°ä¸Šé¢å·²æ— å®¹èº«ä¹‹å¤„ï¼Œåªå¥½æ‚»æ‚»çš„é€€äº†ä¸‹æ¥ã€‚\n"NOR );
 			me->move( __DIR__"xiaolu" );
 			return 1;
 		}
 		me->move(__DIR__"jushi");
-		message("vision", me->name() + "´ÓÉ½±ÚÏÂÅÀÁËÉÏÀ´¡£\n", environment(me), ({me}) );
+		message("vision", me->name() + "ä»å±±å£ä¸‹çˆ¬äº†ä¸Šæ¥ã€‚\n", environment(me), ({me}) );
 		return 1;
 	}
 }

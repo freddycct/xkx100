@@ -1,5 +1,5 @@
 // Last Modified by winder on Apr. 25 2001
-// ¿´ÁÙÊ±²ÎÊıµÄÃüÁîÎÄ¼ş
+// çœ‹ä¸´æ—¶å‚æ•°çš„å‘½ä»¤æ–‡ä»¶
 inherit F_CLEAN_UP;
 
 #include <login.h>
@@ -25,10 +25,10 @@ int main(object me, string arg)
 	sum += DISASTER_D->query_children("/clone/haojie/pker3.c");
 	sum += DISASTER_D->query_children("/clone/haojie/pker2.c");
 	sum += DISASTER_D->query_children("/clone/haojie/pker1.c");
-	write("±»É± NPCÈËÊı£º"+i+"\n");
-	write("ÏµÍ³·âËø×´Ì¬£º"+j+"\n");
-	write("·âËø³ÖĞøÊ±¼ä£º"+time_period(tim)+"\n");
-	write("µ±Ç°É±ÊÖÊıÁ¿£º"+sum+"\n");
+	write("è¢«æ€ NPCäººæ•°ï¼š"+i+"\n");
+	write("ç³»ç»Ÿå°é”çŠ¶æ€ï¼š"+j+"\n");
+	write("å°é”æŒç»­æ—¶é—´ï¼š"+time_period(tim)+"\n");
+	write("å½“å‰æ€æ‰‹æ•°é‡ï¼š"+sum+"\n");
         return 1;
 }
 
@@ -36,18 +36,18 @@ string time_period(int timep)
 {
 	int t, d, h, m, s;
 	string time;
-	if ( timep>=1800 ) return "ÒÑ³¬Ê±";
+	if ( timep>=1800 ) return "å·²è¶…æ—¶";
 	t = timep;
 	s = t % 60;	t /= 60;
 	m = t % 60;	t /= 60;
 	h = t % 24;	t /= 24;
 	d = t;
 
-	if(d) time = chinese_number(d) + "Ìì";
+	if(d) time = chinese_number(d) + "å¤©";
 	else time = "";
 
-	if(h) time += chinese_number(h) + "Ğ¡Ê±";
-	if(m) time += chinese_number(m) + "·Ö";
-	time += chinese_number(s) + "Ãë";
+	if(h) time += chinese_number(h) + "å°æ—¶";
+	if(m) time += chinese_number(m) + "åˆ†";
+	time += chinese_number(s) + "ç§’";
 	return time;
 }

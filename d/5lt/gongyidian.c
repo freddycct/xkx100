@@ -4,11 +4,11 @@ inherit  ROOM;
 
 void  create  ()
 {
-	set  ("short",  "��乤��Ʒ��");
+	set  ("short",  "民间工艺品店");
 	set  ("long",  @LONG
-����һ����ɫ�������乤��Ʒ�̵ꡣ���ڰ������Ϻõ���̴ľ��
-�ߣ�����������ŵ����ղصĸ���������Ʒ��ǽ��������˵����Լ�
-���Ƶ�Ascii������
+这是一个古色古香的民间工艺品商店。房内摆设着上好的香檀木家
+具，柜子里陈列着店主收藏的各种名贵工艺品，墙上则挂满了店主自己
+绘制的Ascii名画。
 LONG);
 	set("exits",  ([  //sizeof()  ==  1
 		"south"  :  __DIR__"wroad1",

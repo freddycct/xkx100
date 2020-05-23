@@ -4,9 +4,9 @@ inherit NPC;
 
 void create()
 {
-	set_name("ÑîÁ«Í¤", ({ "yang lianting", "yang" }));
-	set("long","ËûÉíĞÎ¿ıÎà£¬ÂúÁ³ò°÷×£¬ĞÎÃ²¼«ÎªĞÛ½¡¡£\n");
-        set("gender", "ÄĞĞÔ");
+	set_name("æ¨è²äº­", ({ "yang lianting", "yang" }));
+	set("long","ä»–èº«å½¢é­æ¢§ï¼Œæ»¡è„¸è™¬é«¯ï¼Œå½¢è²Œæä¸ºé›„å¥ã€‚\n");
+        set("gender", "ç”·æ€§");
 	set("age", 40);
 	set("per", 29);
 
@@ -20,8 +20,8 @@ void create()
 
 	set("combat_exp", 50000);
 	set("shen_type", -1);
-	set("party/party_name", HIB"ÈÕÔÂÉñ½Ì"NOR);
-	set("party/rank", CYN"×ÜÌ³×Ü¹Ü"NOR);
+	set("party/party_name", HIB"æ—¥æœˆç¥æ•™"NOR);
+	set("party/rank", CYN"æ€»å›æ€»ç®¡"NOR);
 	setup();
 	add_money("silver", 50);
 	carry_object(__DIR__"obj/yaoshi");

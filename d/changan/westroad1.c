@@ -4,11 +4,11 @@ inherit  ROOM;
 
 void  create  ()
 {
-	set  ("short",  "�����");
+	set  ("short",  "西大街");
 	set  ("long",  @LONG
-�������ڳ���������ϣ��Ͼ���Ϊ�೯�Ŷ������ɷǱ�Ѱ�����ϱ�
-�Ǳ��֣������Ǹ����ֵĿ�ջ�����Ը��ص����ǽ�����������˵Ҳ����
-���ǵ��Ļ�ص㡣
+你正走在长安西大街上，毕竟曾为多朝古都，气派非比寻常。南边
+是碑林，北边是个热闹的客栈，来自各地的人们进进出出，据说也是情
+人们的幽会地点。
 LONG);
 	set("exits",  ([  //sizeof()  ==  4
 		"west"  :  __DIR__"westgate",

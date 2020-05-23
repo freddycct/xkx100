@@ -5,10 +5,10 @@ inherit ROOM;
 
 void create()
 {
-        set("short", "���㾶");
+        set("short", "采香径");
         set("long",@long
-������Ϊ���㾶���ֳơ�һ����������Ϫ�������������ʩ��ɽ֮
-�ؾ�֮ˮ����Ҳ��Խ����ʱ�����Я��ʩ����С�۳���֮����
+这里名为采香径，又称“一箭径”，此溪乃吴王夫差陪西施游山之
+必经之水道，也是越伐吴时，范蠡携西施，驾小舟出逃之处。
 long);
 	set("outdoors", "suzhou");
 	set("exits",([

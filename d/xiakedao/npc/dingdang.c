@@ -1,14 +1,14 @@
-// dingdang.c ¶¡µ±
+// dingdang.c ä¸å½“
 
 inherit NPC;
 string inquiry_yu();
 
 void create()
 {
-	set_name("¶¡µ±", ({ "ding dang","ding"}) );
-	set("gender", "Å®ÐÔ" );
+	set_name("ä¸å½“", ({ "ding dang","ding"}) );
+	set("gender", "å¥³æ€§" );
 	set("age", 18);
-	set("long", "Ò»¸öÊ®Æß°ËËêµÄÉÙÅ®£¬Éí´©µ­ÂÌÉÀ×Ó£¬Ò»ÕÅ¹Ï×ÓÁ³£¬ÐãÀöÃÀÑÞ¡£\n");
+	set("long", "ä¸€ä¸ªåä¸ƒå…«å²çš„å°‘å¥³ï¼Œèº«ç©¿æ·¡ç»¿è¡«å­ï¼Œä¸€å¼ ç“œå­è„¸ï¼Œç§€ä¸½ç¾Žè‰³ã€‚\n");
 	set("shen_type", 1);
 	set("combat_exp", 100000);
 	set("str", 18);
@@ -41,15 +41,15 @@ void create()
 	set("chat_change",15);
 
 	set("chat_msg",({
-		"¶¡µ±Äîß¶×Å: Ò²²»ÖªµÀÎÒµÄÓñ¸ç¸çÏÖÔÚÔõÃ´ÑùÁË¡£\n",
-		"¶¡µ±°µ°µÄ¨ÁË°ÑÑÛÀá¡£\n",
-		"¶¡µ±Ò»¶å½Å£¬ËµµÀ: ²»ÐÐ£¬ÎÒÒªÉÏÄ¦ÌìÑÂ°ÑÎÒµÄÓñ¸ç¸ç¾È»ØÀ´¡£\n",
-		"¶¡µ±Ì¾ÁË¿ÚÆø£¬ËµµÀ: ÒªÊÇÓÐÐþÌúÁî¾ÍºÃÁË¡£\n",
+		"ä¸å½“å¿µå¨ç€: ä¹Ÿä¸çŸ¥é“æˆ‘çš„çŽ‰å“¥å“¥çŽ°åœ¨æ€Žä¹ˆæ ·äº†ã€‚\n",
+		"ä¸å½“æš—æš—æŠ¹äº†æŠŠçœ¼æ³ªã€‚\n",
+		"ä¸å½“ä¸€è·ºè„šï¼Œè¯´é“: ä¸è¡Œï¼Œæˆ‘è¦ä¸Šæ‘©å¤©å´–æŠŠæˆ‘çš„çŽ‰å“¥å“¥æ•‘å›žæ¥ã€‚\n",
+		"ä¸å½“å¹äº†å£æ°”ï¼Œè¯´é“: è¦æ˜¯æœ‰çŽ„é“ä»¤å°±å¥½äº†ã€‚\n",
 	}) );
 	set("inquiry",([
-		"Ê¯ÖÐÓñ" : (: inquiry_yu :),
-		"Ä¦ÌìÑÂ" : "Ç°ÃæÕâ×ùÉ½¾ÍÊÇÁË£¬ÄãÒªÐ¡ÐÄÑ½£¬ÄÇ¸öÀÏÍ·µÄÎä¹¦ºÃÇ¿Ñ½¡£\n",
-		"ÐþÌúÁî" : "¾ÝËµÊÇÔÚÊ¯ÆÆÌìÊÖÀï£¬Õæ¼ÙÎÒ¾Í²»ÖªµÀÁË¡£\n",
+		"çŸ³ä¸­çŽ‰" : (: inquiry_yu :),
+		"æ‘©å¤©å´–" : "å‰é¢è¿™åº§å±±å°±æ˜¯äº†ï¼Œä½ è¦å°å¿ƒå‘€ï¼Œé‚£ä¸ªè€å¤´çš„æ­¦åŠŸå¥½å¼ºå‘€ã€‚\n",
+		"çŽ„é“ä»¤" : "æ®è¯´æ˜¯åœ¨çŸ³ç ´å¤©æ‰‹é‡Œï¼ŒçœŸå‡æˆ‘å°±ä¸çŸ¥é“äº†ã€‚\n",
 	]) );
 	set_temp("shoupa",1);
 	setup();
@@ -63,17 +63,17 @@ string inquiry_yu()
 	object me=this_player();
 	object obn;
 
-	message_vision("¶¡µ±ËµµÀ£ºÕâÎ»"+ RANK_D->query_respect(me)+"£¬Óñ¸ç¸çÊÇÎÒµÄ·ò¾ý£¬\n"+"¿ÉÊÇÈ¥ÄêÔÚÑ©É½ÅÉ±»Ð»ÑÌ¿Í×¥È¥£¬Çô½ûÆðÀ´¡£ÏÖÔÚÒ²²»ÖªÊÇËÀÊÇ»î¡£°¦£¡\n", me );
+	message_vision("ä¸å½“è¯´é“ï¼šè¿™ä½"+ RANK_D->query_respect(me)+"ï¼ŒçŽ‰å“¥å“¥æ˜¯æˆ‘çš„å¤«å›ï¼Œ\n"+"å¯æ˜¯åŽ»å¹´åœ¨é›ªå±±æ´¾è¢«è°¢çƒŸå®¢æŠ“åŽ»ï¼Œå›šç¦èµ·æ¥ã€‚çŽ°åœ¨ä¹Ÿä¸çŸ¥æ˜¯æ­»æ˜¯æ´»ã€‚å”‰ï¼\n", me );
 	if(query_temp("shoupa")==0)
 	{
-		message_vision("¶¡µ±ÓÖËµµÀ£ºÕâÎ»"+ RANK_D->query_respect(me)+"£¬ÎÒÒÑ¾­ÍÐ"+"ÈËÈ¥Ä¦ÌìÑÂ¿´¿´ÁË£¬Ò²²»ÖªµÀÔõÃ´ÑùÁË¡£\n",me);
-		return "Õæ¼±ÈË£¡";
+		message_vision("ä¸å½“åˆè¯´é“ï¼šè¿™ä½"+ RANK_D->query_respect(me)+"ï¼Œæˆ‘å·²ç»æ‰˜"+"äººåŽ»æ‘©å¤©å´–çœ‹çœ‹äº†ï¼Œä¹Ÿä¸çŸ¥é“æ€Žä¹ˆæ ·äº†ã€‚\n",me);
+		return "çœŸæ€¥äººï¼";
 	}
-	message_vision("¶¡µ±´Ó»³ÀïÄÃ³öÒ»¸öÆ¯ÁÁµÄÊÖÅÁ£¬½»¸ø$N¡£\n", me);
+	message_vision("ä¸å½“ä»Žæ€€é‡Œæ‹¿å‡ºä¸€ä¸ªæ¼‚äº®çš„æ‰‹å¸•ï¼Œäº¤ç»™$Nã€‚\n", me);
 	obn=new("/d/xiakedao/obj/shoupa");
 	obn->move(me);
 	set_temp("shoupa",0);
 	
-	return "ÕâÎ»" +RANK_D->query_respect(me)+"£¬ÎÒÕâÀïÓÐÒ»¸öÊÖÅÁ£¬ÊÇÎÒËæÉíÖ®Îï£¬Äã¿´µ½ÎÒµÄÓñ¸ç¸ç\nÄã¾Í°ÑÊÖÅÁ½»¸øËû£¬Ëû»áÃ÷°×µÄ¡£°ÝÍÐÁË¡£";
+	return "è¿™ä½" +RANK_D->query_respect(me)+"ï¼Œæˆ‘è¿™é‡Œæœ‰ä¸€ä¸ªæ‰‹å¸•ï¼Œæ˜¯æˆ‘éšèº«ä¹‹ç‰©ï¼Œä½ çœ‹åˆ°æˆ‘çš„çŽ‰å“¥å“¥\nä½ å°±æŠŠæ‰‹å¸•äº¤ç»™ä»–ï¼Œä»–ä¼šæ˜Žç™½çš„ã€‚æ‹œæ‰˜äº†ã€‚";
 }
 

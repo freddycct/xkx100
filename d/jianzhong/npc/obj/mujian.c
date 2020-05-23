@@ -5,14 +5,14 @@ inherit SWORD;
 
 void create()
 {
-       set_name("Ä¾½£", ({ "mu jian", "jian", "sword" }) );
+       set_name("æœ¨å‰‘", ({ "mu jian", "jian", "sword" }) );
        set_weight(300);
 	if( clonep() )
 		set_default_object(__FILE__);
 	else {
-	       set("unit", "°Ñ");
+	       set("unit", "æŠŠ");
        	set("long",HIC@LONG
-Õâ°Ñ½£ÇáÆ®Æ®µÄ»ëËÆÎŞÎï£¬ÊÇÄ¾Í·Ï÷³ÉµÄ£¬½£Éí½£±ú¶¼ÓĞĞ©¸¯ĞàÁË¡£
+è¿™æŠŠå‰‘è½»é£˜é£˜çš„æµ‘ä¼¼æ— ç‰©ï¼Œæ˜¯æœ¨å¤´å‰Šæˆçš„ï¼Œå‰‘èº«å‰‘æŸ„éƒ½æœ‰äº›è…æœ½äº†ã€‚
 LONG
 NOR
 );

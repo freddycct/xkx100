@@ -1,4 +1,4 @@
-// zhengting.c ����
+// zhengting.c 正厅
 // Java Oct.10 1998
 
 #include <ansi.h>
@@ -6,11 +6,11 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "����");
+	set("short", "正厅");
 	set("long", @LONG
-�����ǹ�Ĺ������������Ӧ��ͣ�����ѹ�ľ֮��Ķ�����ȴ��֪��
-���˰㵽����ȥ�ˡ������ж˰���һ�Ŵ�ʯ�Σ������ϰڷ���һЩʯͷ
-���ɵĳ����м���һ�Ŵ�ʯ����
+这里是古墓的正厅，本来应该停放灵柩棺木之类的东西，却不知道
+被人般到哪里去了。厅正中端摆着一张大石椅，厅角上摆放着一些石头
+做成的橱柜，中间是一张大石桌。
 LONG	);
 	set("exits", ([
 		"west"  : __DIR__"mudao15",

@@ -1,4 +1,4 @@
-// huntian-qigong.c »ìÌìÆø¹¦
+// huntian-qigong.c æ··å¤©æ°”åŠŸ
 // Last Modified by winder on Mar. 10 2000
 
 #include <ansi.h>
@@ -22,14 +22,14 @@ int valid_learn(object me)
 	for (j = 1; j < i / 10; j++) t*= 2;
 
 	if (i > 10 && ((int)me->query("shen") > t * 100 || (int)me->query("shen") < t * (-100)))
-		return notify_fail("Ñ§»ìÌìÆø¹¦£¬Òª²»Õı²»Ğ°¡¢ÒàÕıÒàĞ°£¬Äã¿É×öµÃ²»¹»Ñ½£¡\n");
+		return notify_fail("å­¦æ··å¤©æ°”åŠŸï¼Œè¦ä¸æ­£ä¸é‚ªã€äº¦æ­£äº¦é‚ªï¼Œä½ å¯åšå¾—ä¸å¤Ÿå‘€ï¼\n");
 
 	return valid_public(me);
 }
 
 int practice_skill(object me)
 {
-	return notify_fail("»ìÌìÆø¹¦Ö»ÄÜÓÃÑ§(learn)µÄÀ´Ôö¼ÓÊìÁ·¶È¡£\n");
+	return notify_fail("æ··å¤©æ°”åŠŸåªèƒ½ç”¨å­¦(learn)çš„æ¥å¢åŠ ç†Ÿç»ƒåº¦ã€‚\n");
 }
 
 string exert_function_file(string func)
@@ -38,13 +38,13 @@ string exert_function_file(string func)
 }
 int help(object me)
 {
-	write(HIC"\n»ìÌìÆø¹¦£º"NOR"\n"); 
+	write(HIC"\næ··å¤©æ°”åŠŸï¼š"NOR"\n"); 
 	write(@HELP
 
-    »ìÌìÆø¹¦ÎªØ¤°ï±¾ÃÅÄÚ¹¦¡£ 
+    æ··å¤©æ°”åŠŸä¸ºä¸å¸®æœ¬é—¨å†…åŠŸã€‚ 
 
-	Ñ§Ï°ÒªÇó£º
-		Ñ§»ìÌìÆø¹¦£¬Òª²»Õı²»Ğ°¡¢ÒàÕıÒàĞ°
+	å­¦ä¹ è¦æ±‚ï¼š
+		å­¦æ··å¤©æ°”åŠŸï¼Œè¦ä¸æ­£ä¸é‚ªã€äº¦æ­£äº¦é‚ª
 HELP
 	);
 	return 1;

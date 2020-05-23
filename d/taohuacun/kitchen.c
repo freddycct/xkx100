@@ -11,12 +11,12 @@ void  create()
 	int line;
 	string st,ss,*str;
 
-	set("short","³ø·¿");
+	set("short","å¨æˆ¿");
 	set("long",@LONG
-Ò»¼ä³ø·¿£¬ÓÍÑÎ½´´×ÑùÑù¾ãÈ«£¬°ÚµÃÂúÔîÍ·¶¼ÊÇ¡£Ôîµ×»ğÍ·Õı´ó£¬
-ÔîÉÏ´óÌú¹ø¸øÉÕµÃ¡°Ë»Ë»¡±ÇáÏì£¬Ã°×ÅÇåÑÌ¡£Ç½ÉÏÌù×ÅÒ»ÕÅÓÍÄåÄåµÄÖ½
-Æ¬¿´ÆğÀ´(list)ÏóÊÇ²Ëµ¥¡£Äã¿ÉÒÔÊÖÑ÷ÆğÀ´£¬Ò²ÏëÔÚÕâÀïÕÕµ¥×Ô¼º×öµã
-¿É¿Ú²ËëÈ(cook)¡£
+ä¸€é—´å¨æˆ¿ï¼Œæ²¹ç›é…±é†‹æ ·æ ·ä¿±å…¨ï¼Œæ‘†å¾—æ»¡ç¶å¤´éƒ½æ˜¯ã€‚ç¶åº•ç«å¤´æ­£å¤§ï¼Œ
+ç¶ä¸Šå¤§é“é”…ç»™çƒ§å¾—â€œå˜¶å˜¶â€è½»å“ï¼Œå†’ç€æ¸…çƒŸã€‚å¢™ä¸Šè´´ç€ä¸€å¼ æ²¹è…»è…»çš„çº¸
+ç‰‡çœ‹èµ·æ¥(list)è±¡æ˜¯èœå•ã€‚ä½ å¯ä»¥æ‰‹ç—’èµ·æ¥ï¼Œä¹Ÿæƒ³åœ¨è¿™é‡Œç…§å•è‡ªå·±åšç‚¹
+å¯å£èœè‚´(cook)ã€‚
 LONG
 );
 	set("no_fight",1);
@@ -60,11 +60,11 @@ int  do_list()
 	object ob;
 	string line = "";
 
-        line = HIC"\n¡Ô" HIY "©¤©¤©¤©¤©¤©¤©¤©¤©¤" HIG "¡¾ÏÀ¿ÍĞĞÒ»°Ù²ËÆ×¡¿" HIY "©¤©¤©¤©¤©¤©¤©¤©¤©¤" HIC "¡Ô\n" NOR; 
+        line = HIC"\nâ‰¡" HIY "â”€â”€â”€â”€â”€â”€â”€â”€â”€" HIG "ã€ä¾ å®¢è¡Œä¸€ç™¾èœè°±ã€‘" HIY "â”€â”€â”€â”€â”€â”€â”€â”€â”€" HIC "â‰¡\n" NOR; 
 	for ( i = 0; i < sizeof( query( "menus" ) ); i++ ) {
 		ob = new( __DIR__"npc/obj/" + keys( query( "menus" ) )[i] );
 		if ( objectp( ob ) )
-			line += sprintf( "		" HIC "¡ï" NOR "%s\n", ob->short() );
+			line += sprintf( "		" HIC "â˜…" NOR "%s\n", ob->short() );
 		line += "\n  ";
 		for ( j = 0; j < sizeof ( values( query( "menus" ) )[i] ); j++ ) {
 			ob = new( __DIR__"npc/obj/" + values( query( "menus" ) )[i][j] );
@@ -73,9 +73,9 @@ int  do_list()
 		}
 		line += "\n";
 		if ( i < sizeof( query( "menus" ) ) - 1 )
-			line += HIY "  ©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤ \n" NOR;
+			line += HIY "  â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ \n" NOR;
 	}
-	line += HIC "¡Ô" HIY "©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤" HIC "¡Ô\n" NOR; 	
+	line += HIC "â‰¡" HIY "â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€" HIC "â‰¡\n" NOR; 	
 	this_player()->start_more( line );
 	
 	return 1;	
@@ -91,10 +91,10 @@ int do_cook( string arg )
 
 	sklvl = me->query_skill("cookery",1);
 	if ( cooker != "" && cooker != me->query("id") )
-		return notify_fail( "´óÊ¦¸µËµµÀ£ºÒÑ¾­ÓĞÈËÔÚ×ö²ËÁË£¬ÄãµÃµÈÒ»»á¶ù¡£\n" );
+		return notify_fail( "å¤§å¸ˆå‚…è¯´é“ï¼šå·²ç»æœ‰äººåœ¨åšèœäº†ï¼Œä½ å¾—ç­‰ä¸€ä¼šå„¿ã€‚\n" );
 	if ( cooker == me->query("id") )
-		return notify_fail( "´óÊ¦¸µËµµÀ£ºÄãÒÑ¾­ÔÚ×ö²ËÁË¡£\n" );	
-	if ( !stringp( arg ) ) return notify_fail("´óÊ¦¸µËµµÀ£ºÄãÒªÖóÊ²Ã´£¿\n");
+		return notify_fail( "å¤§å¸ˆå‚…è¯´é“ï¼šä½ å·²ç»åœ¨åšèœäº†ã€‚\n" );	
+	if ( !stringp( arg ) ) return notify_fail("å¤§å¸ˆå‚…è¯´é“ï¼šä½ è¦ç…®ä»€ä¹ˆï¼Ÿ\n");
 	for ( i = 0; i < sizeof( query("menus") ); i ++ )
 	{
 		ob = new( __DIR__"npc/obj/" + keys( query( "menus" ) )[i] );
@@ -105,13 +105,13 @@ int do_cook( string arg )
 	if ( i >= sizeof( query( "menus" ) ) )
 	{
 		if ( objectp(ob) ) destruct(ob);
-		return notify_fail( "´óÊ¦¸µÒ¡ÁËÒ¡Í·£¬ËµµÀ£ºÄã²»»á×öÕâµÀ²Ë¡£\n");
+		return notify_fail( "å¤§å¸ˆå‚…æ‘‡äº†æ‘‡å¤´ï¼Œè¯´é“ï¼šä½ ä¸ä¼šåšè¿™é“èœã€‚\n");
 	}
 	str = values( query( "menus" ) )[i];
 	if ( sizeof( str ) * 20 > sklvl )
 	{
 		destruct(ob);
-		return notify_fail( "´óÊ¦¸µËµµÀ£ºÄãÄ¿Ç°µÄÊÖÒÕ×ö²»ºÃÕâµÀ²Ë¡£\n");
+		return notify_fail( "å¤§å¸ˆå‚…è¯´é“ï¼šä½ ç›®å‰çš„æ‰‹è‰ºåšä¸å¥½è¿™é“èœã€‚\n");
 	}
 	for ( i = 0; i < sizeof( str ); i++ )
 	{
@@ -121,13 +121,13 @@ int do_cook( string arg )
                		ob_name   = ob->query("name");
                		if ( objectp(ob) ) destruct(ob);
                		destruct(obj);
-		        return notify_fail( "´óÊ¦¸µĞ¦×ÅËµµÀ£ºÃ»ÓĞ" + base_name + "ÔõÃ´×ö" + ob_name + "£¿\n" );
+		        return notify_fail( "å¤§å¸ˆå‚…ç¬‘ç€è¯´é“ï¼šæ²¡æœ‰" + base_name + "æ€ä¹ˆåš" + ob_name + "ï¼Ÿ\n" );
 		}
 		objs += ({obj});
 	}
 	for ( i = 0; i < sizeof( objs ); i++ ) 
 	  	destruct( objs[i] );
-	message_vision( "$N¿ªÊ¼×ö" + ob->query( "name" ) + "¡£\n", me );
+	message_vision( "$Nå¼€å§‹åš" + ob->query( "name" ) + "ã€‚\n", me );
 	cooker = me->query( "id" );
 	time = 5 + random( 10 );
 	me->start_busy(time);
@@ -139,7 +139,7 @@ void do_finish( object ob, object me )
 {
 	if ( environment( me ) != this_object() )  return;
 	message_vision( HIC + ob->query( "cook_msg" ) + NOR, me );
-	message_vision( ob->query( "name" ) + "×ö³ÉÁË£¡\n\n", me );
+	message_vision( ob->query( "name" ) + "åšæˆäº†ï¼\n\n", me );
 	ob->move( me );
 	cooker = "";
 	ob->set("values",me->query_skill("cookery",1));

@@ -8,11 +8,11 @@ int do_open();
 int do_close();
 void create()
 {
-	set("short", "ĞİÏ¢ÊÒ");
+	set("short", "ä¼‘æ¯å®¤");
 	set("long", @LONG
-ÕâÊÇÒ»¸öºÚ°µµÄ´ó·¿¼ä¡£´°»§ÓÃºñºñµÄÁ±×ÓÕÚ×¡£¬²»Â¶Ë¿ºÁ¹âÁÁ¡£
-ÎİÄÚÕûÆëµÄÅÅÁĞ×ÅÊ®¼¸ÕÅÄ¾°å´î³ÉµÄ´²ÆÌ£¬¿ÉÒÔÈÃÁ·¹¦ºóµÄ°ïÖÚ¼°Ê±µÃ
-µ½ĞİÏ¢¡£ÕâÀï¾²ÇÄÇÄµÄ£¬ºÚ°µÖĞÅ¼¶û´«À´ÇåÎ¢µÄ÷ıÉù¡£
+è¿™æ˜¯ä¸€ä¸ªé»‘æš—çš„å¤§æˆ¿é—´ã€‚çª—æˆ·ç”¨åšåšçš„å¸˜å­é®ä½ï¼Œä¸éœ²ä¸æ¯«å…‰äº®ã€‚
+å±‹å†…æ•´é½çš„æ’åˆ—ç€åå‡ å¼ æœ¨æ¿æ­æˆçš„åºŠé“ºï¼Œå¯ä»¥è®©ç»ƒåŠŸåçš„å¸®ä¼—åŠæ—¶å¾—
+åˆ°ä¼‘æ¯ã€‚è¿™é‡Œé™æ‚„æ‚„çš„ï¼Œé»‘æš—ä¸­å¶å°”ä¼ æ¥æ¸…å¾®çš„é¼¾å£°ã€‚
 LONG );
 	set("sleep_room", 1);
 	set("no_fight", 1);
@@ -37,9 +37,9 @@ void close_men()
 	if(objectp(room))
 	{
 		delete("exits/south");
-			message("vision", "ÃÅÖ¨Ö¨Ñ½Ñ½µØ×Ô¼ººÏÉÏÁË¡£\n", this_object());
+			message("vision", "é—¨å±å±å‘€å‘€åœ°è‡ªå·±åˆä¸Šäº†ã€‚\n", this_object());
 		room->delete("exits/north");
-		message("vision", "ÃÅÖ¨Ö¨Ñ½Ñ½µØ×Ô¼ººÏÉÏÁË¡£\n", room);
+		message("vision", "é—¨å±å±å‘€å‘€åœ°è‡ªå·±åˆä¸Šäº†ã€‚\n", room);
 	}
 }
 int do_tui(string arg)
@@ -48,25 +48,25 @@ int do_tui(string arg)
 	object me = this_player();
 
 	if (query("exits/south"))
-		return notify_fail("´óÃÅÒÑ¾­ÊÇ¿ª×ÅÁË¡£\n");
+		return notify_fail("å¤§é—¨å·²ç»æ˜¯å¼€ç€äº†ã€‚\n");
 
 	if (arg != "men" && arg != "door" && arg != "south")
-		return notify_fail("ÄãÒª¿ªÊ²Ã´£¿\n");
+		return notify_fail("ä½ è¦å¼€ä»€ä¹ˆï¼Ÿ\n");
 
 	if(!( room = find_object(__DIR__"zoulang4")) )
 		room = load_object(__DIR__"zoulang4");
 	if(objectp(room))
 	{
 		set("exits/south", __DIR__"zoulang4");
-		message_vision("$NÇáÊÖÇá½ÅµØ°ÑÃÅ´ò¿ª¡£\n", this_player());
+		message_vision("$Nè½»æ‰‹è½»è„šåœ°æŠŠé—¨æ‰“å¼€ã€‚\n", this_player());
 		room->set("exits/north", __FILE__);
 		
 		if (me->query_temp("sleeped"))
 		{
-			message("vision", "Ö¨µØÒ»Éù£¬"+me->query("name")+"´ÓÀïÃæ°ÑÃÅ´ò¿ªÁË¡£\n", room);
+			message("vision", "å±åœ°ä¸€å£°ï¼Œ"+me->query("name")+"ä»é‡Œé¢æŠŠé—¨æ‰“å¼€äº†ã€‚\n", room);
 		} else 
 		{
-			message("vision", "Ö¨µØÒ»Éù£¬"+me->query("name")+"´ÓÀïÃæ°ÑÃÅ´ò¿ª¡£\n", room);
+			message("vision", "å±åœ°ä¸€å£°ï¼Œ"+me->query("name")+"ä»é‡Œé¢æŠŠé—¨æ‰“å¼€ã€‚\n", room);
 		}	
 		remove_call_out("close_men");
 		call_out("close_men", 10);

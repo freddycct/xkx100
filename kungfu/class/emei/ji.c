@@ -1,4 +1,4 @@
-// ji.c ¼ÍÏþÜ½
+// ji.c çºªæ™“èŠ™
 
 inherit NPC;
 inherit F_MASTER;
@@ -6,10 +6,10 @@ int ask_jian();
 
 void create()
 {
-	set_name("¼ÍÏþÜ½", ({ "ji xiaofu","ji","xiaofu"}));
-	set("long", "ËýÊÇ¶ëáÒÅÉµÄµÚËÄ´úË×¼ÒµÜ×Ó¡£Æ«ÐÄÆ«ÌýµÄÃð¾øÅ×ÆúËý£¬\n"
-		"Ëý¶À×ÔÔÚÕâÀï¿à¶È¹âÒõ¡£\n");
-	set("gender", "Å®ÐÔ");
+	set_name("çºªæ™“èŠ™", ({ "ji xiaofu","ji","xiaofu"}));
+	set("long", "å¥¹æ˜¯å³¨åµ‹æ´¾çš„ç¬¬å››ä»£ä¿—å®¶å¼Ÿå­ã€‚åå¿ƒåå¬çš„ç­ç»æŠ›å¼ƒå¥¹ï¼Œ\n"
+		"å¥¹ç‹¬è‡ªåœ¨è¿™é‡Œè‹¦åº¦å…‰é˜´ã€‚\n");
+	set("gender", "å¥³æ€§");
 	set("age", 22);
 	set("attitude", "peaceful");
 	set("class", "fighter");
@@ -22,11 +22,11 @@ void create()
 	set("dex", 30);
 	set("per", 30);
 	set("inquiry",([
-		"ÒÐÌì½£" : (:ask_jian:),
-		"ÍÀÁúµ¶" : "ÕâÀïÃ»ÓÐÍÀÁúµ¶¡£ÒÐÌì½£µ¹ÊÇÓÐÒ»±ú¡£",
-		"Ñî²»»Ú" : "ÎÒµÄÅ®¶ù°¡¡£ËýÔÚÄÄÀï£¿ÄãÖªµÀÃ´£¿",
-		"ÑîåÐ"   : "ÎÒÕâ±²×ÓÊÇ²»Ö¸Íû¼ûµ½ËûÁË¡£",
-		"Ãð¾ø"   : "Ê¦¸¸¾ÍÊÇÌ«Æ«ÐÄ¡£",
+		"å€šå¤©å‰‘" : (:ask_jian:),
+		"å± é¾™åˆ€" : "è¿™é‡Œæ²¡æœ‰å± é¾™åˆ€ã€‚å€šå¤©å‰‘å€’æ˜¯æœ‰ä¸€æŸ„ã€‚",
+		"æ¨ä¸æ‚”" : "æˆ‘çš„å¥³å„¿å•Šã€‚å¥¹åœ¨å“ªé‡Œï¼Ÿä½ çŸ¥é“ä¹ˆï¼Ÿ",
+		"æ¨é€"   : "æˆ‘è¿™è¾ˆå­æ˜¯ä¸æŒ‡æœ›è§åˆ°ä»–äº†ã€‚",
+		"ç­ç»"   : "å¸ˆçˆ¶å°±æ˜¯å¤ªåå¿ƒã€‚",
 	]));
 
 	set("max_qi", 1500);
@@ -70,7 +70,7 @@ void create()
 		(: exert_function, "recover" :),
 		(: exert_function, "regenerate" :),
 	}) );
-	create_family("¶ëáÒÅÉ", 4, "µÜ×Ó");
+	create_family("å³¨åµ‹æ´¾", 4, "å¼Ÿå­");
 
 	setup();
 	carry_object(WEAPON_DIR"changjian")->wield();
@@ -81,18 +81,18 @@ void create()
 void attempt_apprentice(object ob)
 {
 	if ((int)ob->query("shen") < 0) {
-		command("say ÎÒ¶ëáÒÄËÊÇÌÃÌÃÃûÃÅÕýÅÉ£¬¶ÔµÜ×ÓÒªÇó¼«ÑÏ¡£");
-		command("say ÔÚµÂÐÐ·½Ãæ£¬" + RANK_D->query_respect(ob) +
-			"ÊÇ·ñ»¹×öµÃ²»¹»£¿");
+		command("say æˆ‘å³¨åµ‹ä¹ƒæ˜¯å ‚å ‚åé—¨æ­£æ´¾ï¼Œå¯¹å¼Ÿå­è¦æ±‚æžä¸¥ã€‚");
+		command("say åœ¨å¾·è¡Œæ–¹é¢ï¼Œ" + RANK_D->query_respect(ob) +
+			"æ˜¯å¦è¿˜åšå¾—ä¸å¤Ÿï¼Ÿ");
 		return;
 	}
 	if ((int)ob->query("combat_exp") > 100) {
-		command("say ÎÒ¶ëáÒ×¢ÖØÇåÐÞ£¬¶ÔµÜ×ÓÒªÇóÄÜÈÌÊÜ¼ÅÄ¯¡£");
-		command("say ÔÚ½­ºþÔÄÀú·½Ãæ£¬" + RANK_D->query_respect(ob) +
-			"¾­Àú·á¸»£¬ÊÇ·ñÄÜÔÚ¶ëáÒÐÞµÀ£¿");
+		command("say æˆ‘å³¨åµ‹æ³¨é‡æ¸…ä¿®ï¼Œå¯¹å¼Ÿå­è¦æ±‚èƒ½å¿å—å¯‚å¯žã€‚");
+		command("say åœ¨æ±Ÿæ¹–é˜…åŽ†æ–¹é¢ï¼Œ" + RANK_D->query_respect(ob) +
+			"ç»åŽ†ä¸°å¯Œï¼Œæ˜¯å¦èƒ½åœ¨å³¨åµ‹ä¿®é“ï¼Ÿ");
 		return;
 	}
-	command("say ºÃ°É£¬ÎÒ¾ÍÊÕÏÂÄãÁË¡£");
+	command("say å¥½å§ï¼Œæˆ‘å°±æ”¶ä¸‹ä½ äº†ã€‚");
 	command("recruit " + ob->query("id"));
 }
 int ask_jian()
@@ -100,8 +100,8 @@ int ask_jian()
 	object ob = this_player();
 	ob->set("marks/ji",0);
 	ob->set("marks/skysword",1);
-	say( "¼ÍÏþÜ½Î¢Î¢Ì¾ÁË¿ÚÆø£º¡°ÒÐÌì½£¾ÍÔÚÉáÉíÑÂÏÂ¡£¡±\n");
-	tell_object(ob,"ËµÍê£¬ËýÆ®È»Ô¾ÏÂÉáÉíÑÂÈ¥¡£ÒÂñÇÆ®¶¯£¬°×ÔÆµ´´¦£¬ÉË¸Ð¶ÙÉú¡£\n");
+	say( "çºªæ™“èŠ™å¾®å¾®å¹äº†å£æ°”ï¼šâ€œå€šå¤©å‰‘å°±åœ¨èˆèº«å´–ä¸‹ã€‚â€\n");
+	tell_object(ob,"è¯´å®Œï¼Œå¥¹é£˜ç„¶è·ƒä¸‹èˆèº«å´–åŽ»ã€‚è¡£è¢‚é£˜åŠ¨ï¼Œç™½äº‘è¡å¤„ï¼Œä¼¤æ„Ÿé¡¿ç”Ÿã€‚\n");
 	call_out("goway",2);
 	return 1;
 }

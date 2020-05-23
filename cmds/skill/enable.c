@@ -5,30 +5,30 @@ inherit F_CLEAN_UP;
 
 
 mapping valid_types = ([
-        "array":        "Õó·¨",
-        "axe":          "¸«·¨",
-        "blade":        "µ¶·¨",
-        "claw":         "×¦·¨",
-        "club" :        "¹÷·¨",
-        "cuff":         "È­·¨",
-        "dagger":       "¶Ì±ø",
-        "dodge":        "Çá¹¦",
-        "finger":       "Ö¸·¨",
-        "force":        "ÄÚ¹¦",
-        "hammer":       "´¸·¨",
-        "hand":         "ÊÖ·¨",
-        "hook":         "¹³·¨",
-        "leg":          "ÍÈ·¨",
-        "magic":        "·¨Êõ",
-        "parry":        "ÕĞ¼Ü",
-        "spear":        "Ç¹·¨",
-        "staff":        "ÕÈ·¨",
-        "stick":        "°ô·¨",
-        "strike":       "ÕÆ·¨",
-        "sword":        "½£·¨",
-        "throwing":     "°µÆ÷",
-        "unarmed":      "È­½Å",
-        "whip":         "±Ş·¨",
+        "array":        "é˜µæ³•",
+        "axe":          "æ–§æ³•",
+        "blade":        "åˆ€æ³•",
+        "claw":         "çˆªæ³•",
+        "club" :        "æ£æ³•",
+        "cuff":         "æ‹³æ³•",
+        "dagger":       "çŸ­å…µ",
+        "dodge":        "è½»åŠŸ",
+        "finger":       "æŒ‡æ³•",
+        "force":        "å†…åŠŸ",
+        "hammer":       "é”¤æ³•",
+        "hand":         "æ‰‹æ³•",
+        "hook":         "é’©æ³•",
+        "leg":          "è…¿æ³•",
+        "magic":        "æ³•æœ¯",
+        "parry":        "æ‹›æ¶",
+        "spear":        "æªæ³•",
+        "staff":        "æ–æ³•",
+        "stick":        "æ£’æ³•",
+        "strike":       "æŒæ³•",
+        "sword":        "å‰‘æ³•",
+        "throwing":     "æš—å™¨",
+        "unarmed":      "æ‹³è„š",
+        "whip":         "é­æ³•",
 ]);
 
 int main(object me, string arg)
@@ -42,10 +42,10 @@ int main(object me, string arg)
         if( !arg ) {
                 map = me->query_skill_map();
                 if( !mapp(map) || sizeof(map)==0 )
-                        return notify_fail("ÄãÏÖÔÚÃ»ÓĞÊ¹ÓÃÈÎºÎÌØÊâ¼¼ÄÜ¡£\n");
+                        return notify_fail("ä½ ç°åœ¨æ²¡æœ‰ä½¿ç”¨ä»»ä½•ç‰¹æ®ŠæŠ€èƒ½ã€‚\n");
 
                 skill = keys(valid_types);
-                write("ÒÔÏÂÊÇÄãÄ¿Ç°Ê¹ÓÃÖĞµÄÌØÊâ¼¼ÄÜ¡£\n");
+                write("ä»¥ä¸‹æ˜¯ä½ ç›®å‰ä½¿ç”¨ä¸­çš„ç‰¹æ®ŠæŠ€èƒ½ã€‚\n");
                 for (i=0; i<sizeof(skill); i++) {
                         if( undefinedp(valid_types[skill[i]]) ) {
                                 map_delete(map, skill[i]);
@@ -53,9 +53,9 @@ int main(object me, string arg)
                         }
                         if( !me->query_skill(skill[i]) ) continue;
                         modify = me->query_temp("apply/" + skill[i]);
-                        printf("  %-20s£º %-20s  ÓĞĞ§µÈ¼¶£º%s%3d\n" NOR,
+                        printf("  %-20sï¼š %-20s  æœ‰æ•ˆç­‰çº§ï¼š%s%3d\n" NOR,
                                 valid_types[skill[i]] + " (" + skill[i] + ")",
-                                undefinedp(map[skill[i]]) ? "ÎŞ" : to_chinese(map[skill[i]]),
+                                undefinedp(map[skill[i]]) ? "æ— " : to_chinese(map[skill[i]]),
                                 (modify==0 ? "" : (modify>0 ? HIC : HIR)),
                                 me->query_skill(skill[i]));
                 }
@@ -63,7 +63,7 @@ int main(object me, string arg)
         }
 
         if( arg=="?" ) {
-                write("ÒÔÏÂÊÇ¿ÉÒÔÊ¹ÓÃÌØÊâ¼¼ÄÜµÄÖÖÀà£º\n");
+                write("ä»¥ä¸‹æ˜¯å¯ä»¥ä½¿ç”¨ç‰¹æ®ŠæŠ€èƒ½çš„ç§ç±»ï¼š\n");
                 skill = sort_array(keys(valid_types), (: strcmp :) );
                 for(i=0; i<sizeof(skill); i++) {
                         printf("  %s (%s)\n", valid_types[skill[i]], skill[i] );
@@ -72,48 +72,48 @@ int main(object me, string arg)
         }
 
         if( sscanf(arg, "%s %s", ski, map_to)!=2 )
-                return notify_fail("Ö¸Áî¸ñÊ½£ºenable|jifa [<¼¼ÄÜÖÖÀà> <¼¼ÄÜÃû³Æ>|none]\n");
+                return notify_fail("æŒ‡ä»¤æ ¼å¼ï¼šenable|jifa [<æŠ€èƒ½ç§ç±»> <æŠ€èƒ½åç§°>|none]\n");
 
         if( undefinedp(valid_types[ski]) )
-                return notify_fail("Ã»ÓĞÕâ¸ö¼¼ÄÜÖÖÀà£¬ÓÃ enable ? ¿ÉÒÔ²é¿´ÓĞÄÄĞ©ÖÖÀà¡£\n");
+                return notify_fail("æ²¡æœ‰è¿™ä¸ªæŠ€èƒ½ç§ç±»ï¼Œç”¨ enable ? å¯ä»¥æŸ¥çœ‹æœ‰å“ªäº›ç§ç±»ã€‚\n");
 
         if( map_to=="none" ) {
                 me->map_skill(ski);
                 me->reset_action();
-write(HIY"Äã´ÓÏÖÔÚÆğÈ¡Ïû"HIG+CHINESE_D->chinese(ski)+HIY"µÄÌØÊâ¼¼ÄÜ¡£\n"NOR);
+write(HIY"ä½ ä»ç°åœ¨èµ·å–æ¶ˆ"HIG+CHINESE_D->chinese(ski)+HIY"çš„ç‰¹æ®ŠæŠ€èƒ½ã€‚\n"NOR);
                 return 1;
         } else if( map_to==ski ) {
-                write("¡¸" + to_chinese(ski) + "¡¹ÊÇËùÓĞ" + valid_types[ski] + "µÄ»ù´¡£¬²»ĞèÒª enable¡£\n");
+                write("ã€Œ" + to_chinese(ski) + "ã€æ˜¯æ‰€æœ‰" + valid_types[ski] + "çš„åŸºç¡€ï¼Œä¸éœ€è¦ enableã€‚\n");
                 return 1;
         }
 
 	if ( me->query_skill_prepared(ski) && me->query_skill_prepared(ski) != map_to)
-		return notify_fail("ÕâÏî¼¼ÄÜÄãÒÑ¾­×éºÏ¹ıÁË£¡\n");
+		return notify_fail("è¿™é¡¹æŠ€èƒ½ä½ å·²ç»ç»„åˆè¿‡äº†ï¼\n");
         if( !me->query_skill(map_to, 1) )
-                return notify_fail("Äã²»»áÕâÖÖ¼¼ÄÜ¡£\n");
+                return notify_fail("ä½ ä¸ä¼šè¿™ç§æŠ€èƒ½ã€‚\n");
 
 //      if( !me->query_skill(ski, 1) )
-//              return notify_fail("ÄãÁ¬¡¸" + to_chinese(ski) + "¡¹¶¼Ã»Ñ§»á£¬
-//              ¼¤·¢" + to_chinese(map_to) + "ÁË¡£\n");
+//              return notify_fail("ä½ è¿ã€Œ" + to_chinese(ski) + "ã€éƒ½æ²¡å­¦ä¼šï¼Œ
+//              æ¿€å‘" + to_chinese(map_to) + "äº†ã€‚\n");
 
         if( !SKILL_D(map_to)->valid_enable(ski) )
-                return notify_fail("Õâ¸ö¼¼ÄÜ²»ÄÜµ±³ÉÕâÖÖÓÃÍ¾¡£\n");
+                return notify_fail("è¿™ä¸ªæŠ€èƒ½ä¸èƒ½å½“æˆè¿™ç§ç”¨é€”ã€‚\n");
 
         me->map_skill(ski, map_to);
         me->reset_action();
-write(HIY"Äã´ÓÏÖÔÚÆğÓÃ"HIR+CHINESE_D->chinese(map_to)+HIY"×÷Îª"HIG+CHINESE_D->chinese(ski)+HIY"µÄÌØÊâ¼¼ÄÜ¡£\n"NOR);
+write(HIY"ä½ ä»ç°åœ¨èµ·ç”¨"HIR+CHINESE_D->chinese(map_to)+HIY"ä½œä¸º"HIG+CHINESE_D->chinese(ski)+HIY"çš„ç‰¹æ®ŠæŠ€èƒ½ã€‚\n"NOR);
 
         if( ski=="magic" ) {
-                write("Äã¸ÄÓÃÁíÒ»ÖÖ·¨ÊõÏµ£¬¾«Á¦±ØĞëÖØĞÂ¶ÍÁ·¡£\n");
+                write("ä½ æ”¹ç”¨å¦ä¸€ç§æ³•æœ¯ç³»ï¼Œç²¾åŠ›å¿…é¡»é‡æ–°é”»ç»ƒã€‚\n");
                 me->set("jingli", 0);
                 me->receive_damage("jing", 0);
         }
         else if( ski=="force" ) {
-                write("Äã¸ÄÓÃÁíÒ»ÖÖÄÚ¹¦£¬ÄÚÁ¦±ØĞëÖØĞÂ¶ÍÁ·¡£\n");
+                write("ä½ æ”¹ç”¨å¦ä¸€ç§å†…åŠŸï¼Œå†…åŠ›å¿…é¡»é‡æ–°é”»ç»ƒã€‚\n");
                 me->set("neili", 0);
                 me->receive_damage("qi", 0);
 //      } else if( ski=="spells" ) {
-//              write("Äã¸ÄÓÃÁíÒ»ÖÖÖäÎÄÏµ£¬·¨Á¦±ØĞëÖØĞÂĞŞÁ¶¡£\n");
+//              write("ä½ æ”¹ç”¨å¦ä¸€ç§å’’æ–‡ç³»ï¼Œæ³•åŠ›å¿…é¡»é‡æ–°ä¿®ç‚¼ã€‚\n");
 //              me->set("mana", 0);
 //              me->receive_damage("sen", 0);
         }
@@ -123,12 +123,12 @@ write(HIY"Äã´ÓÏÖÔÚÆğÓÃ"HIR+CHINESE_D->chinese(map_to)+HIY"×÷Îª"HIG+CHINESE_D->ch
 int help(object me)
 {
         write(@HELP
-Ö¸Áî¸ñÊ½ : enable|jifa [<¼¼ÄÜÖÖÀà> <¼¼ÄÜÃû³Æ> | none]
+æŒ‡ä»¤æ ¼å¼ : enable|jifa [<æŠ€èƒ½ç§ç±»> <æŠ€èƒ½åç§°> | none]
            enable|jifa ?
 
-    Õâ¸öÖ¸ÁîÈÃÄãÖ¸¶¨ËùÒªÓÃµÄ¼¼ÄÜ£¬ĞèÖ¸Ã÷¼¼ÄÜÖÖÀàºÍ¼¼ÄÜÃû³Æ¡£Èç¹û²»
-¼Ó²ÎÊıÔò»áÏÔÊ¾³ö¼¼ÄÜÖÖÀà¼°ÄãÄ¿Ç°ËùÊ¹ÓÃµÄ¼¼ÄÜÃû³Æ£¬Èç¹û¼ÓÒ»¸ö£¿»áÁĞ
-³öËùÓĞÄÜÊ¹ÓÃÌØÊâ¼¼ÄÜµÄ¼¼ÄÜÖÖÀà¡£
+    è¿™ä¸ªæŒ‡ä»¤è®©ä½ æŒ‡å®šæ‰€è¦ç”¨çš„æŠ€èƒ½ï¼Œéœ€æŒ‡æ˜æŠ€èƒ½ç§ç±»å’ŒæŠ€èƒ½åç§°ã€‚å¦‚æœä¸
+åŠ å‚æ•°åˆ™ä¼šæ˜¾ç¤ºå‡ºæŠ€èƒ½ç§ç±»åŠä½ ç›®å‰æ‰€ä½¿ç”¨çš„æŠ€èƒ½åç§°ï¼Œå¦‚æœåŠ ä¸€ä¸ªï¼Ÿä¼šåˆ—
+å‡ºæ‰€æœ‰èƒ½ä½¿ç”¨ç‰¹æ®ŠæŠ€èƒ½çš„æŠ€èƒ½ç§ç±»ã€‚
 
 HELP
         );

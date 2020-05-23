@@ -20,21 +20,21 @@ int main(object me, string arg)
 	
 	seteuid(getuid());
 	if( me->is_busy() )
-		return notify_fail("ÄãÉÏÒ»¸ö¶¯×÷»¹Ã»Íê³É¡£\n");
+		return notify_fail("ä½ ä¸Šä¸€ä¸ªåŠ¨ä½œè¿˜æ²¡å®Œæˆã€‚\n");
 	inv = all_inventory(me);
 	for(i=0; i<sizeof(inv); i++)
 	{
 		if( userp(inv[i]))
-		return notify_fail("ÄãÉíÉÏ»¹ÓĞ¸ö´ó»îÈËÄØ£¬Ïë²»¿ªÒ²±ğ¼±Ñ½£¿\n");
+		return notify_fail("ä½ èº«ä¸Šè¿˜æœ‰ä¸ªå¤§æ´»äººå‘¢ï¼Œæƒ³ä¸å¼€ä¹Ÿåˆ«æ€¥å‘€ï¼Ÿ\n");
 	}
 	if( !arg )
-		return notify_fail("×ÔÉ±ÓĞÁ½ÖÖ£¬ÄúÊÇÒªÓÀÔ¶ËÀµô(-f)»¹ÊÇÖØĞÂÍ¶Ì¥(-r)£¿\n");
+		return notify_fail("è‡ªæ€æœ‰ä¸¤ç§ï¼Œæ‚¨æ˜¯è¦æ°¸è¿œæ­»æ‰(-f)è¿˜æ˜¯é‡æ–°æŠ•èƒ(-r)ï¼Ÿ\n");
 	args = explode(arg," ");
 	if (args[0]!="-f" && args[0]!="-r")
-		return notify_fail("×ÔÉ±ÓĞÁ½ÖÖ£¬ÄúÊÇÒªÓÀÔ¶ËÀµô(-f)»¹ÊÇÖØĞÂÍ¶Ì¥(-r)£¿\n");
+		return notify_fail("è‡ªæ€æœ‰ä¸¤ç§ï¼Œæ‚¨æ˜¯è¦æ°¸è¿œæ­»æ‰(-f)è¿˜æ˜¯é‡æ–°æŠ•èƒ(-r)ï¼Ÿ\n");
 	if (args[0]=="-f")
 	{
-		write("Èç¹ûÄúÑ¡ÔñÓÀÔ¶ËÀµôµÄ×ÔÉ±·½Ê½£¬Õâ¸öÈËÎïµÄ×ÊÁÏ¾ÍÓÀÔ¶É¾³ıÁË£¬ÇëÎñ±Ø\n¿¼ÂÇÇå³ş£¬È·¶¨µÄ»°ÇëÊäÈëÄúµÄÃÜÂë£º");
+		write("å¦‚æœæ‚¨é€‰æ‹©æ°¸è¿œæ­»æ‰çš„è‡ªæ€æ–¹å¼ï¼Œè¿™ä¸ªäººç‰©çš„èµ„æ–™å°±æ°¸è¿œåˆ é™¤äº†ï¼Œè¯·åŠ¡å¿…\nè€ƒè™‘æ¸…æ¥šï¼Œç¡®å®šçš„è¯è¯·è¾“å…¥æ‚¨çš„å¯†ç ï¼š");
 		input_to("check_password", 1, me, 1);
 		return 1;
 	}
@@ -49,20 +49,20 @@ private void check_password(string passwd, object me, int forever)
 	link_ob = me->query_temp("link_ob");
 	old_pass = link_ob->query("password");
 	if( crypt(passwd, old_pass)!=old_pass ) {
-		write("ÃÜÂë´íÎó£¡\n");
+		write("å¯†ç é”™è¯¯ï¼\n");
 		return;
 	}
 
 	if (forever) {
 		tell_object( me,
-			HIR "\n\nÄã¾ö¶¨Òª×ÔÉ±ÁË£¬Èç¹û¶şÊ®ÃëÄÚ²»ºó»Ú£¬¾ÍÕæµÄÓÀ±ğÁË¡£\n\n\n" NOR);
+			HIR "\n\nä½ å†³å®šè¦è‡ªæ€äº†ï¼Œå¦‚æœäºŒåç§’å†…ä¸åæ‚”ï¼Œå°±çœŸçš„æ°¸åˆ«äº†ã€‚\n\n\n" NOR);
 		me->set_temp("suicide_countdown", 8);
 		me->start_busy( (: slow_suicide,me :),(: halt_suicide,me :));
 	}
 }
 private int halt_suicide(object me)
 {
-	tell_object(me,"ÄãÏëÆğÁËÄàÌ¶ÀïµÄÌ¸Ğ¦·çÉú£¬»¹ÊÇ´òÏûÁËÑ°ËÀµÄÄîÍ·¡£\n");
+	tell_object(me,"ä½ æƒ³èµ·äº†æ³¥æ½­é‡Œçš„è°ˆç¬‘é£ç”Ÿï¼Œè¿˜æ˜¯æ‰“æ¶ˆäº†å¯»æ­»çš„å¿µå¤´ã€‚\n");
 	me->delete_temp("suicide_countdown");
 	return 1;
 }
@@ -78,7 +78,7 @@ private int slow_suicide(object me)
 	me->add_temp("suicide_countdown", -1);
 	if( stage > 1 ) {
 		if( (stage-1)%5 == 0 || stage < 6)
-			tell_object(me, HIR "Äã»¹ÓĞ " + (stage-1)*2 + " ÃëµÄÊ±¼ä¿ÉÒÔºó»Ú(halt)¡£\n" NOR);
+			tell_object(me, HIR "ä½ è¿˜æœ‰ " + (stage-1)*2 + " ç§’çš„æ—¶é—´å¯ä»¥åæ‚”(halt)ã€‚\n" NOR);
 		return 1;
 	}
 
@@ -95,10 +95,10 @@ private int slow_suicide(object me)
 	cp(      me->query_save_file() + __SAVE_EXTENSION__,sprintf(DATA_DIR "suicide/user/%c/%s" + __SAVE_EXTENSION__, id[0], id));
 	rm( link_ob->query_save_file() + __SAVE_EXTENSION__ );
 	rm(      me->query_save_file() + __SAVE_EXTENSION__ );
-		write("ºÃ°É£¬ÓÀ±ğÁË:)¡£\n");
+		write("å¥½å§ï¼Œæ°¸åˆ«äº†:)ã€‚\n");
 	tell_room(environment(me), me->name() +
-		"×ÔÉ±ÁË£¬ÒÔºóÄãÔÙÒ²¿´²»µ½Õâ¸öÈËÁË¡£\n", ({me}));
-  message("channel:sys",HIR"¡¾ÏµÍ³¡¿ÆµµÀ¾«Áé£º"+me->name()+"("+id+")×ÔÉ±ÁË¡£\n"NOR,users());
+		"è‡ªæ€äº†ï¼Œä»¥åä½ å†ä¹Ÿçœ‹ä¸åˆ°è¿™ä¸ªäººäº†ã€‚\n", ({me}));
+  message("channel:sys",HIR"ã€ç³»ç»Ÿã€‘é¢‘é“ç²¾çµï¼š"+me->name()+"("+id+")è‡ªæ€äº†ã€‚\n"NOR,users());
 	destruct(link_ob);
 	destruct(me);
 	return 0;
@@ -114,66 +114,66 @@ int scborn(object me,string arg)
 	string str;
 	string temp;
 	
-	notify_fail("ÄãÃ»·¨×ªÉú¡£\n");
+	notify_fail("ä½ æ²¡æ³•è½¬ç”Ÿã€‚\n");
 	if (!SCBORN_D->valid_scborn(me) && me->query("id")!="trya")
 		return 0;
 	times = SCBORN_D->query_scborn_times(me);
-// Ò»×ª Ó¦¸ÃÊÇ reborn(user,"taiji-quan","zhen"); ±£´ætaiji-quanºÍpfm zhen
-// ¶ş×ª Ó¦¸ÃÊÇ reborn(user,"taiji-quan","literate"); ±£´æ Á½¸ö¼¼ÄÜ
-// Èı×ª Ó¦¸ÃÊÇ reborn(user,"taiji-quan","taiji-shengong"); ±£´æ
-// ËÄ×ª Ó¦¸ÃÊÇ reborn(user,"taiji-quan","taiji-jian");
-// Îå×ª Ó¦¸ÃÊÇ reborn(user,"taiji-quan","taiji-jian","huifeng-jian");
-// Áù×ª Ó¦¸ÃÊÇ reborn(user);
+// ä¸€è½¬ åº”è¯¥æ˜¯ reborn(user,"taiji-quan","zhen"); ä¿å­˜taiji-quanå’Œpfm zhen
+// äºŒè½¬ åº”è¯¥æ˜¯ reborn(user,"taiji-quan","literate"); ä¿å­˜ ä¸¤ä¸ªæŠ€èƒ½
+// ä¸‰è½¬ åº”è¯¥æ˜¯ reborn(user,"taiji-quan","taiji-shengong"); ä¿å­˜
+// å››è½¬ åº”è¯¥æ˜¯ reborn(user,"taiji-quan","taiji-jian");
+// äº”è½¬ åº”è¯¥æ˜¯ reborn(user,"taiji-quan","taiji-jian","huifeng-jian");
+// å…­è½¬ åº”è¯¥æ˜¯ reborn(user);
 	switch(times)
 	{
 		case 0:
 			if (!arg) 
-				return notify_fail("µÚÒ»´Î×ªÉú¸ñÊ½Îª£ºsuicide -r Îä¹¦ ¾øÕĞ\n");
+				return notify_fail("ç¬¬ä¸€æ¬¡è½¬ç”Ÿæ ¼å¼ä¸ºï¼šsuicide -r æ­¦åŠŸ ç»æ‹›\n");
 			if (sscanf(arg,"%s %s",skill,pfm)!=2)
-				return notify_fail("µÚÒ»´Î×ªÉú¸ñÊ½Îª£ºsuicide -r Îä¹¦ ¾øÕĞ\n");
-			//¼ì²éÎä¹¦
+				return notify_fail("ç¬¬ä¸€æ¬¡è½¬ç”Ÿæ ¼å¼ä¸ºï¼šsuicide -r æ­¦åŠŸ ç»æ‹›\n");
+			//æ£€æŸ¥æ­¦åŠŸ
 			if (!me->query_skill(skill))
-				return notify_fail("Äã²¢²»»áÕâ¸öÎä¹¦¡£\n");
+				return notify_fail("ä½ å¹¶ä¸ä¼šè¿™ä¸ªæ­¦åŠŸã€‚\n");
 			if ((SKILL_D(skill)->type())=="knowledge")
-				return notify_fail("Äã»¹²»ÄÜ±£ÁôÖªÊ¶¼¼ÄÜ¡£\n");
+				return notify_fail("ä½ è¿˜ä¸èƒ½ä¿ç•™çŸ¥è¯†æŠ€èƒ½ã€‚\n");
 			if (SKILL_D(skill)->valid_enable("force"))
-				return notify_fail("Äã»¹²»ÄÜ±£ÁôÄÚ¹¦¡£\n");
-      //¼ì²épfm
+				return notify_fail("ä½ è¿˜ä¸èƒ½ä¿ç•™å†…åŠŸã€‚\n");
+      //æ£€æŸ¥pfm
 			if (file_size(SKILL_D(skill+"/"+pfm+".c"))<0)
 			{
-				write(to_chinese(skill)+"²¢Ã»ÓĞ"+pfm+"Õâ¸öÌØÊâÓÃ·¨\n");
-				write("²»±£ÁôÎä¹¦µÄÌØÊâÊ¹ÓÃÂğ£¿(y/n)");
+				write(to_chinese(skill)+"å¹¶æ²¡æœ‰"+pfm+"è¿™ä¸ªç‰¹æ®Šç”¨æ³•\n");
+				write("ä¸ä¿ç•™æ­¦åŠŸçš„ç‰¹æ®Šä½¿ç”¨å—ï¼Ÿ(y/n)");
 				input_to("sure1",me,skill,pfm);
 				return 1;
 			}
 			if ( !me->query("perform/"+pfm) && !SCBORN_D->valid_perform(me,skill,pfm))
 			{
-				write("Äã»¹ÎŞ·¨±£Áô"+to_chinese(skill)+"µÄ"+SKILL_D(skill+"/"+pfm)->name()+"Õâ¸öÌØÊâÓÃ·¨£¬¿ÉÄÜÊÇÄãÃ»Ñ§»á»òÕßÕâ¸öÎä¹¦²»ĞèÒª´ÓÕÆÃÅ´¦Ñ§µ½¡£\n");
-				write("²»±£ÁôÎä¹¦µÄÌØÊâÊ¹ÓÃÂğ£¿(y/n)");
+				write("ä½ è¿˜æ— æ³•ä¿ç•™"+to_chinese(skill)+"çš„"+SKILL_D(skill+"/"+pfm)->name()+"è¿™ä¸ªç‰¹æ®Šç”¨æ³•ï¼Œå¯èƒ½æ˜¯ä½ æ²¡å­¦ä¼šæˆ–è€…è¿™ä¸ªæ­¦åŠŸä¸éœ€è¦ä»æŒé—¨å¤„å­¦åˆ°ã€‚\n");
+				write("ä¸ä¿ç•™æ­¦åŠŸçš„ç‰¹æ®Šä½¿ç”¨å—ï¼Ÿ(y/n)");
 				input_to("sure1",me,skill,pfm);
 				return 1;				
 			}
-			write("ÄúÑ¡ÔñÁË×ªÉúÊ±±£ÁôÎä¹¦£º"+to_chinese(skill)+"£¬ÒÔ¼°ÏàÓ¦µÄ¾øÕĞ£º"+SKILL_D(skill+"/"+pfm)->name()+"¡£\n");
-			write("ÇëÊäÈëÄúµÄÃÜÂëÒÔÈ·ÈÏ£º");
+			write("æ‚¨é€‰æ‹©äº†è½¬ç”Ÿæ—¶ä¿ç•™æ­¦åŠŸï¼š"+to_chinese(skill)+"ï¼Œä»¥åŠç›¸åº”çš„ç»æ‹›ï¼š"+SKILL_D(skill+"/"+pfm)->name()+"ã€‚\n");
+			write("è¯·è¾“å…¥æ‚¨çš„å¯†ç ä»¥ç¡®è®¤ï¼š");
 			input_to("check_scborn",me,skill,pfm);
 			break;
 		case 1:
 			if (!arg)
-				return notify_fail("×ªÉú¸ñÊ½Îª£ºsuicide -r Îä¹¦ ÖªÊ¶¼¼ÄÜ\n");
+				return notify_fail("è½¬ç”Ÿæ ¼å¼ä¸ºï¼šsuicide -r æ­¦åŠŸ çŸ¥è¯†æŠ€èƒ½\n");
 			if (sscanf(arg,"%s %s",skill,lskill)!=2)
-				return notify_fail("×ªÉú¸ñÊ½Îª£ºsuicide -r Îä¹¦ ÖªÊ¶¼¼ÄÜ\n");
-			//¼ì²éÎä¹¦
+				return notify_fail("è½¬ç”Ÿæ ¼å¼ä¸ºï¼šsuicide -r æ­¦åŠŸ çŸ¥è¯†æŠ€èƒ½\n");
+			//æ£€æŸ¥æ­¦åŠŸ
 			if (!me->query_skill(skill))
-				return notify_fail("Äã²¢²»»áÕâ¸ö"+skill+"Îä¹¦¡£\n");
+				return notify_fail("ä½ å¹¶ä¸ä¼šè¿™ä¸ª"+skill+"æ­¦åŠŸã€‚\n");
 			if ((SKILL_D(skill)->type())=="knowledge")
-				return notify_fail("Ñ¡ÔñµÄÎä¹¦²»ÄÜÊÇÖªÊ¶¼¼ÄÜ¡£\n");
+				return notify_fail("é€‰æ‹©çš„æ­¦åŠŸä¸èƒ½æ˜¯çŸ¥è¯†æŠ€èƒ½ã€‚\n");
 			if (SKILL_D(skill)->valid_enable("force"))
-				return notify_fail("Äã²»ÄÜ²»ÄÜ±£ÁôÄÚ¹¦¡£\n");
-			//¼ì²éÖªÊ¶¼¼ÄÜ
+				return notify_fail("ä½ ä¸èƒ½ä¸èƒ½ä¿ç•™å†…åŠŸã€‚\n");
+			//æ£€æŸ¥çŸ¥è¯†æŠ€èƒ½
 			if (!me->query_skill(lskill))
-				return notify_fail("Äã²¢²»»á"+lskill+"ÕâÏî¼¼ÄÜ¡£\n");
+				return notify_fail("ä½ å¹¶ä¸ä¼š"+lskill+"è¿™é¡¹æŠ€èƒ½ã€‚\n");
 			if ((SKILL_D(lskill)->type())!="knowledge")
-				return notify_fail(lskill+"²¢²»ÊÇÒ»ÖÖÖªÊ¶¼¼ÄÜ¡£\n");
+				return notify_fail(lskill+"å¹¶ä¸æ˜¯ä¸€ç§çŸ¥è¯†æŠ€èƒ½ã€‚\n");
 			dir = get_dir("kungfu/skill/"+skill+"/");
 			cant = ({});
 			for (i=0;i<sizeof(dir);i++)
@@ -187,97 +187,97 @@ int scborn(object me,string arg)
 			}
 			if (arrayp(cant))
 			{
-				str = "ÄãÎŞ·¨±£Áô"+to_chinese(skill)+"µÄ"+implode(cant,"¡¢")+"ÌØÊâÓÃ·¨¡£\n";
-				str += "Äã²»»áÊ¹ÓÃÕâĞ©¼¼ÄÜ£¬»òÕßÃ»ÓĞ´ÓÕÆÃÅ´¦Ñ§µÃ¡£\n";
-				write(str+"²»±£ÁôÕâ²¿·ÖµÄÌØÊâÊ¹ÓÃÂğ£¿(y/n)");
+				str = "ä½ æ— æ³•ä¿ç•™"+to_chinese(skill)+"çš„"+implode(cant,"ã€")+"ç‰¹æ®Šç”¨æ³•ã€‚\n";
+				str += "ä½ ä¸ä¼šä½¿ç”¨è¿™äº›æŠ€èƒ½ï¼Œæˆ–è€…æ²¡æœ‰ä»æŒé—¨å¤„å­¦å¾—ã€‚\n";
+				write(str+"ä¸ä¿ç•™è¿™éƒ¨åˆ†çš„ç‰¹æ®Šä½¿ç”¨å—ï¼Ÿ(y/n)");
 				input_to("sure2",me,skill,lskill);
 				return 1;								
 			}
-			write("ÄúÑ¡ÔñÁË¶ş´Î×ªÉúÊ±±£ÁôÎä¹¦£º"+to_chinese(skill)+"£¬ÒÔ¼°ÖªÊ¶¼¼ÄÜ£º"+to_chinese(lskill)+"¡£\n");
-			write("ÇëÊäÈëÄúµÄÃÜÂëÒÔÈ·ÈÏ£º");
+			write("æ‚¨é€‰æ‹©äº†äºŒæ¬¡è½¬ç”Ÿæ—¶ä¿ç•™æ­¦åŠŸï¼š"+to_chinese(skill)+"ï¼Œä»¥åŠçŸ¥è¯†æŠ€èƒ½ï¼š"+to_chinese(lskill)+"ã€‚\n");
+			write("è¯·è¾“å…¥æ‚¨çš„å¯†ç ä»¥ç¡®è®¤ï¼š");
 			input_to("check_scborn",me,skill,lskill);
 			break;
 		case 2:
 			if (!arg)
-				return notify_fail("×ªÉú¸ñÊ½Îª£ºsuicide -r Îä¹¦ ÄÚ¹¦\n");
+				return notify_fail("è½¬ç”Ÿæ ¼å¼ä¸ºï¼šsuicide -r æ­¦åŠŸ å†…åŠŸ\n");
 			if (sscanf(arg,"%s %s",skill,fskill)!=2)
-				return notify_fail("×ªÉú¸ñÊ½Îª£ºsuicide -r Îä¹¦ ÄÚ¹¦\n");
-			//¼ì²éÎä¹¦
+				return notify_fail("è½¬ç”Ÿæ ¼å¼ä¸ºï¼šsuicide -r æ­¦åŠŸ å†…åŠŸ\n");
+			//æ£€æŸ¥æ­¦åŠŸ
 			if (!me->query_skill(skill))
-				return notify_fail("Äã²¢²»»á"+skill+"Õâ¸öÎä¹¦¡£\n");
+				return notify_fail("ä½ å¹¶ä¸ä¼š"+skill+"è¿™ä¸ªæ­¦åŠŸã€‚\n");
 			if ((SKILL_D(skill)->type())=="knowledge")
-				return notify_fail("ÖªÊ¶¼¼ÄÜ»áÈ«²¿±£´æ£¬²»ĞèÒªÌØ±ğÖ¸³ö¡£\n");
+				return notify_fail("çŸ¥è¯†æŠ€èƒ½ä¼šå…¨éƒ¨ä¿å­˜ï¼Œä¸éœ€è¦ç‰¹åˆ«æŒ‡å‡ºã€‚\n");
 			if (SKILL_D(skill)->valid_enable("force"))
-				return notify_fail("ÄãÖ»ÄÜ±£´æÒ»ÖÖÄÚ¹¦¡£\n");
-			//¼ì²éÄÚ¹¦
+				return notify_fail("ä½ åªèƒ½ä¿å­˜ä¸€ç§å†…åŠŸã€‚\n");
+			//æ£€æŸ¥å†…åŠŸ
 			if (!me->query_skill(fskill))
-				return notify_fail("Äã²¢²»»á"+fskill+"ÕâÏî¼¼ÄÜ¡£\n");
+				return notify_fail("ä½ å¹¶ä¸ä¼š"+fskill+"è¿™é¡¹æŠ€èƒ½ã€‚\n");
 			if (!(SKILL_D(fskill)->valid_enable("force")))
-				return notify_fail(fskill+"²¢²»ÊÇÒ»ÖÖÌØÊâÄÚ¹¦¡£\n");
-			write("ÄúÑ¡ÔñÁËÈı´Î×ªÉúÊ±±£ÁôÎä¹¦£º"+to_chinese(skill)+"£¬ÒÔ¼°ÄÚ¹¦¼¼ÄÜ£º"+to_chinese(fskill)+"¡£\n");
-			write("ÇëÊäÈëÄúµÄÃÜÂëÒÔÈ·ÈÏ£º");
+				return notify_fail(fskill+"å¹¶ä¸æ˜¯ä¸€ç§ç‰¹æ®Šå†…åŠŸã€‚\n");
+			write("æ‚¨é€‰æ‹©äº†ä¸‰æ¬¡è½¬ç”Ÿæ—¶ä¿ç•™æ­¦åŠŸï¼š"+to_chinese(skill)+"ï¼Œä»¥åŠå†…åŠŸæŠ€èƒ½ï¼š"+to_chinese(fskill)+"ã€‚\n");
+			write("è¯·è¾“å…¥æ‚¨çš„å¯†ç ä»¥ç¡®è®¤ï¼š");
 			input_to("check_scborn",me,skill,fskill);
 			break;
 		case 3:
 			if (!arg)
-				return notify_fail("×ªÉú¸ñÊ½Îª£ºsuicide -r Îä¹¦ Îä¹¦\n");
+				return notify_fail("è½¬ç”Ÿæ ¼å¼ä¸ºï¼šsuicide -r æ­¦åŠŸ æ­¦åŠŸ\n");
 			if (sscanf(arg,"%s %s",skill,skill2)!=2)
-				return notify_fail("×ªÉú¸ñÊ½Îª£ºsuicide -r Îä¹¦ Îä¹¦\n");
-			//¼ì²éÎä¹¦1
+				return notify_fail("è½¬ç”Ÿæ ¼å¼ä¸ºï¼šsuicide -r æ­¦åŠŸ æ­¦åŠŸ\n");
+			//æ£€æŸ¥æ­¦åŠŸ1
 			if (!me->query_skill(skill))
-				return notify_fail("Äã²¢²»»á"+skill+"ÕâÏî¼¼ÄÜ¡£\n");
+				return notify_fail("ä½ å¹¶ä¸ä¼š"+skill+"è¿™é¡¹æŠ€èƒ½ã€‚\n");
 			if ((SKILL_D(skill)->type())=="knowledge")
-				return notify_fail("ËÄ×ª»á±£´æÖªÊ¶¼¼ÄÜ£¬²»ĞèÒªÌØ±ğÖ¸³ö¡£\n");
+				return notify_fail("å››è½¬ä¼šä¿å­˜çŸ¥è¯†æŠ€èƒ½ï¼Œä¸éœ€è¦ç‰¹åˆ«æŒ‡å‡ºã€‚\n");
 			if (SKILL_D(skill)->valid_enable("force"))
-				return notify_fail("ËÄ×ª»á±£´æËùÓĞÄÚ¹¦£¬²»ĞèÒªÌØ±ğÖ¸³ö¡£\n");
-			//¼ì²éÎä¹¦2
+				return notify_fail("å››è½¬ä¼šä¿å­˜æ‰€æœ‰å†…åŠŸï¼Œä¸éœ€è¦ç‰¹åˆ«æŒ‡å‡ºã€‚\n");
+			//æ£€æŸ¥æ­¦åŠŸ2
 			if (!me->query_skill(skill2))
-				return notify_fail("Äã²¢²»»á"+skill2+"ÕâÏî¼¼ÄÜ¡£\n");
+				return notify_fail("ä½ å¹¶ä¸ä¼š"+skill2+"è¿™é¡¹æŠ€èƒ½ã€‚\n");
 			if ((SKILL_D(skill2)->type())=="knowledge")
-				return notify_fail("ËÄ×ª»á±£´æÖªÊ¶¼¼ÄÜ£¬²»ĞèÒªÌØ±ğÖ¸³ö¡£\n");
+				return notify_fail("å››è½¬ä¼šä¿å­˜çŸ¥è¯†æŠ€èƒ½ï¼Œä¸éœ€è¦ç‰¹åˆ«æŒ‡å‡ºã€‚\n");
 			if (SKILL_D(skill2)->valid_enable("force"))
-				return notify_fail("ËÄ×ª»á±£´æËùÓĞÄÚ¹¦£¬²»ĞèÒªÌØ±ğÖ¸³ö¡£\n");
-			write("ÄúÑ¡ÔñÁËËÄ´Î×ªÉúÊ±±£ÁôÎä¹¦£º"+to_chinese(skill)+"£¬ÒÔ¼°Îä¹¦£º"+to_chinese(skill2)+"¡£\n");
-			write("ÇëÊäÈëÄúµÄÃÜÂëÒÔÈ·ÈÏ£º");
+				return notify_fail("å››è½¬ä¼šä¿å­˜æ‰€æœ‰å†…åŠŸï¼Œä¸éœ€è¦ç‰¹åˆ«æŒ‡å‡ºã€‚\n");
+			write("æ‚¨é€‰æ‹©äº†å››æ¬¡è½¬ç”Ÿæ—¶ä¿ç•™æ­¦åŠŸï¼š"+to_chinese(skill)+"ï¼Œä»¥åŠæ­¦åŠŸï¼š"+to_chinese(skill2)+"ã€‚\n");
+			write("è¯·è¾“å…¥æ‚¨çš„å¯†ç ä»¥ç¡®è®¤ï¼š");
 			input_to("check_scborn",me,skill,skill2);
 			break;
 		case 4:
 			if (!arg)
-				return notify_fail("×ªÉú¸ñÊ½Îª£ºsuicide -r Îä¹¦ Îä¹¦\n");
+				return notify_fail("è½¬ç”Ÿæ ¼å¼ä¸ºï¼šsuicide -r æ­¦åŠŸ æ­¦åŠŸ\n");
 			if (sscanf(arg,"%s.%s %s",skill,skill2,skill3)!=3)
-				return notify_fail("×ªÉú¸ñÊ½Îª£ºsuicide -r Îä¹¦ Îä¹¦\n");
-			//¼ì²éÎä¹¦1
+				return notify_fail("è½¬ç”Ÿæ ¼å¼ä¸ºï¼šsuicide -r æ­¦åŠŸ æ­¦åŠŸ\n");
+			//æ£€æŸ¥æ­¦åŠŸ1
 			if (!me->query_skill(skill))
-				return notify_fail("Äã²¢²»»á"+skill+"ÕâÏî¼¼ÄÜ¡£\n");
+				return notify_fail("ä½ å¹¶ä¸ä¼š"+skill+"è¿™é¡¹æŠ€èƒ½ã€‚\n");
 			if ((SKILL_D(skill)->type())=="knowledge")
-				return notify_fail("Îå×ª»á±£´æÖªÊ¶¼¼ÄÜ£¬²»ĞèÒªÌØ±ğÖ¸³ö¡£\n");
+				return notify_fail("äº”è½¬ä¼šä¿å­˜çŸ¥è¯†æŠ€èƒ½ï¼Œä¸éœ€è¦ç‰¹åˆ«æŒ‡å‡ºã€‚\n");
 			if (SKILL_D(skill)->valid_enable("force"))
-				return notify_fail("Îå×ª»á±£´æËùÓĞÄÚ¹¦£¬²»ĞèÒªÌØ±ğÖ¸³ö¡£\n");
-			//¼ì²éÎä¹¦2
+				return notify_fail("äº”è½¬ä¼šä¿å­˜æ‰€æœ‰å†…åŠŸï¼Œä¸éœ€è¦ç‰¹åˆ«æŒ‡å‡ºã€‚\n");
+			//æ£€æŸ¥æ­¦åŠŸ2
 			if (!me->query_skill(skill2))
-				return notify_fail("Äã²¢²»»á"+skill2+"ÕâÏî¼¼ÄÜ¡£\n");
+				return notify_fail("ä½ å¹¶ä¸ä¼š"+skill2+"è¿™é¡¹æŠ€èƒ½ã€‚\n");
 			if ((SKILL_D(skill2)->type())=="knowledge")
-				return notify_fail("Îå×ª»á±£´æÖªÊ¶¼¼ÄÜ£¬²»ĞèÒªÌØ±ğÖ¸³ö¡£\n");
+				return notify_fail("äº”è½¬ä¼šä¿å­˜çŸ¥è¯†æŠ€èƒ½ï¼Œä¸éœ€è¦ç‰¹åˆ«æŒ‡å‡ºã€‚\n");
 			if (SKILL_D(skill2)->valid_enable("force"))
-				return notify_fail("Îå×ª»á±£´æËùÓĞÄÚ¹¦£¬²»ĞèÒªÌØ±ğÖ¸³ö¡£\n");
-			//¼ì²éÎä¹¦3
+				return notify_fail("äº”è½¬ä¼šä¿å­˜æ‰€æœ‰å†…åŠŸï¼Œä¸éœ€è¦ç‰¹åˆ«æŒ‡å‡ºã€‚\n");
+			//æ£€æŸ¥æ­¦åŠŸ3
 			if (!me->query_skill(skill3))
-				return notify_fail("Äã²¢²»»á"+skill3+"ÕâÏî¼¼ÄÜ¡£\n");
+				return notify_fail("ä½ å¹¶ä¸ä¼š"+skill3+"è¿™é¡¹æŠ€èƒ½ã€‚\n");
 			if ((SKILL_D(skill3)->type())=="knowledge")
-				return notify_fail("Îå×ª»á±£´æÖªÊ¶¼¼ÄÜ£¬²»ĞèÒªÌØ±ğÖ¸³ö¡£\n");
+				return notify_fail("äº”è½¬ä¼šä¿å­˜çŸ¥è¯†æŠ€èƒ½ï¼Œä¸éœ€è¦ç‰¹åˆ«æŒ‡å‡ºã€‚\n");
 			if (SKILL_D(skill3)->valid_enable("force"))
-				return notify_fail("Îå×ª»á±£´æËùÓĞÄÚ¹¦£¬²»ĞèÒªÌØ±ğÖ¸³ö¡£\n");
-			write("ÄúÑ¡ÔñÁËÎå´Î×ªÉúÊ±±£ÁôÎä¹¦£º"+to_chinese(skill)+"¡¢Îä¹¦£º"+to_chinese(skill2)+" ÒÔ¼°Îä¹¦£º"+to_chinese(skill3)+" ¡£\n");
-			write("ÇëÊäÈëÄúµÄÃÜÂëÒÔÈ·ÈÏ£º");
+				return notify_fail("äº”è½¬ä¼šä¿å­˜æ‰€æœ‰å†…åŠŸï¼Œä¸éœ€è¦ç‰¹åˆ«æŒ‡å‡ºã€‚\n");
+			write("æ‚¨é€‰æ‹©äº†äº”æ¬¡è½¬ç”Ÿæ—¶ä¿ç•™æ­¦åŠŸï¼š"+to_chinese(skill)+"ã€æ­¦åŠŸï¼š"+to_chinese(skill2)+" ä»¥åŠæ­¦åŠŸï¼š"+to_chinese(skill3)+" ã€‚\n");
+			write("è¯·è¾“å…¥æ‚¨çš„å¯†ç ä»¥ç¡®è®¤ï¼š");
 			input_to("check_scborn",me,skill,skill2,skill3);
 			break;
 		case 5:
-			write("Äú¾ö¶¨ÁËµÚÁù´Î×ªÉú¡£\n");
-			write("ÇëÊäÈëÄúµÄÃÜÂëÒÔÈ·ÈÏ£º");
+			write("æ‚¨å†³å®šäº†ç¬¬å…­æ¬¡è½¬ç”Ÿã€‚\n");
+			write("è¯·è¾“å…¥æ‚¨çš„å¯†ç ä»¥ç¡®è®¤ï¼š");
 			input_to("check_scborn",me);
 			break;
 		default:
-			return notify_fail("²¢Ã»ÓĞÌá¹©Áù×ªÒÔÉÏ×ªÉú¡£\n");
+			return notify_fail("å¹¶æ²¡æœ‰æä¾›å…­è½¬ä»¥ä¸Šè½¬ç”Ÿã€‚\n");
 	}
 	return 1;
 }
@@ -286,14 +286,14 @@ int sure1(string arg,object me,string skill,string pfm)
 {
 	if (!arg)
 	{
-				write("²»±£ÁôÎä¹¦µÄÌØÊâÊ¹ÓÃÂğ£¿(y/n)");
+				write("ä¸ä¿ç•™æ­¦åŠŸçš„ç‰¹æ®Šä½¿ç”¨å—ï¼Ÿ(y/n)");
 				input_to("sure1",me,skill,pfm);
 				return 1;
 	}
 	if (arg[0]=='y' || arg[0]=='Y')
 	{
-			write("ÄúÑ¡ÔñÁË×ªÉúÊ±±£ÁôÎä¹¦£º"+to_chinese(skill)+"ÇÒ²»±£ÁôÈÎºÎ¾øÕĞ¡£\n");
-			write("ÇëÊäÈëÄúµÄÃÜÂëÒÔÈ·ÈÏ£º");
+			write("æ‚¨é€‰æ‹©äº†è½¬ç”Ÿæ—¶ä¿ç•™æ­¦åŠŸï¼š"+to_chinese(skill)+"ä¸”ä¸ä¿ç•™ä»»ä½•ç»æ‹›ã€‚\n");
+			write("è¯·è¾“å…¥æ‚¨çš„å¯†ç ä»¥ç¡®è®¤ï¼š");
 		input_to("check_scborn",me,skill,0);
 	}
 	return 1;
@@ -302,14 +302,14 @@ int sure2(string arg,object me,string skill,string lskill)
 {
 	if (!arg)
 	{
-				write("²»±£Áô²¿·ÖÌØÊâÊ¹ÓÃÂğ£¿(y/n)");
+				write("ä¸ä¿ç•™éƒ¨åˆ†ç‰¹æ®Šä½¿ç”¨å—ï¼Ÿ(y/n)");
 				input_to("sure2",me,skill,lskill);
 				return 1;
 	}
 	if (arg[0]=='y' || arg[0]=='Y')
 	{
-			write("ÄúÑ¡ÔñÁË×ªÉúÊ±±£ÁôÎä¹¦£º"+to_chinese(skill)+"ÇÒ²»±£Áô²¿·Ö¾øÕĞ¡£\n");
-			write("ÇëÊäÈëÄúµÄÃÜÂëÒÔÈ·ÈÏ£º");
+			write("æ‚¨é€‰æ‹©äº†è½¬ç”Ÿæ—¶ä¿ç•™æ­¦åŠŸï¼š"+to_chinese(skill)+"ä¸”ä¸ä¿ç•™éƒ¨åˆ†ç»æ‹›ã€‚\n");
+			write("è¯·è¾“å…¥æ‚¨çš„å¯†ç ä»¥ç¡®è®¤ï¼š");
 		input_to("check_scborn",me,skill,lskill);
 	}
 	return 1;
@@ -325,11 +325,11 @@ varargs private void check_scborn(string passwd, object me, string skill,string 
 	old_pass = link_ob->query("password");
 	id = getuid(me);
 	if( crypt(passwd, old_pass)!=old_pass ) {
-		write("ÃÜÂë´íÎó£¡\n");
+		write("å¯†ç é”™è¯¯ï¼\n");
 		return;
 	}
 	SCBORN_D->reborn(me,skill,etc1,etc2);
-//	write("Äã¿ÉÒÔquitÁË¡£\n");
+//	write("ä½ å¯ä»¥quitäº†ã€‚\n");
 	me->move(VOID_OB,1);
 	me->save();
 	seteuid(getuid());
@@ -341,15 +341,15 @@ varargs private void check_scborn(string passwd, object me, string skill,string 
 int help (object me)
 {
 	write(@HELP
-Ö¸Áî¸ñÊ½: suicide [-f|-r]
+æŒ‡ä»¤æ ¼å¼: suicide [-f|-r]
  
-    Èç¹ûÒòÎªÄ³ÖÖÔ­ÒòÄã²»Ïë»îÁË£¬Äã¿ÉÒÔÑ¡Ôñ×ÔÉ±À´ÓÀÔ¶³ıÈ¥×ÊÁÏ¡£ÏµÍ³»á
-ÒªÇóÄãÊäÈëÃÜÂëÒÔÈ·ÈÏÉí·İ¡£
+    å¦‚æœå› ä¸ºæŸç§åŸå› ä½ ä¸æƒ³æ´»äº†ï¼Œä½ å¯ä»¥é€‰æ‹©è‡ªæ€æ¥æ°¸è¿œé™¤å»èµ„æ–™ã€‚ç³»ç»Ÿä¼š
+è¦æ±‚ä½ è¾“å…¥å¯†ç ä»¥ç¡®è®¤èº«ä»½ã€‚
 
-suicide -r : ÖØĞÂÍ¶Ì¥
-suicide -f : ÓÀÔ¶µÄ³ıÈ¥Íæ¼Ò×ÊÁÏ£¬ÏµÍ³»áÒªÇóÄãÊäÈëÃÜÂëÒÔÈ·ÈÏÉí·İ¡£
+suicide -r : é‡æ–°æŠ•èƒ
+suicide -f : æ°¸è¿œçš„é™¤å»ç©å®¶èµ„æ–™ï¼Œç³»ç»Ÿä¼šè¦æ±‚ä½ è¾“å…¥å¯†ç ä»¥ç¡®è®¤èº«ä»½ã€‚
  
-ÇëÉ÷ÖØÑ¡Ôñ :)
+è¯·æ…é‡é€‰æ‹© :)
  
 HELP);
 	return 1;

@@ -6,8 +6,8 @@ int do_copy(int maxpot,int type);
 
 void create()
 {
-	set_name("ÃÉ¹Å´óºº", ({ "menggu dahan","dahan"}));
-	set("gender", "ÄĞĞÔ");
+	set_name("è’™å¤å¤§æ±‰", ({ "menggu dahan","dahan"}));
+	set("gender", "ç”·æ€§");
 	seteuid(getuid());
 	set("age", random(20) + 25);
 	set("str", 30);
@@ -30,7 +30,7 @@ int do_go(string arg)
 {
 	if (this_player()->query_condition("guojx_mis"))
 	{
-		write(HIR"ÃÉ¹Å¼éÏ¸¾ÍÔÚÑÛÇ°£¬Ôõ¿ÉÁÙÕóÍÑÌÓ£¡\n"NOR);
+		write(HIR"è’™å¤å¥¸ç»†å°±åœ¨çœ¼å‰ï¼Œæ€å¯ä¸´é˜µè„±é€ƒï¼\n"NOR);
 		return 1;
 	}
 }
@@ -39,12 +39,12 @@ int accept_hit(object who)
 	object me=this_object();
 	if (who->query_condition("guojx_mis")) 
 	{
-		message_vision(CYN"$N¼ÓÓÍ£¡$N¼ÓÓÍ£¡\n"NOR,who);
+		message_vision(CYN"$NåŠ æ²¹ï¼$NåŠ æ²¹ï¼\n"NOR,who);
 		me->kill_ob(who);
 		who->kill_ob(me);
 		return 1;
 	}
-	else return notify_fail(HIY"Ïë¶Ô¸¶"HIR"ÃÉ¹Å¼éÏ¸"HIY"£¿¿ìÈ¥ÕÒ¹ù¾¸´óÏÀ£¡\n"NOR);
+	else return notify_fail(HIY"æƒ³å¯¹ä»˜"HIR"è’™å¤å¥¸ç»†"HIY"ï¼Ÿå¿«å»æ‰¾éƒ­é–å¤§ä¾ ï¼\n"NOR);
 }
 int accept_fight(object who)	{return accept_hit(who);}
 int accept_kill(object who)		{return accept_hit(who);}
@@ -253,11 +253,11 @@ void die()
    { 
 		if (j<=1)
 		{
-			tell_room(environment(ob),HIC"\nÒ»Ö±¶ãÔÚÒ»ÅÔµÄÃÉ¹Å¼éÏ¸¼û´óÊÆÒÑÈ¥£¬Ğı¼´Ò²ÆËÁËÉÏÀ´¡£\n"NOR);
+			tell_room(environment(ob),HIC"\nä¸€ç›´èº²åœ¨ä¸€æ—çš„è’™å¤å¥¸ç»†è§å¤§åŠ¿å·²å»ï¼Œæ—‹å³ä¹Ÿæ‰‘äº†ä¸Šæ¥ã€‚\n"NOR);
 			ob->set_temp("guojx_mis_flag",3);
 			obj=new(__DIR__"jianxi"); 
 			obj->do_copy( maxexp );
-			obj->set("title",HIR"¼éÏ¸"NOR);
+			obj->set("title",HIR"å¥¸ç»†"NOR);
 			obj->move(environment(ob));
 			obj->kill_ob(ob);
 			gift=new(__DIR__"mijian");
@@ -266,7 +266,7 @@ void die()
 			obj->call_out("task_over",300,obj,ob);
 		}
    }
-	message_vision("$NÆËÔÚµØÉÏÕõÔúÁË¼¸ÏÂ£¬¿ÚÖĞÅç³ö¼¸¿Ú"HIR"ÏÊÑª"NOR"£¬ËÀÁË£¡\n",this_object());
+	message_vision("$Næ‰‘åœ¨åœ°ä¸ŠæŒ£æ‰äº†å‡ ä¸‹ï¼Œå£ä¸­å–·å‡ºå‡ å£"HIR"é²œè¡€"NOR"ï¼Œæ­»äº†ï¼\n",this_object());
 	destruct(this_object());
 	return;
 }
@@ -278,7 +278,7 @@ void task_over(object obj,object me)
 	
 	team=me->query_team();
 	count=sizeof(team);
-	tell_room(environment(obj),HIC"ÃÉ¹Å±ø»Ó»ÓÊÖ£¬Ê¾Òâ¼éÏ¸ÏÈ×ß¡£\n¼éÏ¸´Ò´ÒÃ¦Ã¦µÄÀë¿ªÁË¡£\n"NOR);
+	tell_room(environment(obj),HIC"è’™å¤å…µæŒ¥æŒ¥æ‰‹ï¼Œç¤ºæ„å¥¸ç»†å…ˆèµ°ã€‚\nå¥¸ç»†åŒ†åŒ†å¿™å¿™çš„ç¦»å¼€äº†ã€‚\n"NOR);
 	for(i=0;i<count;i++)
 	{
 		team[i]->delete_temp("guojx_mis_tcount");
@@ -287,7 +287,7 @@ void task_over(object obj,object me)
 		team[i]->delete_temp("guojx_mis_time");
 		team[i]->delete_temp("guojx_mis_max");
 		team[i]->clear_condition("guojx_mis");
-		tell_object(team[i], HIY"\n¼éÏ¸Àë¿ªÖĞÔ­ÁË£¬ÄãÃÇµÄÈÎÎñÊ§°ÜÁË£¡\n"NOR);
+		tell_object(team[i], HIY"\nå¥¸ç»†ç¦»å¼€ä¸­åŸäº†ï¼Œä½ ä»¬çš„ä»»åŠ¡å¤±è´¥äº†ï¼\n"NOR);
 	}
 	destruct(obj);
 	return;

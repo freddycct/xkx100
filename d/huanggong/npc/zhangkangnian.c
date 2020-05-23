@@ -6,9 +6,9 @@ inherit NPC;
 
 void create()
 {
-	set_name("ÕÅ¿µÄê", ({"zhang kangnian", "zhang", "kangnian", }));
-	set("title",HIY "Ç¬Çå¹¬´øµ¶ÊÌÎÀ" NOR);
-	set("gender", "ÄĞĞÔ");
+	set_name("å¼ åº·å¹´", ({"zhang kangnian", "zhang", "kangnian", }));
+	set("title",HIY "ä¹¾æ¸…å®«å¸¦åˆ€ä¾å«" NOR);
+	set("gender", "ç”·æ€§");
 	set("attitude", "peaceful");
 
 	set("age", 28);

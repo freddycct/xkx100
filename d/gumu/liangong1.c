@@ -6,10 +6,10 @@ inherit ROOM;
 
 void create()
 {
-	set("short", HIC"Ê¯ÊÒ"NOR);
+	set("short", HIC"çŸ³å®¤"NOR);
 	set("long", @LONG
-ÕâÊÇÒ»¼äÃÜ±ÕµÄÊ¯ÊÒ£¬ÊÒÖĞµã×ÅµÆ»ğ£¬Ê¯ÊÒÆæĞ¡£¬½öÈİÒ»ÈËÖÜ×ª£¬
-Ç½ÉÏ¿Ì×ÅÒ»Ğ©Í¼Æ×£¬¹©¹ÅÄ¹µÜ×ÓĞŞÁ¶ÈëÃÅÇá¹¦Ê±²Î¿´¡£
+è¿™æ˜¯ä¸€é—´å¯†é—­çš„çŸ³å®¤ï¼Œå®¤ä¸­ç‚¹ç€ç¯ç«ï¼ŒçŸ³å®¤å¥‡å°ï¼Œä»…å®¹ä¸€äººå‘¨è½¬ï¼Œ
+å¢™ä¸Šåˆ»ç€ä¸€äº›å›¾è°±ï¼Œä¾›å¤å¢“å¼Ÿå­ä¿®ç‚¼å…¥é—¨è½»åŠŸæ—¶å‚çœ‹ã€‚
 LONG	);
 
 	set("exits", ([
@@ -35,22 +35,22 @@ int do_cankan(string arg)
 
 	c_skill=(int)me->query_skill("dodge", 1);
 	c_exp=me->query("combat_exp");
-	if( !arg ) return notify_fail("Äã¶«ÕÅÎ÷ÍûµØÂÒ¿´Ê²Ã´£¿\n");
+	if( !arg ) return notify_fail("ä½ ä¸œå¼ è¥¿æœ›åœ°ä¹±çœ‹ä»€ä¹ˆï¼Ÿ\n");
 	if( arg != "picture" || arg != "tu" )
-		return notify_fail("ÕâÀïÃ»ÓĞÄãÏë¿´µÄ¶«Î÷¡£\n");
+		return notify_fail("è¿™é‡Œæ²¡æœ‰ä½ æƒ³çœ‹çš„ä¸œè¥¿ã€‚\n");
 	if( me->query("jing") < 30 )
-		return notify_fail("Äã¾õµÃÌ«ÀÛÁË£¬²»ÈçĞª»á°É£¿\n");
+		return notify_fail("ä½ è§‰å¾—å¤ªç´¯äº†ï¼Œä¸å¦‚æ­‡ä¼šå§ï¼Ÿ\n");
 	me->receive_damage("jing", random(10));
 	if( random((int)c_skill/10) + 1 < 2)
 	{
-		message_vision("$NÈÏÕæµØ¿´Ç½ÉÏµÄÍ¼Æ×£¬¿ÉÊÇ¹âÏßÊµÔÚÌ«°µ£¬ÑÛ¾¦ÉúÍ´£¬ºÃÏóÒ²Ã»¿´µ½Ê²Ã´ÌØ±ğµÄ¶«Î÷¡£\n", me);
+		message_vision("$Nè®¤çœŸåœ°çœ‹å¢™ä¸Šçš„å›¾è°±ï¼Œå¯æ˜¯å…‰çº¿å®åœ¨å¤ªæš—ï¼Œçœ¼ç›ç”Ÿç—›ï¼Œå¥½è±¡ä¹Ÿæ²¡çœ‹åˆ°ä»€ä¹ˆç‰¹åˆ«çš„ä¸œè¥¿ã€‚\n", me);
 		return 1;
 	}
-	message_vision("$NÕıÔÚ×ĞÏ¸²ì¿´Ç½ÉÏµÄÍ¼Æ×¡£\n", me);
+	message_vision("$Næ­£åœ¨ä»”ç»†å¯Ÿçœ‹å¢™ä¸Šçš„å›¾è°±ã€‚\n", me);
 	if ((random(10)>3) && c_skill*c_skill*c_skill/10<c_exp && c_skill<101)
 	{
 		me->improve_skill("dodge", random(me->query("int")));
-		tell_object(me,"ÄãµÄ»ù±¾Çá¹¦½ø²½ÁË£¡\n");
+		tell_object(me,"ä½ çš„åŸºæœ¬è½»åŠŸè¿›æ­¥äº†ï¼\n");
 	}
 	return 1;
 }

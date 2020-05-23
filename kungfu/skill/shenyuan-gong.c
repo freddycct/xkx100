@@ -1,4 +1,4 @@
-// shenyuan-gong.c ÉñÔª¹¦
+// shenyuan-gong.c ç¥žå…ƒåŠŸ
 // Last Modified by winder on Mar. 10 2000
 
 #include <ansi.h>
@@ -20,14 +20,14 @@ int valid_learn(object me)
 	nf = (int)me->query_skill("force", 1);
 
 	if ( nf < 10)
-		return notify_fail("ÄãµÄ»ù±¾ÄÚ¹¦»ðºò²»¹»£¬ÎÞ·¨Áì»áÉñÔª¹¦¡£\n");
+		return notify_fail("ä½ çš„åŸºæœ¬å†…åŠŸç«å€™ä¸å¤Ÿï¼Œæ— æ³•é¢†ä¼šç¥žå…ƒåŠŸã€‚\n");
 
 	return valid_public(me);
 }
 
 int practice_skill(object me)
 {
-	return notify_fail("ÉñÔª¹¦Ö»ÄÜÓÃÑ§(learn)µÄÀ´Ôö¼ÓÊìÁ·¶È¡£\n");
+	return notify_fail("ç¥žå…ƒåŠŸåªèƒ½ç”¨å­¦(learn)çš„æ¥å¢žåŠ ç†Ÿç»ƒåº¦ã€‚\n");
 }
 
 string exert_function_file(string func)
@@ -36,13 +36,13 @@ string exert_function_file(string func)
 }
 int help(object me)
 {
-	write(HIC"\nÉñÔª¹¦£º"NOR"\n");
+	write(HIC"\nç¥žå…ƒåŠŸï¼š"NOR"\n");
 	write(@HELP
 
-    ÉñÔª¹¦ÊÇ½­ÄÏ¹ÃËÕÄ½ÈÝÊÀ¼ÒµÄ±¾ÃÅÄÚ¹¦¡£
+    ç¥žå…ƒåŠŸæ˜¯æ±Ÿå—å§‘è‹æ…•å®¹ä¸–å®¶çš„æœ¬é—¨å†…åŠŸã€‚
 
-	Ñ§Ï°ÒªÇó£º
-		»ù±¾ÄÚ¹¦10¼¶
+	å­¦ä¹ è¦æ±‚ï¼š
+		åŸºæœ¬å†…åŠŸ10çº§
 HELP
 	);
 	return 1;

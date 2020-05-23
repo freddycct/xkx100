@@ -9,8 +9,8 @@ int do_back(object me);
 void create()
 {
 	string weapon;
-	set_name("»¤ïÚïÚÊ¦", ({ "hubiao biaoshi", "biaoshi"}));
-	set("gender", "ÄĞĞÔ");
+	set_name("æŠ¤é•–é•–å¸ˆ", ({ "hubiao biaoshi", "biaoshi"}));
+	set("gender", "ç”·æ€§");
 	set("age", random(10) + 25);
 	set("no_quest", 1);
 	seteuid(getuid());
@@ -18,7 +18,7 @@ void create()
 	set("con", 26);
 	set("int", 20);
 	set("dex", 23);
-	set("long", "ïÚ¾ÖµÄïÚÊ¦¡£\n");
+	set("long", "é•–å±€çš„é•–å¸ˆã€‚\n");
 	set("combat_exp", 80000 + random(40000)); 
 	set("attitude", "friendly");
 	set_skill("force", 50);
@@ -47,7 +47,7 @@ void create()
 
 int do_back(object me)
 {		       
-	tell_room(environment(me), me->query("name")+"Ìø³öÕ½È¦£¬×ªÉí¼¸¸öÆğÂä¾Í²»¼ûÁË¡£\n", ({me}));	
+	tell_room(environment(me), me->query("name")+"è·³å‡ºæˆ˜åœˆï¼Œè½¬èº«å‡ ä¸ªèµ·è½å°±ä¸è§äº†ã€‚\n", ({me}));	
 	destruct(me); 
 	return 1;
 }
@@ -79,7 +79,7 @@ int do_copy(object me)
 	i = (i + random(i))/2;
 	if( i < 60) i = 60;
 	
-	message_vision(HIR"Í»È»´ÓÉÌ¶Óºó´Ü³ö$N£¬¶ş»°²»Ëµ¾ÍÆËÏòÁË$n£¡\n"NOR, ob, me);
+	message_vision(HIR"çªç„¶ä»å•†é˜Ÿåçªœå‡º$Nï¼ŒäºŒè¯ä¸è¯´å°±æ‰‘å‘äº†$nï¼\n"NOR, ob, me);
 	me->add_temp("biaoshi", 1);
 	ob->set("combat_exp", me->query("combat_exp")/2+random(me->query("combat_exp"))/2);
 	ob->set_skill("force", i);

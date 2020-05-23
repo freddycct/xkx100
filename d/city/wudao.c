@@ -9,11 +9,11 @@ int sort(string arg);
 void add_title(object me,string arg);
 void create()
 {
-	set("short", "ÎäµÀ³¡");
+	set("short", "æ­¦é“åœº");
 	set("long", @LONG
-ÕâÀïÊÇ±ÈÎä´ó»áÎ×Ê¦Ï¯£¬¸ß¾İÀŞÌ¨Ö®ÉÏ£¬µñÁºÁğÍß£¬»¨Ä¾ÓÎÀ¸¡£ËÄ
-ÍûÇàÉ½Ó­Ë¬£¬ÏòÏÂ¿´ÀŞÌ¨ÖÜÎ§ÈËÍ·ÔÜ¶¯¡£×ÀÉÏ·Å×ÅÒ»¿éĞ¡Ä¾ÅÆ (pai)£¬
-ºó±ÚÉÏÌù×ÅÒ»ÕÅºìÖ½¸æÊ¾(gaoshi)¡£
+è¿™é‡Œæ˜¯æ¯”æ­¦å¤§ä¼šå·«å¸ˆå¸­ï¼Œé«˜æ®æ“‚å°ä¹‹ä¸Šï¼Œé›•æ¢ç‰ç“¦ï¼ŒèŠ±æœ¨æ¸¸æ ã€‚å››
+æœ›é’å±±è¿çˆ½ï¼Œå‘ä¸‹çœ‹æ“‚å°å‘¨å›´äººå¤´æ”’åŠ¨ã€‚æ¡Œä¸Šæ”¾ç€ä¸€å—å°æœ¨ç‰Œ (pai)ï¼Œ
+åå£ä¸Šè´´ç€ä¸€å¼ çº¢çº¸å‘Šç¤º(gaoshi)ã€‚
 LONG );
         set("outdoors", "city");
 	set("item_desc", ([
@@ -37,26 +37,26 @@ string look_pai()
 {
 	return 
 "\n
-"HIR"(ÀŞÌ¨ÉÏ)start id1 id2  "HIY"----  ÀŞÌ¨ÉÏÖ®Íæ¼Ò¿ªÊ¼±ÈÎä¡£
-"HIR"load     <player id>   "HIY"----  À­Íæ¼ÒÉÏÀŞÌ¨¡£
-"HIR"kick     <player id>   "HIY"----  ÌßÍæ¼ÒÏÂÀŞÌ¨¡£
-"HIR"heal     <player id>   "HIY"----  ¸øÀŞÌ¨ÉÏÍæ¼Ò»Ö¸´¡£
-"HIR"sort id1 id2 id3 ...   "HIY"----  ¸ø²ÎÈüÍæ¼Ò¾­ÑéÅÅĞò
+"HIR"(æ“‚å°ä¸Š)start id1 id2  "HIY"----  æ“‚å°ä¸Šä¹‹ç©å®¶å¼€å§‹æ¯”æ­¦ã€‚
+"HIR"load     <player id>   "HIY"----  æ‹‰ç©å®¶ä¸Šæ“‚å°ã€‚
+"HIR"kick     <player id>   "HIY"----  è¸¢ç©å®¶ä¸‹æ“‚å°ã€‚
+"HIR"heal     <player id>   "HIY"----  ç»™æ“‚å°ä¸Šç©å®¶æ¢å¤ã€‚
+"HIR"sort id1 id2 id3 ...   "HIY"----  ç»™å‚èµ›ç©å®¶ç»éªŒæ’åº
 
-"HIG"titles  <player id> a1 "HIY"----  ÔùÍæ¼ÒÌìÏÂµÚÒ»ÏÀÉÙ (20ÒÔÏÂ)¡£
-"HIG"titles  <player id> a2 "HIY"----  ÔùÍæ¼ÒÌìÏÂµÚ¶şÏÀÉÙ (20ÒÔÏÂ)¡£
-"HIG"titles  <player id> b1 "HIY"----  ÔùÍæ¼ÒÌìÏÂÃûÏÀ     (exp<1m)¡£
-"HIG"titles  <player id> c1 "HIY"----  ÔùÍæ¼ÒÌìÏÂÃûÏÀ  (3m>exp>1m)¡£ 
-"HIG"titles  <player id> d1 "HIY"----  ÔùÍæ¼ÒÌìÏÂÃûÏÀ  (5m>exp>3m)¡£
-"HIG"titles  <player id> e1 "HIY"----  ÔùÍæ¼ÒÌìÏÂµÚ¶ş´óÏÀ (10m>exp>5m)¡£
-"HIG"titles  <player id> f1 "HIY"----  ÔùÍæ¼ÒÌìÏÂµÚÒ»´óÏÀ (exp>10m)¡£
+"HIG"titles  <player id> a1 "HIY"----  èµ ç©å®¶å¤©ä¸‹ç¬¬ä¸€ä¾ å°‘ (20ä»¥ä¸‹)ã€‚
+"HIG"titles  <player id> a2 "HIY"----  èµ ç©å®¶å¤©ä¸‹ç¬¬äºŒä¾ å°‘ (20ä»¥ä¸‹)ã€‚
+"HIG"titles  <player id> b1 "HIY"----  èµ ç©å®¶å¤©ä¸‹åä¾      (exp<1m)ã€‚
+"HIG"titles  <player id> c1 "HIY"----  èµ ç©å®¶å¤©ä¸‹åä¾   (3m>exp>1m)ã€‚ 
+"HIG"titles  <player id> d1 "HIY"----  èµ ç©å®¶å¤©ä¸‹åä¾   (5m>exp>3m)ã€‚
+"HIG"titles  <player id> e1 "HIY"----  èµ ç©å®¶å¤©ä¸‹ç¬¬äºŒå¤§ä¾  (10m>exp>5m)ã€‚
+"HIG"titles  <player id> f1 "HIY"----  èµ ç©å®¶å¤©ä¸‹ç¬¬ä¸€å¤§ä¾  (exp>10m)ã€‚
 
 \n"NOR;
 }
 string look_gaoshi()
 {
 	return 
-HIG"\nÇëÓÃhelp biwuÁË½â±ÈÎä¹æÔò¡£
+HIG"\nè¯·ç”¨help biwuäº†è§£æ¯”æ­¦è§„åˆ™ã€‚
 \n"NOR;
 }
 void init()
@@ -90,7 +90,7 @@ int do_sort(string arg)
 			fighter += ({ob});
 	}
 	fighter = sort_array(fighter,(: $1->query("combat_exp") - $2->query("combat_exp") :));
-	write("ÅÅÃûÈçÏÂ£º\n");
+	write("æ’åå¦‚ä¸‹ï¼š\n");
 	j= sizeof(fighter);
 	while(j--)
 	{
@@ -117,15 +117,15 @@ int do_load(string arg)
 	me = this_player();
 	if (!arg) return notify_fail("<Syntax>: loadup <player id>\n");
 	ob = LOGIN_D->find_body(arg);
-	if (!ob) return notify_fail("Ã»Õâ¸öÈËÒ®¡£\n");
-	message_vision(HIG"$NÀ­"+ob->name()+"ÉÏÀŞÌ¨¡£\n"NOR, me);
-	message_vision(HIG"$NË«ÍÈÒ»µÅ£¬ÌÚ¿Õ¶øÆğ£¬ÇáÇáÂäÔÚÀŞÌ¨±ßÉÏ£¬ÒÂñÇ½ó·ç£¬Ê®·ÖäìÈ÷¡£\n"NOR, ob);
+	if (!ob) return notify_fail("æ²¡è¿™ä¸ªäººè€¶ã€‚\n");
+	message_vision(HIG"$Næ‹‰"+ob->name()+"ä¸Šæ“‚å°ã€‚\n"NOR, me);
+	message_vision(HIG"$NåŒè…¿ä¸€è¹¬ï¼Œè…¾ç©ºè€Œèµ·ï¼Œè½»è½»è½åœ¨æ“‚å°è¾¹ä¸Šï¼Œè¡£è¢‚è¥Ÿé£ï¼Œååˆ†æ½‡æ´’ã€‚\n"NOR, ob);
 	ob -> delete_temp("leitai_allow");
-	tell_object(ob,HIR"\n·¢Ê²Ã´´ôÑ½Äã£¬ÏÈÉÏÀ´°É¸øÎÒ¡£\n"NOR);
+	tell_object(ob,HIR"\nå‘ä»€ä¹ˆå‘†å‘€ä½ ï¼Œå…ˆä¸Šæ¥å§ç»™æˆ‘ã€‚\n"NOR);
 	ob -> move("/d/city/leitai");
 	ob -> delete_temp("view_leitai");
 	ob -> delete("env/combatd");
-	message_vision(HIG"$NÌÚ¿ÕÂäÔÚÀŞÌ¨±ßÉÏ£¬ÒÂñÇ½ó·ç£¬Ê®·ÖäìÈ÷¡£\n"NOR, ob);
+	message_vision(HIG"$Nè…¾ç©ºè½åœ¨æ“‚å°è¾¹ä¸Šï¼Œè¡£è¢‚è¥Ÿé£ï¼Œååˆ†æ½‡æ´’ã€‚\n"NOR, ob);
 	return 1;
 }
 int do_kick(string arg)
@@ -135,14 +135,14 @@ int do_kick(string arg)
 	me = this_player();
 	if (!arg) return notify_fail("<Syntax>: kickdown <player id>\n");
 	ob = LOGIN_D->find_body(arg);
-	if (!ob) return notify_fail("Ã»Õâ¸öÈËÒ®¡£\n");
-	message_vision(HIG"$N°Ñ"+ob->name()+"ÌßÏÂÀŞÌ¨¡£\n"NOR, me);
+	if (!ob) return notify_fail("æ²¡è¿™ä¸ªäººè€¶ã€‚\n");
+	message_vision(HIG"$NæŠŠ"+ob->name()+"è¸¢ä¸‹æ“‚å°ã€‚\n"NOR, me);
 	ob -> delete_temp("leitai_allow");
-	message_vision(HIG"Ö»ÌıµÃ$Nà»µÄÒ»Éù£¬·ÉÉíÌøÏÂÀŞÌ¨È¥ÁË¡£\n"NOR, ob);
-	tell_object(ob,HIR"\nÃ»Íæ¹»°¡£¬ÏÈÏÂÈ¥°ÉÄã¸øÎÒ¡£\n"NOR);
+	message_vision(HIG"åªå¬å¾—$Nå—·çš„ä¸€å£°ï¼Œé£èº«è·³ä¸‹æ“‚å°å»äº†ã€‚\n"NOR, ob);
+	tell_object(ob,HIR"\næ²¡ç©å¤Ÿå•Šï¼Œå…ˆä¸‹å»å§ä½ ç»™æˆ‘ã€‚\n"NOR);
 	ob -> move("/d/city/wudao1");
 	ob -> set_temp("view_leitai",1);
-	message_vision(HIG"Ö»¼û$N³¤ºôÉùÖĞ£¬Ò»¸ö´óÆ¨¹É¶Õ×øÔÚµØÉÏ°¦°¦²»¾ø¡£\n"NOR, ob);
+	message_vision(HIG"åªè§$Né•¿å‘¼å£°ä¸­ï¼Œä¸€ä¸ªå¤§å±è‚¡å¢©ååœ¨åœ°ä¸Šå”‰å”‰ä¸ç»ã€‚\n"NOR, ob);
 	return 1;
 }
 int do_heal(string arg)
@@ -152,16 +152,16 @@ int do_heal(string arg)
 	me = this_player();
 	if (!arg) return notify_fail("<Syntax>: heal <player id>\n");
 	ob = LOGIN_D->find_body(arg);
-	if (!ob) return notify_fail("Ã»Õâ¸öÈËÒ®¡£\n");
+	if (!ob) return notify_fail("æ²¡è¿™ä¸ªäººè€¶ã€‚\n");
 
-	tell_object(me, HIG"ÄãÎª"+ob->name()+"»Ö¸´±ÈÎä×´Ì¬¡£\n"NOR);
+	tell_object(me, HIG"ä½ ä¸º"+ob->name()+"æ¢å¤æ¯”æ­¦çŠ¶æ€ã€‚\n"NOR);
 	ob->set("eff_jing", ob->query("max_jing"));
 	ob->set("jing", ob->query("max_jing"));
 	ob->set("eff_qi", ob->query("max_qi"));
 	ob->set("qi", ob->query("max_qi"));
 	ob->set("neili", ob->query("max_neili"));
 	ob->clear_condition();
-	tell_object(ob,HIR"\nÎªÄã»Ö¸´ÁË±ÈÎä×´Ì¬¡£¿ÉÒÔ³öÊÖÁË¡£\n"NOR);
+	tell_object(ob,HIR"\nä¸ºä½ æ¢å¤äº†æ¯”æ­¦çŠ¶æ€ã€‚å¯ä»¥å‡ºæ‰‹äº†ã€‚\n"NOR);
 	return 1;
 }
 int do_titles(string arg)
@@ -171,13 +171,13 @@ int do_titles(string arg)
 	object ob1,ob2;
 
 	if( !arg || sscanf(arg, "%s %s", dest, topic)!=2 )
-		return notify_fail("ÄãÒª·âË­Ê²Ã´³ÆºÅ£¿\n");
+		return notify_fail("ä½ è¦å°è°ä»€ä¹ˆç§°å·ï¼Ÿ\n");
 	obj = find_player(dest);
-	if(!obj || !me->visible(obj)) return notify_fail("Ã»ÓĞÕâ¸öÈË....¡£\n");
+	if(!obj || !me->visible(obj)) return notify_fail("æ²¡æœ‰è¿™ä¸ªäºº....ã€‚\n");
 	switch (topic)
 	{
                 case "a1": 
-                	add_title(obj, "ÌìÏÂµÚÒ»ÏÀÉÙ"); 
+                	add_title(obj, "å¤©ä¸‹ç¬¬ä¸€ä¾ å°‘"); 
                 	ob1 = new("/u/biwu/puti-zi");
                 	ob2 = new("/u/biwu/gold");
                 	ob2->set_amount(100);
@@ -185,7 +185,7 @@ int do_titles(string arg)
                 	ob2->move(me);
                 	break;
                 case "a2": 
-                	add_title(obj, "ÌìÏÂµÚ¶şÏÀÉÙ");
+                	add_title(obj, "å¤©ä¸‹ç¬¬äºŒä¾ å°‘");
                 	ob1 = new("/u/biwu/puti-zi");
                 	ob2 = new("/u/biwu/gold");
                 	ob2->set_amount(50);
@@ -193,7 +193,7 @@ int do_titles(string arg)
                 	ob2->move(me);
                 	break;
                 case "b1": 
-                	add_title(obj, "ÌìÏÂÃûÏÀÖ®Éñ¹¦¸ÇÊÀ"); 
+                	add_title(obj, "å¤©ä¸‹åä¾ ä¹‹ç¥åŠŸç›–ä¸–"); 
                 	ob1 = new("/u/biwu/bing6");
                 	ob2 = new("/u/biwu/gold");
                 	ob2->set_amount(200);
@@ -201,7 +201,7 @@ int do_titles(string arg)
                 	ob2->move(me);
                 	break;
                 case "c1": 
-                	add_title(obj, "ÌìÏÂÃûÏÀÖ®ÎäÑ§×ÚÊ¦");
+                	add_title(obj, "å¤©ä¸‹åä¾ ä¹‹æ­¦å­¦å®—å¸ˆ");
                 	ob1 = new("/u/biwu/bing6");
                 	ob2 = new("/u/biwu/gold");
                 	ob2->set_amount(200);
@@ -209,7 +209,7 @@ int do_titles(string arg)
                 	ob2->move(me);
                 	break;
                 case "d1": 
-                	add_title(obj, "ÌìÏÂÃûÏÀÖ®Ò»´úÌì½¾");
+                	add_title(obj, "å¤©ä¸‹åä¾ ä¹‹ä¸€ä»£å¤©éª„");
                 	ob1 = new("/u/biwu/bing6");
                 	ob2 = new("/u/biwu/gold");
                 	ob2->set_amount(200);
@@ -217,7 +217,7 @@ int do_titles(string arg)
                 	ob2->move(me);
                 	break;
                 case "e1": 
-                	add_title(obj, "ÎäÁÖÌ©¶·");
+                	add_title(obj, "æ­¦æ—æ³°æ–—");
                 	ob1 = new("/u/biwu/bing6");
                 	ob2 = new("/u/biwu/gold");
                 	ob2->set_amount(200);
@@ -225,7 +225,7 @@ int do_titles(string arg)
                 	ob2->move(me);
                 	break;
                 case "f1": 
-                	add_title(obj, "ÎäÁÖÖÁ×ğ");
+                	add_title(obj, "æ­¦æ—è‡³å°Š");
                 	ob1 = new("/u/biwu/bing6");
                 	ob2 = new("/u/biwu/gold");
                 	ob2->set_amount(200);
@@ -234,8 +234,8 @@ int do_titles(string arg)
                 	break;
 		default: break;
 	}
-	message_vision(HIG"$NÊÚ"+obj->name()+"·âºÅ£¬½±Æ·ÒÑ½»µ½ÄãÊÖÉÏ¡£\n"NOR, me);
-	tell_object(obj,me->query("name")+"ÊÚÓèÄã·âºÅ£¬ÇëµÈ´ı·¢·Å½±Æ·¡£\n");
+	message_vision(HIG"$Næˆ"+obj->name()+"å°å·ï¼Œå¥–å“å·²äº¤åˆ°ä½ æ‰‹ä¸Šã€‚\n"NOR, me);
+	tell_object(obj,me->query("name")+"æˆäºˆä½ å°å·ï¼Œè¯·ç­‰å¾…å‘æ”¾å¥–å“ã€‚\n");
 	return 1;
 }
 void add_title(object me,string arg)
@@ -246,21 +246,21 @@ void add_title(object me,string arg)
 }
 string clear_title(string arg)
 {
-        if( (strsrch(arg, "ÌìÏÂµÚÒ»ÏÀÉÙ") >= 0) ||
-            (strsrch(arg, "ÌìÏÂµÚ¶şÏÀÉÙ") >= 0) ||
-            (strsrch(arg, "ÌìÏÂÃûÏÀÖ®Éñ¹¦¸ÇÊÀ") >= 0) ||
-            (strsrch(arg, "ÌìÏÂÃûÏÀÖ®ÎäÑ§×ÚÊ¦") >= 0) ||
-            (strsrch(arg, "ÌìÏÂÃûÏÀÖ®Ò»´úÌì½¾") >= 0) ||
-            (strsrch(arg, "ÎäÁÖÌ©¶·") >= 0) ||
-            (strsrch(arg, "ÎäÁÖÖÁ×ğ") >= 0))
+        if( (strsrch(arg, "å¤©ä¸‹ç¬¬ä¸€ä¾ å°‘") >= 0) ||
+            (strsrch(arg, "å¤©ä¸‹ç¬¬äºŒä¾ å°‘") >= 0) ||
+            (strsrch(arg, "å¤©ä¸‹åä¾ ä¹‹ç¥åŠŸç›–ä¸–") >= 0) ||
+            (strsrch(arg, "å¤©ä¸‹åä¾ ä¹‹æ­¦å­¦å®—å¸ˆ") >= 0) ||
+            (strsrch(arg, "å¤©ä¸‹åä¾ ä¹‹ä¸€ä»£å¤©éª„") >= 0) ||
+            (strsrch(arg, "æ­¦æ—æ³°æ–—") >= 0) ||
+            (strsrch(arg, "æ­¦æ—è‡³å°Š") >= 0))
                 {
-                arg = replace_string(arg, "ÌìÏÂµÚÒ»ÏÀÉÙ","");
-                arg = replace_string(arg, "ÌìÏÂµÚ¶şÏÀÉÙ","");
-                arg = replace_string(arg, "ÌìÏÂÃûÏÀÖ®Éñ¹¦¸ÇÊÀ","");
-                arg = replace_string(arg, "ÌìÏÂÃûÏÀÖ®ÎäÑ§×ÚÊ¦","");
-                arg = replace_string(arg, "ÌìÏÂÃûÏÀÖ®Ò»´úÌì½¾","");
-                arg = replace_string(arg, "ÎäÁÖÌ©¶·","");
-                arg = replace_string(arg, "ÎäÁÖÖÁ×ğ","");
+                arg = replace_string(arg, "å¤©ä¸‹ç¬¬ä¸€ä¾ å°‘","");
+                arg = replace_string(arg, "å¤©ä¸‹ç¬¬äºŒä¾ å°‘","");
+                arg = replace_string(arg, "å¤©ä¸‹åä¾ ä¹‹ç¥åŠŸç›–ä¸–","");
+                arg = replace_string(arg, "å¤©ä¸‹åä¾ ä¹‹æ­¦å­¦å®—å¸ˆ","");
+                arg = replace_string(arg, "å¤©ä¸‹åä¾ ä¹‹ä¸€ä»£å¤©éª„","");
+                arg = replace_string(arg, "æ­¦æ—æ³°æ–—","");
+                arg = replace_string(arg, "æ­¦æ—è‡³å°Š","");
         }
         return arg;
 }

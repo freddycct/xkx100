@@ -3,11 +3,11 @@
 inherit ROOM;
 void create()
 {
-	set("short", "С��԰");
+	set("short", "小花园");
 	set("long", @LONG
-�ӻ谵�ĵص��г������㷢���Լ�����������һ�������µ�С��԰
-�У���÷�������ɴ�أ����õ��ľ߽��ģ�����ȥ����һ��ܾ��ŵ�
-С�ᡣ
+从昏暗的地道中出来，你发现自己竟是置身于一个极精致的小花园
+中，红梅绿竹，青松翠柏，布置得颇具匠心，往东去，是一间很精雅的
+小舍。
 LONG  );
 	set("outdoors", "heimuya");
 	set("exits", ([

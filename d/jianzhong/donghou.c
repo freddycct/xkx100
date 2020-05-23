@@ -2,10 +2,10 @@
 inherit ROOM;
 void create()
 {
-	set("short","���");
+	set("short","深谷");
 	set("long",@LONG
-��������з羰�������ţ���ľ�Դ䣬ɽ����ѣ����Ų���
-ȥ���;�ɫ����֪�������߽����������
+洞后深谷中风景更是幽雅，树木苍翠，山气清佳，你信步过
+去观赏景色，不知不觉中走进了树林深处。
 LONG
 	);
 	set("exits",([

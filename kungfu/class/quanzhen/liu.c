@@ -1,18 +1,18 @@
-// liu.c Áõ´¦Ğş
+// liu.c åˆ˜å¤„ç„
 
 #include <ansi.h>
 inherit NPC;
 
 void create()
 {
-        set_name("Áõ´¦Ğş", ({"liu chuxuan", "liu"}));
-        set("gender", "ÄĞĞÔ");
+        set_name("åˆ˜å¤„ç„", ({"liu chuxuan", "liu"}));
+        set("gender", "ç”·æ€§");
         set("age", 38);
         set("class", "quanzhen");
-        set("nickname",WHT"³¤Éú×Ó"NOR);
+        set("nickname",WHT"é•¿ç”Ÿå­"NOR);
         set("long",
-                "Ëû¾ÍÊÇÈ«ÕæÈıÍ½Áõ´¦ĞşÁõÕæÈË£¬ËûÉí²ÄÊİĞ¡£¬ÃæÄ¿ÍğËÆÔ³ºï£¬\n"
-                "µ«¹ËÅÎ¼ä×ÔÓĞÒ»ÖÖÍşÑÏÆø¸Å¡£\n");
+                "ä»–å°±æ˜¯å…¨çœŸä¸‰å¾’åˆ˜å¤„ç„åˆ˜çœŸäººï¼Œä»–èº«æç˜¦å°ï¼Œé¢ç›®å®›ä¼¼çŒ¿çŒ´ï¼Œ\n"
+                "ä½†é¡¾ç›¼é—´è‡ªæœ‰ä¸€ç§å¨ä¸¥æ°”æ¦‚ã€‚\n");
         set("attitude", "peaceful");
         set("shen_type",1);
         set("str", 30);
@@ -20,7 +20,7 @@ void create()
         set("con", 28);
         set("dex", 30);
 
-        set("title","È«ÕæÆß×ÓÖ®Èı");
+        set("title","å…¨çœŸä¸ƒå­ä¹‹ä¸‰");
 
 //       set("env/wimpy", 60);
         set("chat_chance_combat", 60);
@@ -45,17 +45,17 @@ void create()
 
         set_skill("array", 80);
         set_skill("force", 140);
-        set_skill("xiantian-qigong", 140);    //ÏÈÌìÆø¹¦
+        set_skill("xiantian-qigong", 140);    //å…ˆå¤©æ°”åŠŸ
         set_skill("sword", 140);
-        set_skill("quanzhen-jian",200);  //È«Õæ½£
+        set_skill("quanzhen-jian",200);  //å…¨çœŸå‰‘
         set_skill("dodge", 120);
-        set_skill("jinyan-gong", 200);   //½ğÑã¹¦
+        set_skill("jinyan-gong", 200);   //é‡‘é›åŠŸ
         set_skill("unarmed",140);
         set_skill("parry", 140);
         set_skill("strike", 140);
-        set_skill("haotian-zhang", 200);    //ê»ÌìÕÆ
+        set_skill("haotian-zhang", 200);    //æ˜Šå¤©æŒ
         set_skill("cuff", 140);
-        set_skill("chunyang-quan", 200);    //´¿ÑôÈ­
+        set_skill("chunyang-quan", 200);    //çº¯é˜³æ‹³
         set_skill("literate", 80);
         set_skill("taoism", 100);
 
@@ -68,11 +68,11 @@ void create()
         prepare_skill("cuff", "chunyang-quan");
         prepare_skill("strike", "haotian-zhang");
 
-        create_family("È«Õæ½Ì", 2, "µÜ×Ó");
+        create_family("å…¨çœŸæ•™", 2, "å¼Ÿå­");
 
         set("book_count",1);
         set("inquiry", ([
-                "È«Õæ½Ì" :  "ÎÒÈ«Õæ½ÌÊÇÌìÏÂµÀ¼ÒĞşÃÅÕı×Ú¡£\n",
+                "å…¨çœŸæ•™" :  "æˆ‘å…¨çœŸæ•™æ˜¯å¤©ä¸‹é“å®¶ç„é—¨æ­£å®—ã€‚\n",
         ]) );
 
         setup();

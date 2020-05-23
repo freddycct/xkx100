@@ -7,8 +7,8 @@ inherit F_CLEAN_UP;
 #include <mudlib.h>
 
 string display_attr(int gift, int value);
-string bar_string = "¡ö¡ö¡ö¡ö¡ö¡ö¡ö¡ö¡ö¡ö¡ö¡ö¡ö¡ö¡ö¡ö";
-string blank_string = "¡õ¡õ¡õ¡õ¡õ¡õ¡õ¡õ¡õ¡õ¡õ¡õ¡õ¡õ¡õ¡õ";
+string bar_string = "â– â– â– â– â– â– â– â– â– â– â– â– â– â– â– â– ";
+string blank_string = "â–¡â–¡â–¡â–¡â–¡â–¡â–¡â–¡â–¡â–¡â–¡â–¡â–¡â–¡â–¡â–¡";
 string none_string = "                                  ";
 string tribar_graph(int val, int eff, int max, string color);
 string fill_blank(string type, int num);
@@ -40,22 +40,22 @@ string value_string(int value1,int value)
 	string str;
 	if(value1)
 	{
-		str=((int)(value1/10000)?chinese_number(value1/10000)+"ÒÚ":"")+chinese_number(value1%10000)+"Íò";
-		if(value<1) return str+"Á½»Æ½ğ";
+		str=((int)(value1/10000)?chinese_number(value1/10000)+"äº¿":"")+chinese_number(value1%10000)+"ä¸‡";
+		if(value<1) return str+"ä¸¤é»„é‡‘";
 		else
-			if(value<100) return str+"Á½»Æ½ğ"+chinese_number(value)+"ÎÄÇ®";
+			if(value<100) return str+"ä¸¤é»„é‡‘"+chinese_number(value)+"æ–‡é’±";
 			else
-				if(value<10000) return str+"Á½»Æ½ğ"+chinese_number(value/100)+"Á½°×Òø"+(value%100?"ÓÖ"+chinese_number(value%100)+"ÎÄÇ®":"");
-				else return str+chinese_number(value/10000 )+"Á½»Æ½ğ"+((value%10000)/100 ? chinese_number((value%10000)/100)+"Á½°×Òø":"")+((value%10000)%100 ? "ÓÖ"+chinese_number((value%10000)%100)+"ÎÄÇ®":"");
+				if(value<10000) return str+"ä¸¤é»„é‡‘"+chinese_number(value/100)+"ä¸¤ç™½é“¶"+(value%100?"åˆ"+chinese_number(value%100)+"æ–‡é’±":"");
+				else return str+chinese_number(value/10000 )+"ä¸¤é»„é‡‘"+((value%10000)/100 ? chinese_number((value%10000)/100)+"ä¸¤ç™½é“¶":"")+((value%10000)%100 ? "åˆ"+chinese_number((value%10000)%100)+"æ–‡é’±":"");
 	}
 	else
 	{
 		if(value<1) return "";
 		else
-			if(value<100) return chinese_number(value)+"ÎÄÇ®";
+			if(value<100) return chinese_number(value)+"æ–‡é’±";
 			else
-				if(value<10000) return chinese_number(value/100)+"Á½°×Òø"+(value%100 ? "ÓÖ"+chinese_number(value%100)+"ÎÄÇ®":"");
-				else return chinese_number(value/10000)+"Á½»Æ½ğ"+((value%10000)/100 ? chinese_number((value%10000)/100)+"Á½°×Òø":"")+((value%10000)%100 ? "ÓÖ"+chinese_number((value%10000)%100)+"ÎÄÇ®":"");
+				if(value<10000) return chinese_number(value/100)+"ä¸¤ç™½é“¶"+(value%100 ? "åˆ"+chinese_number(value%100)+"æ–‡é’±":"");
+				else return chinese_number(value/10000)+"ä¸¤é»„é‡‘"+((value%10000)/100 ? chinese_number((value%10000)/100)+"ä¸¤ç™½é“¶":"")+((value%10000)%100 ? "åˆ"+chinese_number((value%10000)%100)+"æ–‡é’±":"");
 	}
 }
 string display_attr(int gift, int value)
@@ -107,17 +107,17 @@ int main(object me, string arg)
 			{
 				flag = 1;
 				if (!objectp(ob=NPC_D->create_player(arg)))
-					return notify_fail("Ã»ÓĞÕâ¸öÍæ¼Ò¡£\n");
+					return notify_fail("æ²¡æœ‰è¿™ä¸ªç©å®¶ã€‚\n");
 			}
-			if (!ob) return notify_fail("ÄãÒª²ì¿´Ë­µÄ×´Ì¬£¿\n");
+			if (!ob) return notify_fail("ä½ è¦å¯Ÿçœ‹è°çš„çŠ¶æ€ï¼Ÿ\n");
 			if( !ob->is_character() || ob->is_corpse() )
-				return notify_fail("Äã²»»áÁ¬"+ob->query("name") +"µÄ×´Ì¬¶¼Ïë¿´°É£¿¡£\n");
+				return notify_fail("ä½ ä¸ä¼šè¿"+ob->query("name") +"çš„çŠ¶æ€éƒ½æƒ³çœ‹å§ï¼Ÿã€‚\n");
 		}else
 		{ 
 			ob = present(arg, environment(me));			
-			if (!ob || !me->visible(ob)) return notify_fail("ÄãÒª²ì¿´Ë­µÄ×´Ì¬£¿\n");
+			if (!ob || !me->visible(ob)) return notify_fail("ä½ è¦å¯Ÿçœ‹è°çš„çŠ¶æ€ï¼Ÿ\n");
 			if (ob != me && !(ob->query("parents") && member_array(me->query("id"), ob->query("parents"))>=0))
-			return notify_fail("Ö»ÓĞÎ×Ê¦ÄÜ²ì¿´±ğÈËµÄ×´Ì¬¡£\n");
+			return notify_fail("åªæœ‰å·«å¸ˆèƒ½å¯Ÿçœ‹åˆ«äººçš„çŠ¶æ€ã€‚\n");
 		}
 	balance = (int)ob->query("balance");
 	balance1 = (int)ob->query("more_balance");
@@ -139,135 +139,135 @@ int main(object me, string arg)
 					else skill_type=(keys(pmap))[1];
 				}
 	attack_points = COMBAT_D->skill_power(ob,skill_type,SKILL_USAGE_ATTACK);
-// °´combatd.cÎª±ê×¼Ëãparry point
+// æŒ‰combatd.cä¸ºæ ‡å‡†ç®—parry point
   if (ob->query_temp("weapon"))
   parry_points = COMBAT_D->skill_power(ob, "parry", SKILL_USAGE_DEFENSE);
   else
   parry_points = COMBAT_D->skill_power(ob, "unarmed", SKILL_USAGE_DEFENSE);
 //	parry_points = COMBAT_D->skill_power(ob,skill_type,SKILL_USAGE_DEFENSE);
 	dodge_points = COMBAT_D->skill_power(ob,"dodge",SKILL_USAGE_DEFENSE);
-	master = ob->query("family")?my["family"]["master_name"]:"Ä¿Ç°»¹Ã»ÓĞ";
-	couple = mapp(my["couple"])?(my["couple"]["have_couple"]?my["couple"]["couple_name"]:"Ä¿Ç°»¹Ã»ÓĞ"):"Ä¿Ç°»¹Ã»ÓĞ";
+	master = ob->query("family")?my["family"]["master_name"]:"ç›®å‰è¿˜æ²¡æœ‰";
+	couple = mapp(my["couple"])?(my["couple"]["have_couple"]?my["couple"]["couple_name"]:"ç›®å‰è¿˜æ²¡æœ‰"):"ç›®å‰è¿˜æ²¡æœ‰";
 
-	line = "\n©³©¥©¥©¥©¥©¥"+HIR"¡¾¸öÈËµµ°¸¡¿"NOR"©¥©¥©¥©¥©· "+MAG"\t\t"+"    Ìì¸³"NOR"\n";
+	line = "\nâ”â”â”â”â”â”"+HIR"ã€ä¸ªäººæ¡£æ¡ˆã€‘"NOR"â”â”â”â”â”“ "+MAG"\t\t"+"    å¤©èµ‹"NOR"\n";
 
-	line += sprintf("%-32s©§%s\n","©§",CYN"    ÎòĞÔ£º["NOR+display_attr(my["int"], my["int"])+"/"+display_attr(my["int"], ob->query_int())+CYN"]     ¸ù¹Ç£º["NOR+display_attr(my["con"], my["con"])+"/"+display_attr(my["con"], ob->query_con())+CYN"] "NOR);
+	line += sprintf("%-32sâ”ƒ%s\n","â”ƒ",CYN"    æ‚Ÿæ€§ï¼š["NOR+display_attr(my["int"], my["int"])+"/"+display_attr(my["int"], ob->query_int())+CYN"]     æ ¹éª¨ï¼š["NOR+display_attr(my["con"], my["con"])+"/"+display_attr(my["con"], ob->query_con())+CYN"] "NOR);
 
-	line += sprintf("©§Í·¡¡¡¡ÏÎ£º¡¡  %s%s©§%s\n", RANK_D->query_rank(ob), fill_blank(remove_ansi(RANK_D->query_rank(ob)), 16), CYN"    ëöÁ¦£º["NOR+display_attr(my["str"], my["str"])+"/"+display_attr(my["str"], ob->query_str())+CYN"]     Éí·¨£º["NOR+display_attr(my["dex"], my["dex"])+"/"+display_attr(my["dex"], ob->query_dex())+CYN"]"NOR);
+	line += sprintf("â”ƒå¤´ã€€ã€€è¡”ï¼šã€€  %s%sâ”ƒ%s\n", RANK_D->query_rank(ob), fill_blank(remove_ansi(RANK_D->query_rank(ob)), 16), CYN"    è†‚åŠ›ï¼š["NOR+display_attr(my["str"], my["str"])+"/"+display_attr(my["str"], ob->query_str())+CYN"]     èº«æ³•ï¼š["NOR+display_attr(my["dex"], my["dex"])+"/"+display_attr(my["dex"], ob->query_dex())+CYN"]"NOR);
 
 	if( wizardp(me) || (int)ob->query("age") >= 18 )
 	{
-		line += sprintf("%s%-16s©§%s\n", "©§ÖĞÎÄĞÕÃû:     ",ob->name(),CYN"    ÄÍÁ¦£º["NOR+display_attr(my["sta"], my["sta"])+"/"+display_attr(my["sta"], ob->query_sta())+CYN"]     ÈİÃ²£º["NOR+display_attr(my["per"], my["per"])+"/"+display_attr(my["per"], ob->query_per())+CYN"]"NOR);
-		line += sprintf("%s%-16s©§%s\n", "©§Ó¢ÎÄĞÕÃû:     ",ob->query("id"),CYN"    ÁéĞÔ£º["NOR+display_attr(my["spi"], my["spi"])+"/"+display_attr(my["spi"], ob->query_spi())+CYN"]     ¸£Ôµ£º["NOR+display_attr(my["kar"], my["kar"])+"/"+display_attr(my["kar"], ob->query_kar())+CYN"]"NOR);
-		line += sprintf("%s%-16s©§%s\n", "©§ĞÔ    ±ğ:     ",ob->query("gender"),CYN"    µ¨Ê¶£º["NOR+display_attr(my["cor"], my["cor"])+"/"+display_attr(my["cor"], ob->query_cor())+CYN"]     ¶¨Á¦£º["NOR+display_attr(my["cps"], my["cps"])+"/"+display_attr(my["cps"], ob->query_cps())+CYN"]"NOR);
+		line += sprintf("%s%-16sâ”ƒ%s\n", "â”ƒä¸­æ–‡å§“å:     ",ob->name(),CYN"    è€åŠ›ï¼š["NOR+display_attr(my["sta"], my["sta"])+"/"+display_attr(my["sta"], ob->query_sta())+CYN"]     å®¹è²Œï¼š["NOR+display_attr(my["per"], my["per"])+"/"+display_attr(my["per"], ob->query_per())+CYN"]"NOR);
+		line += sprintf("%s%-16sâ”ƒ%s\n", "â”ƒè‹±æ–‡å§“å:     ",ob->query("id"),CYN"    çµæ€§ï¼š["NOR+display_attr(my["spi"], my["spi"])+"/"+display_attr(my["spi"], ob->query_spi())+CYN"]     ç¦ç¼˜ï¼š["NOR+display_attr(my["kar"], my["kar"])+"/"+display_attr(my["kar"], ob->query_kar())+CYN"]"NOR);
+		line += sprintf("%s%-16sâ”ƒ%s\n", "â”ƒæ€§    åˆ«:     ",ob->query("gender"),CYN"    èƒ†è¯†ï¼š["NOR+display_attr(my["cor"], my["cor"])+"/"+display_attr(my["cor"], ob->query_cor())+CYN"]     å®šåŠ›ï¼š["NOR+display_attr(my["cps"], my["cps"])+"/"+display_attr(my["cps"], ob->query_cps())+CYN"]"NOR);
 	}
 	else
 	{
-		line += sprintf("%s%-16s©§%s\n", "©§ÖĞÎÄĞÕÃû:     ",ob->name(),CYN"    ÄÍÁ¦£º["NOR"???/???"CYN"]     ÈİÃ²£º["NOR+"???/???"CYN"]"NOR);
-		line += sprintf("%s%-16s©§%s\n", "©§Ó¢ÎÄĞÕÃû:     ",ob->query("id"),CYN"    ÁéĞÔ£º["NOR"???/???"CYN"]     ¸£Ôµ£º["NOR+"???/???"CYN"]"NOR);
-		line += sprintf("%s%-16s©§%s\n", "©§ĞÔ    ±ğ:     ",ob->query("gender"),CYN"    µ¨Ê¶£º["NOR"???/???"CYN"]     ¶¨Á¦£º["NOR+"???/???"CYN"]"NOR);
+		line += sprintf("%s%-16sâ”ƒ%s\n", "â”ƒä¸­æ–‡å§“å:     ",ob->name(),CYN"    è€åŠ›ï¼š["NOR"???/???"CYN"]     å®¹è²Œï¼š["NOR+"???/???"CYN"]"NOR);
+		line += sprintf("%s%-16sâ”ƒ%s\n", "â”ƒè‹±æ–‡å§“å:     ",ob->query("id"),CYN"    çµæ€§ï¼š["NOR"???/???"CYN"]     ç¦ç¼˜ï¼š["NOR+"???/???"CYN"]"NOR);
+		line += sprintf("%s%-16sâ”ƒ%s\n", "â”ƒæ€§    åˆ«:     ",ob->query("gender"),CYN"    èƒ†è¯†ï¼š["NOR"???/???"CYN"]     å®šåŠ›ï¼š["NOR+"???/???"CYN"]"NOR);
 	}
 
 	switch (ob->query("character"))
 	{
-		case "1" : char_type = "Ã°ÏÕ"; break;
-		case "2" : char_type = "½÷É÷"; break;
-		case "3" : char_type = "¿ÉÈË"; break;
-		case "4" : char_type = "î£ÖÇ"; break;
-		case "5" : char_type = "¼áÈÍ"; break;
-		default  : char_type = "ÆÕÍ¨"; break;
+		case "1" : char_type = "å†’é™©"; break;
+		case "2" : char_type = "è°¨æ…"; break;
+		case "3" : char_type = "å¯äºº"; break;
+		case "4" : char_type = "ç¿æ™º"; break;
+		case "5" : char_type = "åšéŸ§"; break;
+		default  : char_type = "æ™®é€š"; break;
 	}
 
-	line += sprintf("%s%-16s%39s\n","©§ÈËÎïĞÔ¸ñ:     ",char_type,"©»©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©·" );
+	line += sprintf("%s%-16s%39s\n","â”ƒäººç‰©æ€§æ ¼:     ",char_type,"â”—â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”“" );
 	if( ob->query("title") )
 	{ 
 		if( ob->query("degree") )
 		{  
 			all_title = ob->query("degree")+ob->query("title");
-			line += sprintf("©§³Æ¡¡¡¡Î½£º  ¡¡%s%s©§\n", all_title, fill_blank(remove_ansi(all_title), 58),);
+			line += sprintf("â”ƒç§°ã€€ã€€è°“ï¼š  ã€€%s%sâ”ƒ\n", all_title, fill_blank(remove_ansi(all_title), 58),);
 		}
 		else
 		{
-			line += sprintf("©§³Æ¡¡¡¡Î½£º  ¡¡%s%s©§\n", ob->query("title"), fill_blank(remove_ansi(ob->query("title")), 58),);
+			line += sprintf("â”ƒç§°ã€€ã€€è°“ï¼š  ã€€%s%sâ”ƒ\n", ob->query("title"), fill_blank(remove_ansi(ob->query("title")), 58),);
 		}
 	}
 
 	if( ob->query("nickname") )
 	{
-		line += sprintf("%s%-58s", "©§ÄãµÄ±ğ³Æ:     ",ob->query("nickname"));
+		line += sprintf("%s%-58s", "â”ƒä½ çš„åˆ«ç§°:     ",ob->query("nickname"));
 		for (i=0,cc_len=check_cc(ob->query("nickname"));i<cc_len;i++)
 		{
 			line += sprintf("%s"," ");
 		}
-		line += sprintf("%s","©§\n");
+		line += sprintf("%s","â”ƒ\n");
 	}
 	if( ob->query("born") )
 	{ 	
-		line += sprintf("©§ÄãµÄ¼ÒÏç£º  ¡¡%s%26s%-28s©§\n", ob->query("born/hometown"), "ÄãµÄ"+(ob->query("gender")=="Å®ĞÔ"?"ÀÏ¹«":"ÀÏÆÅ")+"£º ",couple );
+		line += sprintf("â”ƒä½ çš„å®¶ä¹¡ï¼š  ã€€%s%26s%-28sâ”ƒ\n", ob->query("born/hometown"), "ä½ çš„"+(ob->query("gender")=="å¥³æ€§"?"è€å…¬":"è€å©†")+"ï¼š ",couple );
 	}
 
 	if (base_name(ob)==USER_OB)
-		line += sprintf("%s%-19s%s%-28s©§\n","©§Äê¡¡¡¡Áä£º    ",chinese_number(ob->query("age"))+"Ëê"+chinese_number((ob->query("mud_age")-(ob->query("age")-ob->query("age_modify")-14)*86400)/7200+1)+"ÔÂ","ÄãµÄÉú³½£º ",CHINESE_D->chinese_date(((int)ob->query("birthday") - 14*365*24*60*60) ));
+		line += sprintf("%s%-19s%s%-28sâ”ƒ\n","â”ƒå¹´ã€€ã€€é¾„ï¼š    ",chinese_number(ob->query("age"))+"å²"+chinese_number((ob->query("mud_age")-(ob->query("age")-ob->query("age_modify")-14)*86400)/7200+1)+"æœˆ","ä½ çš„ç”Ÿè¾°ï¼š ",CHINESE_D->chinese_date(((int)ob->query("birthday") - 14*365*24*60*60) ));
 	else 
-		line += sprintf("%s%-19s%s%-28s©§\n","©§Äê¡¡¡¡Áä£º    ",chinese_number(ob->query("age"))+"Ëê","ÄãµÄÉú³½£º ",CHINESE_D->chinese_date(((int)ob->query("birthday") - 14*365*24*60*60)));
+		line += sprintf("%s%-19s%s%-28sâ”ƒ\n","â”ƒå¹´ã€€ã€€é¾„ï¼š    ",chinese_number(ob->query("age"))+"å²","ä½ çš„ç”Ÿè¾°ï¼š ",CHINESE_D->chinese_date(((int)ob->query("birthday") - 14*365*24*60*60)));
 
-	line += sprintf("%s%-19s%s%-26d  ©§\n", "©§ÄãµÄÊ¦¸¸£º    ",master,"Ê¦ÃÅÖÒ³Ï£º ",ob->query("family/fealty"));
+	line += sprintf("%s%-19s%s%-26d  â”ƒ\n", "â”ƒä½ çš„å¸ˆçˆ¶ï¼š    ",master,"å¸ˆé—¨å¿ è¯šï¼š ",ob->query("family/fealty"));
 
 	if(ob->query("balance") || ob->query("balance1"))
 	{
-		line += sprintf("%12s%-58s","©§Ç®×¯´æ¿î£º    ",value_string(balance1,balance));
+		line += sprintf("%12s%-58s","â”ƒé’±åº„å­˜æ¬¾ï¼š    ",value_string(balance1,balance));
 		for (i=0,cc_len=check_cc(value_string(balance1,balance));i<cc_len;i++)
 		{
 			line += sprintf("%s"," ");
 		}
-		line += sprintf("%s","©§\n");
+		line += sprintf("%s","â”ƒ\n");
 	}
 	if(ob->query("trade_balance"))
 	{
-		line += sprintf("%12s%-58s","©§ÉÌÒµ½øÕÊ£º    ",value_string(0,balance2));
+		line += sprintf("%12s%-58s","â”ƒå•†ä¸šè¿›å¸ï¼š    ",value_string(0,balance2));
 		for (i=0,cc_len=check_cc(value_string(0,balance2));i<cc_len;i++)
 		{
 			line += sprintf("%s"," ");
 		}
-		line += sprintf("%s","©§\n");
+		line += sprintf("%s","â”ƒ\n");
 	}
 
 	if (ob->is_character())
 	{
-		line += sprintf("©§É±Éú×ÜÊı£º    "HIR"%-7d"NOR" Íæ¼Ò£º    "HIY"%-6d"NOR" °ÙĞÕ£º    "HIY"%-6d"NOR" Ğ¡º¢£º    "HIY"%-6d"NOR"©§\n", my["PKS"]+my["MKS"], my["PKS"], my["WKS"], my["WKS1"]);
+		line += sprintf("â”ƒæ€ç”Ÿæ€»æ•°ï¼š    "HIR"%-7d"NOR" ç©å®¶ï¼š    "HIY"%-6d"NOR" ç™¾å§“ï¼š    "HIY"%-6d"NOR" å°å­©ï¼š    "HIY"%-6d"NOR"â”ƒ\n", my["PKS"]+my["MKS"], my["PKS"], my["WKS"], my["WKS1"]);
 
-		line += sprintf("©§    Í¬ÃÅ£º    "HIY"%-7d"NOR" Ê¦³¤£º    "HIY"%-6d"NOR" Í¬°ï£º    "HIY"%-6d"NOR" ³¤ÀÏ£º    "HIY"%-6d"NOR"©§\n", my["IKS"], my["IKS1"], my["BKS"], my["BKS1"]);
+		line += sprintf("â”ƒ    åŒé—¨ï¼š    "HIY"%-7d"NOR" å¸ˆé•¿ï¼š    "HIY"%-6d"NOR" åŒå¸®ï¼š    "HIY"%-6d"NOR" é•¿è€ï¼š    "HIY"%-6d"NOR"â”ƒ\n", my["IKS"], my["IKS1"], my["BKS"], my["BKS1"]);
 
-		line += sprintf("©§±»É±×Ü¼Æ£º    "HIR"%-7d"NOR" ºáËÀ£º    "HIR"%-6d"NOR" ÅÑÊ¦£º    "HIY"%-6d"NOR" ¿ª³ı£º    "HIY"%-6d"NOR"©§\n", my["dietimes"]+my["normal_die"], my["dietimes"], my["betrayer"], my["expell"]);
+		line += sprintf("â”ƒè¢«æ€æ€»è®¡ï¼š    "HIR"%-7d"NOR" æ¨ªæ­»ï¼š    "HIR"%-6d"NOR" å›å¸ˆï¼š    "HIY"%-6d"NOR" å¼€é™¤ï¼š    "HIY"%-6d"NOR"â”ƒ\n", my["dietimes"]+my["normal_die"], my["dietimes"], my["betrayer"], my["expell"]);
 	}
 	if (ob->query("last_die_msg"))
-		line += sprintf("©§×î½üËÀÒò£º    %-58s©§\n",ob->query("last_die_msg"));
+		line += sprintf("â”ƒæœ€è¿‘æ­»å› ï¼š    %-58sâ”ƒ\n",ob->query("last_die_msg"));
 
-		line += sprintf("%s"HIW"%-19d"NOR"%s%-46s©§\n", "©§¾­    Ñé£º    ", ob->query("combat_exp"), "Ê³Îï£º ",tribar_graph(my["food"], (ob->query("str")+10)*10,(ob->query("str")+10)*10,YEL));
-		line += sprintf("%s"HIC"%-19d"NOR"%s%-46s©§\n", "©§Ç±    ÄÜ£º    ", ob->query("potential")-ob->query("learned_points"), "ÒûË®£º ", tribar_graph(my["water"], (ob->query("str")+10)*10, (ob->query("str")+10)*10,CYN));
+		line += sprintf("%s"HIW"%-19d"NOR"%s%-46sâ”ƒ\n", "â”ƒç»    éªŒï¼š    ", ob->query("combat_exp"), "é£Ÿç‰©ï¼š ",tribar_graph(my["food"], (ob->query("str")+10)*10,(ob->query("str")+10)*10,YEL));
+		line += sprintf("%s"HIC"%-19d"NOR"%s%-46sâ”ƒ\n", "â”ƒæ½œ    èƒ½ï¼š    ", ob->query("potential")-ob->query("learned_points"), "é¥®æ°´ï¼š ", tribar_graph(my["water"], (ob->query("str")+10)*10, (ob->query("str")+10)*10,CYN));
 
 if(ob->query("shen") >= 0)
-		line += sprintf("%s"HIR"%-19d"NOR"%s%-46s©§\n", "©§Õı    Æø£º    ", ob->query("shen"), "<¾«>£º ",tribar_graph(my["jing"], my["eff_jing"], my["max_jing"],GRN));
+		line += sprintf("%s"HIR"%-19d"NOR"%s%-46sâ”ƒ\n", "â”ƒæ­£    æ°”ï¼š    ", ob->query("shen"), "<ç²¾>ï¼š ",tribar_graph(my["jing"], my["eff_jing"], my["max_jing"],GRN));
 	else
-		line += sprintf("%s"HIG"%-19d"NOR"%s%-46s©§\n", "©§ìå    Æø£º    ", ob->query("shen"), "<¾«>£º ",tribar_graph(my["jing"], my["eff_jing"], my["max_jing"],GRN));
-	line += sprintf("%s"HIC"%-19d"NOR"%s%-45s©§\n", "©§½­ºşÔÄÀú£º    ", ob->query("score"), "<Æø>£º ", tribar_graph(my["qi"], my["eff_qi"], my["max_qi"], HIR));
-	line += sprintf("%s%-19d%s%-25d©§\n","©§½­ºşÍşÍû£º    ", my["weiwang"], "½­ºş÷ÈÁ¦£º    ", my["meili"]);
+		line += sprintf("%s"HIG"%-19d"NOR"%s%-46sâ”ƒ\n", "â”ƒæˆ¾    æ°”ï¼š    ", ob->query("shen"), "<ç²¾>ï¼š ",tribar_graph(my["jing"], my["eff_jing"], my["max_jing"],GRN));
+	line += sprintf("%s"HIC"%-19d"NOR"%s%-45sâ”ƒ\n", "â”ƒæ±Ÿæ¹–é˜…å†ï¼š    ", ob->query("score"), "<æ°”>ï¼š ", tribar_graph(my["qi"], my["eff_qi"], my["max_qi"], HIR));
+	line += sprintf("%s%-19d%s%-25dâ”ƒ\n","â”ƒæ±Ÿæ¹–å¨æœ›ï¼š    ", my["weiwang"], "æ±Ÿæ¹–é­…åŠ›ï¼š    ", my["meili"]);
 
 	if (wizardp(me))
 	{
-		line += sprintf("©§¹¥ »÷ Á¦£º    "HIR"%-18d"NOR" ¶ãÉÁÄÜÁ¦£º    "HIR"%-25d"NOR"©§\n", attack_points/100+1, dodge_points/100+1);
-		line += sprintf("©§±øÆ÷ÉËº¦£º    "HIY"%-18d"NOR" ÕĞ¼ÜÄÜÁ¦£º    "HIY"%-25d"NOR"©§\n", ob->query_temp("apply/damage"),parry_points/100+1  );
-		line += sprintf("©§¿ÕÊÖÉËº¦£º    "HIG"%-18d"NOR" ·À»¤ÄÜÁ¦£º    "HIG"%-25d"NOR"©§\n", ob->query_temp("apply/unarmed_damage"), ob->query_temp("apply/armor"));
-		line += sprintf("©§¸½¼Ó¹¥»÷£º    "HIG"%-18d"NOR" ¸½¼ÓÉÁ¶ã£º    "HIG"%-25d"NOR"©§\n", ob->query_temp("apply/attack"), ob->query_temp("apply/dodge"));
+		line += sprintf("â”ƒæ”» å‡» åŠ›ï¼š    "HIR"%-18d"NOR" èº²é—ªèƒ½åŠ›ï¼š    "HIR"%-25d"NOR"â”ƒ\n", attack_points/100+1, dodge_points/100+1);
+		line += sprintf("â”ƒå…µå™¨ä¼¤å®³ï¼š    "HIY"%-18d"NOR" æ‹›æ¶èƒ½åŠ›ï¼š    "HIY"%-25d"NOR"â”ƒ\n", ob->query_temp("apply/damage"),parry_points/100+1  );
+		line += sprintf("â”ƒç©ºæ‰‹ä¼¤å®³ï¼š    "HIG"%-18d"NOR" é˜²æŠ¤èƒ½åŠ›ï¼š    "HIG"%-25d"NOR"â”ƒ\n", ob->query_temp("apply/unarmed_damage"), ob->query_temp("apply/armor"));
+		line += sprintf("â”ƒé™„åŠ æ”»å‡»ï¼š    "HIG"%-18d"NOR" é™„åŠ é—ªèº²ï¼š    "HIG"%-25d"NOR"â”ƒ\n", ob->query_temp("apply/attack"), ob->query_temp("apply/dodge"));
 	}
 
-	line +="©»©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¿\n"NOR;
+	line +="â”—â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”›\n"NOR;
 
 
-  line += sprintf(WHT+" %sÔÚ"+HIG+CHINESE_MUD_NAME+NOR+"ÀïµÄÓÎÏ·Ê±¼äÊÇ:"+BLINK+HIY"%s \n"+NOR,ob==me?"Äã":ob->name(1),FINGER_D->age_string( (int)ob->query("mud_age")));
+  line += sprintf(WHT+" %såœ¨"+HIG+CHINESE_MUD_NAME+NOR+"é‡Œçš„æ¸¸æˆæ—¶é—´æ˜¯:"+BLINK+HIY"%s \n"+NOR,ob==me?"ä½ ":ob->name(1),FINGER_D->age_string( (int)ob->query("mud_age")));
          
   line+=sprintf("\n");
-  line+=sprintf("%s", flag?"¸ÃÍæ¼ÒÄ¿Ç°²»ÔÚÏßÉÏ¡£\n":"");
+  line+=sprintf("%s", flag?"è¯¥ç©å®¶ç›®å‰ä¸åœ¨çº¿ä¸Šã€‚\n":"");
   write(line);
   if (flag)
 		destruct(ob);

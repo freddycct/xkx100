@@ -4,10 +4,10 @@ inherit NPC;
 
 void create()
 {
-        set_name("Ã§êôÖì¸ò",({"chan chu"}));
+        set_name("èŽ½ç‰¯æœ±è›¤",({"chan chu"}));
 
-        set("race", "Ò°ÊÞ");
-        set("long", "Ò»Ö»È­Í·´óÐ¡£¬½ÐÉùºéÁÁµÄ¶¾¸òó¡¡£\n");
+        set("race", "é‡Žå…½");
+        set("long", "ä¸€åªæ‹³å¤´å¤§å°ï¼Œå«å£°æ´ªäº®çš„æ¯’è›¤èŸ†ã€‚\n");
         set("age", 1000);
         set("attitude", "peaceful");
 
@@ -17,7 +17,7 @@ void create()
         set("str", 30);
         set("con", 50);
 
-        set("limbs", ({ "Í·²¿", "ÉíÌå", "Î²°Í" }) );
+        set("limbs", ({ "å¤´éƒ¨", "èº«ä½“", "å°¾å·´" }) );
         set("verbs", ({ "bite" }) );
 
         set_temp("apply/attack", 100);
@@ -60,16 +60,16 @@ int init()
 }
 int hit_ob(object me, object ob, int damage)
 {
-        if ((string)ob->query("family/family_name") != "Îå¶¾½Ì") {
+        if ((string)ob->query("family/family_name") != "äº”æ¯’æ•™") {
                 ob->apply_condition("chanchu_poison", 20
               +(int)ob->query_condition("chanchu_poison") );
-              tell_object(ob, HIG "Äã¾õµÃ±»Ò§ÖÐµÄµØ·½Ò»ÕóÂéÄ¾£¡\n" NOR );
+              tell_object(ob, HIG "ä½ è§‰å¾—è¢«å’¬ä¸­çš„åœ°æ–¹ä¸€é˜µéº»æœ¨ï¼\n" NOR );
         }
 }
 void die()
 {
         object ob;
-        message_vision("$Nµ¹ÔÚµØÉÏ£¬ËÀÁË£¡\n", this_object());
+        message_vision("$Nå€’åœ¨åœ°ä¸Šï¼Œæ­»äº†ï¼\n", this_object());
         ob=new(__DIR__"obj/chanchudu.c");
         ob->move(environment(this_object()));
         destruct(this_object());

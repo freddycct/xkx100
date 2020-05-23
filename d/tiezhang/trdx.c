@@ -8,12 +8,12 @@ string look_bei();
 void create()
 {
 	object ob;
-	set("short", HIR"��Ȼ��Ѩ"NOR);
+	set("short", HIR"天然洞穴"NOR);
 	set("long", @LONG
-��ʯ��ϵ��Ȼ���ɣ���֮�����˹������ʯ�Ҵ���ʮ������������
-ȥ�����ڹ���ʮ��ߺ��ǣ��������ԣ���̬���в�ͬ���еĺ���ɢ����
-�أ��е�ȴ�Ծ�������Σ�����Щ��̳��λ֮����ÿ�ߺ���֮�Զ�����
-���У��������þߣ��䱦������ڴ�����һ��ʯ��(bei)��
+这石洞系天然生成，较之外面人工开凿的石室大了十来倍。放眼望
+去，洞内共有十余具骸骨，或做或卧，神态各有不同，有的骸骨散开在
+地，有的却仍具完好人形，更有些骨坛灵位之属。每具骸骨之旁都放着
+兵刃，暗器，用具，珍宝等物。洞口处立着一座石碑(bei)。
 LONG );
 	set("exits", ([
 		"out" : __DIR__"dong3",
@@ -46,7 +46,7 @@ LONG );
 string look_bei()
 {
 	return
-	"\n      �ö�������Ʒ��\n"    
-	"\n"RED"        ����Ī�֣�    \n"NOR
+	"\n      擅动室内物品者\n"    
+	"\n"RED"        死伤莫怪！    \n"NOR
 	"\n";
 }

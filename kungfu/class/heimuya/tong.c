@@ -8,11 +8,11 @@ string ask_me();
 void init();
 void create()
 {
-	set_name("Í¯°ÙĞÜ", ({ "tong baixiong","tong"}) );
-	set("gender", "ÄĞĞÔ" );
+	set_name("ç«¥ç™¾ç†Š", ({ "tong baixiong","tong"}) );
+	set("gender", "ç”·æ€§" );
 	set("age", 75);
-	set("long", "Ëû°×·¢ÅûÉ¢, Òø÷×êªÕÅ, Á³ÉÏµÄ¼¡ÈâÇ£¶¯, \n"
-                    "Ô²ÕöË«ÑÛ, ÉíÉÏµÄÏÊÑªÒÑÈ»Äı½á, ÉñÇéÉõÊÇ¿É²À¡£\n");
+	set("long", "ä»–ç™½å‘æŠ«æ•£, é“¶é«¯æˆŸå¼ , è„¸ä¸Šçš„è‚Œè‚‰ç‰µåŠ¨, \n"
+                    "åœ†çåŒçœ¼, èº«ä¸Šçš„é²œè¡€å·²ç„¶å‡ç»“, ç¥æƒ…ç”šæ˜¯å¯æ€–ã€‚\n");
 	set("attitude", "friendly");
 	set("shen_type", -1);
 	set("env/wimpy", 40);
@@ -47,18 +47,18 @@ void create()
 	map_skill("blade", "taiji-dao");
 
 	set("inquiry", ([
-		"ÈÕÔÂÉñ½Ì" :    (: ask_me :),
-		"Èë½Ì"     :    (: ask_me :),
+		"æ—¥æœˆç¥æ•™" :    (: ask_me :),
+		"å…¥æ•™"     :    (: ask_me :),
 	]));
 
-	set("party/party_name", HIB"ÈÕÔÂÉñ½Ì"NOR);
-	set("party/rank", HIC"·çÀ×ÌÃ³¤ÀÏ"NOR);
-	create_family("ºÚÄ¾ÑÂ", 9, "µÜ×Ó");
+	set("party/party_name", HIB"æ—¥æœˆç¥æ•™"NOR);
+	set("party/rank", HIC"é£é›·å ‚é•¿è€"NOR);
+	create_family("é»‘æœ¨å´–", 9, "å¼Ÿå­");
 
 	set("chat_chance", 3);
 	set("chat_msg", ({
-		 "Í¯°ÙĞÜÅ­µÉË«ÑÛµÀ: ¡°ÎÒÃ»´í, ÎÒÃ»ÓĞÅÑ½Ì! ¶«·½ĞÖµÜÄã²»ÄÜÔ©Í÷ÎÒÑ½! ¡±\n",
-	         "Í¯°ÙĞÜÌ¾ÁËÒ»¿ÚÆøËµ£º¡°ÎÒºÍ¶«·½ĞÖµÜ³öÉúÈëËÀ, ¹²Àú»¼ÄÑµÄÊ±ºò, ÄãÃÇ»¹Ã»ÉúÏÂÀ´ÄÄ!¡±\n"
+		 "ç«¥ç™¾ç†Šæ€’çªåŒçœ¼é“: â€œæˆ‘æ²¡é”™, æˆ‘æ²¡æœ‰å›æ•™! ä¸œæ–¹å…„å¼Ÿä½ ä¸èƒ½å†¤æ‰æˆ‘å‘€! â€\n",
+	         "ç«¥ç™¾ç†Šå¹äº†ä¸€å£æ°”è¯´ï¼šâ€œæˆ‘å’Œä¸œæ–¹å…„å¼Ÿå‡ºç”Ÿå…¥æ­», å…±å†æ‚£éš¾çš„æ—¶å€™, ä½ ä»¬è¿˜æ²¡ç”Ÿä¸‹æ¥å“ª!â€\n"
         }) );
 	setup();
         carry_object("/d/heimuya/npc/obj/zijinchui")->wield();
@@ -69,7 +69,7 @@ void create()
 
 void attempt_apprentice(object ob)
 {
-     command("say ÎÒÊÇ»¼ÄÑÖ®Éí, ÔõÃ´ÄÜÊÕÍ½ÄØ¡£×³Ê¿»¹ÊÇÇë»Ø°É£¡\n");
+     command("say æˆ‘æ˜¯æ‚£éš¾ä¹‹èº«, æ€ä¹ˆèƒ½æ”¶å¾’å‘¢ã€‚å£®å£«è¿˜æ˜¯è¯·å›å§ï¼\n");
 }
 
 void init()
@@ -90,7 +90,7 @@ void init()
 
 string ask_me()
 {
-	return "ÄãÏë¼ÓÈëÎÒÈÕÔÂÉñ½Ì(join riyuejiao)Âğ£¿";
+	return "ä½ æƒ³åŠ å…¥æˆ‘æ—¥æœˆç¥æ•™(join riyuejiao)å—ï¼Ÿ";
 }
 
 #include "riyuejiao.h"

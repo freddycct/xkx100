@@ -4,10 +4,10 @@
 inherit NPC;
 void create()
 {
-	set_name("ÃàÑò", ({ "mian yang", "yang" }) );
-	set("race", "×ßÐó");
+	set_name("ç»µç¾Š", ({ "mian yang", "yang" }) );
+	set("race", "èµ°ç•œ");
 	set("age", 5);
-	set("long", "Ò»Í·Ñ©°×¿É°®µÄÓÖ·ÊÓÖ×³µÄÃàÑò¡£\n");
+	set("long", "ä¸€å¤´é›ªç™½å¯çˆ±çš„åˆè‚¥åˆå£®çš„ç»µç¾Šã€‚\n");
 	set("attitude", "peaceful");
 	set("combat_exp", 200);
 
@@ -22,7 +22,7 @@ void create()
 void die()
 {
 	object ob;
-	message_vision("$NÆàà¦µÄº¿ÁË¼¸Éù£¬µ¹ÔÚµØÉÏËÀÁË¡£\n", this_object());
+	message_vision("$Nå‡„å”³çš„åšŽäº†å‡ å£°ï¼Œå€’åœ¨åœ°ä¸Šæ­»äº†ã€‚\n", this_object());
 	ob = new(__DIR__"yangpi");
 	ob->move(environment(this_object()));
 	destruct(this_object());

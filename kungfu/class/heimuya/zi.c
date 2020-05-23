@@ -5,12 +5,12 @@ inherit F_MASTER;
 
 void create()
 {
-	set_name("ºÚ°××Ó", ({ "heibai zi", "zi" }));
+	set_name("é»‘ç™½å­", ({ "heibai zi", "zi" }));
 	set("long",
-		"Ëû¾ÍÊÇÃ·×¯ËÄÎ»×¯Ö÷ÅÅÐÐµÚ¶þµÄºÚ°××Ó¡£\n"
-		"Éí´©Ò»¼þ¸É¸É¾»¾»µÄºÚÉ«³¤ÅÛ¡£Á³É«È´¼«°×¡£\n"
-		"ËûÒÑÄêÓúÎåÑ®£¬Éí²Ä¸ß´ó£¬Ë«ÑÛÉñ¹âÄÚÁ², Ò»Íû±ãÖªÊÇÒ»Î»ÄÚ¼ÒµÄ¸ßÊÖ¡£\n");
-	set("gender", "ÄÐÐÔ");
+		"ä»–å°±æ˜¯æ¢…åº„å››ä½åº„ä¸»æŽ’è¡Œç¬¬äºŒçš„é»‘ç™½å­ã€‚\n"
+		"èº«ç©¿ä¸€ä»¶å¹²å¹²å‡€å‡€çš„é»‘è‰²é•¿è¢ã€‚è„¸è‰²å´æžç™½ã€‚\n"
+		"ä»–å·²å¹´æ„ˆäº”æ—¬ï¼Œèº«æé«˜å¤§ï¼ŒåŒçœ¼ç¥žå…‰å†…æ•›, ä¸€æœ›ä¾¿çŸ¥æ˜¯ä¸€ä½å†…å®¶çš„é«˜æ‰‹ã€‚\n");
+	set("gender", "ç”·æ€§");
 	set("age", 52);
 	set("class", "scholar");
 	set("attitude", "peaceful");
@@ -30,15 +30,15 @@ void create()
 	set("shen", 15000);
 	set("score", 60000);
 
-	set_skill("goplaying", 100);        // ÎÆèÒÊÖÌ¸
-	set_skill("literate", 100);         // ¶ÁÊéÊ¶×Ö
-	set_skill("force", 120);            // »ù±¾ÄÚ¹¦
-	set_skill("finger", 120);           // »ù±¾Ö¸·¨
-	set_skill("dodge", 120);            // »ù±¾¶ãÉÁ
-	set_skill("parry", 120);            // »ù±¾ÕÐ¼Ü
-	set_skill("piaoyibu", 180);         // Æ®ÒÝ²½·¨
-	set_skill("xuantian-zhi", 180);	    // ÐþÌìÎÞÇéÖ¸
-	set_skill("kuihua-xinfa", 120);	    // ¿û»¨ÐÄ·¨
+	set_skill("goplaying", 100);        // çº¹æž°æ‰‹è°ˆ
+	set_skill("literate", 100);         // è¯»ä¹¦è¯†å­—
+	set_skill("force", 120);            // åŸºæœ¬å†…åŠŸ
+	set_skill("finger", 120);           // åŸºæœ¬æŒ‡æ³•
+	set_skill("dodge", 120);            // åŸºæœ¬èº²é—ª
+	set_skill("parry", 120);            // åŸºæœ¬æ‹›æž¶
+	set_skill("piaoyibu", 180);         // é£˜é€¸æ­¥æ³•
+	set_skill("xuantian-zhi", 180);	    // çŽ„å¤©æ— æƒ…æŒ‡
+	set_skill("kuihua-xinfa", 120);	    // è‘µèŠ±å¿ƒæ³•
 
 	map_skill("force", "kuihua-xinfa");
 	map_skill("finger", "xuantian-zhi");
@@ -47,13 +47,13 @@ void create()
 	prepare_skill("finger", "xuantian-zhi");
 
 	set("inquiry", ([
-		"ÈÕÔÂÉñ½Ì" : "ÄãÏë¼ÓÈëÎÒÈÕÔÂÉñ½Ì£¬¾ÍµÃÕÒËÄ´óÌÃ³¤ÀÏ¡£",
-		"Èë½Ì"     : "ÄãÏë¼ÓÈëÎÒÈÕÔÂÉñ½Ì£¬¾ÍµÃÕÒËÄ´óÌÃ³¤ÀÏ¡£",
+		"æ—¥æœˆç¥žæ•™" : "ä½ æƒ³åŠ å…¥æˆ‘æ—¥æœˆç¥žæ•™ï¼Œå°±å¾—æ‰¾å››å¤§å ‚é•¿è€ã€‚",
+		"å…¥æ•™"     : "ä½ æƒ³åŠ å…¥æˆ‘æ—¥æœˆç¥žæ•™ï¼Œå°±å¾—æ‰¾å››å¤§å ‚é•¿è€ã€‚",
 	]));
 
-	set("party/party_name", HIB"ÈÕÔÂÉñ½Ì"NOR);
-	set("party/rank", HIB"Ã·×¯¶þ×¯Ö÷"NOR);
-	create_family("ºÚÄ¾ÑÂ", 9, "µÜ×Ó");
+	set("party/party_name", HIB"æ—¥æœˆç¥žæ•™"NOR);
+	set("party/rank", HIB"æ¢…åº„äºŒåº„ä¸»"NOR);
+	create_family("é»‘æœ¨å´–", 9, "å¼Ÿå­");
 
 	setup();
 	carry_object("/d/meizhuang/npc/obj/heiyi")->wear();
@@ -61,17 +61,17 @@ void create()
 
 void attempt_apprentice(object ob)
 {
-	if(!ob->query("party")||ob->query("party/party_name")!=HIB"ÈÕÔÂÉñ½Ì"NOR)
+	if(!ob->query("party")||ob->query("party/party_name")!=HIB"æ—¥æœˆç¥žæ•™"NOR)
 	{
-		command("say ÎÒÖ»ÊÕÉñ½ÌµÜ×Ó£¬ÄãÕÒËÄ´óÌÃ³¤ÀÏÈë½ÌÈ¥£¡\n");
+		command("say æˆ‘åªæ”¶ç¥žæ•™å¼Ÿå­ï¼Œä½ æ‰¾å››å¤§å ‚é•¿è€å…¥æ•™åŽ»ï¼\n");
 		return;
 	}
 	if ((int)ob->query_skill("kuihua-xinfa", 1) < 90)
 	{
-		command("say ÏëÑ§ÎÒ½Ì¹¦·ò£¬ÔÚÄÚ¹¦ÉÏ£¬" + RANK_D->query_respect(ob) + "ÊÇ·ñ»¹Ó¦¸Ã¶àÏÂµã¹¦·ò£¿");
+		command("say æƒ³å­¦æˆ‘æ•™åŠŸå¤«ï¼Œåœ¨å†…åŠŸä¸Šï¼Œ" + RANK_D->query_respect(ob) + "æ˜¯å¦è¿˜åº”è¯¥å¤šä¸‹ç‚¹åŠŸå¤«ï¼Ÿ");
 		return;
 	}
-	command("say ºÃ°É£¬ÔÚÏÂ¾ÍÊÕÏÂÄãÁË¡£");
+	command("say å¥½å§ï¼Œåœ¨ä¸‹å°±æ”¶ä¸‹ä½ äº†ã€‚");
 	command("recruit " + ob->query("id"));
 }
 

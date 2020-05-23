@@ -4,11 +4,11 @@ inherit ROOM;
 
 void create()
 {
-        set("short", "ʯ��");
+        set("short", "石鼋");
         set("long",@long
-����һ��ͻ��ƽ�صľ�ʯ����Ϊ��ʯ������ʯ��������š�������
-�������֣����ϰ��۴�����˵�Ƿ������ʩ��ʯ��������̫��ʯ���µ�
-��ӡ����ʯ���Ը��ӣ�����������ˮ�ݡ�
+这是一块突出平地的巨石，称为“石鼋”。石鼋背面刻着“望佛来
+”三个字，背上凹痕处，传说是夫差与西施立石昂首眺望太湖石留下的
+脚印。从石鼋旁俯视，左右有两个水洼。
 long);
 	set("outdoors", "suzhou");
 	set("objects",([

@@ -7,7 +7,7 @@ inherit F_CLEAN_UP;
  
 
 
-// Ôö¼ÓÒÔÏÂÁ½¸öÊı×é£¬ÓÃÓÚÅĞ¶Ï»·¾³±äÁ¿ÉèÖÃµÄºÏ·¨ĞÔ¡£
+// å¢åŠ ä»¥ä¸‹ä¸¤ä¸ªæ•°ç»„ï¼Œç”¨äºåˆ¤æ–­ç¯å¢ƒå˜é‡è®¾ç½®çš„åˆæ³•æ€§ã€‚
 // Added by Constant Jan 4 2001
 string *player_settings = ({
 	"brief",
@@ -60,9 +60,9 @@ int main(object me, string arg)
 	env = me->query("env");
  
 	if ( !arg || arg=="" ) {
-		write("ÄãÄ¿Ç°Éè¶¨µÄ»·¾³±äÊıÓĞ£º\n");
+		write("ä½ ç›®å‰è®¾å®šçš„ç¯å¢ƒå˜æ•°æœ‰ï¼š\n");
 		if ( !mapp(env) || !sizeof(env) )
-			write("\tÃ»ÓĞÉè¶¨ÈÎºÎ»·¾³±äÊı¡£\n");
+			write("\tæ²¡æœ‰è®¾å®šä»»ä½•ç¯å¢ƒå˜æ•°ã€‚\n");
 		else {
 			terms = keys(env);
 			for (i=0; i<sizeof(terms); i++)
@@ -78,21 +78,21 @@ int main(object me, string arg)
  
 	if ( term && term!="" ) {
 		if ( mapp(env) && undefinedp(env[term]) && sizeof(env) >= MAX_ENV_VARS )
-			return notify_fail("ÄãÉèµÄ»·¾³±äÁ¿Ì«¶àÁË£¬ÇëÏÈÓÃ unset É¾µô¼¸¸ö°É¡£\n");
+			return notify_fail("ä½ è®¾çš„ç¯å¢ƒå˜é‡å¤ªå¤šäº†ï¼Œè¯·å…ˆç”¨ unset åˆ æ‰å‡ ä¸ªå§ã€‚\n");
 
 		if ( member_array(term, player_settings) == -1 ) {
 			if (!wizardp(me))
-				return notify_fail("Ã»ÓĞÕâÖÖ»·¾³±äÁ¿£¬Çë²ÎÕÕ°ïÖú¡£\n");
+				return notify_fail("æ²¡æœ‰è¿™ç§ç¯å¢ƒå˜é‡ï¼Œè¯·å‚ç…§å¸®åŠ©ã€‚\n");
 			else if ( member_array(term, wizard_settings) == -1)
-				return notify_fail("Ã»ÓĞÕâÖÖ»·¾³±äÁ¿£¬Çë²ÎÕÕ°ïÖú¡£\n");
+				return notify_fail("æ²¡æœ‰è¿™ç§ç¯å¢ƒå˜é‡ï¼Œè¯·å‚ç…§å¸®åŠ©ã€‚\n");
 		}
 		if ((wiz_level(me) == 0) &&
 			(member_array(term, wizard_settings) != -1))
-			return notify_fail("Ö»ÓĞÎ×Ê¦ÄÜÓÃÕâ¸öÉè¶¨¡£\n");
+			return notify_fail("åªæœ‰å·«å¸ˆèƒ½ç”¨è¿™ä¸ªè®¾å®šã€‚\n");
 
 		sscanf(data, "%d", data);
 		me->set("env/" + term, data);
-		printf("Éè¶¨»·¾³±äÊı£º%s = %O\n", term, data);
+		printf("è®¾å®šç¯å¢ƒå˜æ•°ï¼š%s = %O\n", term, data);
 		return 1;
 	}
 	return help();
@@ -101,15 +101,15 @@ int main(object me, string arg)
 int help()
 {
 	write(@TEXT
-Ö¸Áî¸ñÊ½£ºset <±äÁ¿Ãû> [<±äÁ¿Öµ>]
+æŒ‡ä»¤æ ¼å¼ï¼šset <å˜é‡å> [<å˜é‡å€¼>]
  
-    Õâ¸öÖ¸ÁîÈÃÄãÉè¶¨Ò»Ğ©»·¾³±äÁ¿£¬²»¼Ó²ÎÊıÊ±»áÏÔÊ¾ÄãÄ¿Ç°Éè¶¨
-µÄ»·¾³±äÁ¿£¬²»Ö¸¶¨±äÁ¿Öµ£¬ÔòÄ¬ÈÏÖµÎª "YES"¡£ÕâĞ©±äÁ¿»áËæ×ÅÄã
-µÄÈËÎï±»´¢´æÏÂÀ´¡£
+    è¿™ä¸ªæŒ‡ä»¤è®©ä½ è®¾å®šä¸€äº›ç¯å¢ƒå˜é‡ï¼Œä¸åŠ å‚æ•°æ—¶ä¼šæ˜¾ç¤ºä½ ç›®å‰è®¾å®š
+çš„ç¯å¢ƒå˜é‡ï¼Œä¸æŒ‡å®šå˜é‡å€¼ï¼Œåˆ™é»˜è®¤å€¼ä¸º "YES"ã€‚è¿™äº›å˜é‡ä¼šéšç€ä½ 
+çš„äººç‰©è¢«å‚¨å­˜ä¸‹æ¥ã€‚
  
-    È¡Ïû±äÁ¿Éè¶¨ÇëÓÃ unset Ö¸Áî¡£
+    å–æ¶ˆå˜é‡è®¾å®šè¯·ç”¨ unset æŒ‡ä»¤ã€‚
  
-    ÖÁÓÚÓĞÄÄĞ©»·¾³±äÁ¿¿ÉÒÔÉè¶¨£¬Çë¼û help setup¡£
+    è‡³äºæœ‰å“ªäº›ç¯å¢ƒå˜é‡å¯ä»¥è®¾å®šï¼Œè¯·è§ help setupã€‚
 TEXT
 	);
 	return 1;

@@ -5,8 +5,8 @@ inherit F_DEALER;
 
 void create()
 {
-	set_name("Ğ¡··", ({ "xiao fan" }));
-	set("gender", "ÄĞĞÔ");
+	set_name("å°è´©", ({ "xiao fan" }));
+	set("gender", "ç”·æ€§");
 	set("age", 25);
 	set("combat_exp", 100);
 	set("attitude", "friendly");

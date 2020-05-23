@@ -1,4 +1,4 @@
-// hua2.c ÎŞÃû»¨
+// hua2.c æ— åèŠ±
 inherit ITEM;
 
 void init()
@@ -8,9 +8,9 @@ void init()
 
 void create()
 {
-	set_name("ÎŞÃû»¨", ({"hua2", "wuming"}));
-	set("unit", "¶ä");
-	set("long", "ÕâÊÇÒ»¶äÎŞÃûĞ¡»¨£¬»¨ÈïËäĞ¡£¬È´Ê®·ÖÃÀÀö¡£\n");
+	set_name("æ— åèŠ±", ({"hua2", "wuming"}));
+	set("unit", "æœµ");
+	set("long", "è¿™æ˜¯ä¸€æœµæ— åå°èŠ±ï¼ŒèŠ±è•Šè™½å°ï¼Œå´ååˆ†ç¾ä¸½ã€‚\n");
 	setup();
 }
 
@@ -22,11 +22,11 @@ int do_eat(string arg)
 	neili_limit = me->query("max_neili");
 	force_skill = me->query_skill("force", 1);
 
-	if(!id(arg)) return notify_fail("ÄãÒª³ÔÊ²Ã´£¿\n");
+	if(!id(arg)) return notify_fail("ä½ è¦åƒä»€ä¹ˆï¼Ÿ\n");
 	if(!present(this_object(), me))
-		return notify_fail("ÄãÒª³ÔÊ²Ã´£¿\n");
+		return notify_fail("ä½ è¦åƒä»€ä¹ˆï¼Ÿ\n");
 	if( me->is_busy() )
-		return notify_fail("±ğ¼±£¬ÂıÂı³Ô£¬Ğ¡ĞÄ±ğÒ­×ÅÁË¡£\n");
+		return notify_fail("åˆ«æ€¥ï¼Œæ…¢æ…¢åƒï¼Œå°å¿ƒåˆ«å™ç€äº†ã€‚\n");
 	if ( neili_limit <= force_limit  )
 		me->add("max_neili", 1);
 	me->unconcious();

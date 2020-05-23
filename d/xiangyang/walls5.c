@@ -1,15 +1,15 @@
 // Room: /d/xiangyang/walls5.c
 // Date: Jan. 8 1999 by Winder
-// Modified by Zeratul Jan 15 2001,ÏŞÖÆÁË·è¿ñÅÀ³Ç
+// Modified by Zeratul Jan 15 2001,é™åˆ¶äº†ç–¯ç‹‚çˆ¬åŸ
 
 inherit __DIR__"wall.c";
 
 void create()
 {
-	set("short", "Ê¯½×");
+	set("short", "çŸ³é˜¶");
 	set("long", @LONG
-ÕâÊÇµÇÏò³ÇÍ·µÄÊ¯½×£¬ÒòÎª³ÇÇ½ºÜ¸ß£¬ËùÒÔºÜ¶¸¡£Ê¯½×Á½
-²àÓĞ¿É¹©À­³µÉÏÏÂµÄĞ±ÆÂµÀ¡£
+è¿™æ˜¯ç™»å‘åŸå¤´çš„çŸ³é˜¶ï¼Œå› ä¸ºåŸå¢™å¾ˆé«˜ï¼Œæ‰€ä»¥å¾ˆé™¡ã€‚çŸ³é˜¶ä¸¤
+ä¾§æœ‰å¯ä¾›æ‹‰è½¦ä¸Šä¸‹çš„æ–œå¡é“ã€‚
 LONG );
         set("outdoors", "xiangyang");
 	set("no_clean_up", 0);

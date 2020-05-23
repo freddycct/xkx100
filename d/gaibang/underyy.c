@@ -5,10 +5,10 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "�����ܵ�");
+	set("short", "井底密道");
 	set("long", @LONG
-������������ؤ���ܶ��Ժ�ڵĹž��µĶ�����ܶ����˸�����
-�����ؤ������ռ�����ͭ�����ȡ�������ͨ��ؤ�������ͨ����
+这是岳阳城内丐帮总舵大院内的古井下的洞里。四周丢满了各种杂
+物，还有丐帮弟子收集的破铜烂铁等。从这里通往丐帮的秘密通道。
 LONG );
 	set("exits", ([
 		"out"   : "/d/yueyang/gaibangyuan",

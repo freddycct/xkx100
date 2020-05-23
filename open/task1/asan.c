@@ -1,12 +1,12 @@
-// asan.c °¢Èı
+// asan.c é˜¿ä¸‰
  
 inherit NPC;
  
 void create()
 {
-	set_name("°¢Èı", ({ "a  san", "a" }));
-	set("long", "½ğ¸ÕÃÅµÄ¸ßÊÖ£¬Ò»ÉíÍâ¹¦³öÉñÈë»¯£¬³öÊÖ¼«Æäºİ¶¾¡£\n");
-	set("gender", "ÄĞĞÔ");
+	set_name("é˜¿ä¸‰", ({ "a  san", "a" }));
+	set("long", "é‡‘åˆšé—¨çš„é«˜æ‰‹ï¼Œä¸€èº«å¤–åŠŸå‡ºç¥å…¥åŒ–ï¼Œå‡ºæ‰‹æå…¶ç‹ æ¯’ã€‚\n");
+	set("gender", "ç”·æ€§");
 	set("age", 46);
 	set("attitude", "peaceful");
 	set("str", 30);

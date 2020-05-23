@@ -1,5 +1,5 @@
 // /d/npc/m_weapon/weapon/m_axe.c
-// Modified by Zeratul Jan 13 2001 ²»ÄÜ¶ÍÁ¶ÔÚµØÉÏµÄ×ÔÖıÎäÆ÷
+// Modified by Zeratul Jan 13 2001 ä¸èƒ½é”»ç‚¼åœ¨åœ°ä¸Šçš„è‡ªé“¸æ­¦å™¨
 
 #include <ansi.h>
 #include <weapon.h>
@@ -39,7 +39,7 @@ void copyto(object me)
     return;
   }
   set("inited",1);
-//¶ÁÈëÊı¾İ
+//è¯»å…¥æ•°æ®
 	w_name=me->query("weapon/name");
 	w_id = me->query("weapon/id");
 	w_or = me->query("weapon/or");
@@ -50,136 +50,136 @@ void copyto(object me)
 	damage = w_lv *10 + me->query("gift/weapon");
 	switch (me->query("weapon/type"))
 	{
-		case "¸«":
-			set("unit","°Ñ");
-			set("wield_msg", "$NÍùÑüÖĞÒ»Ãş£¬³é³öÁËÒ»°Ñ"+w_name+"ÔÚÊÖÖĞ¡£\n");
-			set("unwield_msg", "$NÊÖÖĞ"+w_name+"ÍùÉíºóÒ»±ğ£¬±ğÔÚºóÑüÉÏÁË¡£\n");			
+		case "æ–§":
+			set("unit","æŠŠ");
+			set("wield_msg", "$Nå¾€è…°ä¸­ä¸€æ‘¸ï¼ŒæŠ½å‡ºäº†ä¸€æŠŠ"+w_name+"åœ¨æ‰‹ä¸­ã€‚\n");
+			set("unwield_msg", "$Næ‰‹ä¸­"+w_name+"å¾€èº«åä¸€åˆ«ï¼Œåˆ«åœ¨åè…°ä¸Šäº†ã€‚\n");			
 			init_axe(damage);
-			QI="¸«Æø";
-			JI="Ö¸¸«±³";
-			upmsg=CYN"¸«ÉíºöµÄÒ»ÉÁ£¬Ò»µÀÒø¹âÒşÈë$NµÄ"+w_name+CYN"ÖĞ£¬²»¼ûÁË£¡\n"NOR;
+			QI="æ–§æ°”";
+			JI="æŒ‡æ–§èƒŒ";
+			upmsg=CYN"æ–§èº«å¿½çš„ä¸€é—ªï¼Œä¸€é“é“¶å…‰éšå…¥$Nçš„"+w_name+CYN"ä¸­ï¼Œä¸è§äº†ï¼\n"NOR;
 			break;
 
-		case "ÕÈ":
-			set("unit","¸Ë");
-			set("wield_msg", "$NÍù±³ºóÒ»Ãş£¬ÌÍ³öÁËÒ»¸Ë"+w_name+"ÎÕÔÚÊÖÖĞ¡£\n");
-			set("unwield_msg", "$NÊÖÖĞ"+w_name+"Ò»»Ó£¬Õ£ÑÛ¼äÒÑÈ»²»¼ûÓ°×Ù¡£\n");			
+		case "æ–":
+			set("unit","æ†");
+			set("wield_msg", "$Nå¾€èƒŒåä¸€æ‘¸ï¼Œæå‡ºäº†ä¸€æ†"+w_name+"æ¡åœ¨æ‰‹ä¸­ã€‚\n");
+			set("unwield_msg", "$Næ‰‹ä¸­"+w_name+"ä¸€æŒ¥ï¼Œçœ¨çœ¼é—´å·²ç„¶ä¸è§å½±è¸ªã€‚\n");			
 			init_staff(damage);
-			QI="ÕÈÌå";
-			JI="ÎÕÕÈ¶Ë";
-			upmsg=HIY"ÕÈÉíºöµÄÒ»ÁÁ£¬Ò»µÀ½ğ¹âÒşÈë$NµÄ"+w_name+HIY"Ìå£¬²»¼ûÁË£¡\n"NOR;
+			QI="æ–ä½“";
+			JI="æ¡æ–ç«¯";
+			upmsg=HIY"æ–èº«å¿½çš„ä¸€äº®ï¼Œä¸€é“é‡‘å…‰éšå…¥$Nçš„"+w_name+HIY"ä½“ï¼Œä¸è§äº†ï¼\n"NOR;
 			break;
 
-		case "µ¶":
-			set("unit","±ú");
-			set("wield_msg", "$NÍùÑüÖĞÒ»³é£¬°Î³öÁËÒ»°Ñ"+w_name+"ÔÚÊÖÖĞ¡£\n");
-			set("unwield_msg", "$NÊÖÖĞ"+w_name+"Ó­·çÒ»¶¶£¬Õ£ÑÛ¼äÒÑÈ»²»¼ûÓ°×Ù¡£\n");
+		case "åˆ€":
+			set("unit","æŸ„");
+			set("wield_msg", "$Nå¾€è…°ä¸­ä¸€æŠ½ï¼Œæ‹”å‡ºäº†ä¸€æŠŠ"+w_name+"åœ¨æ‰‹ä¸­ã€‚\n");
+			set("unwield_msg", "$Næ‰‹ä¸­"+w_name+"è¿é£ä¸€æŠ–ï¼Œçœ¨çœ¼é—´å·²ç„¶ä¸è§å½±è¸ªã€‚\n");
 			init_blade(damage);
-			QI="µ¶Æø";
-			JI="Ö¸µ¶¼¹";
-			upmsg=CYN"µ¶ÉíºöµÄÒ»ÉÁ£¬Ò»µÀÒø¹âÒşÈë$NµÄ"+w_name+CYN"ÖĞ£¬²»¼ûÁË£¡\n"NOR;
+			QI="åˆ€æ°”";
+			JI="æŒ‡åˆ€è„Š";
+			upmsg=CYN"åˆ€èº«å¿½çš„ä¸€é—ªï¼Œä¸€é“é“¶å…‰éšå…¥$Nçš„"+w_name+CYN"ä¸­ï¼Œä¸è§äº†ï¼\n"NOR;
 			break;
 
-		case "¹÷":
-			set("unit","¸ù");
-			set("wield_msg", "$NÍùÑüÖĞÒ»Ãş£¬ÄÃ³öÁËÒ»°Ñ"+w_name+"£¬¶ËÔÚÊÖÖĞ¡£\n");
-			set("unwield_msg", "$NÊÖÖĞ"+w_name+"¶¶³öÒ»¸ö¹÷»¨£¬Õ£ÑÛ¼äÒÑÈ»²»¼ûÓ°×Ù¡£\n");
+		case "æ£":
+			set("unit","æ ¹");
+			set("wield_msg", "$Nå¾€è…°ä¸­ä¸€æ‘¸ï¼Œæ‹¿å‡ºäº†ä¸€æŠŠ"+w_name+"ï¼Œç«¯åœ¨æ‰‹ä¸­ã€‚\n");
+			set("unwield_msg", "$Næ‰‹ä¸­"+w_name+"æŠ–å‡ºä¸€ä¸ªæ£èŠ±ï¼Œçœ¨çœ¼é—´å·²ç„¶ä¸è§å½±è¸ªã€‚\n");
 			init_club(damage);
-			QI="±øÆ÷";
-			JI="Ö¸¹÷¼¹";
-			upmsg=HIY"¹÷ÉíºöµÄÒ»ÁÁ£¬ËÆºõÒ»ÖÖĞÂÉúµÄÁ¦Á¿ÔÚ"+w_name+HIY"ÖĞÓ¿¶¯ÆğÀ´£¡\n"NOR;
+			QI="å…µå™¨";
+			JI="æŒ‡æ£è„Š";
+			upmsg=HIY"æ£èº«å¿½çš„ä¸€äº®ï¼Œä¼¼ä¹ä¸€ç§æ–°ç”Ÿçš„åŠ›é‡åœ¨"+w_name+HIY"ä¸­æ¶ŒåŠ¨èµ·æ¥ï¼\n"NOR;
 			break;
 
-		case "´¸":
-			set("unit","°Ñ");
-			set("wield_msg", "$NÍùºóÑüÖĞÒ»Ãş£¬È¡³öÁËÒ»±ú"+w_name+"ÎÕÔÚÊÖÖĞ¡£\n");
-			set("unwield_msg","$NÊÖÖĞ"+w_name+"ÍùÑüºóÒ»±ğ£¬Õ£ÑÛ¼äÒÑÈ»²»¼ûÓ°×Ù¡£\n");
+		case "é”¤":
+			set("unit","æŠŠ");
+			set("wield_msg", "$Nå¾€åè…°ä¸­ä¸€æ‘¸ï¼Œå–å‡ºäº†ä¸€æŸ„"+w_name+"æ¡åœ¨æ‰‹ä¸­ã€‚\n");
+			set("unwield_msg","$Næ‰‹ä¸­"+w_name+"å¾€è…°åä¸€åˆ«ï¼Œçœ¨çœ¼é—´å·²ç„¶ä¸è§å½±è¸ªã€‚\n");
 			init_hammer(damage);
-			QI="´¸Æø";
-			JI="Ö¸´¸Ìå";
-			upmsg=HIY"´¸ÉíºöµÄÒ»ÁÁ£¬Ò»µÀ½ğ¹âÒşÈë$NµÄ"+w_name+HIY"Ìå£¬²»¼ûÁË£¡\n"NOR;
+			QI="é”¤æ°”";
+			JI="æŒ‡é”¤ä½“";
+			upmsg=HIY"é”¤èº«å¿½çš„ä¸€äº®ï¼Œä¸€é“é‡‘å…‰éšå…¥$Nçš„"+w_name+HIY"ä½“ï¼Œä¸è§äº†ï¼\n"NOR;
 			break;
 
-		case "¹³":
-			set("unit","±ú");
-			set("wield_msg", "$N¡¸à§¡¹µÄÒ»Éù³é³öÒ»°Ñ"+w_name+"ÎÕÔÚÊÖÖĞ¡£\n");
-			set("unwield_msg", "$N½«ÊÖÖĞµÄ"+w_name+"Ò»¶¶£¬°×¹âÒ»ÉÁ£¬×ªÑÛ¼ä"+w_name+"ÒÑÈ»²»¼û×ÙÓ°¡£\n");
+		case "é’©":
+			set("unit","æŸ„");
+			set("wield_msg", "$Nã€Œå”°ã€çš„ä¸€å£°æŠ½å‡ºä¸€æŠŠ"+w_name+"æ¡åœ¨æ‰‹ä¸­ã€‚\n");
+			set("unwield_msg", "$Nå°†æ‰‹ä¸­çš„"+w_name+"ä¸€æŠ–ï¼Œç™½å…‰ä¸€é—ªï¼Œè½¬çœ¼é—´"+w_name+"å·²ç„¶ä¸è§è¸ªå½±ã€‚\n");
 			init_hook(damage + 2);
-			QI="±øÆ÷";
-			JI="Äó¹³¼â";
-			upmsg=HIY"¹³ÉíºöµÄÒ»ÁÁ£¬Ò»µÀ½ğ¹âÒşÈë$NµÄ"+w_name+HIY"£¬²»¼ûÁË£¡\n"NOR;
+			QI="å…µå™¨";
+			JI="æé’©å°–";
+			upmsg=HIY"é’©èº«å¿½çš„ä¸€äº®ï¼Œä¸€é“é‡‘å…‰éšå…¥$Nçš„"+w_name+HIY"ï¼Œä¸è§äº†ï¼\n"NOR;
 			break;
 
-		case "Ç¹":
-			set("unit","¸Ë");
-			set("wield_msg", "$NÍù±³ºóÒ»Ãş£¬ÌÍ³öÁËÒ»¸Ë"+w_name+"ÎÕÔÚÊÖÖĞ¡£\n");
-			set("unwield_msg", "$NÊÖÖĞ"+w_name+"Ò»»Ó£¬Õ£ÑÛ¼äÒÑÈ»²»¼ûÓ°×Ù¡£\n");
+		case "æª":
+			set("unit","æ†");
+			set("wield_msg", "$Nå¾€èƒŒåä¸€æ‘¸ï¼Œæå‡ºäº†ä¸€æ†"+w_name+"æ¡åœ¨æ‰‹ä¸­ã€‚\n");
+			set("unwield_msg", "$Næ‰‹ä¸­"+w_name+"ä¸€æŒ¥ï¼Œçœ¨çœ¼é—´å·²ç„¶ä¸è§å½±è¸ªã€‚\n");
 			init_spear(damage);
-			QI="Ç¹Ìå";
-			JI="ÎÕÇ¹Í·";
-			upmsg=HIY"Ç¹ÉíºöµÄÒ»ÁÁ£¬Ò»µÀ½ğ¹âÒşÈë$NµÄ+"+w_name+HIY"Ìå£¬²»¼ûÁË£¡\n"NOR;
+			QI="æªä½“";
+			JI="æ¡æªå¤´";
+			upmsg=HIY"æªèº«å¿½çš„ä¸€äº®ï¼Œä¸€é“é‡‘å…‰éšå…¥$Nçš„+"+w_name+HIY"ä½“ï¼Œä¸è§äº†ï¼\n"NOR;
 			break;
 
-		case "°ô":
-			set("unit","¸ù");
-			set("wield_msg", "$NÍù±³ºóÒ»Ãş£¬ÌÍ³öÁËÒ»¸Ë"+w_name+"ÎÕÔÚÊÖÖĞ¡£\n");
-			set("unwield_msg", "$NÊÖÖĞ"+w_name+"Ò»»Ó£¬Õ£ÑÛ¼äÒÑÈ»²»¼ûÓ°×Ù¡£\n");
+		case "æ£’":
+			set("unit","æ ¹");
+			set("wield_msg", "$Nå¾€èƒŒåä¸€æ‘¸ï¼Œæå‡ºäº†ä¸€æ†"+w_name+"æ¡åœ¨æ‰‹ä¸­ã€‚\n");
+			set("unwield_msg", "$Næ‰‹ä¸­"+w_name+"ä¸€æŒ¥ï¼Œçœ¨çœ¼é—´å·²ç„¶ä¸è§å½±è¸ªã€‚\n");
 			init_stick(damage);
-			QI="°ôÌå";
-			JI="ÎÕ°ô¶Ë";
-			upmsg=HIY"°ôÉíºöµÄÒ»ÁÁ£¬Ò»µÀ½ğ¹âÒşÈë$NµÄ"+w_name+HIY"Ìå£¬²»¼ûÁË£¡\n"NOR;
+			QI="æ£’ä½“";
+			JI="æ¡æ£’ç«¯";
+			upmsg=HIY"æ£’èº«å¿½çš„ä¸€äº®ï¼Œä¸€é“é‡‘å…‰éšå…¥$Nçš„"+w_name+HIY"ä½“ï¼Œä¸è§äº†ï¼\n"NOR;
 			break;
 
-		case "½£":
-			set("unit","¿Ú");
-			set("wield_msg", "$NÍùÑüÖĞÒ»´ø£¬³é³öÁËÒ»¿Ú"+w_name+"ÎÕÔÚÊÖÖĞ¡£\n");
-			set("unwield_msg", "$NÊÖÖĞ"+w_name+"Ó­·çÒ»¶¶£¬Õ£ÑÛ¼äÒÑÈ»²»¼ûÓ°×Ù¡£\n");
+		case "å‰‘":
+			set("unit","å£");
+			set("wield_msg", "$Nå¾€è…°ä¸­ä¸€å¸¦ï¼ŒæŠ½å‡ºäº†ä¸€å£"+w_name+"æ¡åœ¨æ‰‹ä¸­ã€‚\n");
+			set("unwield_msg", "$Næ‰‹ä¸­"+w_name+"è¿é£ä¸€æŠ–ï¼Œçœ¨çœ¼é—´å·²ç„¶ä¸è§å½±è¸ªã€‚\n");
 			init_sword(damage);
-			QI="½£Æø";
-			JI="Ö¸½£¼¹";
-			upmsg=HIY"½£ÉíºöµÄÒ»ÁÁ£¬Ò»µÀ½ğ¹âÒşÈë$NµÄ"+w_name+HIY"Ìå£¬²»¼ûÁË£¡\n"NOR;
+			QI="å‰‘æ°”";
+			JI="æŒ‡å‰‘è„Š";
+			upmsg=HIY"å‰‘èº«å¿½çš„ä¸€äº®ï¼Œä¸€é“é‡‘å…‰éšå…¥$Nçš„"+w_name+HIY"ä½“ï¼Œä¸è§äº†ï¼\n"NOR;
 			break;
 
-		case "±Ş":
-			set("unit","Ìõ");
-				set("wield_msg", "$NÍùÑüÖĞÒ»Ãş£¬Ë¢µÄ¶¶³öÁËÒ»Ìõ"+w_name+"¡£\n");
-				set("unwield_msg","$NÊÖÖĞ"+w_name+"Ò»¶¶£¬Õ£ÑÛ¼ä¾í»ØÑü¼ä²»¼ûÁËÓ°×Ù¡£\n");
+		case "é­":
+			set("unit","æ¡");
+				set("wield_msg", "$Nå¾€è…°ä¸­ä¸€æ‘¸ï¼Œåˆ·çš„æŠ–å‡ºäº†ä¸€æ¡"+w_name+"ã€‚\n");
+				set("unwield_msg","$Næ‰‹ä¸­"+w_name+"ä¸€æŠ–ï¼Œçœ¨çœ¼é—´å·å›è…°é—´ä¸è§äº†å½±è¸ªã€‚\n");
 			init_whip(damage);
-			QI="±øÆ÷";
-			JI="Äó±ŞÉÔ";
-			upmsg=HIY"±ŞÉíºöµÄÒ»ÁÁ£¬Ò»µÀ½ğ¹âÒşÈë$NµÄ"+w_name+HIY"£¬²»¼ûÁË£¡\n"NOR;
+			QI="å…µå™¨";
+			JI="æé­ç¨";
+			upmsg=HIY"é­èº«å¿½çš„ä¸€äº®ï¼Œä¸€é“é‡‘å…‰éšå…¥$Nçš„"+w_name+HIY"ï¼Œä¸è§äº†ï¼\n"NOR;
 			break;
 			
 		default :
-			tell_object(me,"ÄãµÄ×ÔÖıÎäÆ÷ÓĞ´í£¬ÇëÍ¨ÖªÎ×Ê¦½â¾ö¡£\n");
+			tell_object(me,"ä½ çš„è‡ªé“¸æ­¦å™¨æœ‰é”™ï¼Œè¯·é€šçŸ¥å·«å¸ˆè§£å†³ã€‚\n");
 			call_out("destruct",0,this_object());
 			return;
 	}
 	switch(w_or)
 	{
-		//ÆÕÍ¨³¤½£ÖØÁ¿ 5000
-		//±øÆ÷³õÊ¼Ó²¶Èrigidity ½£== ÉËº¦/4 ÆäËüÀàĞÍÓĞÒ»µã±ÈÀı²î±ğ
-		case "Ç§ÄêÉñÄ¾" :
+		//æ™®é€šé•¿å‰‘é‡é‡ 5000
+		//å…µå™¨åˆå§‹ç¡¬åº¦rigidity å‰‘== ä¼¤å®³/4 å…¶å®ƒç±»å‹æœ‰ä¸€ç‚¹æ¯”ä¾‹å·®åˆ«
+		case "åƒå¹´ç¥æœ¨" :
 			set_weight(2000);
       			add("rigidity",query("rigidity")/3);
 			set("material", "wood");
 			break;
-		case "º£µ×½ğÄ¸" :
+		case "æµ·åº•é‡‘æ¯" :
 			set_weight(30000);
 			set("material", "steel");
 			break;
-		case "º®Ë¿ÓğÖñ" :
+		case "å¯’ä¸ç¾½ç«¹" :
 			set_weight(30);
       			set("material","softsteel");
 			break;
-		case "ÔÉĞÇÌúÊ¯" :
+		case "é™¨æ˜Ÿé“çŸ³" :
 			set_weight(10000);
 			add("rigidity",query("rigidity")/2);
 			set("material", "iron");
 			break;
-/*		case "À×»ğº®¾§" :
+/*		case "é›·ç«å¯’æ™¶" :
 			set_weight(30000);
-			set("material", "golden");  //´ı¿ª·¢
+			set("material", "golden");  //å¾…å¼€å‘
 */
 		default :
 	} 
@@ -194,14 +194,14 @@ void copyto(object me)
 
 void create()
 {	
-	set_name("×ÔÖı±øÆ÷",({"own weapon"}));
+	set_name("è‡ªé“¸å…µå™¨",({"own weapon"}));
 	set("no_get",(: this_player()->query("id") != this_object()->query("owner") :));
 	set("no_drop",1);
 	set("player",1);
 	set("no_put",1);
 	set("no_beg",1);
 	set("no_steal",1);
-	set("unit","±ú");
+	set("unit","æŸ„");
 	setup();
 }	
 
@@ -215,38 +215,38 @@ int do_duanlian(object weapon)
 	w_level = (int)me->query("weapon/lv");
 
 	if (me->query("max_neili") < 100 )
-		return notify_fail("ÄãÄÚÁ¦ĞŞÎª²»¹»£¬ÎŞ·¨¶ÍÁ¶±øÆ÷¡£\n");
-	if (me->is_busy()) return notify_fail("ÄãÏÖÔÚÕıÃ¦×ÅÄØ¡£\n");
+		return notify_fail("ä½ å†…åŠ›ä¿®ä¸ºä¸å¤Ÿï¼Œæ— æ³•é”»ç‚¼å…µå™¨ã€‚\n");
+	if (me->is_busy()) return notify_fail("ä½ ç°åœ¨æ­£å¿™ç€å‘¢ã€‚\n");
 
-	if ( me->is_fighter()) return notify_fail("Õ½¶·ÖĞÎŞ·¨¶ÍÁ¶£¡\n");
+	if ( me->is_fighter()) return notify_fail("æˆ˜æ–—ä¸­æ— æ³•é”»ç‚¼ï¼\n");
 
 	if( !weapon || !present( weapon, me ) || query("owner")!=me->query("id"))
-		return notify_fail("ÄãÒª¶ÍÁ¶Ê²Ã´£¿\n");
+		return notify_fail("ä½ è¦é”»ç‚¼ä»€ä¹ˆï¼Ÿ\n");
 
 	if( (int)me->query("neili") < 10 )
-		return notify_fail("ÄãµÄÄÚÁ¦²»¹»£¬ÎŞ·¨¶ÍÁ¶"+QI+"£¡\n");
+		return notify_fail("ä½ çš„å†…åŠ›ä¸å¤Ÿï¼Œæ— æ³•é”»ç‚¼"+QI+"ï¼\n");
 
 	if( (int)me->query("qi") < 150 )
-		return notify_fail("ÄãµÄÆø²»¹»£¬ÎŞ·¨¶ÍÁ¶"+QI+"£¡\n");
+		return notify_fail("ä½ çš„æ°”ä¸å¤Ÿï¼Œæ— æ³•é”»ç‚¼"+QI+"ï¼\n");
 
 	if( (int)me->query("eff_qi") < 30 )
-		return notify_fail("ÄãÏÖÔÚµÄÌåÁ¦Ì«Èõ£¬ÎŞ·¨¶ÍÁ¶"+QI+"£¡\n");
+		return notify_fail("ä½ ç°åœ¨çš„ä½“åŠ›å¤ªå¼±ï¼Œæ— æ³•é”»ç‚¼"+QI+"ï¼\n");
 
 	if( (int)me->query("jing") < 30 )
-			return notify_fail("ÄãÏÖÔÚµÄ¾«Á¦ÎŞ·¨¼¯ÖĞ£¬²»ÄÜ¶ÍÁ¶"+QI+"£¡\n");
+			return notify_fail("ä½ ç°åœ¨çš„ç²¾åŠ›æ— æ³•é›†ä¸­ï¼Œä¸èƒ½é”»ç‚¼"+QI+"ï¼\n");
 
 	if( ((int)me->query("potential") - (int)me->query("learned_points"))< 2 )
-		return notify_fail("ÄãµÄÇ±ÄÜ²»¹»£¬ÎŞ·¨¶ÍÁ¶"+QI+"£¡\n");
+		return notify_fail("ä½ çš„æ½œèƒ½ä¸å¤Ÿï¼Œæ— æ³•é”»ç‚¼"+QI+"ï¼\n");
 		
 //	if( w_level >= (int)(me->query("int") + me->query("sta"))/2 )
 	if(w_level>=(me->query_con()+me->query_sta())/3
-//		||w_level>=60  	//ÉÏÏŞ600ÉËº¦  
+//		||w_level>=60  	//ä¸Šé™600ä¼¤å®³  
 		)
 	{
-		message_vision(RED"$NÊ¹¾¢¶ÍÁ¶×Å"+w_name+RED"£¬¿ÉÊÇºÃÏóÃ»Ê²Ã´Ğ§¹û£¡\n"NOR, me);
+		message_vision(RED"$Nä½¿åŠ²é”»ç‚¼ç€"+w_name+RED"ï¼Œå¯æ˜¯å¥½è±¡æ²¡ä»€ä¹ˆæ•ˆæœï¼\n"NOR, me);
 		return 1;
 	}
-	message_vision(HIR "$NÊÖ"+JI+"£¬Ò»¹ÉÄÚÁ¦Ë¿Ë¿µÄ´«ÁË½øÈ¥¡£\n" NOR, me);
+	message_vision(HIR "$Næ‰‹"+JI+"ï¼Œä¸€è‚¡å†…åŠ›ä¸ä¸çš„ä¼ äº†è¿›å»ã€‚\n" NOR, me);
 
 //	me->start_busy(3);
 	me->add("max_neili",-10);
@@ -266,7 +266,7 @@ int do_duanlian(object weapon)
 		w_level++;
 		me->set("weapon/lv", w_level);
 		message_vision(upmsg,me);
-		message_vision(HIG"$NµÄ"+w_name+HIG"µÄµÈ¼¶Ìá¸ßÁË£¡\n"NOR, me);
+		message_vision(HIG"$Nçš„"+w_name+HIG"çš„ç­‰çº§æé«˜äº†ï¼\n"NOR, me);
 //		weapon=this_object();
 //		if(weapon->query("equipped") ) 
 //			weapon->unequip();
@@ -280,7 +280,7 @@ int do_duanlian(object weapon)
 		destruct(this_object());
 		return 1;
 	}
-	message_vision(RED"$NµÄ"+w_name+RED"µÄÖÊµØ¸ÄÉÆÁË£¡\n"NOR, me);
+	message_vision(RED"$Nçš„"+w_name+RED"çš„è´¨åœ°æ”¹å–„äº†ï¼\n"NOR, me);
 	return 1;
 }
 
@@ -292,8 +292,8 @@ int do_hui(string weapon)
 	w_name=me->query("weapon/name");
 	if( !weapon || !id(weapon)|| query("owner")!=me->query("id"))
 		return 0;
-//		return notify_fail("ÄãÒª´İ»ÙÊ²Ã´£¿\n");
-	message_vision(HIR"$N´óºÈÒ»Éù£¬Ò»ÕÆÇæ"+me->query("weapon/type")+"£¬Ò»ÕÆÃÍÁ¦»÷ÏÂ¡£½á¹ûºäÂ¡Ò»Éù¾ŞÏì"+w_name+HIR"¶ÏÎªÁ½½Ø£¡\n"NOR,me);
+//		return notify_fail("ä½ è¦æ‘§æ¯ä»€ä¹ˆï¼Ÿ\n");
+	message_vision(HIR"$Nå¤§å–ä¸€å£°ï¼Œä¸€æŒæ“"+me->query("weapon/type")+"ï¼Œä¸€æŒçŒ›åŠ›å‡»ä¸‹ã€‚ç»“æœè½°éš†ä¸€å£°å·¨å“"+w_name+HIR"æ–­ä¸ºä¸¤æˆªï¼\n"NOR,me);
 	me->set("weapon/make",0);
 //	me->delete("weapon");
 	me->save();
@@ -304,12 +304,12 @@ int do_hui(string weapon)
 void owner_is_killed()
 {
 	object piece;
-	write(HIY"Ö»¼ûÒ»ÉùÇå´àµÄÏìÉù£¬"+query("name")+HIY"ÂäÔÚµØÉÏ£¬¶Ï³ÉÊı½Ø¡£\n"NOR);
+	write(HIY"åªè§ä¸€å£°æ¸…è„†çš„å“å£°ï¼Œ"+query("name")+HIY"è½åœ¨åœ°ä¸Šï¼Œæ–­æˆæ•°æˆªã€‚\n"NOR);
 	this_object()->unequip();
  	seteuid(getuid());
  	piece = new("/clone/misc/piece");
  	piece->set("long", query("long"));
- 	piece->set_name( query("name") + "µÄËéÆ¬", ({query("id"),"piece"}) );
+ 	piece->set_name( query("name") + "çš„ç¢ç‰‡", ({query("id"),"piece"}) );
  	if(environment(environment()))
  	  piece->move(environment(environment()));
 	destruct(this_object());
@@ -321,23 +321,23 @@ int do_setwmsg(string info)
 	object me=this_player();
 	string msg,command,msg1;
 	string *ban_name=({
-		"¡¾",		"¡¿",		"ÏÉ×Ó",		"·ç¶ù",		"Î×Ê¦",
-		"ÌìÉñ",	"¸æËß",	"»Ø´ğ",
+		"ã€",		"ã€‘",		"ä»™å­",		"é£å„¿",		"å·«å¸ˆ",
+		"å¤©ç¥",	"å‘Šè¯‰",	"å›ç­”",
 		});
 	object weapon;
 	if( !info ) return 0;
 	if( !(me->query("weapon/make")))
-		return notify_fail("ÄãÃ»ÓĞ×ÔÖÆµÄ±øÆ÷£¡\n");
+		return notify_fail("ä½ æ²¡æœ‰è‡ªåˆ¶çš„å…µå™¨ï¼\n");
 	if (strsrch(info, "$N") < 0)
-		return notify_fail("ÃèÊöÀïÒªÓĞ$N±íÊ¾Äã×Ô¼º£¡\n");
+		return notify_fail("æè¿°é‡Œè¦æœ‰$Nè¡¨ç¤ºä½ è‡ªå·±ï¼\n");
 	if (strsrch(info, "$WEAPON$") < 0)
-		return notify_fail("ÃèÊöÀïÒª´ø$WEAPON$±íÊ¾ÄãµÄ±øÆ÷£¡\n");
+		return notify_fail("æè¿°é‡Œè¦å¸¦$WEAPON$è¡¨ç¤ºä½ çš„å…µå™¨ï¼\n");
 	for (i=0;i<sizeof(ban_name);i++)
 	if (strsrch(info, ban_name[i]) > 0)
-		return notify_fail("ÃèÊöÀï³öÏÖÁË·Ç·¨×Ö·û£¡\n");
+		return notify_fail("æè¿°é‡Œå‡ºç°äº†éæ³•å­—ç¬¦ï¼\n");
 	weapon = this_object();
 	if( !objectp(weapon) || !present(weapon,me)) 
-	return notify_fail("ÄãµÄ±øÆ÷²»ÔÚÉí±ß£¡\n");
+	return notify_fail("ä½ çš„å…µå™¨ä¸åœ¨èº«è¾¹ï¼\n");
 	sscanf(info ,"%s %s" ,command ,msg1);
 	switch(command)
 	{
@@ -352,8 +352,8 @@ int do_setwmsg(string info)
 			weapon->set("unwield_msg",msg+"\n"NOR);
 			break;
 		default :
-			return notify_fail("ÃèÊöÉèÖÃÊ§°Ü£¬ÇëÑ¡Ôñ¾ßÌå²ÎÊı¡£ÏêÏ¸Çë
-¿´°ïÖúÎÄ¼ş¡£\n");
+			return notify_fail("æè¿°è®¾ç½®å¤±è´¥ï¼Œè¯·é€‰æ‹©å…·ä½“å‚æ•°ã€‚è¯¦ç»†è¯·
+çœ‹å¸®åŠ©æ–‡ä»¶ã€‚\n");
 	}
 	write("Ok.\n");
 	return 1;
@@ -420,7 +420,7 @@ void dest_me(object me)
 	set("desting",0);
 	if (!environment(me) || !environment(me)->is_character())
 	{
-		message_vision("$NÂıÂıÊ§È¥ÁéĞÔ£¬ÖÕÓÚ»¯×öÒ»¶Ñ³¾ÍÁËæ·ç¶øÊÅ¡£\n",me);
+		message_vision("$Næ…¢æ…¢å¤±å»çµæ€§ï¼Œç»ˆäºåŒ–åšä¸€å †å°˜åœŸéšé£è€Œé€ã€‚\n",me);
     destruct(me);
   }
 }

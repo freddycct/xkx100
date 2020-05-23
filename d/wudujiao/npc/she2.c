@@ -4,10 +4,10 @@ inherit NPC;
 
 void create()
 {
-        set_name("ÌúÏßÉß",({"du she"}));
+        set_name("é“çº¿è›‡",({"du she"}));
 
-	set("race", "ÅÀÉß");
-        set("long", "Ò»ÌõÆß³ß¶à³¤£¬Ä´Ö¸´ÖÏ¸µÄ¶¾Éß¡£\n");
+	set("race", "çˆ¬è›‡");
+        set("long", "ä¸€æ¡ä¸ƒå°ºå¤šé•¿ï¼Œæ‹‡æŒ‡ç²—ç»†çš„æ¯’è›‡ã€‚\n");
         set("age", 1000);
         set("attitude", "peaceful");
 
@@ -56,16 +56,16 @@ int init()
 }
 int hit_ob(object me, object ob, int damage)
 {
-        if ((string)ob->query("family/family_name") != "Îå¶¾½Ì") {
+        if ((string)ob->query("family/family_name") != "äº”æ¯’æ•™") {
                 ob->apply_condition("snake_poison", 20
               +(int)ob->query_condition("snake_poison") );
-              tell_object(ob, HIG "Äã¾õµÃ±»Ò§ÖÐµÄµØ·½Ò»ÕóÂéÄ¾£¡\n" NOR );
+              tell_object(ob, HIG "ä½ è§‰å¾—è¢«å’¬ä¸­çš„åœ°æ–¹ä¸€é˜µéº»æœ¨ï¼\n" NOR );
         }
 }
 void die()
 {
         object ob;
-        message_vision("$Nµ¹ÔÚµØÉÏ£¬ËÀÁË£¡\n", this_object());
+        message_vision("$Nå€’åœ¨åœ°ä¸Šï¼Œæ­»äº†ï¼\n", this_object());
         ob=new(__DIR__"obj/shedu.c");
         ob->move(environment(this_object()));
         destruct(this_object());

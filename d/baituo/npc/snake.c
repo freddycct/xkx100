@@ -4,10 +4,10 @@
 inherit NPC;
 void create()
 {
-	set_name("黑冠巨蟒", ({ "snake", "she" }) );
-	set("race", "爬蛇");
+	set_name("榛戝啝宸ㄨ煉", ({ "snake", "she" }) );
+	set("race", "鐖泧");
 	set("age", 20);
-	set("long", "一只庞然大物，它眼中喷火，好象要一口把你吞下。\n");
+	set("long", "涓�鍙簽鐒跺ぇ鐗╋紝瀹冪溂涓柗鐏紝濂借薄瑕佷竴鍙ｆ妸浣犲悶涓嬨�俓n");
 	set("attitude", "aggressive");
 	set("qi", 2000);
 	set("max_qi", 2000);

@@ -5,10 +5,10 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "����̨Ӫ��");
+	set("short", "窝阔台营帐");
 	set("long", @LONG
-����̨����ľ��������ӣ�Ҳ�ǽ����Ĵ󺹡���Ϊ���ʺͿ��񣬺�
-���ֵܼ��ױ���Ҳ�����á�����Ӫ��Ҳʮ�����ء�
+窝阔台是铁木真的三儿子，也是将来的大汗。他为人仁和宽厚，和
+诸兄弟及亲兵大将也均交好。他的营帐也十分朴素。
 LONG
 	);
 	set("objects", ([ /* sizeof() == 1 */

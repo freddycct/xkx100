@@ -4,16 +4,16 @@ inherit F_CLEAN_UP;
 
 int main(object me, string arg)
 {
-	write("ÏÖÔÚÊÇ" + time() + "¡£\n");
+	write("ç°åœ¨æ˜¯" + time() + "ã€‚\n");
 	return 1;
 }
 
 int help(object me)
 {
      write(@HELP
-Ö¸Áî¸ñÊ½: time
+æŒ‡ä»¤æ ¼å¼: time
 
-Õâ¸öÖ¸ÁîÈÃÄã(Äã)ÖªµÀÏÖÔÚµÄÊ±³½¡£
+è¿™ä¸ªæŒ‡ä»¤è®©ä½ (ä½ )çŸ¥é“ç°åœ¨çš„æ—¶è¾°ã€‚
 
 HELP
     );

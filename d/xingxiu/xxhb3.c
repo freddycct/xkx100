@@ -5,10 +5,10 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "���޺�");
+	set("short", "星宿海");
 	set("long", @LONG
-���������޺��ľ�ͷ����Ϊ������Ұ���û�����������ɵ��ӳ���
-�ڴ˿����⴮�ԡ����򲻵�Ұ��ʱ�����Ǿ���ɽ�����˵���
+这里是星宿海的尽头。因为附近有野羊出没，所以星宿派弟子常常
+在此烤羊肉串吃。当打不到野羊时，他们就抢山下牧人的羊。
 LONG );
 	set("exits", ([
 		"southeast" : __DIR__"xxhb1",

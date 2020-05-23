@@ -6,11 +6,11 @@ inherit ROOM;
 
 void create()
 { 
-	set("short",HIB"Ê¯ÊÒ"NOR);
+	set("short",HIB"çŸ³å®¤"NOR);
 	set("long", @LONG
-ÄãÍ»È»¾õµÃÑÛÇ°Ò»ÁÁ£¬Ç°·½Ê¯ÊÒÍ¸¹ýÀ´Ò»Ë¿Î¢ÈõµÄ¹â£¬¸øÁËÄãÒ»Ë¿
-Ï£Íû¡£µ«»¹ÊÇÖ»Ìý¼ûÔ¶Ô¶´«À´Äã½Å²½µÄ»ØÒô£¬¿Õµ´µ´µÄ¸Ð¾õÊ¹ÄãÐÄÖÐÖ»
-ÓÐ¿Ö¾å£¬ÉõÖÁÍü¼Ç¹Â¶À¡£ËÄÖÜÈç´Ë¼ÅÈ»ÎÞÉù¡£Ö»ÄÜ¿¿ÃþË÷Ç°ÐÐ¡£
+ä½ çªç„¶è§‰å¾—çœ¼å‰ä¸€äº®ï¼Œå‰æ–¹çŸ³å®¤é€è¿‡æ¥ä¸€ä¸å¾®å¼±çš„å…‰ï¼Œç»™äº†ä½ ä¸€ä¸
+å¸Œæœ›ã€‚ä½†è¿˜æ˜¯åªå¬è§è¿œè¿œä¼ æ¥ä½ è„šæ­¥çš„å›žéŸ³ï¼Œç©ºè¡è¡çš„æ„Ÿè§‰ä½¿ä½ å¿ƒä¸­åª
+æœ‰ææƒ§ï¼Œç”šè‡³å¿˜è®°å­¤ç‹¬ã€‚å››å‘¨å¦‚æ­¤å¯‚ç„¶æ— å£°ã€‚åªèƒ½é æ‘¸ç´¢å‰è¡Œã€‚
 LONG	);
 	set("exits", ([
 		"west"  : __DIR__"shishi4",
@@ -34,9 +34,9 @@ int valid_leave(object me,string dir)
 	object *inv = deep_inventory(me);
 	object *obj;
 	if((int)me->query_skill("yunv-xinfa",1) < 101 && dir == "enter")
-		return notify_fail(HIR"\t¹ÅÄ¹ÖØµØ£¬Ò»°ãµÜ×Ó²»µÃÈëÄÚ¡£\n"NOR);
+		return notify_fail(HIR"\tå¤å¢“é‡åœ°ï¼Œä¸€èˆ¬å¼Ÿå­ä¸å¾—å…¥å†…ã€‚\n"NOR);
 	obj = filter_array(inv,(:get_object:));
 	if( sizeof(obj) && dir =="enter")
-		return notify_fail(HIR"\t¹ÅÄ¹ÖØµØ£¬²»µÃËæÒâ´øËûÈË½øÈë£¡\n"NOR);
+		return notify_fail(HIR"\tå¤å¢“é‡åœ°ï¼Œä¸å¾—éšæ„å¸¦ä»–äººè¿›å…¥ï¼\n"NOR);
 	return ::valid_leave(me, dir);
 }

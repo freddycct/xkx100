@@ -19,13 +19,13 @@ int main(object me, string arg)
 	max = 1500;
 
 	if (me->query_temp("casino/mark"))
-		return notify_fail("ÄãÕâÃ´×Å¼±°¡£¿»¹ÊÇÔÙ¶àĞİÏ¢Ò»»á¶ù°É -:)\n");
+		return notify_fail("ä½ è¿™ä¹ˆç€æ€¥å•Šï¼Ÿè¿˜æ˜¯å†å¤šä¼‘æ¯ä¸€ä¼šå„¿å§ -:)\n");
 
 	if( me->is_busy() )
-		return notify_fail("ÄãµÄ¶¯×÷»¹Ã»ÓĞÍê³É£¬ÏÈµÈ»áÇÆÇÆ°É¡£\n");
+		return notify_fail("ä½ çš„åŠ¨ä½œè¿˜æ²¡æœ‰å®Œæˆï¼Œå…ˆç­‰ä¼šç§ç§å§ã€‚\n");
 
 	if (!environment(me)->query("gamble_room"))
-		return notify_fail("Ïë¶Äµ±È»ÒªÔÚ¶Ä³¡ÁË£¡\n");
+		return notify_fail("æƒ³èµŒå½“ç„¶è¦åœ¨èµŒåœºäº†ï¼\n");
 
 	if (!arg || sscanf(arg, "%s %s %s %d", wtype0, wtype1, wtype2, wager) !=4)
 	return notify_fail("gamble big|small money <type> <amount>\n"
@@ -34,35 +34,35 @@ int main(object me, string arg)
 	if (wtype1 == "money")
 	{
 		mtype = present(wtype2 + "_money", me);
-		if( !mtype) return notify_fail("ÄãÉíÉÏÃ»ÓĞÕâÖÖ»õ±Ò¡£\n");
-		if( wager < 1 ) return notify_fail("ÄãÒªÑ¹¶àÉÙ°¡?\n");
+		if( !mtype) return notify_fail("ä½ èº«ä¸Šæ²¡æœ‰è¿™ç§è´§å¸ã€‚\n");
+		if( wager < 1 ) return notify_fail("ä½ è¦å‹å¤šå°‘å•Š?\n");
 		if( (int)mtype->query_amount() < wager)
-			return notify_fail("ÄãÉíÉÏÃ»ÓĞÄÇÃ´¶à" + mtype->query("name") + "¡£\n");
+			return notify_fail("ä½ èº«ä¸Šæ²¡æœ‰é‚£ä¹ˆå¤š" + mtype->query("name") + "ã€‚\n");
 		if( wager*(mtype->query("base_value")) < min ||
 		    wager*(mtype->query("base_value")) > max )
-			return notify_fail("ÄãµÄ¶Ä×¢²»ÔÚÏŞ¶îÖ®ÄÚ£¡\n"
-			"ÕâÀïµÄÏŞ¶îÊÇ" + chinese_number(min) + "ÖÁ" + chinese_number(max) + "¡£\n");
+			return notify_fail("ä½ çš„èµŒæ³¨ä¸åœ¨é™é¢ä¹‹å†…ï¼\n"
+			"è¿™é‡Œçš„é™é¢æ˜¯" + chinese_number(min) + "è‡³" + chinese_number(max) + "ã€‚\n");
 	}
 /*	else if (wtype1 == "skill")
 	{
 		skill = me->query_skill(wtype2, 1);
 		if( skill < 1 )
-		return notify_fail("ÄãÒªÕ©¶Ä°¡? Äã¸ù±¾²»»áÕâÏî¹¦·ò!\n");
+		return notify_fail("ä½ è¦è¯ˆèµŒå•Š? ä½ æ ¹æœ¬ä¸ä¼šè¿™é¡¹åŠŸå¤«!\n");
 		lrn = me->query_learned(wtype2, 1);
 		lpoint = (int)lrn[wtype2];
 //		message_vision("learned pt: " + lpoint + "\n", me);
 		tpoint = lpoint + sos(1, skill);
 //		message_vision("total learned pt: " + tpoint + "\n", me);
-		if (wager > tpoint) return notify_fail("Äã¶Ä²»Æğ!\n");
+		if (wager > tpoint) return notify_fail("ä½ èµŒä¸èµ·!\n");
 		if (wager < min || wager > max)
-			return notify_fail("ÄãµÄ¶Ä×¢²»ÔÚÏŞ¶îÖ®ÄÚ£¡\n"
-			"ÕâÀïµÄÏŞ¶îÊÇ" + chinese_number(min) + "ÖÁ" + chinese_number(max) + "¡£\n");
+			return notify_fail("ä½ çš„èµŒæ³¨ä¸åœ¨é™é¢ä¹‹å†…ï¼\n"
+			"è¿™é‡Œçš„é™é¢æ˜¯" + chinese_number(min) + "è‡³" + chinese_number(max) + "ã€‚\n");
 	}
 */
-	else    return notify_fail("±¾¶Ä³¡²»½ÓÊÜÕâÖÖ¶Ä×¢¡£\n");
+	else    return notify_fail("æœ¬èµŒåœºä¸æ¥å—è¿™ç§èµŒæ³¨ã€‚\n");
 
 	if ( (wtype0 != "big") && (wtype0 != "small") )
-		return notify_fail("ÄãÒª¶Ä´ó»¹ÊÇ¶ÄĞ¡?\n");
+		return notify_fail("ä½ è¦èµŒå¤§è¿˜æ˜¯èµŒå°?\n");
 
 	me->set_temp("gamb_t",(me->query_temp("gamb_t") +1));
 	if (me->query_temp("gamb_t") > 50)
@@ -70,24 +70,24 @@ int main(object me, string arg)
 		call_out("fresh", 300, me);
 		me->set_temp("casino/mark", 1);
 		return notify_fail(
-"ÕâÎ»" + RANK_D->query_respect(me) + "£¬ÄãÒÑ¾­¶ÄÁËºÜ¾ÃÁË£¬»¹ÊÇÏÈĞİÏ¢Ò»»á¶ù°É¡£\n");
+"è¿™ä½" + RANK_D->query_respect(me) + "ï¼Œä½ å·²ç»èµŒäº†å¾ˆä¹…äº†ï¼Œè¿˜æ˜¯å…ˆä¼‘æ¯ä¸€ä¼šå„¿å§ã€‚\n");
 	}
 
 	a = random(6) + 1;
 	b = random(6) + 1;
 	c = random(6) + 1;
 
-	message_vision("¿ª£º" + a + "   " + b + "   " + c + "   £¬", me);
+	message_vision("å¼€ï¼š" + a + "   " + b + "   " + c + "   ï¼Œ", me);
 
 	if ((a == b) && (b == c) )
-//	      message_vision("¿ª£º" + a + " " + b + " " + c " ,´óĞ¡Í¨É±¡£\n", me);
-		message_vision("´óĞ¡Í¨É±¡£\n", me);
+//	      message_vision("å¼€ï¼š" + a + " " + b + " " + c " ,å¤§å°é€šæ€ã€‚\n", me);
+		message_vision("å¤§å°é€šæ€ã€‚\n", me);
 	else if ( (a+b+c) > 10 )
-//		message_vision("¿ª£º" + a + " " + b + " " + c " ,³ÔĞ¡Åâ´ó¡£\n", me);
-		message_vision("³ÔĞ¡Åâ´ó¡£\n",me);
+//		message_vision("å¼€ï¼š" + a + " " + b + " " + c " ,åƒå°èµ”å¤§ã€‚\n", me);
+		message_vision("åƒå°èµ”å¤§ã€‚\n",me);
 	else if ( (a+b+c) < 11 )
-//		message_vision("¿ª£º" + a + " " + b + " " + c " ,³Ô´óÅâĞ¡¡£\n", me);
-		message_vision("³Ô´óÅâĞ¡¡£\n",me);
+//		message_vision("å¼€ï¼š" + a + " " + b + " " + c " ,åƒå¤§èµ”å°ã€‚\n", me);
+		message_vision("åƒå¤§èµ”å°ã€‚\n",me);
 
 	if ( ( (a == b) && (b == c) ) ||
 	     ( (a+b+c) > 10 && (wtype0 == "small") ) ||
@@ -97,14 +97,14 @@ int main(object me, string arg)
 	if (wtype1 == "money")
 	{
 		if ( status == "lose") {
-	message_vision(me->query("name") + "ÊäÁË" + chinese_number(wager) +
-mtype->query("base_unit") + mtype->query("name") + "¡£\n", me);
+	message_vision(me->query("name") + "è¾“äº†" + chinese_number(wager) +
+mtype->query("base_unit") + mtype->query("name") + "ã€‚\n", me);
 			mtype->set_amount((int)mtype->query_amount() - wager);
 			mtype->move(me);
 		}
 		else {
-	message_vision(me->query("name") + "Ó®ÁË" + chinese_number(wager) +
-mtype->query("base_unit") + mtype->query("name") + "¡£\n", me);
+	message_vision(me->query("name") + "èµ¢äº†" + chinese_number(wager) +
+mtype->query("base_unit") + mtype->query("name") + "ã€‚\n", me);
 			mtype->set_amount((int)mtype->query_amount() + wager);
 			mtype->move(me);
 		}
@@ -112,8 +112,8 @@ mtype->query("base_unit") + mtype->query("name") + "¡£\n", me);
 /*	else if (wtype1 == "skill")
 	{
 		if ( status == "lose") {
-	message_vision(me->query("name") + "ÊäÁË" + chinese_number(wager) +
-"µã" + to_chinese(wtype2) + "µÄ¹¦Á¦¡£\n", me);
+	message_vision(me->query("name") + "è¾“äº†" + chinese_number(wager) +
+"ç‚¹" + to_chinese(wtype2) + "çš„åŠŸåŠ›ã€‚\n", me);
 			wager -= lpoint;
 			while (wager > 0)
 			{
@@ -125,8 +125,8 @@ mtype->query("base_unit") + mtype->query("name") + "¡£\n", me);
 			else wager += (lpoint*-1);
 		}
 		else {
-	message_vision(me->query("name") + "Ó®ÁË" + chinese_number(wager) +
-"µã" + to_chinese(wtype2) + "µÄ¹¦Á¦¡£\n", me);
+	message_vision(me->query("name") + "èµ¢äº†" + chinese_number(wager) +
+"ç‚¹" + to_chinese(wtype2) + "çš„åŠŸåŠ›ã€‚\n", me);
 			wager += lpoint;
 			if (wager >= (skill+1)*(skill+1))
 			{
@@ -169,10 +169,10 @@ int sos(int lower, int upper)
 int help(object me)
 {
 	write(@Help
-Ö¸Áî¸ñÊ½: gamble <big | small> <money> <type> <amount>>
+æŒ‡ä»¤æ ¼å¼: gamble <big | small> <money> <type> <amount>>
 
-    ÕâÊÇÔÚ¶Ä³¡¶Ä²©µÄÃüÁî¡£
-    Äã¿ÉÒÔÖ¸¶¨¶Ä´ó»¹ÊÇ¶ÄĞ¡£¨big | small£©£¬²¢ÓÃÇ®×ö¶Ä×¢¡£
+    è¿™æ˜¯åœ¨èµŒåœºèµŒåšçš„å‘½ä»¤ã€‚
+    ä½ å¯ä»¥æŒ‡å®šèµŒå¤§è¿˜æ˜¯èµŒå°ï¼ˆbig | smallï¼‰ï¼Œå¹¶ç”¨é’±åšèµŒæ³¨ã€‚
 Help
 	);
 	return 1;

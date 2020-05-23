@@ -5,10 +5,10 @@ inherit NPC;
 #include <ansi.h>
 void create()
 {
-	set_name(HIW"雪鹤"NOR, ({ "xue he", "he"}));
-	set("race", "飞禽");
+	set_name(HIW"闆工"NOR, ({ "xue he", "he"}));
+	set("race", "椋炵");
 	set("age", 3);
-	set("long", "一只全身洁白的雪鹤，是大雪山的特产。\n");
+	set("long", "涓�鍙叏韬磥鐧界殑闆工锛屾槸澶ч洩灞辩殑鐗逛骇銆俓n");
 	set("attitude", "peaceful");
 	set("combat_exp", 300);
 	set_temp("apply/attack", 5);

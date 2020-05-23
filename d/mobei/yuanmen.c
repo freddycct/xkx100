@@ -5,10 +5,10 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "ԯ��");
+	set("short", "辕门");
 	set("long", @LONG
-ԯ�Űѱ�Ӫ�;�������ָ�������ԭľ��ԯ�ű�����������ͨ�е�
-ÿһ���ˡ��������ӭ����չ��һ��ֱ����ͨ����ľ���Ӫ�ʡ�
+辕门把兵营和居民帐篷分隔开来。原木的辕门边有守卫监视通行的
+每一个人。两排旌旗迎风招展，一条直道向北通向铁木真的营帐。
 LONG);
 	set("outdoors","mobei");
 	set("no_clean_up", 0);

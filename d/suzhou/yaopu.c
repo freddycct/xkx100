@@ -5,11 +5,11 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "������");
+	set("short", "立春堂");
 	set("long", @LONG
-����һ��ҩ�̣�һ��ŨŨ��ҩζ���㼸����Ϣ�����Ǵ�ҩ���ϵļ�
-�ٸ�С������ɢ�������ġ�ҩ������ȴ���ڵ��ڡ�һ��С���վ�ڹ�̨
-���к��Ź˿͡�
+这是一家药铺，一股浓浓的药味让你几欲窒息，那是从药柜上的几
+百个小抽屉里散发出来的。药房先生却不在店内。一名小伙计站在柜台
+后招呼着顾客。
 LONG );
 	set("outdoors", "suzhou");
 //	set("no_clean_up", 0);

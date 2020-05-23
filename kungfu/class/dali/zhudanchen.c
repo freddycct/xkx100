@@ -1,4 +1,4 @@
-// zhudanchen.c Öìµ¤³¼
+// zhudanchen.c æœ±ä¸¹è‡£
 
 #include <ansi.h>
 inherit NPC;
@@ -11,10 +11,10 @@ string ask_job();
 string ask_cancle();
 void create()
 {
-	set_name("Öìµ¤³¼", ({ "zhu danchen", "zhu" }));
-	set("title",  "´óÀí»¤ÎÀ" );
-	set("long", "ËûÊÇ´óÀí¹úËÄ´ó»¤ÎÀÖ®Ò»¡£Ò»¸±ÊéÉúËáÁïÁïµÄ´ò°çĞĞÍ·¡£\n");
-	set("gender", "ÄĞĞÔ");
+	set_name("æœ±ä¸¹è‡£", ({ "zhu danchen", "zhu" }));
+	set("title",  "å¤§ç†æŠ¤å«" );
+	set("long", "ä»–æ˜¯å¤§ç†å›½å››å¤§æŠ¤å«ä¹‹ä¸€ã€‚ä¸€å‰¯ä¹¦ç”Ÿé…¸æºœæºœçš„æ‰“æ‰®è¡Œå¤´ã€‚\n");
+	set("gender", "ç”·æ€§");
 	set("age", 40);
 	set("class", "officer");
 	set("attitude", "friendly");
@@ -61,16 +61,16 @@ void create()
 	}) );
 
 	set("inquiry", ([
-		"Ö¸µãÎä¹¦" : (: ask_me :),
-		"Ñ²³Ç" : (: ask_job :),
-		"È¡Ïû" : (: ask_cancle :),
+		"æŒ‡ç‚¹æ­¦åŠŸ" : (: ask_me :),
+		"å·¡åŸ" : (: ask_job :),
+		"å–æ¶ˆ" : (: ask_cancle :),
 	]));
 	setup();
 	carry_object("/d/dali/npc/obj/junfu")->wear();
 	carry_object("/clone/weapon/changjian")->wield();
 	add_money("silver", 10);
 
-	create_family("´óÀí¶Î¼Ò",19,"»¤ÎÀ");
+	create_family("å¤§ç†æ®µå®¶",19,"æŠ¤å«");
 }
 void init()
 {
@@ -151,12 +151,12 @@ object create_thief( )
 	if (random(2) == 0)
 	{
 	    	name = NAME_D->woman_name();
-		obj->set("gender", "Å®ĞÔ");
+		obj->set("gender", "å¥³æ€§");
 	}
 	else
 	{
 		name = NAME_D->man_name();
-		obj->set("gender", "ÄĞĞÔ");
+		obj->set("gender", "ç”·æ€§");
 	}       
 /* skilllvl && exp */
       skilllvl=80;
@@ -220,12 +220,12 @@ string ask_job()
         int i,j,skilllvl,num_thief,t;
         
 	if (ob->query_temp("xuncheng"))
-		return ("Äã²»ÊÇÒÑ¾­ÁìÁËÑ²³ÇµÄÈÎÎñÂğ£¿»¹²»¿ìÈ¥×ö¡£\n");
+		return ("ä½ ä¸æ˜¯å·²ç»é¢†äº†å·¡åŸçš„ä»»åŠ¡å—ï¼Ÿè¿˜ä¸å¿«å»åšã€‚\n");
 	if (ob->query("combat_exp")<100000 && !wizardp(ob))
-		return ("ÄãÎä¹¦Ì«µÍ£¬ÎŞ·¨Ê¤ÈÎ¡£\n");
+		return ("ä½ æ­¦åŠŸå¤ªä½ï¼Œæ— æ³•èƒœä»»ã€‚\n");
 	if (me->query("xuncheng_star")==1)
-		return ("ÏÖÔÚÒÑ¾­ÓĞÈËÇ°È¥Ñ²³Ç£¬ÄãµÈµÈÔÙÀ´°É£¡\n");
-//Í¬Ê±³öÏÖ5£­10¸önpc 
+		return ("ç°åœ¨å·²ç»æœ‰äººå‰å»å·¡åŸï¼Œä½ ç­‰ç­‰å†æ¥å§ï¼\n");
+//åŒæ—¶å‡ºç°5ï¼10ä¸ªnpc 
 	num_thief=5+random(6);
 	for( t=0;t<num_thief;t++)
 	{
@@ -270,7 +270,7 @@ string ask_job()
 	call_out("new_give_job",420,me);
 	if (!wizardp(ob)) ob->delete_temp("dali_xc");
 	ob->apply_condition("dali_xuncheng",random(6)+15);
-	return "ºÃ°É£¬×î½ü´óÀí³ÇÄÚÖÎ°²»ìÂÒ£¬Äã¾ÍÔÚ´úÎÒËÄ´¦²é¿´Ò»ÏÂ£¬Ñ²³ÇÊ±Ó¦µ±ÁôĞÄÌå²ìÃñÇé£¬ÎªÃñ³ıº¦£¡";
+	return "å¥½å§ï¼Œæœ€è¿‘å¤§ç†åŸå†…æ²»å®‰æ··ä¹±ï¼Œä½ å°±åœ¨ä»£æˆ‘å››å¤„æŸ¥çœ‹ä¸€ä¸‹ï¼Œå·¡åŸæ—¶åº”å½“ç•™å¿ƒä½“å¯Ÿæ°‘æƒ…ï¼Œä¸ºæ°‘é™¤å®³ï¼";
 }
 
 string ask_cancle()
@@ -279,13 +279,13 @@ string ask_cancle()
 	object ob=this_player();
 	
 	if (!ob->query_temp("xuncheng"))
-		return ("Äã²¢Ã»ÓĞÁìÈÎÎñ£¡È¡ÏûÊ²Ã´£¿\n");
+		return ("ä½ å¹¶æ²¡æœ‰é¢†ä»»åŠ¡ï¼å–æ¶ˆä»€ä¹ˆï¼Ÿ\n");
 	if (ob->query_condition("dali_xuncheng"))
-	        return ("ÄãÈÎÎñÊ±¼ä»¹Ã»¹ı£¡È¡ÏûÊ²Ã´£¿\n");
+	        return ("ä½ ä»»åŠ¡æ—¶é—´è¿˜æ²¡è¿‡ï¼å–æ¶ˆä»€ä¹ˆï¼Ÿ\n");
 	ob->delete_temp("xuncheng");
 	ob->delete_temp("dali_xc");
 	ob->delete_temp("xuncheng_kill_num");
-	return "ºÃ°É£¬¿´À´Äã²»ÄÜÊ¤ÈÎÕâÏîÈÎÎñ£¬ÎÒÔÙÕÒËûÈË°É£¡";
+	return "å¥½å§ï¼Œçœ‹æ¥ä½ ä¸èƒ½èƒœä»»è¿™é¡¹ä»»åŠ¡ï¼Œæˆ‘å†æ‰¾ä»–äººå§ï¼";
 }
 
 int do_task(string arg)
@@ -298,11 +298,11 @@ int do_task(string arg)
 	me=this_object();
 	if(!(arg||arg=="ok")) return 0;
 	if(!ob->query_temp("xuncheng")) 
-		return notify_fail("ÄãÃ»Ñ²³ÇÅÜÀ´ÁìÊ²Ã´¹¦£¿\n");
+		return notify_fail("ä½ æ²¡å·¡åŸè·‘æ¥é¢†ä»€ä¹ˆåŠŸï¼Ÿ\n");
 	if (interactive(ob) && (int)ob->query_condition("dali_xuncheng"))
 	{
 		command("angry "+ob->query("id"));
-		return notify_fail(RED "ÄãÕâÃ´¿ì»ØÀ´ÁË£¬ÊÇ²»ÊÇÓĞĞ©µØ·½Ö»ÊÇÂíÂí»¢»¢¿´¿´£¿\n"NOR);
+		return notify_fail(RED "ä½ è¿™ä¹ˆå¿«å›æ¥äº†ï¼Œæ˜¯ä¸æ˜¯æœ‰äº›åœ°æ–¹åªæ˜¯é©¬é©¬è™è™çœ‹çœ‹ï¼Ÿ\n"NOR);
 	}
 	if (!wizardp(ob))
 	{
@@ -311,7 +311,7 @@ int do_task(string arg)
 		ob->query_temp("dali_xc/sl") &&
 		ob->query_temp("dali_xc/lg2") &&
 		ob->query_temp("dali_xc/lg4")))
-		return notify_fail("ÄãÊÇ²»ÊÇÍµÀÁ£¬³Ç¶«Â©ÁËĞ©µØ·½Ã»Ñ²£¿\n");
+		return notify_fail("ä½ æ˜¯ä¸æ˜¯å·æ‡’ï¼ŒåŸä¸œæ¼äº†äº›åœ°æ–¹æ²¡å·¡ï¼Ÿ\n");
 
 	if(!(ob->query_temp("dali_xc/ddh") &&
 		ob->query_temp("dali_xc/wymj1") &&
@@ -320,7 +320,7 @@ int do_task(string arg)
 		ob->query_temp("dali_xc/sl1") &&
 		ob->query_temp("dali_xc/sl2") &&
 		ob->query_temp("dali_xc/zyd")))
-		return notify_fail("ÄãÊÇ²»ÊÇÍµÀÁ£¬³Ç±±Â©ÁËĞ©µØ·½Ã»Ñ²£¿ \n");
+		return notify_fail("ä½ æ˜¯ä¸æ˜¯å·æ‡’ï¼ŒåŸåŒ—æ¼äº†äº›åœ°æ–¹æ²¡å·¡ï¼Ÿ \n");
 
 	if(!(ob->query_temp("dali_xc/qzl") &&
 		ob->query_temp("dali_xc/nt1") &&
@@ -331,7 +331,7 @@ int do_task(string arg)
 		ob->query_temp("dali_xc/lk") &&
 		ob->query_temp("dali_xc/flh") &&
 		ob->query_temp("dali_xc/yj")))
-		return notify_fail("ÄãÊÇ²»ÊÇÍµÀÁ£¬³ÇÄÏÂ©ÁËĞ©µØ·½Ã»Ñ²£¿ \n");
+		return notify_fail("ä½ æ˜¯ä¸æ˜¯å·æ‡’ï¼ŒåŸå—æ¼äº†äº›åœ°æ–¹æ²¡å·¡ï¼Ÿ \n");
 
 	if(!(ob->query_temp("dali_xc/nh1") &&
 		ob->query_temp("dali_xc/bls") &&
@@ -340,17 +340,17 @@ int do_task(string arg)
 		ob->query_temp("dali_xc/tt") &&
 		ob->query_temp("dali_xc/mnd") &&
 		ob->query_temp("dali_xc/jsdw")))
-		return notify_fail("ÄãÊÇ²»ÊÇÍµÀÁ£¬³ÇÎ÷Â©ÁËĞ©µØ·½Ã»Ñ²£¿ \n");
+		return notify_fail("ä½ æ˜¯ä¸æ˜¯å·æ‡’ï¼ŒåŸè¥¿æ¼äº†äº›åœ°æ–¹æ²¡å·¡ï¼Ÿ \n");
 	}
 	if(arg=="ok")
 	{
 		command("pat "+ob->query("id"));
-		command("say ¹ş¹ş£¬ÕæÄÑÎªÄãÁË£¬"+RANK_D->query_respect(ob)+"£¬Äã×öµÃºÃ£¡");
+		command("say å“ˆå“ˆï¼ŒçœŸéš¾ä¸ºä½ äº†ï¼Œ"+RANK_D->query_respect(ob)+"ï¼Œä½ åšå¾—å¥½ï¼");
 
                 num=(int)ob->query("perform/number")+1;
                 if (num<4) times=num;
                  else times=4;
-                if (!(fam = ob->query("family")) || fam["family_name"] != "´óÀí¶Î¼Ò") s_bonus = 0;
+                if (!(fam = ob->query("family")) || fam["family_name"] != "å¤§ç†æ®µå®¶") s_bonus = 0;
                  else s_bonus=random(10)+ 15 * times;
 		
 		sil=(int)(ob->query_skill("force",1)/10)+random(5);
@@ -362,7 +362,7 @@ int do_task(string arg)
 		ob->add("potential",pot);
 		ob->add("score",score);
 		ob->add("combat_exp",exp);
-  	ob->set_temp("prize_reason","Ñ²³Ç"); //»îÈË½±ÀøËÄ¸ö±êÊ¶
+  	ob->set_temp("prize_reason","å·¡åŸ"); //æ´»äººå¥–åŠ±å››ä¸ªæ ‡è¯†
   	ob->set_temp("can_give_prize",1);
   	ob->set_temp("prize_exp",exp);
   	ob->set_temp("prize_pot",pot);
@@ -372,14 +372,14 @@ int do_task(string arg)
 		ob->delete_temp("xuncheng");
 		ob->delete_temp("dali_xc");
 		ob->delete_temp("xuncheng_kill_num");
-		t = HIW" Äã±»½±ÀøÁË£º\n" + 
-			chinese_number(exp) + "µãÊµÕ½¾­Ñé\n" +
-			chinese_number(pot) + "µãÇ±ÄÜ\n"+
-			chinese_number(score)+"µã½­ºşÔÄÀú\n";
+		t = HIW" ä½ è¢«å¥–åŠ±äº†ï¼š\n" + 
+			chinese_number(exp) + "ç‚¹å®æˆ˜ç»éªŒ\n" +
+			chinese_number(pot) + "ç‚¹æ½œèƒ½\n"+
+			chinese_number(score)+"ç‚¹æ±Ÿæ¹–é˜…å†\n";
 		if (ob->query("family/family_name")==this_object()->query("family/family_name"))
-		t += chinese_number(s_bonus)+"µãÖÒ³Ï¶È\n";
-		t += chinese_number(sil)+"Á½°×Òø\n"+
-			"ÄãÎªÕòÄÏÍõ¸®×öÁË"+ob->query("dali_job")+"´Î¹¤×÷¡£\n"NOR;
+		t += chinese_number(s_bonus)+"ç‚¹å¿ è¯šåº¦\n";
+		t += chinese_number(sil)+"ä¸¤ç™½é“¶\n"+
+			"ä½ ä¸ºé•‡å—ç‹åºœåšäº†"+ob->query("dali_job")+"æ¬¡å·¥ä½œã€‚\n"NOR;
 		tell_object(ob,t);
 		return 1;
 	}
@@ -394,7 +394,7 @@ int new_give_job()
                 for(i=0; i<sizeof(ob_list); i++) 
 		if(environment(ob_list[i]))
 		{
-			message_vision("$NËµµÀ£º´óÒ¯»¹ÓĞÊÂÒªÃ¦£¬Ã»¿ÕÅãÄãÀ²£¡\n",ob_list[i]);
+			message_vision("$Nè¯´é“ï¼šå¤§çˆ·è¿˜æœ‰äº‹è¦å¿™ï¼Œæ²¡ç©ºé™ªä½ å•¦ï¼\n",ob_list[i]);
 			destruct(ob_list[i]);
                 }
    	this_object()->delete("xuncheng_star", 1);

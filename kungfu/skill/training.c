@@ -1,4 +1,4 @@
-// training.c Ô¦ÊŞÊõ
+// training.c é©­å…½æœ¯
 // Last Modified by winder on Mar. 10 2000
 
 #include <ansi.h>
@@ -12,14 +12,14 @@ int power_point(object me) { return 1; }
 
 int help(object me)
 {
-	write(HIC"\nÔ¦ÊŞÊõ£º"NOR"\n"); 
+	write(HIC"\né©­å…½æœ¯ï¼š"NOR"\n"); 
 	write(@HELP
 
-    Ô¦ÊŞÊõÊÇÇıÊ¹¶¯ÎïµÄ¼¼ÄÜ¡£Î¨Ø¤°ïµÜ×ÓºÍ°×ÍÕÉ½µÜ×ÓÄÜÑ§µ½¡£
-    Çëhelp trainºÍhelp transport¡£
+    é©­å…½æœ¯æ˜¯é©±ä½¿åŠ¨ç‰©çš„æŠ€èƒ½ã€‚å”¯ä¸å¸®å¼Ÿå­å’Œç™½é©¼å±±å¼Ÿå­èƒ½å­¦åˆ°ã€‚
+    è¯·help trainå’Œhelp transportã€‚
 
-	Ñ§Ï°ÒªÇó£º
-		ÎŞ
+	å­¦ä¹ è¦æ±‚ï¼š
+		æ— 
 HELP
 	);
 	return 1;

@@ -6,47 +6,47 @@ int main(object me, string arg)
 {
 	object ob;
 
-	if( !arg ) return notify_fail("Ö¸Áî¸ñÊ½£ºfollow <Ä³ÈË>|none¡£\n");
+	if( !arg ) return notify_fail("æŒ‡ä»¤æ ¼å¼ï¼šfollow <æŸäºº>|noneã€‚\n");
 
 	if( arg=="none")
 		if( me->query_leader() )
 		{
 			me->set_leader(0);
-			write("Äã¾ö¶¨²»ÔÙ¸úËæÈÎºÎÈËÁË¡£\n");
+			write("ä½ å†³å®šä¸å†è·Ÿéšä»»ä½•äººäº†ã€‚\n");
 			return 1;
 		} else {
-			write("ÄãÏÖÔÚ²¢Ã»ÓÐ¸úËæÈÎºÎÈË¡£\n");
+			write("ä½ çŽ°åœ¨å¹¶æ²¡æœ‰è·Ÿéšä»»ä½•äººã€‚\n");
 			return 1;
 		}
 	if( me->is_ghost())
 	{
-                write("ÄãÊÇ¹í»ê£¬²»ÄÜ¸úËæÐÐ×ß¡£\n");
+                write("ä½ æ˜¯é¬¼é­‚ï¼Œä¸èƒ½è·Ÿéšè¡Œèµ°ã€‚\n");
 		return 1;
 	}
 	if( !objectp(ob = present(arg, environment(me))) )
-		return notify_fail("ÕâÀïÃ»ÓÐ " + arg + "¡£\n");
+		return notify_fail("è¿™é‡Œæ²¡æœ‰ " + arg + "ã€‚\n");
 	if( !ob->is_character() )
-		return notify_fail("Ê²Ã´£¿¸úËæ...." + ob->name() + "¡£\n");
+		return notify_fail("ä»€ä¹ˆï¼Ÿè·Ÿéš...." + ob->name() + "ã€‚\n");
 	if( ob->query_leader() == me )
 	{
-		write("ÈË¼ÒÒÑ¾­ÔÚ¸úËæÄãÁËÒ®£¡\n");
+		write("äººå®¶å·²ç»åœ¨è·Ÿéšä½ äº†è€¶ï¼\n");
 		return 1;
 	}
-/* ²»ÔÊÐíÐý»·follow£¬±ÜÃâå´»ú*/
+/* ä¸å…è®¸æ—‹çŽ¯followï¼Œé¿å…å®•æœº*/
 	if( ob==me )
 	{
-		write("¸úËæ×Ô¼º£¿¿÷ÄãÏëµÃ³öÀ´£¡\n");
+		write("è·Ÿéšè‡ªå·±ï¼Ÿäºä½ æƒ³å¾—å‡ºæ¥ï¼\n");
 		return 1;
 	}
 	if( ob->query_leader() && !(wizardp(me) && me->query("env/invisibility")))
 	{
-		write("ÈË¼ÒÒÑ¾­ÔÚ¸úËæ±ðÈËÅÜÄØ£¬Äã¿ÖÅÂ¸ú²»ÉÏÒ®£¡\n");
+		write("äººå®¶å·²ç»åœ¨è·Ÿéšåˆ«äººè·‘å‘¢ï¼Œä½ ææ€•è·Ÿä¸ä¸Šè€¶ï¼\n");
 		return 1;
 	}
 
 	me->set_leader(ob);
   if (!me->query("env/invisibility"))
-	message_vision("$N¾ö¶¨¿ªÊ¼¸úËæ$nÒ»ÆðÐÐ¶¯¡£\n", me, ob);
+	message_vision("$Nå†³å®šå¼€å§‹è·Ÿéš$nä¸€èµ·è¡ŒåŠ¨ã€‚\n", me, ob);
 
 	return 1;
 }
@@ -54,12 +54,12 @@ int main(object me, string arg)
 int help (object me)
 {
 	write(@HELP
-Ö¸Áî¸ñÊ½ : follow [<ÉúÎï>|none]
+æŒ‡ä»¤æ ¼å¼ : follow [<ç”Ÿç‰©>|none]
  
-    Õâ¸öÖ¸ÁîÈÃÄãÄÜ¸úËæÄ³ÈË»òÉúÎï¡£²»ÄÜ¸úËæÒÑ¾­ÔÚ¸úËæ±ðÈËµÄÉúÎï¡£
-    Èç¹ûÊäÈë follow none ÔòÍ£Ö¹¸úËæ¡£
-    £¨Äã¿ÉÄÜ»áÎÊ£ºÈç¹ûÍæ¼ÒµÄ£é£äÒ²ÊÇ£î£ï£î£å£¬¸ÃÔõÃ´×ö²ÅÄÜ¸úËæËû
-£¨Ëý£©£¿×ÐÏ¸ÏëÏëÀ²£¬ºÜÈÝÒ××öµÄ¡££º)
+    è¿™ä¸ªæŒ‡ä»¤è®©ä½ èƒ½è·ŸéšæŸäººæˆ–ç”Ÿç‰©ã€‚ä¸èƒ½è·Ÿéšå·²ç»åœ¨è·Ÿéšåˆ«äººçš„ç”Ÿç‰©ã€‚
+    å¦‚æžœè¾“å…¥ follow none åˆ™åœæ­¢è·Ÿéšã€‚
+    ï¼ˆä½ å¯èƒ½ä¼šé—®ï¼šå¦‚æžœçŽ©å®¶çš„ï½‰ï½„ä¹Ÿæ˜¯ï½Žï½ï½Žï½…ï¼Œè¯¥æ€Žä¹ˆåšæ‰èƒ½è·Ÿéšä»–
+ï¼ˆå¥¹ï¼‰ï¼Ÿä»”ç»†æƒ³æƒ³å•¦ï¼Œå¾ˆå®¹æ˜“åšçš„ã€‚ï¼š)
 
  
 HELP );

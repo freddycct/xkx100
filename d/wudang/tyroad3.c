@@ -1,15 +1,15 @@
-// tyroad3.c ʯ��
+// tyroad3.c 石阶
 // by Marz 
 
 inherit ROOM;
 
 void create()
 {
-	set("short", "ʯ��");
+	set("short", "石阶");
 	set("long", @LONG
-����һ�������ʵ��ʯ��·����ʱ���н���ͺ����˴����������
-����̧ͷ��������ΰ��������������������֮�У�Ρ��׳�ۣ�����
-һ��ʯ��ͨ��ɽ�£���Լ�ɼ�Զ���һ�ƬƬ��������Ŀ��
+这是一条宽大坚实的石阶路，不时地有进香客和游人从你的身边走
+过。抬头西望，雄伟的三清殿顶浮现在香烟袅绕之中，巍峨壮观；东边
+一条石阶通往山下，隐约可见远处桃花片片，赏心悦目。
 LONG );
 	set("outdoors", "wudang");
 	set("exits", ([

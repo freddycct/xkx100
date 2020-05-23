@@ -3,14 +3,14 @@ inherit ITEM;
 #include <ansi.h>
 void create()
 {
-        set_name(HIM"º£µ×½ğÄ¸"NOR, ({ "jin mu","jin","mu"}));
+        set_name(HIM"æµ·åº•é‡‘æ¯"NOR, ({ "jin mu","jin","mu"}));
         set_weight(30000);
         if( clonep() )
                 set_default_object(__FILE__);
         else {
-                set("unit", "¿é");
-                set("long","ÕâÊÇÒ»¿éº£µ×½ğÄ¸£¬·º×Å×ÏÓÆÓÆµÄ¹â£¬¿´ÆğÀ´³ÁµéµéµÄ£¬\n"
-		    "ËÆºõÊÇÖÆÔì±øÆ÷µÄ¾øºÃ²ÄÁÏ¡£\n");
+                set("unit", "å—");
+                set("long","è¿™æ˜¯ä¸€å—æµ·åº•é‡‘æ¯ï¼Œæ³›ç€ç´«æ‚ æ‚ çš„å…‰ï¼Œçœ‹èµ·æ¥æ²‰ç”¸ç”¸çš„ï¼Œ\n"
+		    "ä¼¼ä¹æ˜¯åˆ¶é€ å…µå™¨çš„ç»å¥½ææ–™ã€‚\n");
                 set("value", 0);
                 set("material", "iron");
               }

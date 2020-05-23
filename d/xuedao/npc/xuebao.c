@@ -1,15 +1,15 @@
-// xuebao.c Ñ©±ª
+// xuebao.c é›ªè±¹
 #include <ansi.h>
 inherit NPC;
 
 void create()
 {
-        set_name("Ñ©±ª", ({ "xue bao", "bao" }) );
-	set("race", "×ßÊÞ");
-        set("gender", "´ÆÐÔ");
+        set_name("é›ªè±¹", ({ "xue bao", "bao" }) );
+	set("race", "èµ°å…½");
+        set("gender", "é›Œæ€§");
         set("age", 5);
         set("long", @LONG
-ÕâÊÇÒ»Ö»ÓÐ¡°Ñ©ÓòÖ®Íõ¡±ÃÀ³ÆµÄÑ©±ª£¬ËüµÄÃ«Æ¤¼«Îª½à°×¡¢ºñÊµ¡£
+è¿™æ˜¯ä¸€åªæœ‰â€œé›ªåŸŸä¹‹çŽ‹â€ç¾Žç§°çš„é›ªè±¹ï¼Œå®ƒçš„æ¯›çš®æžä¸ºæ´ç™½ã€åŽšå®žã€‚
 LONG);
         set("attitude", "aggressive");
         set("shen_type", -1);
@@ -30,7 +30,7 @@ LONG);
 void die()
 {
 	object ob, corpse;
-	message_vision("$N·¢³öÕðÌì¶¯µØµÄÒ»Éù´óºð£¬ºäµØµ¹ÔÚµØÉÏ£¬ËÀÁË£¡\n", this_object());
+	message_vision("$Nå‘å‡ºéœ‡å¤©åŠ¨åœ°çš„ä¸€å£°å¤§å¼ï¼Œè½°åœ°å€’åœ¨åœ°ä¸Šï¼Œæ­»äº†ï¼\n", this_object());
 	if( objectp(corpse = CHAR_D->make_corpse(this_object())) )
 	ob = new("/clone/medicine/vegetable/baotai");
 	ob->move(corpse);

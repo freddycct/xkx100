@@ -1,18 +1,18 @@
-// d/wuguan/obj/ling.c »ù±¾µÄÖÒ³Ï
+// d/wuguan/obj/ling.c åŸºæœ¬çš„å¿ è¯š
 
 inherit ITEM;
 #include <ansi.h>
 
 void create()
 {
-	set_name("ÍÆ¼öÁî", ({"tuijian ling", "ling"}));
+	set_name("æ¨èä»¤", ({"tuijian ling", "ling"}));
 	set_weight(40);
 	if (clonep())
 		set_default_object(__FILE__);
 	else {
-		set("long", "ÕâÊÇ´Ó³ÂÓĞµÂÄÇÀïµÃµ½ÍÆ¼öÁî¡£ÓĞÁËËü£¬Äã¿ÉÒÔºÍÎä¹İÄÚµÄ±¾ÃÅµÜ×Ó\n"+
-		"Ò»ÆğÌ½ÌÖ(tantao)Îä¹¦ÁË¡£\n");
-		set("unit", "¿é");
+		set("long", "è¿™æ˜¯ä»é™ˆæœ‰å¾·é‚£é‡Œå¾—åˆ°æ¨èä»¤ã€‚æœ‰äº†å®ƒï¼Œä½ å¯ä»¥å’Œæ­¦é¦†å†…çš„æœ¬é—¨å¼Ÿå­\n"+
+		"ä¸€èµ·æ¢è®¨(tantao)æ­¦åŠŸäº†ã€‚\n");
+		set("unit", "å—");
 		set("no_get",1);
 		set("no_get_from",1);
 		set("no_put",1);
@@ -31,65 +31,65 @@ int do_tantao(string arg)
 	string type,with;
   string my_fam = me->query("family/family_name");
 	if (strsrch(file_name(env),"d/wuguan/") < 0)
-		return notify_fail("³öÁËÎä¹İ£¬Ë­»¹ÈÏÊ¶ÄãµÄÍÆ¼öÁî£¿\n");
+		return notify_fail("å‡ºäº†æ­¦é¦†ï¼Œè°è¿˜è®¤è¯†ä½ çš„æ¨èä»¤ï¼Ÿ\n");
 	if (!arg ||sscanf(arg,"%s with %s",type,with)!=2)
-		return notify_fail("¸ñÊ½£ºtantao <¼¼ÄÜ> with <Ä³ÈË>\n");
+		return notify_fail("æ ¼å¼ï¼štantao <æŠ€èƒ½> with <æŸäºº>\n");
 	if (me->is_busy() || me->is_fighting())
-		return notify_fail("µÈÄãÃ¦ÍêÁËÔÙÀ´°É¡£\n");
+		return notify_fail("ç­‰ä½ å¿™å®Œäº†å†æ¥å§ã€‚\n");
 	if (type!="force" && type!="dodge" && type!="parry")
-		return notify_fail("ÄãÖ»ÄÜºÍ±ğÈËÌÖÂÛ»ù±¾ÄÚ¹¦¡¢»ù±¾Çá¹¦ºÍ»ù±¾ÕĞ¼ÜµÄÄÚÈİ¡£\n");
+		return notify_fail("ä½ åªèƒ½å’Œåˆ«äººè®¨è®ºåŸºæœ¬å†…åŠŸã€åŸºæœ¬è½»åŠŸå’ŒåŸºæœ¬æ‹›æ¶çš„å†…å®¹ã€‚\n");
 	if( !objectp(ob = present(with, environment(me))))
-		return notify_fail("ÄãÏëºÍË­Ò»ÆğÌÖÂÛ£¿\n");
+		return notify_fail("ä½ æƒ³å’Œè°ä¸€èµ·è®¨è®ºï¼Ÿ\n");
 	if (!me->query("family"))
-	 return notify_fail("Äã»¹ÊÇÏÈ¼ÓÈëÒ»¸öÃÅÅÉÔÙºÍ±ğÈËÌÖÂÛÎÊÌâ°É¡£\n");
+	 return notify_fail("ä½ è¿˜æ˜¯å…ˆåŠ å…¥ä¸€ä¸ªé—¨æ´¾å†å’Œåˆ«äººè®¨è®ºé—®é¢˜å§ã€‚\n");
 	 if (me->query("jing")<20)
-	 return notify_fail("ÄãÏÖÔÚÌ«ÀÛÁË£¬ĞİÏ¢Ò»ÏÂÔÙÀ´°É¡£\n");
+	 return notify_fail("ä½ ç°åœ¨å¤ªç´¯äº†ï¼Œä¼‘æ¯ä¸€ä¸‹å†æ¥å§ã€‚\n");
  	if ((me->query("potential") - me->query("learned_points"))< 2)
-		return notify_fail("ÄãµÄÇ±ÄÜ²»¹»ºÍÈË¼ÒÒ»ÆğÌÖÂÛÎÊÌâÁË¡£\n");
-	if((my_fam=="åĞÒ£ÅÉ" && ob->query("id")=="xiaoyao dizi")
-	||(my_fam=="Ã÷½Ì" && ob->query("id")=="mingjiao bangzhong")
-	||(my_fam=="ÌÒ»¨µº" && ob->query("id")=="taohuadao dizi")
-	||(my_fam=="ÉÙÁÖÅÉ" && ob->query("id")=="xiao heshang")
-	||(my_fam=="ÉñÁú½Ì" && ob->query("id")=="shenlong dizi")
-	||(my_fam=="ÔÆÁúÃÅ" && ob->query("id")=="tiandihui bangzhong")
-	||(my_fam=="Ì©É½ÅÉ" && ob->query("id")=="taishan dizi")
-	||(my_fam=="ÁèÏö³Ç" && ob->query("id")=="lingxiao dizi")
-	||(my_fam=="¹ÃËÕÄ½Èİ" && ob->query("id")=="murong dizi")
-	||(my_fam=="ĞÇËŞÅÉ" && ob->query("id")=="xingxiu dizi")
-	||(my_fam=="¹ÅÄ¹ÅÉ" && ob->query("id")=="gumu dizi")
-	||(my_fam=="ÌúÕÆ°ï" && ob->query("id")=="tiezhang dizi")
-	||(my_fam=="¶ëáÒÅÉ" && ob->query("id")=="xiao shitai")
-	||(my_fam=="È«Õæ½Ì" && ob->query("id")=="daotong")
-	||(my_fam=="Îå¶¾½Ì" && ob->query("id")=="wudu dizi")
-	||(my_fam=="ºãÉ½ÅÉ" && ob->query("id")=="hengshan nvni")
-	||(my_fam=="ºâÉ½ÅÉ" && ob->query("id")=="hengshan dizi")
-	||(my_fam=="Çà³ÇÅÉ" && ob->query("id")=="qingcheng dizi")
-	||(my_fam=="ºì»¨»á" && ob->query("id")=="honghuahui bangzhong")
-	||(my_fam=="Ñ©É½ËÂ" && ob->query("id")=="xueshan dizi")
-	||(my_fam=="°×ÍÕÉ½ÅÉ" && ob->query("id")=="baituo dizi")
-	||(my_fam=="ºÚÄ¾ÑÂ" && ob->query("id")=="riyuejiao dizi")
-	||(my_fam=="À¥ÂØÅÉ" && ob->query("id")=="kunlun dizi")
-	||(my_fam=="ÄÏÉÙÁÖÅÉ" && ob->query("id")=="nanshaolin dizi")
-	||(my_fam=="»ªÉ½ÅÉ" && ob->query("id")=="huashan dizi")
-	||(my_fam=="áÔÉ½ÅÉ" && ob->query("id")=="songshan dizi")
-	||(my_fam=="Îäµ±ÅÉ" && ob->query("id")=="daotong")
-	||(my_fam=="´óÀí¶Î¼Ò" && ob->query("id")=="tianlongsi dizi")
-	|| (my_fam=="Ø¤°ï" && ob->query("id")=="xiao jiaohua"))
+		return notify_fail("ä½ çš„æ½œèƒ½ä¸å¤Ÿå’Œäººå®¶ä¸€èµ·è®¨è®ºé—®é¢˜äº†ã€‚\n");
+	if((my_fam=="é€é¥æ´¾" && ob->query("id")=="xiaoyao dizi")
+	||(my_fam=="æ˜æ•™" && ob->query("id")=="mingjiao bangzhong")
+	||(my_fam=="æ¡ƒèŠ±å²›" && ob->query("id")=="taohuadao dizi")
+	||(my_fam=="å°‘æ—æ´¾" && ob->query("id")=="xiao heshang")
+	||(my_fam=="ç¥é¾™æ•™" && ob->query("id")=="shenlong dizi")
+	||(my_fam=="äº‘é¾™é—¨" && ob->query("id")=="tiandihui bangzhong")
+	||(my_fam=="æ³°å±±æ´¾" && ob->query("id")=="taishan dizi")
+	||(my_fam=="å‡Œéœ„åŸ" && ob->query("id")=="lingxiao dizi")
+	||(my_fam=="å§‘è‹æ…•å®¹" && ob->query("id")=="murong dizi")
+	||(my_fam=="æ˜Ÿå®¿æ´¾" && ob->query("id")=="xingxiu dizi")
+	||(my_fam=="å¤å¢“æ´¾" && ob->query("id")=="gumu dizi")
+	||(my_fam=="é“æŒå¸®" && ob->query("id")=="tiezhang dizi")
+	||(my_fam=="å³¨åµ‹æ´¾" && ob->query("id")=="xiao shitai")
+	||(my_fam=="å…¨çœŸæ•™" && ob->query("id")=="daotong")
+	||(my_fam=="äº”æ¯’æ•™" && ob->query("id")=="wudu dizi")
+	||(my_fam=="æ’å±±æ´¾" && ob->query("id")=="hengshan nvni")
+	||(my_fam=="è¡¡å±±æ´¾" && ob->query("id")=="hengshan dizi")
+	||(my_fam=="é’åŸæ´¾" && ob->query("id")=="qingcheng dizi")
+	||(my_fam=="çº¢èŠ±ä¼š" && ob->query("id")=="honghuahui bangzhong")
+	||(my_fam=="é›ªå±±å¯º" && ob->query("id")=="xueshan dizi")
+	||(my_fam=="ç™½é©¼å±±æ´¾" && ob->query("id")=="baituo dizi")
+	||(my_fam=="é»‘æœ¨å´–" && ob->query("id")=="riyuejiao dizi")
+	||(my_fam=="æ˜†ä»‘æ´¾" && ob->query("id")=="kunlun dizi")
+	||(my_fam=="å—å°‘æ—æ´¾" && ob->query("id")=="nanshaolin dizi")
+	||(my_fam=="åå±±æ´¾" && ob->query("id")=="huashan dizi")
+	||(my_fam=="åµ©å±±æ´¾" && ob->query("id")=="songshan dizi")
+	||(my_fam=="æ­¦å½“æ´¾" && ob->query("id")=="daotong")
+	||(my_fam=="å¤§ç†æ®µå®¶" && ob->query("id")=="tianlongsi dizi")
+	|| (my_fam=="ä¸å¸®" && ob->query("id")=="xiao jiaohua"))
 		{
 		if (me->query("teachwg/"+type)>=100)
-		return notify_fail("ÕâÑùÎä¹¦ÄãÒÑ¾­ÎÊµÃ²î²»¶àÁË£¬»»¸ö»°Ìâ°É¡£\n");
+		return notify_fail("è¿™æ ·æ­¦åŠŸä½ å·²ç»é—®å¾—å·®ä¸å¤šäº†ï¼Œæ¢ä¸ªè¯é¢˜å§ã€‚\n");
 		else if(me->query_skill(type,1) < me->query("teachwg/"+type) )
-			return notify_fail("ÕâÑùÎä¹¦Äã×Ô¼ºÃ»Ñ§µ½¶àÉÙ°¡£¬ÔõÃ´ºÍ±ğÈËÒ»ÆğÌÖÂÛ¡£\n");
+			return notify_fail("è¿™æ ·æ­¦åŠŸä½ è‡ªå·±æ²¡å­¦åˆ°å¤šå°‘å•Šï¼Œæ€ä¹ˆå’Œåˆ«äººä¸€èµ·è®¨è®ºã€‚\n");
 		else 
 			{
-				tell_object(me,"Äã¿ªÊ¼ºÍ"+ob->query("name")+"Ò»ÆğÌÖÂÛ¹ØÓÚ"+to_chinese(type)+"µÄÎÊÌâ¡£\n");
+				tell_object(me,"ä½ å¼€å§‹å’Œ"+ob->query("name")+"ä¸€èµ·è®¨è®ºå…³äº"+to_chinese(type)+"çš„é—®é¢˜ã€‚\n");
 				if (random(5)<2)
-					tell_object(me,"ÄãºÍ"+ob->query("name")+"ÌÖÂÛÁËÒ»»á¶ù,Ë­Ò²Ã»Ã÷°×Ë­µÄÒâË¼¡£\n");
+					tell_object(me,"ä½ å’Œ"+ob->query("name")+"è®¨è®ºäº†ä¸€ä¼šå„¿,è°ä¹Ÿæ²¡æ˜ç™½è°çš„æ„æ€ã€‚\n");
 				else
 					{
-					tell_object(me,"ÄãºÍ"+ob->query("name")+"ÌÖÂÛÁËÒ»»á¶ù£¬¶Ô"+to_chinese(type)+"µÄÀí½â¸üÉîÁËÒ»Ğ©¡£\n");
+					tell_object(me,"ä½ å’Œ"+ob->query("name")+"è®¨è®ºäº†ä¸€ä¼šå„¿ï¼Œå¯¹"+to_chinese(type)+"çš„ç†è§£æ›´æ·±äº†ä¸€äº›ã€‚\n");
 					me->add("family/fealty",3);
-					write(HIW"Äã¶Ô×Ô¼ºÒÔºóÔÚ"+me->query("family/family_name")+"µÄ·¢Õ¹Ç°¾°¸üÓĞĞÅĞÄÁË¡£\n"NOR);
+					write(HIW"ä½ å¯¹è‡ªå·±ä»¥ååœ¨"+me->query("family/family_name")+"çš„å‘å±•å‰æ™¯æ›´æœ‰ä¿¡å¿ƒäº†ã€‚\n"NOR);
 					me->add("teachwg/"+type,1);
 					me->add("learned_points",2);
 					me->improve_skill(type, 2*me->query("teachwg/"+type));
@@ -99,5 +99,5 @@ int do_tantao(string arg)
 				return 1;
 			}
 			else
-	 			return notify_fail("¿´ÆğÀ´"+ob->query("name")+"Ã»ÓĞºÍÄãÒ»ÆğÌÖÂÛÎÊÌâµÄÒâË¼¡£\n");	
+	 			return notify_fail("çœ‹èµ·æ¥"+ob->query("name")+"æ²¡æœ‰å’Œä½ ä¸€èµ·è®¨è®ºé—®é¢˜çš„æ„æ€ã€‚\n");	
 }

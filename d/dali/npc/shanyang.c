@@ -4,9 +4,9 @@ inherit NPC;
 
 void create()
 {
-        set_name("山羊", ({ "shan yang" }));
-        set("long","一头短角山羊，大理地区常见的家畜。\n");
-	set("race", "走畜");
+        set_name("灞辩緤", ({ "shan yang" }));
+        set("long","涓�澶寸煭瑙掑北缇婏紝澶х悊鍦板尯甯歌鐨勫鐣溿�俓n");
+	set("race", "璧扮暅");
         set("age", 5);
         set("int", 30);
         set("qi", 300);

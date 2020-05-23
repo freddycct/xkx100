@@ -8,23 +8,23 @@ int update_condition(object me, int duration)
 
   if (me->is_ghost()) return 1;
 	if( !living(me) ) {
-		message("vision", me->name() + "ÉíÉÏµÄÉË¿ÚÉÐÎ´È¬Óú, µ«ÊÇ¾õµÃËÆºõÓÍ¾¡µÆ¿ÝÁË!!\n",
+		message("vision", me->name() + "èº«ä¸Šçš„ä¼¤å£å°šæœªç—Šæ„ˆ, ä½†æ˜¯è§‰å¾—ä¼¼ä¹Žæ²¹å°½ç¯æž¯äº†!!\n",
 			environment(me), me);
 	} else if( duration > 20 ) {
-		tell_object(me, "ÄãµÄÉË¿ÚËÆºõºÜÑÏÖØ, ÑªÁ÷²»Ö¹.\n");
-		message("vision", me->name() + "ÉíÉÏµÄÉË¿ÚÑªÁ÷Èç×¢, ÏÔÈ»ÊÜÉËÊ®·ÖÑÏÖØ. \n",
+		tell_object(me, "ä½ çš„ä¼¤å£ä¼¼ä¹Žå¾ˆä¸¥é‡, è¡€æµä¸æ­¢.\n");
+		message("vision", me->name() + "èº«ä¸Šçš„ä¼¤å£è¡€æµå¦‚æ³¨, æ˜¾ç„¶å—ä¼¤ååˆ†ä¸¥é‡. \n",
 			environment(me), me);
-		me->receive_wound("qi", 20,"ÉËÊÆ¹ýÖØ");
+		me->receive_wound("qi", 20,"ä¼¤åŠ¿è¿‡é‡");
 	} else if( duration > 10 ) {
-		tell_object(me, "Äã¾õµÃÉíÉÏµÄÉË¿Ú¿ªÊ¼ÃÜºÏÁË, ÑªÁ÷Á¿Ò²±äÉÙÁË. \n");
-		message("vision", me->name() + "ËÆºõÊÜÉË²»Çá, ÉíÉÏÑª¼£°à°à. \n",
+		tell_object(me, "ä½ è§‰å¾—èº«ä¸Šçš„ä¼¤å£å¼€å§‹å¯†åˆäº†, è¡€æµé‡ä¹Ÿå˜å°‘äº†. \n");
+		message("vision", me->name() + "ä¼¼ä¹Žå—ä¼¤ä¸è½», èº«ä¸Šè¡€è¿¹ç­ç­. \n",
 			environment(me), me);
-		me->receive_wound("qi", 10,"ÉËÊÆ¹ýÖØ");
+		me->receive_wound("qi", 10,"ä¼¤åŠ¿è¿‡é‡");
 	} else if( duration > 5 ) {
-                tell_object(me, "ÄãÉíÉÏµÄÉË¿Ú¿ªÊ¼½á°ÌÁË, Ò²¸Ð¾õ²»µ½Í´¿àÁË. \n");
-                message("vision", me->name() + "µÄÉíÉÏÓÐÒ»µÀÐÂ°Ì, ºÃÏñÊÜµ½²»ÇáµÄÉËº¦. \n",
+                tell_object(me, "ä½ èº«ä¸Šçš„ä¼¤å£å¼€å§‹ç»“ç–¤äº†, ä¹Ÿæ„Ÿè§‰ä¸åˆ°ç—›è‹¦äº†. \n");
+                message("vision", me->name() + "çš„èº«ä¸Šæœ‰ä¸€é“æ–°ç–¤, å¥½åƒå—åˆ°ä¸è½»çš„ä¼¤å®³. \n",
                         environment(me), me);
-                me->receive_wound("qi", 5,"ÉËÊÆ¹ýÖØ");
+                me->receive_wound("qi", 5,"ä¼¤åŠ¿è¿‡é‡");
 	}
 	if ((int)me->query("eff_jing")<0 || (int)me->query("eff_qi")<0) return 0;
 	me->apply_condition("bleeding", duration - 1);

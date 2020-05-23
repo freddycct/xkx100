@@ -4,11 +4,11 @@ inherit ROOM;
 
 void create()
 {
-        set("short", "Ê¯½×");
+        set("short", "çŸ³é˜¶");
         set("long", @LONG
-Äã×ßÔÚÇàÊ¯°åÆÌ³ÉµÄÊ¯½×ÉÏ¡£ÕâÐ©ÈÕ×ÓÓêÏÂ¸ö²»Í££¬Ê¯½×ÉÏÉú³Éµã
-µãÌ¦Þº£¬Â·ÃæÓÐÐ©Êª»¬¡£µ­µ­ÑÌÓêÖÐ£¬Äã¿ÉÒÔÍû¼ûÊ¯½×Ñò³¦ËÆµÄÒ»Â·ÑÓ
-ÉìÉÏÈ¥£¬¾ÍÏñÊÇÒ»Ìõ¹ÖÉßÍäÇú×ÅÏòÉÏÅÀÐÐ£¬Ö±ÈëÇàÔÆ¡£
+ä½ èµ°åœ¨é’çŸ³æ¿é“ºæˆçš„çŸ³é˜¶ä¸Šã€‚è¿™äº›æ—¥å­é›¨ä¸‹ä¸ªä¸åœï¼ŒçŸ³é˜¶ä¸Šç”Ÿæˆç‚¹
+ç‚¹è‹”è—“ï¼Œè·¯é¢æœ‰äº›æ¹¿æ»‘ã€‚æ·¡æ·¡çƒŸé›¨ä¸­ï¼Œä½ å¯ä»¥æœ›è§çŸ³é˜¶ç¾Šè‚ ä¼¼çš„ä¸€è·¯å»¶
+ä¼¸ä¸ŠåŽ»ï¼Œå°±åƒæ˜¯ä¸€æ¡æ€ªè›‡å¼¯æ›²ç€å‘ä¸Šçˆ¬è¡Œï¼Œç›´å…¥é’äº‘ã€‚
 LONG);
         set("exits", ([ /* sizeof() == 1 */
             "northdown" : __DIR__"wroad3",

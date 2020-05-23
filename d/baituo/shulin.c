@@ -7,10 +7,10 @@ int cut(string);
 
 void create()
 {
-	set("short","Ê÷ÁÖ");
+	set("short","æ ‘æ—");
 	set("long", @LONG
-ÕâÀïÊÇÒ»Æ¬Ã¯ÃÜµÄÊ÷ÁÖ(wood)¡£³£ÓĞéÔ·òÀ´´ËÀÍ×÷£¬¿³ÁË²ñĞ½ÏÂÉ½
-»õÂô¡£Ê÷ÁÖÀïµÄĞ¡Â·ÅÔ±ßÁ¢×ÅÒ»ÕÅÄ¾ÅÆ(pai)¡£
+è¿™é‡Œæ˜¯ä¸€ç‰‡èŒ‚å¯†çš„æ ‘æ—(wood)ã€‚å¸¸æœ‰æ¨µå¤«æ¥æ­¤åŠ³ä½œï¼Œç äº†æŸ´è–ªä¸‹å±±
+è´§å–ã€‚æ ‘æ—é‡Œçš„å°è·¯æ—è¾¹ç«‹ç€ä¸€å¼ æœ¨ç‰Œ(pai)ã€‚
 LONG);
 	set("exits",([
 		"west" : __DIR__"shulin1",
@@ -20,8 +20,8 @@ LONG);
 	set("no_clean_up", 0);
 	set_temp("times" , 1);
 	set("item_desc", ([
-		"pai" : "±£»¤Ê÷ÁÖ  ÊÊÁ¿¿³·¥\n",
-		"wood" :"Ò»Æ¬¿É¿³·¥µÄÊ÷ÁÖ¡£\n",
+		"pai" : "ä¿æŠ¤æ ‘æ—  é€‚é‡ç ä¼\n",
+		"wood" :"ä¸€ç‰‡å¯ç ä¼çš„æ ‘æ—ã€‚\n",
 	]) );
 	set("coor/x", -50030);
 	set("coor/y", 20020);
@@ -38,14 +38,14 @@ int do_cut(string arg)
 {
 	object me=this_player();
 	object ob;
-	if (!arg||arg!="wood") return notify_fail("ÄãÒª¿³Ê²Ã´£¿\n");
-	if (present("chai dao",me)) return notify_fail("Ã»ÓĞ²ñµ¶ÔõÃ´¿³²ñ£¿\n");
-	if (query_temp("times")==0) return notify_fail("ÇëÊÊÁ¿¿³·¥£¡\n");
-	if(me->query("qi")<20) return notify_fail("ÄãµÄÆøÌ«ĞéÈõ£¬²»ÄÜ¿³²ñ£¡\n");
+	if (!arg||arg!="wood") return notify_fail("ä½ è¦ç ä»€ä¹ˆï¼Ÿ\n");
+	if (present("chai dao",me)) return notify_fail("æ²¡æœ‰æŸ´åˆ€æ€ä¹ˆç æŸ´ï¼Ÿ\n");
+	if (query_temp("times")==0) return notify_fail("è¯·é€‚é‡ç ä¼ï¼\n");
+	if(me->query("qi")<20) return notify_fail("ä½ çš„æ°”å¤ªè™šå¼±ï¼Œä¸èƒ½ç æŸ´ï¼\n");
 	ob=new(__DIR__"obj/chai");
 	ob->move(environment(me));
 	me->receive_wound("qi", 20);
 	add_temp("times",-1);
-	message_vision("$N¿³ÁËÒ»À¦²ñ£¬ÀÛµÃ¹»Çº¡£\n" , me);
+	message_vision("$Nç äº†ä¸€æ†æŸ´ï¼Œç´¯å¾—å¤Ÿå‘›ã€‚\n" , me);
 	return 1;
 }

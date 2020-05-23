@@ -1,17 +1,17 @@
-// quanzhen-ling.c È«ÕæÁî
+// quanzhen-ling.c å…¨çœŸä»¤
 
 inherit ITEM;
 
 void create()
 {
-        set_name("È«ÕæÁî", ({"quanzhen ling", "letter", "ling"}));
+        set_name("å…¨çœŸä»¤", ({"quanzhen ling", "letter", "ling"}));
         set_weight(500);
         if( clonep() )
                 set_default_object(__FILE__);
         else {
-                set("unit", "Ãæ");
-                set("long","ÕâÊÇÒ»ÃæÒø¹âÉÁÉÁµÄÁîÅÆ£¬ÓÉµ¤ÑôÕæÈËÇ©·¢£¬Æ¾´Ë¿ÉµÜ×Ó×ÔÓÉÏòÊ¦×ğÌôÕ½¡£\n");
-//		set("no_drop", "ÕâÑù¶«Î÷²»ÄÜÀë¿ªÄã¡£\n");
+                set("unit", "é¢");
+                set("long","è¿™æ˜¯ä¸€é¢é“¶å…‰é—ªé—ªçš„ä»¤ç‰Œï¼Œç”±ä¸¹é˜³çœŸäººç­¾å‘ï¼Œå‡­æ­¤å¯å¼Ÿå­è‡ªç”±å‘å¸ˆå°ŠæŒ‘æˆ˜ã€‚\n");
+//		set("no_drop", "è¿™æ ·ä¸œè¥¿ä¸èƒ½ç¦»å¼€ä½ ã€‚\n");
                 set("material", "steel");
         }
 }

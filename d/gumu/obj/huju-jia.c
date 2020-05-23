@@ -4,14 +4,14 @@
 inherit ITEM;
 void create()
 {
-	set_name(HIW "»¤¾ß¼Ü" NOR, ({ "huju jia", "jia" }) );	 
+	set_name(HIW "æŠ¤å…·æ¶" NOR, ({ "huju jia", "jia" }) );	 
 	set_weight(30000000);
 	if( clonep() )
 		set_default_object(__FILE__);
 	else
 	{
-		set("unit", "¸ö");
-		set("long", "Ò»¸öÄ¾Í·ÖÆ³ÉµÄ¼Ü×Ó£¬ÉÏÃæ¹Ò×ÅÌú¼×(armor)µÈ»¤¾ß¡£Äã¿ÉÒÔÄÃ(na)Ğ©È¥ÓÃ¡£\n");
+		set("unit", "ä¸ª");
+		set("long", "ä¸€ä¸ªæœ¨å¤´åˆ¶æˆçš„æ¶å­ï¼Œä¸Šé¢æŒ‚ç€é“ç”²(armor)ç­‰æŠ¤å…·ã€‚ä½ å¯ä»¥æ‹¿(na)äº›å»ç”¨ã€‚\n");
 		set("material","wood");
 		set("no_get",1);
 	}
@@ -30,24 +30,24 @@ int do_get(string arg)
 	string arg1, arg2;
 
 	if(query("count") < 0)
-		return notify_fail("¼ÜÉÏÒÑ¾­¿Õ¿ÕÈçÒ²ÁË¡£\n");
+		return notify_fail("æ¶ä¸Šå·²ç»ç©ºç©ºå¦‚ä¹Ÿäº†ã€‚\n");
 	if(!arg || sscanf(arg, "%s from %s", arg1, arg2)!=2)
-		return notify_fail("ÃüÁî¸ñÊ½: na <»¤¾ßÃû³Æ> from jia¡£\n");
+		return notify_fail("å‘½ä»¤æ ¼å¼: na <æŠ¤å…·åç§°> from jiaã€‚\n");
 	if (arg2!="jia")
-		return notify_fail("ÃüÁî¸ñÊ½: na <»¤¾ßÃû³Æ> from jia¡£\n");
-	if(me->query_temp("marks/ÄÃ"))
-		return notify_fail("ÄãÔõÃ´ÕâÃ´Ì°ĞÄ£¬ÄÃ¹ıÁË»¹ÒªÄÃ£¿\n");
+		return notify_fail("å‘½ä»¤æ ¼å¼: na <æŠ¤å…·åç§°> from jiaã€‚\n");
+	if(me->query_temp("marks/æ‹¿"))
+		return notify_fail("ä½ æ€ä¹ˆè¿™ä¹ˆè´ªå¿ƒï¼Œæ‹¿è¿‡äº†è¿˜è¦æ‹¿ï¼Ÿ\n");
 	if(me->query("combat_exp") > 120000)
-		return notify_fail("ÄãÎäÒÕÒÑµ½Ò»¶¨³Ì¶È£¬»¹ÊÇ×ÔÊ³ÆäÁ¦°É¡£\n");
+		return notify_fail("ä½ æ­¦è‰ºå·²åˆ°ä¸€å®šç¨‹åº¦ï¼Œè¿˜æ˜¯è‡ªé£Ÿå…¶åŠ›å§ã€‚\n");
 	if (arg1 =="armor")
 	{
 		ob=new(ARMOR_DIR"tiejia"); 
 		ob->move(me);
-		message_vision("$N´Ó»¤¾ß¼ÜÉÏÄÃ³öÒ»¼ş$n¡£\n",me, ob); 
-		me->set_temp("marks/ÄÃ",1);
+		message_vision("$Nä»æŠ¤å…·æ¶ä¸Šæ‹¿å‡ºä¸€ä»¶$nã€‚\n",me, ob); 
+		me->set_temp("marks/æ‹¿",1);
 		add("count", -1);
 		return 1;
 	}     
-	return notify_fail("»¤¾ß¼ÜÉÏÃ»ÓĞÄãÏëÒªÄÃµÄ¶«Î÷¡£\n");
+	return notify_fail("æŠ¤å…·æ¶ä¸Šæ²¡æœ‰ä½ æƒ³è¦æ‹¿çš„ä¸œè¥¿ã€‚\n");
 }
 

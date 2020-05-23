@@ -4,12 +4,12 @@ inherit NPC;
 
 void create()
 {
-        set_name("É³³æ", ({ "sha chong", "chong", "bug" }) );
-	set("race", "À¥³æ");
-	set("subrace", "ÅÀ³æ");
+        set_name("æ²™è™«", ({ "sha chong", "chong", "bug" }) );
+	set("race", "æ˜†è™«");
+	set("subrace", "çˆ¬è™«");
         set("age", 3);
-        set("long", "Ò»Ö»»ÆºÖÉ«µÄÐ¡¼×³æ£¬Î²°ÍÉÏÓÐ»ÆÀ¶Ïà¼äµÄ»·ÎÆ¡£ÄãµÄÖ±¾õ¸æËß\n"
-"ÄãËüÒ»¶¨ÓÐ¶¾¡£\n");
+        set("long", "ä¸€åªé»„è¤è‰²çš„å°ç”²è™«ï¼Œå°¾å·´ä¸Šæœ‰é»„è“ç›¸é—´çš„çŽ¯çº¹ã€‚ä½ çš„ç›´è§‰å‘Šè¯‰\n"
+"ä½ å®ƒä¸€å®šæœ‰æ¯’ã€‚\n");
         set("attitude", "peaceful");
         set("combat_exp", 300);
         set_temp("apply/attack", 5);
@@ -22,7 +22,7 @@ void create()
 void die()
 {
         object ob;
-        message_vision("$NÃ°³öÒ»¹ÉÂÌË®£¬ËÀÁË¡£\n", this_object());
+        message_vision("$Nå†’å‡ºä¸€è‚¡ç»¿æ°´ï¼Œæ­»äº†ã€‚\n", this_object());
         ob = new(__DIR__"shachongke");
         ob->move(environment(this_object()));
         destruct(this_object());

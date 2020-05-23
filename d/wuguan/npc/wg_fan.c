@@ -1,9 +1,9 @@
 inherit NPC;
 void create()
 {
-	set_name("·¶ÏÈÉú", ({"fan xiansheng", "fan", "xiansheng"}));
-	set("title", "ÕÊ·¿ÏÈÉú");
-	set("gender", "ÄĞĞÔ");
+	set_name("èŒƒå…ˆç”Ÿ", ({"fan xiansheng", "fan", "xiansheng"}));
+	set("title", "å¸æˆ¿å…ˆç”Ÿ");
+	set("gender", "ç”·æ€§");
 	set("age", 34);
 	set("str", 22);
 	set("int", 24);

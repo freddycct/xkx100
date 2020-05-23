@@ -5,9 +5,9 @@ inherit F_UNIQUE;
 inherit F_SAVE;
 #include "skill.h";
 
-string *first_name = ({ "ÕÔ","Ç®","Ëï","Àî","ÖÜ","Îâ","Ö£","Íõ","ÕÅ","³Â","Áø","·ç","Áõ","ÁÖ", }); 
-string *name_words = ({ "Ò»","¶ş","Èı","ËÄ","Îå","Áù","Æß","°Ë","¾Å","Ê®", });
-string *color_title = ({"[ÌìÉ±ÃÅ]É±ÊÖ","[µØÉ·ÃÅ]É±ÊÖ",});
+string *first_name = ({ "èµµ","é’±","å­™","æ","å‘¨","å´","éƒ‘","ç‹","å¼ ","é™ˆ","æŸ³","é£","åˆ˜","æ—", }); 
+string *name_words = ({ "ä¸€","äºŒ","ä¸‰","å››","äº”","å…­","ä¸ƒ","å…«","ä¹","å", });
+string *color_title = ({"[å¤©æ€é—¨]æ€æ‰‹","[åœ°ç…é—¨]æ€æ‰‹",});
 string *k_weapon = ({"sword","blade","staff","whip","gun",});
 
 void create()
@@ -20,8 +20,8 @@ void create()
 	set_name(name, ({ "killer", "shashou", "sha shou" }));
 	seteuid(getuid());
 	set("title", color_title[random(sizeof(color_title))]);
-	set("gender", "ÄĞĞÔ");
-	set("long", "ÕâÈËÉí´©ºÚÉ«½ô×°£¬ÃæÉÏÃÉ×ÅÒ»¿éºÚ²¼£¬Ö»Â¶³öÒ»Ë«ÑÛ¾¦£¬¾«¹âËÄÉä¡£\n");
+	set("gender", "ç”·æ€§");
+	set("long", "è¿™äººèº«ç©¿é»‘è‰²ç´§è£…ï¼Œé¢ä¸Šè’™ç€ä¸€å—é»‘å¸ƒï¼Œåªéœ²å‡ºä¸€åŒçœ¼ç›ï¼Œç²¾å…‰å››å°„ã€‚\n");
 	set("age", random(20)+25);      
 	set("str", 20+random(5));
 	set("int",20+random(5));  

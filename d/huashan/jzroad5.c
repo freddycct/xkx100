@@ -4,16 +4,16 @@
 inherit ROOM;
 void create()
 {
-	set("short", "ÖĞÌõÉ½ÃÜÁÖ");
+	set("short", "ä¸­æ¡å±±å¯†æ—");
 	set("long", @LONG
-É½Â·Ô½À´Ô½Ğ¡£¬ÖÜÎ§Ã¯ÃÜÉ­ÁÖÀïºÍ½ÅÏÂµÄÃ©²İ·â×¡ÁËÂ·£¬ÉÏ²»¼ûÌì
-¹â£¬ºó²»¼û¹éÂ·(road)£¬Äã¼òÖ±¾øÍûÁË¡£
+å±±è·¯è¶Šæ¥è¶Šå°ï¼Œå‘¨å›´èŒ‚å¯†æ£®æ—é‡Œå’Œè„šä¸‹çš„èŒ…è‰å°ä½äº†è·¯ï¼Œä¸Šä¸è§å¤©
+å…‰ï¼Œåä¸è§å½’è·¯(road)ï¼Œä½ ç®€ç›´ç»æœ›äº†ã€‚
 LONG );
 	set("exits", ([
 		"northdown" : __DIR__"jzroad4",
 	]));
 	set("item_desc", ([
-		"road" : "Â·±ßÄ£Ä£ºıºı£¬ºÃÏóÓĞ¸ö±®¡£¿ÉÊÇÌ«°µÁËÊµÔÚ¿´²»¼û¡£\n",
+		"road" : "è·¯è¾¹æ¨¡æ¨¡ç³Šç³Šï¼Œå¥½è±¡æœ‰ä¸ªç¢‘ã€‚å¯æ˜¯å¤ªæš—äº†å®åœ¨çœ‹ä¸è§ã€‚\n",
 	]));
 	set("no_clean_up", 0);
 	set("coor/x", -920);
@@ -36,8 +36,8 @@ int do_use(string arg)
 	if (!present("fire", me)) return 0;
 	if( arg=="fire" )
 	{
-		write("ÄãµãÈ¼ÁË»ğÕÛ£¬·¢ÏÖÊÇÒ»Î§´óÊ÷£¬±»Ï÷È¥Ê÷Æ¤µÄÊ÷¸ÉÉÏÊé¡°ÖĞÌõÉ½¡±Èı×Ö¡£\n²à±ßÒ»¸öÊ÷¶´£¬ËÆºõ¿ÉÒÔ×ê(zuan)¹ıÈ¥¡£\n");
-		me->set_temp("marks/×ê1", 1);
+		write("ä½ ç‚¹ç‡ƒäº†ç«æŠ˜ï¼Œå‘ç°æ˜¯ä¸€å›´å¤§æ ‘ï¼Œè¢«å‰Šå»æ ‘çš®çš„æ ‘å¹²ä¸Šä¹¦â€œä¸­æ¡å±±â€ä¸‰å­—ã€‚\nä¾§è¾¹ä¸€ä¸ªæ ‘æ´ï¼Œä¼¼ä¹å¯ä»¥é’»(zuan)è¿‡å»ã€‚\n");
+		me->set_temp("marks/é’»1", 1);
 		return 1;
 	}
 }
@@ -47,17 +47,17 @@ int do_zuan(string arg)
 	object me;
 	me = this_player();
 
-	if (me->query_temp("marks/×ê1") )
+	if (me->query_temp("marks/é’»1") )
 	{
-		message("vision", me->name() + "²àÉí×ÌÁïÒ»ÏÂ×ê½øÊ÷¶´²»¼ûÁË¡£\n", environment(me), ({me}) );
+		message("vision", me->name() + "ä¾§èº«æ»‹æºœä¸€ä¸‹é’»è¿›æ ‘æ´ä¸è§äº†ã€‚\n", environment(me), ({me}) );
 		me->move(__DIR__"jzroad6");
-		message("vision", me->name() + "´ÓÊ÷Àï×êÁË³öÀ´¡£\n", environment(me), ({me}) );
-		this_player()->delete_temp("marks/×ê1");
+		message("vision", me->name() + "ä»æ ‘é‡Œé’»äº†å‡ºæ¥ã€‚\n", environment(me), ({me}) );
+		this_player()->delete_temp("marks/é’»1");
 		return 1;
 	}
 	else
 	{
-		write("ÄãÏëÍùÄÄ¶ù×ê?!\n");
+		write("ä½ æƒ³å¾€å“ªå„¿é’»?!\n");
 		return 1;
 	}
 }

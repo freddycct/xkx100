@@ -1,13 +1,13 @@
-//      cedian1.c ²àµî
+//      cedian1.c ä¾§æ®¿
 #include <room.h>
 inherit ROOM;
 
 void create()
 {
-        set("short","²àµî");
+        set("short","ä¾§æ®¿");
         set("long",@LONG
-ÕâÀïÊÇÑ©É½ËÂµÄ¶«²àµî¡£µîÄÚÓĞÉñÌ¬¸÷ÒìµÄÊ®°ËÂŞººËÜÏñ£¬½ğì¼Óñ
-Ïâ£¬ºÜÊÇ×¯ÑÏ¡£
+è¿™é‡Œæ˜¯é›ªå±±å¯ºçš„ä¸œä¾§æ®¿ã€‚æ®¿å†…æœ‰ç¥æ€å„å¼‚çš„åå…«ç½—æ±‰å¡‘åƒï¼Œé‡‘æ—’ç‰
+é•¶ï¼Œå¾ˆæ˜¯åº„ä¸¥ã€‚
 LONG );
         set("exits",([
                 "up"   : __DIR__"zoulang1",
@@ -26,8 +26,8 @@ int valid_leave(object me, string dir)
 {
         mapping myfam;
         myfam=(mapping)me->query("family");
-        if( (!myfam || myfam["family_name"] !="Ñ©É½ËÂ") && dir=="up"
+        if( (!myfam || myfam["family_name"] !="é›ªå±±å¯º") && dir=="up"
         && objectp(present ("jiamu huofo", environment(me))))
-                return notify_fail("¼ÎÄ¾»î·ğËµµÀ: Äã·ÇÑ©É½ËÂµÜ×Ó, ²»ÄÜÈëÄÚ¡£\n");
+                return notify_fail("å˜‰æœ¨æ´»ä½›è¯´é“: ä½ éé›ªå±±å¯ºå¼Ÿå­, ä¸èƒ½å…¥å†…ã€‚\n");
         return ::valid_leave(me,dir);
 }

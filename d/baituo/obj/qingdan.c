@@ -9,15 +9,15 @@ void init()
 
 void create()
 {
-	set_name("ÇàÉßµ¨", ({"qing dan", "qing"}));
-	set("unit", "Ö»");
-	set("long", "ÕâÊÇÒ»Ö»ÂÌÓ¨Ó¨µÄÇàÉßµ¨£¬ÊÇÖÆ±¸¡ºÉßµ¨¸à¡»µÄÔ­ÁÏ¡£\n");
+	set_name("é’è›‡èƒ†", ({"qing dan", "qing"}));
+	set("unit", "åª");
+	set("long", "è¿™æ˜¯ä¸€åªç»¿è¹è¹çš„é’è›‡èƒ†ï¼Œæ˜¯åˆ¶å¤‡ã€è›‡èƒ†è†ã€çš„åŸæ–™ã€‚\n");
 	set("value", 100);
 	setup();
 }
 
 int do_eat(string arg)
 {
-	if (!id(arg)) return notify_fail("ÄãÒª³ÔÊ²Ã´£¿\n");
-	return notify_fail("ÄãÕÒËÀ°¡¡£\n");
+	if (!id(arg)) return notify_fail("ä½ è¦åƒä»€ä¹ˆï¼Ÿ\n");
+	return notify_fail("ä½ æ‰¾æ­»å•Šã€‚\n");
 }

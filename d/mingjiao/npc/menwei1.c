@@ -6,11 +6,11 @@ inherit NPC;
 
 void create()
 {
-	set_name("´óºº", ({ "da han","han" }) );
-	set("gender", "ÄĞĞÔ" );
+	set_name("å¤§æ±‰", ({ "da han","han" }) );
+	set("gender", "ç”·æ€§" );
 
 	set("age", 35);
-	set("long", "Ã÷½ÌµÄÊØÃÅÎäÊ¿£¬ÊÇÁÒ»ğÆìÊôÏÂ¡£\n");
+	set("long", "æ˜æ•™çš„å®ˆé—¨æ­¦å£«ï¼Œæ˜¯çƒˆç«æ——å±ä¸‹ã€‚\n");
 	set("shen_type",1);
 	set("combat_exp", 20000);
 
@@ -23,8 +23,8 @@ void create()
 //	set_skill("blade", 20);
 	set_skill("parry", 40);
 	set_skill("dodge", 50);
-	set("party/party_name",HIG"Ã÷½Ì"NOR);
-	set("party/rank",HIR "ÁÒ»ğÆì" NOR "½ÌÖÚ" );
+	set("party/party_name",HIG"æ˜æ•™"NOR);
+	set("party/rank",HIR "çƒˆç«æ——" NOR "æ•™ä¼—" );
 
 	setup();
 	carry_object("/clone/misc/cloth")->wear();

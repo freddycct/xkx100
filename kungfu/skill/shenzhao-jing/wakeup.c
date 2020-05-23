@@ -8,36 +8,36 @@ int exert(object me, object target)
   if ( userp(me) && !wizardp(me) && 
   !me->query("can_perform/shenzhao-jing/wakeup") && 
   !me->query_temp("murong/xingyi"))
-   return notify_fail("ÄãËùÊ¹ÓÃµÄÄÚ¹¦ÖĞÃ»ÓĞÕâÖÖ¹¦ÄÜ¡£");
+   return notify_fail("ä½ æ‰€ä½¿ç”¨çš„å†…åŠŸä¸­æ²¡æœ‰è¿™ç§åŠŸèƒ½ã€‚");
 
 	if ( !target || !target->is_character() )
-		return notify_fail("ÄãÒªÓÃÕæÆø¾ÈĞÑË­£¿\n");
+		return notify_fail("ä½ è¦ç”¨çœŸæ°”æ•‘é†’è°ï¼Ÿ\n");
 
 	if( me->is_fighting() || target->is_fighting())
-		return notify_fail("Õ½¶·ÖĞÎŞ·¨ÔË¹¦¾ÈÈË£¡\n");
+		return notify_fail("æˆ˜æ–—ä¸­æ— æ³•è¿åŠŸæ•‘äººï¼\n");
 
 	if(target == me)
-		return notify_fail("Äã²»ÄÜÎª×Ô¼º¾ÈĞÑ×Ô¼º£¡\n");
+		return notify_fail("ä½ ä¸èƒ½ä¸ºè‡ªå·±æ•‘é†’è‡ªå·±ï¼\n");
 
 	if(!target->query_temp("noliving/unconcious") )
-		return notify_fail("ÄãÖ»ÄÜ¾ÈĞÑ»èÃÔ²»ĞÑµÄÈË£¡\n");
+		return notify_fail("ä½ åªèƒ½æ•‘é†’æ˜è¿·ä¸é†’çš„äººï¼\n");
 
 	if(!userp(target))
-		return notify_fail("ÄãÖ»ÄÜ¾ÈĞÑÍæ¼Ò£¡\n");
+		return notify_fail("ä½ åªèƒ½æ•‘é†’ç©å®¶ï¼\n");
 
 	if( (int)me->query_skill("shenzhao-jing", 1) < 100 )
-		return notify_fail("ÄãµÄÉñÕÕ¾­ĞŞÎª²»¹»¡£\n");
+		return notify_fail("ä½ çš„ç¥ç…§ç»ä¿®ä¸ºä¸å¤Ÿã€‚\n");
 
 	if( (int)me->query("max_neili") < 1000 )
-		return notify_fail("ÄãµÄÄÚÁ¦ĞŞÎª²»¹»¡£\n");
+		return notify_fail("ä½ çš„å†…åŠ›ä¿®ä¸ºä¸å¤Ÿã€‚\n");
 
 	if( (int)me->query("neili") < 1000 )
-		return notify_fail("ÄãµÄÕæÆø²»¹»¡£\n");
+		return notify_fail("ä½ çš„çœŸæ°”ä¸å¤Ÿã€‚\n");
 
 	if( (int)target->query("eff_qi") < (int)target->query("max_qi") / 5 )
-		return notify_fail( target->name() + "ÒÑ¾­ÊÜÉË¹ıÖØ£¬¾­ÊÜ²»ÆğÄãµÄÕæÆøÕğµ´£¡\n");
+		return notify_fail( target->name() + "å·²ç»å—ä¼¤è¿‡é‡ï¼Œç»å—ä¸èµ·ä½ çš„çœŸæ°”éœ‡è¡ï¼\n");
 
-	message_combatd(HIY"$N×øÁËÏÂÀ´ÔËÆğÉñÕÕ¾­ÄÚ¹¦£¬½«ÊÖÕÆÌùÔÚ$n±³ĞÄ£¬»º»ºµØ½«ÕæÆøÊäÈë$nÌåÄÚ....\n\n¹ıÁË²»¾Ã£¬$nÂıÂıµÄËÕĞÑ¹ıÀ´¡£\n" NOR, me, target );
+	message_combatd(HIY"$Nåäº†ä¸‹æ¥è¿èµ·ç¥ç…§ç»å†…åŠŸï¼Œå°†æ‰‹æŒè´´åœ¨$nèƒŒå¿ƒï¼Œç¼“ç¼“åœ°å°†çœŸæ°”è¾“å…¥$nä½“å†…....\n\nè¿‡äº†ä¸ä¹…ï¼Œ$næ…¢æ…¢çš„è‹é†’è¿‡æ¥ã€‚\n" NOR, me, target );
 
 //	target->receive_curing("qi", 10 + (int)me->query_skill("force")/3 );
 //	target->add("qi", 10 + (int)me->query_skill("force")/3 );
@@ -56,15 +56,15 @@ int exert(object me, object target)
 }
 int help(object me)
 {
-	write(WHT"\nÉñÕÕ¾­Ö®»½ĞÑ"NOR"\n");
+	write(WHT"\nç¥ç…§ç»ä¹‹å”¤é†’"NOR"\n");
 	write(@HELP
 
-	Ê¹ÓÃ¹¦Ğ§£º
-		»½ĞÑ»èÃÔÖĞµÄËûÈË
+	ä½¿ç”¨åŠŸæ•ˆï¼š
+		å”¤é†’æ˜è¿·ä¸­çš„ä»–äºº
 
-	³öÊÖÒªÇó£º
-		ÉñÕÕ¾­100¼¶
-		ÄÚÁ¦1000
+	å‡ºæ‰‹è¦æ±‚ï¼š
+		ç¥ç…§ç»100çº§
+		å†…åŠ›1000
 HELP
 	);
 	return 1;

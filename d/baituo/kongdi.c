@@ -10,13 +10,13 @@ int do_lock(string);
 
 void create()
 {
-	set("short", "¿ÕµØ");
+	set("short", "ç©ºåœ°");
 	set("long", @LONG
-ÕâÊÇ´óÌüÇ°µÄ¿ÕµØ£¬ÅÔ±ß·ÅÁËĞ©±øÆ÷¼Ü¡¢É³´üÒÔ¼°¼¸¸öÄ¾×®¡£µØÉÏ
-ÆÌÂúÁËÆ®ÂäµÄÊ÷Ò¶ºÍ¸É²İ¡£ËÄÖÜ×°µã×ÅÇàÇà´äÖñ£¬´íÂäÓĞÖÂ¡£ÅÔ±ßÓĞÒ»
-¿ÚË®¾®¡¢Ò»°ÑË®Æ°£¬¾®Ë®Çå³º£¬É¢·¢×ÅÕóÕóÁ¹Æø¡£Î÷±ßÊÇÎäÆ÷¿â¡£¶«±ß
-ÓĞÒ»¼ä´¢²ØÊÒ£¬·¿ÃÅ(door)¹Ø±Õ×Å¡£±±±ßÊÇ¡º°×ÍÕÉ½×¯¡»µÄ´óÌü¡£ÄÏ±ß
-¾ÍÊÇ´óÃÅÁË¡£
+è¿™æ˜¯å¤§å…å‰çš„ç©ºåœ°ï¼Œæ—è¾¹æ”¾äº†äº›å…µå™¨æ¶ã€æ²™è¢‹ä»¥åŠå‡ ä¸ªæœ¨æ¡©ã€‚åœ°ä¸Š
+é“ºæ»¡äº†é£˜è½çš„æ ‘å¶å’Œå¹²è‰ã€‚å››å‘¨è£…ç‚¹ç€é’é’ç¿ ç«¹ï¼Œé”™è½æœ‰è‡´ã€‚æ—è¾¹æœ‰ä¸€
+å£æ°´äº•ã€ä¸€æŠŠæ°´ç“¢ï¼Œäº•æ°´æ¸…æ¾ˆï¼Œæ•£å‘ç€é˜µé˜µå‡‰æ°”ã€‚è¥¿è¾¹æ˜¯æ­¦å™¨åº“ã€‚ä¸œè¾¹
+æœ‰ä¸€é—´å‚¨è—å®¤ï¼Œæˆ¿é—¨(door)å…³é—­ç€ã€‚åŒ—è¾¹æ˜¯ã€ç™½é©¼å±±åº„ã€çš„å¤§å…ã€‚å—è¾¹
+å°±æ˜¯å¤§é—¨äº†ã€‚
 LONG);
 	set("resource/water", 1);
 	set("exits", ([
@@ -48,8 +48,8 @@ void init()
 
 string look_gate()
 {
-	if (query_temp("lock") == 0) return "ÃÅÉÏµÄÌúËø±»´ò¿ªÁË¡£\n";
-	return "ÕâÉÈÃÅ±»ÌúËøÀÎÀÎËø×¡¡£\n";
+	if (query_temp("lock") == 0) return "é—¨ä¸Šçš„é“é”è¢«æ‰“å¼€äº†ã€‚\n";
+	return "è¿™æ‰‡é—¨è¢«é“é”ç‰¢ç‰¢é”ä½ã€‚\n";
 }
 
 int do_open(string arg)
@@ -58,9 +58,9 @@ int do_open(string arg)
 	object *inv;
 	int j;
 
-	if(!arg || arg!="door") return notify_fail("ÄãÒª¿ªÊ²Ã´£¿\n");
+	if(!arg || arg!="door") return notify_fail("ä½ è¦å¼€ä»€ä¹ˆï¼Ÿ\n");
 	if( query_temp("lock") == 1 && !present("key", me) )
-		return notify_fail("Ô¿³×¶¼Ã»ÓĞ£¬ÔõÃ´¿ªÃÅ£¿\n");
+		return notify_fail("é’¥åŒ™éƒ½æ²¡æœ‰ï¼Œæ€ä¹ˆå¼€é—¨ï¼Ÿ\n");
 	if(!( room = find_object(__DIR__"storeroom")) )
 		room = load_object(__DIR__"storeroom");
 	inv = all_inventory(me);
@@ -68,7 +68,7 @@ int do_open(string arg)
             {
               if (inv[j]->is_character())
                   {
-                   return notify_fail("Îİ×ÓÀïÎ»ÖÃÓĞÏŞ£¬¼·²»ÏÂÄÇÃ´¶àÈË¡£\n");
+                   return notify_fail("å±‹å­é‡Œä½ç½®æœ‰é™ï¼ŒæŒ¤ä¸ä¸‹é‚£ä¹ˆå¤šäººã€‚\n");
                     }
              }
 	if(!objectp(room))
@@ -76,11 +76,11 @@ int do_open(string arg)
 	if(query_temp("lock") == 1 && present("key", me))
 	{
 		set_temp("lock", 0);
-		message_vision("$N°ÑÔ¿³×²å½øËø¿×£¬Ö»Ìı¼û¡®¿¨àª¡¯Ò»Éù£¬Ëø¿ªÁË¡£\n", me);
-		message("vision","ÍâÃæ´«À´Ò»Õó¿ªËøµÄÉùÒô£¬Ö»Ìı¼û¡®¿¨àª¡¯Ò»Éù£¬Ëø¿ªÁË¡£\n",room);
+		message_vision("$NæŠŠé’¥åŒ™æ’è¿›é”å­”ï¼Œåªå¬è§â€˜å¡å—’â€™ä¸€å£°ï¼Œé”å¼€äº†ã€‚\n", me);
+		message("vision","å¤–é¢ä¼ æ¥ä¸€é˜µå¼€é”çš„å£°éŸ³ï¼Œåªå¬è§â€˜å¡å—’â€™ä¸€å£°ï¼Œé”å¼€äº†ã€‚\n",room);
 	}
-	message_vision("$NÇáÇáÍÆ¿ªÃÅ£¬×ßÁË½øÈ¥£¬ËæÊÖ°ÑÃÅÑÚÁËÆğÀ´¡£\n",me);
-	message("vision", "ÓĞÈË×ßÁË½øÀ´£¬ËæÊÖ°ÑÃÅÑÚÉÏÁË¡£\n",room);
+	message_vision("$Nè½»è½»æ¨å¼€é—¨ï¼Œèµ°äº†è¿›å»ï¼Œéšæ‰‹æŠŠé—¨æ©äº†èµ·æ¥ã€‚\n",me);
+	message("vision", "æœ‰äººèµ°äº†è¿›æ¥ï¼Œéšæ‰‹æŠŠé—¨æ©ä¸Šäº†ã€‚\n",room);
 	me->move(room);
 	return 1;
 }
@@ -90,18 +90,18 @@ int do_lock(string arg)
 	object me=this_player();
 	object room;
 
-	if(!arg ||  arg!="door") return notify_fail("ÄãÒªËøÊ²Ã´£¿\n");
+	if(!arg ||  arg!="door") return notify_fail("ä½ è¦é”ä»€ä¹ˆï¼Ÿ\n");
 	if( !present("key",me))
-		return notify_fail("Ô¿³×¶¼Ã»ÓĞ£¬ÔõÃ´ËøÃÅ£¿\n");
+		return notify_fail("é’¥åŒ™éƒ½æ²¡æœ‰ï¼Œæ€ä¹ˆé”é—¨ï¼Ÿ\n");
 	if(!( room = find_object(__DIR__"storeroom")) )
 		room = load_object(__DIR__"storeroom");
 	if(!objectp(room))
 		return notify_fail("ERROR:not found 'storeroom.c' \n");
 	if(query_temp("lock") == 1)
-		return notify_fail("ÃÅÒÑ¾­ËøºÃÁË¡£\n");
+		return notify_fail("é—¨å·²ç»é”å¥½äº†ã€‚\n");
 	set_temp("lock",1);
-	message_vision("$N°ÑÔ¿³×²å½øËø¿×£¬Ö»Ìı¼û¡®¿¨àª¡¯Ò»Éù£¬Ëø±»ËøÉÏ¡£\n",me);
-	message("vision","ÍâÃæ´«À´Ò»ÕóËøÌúËøµÄÉùÒô£¬Ö»Ìı¼û¡®¿¨àª¡¯Ò»Éù£¬Ëø±»ËøÉÏÁË¡£ \n",room);
+	message_vision("$NæŠŠé’¥åŒ™æ’è¿›é”å­”ï¼Œåªå¬è§â€˜å¡å—’â€™ä¸€å£°ï¼Œé”è¢«é”ä¸Šã€‚\n",me);
+	message("vision","å¤–é¢ä¼ æ¥ä¸€é˜µé”é“é”çš„å£°éŸ³ï¼Œåªå¬è§â€˜å¡å—’â€™ä¸€å£°ï¼Œé”è¢«é”ä¸Šäº†ã€‚ \n",room);
 	return 1;
 }
 
@@ -110,8 +110,8 @@ int valid_leave(object me, string dir)
 	mapping myfam;
 	myfam = (mapping)me->query("family");
 
-	if ((!myfam || myfam["family_name"] != "°×ÍÕÉ½ÅÉ") && dir == "west")
-		return notify_fail("´Ë´¦ÄË±¾ÅÉ½ûµØ£¬ÇëÖ¹²½¡£\n");
+	if ((!myfam || myfam["family_name"] != "ç™½é©¼å±±æ´¾") && dir == "west")
+		return notify_fail("æ­¤å¤„ä¹ƒæœ¬æ´¾ç¦åœ°ï¼Œè¯·æ­¢æ­¥ã€‚\n");
 	return ::valid_leave(me, dir);
 }
 
@@ -127,12 +127,12 @@ int do_drink(string arg)
 	if (current_water<max_water)
 	{
 		me->set("water", current_water+30);
-		message("vision", me->name()+"ÓÃË®Æ°Ò¨ÁËÒ»¿Ú¾®Ë®ºÈ¡£\n", environment(me), ({me}) );
+		message("vision", me->name()+"ç”¨æ°´ç“¢èˆ€äº†ä¸€å£äº•æ°´å–ã€‚\n", environment(me), ({me}) );
 		if ( lvl < 30 && lvl*lvl*lvl/10 < exp)
 			me->improve_skill("force", me->query("int"));
-		write("ÄãºÈÁËÒ»¿ÚÇåÇåµÄ¾®Ë®£¬ËäÉí´¦Ñ×ÈÈµÄ´óÄ®£¬Ò²¸Ğµ½Ò»Ë¿Á¹Òâ¡£\n");
+		write("ä½ å–äº†ä¸€å£æ¸…æ¸…çš„äº•æ°´ï¼Œè™½èº«å¤„ç‚çƒ­çš„å¤§æ¼ ï¼Œä¹Ÿæ„Ÿåˆ°ä¸€ä¸å‡‰æ„ã€‚\n");
 	}
-	else write("ÄãÒÑ¾­ºÈ²»ÏÂÁË¡£\n");
+	else write("ä½ å·²ç»å–ä¸ä¸‹äº†ã€‚\n");
 
 	return 1;
 }

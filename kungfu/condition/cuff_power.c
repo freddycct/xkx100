@@ -7,11 +7,11 @@ inherit F_CLEAN_UP;
 int update_condition(object me, int duration)
 {
   if (me->is_ghost()) return 1;
-		tell_object(me, HIR"ÄãÖ»¾õµÃÐØ¿ÚÒ»¹É°µ¾¢±¬·¢£¬ÍÛµÄÍÂ³öÒ»¿ÚÏÊÑª£¡\n" NOR );
-	message("vision", HIR"Ö»ÌýÍÛ~µÄÒ»Éù,"+me->name() + "Í»È»ÍÂ³öÒ»¿ÚÏÊÑª£¡\n"NOR, environment(me), me);
+		tell_object(me, HIR"ä½ åªè§‰å¾—èƒ¸å£ä¸€è‚¡æš—åŠ²çˆ†å‘ï¼Œå“‡çš„åå‡ºä¸€å£é²œè¡€ï¼\n" NOR );
+	message("vision", HIR"åªå¬å“‡~çš„ä¸€å£°,"+me->name() + "çªç„¶åå‡ºä¸€å£é²œè¡€ï¼\n"NOR, environment(me), me);
    
-	me->receive_wound("qi",10 + random(duration),"ÌåÄÚÈ­¾¢±¬·¢");
-	me->receive_wound("jing", 10+ random(duration/5),"ÌåÄÚÈ­¾¢±¬·¢");
+	me->receive_wound("qi",10 + random(duration),"ä½“å†…æ‹³åŠ²çˆ†å‘");
+	me->receive_wound("jing", 10+ random(duration/5),"ä½“å†…æ‹³åŠ²çˆ†å‘");
 	if ((int)me->query("eff_jing")<0 || (int)me->query("eff_qi")<0) return 0;
 	me->apply_condition("cuff_power", 0);
 	return 0;

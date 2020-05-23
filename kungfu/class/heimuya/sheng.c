@@ -7,12 +7,12 @@ string ask_me();
 
 void create()
 {
-	set_name("µ¤ÇàÉú", ({ "danqing sheng", "sheng" }));
+	set_name("ä¸¹é’ç”Ÿ", ({ "danqing sheng", "sheng" }));
 	set("long",
-		"Ëû¾ÍÊÇÃ·×¯ËÄÎ»×¯Ö÷ÅÅĞĞµÚËÄµÄµ¤ÇàÉú¡£\n"
-		"Éí´©Ò»¼ş¸É¸É¾»¾»µÄÇàÉ«³¤ÅÛ¡£\n"
-		"ËûÒÑÄêÓúËÄÑ®£¬Éí²ÄÊİ³¤£¬ÂúÁ³ºì¹â¡£Ìñµ­³åºÍ£¬³ÁÄ¬¹ÑÑÔ¡£\n");
-	set("gender", "ÄĞĞÔ");
+		"ä»–å°±æ˜¯æ¢…åº„å››ä½åº„ä¸»æ’è¡Œç¬¬å››çš„ä¸¹é’ç”Ÿã€‚\n"
+		"èº«ç©¿ä¸€ä»¶å¹²å¹²å‡€å‡€çš„é’è‰²é•¿è¢ã€‚\n"
+		"ä»–å·²å¹´æ„ˆå››æ—¬ï¼Œèº«æç˜¦é•¿ï¼Œæ»¡è„¸çº¢å…‰ã€‚æ¬æ·¡å†²å’Œï¼Œæ²‰é»˜å¯¡è¨€ã€‚\n");
+	set("gender", "ç”·æ€§");
 	set("age", 41);
 	set("class", "scholar");
 	set("attitude", "peaceful");
@@ -32,15 +32,15 @@ void create()
 	set("shen", 15000);
 	set("score", 60000);
 
-	set_skill("painting", 100);         // ÆÃÄ«µ¤Çà
-	set_skill("literate", 100);         // ¶ÁÊéÊ¶×Ö
-	set_skill("force", 80);             // »ù±¾ÄÚ¹¦
-	set_skill("dodge", 80);             // »ù±¾¶ãÉÁ
-	set_skill("parry", 80);             // »ù±¾ÕĞ¼Ü
-	set_skill("sword", 80);             // »ù±¾½£·¨
-	set_skill("piaoyibu", 120);          // Æ®Òİ²½·¨
-	set_skill("pomopima-jian", 120);    // ÆÃÄ«ÅûÂé½£
-	set_skill("kuihua-xinfa", 80);	    // ¿û»¨ĞÄ·¨
+	set_skill("painting", 100);         // æ³¼å¢¨ä¸¹é’
+	set_skill("literate", 100);         // è¯»ä¹¦è¯†å­—
+	set_skill("force", 80);             // åŸºæœ¬å†…åŠŸ
+	set_skill("dodge", 80);             // åŸºæœ¬èº²é—ª
+	set_skill("parry", 80);             // åŸºæœ¬æ‹›æ¶
+	set_skill("sword", 80);             // åŸºæœ¬å‰‘æ³•
+	set_skill("piaoyibu", 120);          // é£˜é€¸æ­¥æ³•
+	set_skill("pomopima-jian", 120);    // æ³¼å¢¨æŠ«éº»å‰‘
+	set_skill("kuihua-xinfa", 80);	    // è‘µèŠ±å¿ƒæ³•
 
 	map_skill("force", "kuihua-xinfa");
 	map_skill("dodge", "piaoyibu");
@@ -48,14 +48,14 @@ void create()
 	map_skill("sword", "pomopima-jian");
 
 	set("inquiry", ([
-		"ÁîÅÆ"     : (: ask_me :),
-		"ÈÕÔÂÉñ½Ì" : "ÄãÏë¼ÓÈëÎÒÈÕÔÂÉñ½Ì£¬¾ÍµÃÕÒËÄ´óÌÃ³¤ÀÏ¡£",
-		"Èë½Ì"     : "ÄãÏë¼ÓÈëÎÒÈÕÔÂÉñ½Ì£¬¾ÍµÃÕÒËÄ´óÌÃ³¤ÀÏ¡£",
+		"ä»¤ç‰Œ"     : (: ask_me :),
+		"æ—¥æœˆç¥æ•™" : "ä½ æƒ³åŠ å…¥æˆ‘æ—¥æœˆç¥æ•™ï¼Œå°±å¾—æ‰¾å››å¤§å ‚é•¿è€ã€‚",
+		"å…¥æ•™"     : "ä½ æƒ³åŠ å…¥æˆ‘æ—¥æœˆç¥æ•™ï¼Œå°±å¾—æ‰¾å››å¤§å ‚é•¿è€ã€‚",
 	])); 
 	set("item_count", 1);
-	set("party/party_name", HIB"ÈÕÔÂÉñ½Ì"NOR);
-	set("party/rank", HIG"Ã·×¯ËÄ×¯Ö÷"NOR);
-	create_family("ºÚÄ¾ÑÂ", 9, "µÜ×Ó");
+	set("party/party_name", HIB"æ—¥æœˆç¥æ•™"NOR);
+	set("party/rank", HIG"æ¢…åº„å››åº„ä¸»"NOR);
+	create_family("é»‘æœ¨å´–", 9, "å¼Ÿå­");
 
 	setup();
 	carry_object("/clone/weapon/changjian")->wield();
@@ -64,19 +64,19 @@ void create()
 
 void attempt_apprentice(object ob)
 {
-	if(!ob->query("party")||ob->query("party/party_name")!=HIB"ÈÕÔÂÉñ½Ì"NOR)
+	if(!ob->query("party")||ob->query("party/party_name")!=HIB"æ—¥æœˆç¥æ•™"NOR)
 	{
-		command("say ÎÒÖ»ÊÕÉñ½ÌµÜ×Ó£¬ÄãÕÒËÄ´óÌÃ³¤ÀÏÈë½ÌÈ¥£¡\n");
+		command("say æˆ‘åªæ”¶ç¥æ•™å¼Ÿå­ï¼Œä½ æ‰¾å››å¤§å ‚é•¿è€å…¥æ•™å»ï¼\n");
 		return;
 	}
 	if ((int)ob->query("shen") < 0)
 	{
-		command("say ±¾½ÌËä²»ÊÇÊ²Ã´ÃûÃÅÕıÅÉ£¬µ«ÔÚÃ·×¯£¬ÔñÍ½Ò²¼«ÎªÑÏ¸ñ¡£");
-		command("say ÔÚÆ·ĞĞ·½Ãæ£¬" + RANK_D->query_respect(ob) +
-			"ÊÇ·ñ»¹×öµÃ²»¹»£¿");
+		command("say æœ¬æ•™è™½ä¸æ˜¯ä»€ä¹ˆåé—¨æ­£æ´¾ï¼Œä½†åœ¨æ¢…åº„ï¼Œæ‹©å¾’ä¹Ÿæä¸ºä¸¥æ ¼ã€‚");
+		command("say åœ¨å“è¡Œæ–¹é¢ï¼Œ" + RANK_D->query_respect(ob) +
+			"æ˜¯å¦è¿˜åšå¾—ä¸å¤Ÿï¼Ÿ");
 		return;
 	}
-	command("say ºÃ°É£¬ÀÏ·ò¾ÍÊÕÏÂÄãÁË¡£");
+	command("say å¥½å§ï¼Œè€å¤«å°±æ”¶ä¸‹ä½ äº†ã€‚");
 	command("recruit " + ob->query("id"));
 }
 
@@ -86,13 +86,13 @@ string ask_me()
 	object ob;
 
 	if (!(fam = this_player()->query("family")) ||
-		fam["family_name"] != "ºÚÄ¾ÑÂ")
-		return RANK_D->query_respect(this_player()) + "Óë±¾ÅÉËØÎŞÀ´Íù£¬²»Öª´Ë»°´ÓºÎÌ¸Æğ£¿";
+		fam["family_name"] != "é»‘æœ¨å´–")
+		return RANK_D->query_respect(this_player()) + "ä¸æœ¬æ´¾ç´ æ— æ¥å¾€ï¼Œä¸çŸ¥æ­¤è¯ä»ä½•è°ˆèµ·ï¼Ÿ";
 	if (query("item_count") < 1)
-		return "ÄãÀ´ÍíÁË£¬Ã·»¨ÁîÅÆ²»ÔÚ´Ë´¦¡£";
+		return "ä½ æ¥æ™šäº†ï¼Œæ¢…èŠ±ä»¤ç‰Œä¸åœ¨æ­¤å¤„ã€‚";
 	add("item_count", -1);
 	ob = new("/d/meizhuang/npc/obj/lingpai");
 	ob->move(this_player());
-	return "ºÃ°É£¬Õâ¿éÃ·»¨ÁîÅÆ¾Í½»¸øÄã±£¹ÜÁË¡£";
+	return "å¥½å§ï¼Œè¿™å—æ¢…èŠ±ä»¤ç‰Œå°±äº¤ç»™ä½ ä¿ç®¡äº†ã€‚";
 }
 

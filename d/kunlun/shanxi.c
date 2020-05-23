@@ -5,11 +5,11 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "É½Ïª±ß");
+	set("short", "å±±æºªè¾¹");
 	set("long", @LONG
-ÕâÀïÊÇÒ»ÌõÐ¡Ïª¡£À¥ÂØÉ½ÖÕÄê»ýÑ©£¬ÔÚÁÒÈÕÕÕÉäÏÂ£¬²¿·Ö±ùÑ©ÈÚ»¯
-³ÉË®£¬¶ø»ã³ÉÐ¡Ïª£¬ÏªË®ÏòÏÂ¶øÁ÷£¬²»ÖªÆäÁ÷ÏòºÎ·½¡£ÍùÎ÷¶øÉÏÊÇÒ»¸ö
-´ó´ÔÁÖ¡£
+è¿™é‡Œæ˜¯ä¸€æ¡å°æºªã€‚æ˜†ä»‘å±±ç»ˆå¹´ç§¯é›ªï¼Œåœ¨çƒˆæ—¥ç…§å°„ä¸‹ï¼Œéƒ¨åˆ†å†°é›ªèžåŒ–
+æˆæ°´ï¼Œè€Œæ±‡æˆå°æºªï¼Œæºªæ°´å‘ä¸‹è€Œæµï¼Œä¸çŸ¥å…¶æµå‘ä½•æ–¹ã€‚å¾€è¥¿è€Œä¸Šæ˜¯ä¸€ä¸ª
+å¤§ä¸›æž—ã€‚
 LONG	);
 	set("exits", ([ /* sizeof() == 2 */
 		"westup" : __DIR__"xschongling",

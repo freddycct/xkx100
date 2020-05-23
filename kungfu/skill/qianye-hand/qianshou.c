@@ -1,10 +1,10 @@
-// qianshou ǧ������
+// qianshou 千手如来
 
 #include <ansi.h>
 #include <combat.h>
 
 inherit F_SSERVER;
-#define PNAME "��ǧ��������"
+#define PNAME "「千手如来」"
 void back(object target, int skill);
 int perform(object me, object target)
 {
@@ -20,17 +20,17 @@ int perform(object me, object target)
    !me->query("can_perform/"+sskill+"/"+pfname) &&
    !me->query_temp("murong/xingyi") &&
    !SCBORN_D->valid_perform(me,sskill,pfname))
-   return notify_fail("����ʹ�õ��⹦��û�����ֹ��ܡ�\n");
+   return notify_fail("你所使用的外功中没有这种功能。\n");
 
 	if( !objectp(target) ) {flag =1;target = offensive_target(me);}
 	
 	if( !target || !target->is_character() || target == me ||	
 	  	!me->is_fighting(target) ||
   	!living(target) || target->query_temp("noliving") )
-		return notify_fail(PNAME"ֻ�ܶ�ս���еĶ���ʹ�á�\n");
+		return notify_fail(PNAME"只能对战斗中的对手使用。\n");
 		
 	if( objectp(me->query_temp("weapon")) )
-		return notify_fail("ʹ�á�ǧ��������ʱ˫�ֱ�����ţ�\n");
+		return notify_fail("使用「千手如来」时双手必须空着！\n");
 
 	fskill = "zhanzhuang-gong";
 	bskill = "hand";
@@ -44,24 +44,24 @@ int perform(object me, object target)
 	}
 
 	if( (int)me->query_skill(fskill, 1) < 100 )
-		return notify_fail("���"+to_chinese(fskill)+"�ȼ�����������ʹ��"+PNAME+"��\n");
+		return notify_fail("你的"+to_chinese(fskill)+"等级不够，不能使用"+PNAME+"。\n");
 
 	if( (int)me->query_skill(sskill, 1) < 100 )
-		return notify_fail("���"+to_chinese(sskill)+"������죬����ʹ��"+PNAME+"��\n");
+		return notify_fail("你的"+to_chinese(sskill)+"不够娴熟，不会使用"+PNAME+"。\n");
 
 	if( target->query_temp("qianshou"))
-		return notify_fail("�Է������ˡ�ǧ����������\n");
+		return notify_fail("对方已中了「千手如来」！\n");
 
 	if( (int)me->query_dex() < 27 )
-		return notify_fail("�����������ǿ������ʹ�á�ǧ����������\n");
+		return notify_fail("你的身法不够强，不能使用「千手如来」。\n");
 
 	if( (int)me->query("neili") < 1000 )
-		return notify_fail("����������̫��������ʹ�á�ǧ����������\n");
+		return notify_fail("你现在内力太弱，不能使用「千手如来」。\n");
 
 	skill = (int)me->query_skill(bskill, 1)/10;
 
-	msg = HIY"$N"HIY"˫�ֺ�ʮ��������Ȼ����һ�֣�˫�ƶ�ʱ�������Ʈ�ݣ��鶯�쳣����ʱ�����������Ӱ��\n" NOR;
-	msg += HIR "$n"HIY"ֻ�������ܶ���$N����Ӱ�����ɵû���������\n" NOR;
+	msg = HIY"$N"HIY"双手合十互击，陡然向外一分，双掌顿时变得轻灵飘逸，灵动异常，霎时幻起漫天的掌影。\n" NOR;
+	msg += HIR "$n"HIY"只觉得四周都是$N的身影，不由得慌乱起来。\n" NOR;
 	message_combatd(msg, me, target);
 
 	target->add_temp("apply/attack", -skill);
@@ -81,23 +81,23 @@ void back(object target, int skill)
 	target->add_temp("apply/dodge", skill);
 	target->add_temp("apply/parry", skill);
 	target->delete_temp("qianshou");
-	tell_object(target, HIB"�㽥����Ӧ�����ֱ仯��״̬�ָֻ��糣��\n"NOR);
+	tell_object(target, HIB"你渐渐适应了这种变化，状态又恢复如常。\n"NOR);
 }
 
 int help(object me)
 {
-	write(HIC"\nǧҶ������֮ǧ��������"NOR"\n");
+	write(HIC"\n千叶如来手之千手如来："NOR"\n");
 	write(@HELP
 
-	ʹ�ù�Ч��
-		ʹ���ֵĹ������ͷ�������һ��ʱ�����½���
-		��ʮ������������
+	使用功效：
+		使对手的攻击力和防御力在一定时间内下降。
+		但十分消耗内力。
 
-	����Ҫ��
-		վ׮��100��
-		����ǧҶ��100
-		��������27
-		����1000
+	出手要求：
+		站桩功100级
+		如来千叶手100
+		后天身法27
+		内力1000
 HELP
 	);
 	return 1;

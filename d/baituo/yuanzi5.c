@@ -6,18 +6,18 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "Ôº×Ó");
+	set("short", "é™¢å­");
 	set("long", @LONG
-ÕâÀï¶Ñ·Å×ÅÉÏ°Ù¶ÑµÄÊ¯Í·¡£ÕâĞ©Ê¯Í·ÓĞ´óÓĞĞ¡£¬´óÈçÒ»¼ä·¿Îİ£¬Ğ¡Èç
-Ò»¸öÑ¼µ°£¬ĞÎ×´¸÷Òì¡£Äã·¢ÏÖ¼¸¸ö¾ŞÊ¯(stone)Î§³ÉÒ»È¦£¬²»ÖªÀïÃæÓĞĞ©
-Ê²Ã´¹Å¹Ö¡£
+è¿™é‡Œå †æ”¾ç€ä¸Šç™¾å †çš„çŸ³å¤´ã€‚è¿™äº›çŸ³å¤´æœ‰å¤§æœ‰å°ï¼Œå¤§å¦‚ä¸€é—´æˆ¿å±‹ï¼Œå°å¦‚
+ä¸€ä¸ªé¸­è›‹ï¼Œå½¢çŠ¶å„å¼‚ã€‚ä½ å‘ç°å‡ ä¸ªå·¨çŸ³(stone)å›´æˆä¸€åœˆï¼Œä¸çŸ¥é‡Œé¢æœ‰äº›
+ä»€ä¹ˆå¤æ€ªã€‚
 LONG);
 	set("exits", ([
 		"southwest" : __DIR__"yuanzi4",
 		"southeast" : __DIR__"yuanzi3",
 	]));
 	set("item_desc", ([
-		"stone": "\nÕâ¿éÊ¯Í·ÉÏÓĞĞ©°¼¶´£¬´ó¸Å¿ÉÒÔÓÉ´ËÅÀÉÏÈ¥¡£\n",
+		"stone": "\nè¿™å—çŸ³å¤´ä¸Šæœ‰äº›å‡¹æ´ï¼Œå¤§æ¦‚å¯ä»¥ç”±æ­¤çˆ¬ä¸Šå»ã€‚\n",
 	]));
 	set("no_clean_up", 0);
 	set("coor/x", -49910);
@@ -44,10 +44,10 @@ int do_climb(string arg)
 	if( !arg || arg=="" ) return 0;
 	if (arg == "stone" )
 	{
-		message_vision("$NÊÖ½Å²¢ÓÃ£¬Ë³×Å°¼¶´ÅÀÁËÉÏÈ¥¡£\n", me);
-		message("vision", me->name() + "·­ÉíÒ»×İ£¬ÒÑ¾­Ìø½øÁËÊ¯¶Ñ¡£\n", environment(me), ({me}) );
+		message_vision("$Næ‰‹è„šå¹¶ç”¨ï¼Œé¡ºç€å‡¹æ´çˆ¬äº†ä¸Šå»ã€‚\n", me);
+		message("vision", me->name() + "ç¿»èº«ä¸€çºµï¼Œå·²ç»è·³è¿›äº†çŸ³å †ã€‚\n", environment(me), ({me}) );
 		me->move(__DIR__"shidui");
-		message("vision", me->name() + "´ÓÍâÃæÌøÁË½øÀ´¡£\n", environment(me), ({me}) );
+		message("vision", me->name() + "ä»å¤–é¢è·³äº†è¿›æ¥ã€‚\n", environment(me), ({me}) );
 		return 1;
 	}
 }
@@ -60,11 +60,11 @@ int do_yun(string arg)
 	if (arg == "hamagong" )
 	{
 		if(!me->query_temp("baituo_book"))
-			return notify_fail("ÕâµØ·½Á·Ê²Ã´¹¦£¿\n");
+			return notify_fail("è¿™åœ°æ–¹ç»ƒä»€ä¹ˆåŠŸï¼Ÿ\n");
 		if(!me->query_skill("hamagong", 1))
-			return notify_fail("Ê²Ã´£¿\n");
-		message_vision(HIC "$N¶×µÍÉí×ÓÇ±ÔË¹¦Á¦£¬Í»È»ÕÅ×ì£ºßÉßÉ£¡½ĞÁËÁ½Éù¡£\n"NOR,me);
-		tell_object(me,HIB "ÄãºöÈ»¸Ğ¾õµ½ÓĞÁ½ÉùÏ¸Î¢µÄ¸òó¡½ĞÉù´Ó¾ŞÊ¯¶ÑÀï´«À´¡£\n" NOR );
+			return notify_fail("ä»€ä¹ˆï¼Ÿ\n");
+		message_vision(HIC "$Nè¹²ä½èº«å­æ½œè¿åŠŸåŠ›ï¼Œçªç„¶å¼ å˜´ï¼šå‘±å‘±ï¼å«äº†ä¸¤å£°ã€‚\n"NOR,me);
+		tell_object(me,HIB "ä½ å¿½ç„¶æ„Ÿè§‰åˆ°æœ‰ä¸¤å£°ç»†å¾®çš„è›¤èŸ†å«å£°ä»å·¨çŸ³å †é‡Œä¼ æ¥ã€‚\n" NOR );
 		me->set_temp("baituo_yun", 1);
 		return 1;
 	}

@@ -8,9 +8,9 @@ int main(object me, string arg)
 	object obj;
 	string msg;
 
-	if( !arg ) return notify_fail("ÄãÒªÈ¥ÄÄÀï£¿\n");
+	if( !arg ) return notify_fail("ä½ è¦å»å“ªé‡Œï¼Ÿ\n");
 	if( sscanf(arg, "-i %s", arg) ) goto_inventory = 1;
-	if( !arg ) return notify_fail("ÄãÒªÈ¥ÄÄÀï£¿\n");
+	if( !arg ) return notify_fail("ä½ è¦å»å“ªé‡Œï¼Ÿ\n");
 
 	obj = find_player(arg);
 	if(!obj) obj = find_living(arg);
@@ -22,20 +22,20 @@ int main(object me, string arg)
 		{
 			if( file_size(arg)>=0 )
 				return me->move(arg);
-			return notify_fail("Ã»ÓĞÕâ¸öÍæ¼Ò¡¢ÉúÎï¡¢»òµØ·½¡£\n");
+			return notify_fail("æ²¡æœ‰è¿™ä¸ªç©å®¶ã€ç”Ÿç‰©ã€æˆ–åœ°æ–¹ã€‚\n");
 		}
 	}
 
 	if(!goto_inventory && environment(obj))
 		obj = environment(obj);
 
-	if( !obj ) return notify_fail("Õâ¸öÎï¼şÃ»ÓĞ»·¾³¿ÉÒÔ goto¡£\n");
+	if( !obj ) return notify_fail("è¿™ä¸ªç‰©ä»¶æ²¡æœ‰ç¯å¢ƒå¯ä»¥ gotoã€‚\n");
 
 	if( stringp(msg = me->query("env/msg_mout")) )
 	{
 		if(msg != "none") message_vision(msg+"\n", me);
 	}
-	else message_vision("Ö»¼ûÒ»ÕóÑÌÎí¹ıáá£¬$NµÄÉíÓ°ÒÑ¾­²»¼ûÁË¡£\n", me);
+	else message_vision("åªè§ä¸€é˜µçƒŸé›¾è¿‡å¾Œï¼Œ$Nçš„èº«å½±å·²ç»ä¸è§äº†ã€‚\n", me);
 
 	me->move(obj);
 
@@ -43,7 +43,7 @@ int main(object me, string arg)
 	{
 		if(msg != "none") message_vision(msg+"\n", me);
 	}
-	else message_vision("$NµÄÉíÓ°Í»È»³öÏÖÔÚÒ»ÕóÑÌÎíÖ®ÖĞ¡£\n", me);
+	else message_vision("$Nçš„èº«å½±çªç„¶å‡ºç°åœ¨ä¸€é˜µçƒŸé›¾ä¹‹ä¸­ã€‚\n", me);
 
 	return 1;
 }
@@ -51,12 +51,12 @@ int main(object me, string arg)
 int help(object me)
 {
 write(@HELP
-Ö¸Áî¸ñÊ½ : goto [-i] <Ä¿±ê>
+æŒ‡ä»¤æ ¼å¼ : goto [-i] <ç›®æ ‡>
  
-Õâ¸öÖ¸Áî»á½«Äã´«ËÍµ½Ö¸¶¨µÄÄ¿±ê. Ä¿±ê¿ÉÒÔÊÇÒ»¸öliving »ò·¿¼ä
-µÄµµÃû. Èç¹ûÄ¿±êÊÇliving , Äã»á±»ÒÆµ½¸úÄÇ¸öÈËÍ¬ÑùµÄ»·¾³.
-Èç¹ûÓĞ¼ÓÉÏ -i ²ÎÊıÇÒÄ¿±êÊÇ living, ÔòÄã»á±»ÒÆµ½¸Ã living µÄ
-µÄ inventory ÖĞ.
+è¿™ä¸ªæŒ‡ä»¤ä¼šå°†ä½ ä¼ é€åˆ°æŒ‡å®šçš„ç›®æ ‡. ç›®æ ‡å¯ä»¥æ˜¯ä¸€ä¸ªliving æˆ–æˆ¿é—´
+çš„æ¡£å. å¦‚æœç›®æ ‡æ˜¯living , ä½ ä¼šè¢«ç§»åˆ°è·Ÿé‚£ä¸ªäººåŒæ ·çš„ç¯å¢ƒ.
+å¦‚æœæœ‰åŠ ä¸Š -i å‚æ•°ä¸”ç›®æ ‡æ˜¯ living, åˆ™ä½ ä¼šè¢«ç§»åˆ°è¯¥ living çš„
+çš„ inventory ä¸­.
  
 HELP
     );

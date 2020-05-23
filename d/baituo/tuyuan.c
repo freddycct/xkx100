@@ -5,10 +5,10 @@ inherit ROOM;
 
 void create()
 {
-	set("short","ÍÃÔ·");
+	set("short","å…”è‹‘");
 	set("long", @LONG
-ÕâÊÇ¸öºÃÍæµÄÍÃÔ·£¬¼¸Ö»´ó°×ÍÃ¾²¾²µØ¶×ÔÚÂÌ²İµØÉÏ³Ô²İ¡£Î÷ÄÏ·½
-ÊÇÖñÔ°¡£Î÷Ãæ´«À´ÕóÕóÃÍÊŞµÄº¿½Ğ£¬¶«ÃæÓĞÒ»¸öÉßÔ°¡£
+è¿™æ˜¯ä¸ªå¥½ç©çš„å…”è‹‘ï¼Œå‡ åªå¤§ç™½å…”é™é™åœ°è¹²åœ¨ç»¿è‰åœ°ä¸Šåƒè‰ã€‚è¥¿å—æ–¹
+æ˜¯ç«¹å›­ã€‚è¥¿é¢ä¼ æ¥é˜µé˜µçŒ›å…½çš„åšå«ï¼Œä¸œé¢æœ‰ä¸€ä¸ªè›‡å›­ã€‚
 LONG );
 	set("exits",([
 		"east"  : __DIR__"sheyuan",
@@ -30,9 +30,9 @@ int valid_leave(object me, string dir)
 	mapping myfam;
 	me = this_player();
 	myfam = (mapping)me->query("family");
-	if((!myfam || (myfam["family_name"] != "°×ÍÕÉ½ÅÉ")) && (dir == "west"))
-		return notify_fail("Äã²»ÊÇ°×ÍÕÉ½µÜ×Ó£¬²»ÄÜ½øÊŞÉá¡£\n");
-	if((!myfam || (myfam["family_name"] != "°×ÍÕÉ½ÅÉ")) && (dir == "east"))
-		return notify_fail("Äã²»ÊÇ°×ÍÕÉ½µÜ×Ó£¬²»ÄÜ½øÉßÔ°¡£\n");
+	if((!myfam || (myfam["family_name"] != "ç™½é©¼å±±æ´¾")) && (dir == "west"))
+		return notify_fail("ä½ ä¸æ˜¯ç™½é©¼å±±å¼Ÿå­ï¼Œä¸èƒ½è¿›å…½èˆã€‚\n");
+	if((!myfam || (myfam["family_name"] != "ç™½é©¼å±±æ´¾")) && (dir == "east"))
+		return notify_fail("ä½ ä¸æ˜¯ç™½é©¼å±±å¼Ÿå­ï¼Œä¸èƒ½è¿›è›‡å›­ã€‚\n");
 	else return 1;
 }

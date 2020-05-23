@@ -1,4 +1,4 @@
-// yunlong-shengong.c ÔÆÁúÉñ¹¦
+// yunlong-shengong.c äº‘é¾™ç¥åŠŸ
 // Last Modified by winder on Mar. 10 2000
 
 #include <ansi.h>
@@ -21,21 +21,21 @@ int valid_learn(object me)
 	nf = (int)me->query_skill("force", 1);
 	nh = (int)me->query_skill("yunlong-shengong", 1);
 
-	if ( me->query("gender") == "ÎŞĞÔ" && nh > 49)
-		return notify_fail("ÄãÎŞ¸ùÎŞĞÔ£¬ÒõÑô²»µ÷£¬ÄÑÒÔÁì»á¸ßÉîµÄÔÆÁúÉñ¹¦¡£\n");
+	if ( me->query("gender") == "æ— æ€§" && nh > 49)
+		return notify_fail("ä½ æ— æ ¹æ— æ€§ï¼Œé˜´é˜³ä¸è°ƒï¼Œéš¾ä»¥é¢†ä¼šé«˜æ·±çš„äº‘é¾™ç¥åŠŸã€‚\n");
 
   if ( nb < 100 && nb <= nh )
-		return notify_fail("ÄãµÄÔÆÁúĞÄ·¨ĞŞÎª²»¹»£¬ÎŞ·¨Áì»á¸ü¸ßÉîµÄÔÆÁúÉñ¹¦¡£\n");
+		return notify_fail("ä½ çš„äº‘é¾™å¿ƒæ³•ä¿®ä¸ºä¸å¤Ÿï¼Œæ— æ³•é¢†ä¼šæ›´é«˜æ·±çš„äº‘é¾™ç¥åŠŸã€‚\n");
 
 	if ( nf < 10)
-		return notify_fail("ÄãµÄ»ù±¾ÄÚ¹¦»ğºò»¹²»¹»£¬ÎŞ·¨Áì»áÔÆÁúÉñ¹¦¡£\n");
+		return notify_fail("ä½ çš„åŸºæœ¬å†…åŠŸç«å€™è¿˜ä¸å¤Ÿï¼Œæ— æ³•é¢†ä¼šäº‘é¾™ç¥åŠŸã€‚\n");
 
 	return valid_public(me);
 }
 
 int practice_skill(object me)
 {
-	return notify_fail("ÔÆÁúÄÚ¹¦Ö»ÄÜÓÃÑ§(learn)µÄÀ´Ôö¼ÓÊìÁ·¶È¡£\n");
+	return notify_fail("äº‘é¾™å†…åŠŸåªèƒ½ç”¨å­¦(learn)çš„æ¥å¢åŠ ç†Ÿç»ƒåº¦ã€‚\n");
 }
 
 string exert_function_file(string func)
@@ -44,16 +44,16 @@ string exert_function_file(string func)
 }
 int help(object me)
 {
-	write(HIC"\nÔÆÁúÉñ¹¦£º"NOR"\n");
+	write(HIC"\näº‘é¾™ç¥åŠŸï¼š"NOR"\n");
 	write(@HELP
 
-    ÌìµØ»á±¾ÃÅÄÚ¹¦£¬¾ßÓĞ×ÔÁÆ¼°ÔË¹¦Ö®ÌØÊâÓÃÍ¾¡£
+    å¤©åœ°ä¼šæœ¬é—¨å†…åŠŸï¼Œå…·æœ‰è‡ªç–—åŠè¿åŠŸä¹‹ç‰¹æ®Šç”¨é€”ã€‚
 
 
-	Ñ§Ï°ÒªÇó£º
-		ÏàÓ¦µÄÔÆÁúĞÄ·¨
-		»ù±¾ÄÚ¹¦10¼¶
-		Ì«¼àÎŞ·¨Ñ§µ½¸ßµÈ¼¶µÄÔÆÁúÉñ¹¦
+	å­¦ä¹ è¦æ±‚ï¼š
+		ç›¸åº”çš„äº‘é¾™å¿ƒæ³•
+		åŸºæœ¬å†…åŠŸ10çº§
+		å¤ªç›‘æ— æ³•å­¦åˆ°é«˜ç­‰çº§çš„äº‘é¾™ç¥åŠŸ
 HELP
 	);
 	return 1;

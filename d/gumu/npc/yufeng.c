@@ -1,15 +1,15 @@
-// yufeng.c Óñ·ä
+// yufeng.c ç‰èœ‚
 
 #include <ansi.h>
 inherit NPC;
 
 void create()
 {
-	set_name(HIW "Óñ·ä" NOR, ({"yufeng","feng","bee"}) );
-	set("race", "À¥³æ");
-	set("subrace", "·É³æ");
+	set_name(HIW "ç‰èœ‚" NOR, ({"yufeng","feng","bee"}) );
+	set("race", "æ˜†è™«");
+	set("subrace", "é£è™«");
 	set("age", 8);
-	set("long","ÕâÊÇÒ»Ö»ÓñÉ«µÄÃÛ·ä£¬¸öÍ·±ÈÆÕÍ¨ÃÛ·ä´óµÃ¶à£¬\n³á°òÉÏ±»ÈËÓÃ¼âÕë´ÌÓĞ×Ö¡£\n");
+	set("long","è¿™æ˜¯ä¸€åªç‰è‰²çš„èœœèœ‚ï¼Œä¸ªå¤´æ¯”æ™®é€šèœœèœ‚å¤§å¾—å¤šï¼Œ\nç¿…è†€ä¸Šè¢«äººç”¨å°–é’ˆåˆºæœ‰å­—ã€‚\n");
 
 	set("no_train", 1);
 	set("str", 40);
@@ -21,8 +21,8 @@ void create()
 	set("chat_chance", 2);
 	set("chat_msg", ({
 		(: this_object(), "random_move" :),
-"Óñ·äÔÚÄãÍ·¶¥×ªÁËÒ»È¦£¬ËÆºõ·¢ÏÖÕâ²»ÊÇ¿É²ÉÃÛµÄµØ·½£¬¾ÍÎËÎËÎËµØ·É×ßÁË¡£\n",
-"Óñ·äÎ§ÈÆ×ÅÏÊ»¨·É·ÉÍ£Í££¬ËÆºõÒ²²»×ÅÖØÔÚ²ÉÃÛÉÏ¡£\n",
+"ç‰èœ‚åœ¨ä½ å¤´é¡¶è½¬äº†ä¸€åœˆï¼Œä¼¼ä¹å‘ç°è¿™ä¸æ˜¯å¯é‡‡èœœçš„åœ°æ–¹ï¼Œå°±å—¡å—¡å—¡åœ°é£èµ°äº†ã€‚\n",
+"ç‰èœ‚å›´ç»•ç€é²œèŠ±é£é£åœåœï¼Œä¼¼ä¹ä¹Ÿä¸ç€é‡åœ¨é‡‡èœœä¸Šã€‚\n",
 	}) );
 
 	setup();
@@ -35,9 +35,9 @@ void init()
 
 	::init();
 	if (interactive(ob = this_player()) &&
-		(fam = ob->query("family")) && fam["family_name"] != "¹ÅÄ¹ÅÉ")
+		(fam = ob->query("family")) && fam["family_name"] != "å¤å¢“æ´¾")
 	{
-		message_vision(HIR"$NÉÃ×Ô´³Èë¹ÅÄ¹½ûµØ¡£\n"NOR,ob);
+		message_vision(HIR"$Næ“…è‡ªé—¯å…¥å¤å¢“ç¦åœ°ã€‚\n"NOR,ob);
 		remove_call_out("killob");
 		call_out("killob", 1, ob); 
 	}
@@ -45,7 +45,7 @@ void init()
 
 void die()
 {
-	message_vision("$NÃÍµØÕñ³á£¬·É×ßÁË¡£\n", this_object());
+	message_vision("$NçŒ›åœ°æŒ¯ç¿…ï¼Œé£èµ°äº†ã€‚\n", this_object());
 	destruct(this_object());
 }
 void killob(object ob)

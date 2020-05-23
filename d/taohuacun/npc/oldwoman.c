@@ -3,9 +3,9 @@ inherit __DIR__"changer.c";
 
 void  create()
 {
-	set_name("ÀÏ´óÄï", ({ "old woman" }));
-	set("gender", "Å®ĞÔ");
-	set("long","Ò»¸öÂúÁ³·çËªÖ®É«µÄÀÏÆÅÆÅ¡£\n");
+	set_name("è€å¤§å¨˜", ({ "old woman" }));
+	set("gender", "å¥³æ€§");
+	set("long","ä¸€ä¸ªæ»¡è„¸é£éœœä¹‹è‰²çš„è€å©†å©†ã€‚\n");
 	set("age", 50);
 	set("per", 15);
 	set("combat_exp", 100);

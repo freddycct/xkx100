@@ -1,4 +1,4 @@
-// powerup.c »¯¹¦´ó·¨¼ÓÁ¦
+// powerup.c åŒ–åŠŸå¤§æ³•åŠ åŠ›
 // Last Modified by winder on Mar. 10 2000
 
 #include <ansi.h>
@@ -15,18 +15,18 @@ int exert(object me, object target)
   !me->query("perform/powerup") &&
   !me->query("can_perform/huagong-dafa/powerup") && 
   !me->query_temp("murong/xingyi"))
-   return notify_fail("ÄãËùÊ¹ÓÃµÄÄÚ¹¦ÖĞÃ»ÓĞÕâÖÖ¹¦ÄÜ¡£");
+   return notify_fail("ä½ æ‰€ä½¿ç”¨çš„å†…åŠŸä¸­æ²¡æœ‰è¿™ç§åŠŸèƒ½ã€‚");
 
 	if( target != me )
-		return notify_fail("ÄãÖ»ÄÜÌáÉı×Ô¼ºµÄÕ½¶·Á¦¡£\n");
+		return notify_fail("ä½ åªèƒ½æå‡è‡ªå·±çš„æˆ˜æ–—åŠ›ã€‚\n");
 	if( (int)me->query("neili")<200)
-		return notify_fail("ÄãµÄÄÚÁ¦²»¹»¡£\n");
+		return notify_fail("ä½ çš„å†…åŠ›ä¸å¤Ÿã€‚\n");
 	if( (int)me->query_temp("powerup"))
-		return notify_fail("ÄãÒÑ¾­ÔÚÔË¹¦ÖĞÁË¡£\n");
+		return notify_fail("ä½ å·²ç»åœ¨è¿åŠŸä¸­äº†ã€‚\n");
 
 	skill = me->query_skill("force");
 
-	message_combatd( HIG "$NÉà¼âÒ»Ò§£¬Åç³öÒ»¿Ú±ÌÑª£¬ÔËÆğ»¯¹¦´ó·¨ÒÑ½«È«ÉíÇ±Á¦¾¡ÊıÌáÆğ£¡\n" NOR, me);
+	message_combatd( HIG "$NèˆŒå°–ä¸€å’¬ï¼Œå–·å‡ºä¸€å£ç¢§è¡€ï¼Œè¿èµ·åŒ–åŠŸå¤§æ³•å·²å°†å…¨èº«æ½œåŠ›å°½æ•°æèµ·ï¼\n" NOR, me);
 
 	me->add("neili", -100);
 	me->add_temp("apply/attack", skill/3);
@@ -47,19 +47,19 @@ void remove_effect(object me, int amount)
 		me->add_temp("apply/attack", - amount);
 		me->add_temp("apply/dodge", - amount);
 		me->delete_temp("powerup");
-		tell_object(me, "ÄãµÄ»¯¹¦´ó·¨ÔËĞĞÍê±Ï£¬½«ÄÚÁ¦ÊÕ»Øµ¤Ìï¡£\n");
+		tell_object(me, "ä½ çš„åŒ–åŠŸå¤§æ³•è¿è¡Œå®Œæ¯•ï¼Œå°†å†…åŠ›æ”¶å›ä¸¹ç”°ã€‚\n");
 	}
 }
 int help(object me)
 {
-	write(WHT"\n»¯¹¦´ó·¨Ö®¼ÓÁ¦£º"NOR"\n");
+	write(WHT"\nåŒ–åŠŸå¤§æ³•ä¹‹åŠ åŠ›ï¼š"NOR"\n");
 	write(@HELP
 
-	Ê¹ÓÃ¹¦Ğ§£º
-		ÌáÉı×Ô¼ºµÄ¹¥»÷·ÀÓùÄÜÁ¦
+	ä½¿ç”¨åŠŸæ•ˆï¼š
+		æå‡è‡ªå·±çš„æ”»å‡»é˜²å¾¡èƒ½åŠ›
 
-	³öÊÖÒªÇó£º
-		ÄÚÁ¦200
+	å‡ºæ‰‹è¦æ±‚ï¼š
+		å†…åŠ›200
 HELP
 	);
 	return 1;

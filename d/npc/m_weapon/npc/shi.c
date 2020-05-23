@@ -17,19 +17,19 @@ int do_zhu(string arg)
 
 	if((me->query("weapon/make")) )
 	{
-		message_vision("$NÒ»Á³Ã£È»£ºÄúÒÑ¾­ÓĞÒ»°Ñ×ÔÔìµÄÎäÆ÷ÁË£¬»¹À´¸ÉÊ²Ã´£¿ÄÑµ½²»¿ÉÊÖÃ´£¿\n",ob);
+		message_vision("$Nä¸€è„¸èŒ«ç„¶ï¼šæ‚¨å·²ç»æœ‰ä¸€æŠŠè‡ªé€ çš„æ­¦å™¨äº†ï¼Œè¿˜æ¥å¹²ä»€ä¹ˆï¼Ÿéš¾åˆ°ä¸å¯æ‰‹ä¹ˆï¼Ÿ\n",ob);
 		return 2;
 	}
 	if( !arg )
-		return notify_fail(ob->query("name")+"ÈÏÕæµÄËµ£ºÏëºÃÃû³Æ¼°´úºÅºóÔÙ¶ÔÎÒËµ¡£\n");
+		return notify_fail(ob->query("name")+"è®¤çœŸçš„è¯´ï¼šæƒ³å¥½åç§°åŠä»£å·åå†å¯¹æˆ‘è¯´ã€‚\n");
 
 	sscanf(arg ,"%s %s" ,w_name ,id);
 	if(!w_name||!id)
-		return notify_fail("Ê¹ÓÃ(zhu "+type+"µÄÃû×Ö Ó¢ÎÄ´úºÅ)\n");
+		return notify_fail("ä½¿ç”¨(zhu "+type+"çš„åå­— è‹±æ–‡ä»£å·)\n");
 	if(id == "corpse" || w_name == "corpse")
-		return notify_fail("·Ç·¨µÄÃû×Ö»òÓ¢ÎÄ´úºÅ¡£\n");
-	if (strlen(w_name)>75) return notify_fail("ÄãÑ¡ÔñµÄÃû×ÖÌ«³¤ÁË°É¡£\n");
-	if (strlen(id) > 20) return notify_fail("ÄãÑ¡ÔñµÄÓ¢ÎÄ´úºÅÌ«³¤ÁË°É¡£\n");
+		return notify_fail("éæ³•çš„åå­—æˆ–è‹±æ–‡ä»£å·ã€‚\n");
+	if (strlen(w_name)>75) return notify_fail("ä½ é€‰æ‹©çš„åå­—å¤ªé•¿äº†å§ã€‚\n");
+	if (strlen(id) > 20) return notify_fail("ä½ é€‰æ‹©çš„è‹±æ–‡ä»£å·å¤ªé•¿äº†å§ã€‚\n");
 	w_name = replace_string(w_name, "$BLK$", BLK);
 	w_name = replace_string(w_name, "$RED$", RED);
 	w_name = replace_string(w_name, "$GRN$", GRN);
@@ -52,8 +52,8 @@ int do_zhu(string arg)
 	w_name = replace_string(w_name, "\"", "");
 	w_name = replace_string(w_name, "\'", "");
 	w_name += NOR;
-	message_vision("$NËµµÀ£º×¼±¸ÒªÖı½Ğ×ö "+w_name+"("+id+")"+" µÄ"+type+"¡£\n",ob);
-	message_vision("$NËµµÀ£ºÄã×¼±¸ºÃÁËÂğ£¿(answer y)¡£\n",ob);
+	message_vision("$Nè¯´é“ï¼šå‡†å¤‡è¦é“¸å«åš "+w_name+"("+id+")"+" çš„"+type+"ã€‚\n",ob);
+	message_vision("$Nè¯´é“ï¼šä½ å‡†å¤‡å¥½äº†å—ï¼Ÿ(answer y)ã€‚\n",ob);
 	me->set_temp("m_check",1);
 	me->set_temp("m_w/name",w_name);
 	me->set_temp("m_w/id",id);
@@ -68,59 +68,59 @@ int do_answer(string arg)
 	object weapon;
 	if (!me->query_temp("m_check")) return 0;
 	me->delete_temp("m_check");
-	if (arg != "y" && arg != "Y") return notify_fail(ob->query("name")+"ËµµÀ£ººÃ°É£¬ÄãÔÙ¿¼ÂÇÇå³şÒ»ÏÂ¡£\n");
-// ¿ªÊ¼Éú³ÉÎäÆ÷
+	if (arg != "y" && arg != "Y") return notify_fail(ob->query("name")+"è¯´é“ï¼šå¥½å§ï¼Œä½ å†è€ƒè™‘æ¸…æ¥šä¸€ä¸‹ã€‚\n");
+// å¼€å§‹ç”Ÿæˆæ­¦å™¨
 	me->delete_temp("m_make");
 	me->delete_temp("get_orc");
 	me->delete_temp("or");
-	if(me->query_temp("shenmu") ) o_name="Ç§ÄêÉñÄ¾";
-	if(me->query_temp("jinmu") )  o_name="º£µ×½ğÄ¸";
-	if(me->query_temp("hanzhu") ) o_name="º®Ë¿ÓğÖñ";
-	if(me->query_temp("ironstone") ) o_name="ÔÉĞÇÌúÊ¯";
+	if(me->query_temp("shenmu") ) o_name="åƒå¹´ç¥æœ¨";
+	if(me->query_temp("jinmu") )  o_name="æµ·åº•é‡‘æ¯";
+	if(me->query_temp("hanzhu") ) o_name="å¯’ä¸ç¾½ç«¹";
+	if(me->query_temp("ironstone") ) o_name="é™¨æ˜Ÿé“çŸ³";
 	w_name = me->query_temp("m_w/name");
 	id = me->query_temp("m_w/id");
 	make_time=NATURE_D->game_time();
-	message_vision("$N³ÁÒ÷ÁËÒ»»á£¬¶Ô$nÇÄÉùËµÁË¼¸¾ä»°¡£$nµãÁËµãÍ·¡£Ëµ£ººÃ°É£¡\n",me,ob);
-	message_vision("\n$n»Ø¹ıÉí£¬×ªÏòÉíºóµÄÒ»¸ö¾Ş´óµÄ»ğÂ¯£¬¹Ä¶¯ÕæÆøÈ¼ÆğÁËĞÜĞÜµÄ´ó»ğ¡£Ëµ£º¿ªÊ¼£¡\n",me,ob );
-	message_vision(BLU "$NË«ÊÖÎÕ×¡Ò»¸ö¾Ş´óµÄÌú´¸£¬ÃÍµÄÏòÂ¯ÖĞ½¥½¥ºìÈÈÆğÀ´µÄ"+o_name+"»ÓÈ¥£¡\n" NOR,me);
-	message_vision(RED "Ö»ÌıµÃÅïµÄÒ»Éù¾ŞÏì£¬´¸Í·ºÍ"+o_name+"Õ³ÔÚÁËÒ»Æğ¡£\n" NOR,me );
-	message_vision(YEL "$NÖ»¾õµÃÕÆĞÄÒ»ÈÈ£¬»ëÉíµÄÑªÒºËÆºõ¶¼·ĞÌÚÁËÆğÀ´£¡\n" NOR,me);
-	message_vision(HIM "Ò»Éí¾«Ñª½ººÏ×ÅãéãéµÄÄÚÆø£¬Ô´Ô´²»¶ÏµÄÏòÂ¯ÖĞµÄ"+o_name+"Ó¿È¥£¡\n" NOR,me );
+	message_vision("$Næ²‰åŸäº†ä¸€ä¼šï¼Œå¯¹$næ‚„å£°è¯´äº†å‡ å¥è¯ã€‚$nç‚¹äº†ç‚¹å¤´ã€‚è¯´ï¼šå¥½å§ï¼\n",me,ob);
+	message_vision("\n$nå›è¿‡èº«ï¼Œè½¬å‘èº«åçš„ä¸€ä¸ªå·¨å¤§çš„ç«ç‚‰ï¼Œé¼“åŠ¨çœŸæ°”ç‡ƒèµ·äº†ç†Šç†Šçš„å¤§ç«ã€‚è¯´ï¼šå¼€å§‹ï¼\n",me,ob );
+	message_vision(BLU "$NåŒæ‰‹æ¡ä½ä¸€ä¸ªå·¨å¤§çš„é“é”¤ï¼ŒçŒ›çš„å‘ç‚‰ä¸­æ¸æ¸çº¢çƒ­èµ·æ¥çš„"+o_name+"æŒ¥å»ï¼\n" NOR,me);
+	message_vision(RED "åªå¬å¾—æ£šçš„ä¸€å£°å·¨å“ï¼Œé”¤å¤´å’Œ"+o_name+"ç²˜åœ¨äº†ä¸€èµ·ã€‚\n" NOR,me );
+	message_vision(YEL "$Nåªè§‰å¾—æŒå¿ƒä¸€çƒ­ï¼Œæµ‘èº«çš„è¡€æ¶²ä¼¼ä¹éƒ½æ²¸è…¾äº†èµ·æ¥ï¼\n" NOR,me);
+	message_vision(HIM "ä¸€èº«ç²¾è¡€èƒ¶åˆç€æ±©æ±©çš„å†…æ°”ï¼Œæºæºä¸æ–­çš„å‘ç‚‰ä¸­çš„"+o_name+"æ¶Œå»ï¼\n" NOR,me );
 	if( (me->query("qi"))<(me->query("max_qi")) || 
 	(me->query("jing"))<(me->query("max_jing")) || 
 	(me->query("neili"))<(me->query("max_neili")) )
 	{
-		message_vision(HIR "Í»È»$N¾õµÃÆøÑªÒ»Õó·­Ó¿£¬Ò»¿ÚÕæÆø½Ó²»ÉÏÀ´¡£¡£¡£¡£ \n" NOR, me);
+		message_vision(HIR "çªç„¶$Nè§‰å¾—æ°”è¡€ä¸€é˜µç¿»æ¶Œï¼Œä¸€å£çœŸæ°”æ¥ä¸ä¸Šæ¥ã€‚ã€‚ã€‚ã€‚ \n" NOR, me);
 		me->set("neili",0);
 		me->unconcious();
 		return 1;
 	}
-	message_vision(HIR "Ö»Ìı¿©µÄÒ»ÉùÇáÏì£¬Ò»±ú¾Ş"+type+"´ÓÂ¯ÖĞÙ¿È»Ô¾Æğ¡£»¯×÷Ò»µÀÇàµçÃÍµÄÏò$NµÄÇ°ĞØ´ÌÀ´£¡£¡\n" NOR,me );
-	message_vision("$n¼û×´´ó½Ğ£ºÉñ"+type+"³õ³É£¬ÈËÑªÒÔ¼À£¡£¡ÉÁ¿ª£¡\n",me,ob);
-	message_vision("$NÖ»¾õµÃÑÛÇ°Ò»»¨£¬Ò»Ìõ°×Ó°Ñ¸½İÎŞ±ÈµÄµ²ÔÚÁË$NµÄÉíÇ°¡£\n",me);
-	message_vision("¾Ş"+type+"Í¸ĞØ´©³ö£¬$n²ÒºÅÒ»Éù£¬ÏÊÑª½¦µÃÄãÂúÁ³¶¼ÊÇ£¡\n",me,ob);
-	message_vision(RED "$n½ÅÏÂÒ»¸ö²»ÎÈ£¬µ¹ÔÚÁËµØÉÏ£¬ÒÑ¾­ÑÙÑÙÒ»Ï¢ÁË¡£\n" NOR,me,ob);
-	message_vision("¾Ş"+type+"ÓÖ·ÉÁËÆğÀ´£¬·Éµ½°ë¿Õ£¬µ±µÄÒ»ÉùÂä»Øµ½µØÉÏ¡£\nÂ¯ÖĞµÄ»ğÃğÁË¡£Ò»ÊÒµÄ¾¢Æø»¯ÓÚÎŞĞÎ£¬Ò»ÇĞÓÖ¹éÓÚ³Á¼Å¡£\n",me );
+	message_vision(HIR "åªå¬å’¯çš„ä¸€å£°è½»å“ï¼Œä¸€æŸ„å·¨"+type+"ä»ç‚‰ä¸­å€ç„¶è·ƒèµ·ã€‚åŒ–ä½œä¸€é“é’ç”µçŒ›çš„å‘$Nçš„å‰èƒ¸åˆºæ¥ï¼ï¼\n" NOR,me );
+	message_vision("$nè§çŠ¶å¤§å«ï¼šç¥"+type+"åˆæˆï¼Œäººè¡€ä»¥ç¥­ï¼ï¼é—ªå¼€ï¼\n",me,ob);
+	message_vision("$Nåªè§‰å¾—çœ¼å‰ä¸€èŠ±ï¼Œä¸€æ¡ç™½å½±è¿…æ·æ— æ¯”çš„æŒ¡åœ¨äº†$Nçš„èº«å‰ã€‚\n",me);
+	message_vision("å·¨"+type+"é€èƒ¸ç©¿å‡ºï¼Œ$næƒ¨å·ä¸€å£°ï¼Œé²œè¡€æº…å¾—ä½ æ»¡è„¸éƒ½æ˜¯ï¼\n",me,ob);
+	message_vision(RED "$nè„šä¸‹ä¸€ä¸ªä¸ç¨³ï¼Œå€’åœ¨äº†åœ°ä¸Šï¼Œå·²ç»å¥„å¥„ä¸€æ¯äº†ã€‚\n" NOR,me,ob);
+	message_vision("å·¨"+type+"åˆé£äº†èµ·æ¥ï¼Œé£åˆ°åŠç©ºï¼Œå½“çš„ä¸€å£°è½å›åˆ°åœ°ä¸Šã€‚\nç‚‰ä¸­çš„ç«ç­äº†ã€‚ä¸€å®¤çš„åŠ²æ°”åŒ–äºæ— å½¢ï¼Œä¸€åˆ‡åˆå½’äºæ²‰å¯‚ã€‚\n",me );
 
 	me->set("qi",10);
 	me->set("jing",10);
 	me->set("neili",0);
 
-	me->set("weapon/make",1);		//ÎäÆ÷ÖÆÔìºó·ÀÖ¹ÔÙÔìµÄ±êÖ¾
-	me->set("weapon/name",w_name );	//ÎäÆ÷µÄÃû³Æ
-	me->set("weapon/id",id);		//ÎäÆ÷µÄ´úºÅ
-	me->set("weapon/lv",1);			//ÎäÆ÷µÈ¼¶
-	me->set("weapon/or",o_name);		//¼ÇÂ¼ÖÆÔìÔ­ÁÏ
-	me->set("weapon/value",0);		//¼ÇÂ¼ÎäÆ÷Éı¼¶ÒÑÓĞµÄµãÊı
+	me->set("weapon/make",1);		//æ­¦å™¨åˆ¶é€ åé˜²æ­¢å†é€ çš„æ ‡å¿—
+	me->set("weapon/name",w_name );	//æ­¦å™¨çš„åç§°
+	me->set("weapon/id",id);		//æ­¦å™¨çš„ä»£å·
+	me->set("weapon/lv",1);			//æ­¦å™¨ç­‰çº§
+	me->set("weapon/or",o_name);		//è®°å½•åˆ¶é€ åŸæ–™
+	me->set("weapon/value",0);		//è®°å½•æ­¦å™¨å‡çº§å·²æœ‰çš„ç‚¹æ•°
 	me->set("weapon/type",type);
 	me->set("weapon/time",make_time);
 	me->set("weapon/killed",0);
 
 	weapon = new("/d/npc/m_weapon/weapon/m_weapon",1); 
 	weapon->move(this_player());
-	message_vision("$nÃşÆğµØÉÏ£¬´ø×Å°ß°ßÑª¼£»¹ÓĞĞ©ÌÌÊÖµÄ¾Ş"+type+"£¬Ëµ£º\n"+type+"¡£¡£ÒÑ¡£¡£³É¡£¡££¬$nµÄÈÎÎñ¡£¡£¡£Ò²¾ÍÍê³ÉÁË¡£¡£¡£¡£\n",me ,ob );
-	message_vision("$n¼èÄÑµÄËµ£º°ô¡£¡£Äú¡£¡£ÊÕºÃ£¬ÎÒ¸Ã×ßÁË¡£¡£¡£\n",me,ob);
+	message_vision("$næ‘¸èµ·åœ°ä¸Šï¼Œå¸¦ç€æ–‘æ–‘è¡€è¿¹è¿˜æœ‰äº›çƒ«æ‰‹çš„å·¨"+type+"ï¼Œè¯´ï¼š\n"+type+"ã€‚ã€‚å·²ã€‚ã€‚æˆã€‚ã€‚ï¼Œ$nçš„ä»»åŠ¡ã€‚ã€‚ã€‚ä¹Ÿå°±å®Œæˆäº†ã€‚ã€‚ã€‚ã€‚\n",me ,ob );
+	message_vision("$nè‰°éš¾çš„è¯´ï¼šæ£’ã€‚ã€‚æ‚¨ã€‚ã€‚æ”¶å¥½ï¼Œæˆ‘è¯¥èµ°äº†ã€‚ã€‚ã€‚\n",me,ob);
 	ob->die();
-// Éú³ÉÎäÆ÷Íê±Ï
+// ç”Ÿæˆæ­¦å™¨å®Œæ¯•
   return 1;
 }

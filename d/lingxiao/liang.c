@@ -5,12 +5,12 @@ inherit ROOM;
 #include <ansi.h> 
 void create()
 {
-	set("short","¾ÓÊÒ");
+	set("short","å±…å®¤");
 	set("long",@LONG
-ÕâÊÇÁº×Ô½øµÄ·¿¼ä£¬ËûÉúÐÔµ¥´¿£¬ÓëÁÎ×ÔÀøÕýºÃÏà·´¡£Ëû´ÓÐ¡¾ÍÔÚ
-ÁèÏö³ÇÖÐÁ·¹¦Ï°Îä£¬Á¬´óÑ©É½Ò²Î´ÏÂ¹ýÒ»²½£¬ËùÒÔËûµÄÎä¹¦ÔÚÎå´úµÜ×Ó
-ÖÐ£¬ÊÇ½ö´ÎÓÚ°××ÔÔÚµÄ¡£ËûµÄ·¿¼äÆÓËØ×ÔÈ»£¬½öÓÐÒ»´²Ò»×À¡£³ý´ËÖ®Íâ£¬
-±ðÎÞËûÎï¡£ 
+è¿™æ˜¯æ¢è‡ªè¿›çš„æˆ¿é—´ï¼Œä»–ç”Ÿæ€§å•çº¯ï¼Œä¸Žå»–è‡ªåŠ±æ­£å¥½ç›¸åã€‚ä»–ä»Žå°å°±åœ¨
+å‡Œéœ„åŸŽä¸­ç»ƒåŠŸä¹ æ­¦ï¼Œè¿žå¤§é›ªå±±ä¹Ÿæœªä¸‹è¿‡ä¸€æ­¥ï¼Œæ‰€ä»¥ä»–çš„æ­¦åŠŸåœ¨äº”ä»£å¼Ÿå­
+ä¸­ï¼Œæ˜¯ä»…æ¬¡äºŽç™½è‡ªåœ¨çš„ã€‚ä»–çš„æˆ¿é—´æœ´ç´ è‡ªç„¶ï¼Œä»…æœ‰ä¸€åºŠä¸€æ¡Œã€‚é™¤æ­¤ä¹‹å¤–ï¼Œ
+åˆ«æ— ä»–ç‰©ã€‚ 
 LONG);
 	set("exits",([ /* sizeof() == 1 */
 		"north" : __DIR__"zoulang3", 

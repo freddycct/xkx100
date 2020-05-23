@@ -4,11 +4,11 @@
 inherit ROOM;
 void create()
 {
-	set("short", "�ȳ�");
+	set("short", "杖场");
 	set("long", @LONG
-�����������Ŷ������ȵĵط������ܵ�Ҳ����ʮ�ֻ������෴����
-˵�м��־��¡�¶�����һ���޴��¯�ӣ�ð����������ף��ƺ�ʲô
-���ܱ����ڻ��Ƶġ�
+这里是玄兵古洞的造杖的地方。四周道也不是十分荒凉，相反还可
+说有几分景致。露天放着一个巨大的炉子，冒着蓬蓬的蓝炎，似乎什么
+都能被它融化似的。
 LONG );
 	set("exits", ([
 		"eastup" : "/d/baituo/xiaolu4",

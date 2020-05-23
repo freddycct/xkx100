@@ -31,10 +31,10 @@ int accept_fight(object who)
 
 	if( is_fighting() )	switch(att) {
 		case "heroism":
-			command("say ºß£¡³öÕĞ°É£¡\n");
+			command("say å“¼ï¼å‡ºæ‹›å§ï¼\n");
 			break;
 		default:
-			command("say ÏëÒĞ¶àÎªÊ¤£¬Õâ²»ÊÇÆÛÈËÌ«ÉõÂğ£¡\n");
+			command("say æƒ³å€šå¤šä¸ºèƒœï¼Œè¿™ä¸æ˜¯æ¬ºäººå¤ªç”šå—ï¼\n");
 			return 0;
 	}
 
@@ -43,18 +43,18 @@ int accept_fight(object who)
 		switch(att) {
 			case "friendly":
 				command("say " + RANK_D->query_self(this_object())
-					+ "ÔõÃ´¿ÉÄÜÊÇ" + RANK_D->query_respect(who)
-					+ "µÄ¶ÔÊÖ£¿\n");
+					+ "æ€ä¹ˆå¯èƒ½æ˜¯" + RANK_D->query_respect(who)
+					+ "çš„å¯¹æ‰‹ï¼Ÿ\n");
 				return 0;
 			case "aggressive":
 			case "killer":
-				command("say ºß£¡³öÕĞ°É£¡\n");
+				command("say å“¼ï¼å‡ºæ‹›å§ï¼\n");
 				break;
 			default:
 				if( !is_fighting() )
-					command("say ¼ÈÈ»" + RANK_D->query_respect(who)
-						+ "´Í½Ì£¬" + RANK_D->query_self(this_object())
-						+ "Ö»ºÃ·îÅã¡£\n");
+					command("say æ—¢ç„¶" + RANK_D->query_respect(who)
+						+ "èµæ•™ï¼Œ" + RANK_D->query_self(this_object())
+						+ "åªå¥½å¥‰é™ªã€‚\n");
 		}
 		return 1;
 	} else
@@ -69,8 +69,8 @@ int accept_hit(object who)
 {
 /*    
 
-Èç¹ûÈ¡ÏûÕâ¸ö×¢ÊÍ ÄÇÃ´hit¿ÉÄÜµ¼ÖÂkill
-ÒòÎªÄ¾ÈËÒª¾­³£hit ¼ÓÉÏÈ¥Ä¾ÈË¾Í´ò²»ÁËÁË
+å¦‚æœå–æ¶ˆè¿™ä¸ªæ³¨é‡Š é‚£ä¹ˆhitå¯èƒ½å¯¼è‡´kill
+å› ä¸ºæœ¨äººè¦ç»å¸¸hit åŠ ä¸Šå»æœ¨äººå°±æ‰“ä¸äº†äº†
         int t;
         string att;
         int perqi;
@@ -97,52 +97,52 @@ int accept_hit(object who)
                 switch(att)
                 {
                 case "friendly":
-                        command("say ÕâÎ»" + RANK_D->query_respect(who)
-                                + "£¬ÇÒÂı£¡");
+                        command("say è¿™ä½" + RANK_D->query_respect(who)
+                                + "ï¼Œä¸”æ…¢ï¼");
                         break;
                 case "aggressive":
                         if (random(t) > 8)
                         {
-                                command("say ËûÄÌÄÌµÄ£¬ÔõÃ´ÕâÃ´·³£¿¾ÍÈÃ" +
+                                command("say ä»–å¥¶å¥¶çš„ï¼Œæ€ä¹ˆè¿™ä¹ˆçƒ¦ï¼Ÿå°±è®©" +
                                         RANK_D->query_self_rude(this_object()) +
-                                        "¿ª¿ªÉ±½ä£¡");
+                                        "å¼€å¼€æ€æˆ’ï¼");
                                 kill_ob(who);
                                 return 1;
                         }
-                        command("say ºÃ¸ö" + RANK_D->query_rude(who) +
-                                "£¬½ÓÕĞ£¡");
+                        command("say å¥½ä¸ª" + RANK_D->query_rude(who) +
+                                "ï¼Œæ¥æ‹›ï¼");
                         break;
                 case "killer":
                         if (random(t) > 2)
                         {
-                                command("say ºß£¬ÕÒËÀÕÒµ½ÕâÀïÀ´ÁË£¬" +
+                                command("say å“¼ï¼Œæ‰¾æ­»æ‰¾åˆ°è¿™é‡Œæ¥äº†ï¼Œ" +
                                         RANK_D->query_self_rude(this_object()) +
-                                        "ÊÖÕıÑ÷ÄØ£¡");
+                                        "æ‰‹æ­£ç—’å‘¢ï¼");
                                 kill_ob(who);
                                 return 1;
                         }
-                        command("say ºß£¬½ÓÕĞ°É£¡");
+                        command("say å“¼ï¼Œæ¥æ‹›å§ï¼");
                         break;
                 default:
                         if (random(t) > 7)
                         {
-                                command("say ÄãÕÒËÀ°¡£¡");
+                                command("say ä½ æ‰¾æ­»å•Šï¼");
                                 kill_ob(who);
                                 return 1;
                         }
-                        command("say ÕâÎ»" + RANK_D->query_respect(who)
-                                + "£¬ÇÒÂı£¡");
+                        command("say è¿™ä½" + RANK_D->query_respect(who)
+                                + "ï¼Œä¸”æ…¢ï¼");
 //                        break;
                         switch (random(3))
                         {
                         case 0:
-                                command("say À´À´À´£¡");
+                                command("say æ¥æ¥æ¥ï¼");
                                 break;
                         case 1:
-                                command("say ÄÇ¾Í½ÏÁ¿½ÏÁ¿£¡");
+                                command("say é‚£å°±è¾ƒé‡è¾ƒé‡ï¼");
                                 break;
                         case 2:
-                                command("say À´°É£¡ÎÒ»¹»áÅÂÁËÄã²»³É£¿");
+                                command("say æ¥å§ï¼æˆ‘è¿˜ä¼šæ€•äº†ä½ ä¸æˆï¼Ÿ");
                                 break;
                         }
                         break;
@@ -151,17 +151,17 @@ int accept_hit(object who)
         {
                 switch(att) {
                 case "friendly":
-                        command("say ¼ÈÈ»" + RANK_D->query_respect(who)
-                                + "Èç´ËÎŞÀñ£¬ÎÒÖ»ÓĞ²»ÈİÇéÁË£¡");
+                        command("say æ—¢ç„¶" + RANK_D->query_respect(who)
+                                + "å¦‚æ­¤æ— ç¤¼ï¼Œæˆ‘åªæœ‰ä¸å®¹æƒ…äº†ï¼");
                         break;
                 case "aggressive":
                 case "killer":
                         command("say " + RANK_D->query_rude(who) +
-                                "£¡ÄãÕÒËÀ¡£");
+                                "ï¼ä½ æ‰¾æ­»ã€‚");
                         break;
                 default:
-                        command("say Äã²»ÈÊ£¬ÎÒ²»Òå£¡" + RANK_D->query_rude(who) +
-                                "£¬¿É²»Òª¹ÖÎÒ¡£");
+                        command("say ä½ ä¸ä»ï¼Œæˆ‘ä¸ä¹‰ï¼" + RANK_D->query_rude(who) +
+                                "ï¼Œå¯ä¸è¦æ€ªæˆ‘ã€‚");
                         break;
                 }
                 this_object()->kill_ob(who);
@@ -187,17 +187,17 @@ int accept_kill(object who)
 /*        switch(query("attitude"))
         {
         case "friendly":
-                command("say ¼ÈÈ»" + RANK_D->query_respect(who)
-                        + "Èç´Ë±ÆÆÈ£¬Äª¹ÖÔÚÏÂ²»ÁôÇé£¡");
+                command("say æ—¢ç„¶" + RANK_D->query_respect(who)
+                        + "å¦‚æ­¤é€¼è¿«ï¼Œè«æ€ªåœ¨ä¸‹ä¸ç•™æƒ…ï¼");
                 break;
         case "aggressive":
         case "killer":
                 command("say " + RANK_D->query_rude(who) +
-                        "£¡Ã÷ÄêµÄ½ñÌì£¬¾ÍÊÇÄãµÄ¼ÉÈÕ£¡¡£");
+                        "ï¼æ˜å¹´çš„ä»Šå¤©ï¼Œå°±æ˜¯ä½ çš„å¿Œæ—¥ï¼ã€‚");
                 break;
         default:
-                command("say ºÃ£¡" + RANK_D->query_rude(who)
-                        + "£¬ÔÛÃÇ¾ÍÒ»¾öÉúËÀ£¡");
+                command("say å¥½ï¼" + RANK_D->query_rude(who)
+                        + "ï¼Œå’±ä»¬å°±ä¸€å†³ç”Ÿæ­»ï¼");
                 break;
         }
 */
@@ -215,7 +215,7 @@ int accept_ansuan(object who)
         if (this_object()->is_guarder())
                 return this_object()->check_enemy(who, "ansuan");
 
-        command(random(2) ? "say àÅ£¿ÔõÃ´¡­" : "say °¡Ñ½£¬²»ºÃ£¡");
+        command(random(2) ? "say å—¯ï¼Ÿæ€ä¹ˆâ€¦" : "say å•Šå‘€ï¼Œä¸å¥½ï¼");
         return 1;
 }
 
@@ -227,7 +227,7 @@ int accept_touxi(object who)
         if (this_object()->is_guarder())
                 return this_object()->check_enemy(who, "touxi");
 
-        command(random(2) ? "say àÅ£¡ÔõÃ´...ÊÇË­£¡" : "say °¡£¡Äã.. ");
+        command(random(2) ? "say å—¯ï¼æ€ä¹ˆ...æ˜¯è°ï¼" : "say å•Šï¼ä½ .. ");
         return 1;
 }
 //////////add end///////////////////////
@@ -255,7 +255,7 @@ int return_home(object home)
 	}
 
 	// Leave for home now.
-	message("vision", this_object()->name() + "¼±¼±Ã¦Ã¦µØÀë¿ªÁË¡£\n",
+	message("vision", this_object()->name() + "æ€¥æ€¥å¿™å¿™åœ°ç¦»å¼€äº†ã€‚\n",
 		environment(), this_object());
 	return move(home);
 }
@@ -338,8 +338,8 @@ int accept_ai(object who)
 
 	if (tage>17)
 	{
-		command("say ¼ÈÃÉ" + RANK_D->query_respect(who)
-	+ "ÇàÑÛ£¬" + RANK_D->query_self(this_object())	+ "¹§¾´²»Èç´ÓÃü¡£\n");
+		command("say æ—¢è’™" + RANK_D->query_respect(who)
+	+ "é’çœ¼ï¼Œ" + RANK_D->query_self(this_object())	+ "æ­æ•¬ä¸å¦‚ä»å‘½ã€‚\n");
 		return 1;
 	} else
 		return 0;

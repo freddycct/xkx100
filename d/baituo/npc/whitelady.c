@@ -5,10 +5,10 @@ inherit NPC;
 
 void create()
 {
-	set_name("°×ÒÂÉÙÅ®", ({ "white lady","lady","white" }) );
-	set("gender", "Å®ĞÔ" );
+	set_name("ç™½è¡£å°‘å¥³", ({ "white lady","lady","white" }) );
+	set("gender", "å¥³æ€§" );
 	set("age", 18);
-	set("long", "Ò»¸ö´ÏÃ÷ÁæÀşµÄ°×ÒÂÉÙÅ®¡£\n");
+	set("long", "ä¸€ä¸ªèªæ˜ä¼¶ä¿çš„ç™½è¡£å°‘å¥³ã€‚\n");
 	set("shen_type", -1);
 	set("combat_exp", 1000);
 	set("str", 20);
@@ -30,7 +30,7 @@ void create()
 	set_temp("apply/defense", 12);
 	set_temp("apply/damage", 11);
 	set_temp("apply/armor", 7);
-	create_family("°×ÍÕÉ½ÅÉ", 3, "µÜ×Ó");
+	create_family("ç™½é©¼å±±æ´¾", 3, "å¼Ÿå­");
 	setup();
 	carry_object("/d/baituo/obj/baipao")->wear();
 }
@@ -49,6 +49,6 @@ void init()
 void greeting(object ob)
 {
 	if( !ob || environment(ob) != environment() ) return;
-	     say("°×ÒÂÉÙÅ®ÕĞÕĞÊÖËµµÀ£ºÕâÎ»" + RANK_D->query_respect(ob)+ "£¬¹ıÀ´ºÍÎÒÃÇÒ»ÆğÍæ×½ÃÔ²Ø°É¡£\n");
+	     say("ç™½è¡£å°‘å¥³æ‹›æ‹›æ‰‹è¯´é“ï¼šè¿™ä½" + RANK_D->query_respect(ob)+ "ï¼Œè¿‡æ¥å’Œæˆ‘ä»¬ä¸€èµ·ç©æ‰è¿·è—å§ã€‚\n");
 	return;
 }

@@ -5,10 +5,10 @@ inherit NPC;
 
 void create()
 {
-	set_name(HIY"金雕"NOR, ({ "diao"}));
-	set("race", "飞禽");
+	set_name(HIY"閲戦洉"NOR, ({ "diao"}));
+	set("race", "椋炵");
 	set("age", 3);
-	set("long", "一只大金雕，正立在树枝上仰视长天。\n");
+	set("long", "涓�鍙ぇ閲戦洉锛屾绔嬪湪鏍戞灊涓婁话瑙嗛暱澶┿�俓n");
 	set("attitude", "peaceful");
 
 	set("combat_exp", 30000);

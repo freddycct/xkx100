@@ -4,9 +4,9 @@ inherit NPC;
 
 void create()
 {
-        set_name("ˮţ", ({ "shui niu", "niu", "cow" }));
-        set("long","һͷ�Ϸ�ɽ��������ˮţ���Ǹ�����������Ҳ���������������ˮ��ïʢ������ʮ�ַ�׳��\n");
-	set("race", "����");
+        set_name("水牛", ({ "shui niu", "niu", "cow" }));
+        set("long","一头南方山区常见的水牛，是耕作的主力，也用来拉车载物。由于水草茂盛，长得十分肥壮。\n");
+	set("race", "走畜");
         set("age", 5);
         set("int", 30);
         set("qi", 300);
@@ -28,7 +28,7 @@ void create()
 void die()
 {
 	object ob, corpse;
-	message_vision("$N�������һ�����������ڵ�����ȥ�ˡ�\n",this_object());
+	message_vision("$N发出哞地一声，静静倒在地上死去了。\n",this_object());
 	if( objectp(corpse = CHAR_D->make_corpse(this_object())) )
 		ob = new("/clone/medicine/vegetable/niuhuang");
 	ob->move(corpse);

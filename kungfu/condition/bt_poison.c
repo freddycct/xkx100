@@ -1,5 +1,5 @@
 // Last Modified by winder on May. 15 2001
-// bt_poison.c °×ÍÕ¹ÖÉß¶¾
+// bt_poison.c ç™½é©¼æ€ªè›‡æ¯’
 #include <ansi.h>
 #include <condition.h>
 inherit F_CLEAN_UP;
@@ -7,19 +7,19 @@ int update_condition(object me, int duration)
 {
   if (me->is_ghost()) return 1;
 	if( !living(me) || me->query_temp("noliving") ) return CND_CONTINUE;
-	tell_object(me, HIB "ÄãºöÈ»¸Ðµ½ÉíÌå½©Ö±£¬ÒÑ¾­²»ÌýÊ¹»½ÁË¡£\n" NOR);
-	me->receive_wound("qi", 50,"ÌåÄÚ¹ÖÉßÖ®¶¾·¢×÷");
-	if(userp(me)) me->receive_wound("jing", 60,"ÌåÄÚ¹ÖÉßÖ®¶¾·¢×÷");
-	else me->receive_wound("jing", 80,"ÌåÄÚ¹ÖÉßÖ®¶¾·¢×÷");
+	tell_object(me, HIB "ä½ å¿½ç„¶æ„Ÿåˆ°èº«ä½“åƒµç›´ï¼Œå·²ç»ä¸å¬ä½¿å”¤äº†ã€‚\n" NOR);
+	me->receive_wound("qi", 50,"ä½“å†…æ€ªè›‡ä¹‹æ¯’å‘ä½œ");
+	if(userp(me)) me->receive_wound("jing", 60,"ä½“å†…æ€ªè›‡ä¹‹æ¯’å‘ä½œ");
+	else me->receive_wound("jing", 80,"ä½“å†…æ€ªè›‡ä¹‹æ¯’å‘ä½œ");
 	if( me->query("jing") > 301)
-		tell_room(environment(me),YEL+me->name()+"Í»È»Ö»Ï¥ÍäÇú£¬Éí×ÓÂýÂý´¹ÏÂ£¬¿ÚÖÐ·¢³öËÆÈËËÆÊÞµÄºÉºÉÖ®Éù¡£\n" NOR, ({ me }));
+		tell_room(environment(me),YEL+me->name()+"çªç„¶åªè†å¼¯æ›²ï¼Œèº«å­æ…¢æ…¢åž‚ä¸‹ï¼Œå£ä¸­å‘å‡ºä¼¼äººä¼¼å…½çš„è·è·ä¹‹å£°ã€‚\n" NOR, ({ me }));
 	else
 		if( me->query("jing") < 450 && me->query("jing") > 301)
-			tell_room(environment(me),BLU+me->name()+"ºöÈ»ÂúÃæ¶Ñ»¶ÁÑ×ìÎûÐ¦£¬¸üÏÔµÃ¹îÒìÎÞÂ×¡£\n" NOR, ({ me }));
+			tell_room(environment(me),BLU+me->name()+"å¿½ç„¶æ»¡é¢å †æ¬¢è£‚å˜´å˜»ç¬‘ï¼Œæ›´æ˜¾å¾—è¯¡å¼‚æ— ä¼¦ã€‚\n" NOR, ({ me }));
 		else
 			if( me->query("jing") < 300 && me->query("jing") > 201)
-				tell_room(environment(me),HIB+me->name()+"´ËÊ±ÉñÖÇ¸ü¼ÓºúÍ¿£¬Ö¸¶«´òÎ÷£¬ÂÒ¡õÂÒÒ§¡£\n" NOR,({ me }));
-			else tell_room(environment(me), HIR+me->name()+"Í»È»Ëõ³ÉÒ»ÍÅ£¬¹öÔÚµØÉÏ²»Í£µØ·¢²ü¡£\n" NOR,({ me }));
+				tell_room(environment(me),HIB+me->name()+"æ­¤æ—¶ç¥žæ™ºæ›´åŠ èƒ¡æ¶‚ï¼ŒæŒ‡ä¸œæ‰“è¥¿ï¼Œä¹±â–¡ä¹±å’¬ã€‚\n" NOR,({ me }));
+			else tell_room(environment(me), HIR+me->name()+"çªç„¶ç¼©æˆä¸€å›¢ï¼Œæ»šåœ¨åœ°ä¸Šä¸åœåœ°å‘é¢¤ã€‚\n" NOR,({ me }));
 	if ((int)me->query("eff_jing")<0 || (int)me->query("eff_qi")<0) return 0;
 	if( duration < 1 ) return 0;
 	if ((int)me->query("eff_jing")<0 || (int)me->query("eff_qi")<0) return 0;

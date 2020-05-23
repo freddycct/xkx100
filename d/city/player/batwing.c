@@ -3,10 +3,10 @@
 inherit NPC;
 void create()
 {
-	set_name("ÁøËæ·ç", ({ "batwing"}));
-	set("gender", "ÄĞĞÔ");
-	set("title", HIB"ÎÄÃ¤"NOR"ÌìÏÂ¹íÃÅ¸±ÃÅÖ÷°×ÍÕÉ½ÅÉµÚËÄ´úµÜ×Ó"NOR);
-	set("nickname", HIR"²»¿´²»ÖªµÀ¡úLook Batwing¡¹"NOR);
+	set_name("æŸ³éšé£", ({ "batwing"}));
+	set("gender", "ç”·æ€§");
+	set("title", HIB"æ–‡ç›²"NOR"å¤©ä¸‹é¬¼é—¨å‰¯é—¨ä¸»ç™½é©¼å±±æ´¾ç¬¬å››ä»£å¼Ÿå­"NOR);
+	set("nickname", HIR"ä¸çœ‹ä¸çŸ¥é“â†’Look Batwingã€"NOR);
 	set("age", 56);
 	set("attitude", "friendly");
 
@@ -17,7 +17,7 @@ void create()
 	set("con", 24);
 	set("str", 26);
 	set("weiwang", 80);
-	create_family("°×ÍÕÉ½ÅÉ" ,4, "µÜ×Ó");
+	create_family("ç™½é©¼å±±æ´¾" ,4, "å¼Ÿå­");
 	setup();
 	carry_object(CLOTH_DIR"male-cloth")->wear();
         carry_object(CLOTH_DIR"male-shoe")->wear();

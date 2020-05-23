@@ -9,11 +9,11 @@ string ask_me();
 
 void create()
 {
-	set_name("´ó³Õ´óÊ¦", ({ "dachi dashi", "dachi", "dashi"}));
+	set_name("å¤§ç—´å¤§å¸ˆ", ({ "dachi dashi", "dachi", "dashi"}));
 	set("long",
-		"ËûÊÇÒ»Î»Ğ¦Èİ¿ÉŞäµÄÀÏÉ®£¬Éí´©Ò»Ï®Çà²¼Ïâ±ßôÂôÄ¡£ËûÉí²Ä²»¸ß£¬\n"
-		"Ì«ÑôÑ¨Î¢Í¹£¬Ë«Ä¿¾¼¾¼ÓĞÉñ¡£\n");
-	set("gender", "ÄĞĞÔ");
+		"ä»–æ˜¯ä¸€ä½ç¬‘å®¹å¯æ¬çš„è€åƒ§ï¼Œèº«ç©¿ä¸€è¢­é’å¸ƒé•¶è¾¹è¢ˆè£Ÿã€‚ä»–èº«æä¸é«˜ï¼Œ\n"
+		"å¤ªé˜³ç©´å¾®å‡¸ï¼ŒåŒç›®ç‚¯ç‚¯æœ‰ç¥ã€‚\n");
+	set("gender", "ç”·æ€§");
 	set("attitude", "friendly");
 	set("class", "bonze");
 
@@ -48,7 +48,7 @@ void create()
 	set_skill("nianhua-finger", 220);
 	set_skill("boruo-strike", 220);
 // basic skill end
-// Ö¸ºÍ±Ş
+// æŒ‡å’Œé­
 	set_skill("finger", 150);
 	set_skill("mohe-finger", 220);
 	set_skill("duoluoye-finger", 220);
@@ -73,7 +73,7 @@ void create()
 		(: exert_function, "recover" :),
 	}) );
 
-	create_family("ÄÏÉÙÁÖÅÉ", 19, "²Ø¾­¸óÊ××ù");
+	create_family("å—å°‘æ—æ´¾", 19, "è—ç»é˜é¦–åº§");
 	setup();
 	carry_object(WEAPON_DIR+"whip/whip")->wield();
 	carry_object("/d/shaolin/obj/hui-cloth")->wear();

@@ -1,4 +1,4 @@
-// trap.c ¾òµØÎªÀÎ
+// trap.c æ˜åœ°ä¸ºç‰¢
 // Last Modified by winder on Jul. 12 2002
 inherit F_CLEAN_UP;
 
@@ -9,30 +9,30 @@ void digging(object, int);
 void create() { seteuid(getuid()); }
 
 mapping default_dirs = ([
-	"north":        "±±",
-	"south":        "ÄÏ",
-	"east":         "¶«",
-	"west":         "Î÷",
-	"northup":      "±±±ß",
-	"southup":      "ÄÏ±ß",
-	"eastup":       "¶«±ß",
-	"westup":       "Î÷±ß",
-	"northdown":    "±±±ß",
-	"southdown":    "ÄÏ±ß",
-	"eastdown":     "¶«±ß",
-	"westdown":     "Î÷±ß",
-	"northeast":    "¶«±±",
-	"northwest":    "Î÷±±",
-	"southeast":    "¶«ÄÏ",
-	"southwest":    "Î÷ÄÏ",
-	"up":           "ÉÏ",
-	"down":         "ÏÂ",
-	"out":          "Íâ",
-	"enter":        "Àï",
+	"north":        "åŒ—",
+	"south":        "å—",
+	"east":         "ä¸œ",
+	"west":         "è¥¿",
+	"northup":      "åŒ—è¾¹",
+	"southup":      "å—è¾¹",
+	"eastup":       "ä¸œè¾¹",
+	"westup":       "è¥¿è¾¹",
+	"northdown":    "åŒ—è¾¹",
+	"southdown":    "å—è¾¹",
+	"eastdown":     "ä¸œè¾¹",
+	"westdown":     "è¥¿è¾¹",
+	"northeast":    "ä¸œåŒ—",
+	"northwest":    "è¥¿åŒ—",
+	"southeast":    "ä¸œå—",
+	"southwest":    "è¥¿å—",
+	"up":           "ä¸Š",
+	"down":         "ä¸‹",
+	"out":          "å¤–",
+	"enter":        "é‡Œ",
 ]);
-string *place = ({ "ËÂ", "Ãí", "µê", "Â¥", "ÆÌ", "¸ó", "ìô", "Îİ", 
-"Ôº", "ÃÅ", "½Ö", "×¯", "Õ«", "ÇÅ", "Éç", "Ô°", "¹İ", "ÌÃ", "ÊÒ", 
-"Ìü", "·¿", "Ô¢", "¿â", "µî", "Óª", "¾Ç" ,"´¬","ÖÛ","Æº"});
+string *place = ({ "å¯º", "åº™", "åº—", "æ¥¼", "é“º", "é˜", "ç¥ ", "å±‹", 
+"é™¢", "é—¨", "è¡—", "åº„", "æ–‹", "æ¡¥", "ç¤¾", "å›­", "é¦†", "å ‚", "å®¤", 
+"å…", "æˆ¿", "å¯“", "åº“", "æ®¿", "è¥", "å©" ,"èˆ¹","èˆŸ","åª"});
 
 int main(object me, string arg)
 {
@@ -42,26 +42,26 @@ int main(object me, string arg)
 	int i, depth;
 
 	if( me->query("shen") >= 0 && !wizardp(me))
-		return notify_fail("Äã³öÉíÕıÅÉ£¬¾¹¸Ò´òÕâÖÖÍáÃÅĞ°µÀµÄÖ÷Òâ£¿£¡\n");
+		return notify_fail("ä½ å‡ºèº«æ­£æ´¾ï¼Œç«Ÿæ•¢æ‰“è¿™ç§æ­ªé—¨é‚ªé“çš„ä¸»æ„ï¼Ÿï¼\n");
 	if( me->query("combat_exp") >= 100000 && !wizardp(me))
-		return notify_fail("Èç´ËÏÂÈıÀÃµÄ°ÑÏ·£¬ÏóÄãÕâÑùµÄ¸ßÊÖ²»Ğ¼ÎªÖ®°É£¿£¡\n");
+		return notify_fail("å¦‚æ­¤ä¸‹ä¸‰çƒ‚çš„æŠŠæˆï¼Œè±¡ä½ è¿™æ ·çš„é«˜æ‰‹ä¸å±‘ä¸ºä¹‹å§ï¼Ÿï¼\n");
 	if( me->query_skill("digging", 1) <= 30)
-		return notify_fail("ÄãÕâµã±¾ÊÂ¶¼Ã»Ñ§È«£¬ÈçºÎ»áÍÚ¾òÏİÚå£¿\n");
+		return notify_fail("ä½ è¿™ç‚¹æœ¬äº‹éƒ½æ²¡å­¦å…¨ï¼Œå¦‚ä½•ä¼šæŒ–æ˜é™·é˜±ï¼Ÿ\n");
 	if( me->is_fighting() )
-		return notify_fail("Ò»±ß´ò¼ÜÒ»±ßÍÚ¾ò£¿ÄãÕæÊÇ»îÄåÁË£¡\n");
+		return notify_fail("ä¸€è¾¹æ‰“æ¶ä¸€è¾¹æŒ–æ˜ï¼Ÿä½ çœŸæ˜¯æ´»è…»äº†ï¼\n");
 	if( me->is_busy() )
-		return notify_fail("ÄãÏÖÔÚÕıÃ¦×Å£¡\n");
+		return notify_fail("ä½ ç°åœ¨æ­£å¿™ç€ï¼\n");
 		tool= present("shenlong qiao", me);
 	if(!tool && !wizardp(me))
-      return notify_fail("ÏÈµÃÕÒ°Ñ³ÃÊÖµÄ¹¤¾ß°É£¿\n");
+      return notify_fail("å…ˆå¾—æ‰¾æŠŠè¶æ‰‹çš„å·¥å…·å§ï¼Ÿ\n");
 	if( !tool->query("dig_times") )
-		return notify_fail("µÃÕÒ°Ñ³ÃÊÖµÄ¹¤¾ß°É?\n");
+		return notify_fail("å¾—æ‰¾æŠŠè¶æ‰‹çš„å·¥å…·å§?\n");
 	if( tool->query("dig_times") == 1)
 	{
-		message_vision(GRN "\n$NÍµÍµÃşÃşµØ¾ÙÆğÌúÇÂ£¬Ò»ÇÂÍÚÏÂÈ¥£¬¡°Å¾¡±µØÒ»ÉùÄ¾±ú¶ÏÁË¡£¡£¡£\n\n" NOR, me);
+		message_vision(GRN "\n$Nå·å·æ‘¸æ‘¸åœ°ä¸¾èµ·é“é”¹ï¼Œä¸€é”¹æŒ–ä¸‹å»ï¼Œâ€œå•ªâ€åœ°ä¸€å£°æœ¨æŸ„æ–­äº†ã€‚ã€‚ã€‚\n\n" NOR, me);
 		tool->unequip();
 		tool->reset_action();
-		tool->set("name", tool->query("name") + "µÄÆÆÆ¬");
+		tool->set("name", tool->query("name") + "çš„ç ´ç‰‡");
 		tool->move(environment(me));
 		tool->set("value", 0);
 		tool->set("weapon_prop", 0);
@@ -72,10 +72,10 @@ int main(object me, string arg)
 	for(i=0; i<sizeof(inv); i++)
 	{
 		if( userp(inv[i]) && inv[i] != me )
-			return notify_fail("µ¨×ÓÕâÃ´´ó£¿ÏÖÔÚ¿ÉÓĞÅÔÈËÔÚ³¡£¬²»ÄÜÍÚ£¡\n");
+			return notify_fail("èƒ†å­è¿™ä¹ˆå¤§ï¼Ÿç°åœ¨å¯æœ‰æ—äººåœ¨åœºï¼Œä¸èƒ½æŒ–ï¼\n");
 	}
 	if( !arg || !environment(me)->query("exits/" + arg) )
-		return notify_fail("ÄãÍùÄÄ¸ö·½ÏòÉèÏİÚå£¿\n");
+		return notify_fail("ä½ å¾€å“ªä¸ªæ–¹å‘è®¾é™·é˜±ï¼Ÿ\n");
 	if( strsrch(arg, "jump") >= 0  
 //	||
 //		strsrch(arg, "up") >= 0 ||
@@ -83,28 +83,28 @@ int main(object me, string arg)
 //		strsrch(arg,"out") >=0 ||
 //		strsrch(arg,"enter") >=0 
          )
-		return notify_fail("Äã²»ÄÜÍùÕâ¸ö·½ÏòÉèÏİÚå£¡\n");
+		return notify_fail("ä½ ä¸èƒ½å¾€è¿™ä¸ªæ–¹å‘è®¾é™·é˜±ï¼\n");
 	if( !environment(me)->query("trap_room") )
 		roomfrom = environment(me);
-	else return notify_fail("Äã²»ÄÜÔÚÏİÚåÖ®ÄÚÔÙÉèÏİÚå£¡\n");
+	else return notify_fail("ä½ ä¸èƒ½åœ¨é™·é˜±ä¹‹å†…å†è®¾é™·é˜±ï¼\n");
 	if( !roomfrom->query("outdoors"))
-		return notify_fail("Äã²»ÄÜÕâÀïÍÚ¾òÏİÚå£¡\n");
+		return notify_fail("ä½ ä¸èƒ½è¿™é‡ŒæŒ–æ˜é™·é˜±ï¼\n");
 	if( sizeof(roomfrom->query("exits")) >= 4 )
-		return notify_fail("ÕâÀïÊÇÍ¨áé´óµÀ£¬Äã²»ÄÜ´ËÂÒÍÚÏİÚå£¡\n");
+		return notify_fail("è¿™é‡Œæ˜¯é€šè¡¢å¤§é“ï¼Œä½ ä¸èƒ½æ­¤ä¹±æŒ–é™·é˜±ï¼\n");
 /*
 	if( roomfrom->query("cost") <= 1 )
-		return notify_fail("´Ë´¦ÍÁÖÊ¼áÊµ£¬ËÆºõÄÑÒÔÍÚ¾òÏİÚå£¡\n");
+		return notify_fail("æ­¤å¤„åœŸè´¨åšå®ï¼Œä¼¼ä¹éš¾ä»¥æŒ–æ˜é™·é˜±ï¼\n");
 */
 	if(!( roomto = find_object(roomfrom->query("exits/" + arg)) ) )
 		roomto = load_object(roomfrom->query("exits/" + arg));
 	if( roomto->query("trap_room") )
-		return notify_fail("ÄÇ±ßÒÑ¾­ÓĞÁË¸öÏİÚå£¡\n");
+		return notify_fail("é‚£è¾¹å·²ç»æœ‰äº†ä¸ªé™·é˜±ï¼\n");
 	if( !roomto->query("outdoors"))
-		return notify_fail("Äã²»ÄÜÔÚ±ğÈË·¿ÃÅ¿ÚÂÒÍÚ£¡\n");
+		return notify_fail("ä½ ä¸èƒ½åœ¨åˆ«äººæˆ¿é—¨å£ä¹±æŒ–ï¼\n");
 	for (i=0; i<sizeof(place); i++)
 		if( strsrch(roomfrom->query("short"), place[i]) >= 0 ||
 			strsrch(roomto->query("short"), place[i]) >= 0)
-			return notify_fail("ÕâÀïµÄÂ·Ãæ²»ÊÊºÏÍÚÏİÚå£¡\n");
+			return notify_fail("è¿™é‡Œçš„è·¯é¢ä¸é€‚åˆæŒ–é™·é˜±ï¼\n");
 
 	depth = me->query_skill("digging", 1)*10
 		+ me->query_str()*2 
@@ -113,7 +113,7 @@ int main(object me, string arg)
 		+ me->query("qi")/2;
 
 	if( me->query("qi") < depth * roomfrom->query("cost") / 10 )
-		return notify_fail("ÄãµÄÁ¦Æø²»¹»ÁË£¡\n");
+		return notify_fail("ä½ çš„åŠ›æ°”ä¸å¤Ÿäº†ï¼\n");
 	roomtrap = new("/clone/misc/traproom");
 	roomtrap->set("depth", depth/3 + random(depth*2/3));
 	roomtrap->set("owner", me);
@@ -151,7 +151,7 @@ int main(object me, string arg)
 		roomto->set("exits/jump" + roomtrap->query("to"), file_name(roomfrom));
 	}
 
-	message_vision(GRN "\n$NÍµÍµÃşÃşµØ¾ÙÆğÌúÇÂ£¬³¯×Å" + dir + "·½ÃÍÍÚÒ»Í¨¡£¡£¡£\n\n" NOR, me);
+	message_vision(GRN "\n$Nå·å·æ‘¸æ‘¸åœ°ä¸¾èµ·é“é”¹ï¼Œæœç€" + dir + "æ–¹çŒ›æŒ–ä¸€é€šã€‚ã€‚ã€‚\n\n" NOR, me);
 	tool->add("dig_times", -1);
 	remove_call_out("digging");
 	call_out("digging", depth/100, me, depth);
@@ -165,22 +165,22 @@ void digging(object me, int depth)
 	if( me->is_busy() )
 	{
 		call_out("digging", 3, me, depth);
-		if(random(5)==1) message_vision(GRN "\n$NÆğ¾¢µØÍùµØÏÂÍÚ×ÅÍÚ×Å¡£¡£¡£\n" NOR, me);
+		if(random(5)==1) message_vision(GRN "\n$Nèµ·åŠ²åœ°å¾€åœ°ä¸‹æŒ–ç€æŒ–ç€ã€‚ã€‚ã€‚\n" NOR, me);
 	}
 	else	
 	{
 		me->improve_skill("digging", depth / 20);
-		me->receive_damage("qi", depth * (environment(me))->query("cost") / 10, "ÍÚÏİÚåÀÛËÀÁË");
-		tell_object(me, "Äã´óº¹ÁÜÀìµØÍÚºÃÁËÒ»¸öÏİÚå£¡\n");
+		me->receive_damage("qi", depth * (environment(me))->query("cost") / 10, "æŒ–é™·é˜±ç´¯æ­»äº†");
+		tell_object(me, "ä½ å¤§æ±—æ·‹æ¼“åœ°æŒ–å¥½äº†ä¸€ä¸ªé™·é˜±ï¼\n");
 	}
 }
 
 int help (object me)
 {
 	write(@HELP
-Ö¸Áî¸ñÊ½ : [trap <·½Ïò>]
+æŒ‡ä»¤æ ¼å¼ : [trap <æ–¹å‘>]
 
-Õâ¸öÖ¸ÁîÈÃÄãÏòÄ³¸ö·½ÏòÍÚ¾òÒ»¸öÏİÚå¡£
+è¿™ä¸ªæŒ‡ä»¤è®©ä½ å‘æŸä¸ªæ–¹å‘æŒ–æ˜ä¸€ä¸ªé™·é˜±ã€‚
 
 HELP
 );

@@ -10,13 +10,13 @@ string ask_me();
 
 void create()
 {
-	set_name("·â¹­Ó°", ({ "feng gongying", "feng", "gongying", }));
+	set_name("å°å¼“å½±", ({ "feng gongying", "feng", "gongying", }));
 	set("long",
-        "ËûÊÇÒ»¸öÒõÓôµÄÊİ×Ó£¬Éí´©Ò»¼ş°×²¼³¤ÅÛ¡£\n"
-        "ËûÁ³ÉÏÒõ³Á³ÁµÄ£¬¿´À´ĞÄĞØ±Ø²»¿ªÀ«¡£\n"
+        "ä»–æ˜¯ä¸€ä¸ªé˜´éƒçš„ç˜¦å­ï¼Œèº«ç©¿ä¸€ä»¶ç™½å¸ƒé•¿è¢ã€‚\n"
+        "ä»–è„¸ä¸Šé˜´æ²‰æ²‰çš„ï¼Œçœ‹æ¥å¿ƒèƒ¸å¿…ä¸å¼€é˜”ã€‚\n"
 	);
 
-	set("gender", "ÄĞĞÔ");
+	set("gender", "ç”·æ€§");
 	set("attitude", "friendly");
         set("class", "fighter");
 
@@ -53,12 +53,12 @@ void create()
 	map_skill("sword", "damo-jian");
 	prepare_skill("finger", "nianhua-zhi");
 	set("inqiry", ([
-		"Ã÷½Ì" :    (: ask_me :),
+		"æ˜æ•™" :    (: ask_me :),
 	]));
 
-	set("party/party_name",HIG"Ã÷½Ì"NOR);
-	set("party/rank",HIM"ÉñÉßÌ³" NOR "Ì³Ö÷");
-	create_family("Ã÷½Ì", 35, "µÜ×Ó");
+	set("party/party_name",HIG"æ˜æ•™"NOR);
+	set("party/rank",HIM"ç¥è›‡å›" NOR "å›ä¸»");
+	create_family("æ˜æ•™", 35, "å¼Ÿå­");
 
 	setup();
 
@@ -84,7 +84,7 @@ void init()
 
 string ask_me()
 {
-	return "ÄãÏë¼ÓÈëÎÒÃ÷½Ì(join mingjiao)Âğ£¿";
+	return "ä½ æƒ³åŠ å…¥æˆ‘æ˜æ•™(join mingjiao)å—ï¼Ÿ";
 }
 
 #include "tanzhu.h"

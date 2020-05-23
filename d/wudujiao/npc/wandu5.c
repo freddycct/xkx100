@@ -4,10 +4,10 @@ inherit NPC;
 
 void create()
 {
-        set_name("������",({"chan chu"}));
+        set_name("三足金蟾",({"chan chu"}));
 
-        set("race", "Ұ��");
-        set("long", "һֻȭͷ��Сͨ����Ƶ�С��ܣ���˵ֻ���¹����С�\n");
+        set("race", "野兽");
+        set("long", "一只拳头大小通身金黄的小蟾蜍，据说只有月宫才有。\n");
         set("age", 10000);
         set("attitude", "peaceful");
 
@@ -17,7 +17,7 @@ void create()
         set("str", 40);
         set("con", 50);
 
-        set("limbs", ({ "ͷ��", "����", "β��" }) );
+        set("limbs", ({ "头部", "身体", "尾巴" }) );
         set("verbs", ({ "bite" }) );
 
         set_temp("apply/attack", 200);
@@ -37,7 +37,7 @@ void init()
         object me,ob;
         add_action("do_train", "xun");
         if (interactive(me = this_player()) && 
-            (string)me->query("family/family_name") != "�嶾��")
+            (string)me->query("family/family_name") != "五毒教")
         {
                remove_call_out("kill_ob");
                call_out("kill_ob", 1, me);
@@ -47,10 +47,10 @@ void init()
 
 int hit_ob(object me, object ob, int damage)
 {
-        if ((string)ob->query("family/family_name") != "�嶾��") {
+        if ((string)ob->query("family/family_name") != "五毒教") {
                 ob->apply_condition("chanchu_poison", 20
               +(int)ob->query_condition("chanchu_poison") );
-              tell_object(ob, HIG "����ñ�ҧ�еĵط�һ����ľ��\n" NOR );
+              tell_object(ob, HIG "你觉得被咬中的地方一阵麻木！\n" NOR );
         }
 }
 

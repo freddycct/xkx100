@@ -25,43 +25,43 @@ int main(object me, string arg)
 		if (!obj) obj = present(arg, environment(me));
 		if (!obj) obj = find_object( resolve_path(me->query("cwd"), arg) );
 		if (!obj && sizeof(children(arg))) obj = find_object( resolve_path(me->query("cwd"), file_name(children(arg)[0])));
-		if (!obj) return notify_fail("Ã»ÓĞÕâÑùÎï¼ş....¡£\n");
+		if (!obj) return notify_fail("æ²¡æœ‰è¿™æ ·ç‰©ä»¶....ã€‚\n");
 	}
 
-	printf("Îï¼ş [%O]\n-----------------------------------------------------\n", obj);
-	write("µµ°¸£º\t\t" + base_name(obj) + ".c\n");
-	write("ÁìÓò£º\t\t" + domain_file(base_name(obj)) + "\n");
-	write("×÷Õß£º\t\t" + author_file(base_name(obj)) + "\n");
-	write("È¨ÏŞ£º\t\tuid = " + getuid(obj) + ", euid = " + geteuid(obj) + "\n");
-	write("µÈ¼¶£º\t\t" + wizhood(obj) + "\n");
-	write("Ê¹ÓÃ¼ÇÒäÌå£º\t" + memory_info(obj) + "\n");
+	printf("ç‰©ä»¶ [%O]\n-----------------------------------------------------\n", obj);
+	write("æ¡£æ¡ˆï¼š\t\t" + base_name(obj) + ".c\n");
+	write("é¢†åŸŸï¼š\t\t" + domain_file(base_name(obj)) + "\n");
+	write("ä½œè€…ï¼š\t\t" + author_file(base_name(obj)) + "\n");
+	write("æƒé™ï¼š\t\tuid = " + getuid(obj) + ", euid = " + geteuid(obj) + "\n");
+	write("ç­‰çº§ï¼š\t\t" + wizhood(obj) + "\n");
+	write("ä½¿ç”¨è®°å¿†ä½“ï¼š\t" + memory_info(obj) + "\n");
 	str = "";
-	if( living(obj) ) 		str += "ÉúÎï ";
-	if( userp(obj) )		str += "Ê¹ÓÃÕß ";
-	if( interactive(obj) )	str += "ÏßÉÏ ";
-	if( wizardp(obj) ) 		str += "Î×Ê¦ ";
-	if( clonep(obj) ) 		str += "¸´ÖÆ ";
-	if( virtualp(obj) ) 	str += "ĞéÄâ ";
-	if( query_heart_beat(obj) ) str += "ĞÄÌø:" + query_heart_beat(obj) + " ";
-	write("ÊôĞÔ£º\t\t" + str + "\n");
-	write("²Î¿¼Á¬½á£º\t" + refs(obj) + "\n");
-	write("¸´ÖÆ¸öÊı£º\t" + sizeof(children(base_name(obj)+".c")) + "\n");
-	write("·Ö±ğÈçÏÂ£º\n");
+	if( living(obj) ) 		str += "ç”Ÿç‰© ";
+	if( userp(obj) )		str += "ä½¿ç”¨è€… ";
+	if( interactive(obj) )	str += "çº¿ä¸Š ";
+	if( wizardp(obj) ) 		str += "å·«å¸ˆ ";
+	if( clonep(obj) ) 		str += "å¤åˆ¶ ";
+	if( virtualp(obj) ) 	str += "è™šæ‹Ÿ ";
+	if( query_heart_beat(obj) ) str += "å¿ƒè·³:" + query_heart_beat(obj) + " ";
+	write("å±æ€§ï¼š\t\t" + str + "\n");
+	write("å‚è€ƒè¿ç»“ï¼š\t" + refs(obj) + "\n");
+	write("å¤åˆ¶ä¸ªæ•°ï¼š\t" + sizeof(children(base_name(obj)+".c")) + "\n");
+	write("åˆ†åˆ«å¦‚ä¸‹ï¼š\n");
 	ob=children(base_name(obj));
 	if (dest==1)
 	if ( base_name(obj)=="/clone/misc/void" 
 			||base_name(obj)=="/clone/user/user")
 	{	
-		write("ÕâÑù¶«Î÷²»ÔÊĞíÕâÑùÉ¾³ı¡£\n");
+		write("è¿™æ ·ä¸œè¥¿ä¸å…è®¸è¿™æ ·åˆ é™¤ã€‚\n");
 		return 1;
 	}
 	for (i=0;i<sizeof(ob);i++)
 	{
 	if (dest==1)
 	{
-		write("Çå³ı"+file_name(ob[i]));
+		write("æ¸…é™¤"+file_name(ob[i]));
 		destruct(find_object(resolve_path(me->query("cwd"), file_name(ob[i])) ));
-		write("³É¹¦¡£\n");
+		write("æˆåŠŸã€‚\n");
 	}else
 		{
 			write(sprintf("%-24s ",file_name(ob[i])));
@@ -89,13 +89,13 @@ int main(object me, string arg)
 int help(object me)
 {
   write(@HELP
-Ö¸Áî¸ñÊ½ : iinfo [-d] <Îï¼şÖ®Ãû³Æ»òµµÃû>
+æŒ‡ä»¤æ ¼å¼ : iinfo [-d] <ç‰©ä»¶ä¹‹åç§°æˆ–æ¡£å>
 					 iinfo link me
 					 iinfo me
 					 iinfo here
-	²ÎÊı -d ±íÊ¾É¾³ıËùÓĞ¸´ÖÆ³öµÄ¸ÄÎï¼ş¡£
+	å‚æ•° -d è¡¨ç¤ºåˆ é™¤æ‰€æœ‰å¤åˆ¶å‡ºçš„æ”¹ç‰©ä»¶ã€‚
 	
-ÀûÓÃ´ËÒ»Ö¸Áî¿ÉµÃÖªÒ»Ğ©ÓĞ¹Ø¸ÃÎï¼şµÄ×ÊÑ¶¡£
+åˆ©ç”¨æ­¤ä¸€æŒ‡ä»¤å¯å¾—çŸ¥ä¸€äº›æœ‰å…³è¯¥ç‰©ä»¶çš„èµ„è®¯ã€‚
 HELP
     );
     return 1;

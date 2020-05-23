@@ -8,17 +8,17 @@ inherit F_CLEAN_UP;
 int main(object me, string arg)
 {
 	if( !wizardp(me) || !arg) return 0;
-	shout(HIW"¡¾´«Òô¡¿" + me->name() + HIW + "[" + me->query("id") + "]" + HIW + "×ÝÉù³¤Ð¥£º" + arg + "\n"NOR);
-	write(HIW"Äã×ÝÉù³¤Ð¥£º" + arg + "\n"NOR);
+	shout(HIW"ã€ä¼ éŸ³ã€‘" + me->name() + HIW + "[" + me->query("id") + "]" + HIW + "çºµå£°é•¿å•¸ï¼š" + arg + "\n"NOR);
+	write(HIW"ä½ çºµå£°é•¿å•¸ï¼š" + arg + "\n"NOR);
 	return 1;
 }
 int help(object me)
 {
 	write(@HELP
-Ö¸Áî¸ñÊ½ : shout | han <Ñ¶Ï¢>
+æŒ‡ä»¤æ ¼å¼ : shout | han <è®¯æ¯>
  
-    Õâ¸öÖ¸ÁîÈÃÄã½« <Ñ¶Ï¢> ´«ËÍ³öÈ¥£¬ËùÓÐÕýÔÚÓÎÏ·ÖÐµÄÈË¶¼
-»áÌý¼ûÄãµÄ»°¡£
+    è¿™ä¸ªæŒ‡ä»¤è®©ä½ å°† <è®¯æ¯> ä¼ é€å‡ºåŽ»ï¼Œæ‰€æœ‰æ­£åœ¨æ¸¸æˆä¸­çš„äººéƒ½
+ä¼šå¬è§ä½ çš„è¯ã€‚
  
 see also : tune
 HELP

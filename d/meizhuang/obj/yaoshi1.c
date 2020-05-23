@@ -6,9 +6,9 @@ inherit ITEM;
 
 void create()
 {
-	set_name(HIW"¸ÖĞ¾Ô¿³×"NOR, ({"gang yaoshi", "yaoshi"}));
-	set("long", "ÕâÊÇÒ»°Ñ¸ÖĞ¾Ô¿³×£¬¿´ÆğÀ´·Ç³£¼á¹Ì¡£\n");
-	set("unit", "°Ñ");
+	set_name(HIW"é’¢èŠ¯é’¥åŒ™"NOR, ({"gang yaoshi", "yaoshi"}));
+	set("long", "è¿™æ˜¯ä¸€æŠŠé’¢èŠ¯é’¥åŒ™ï¼Œçœ‹èµ·æ¥éå¸¸åšå›ºã€‚\n");
+	set("unit", "æŠŠ");
 	set("weight", 10);
 }
 

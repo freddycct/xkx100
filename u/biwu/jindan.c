@@ -1,4 +1,4 @@
-// /d/city/obj/bing6.c ×´Ôª±ı
+// /d/city/obj/bing6.c çŠ¶å…ƒé¥¼
 
 inherit ITEM;
 #include <ansi.h>
@@ -10,14 +10,14 @@ void init()
 
 void create()
 {
-	set_name(HIY "¾Å×ª½ğµ¤" NOR, ({ "jiuzhuan jindan", "dan" }) );
+	set_name(HIY "ä¹è½¬é‡‘ä¸¹" NOR, ({ "jiuzhuan jindan", "dan" }) );
 	set_weight(200);
 	if( clonep() )
 		set_default_object(__FILE__);
 	else 
 	{
-		set("unit", "¿Å");
-		set("long", "Ò»¿Å½ğÉ«µÄÏÉµ¤£¬´«ËµÊÇÌ«ÉÏÀÏ¾ı¾«ĞÄĞŞÁ¶µÄÁéµ¤ÃîÒ©¡£\n");
+		set("unit", "é¢—");
+		set("long", "ä¸€é¢—é‡‘è‰²çš„ä»™ä¸¹ï¼Œä¼ è¯´æ˜¯å¤ªä¸Šè€å›ç²¾å¿ƒä¿®ç‚¼çš„çµä¸¹å¦™è¯ã€‚\n");
 		set("no_get", 1);
 		set("no_drop", 1);
 		set("no_put", 1);
@@ -34,142 +34,142 @@ int do_eat(string arg)
 	object ob=this_object();
 	int effect = 0;
 	
-	if (!id(arg))  return notify_fail("ÄãÒª³ÔÊ²Ã´£¿\n");
-		message_vision(HIY "$NÒ»Ñö²±£¬ÍÌÏÂÒ»"+ob->query("unit")+"$n¡£\n" NOR, me,ob);
+	if (!id(arg))  return notify_fail("ä½ è¦åƒä»€ä¹ˆï¼Ÿ\n");
+		message_vision(HIY "$Nä¸€ä»°è„–ï¼Œåä¸‹ä¸€"+ob->query("unit")+"$nã€‚\n" NOR, me,ob);
 
-// ±ÛÁ¦
+// è‡‚åŠ›
 	if (me->query("gift/str/all") < 10 && me->query("str") < 35 && random(2))
 	{
 		effect++;
-//		write(HIG "Äã¾õµÃ×Ô¼ºµÄëöÁ¦¸üÇ¿½¡ÁË¡£\n" NOR);
-		write(HIG "ÄãµÄëöÁ¦Ôö¼ÓÁË¡£\n" NOR);
+//		write(HIG "ä½ è§‰å¾—è‡ªå·±çš„è†‚åŠ›æ›´å¼ºå¥äº†ã€‚\n" NOR);
+		write(HIG "ä½ çš„è†‚åŠ›å¢åŠ äº†ã€‚\n" NOR);
 		me->add("gift/str/succeed",1);
 		me->add("gift/str/all", 1);
 		me->add("str", 1);
 		log_file("gift/tianfu",
-		        sprintf("%-20s ³ÔÏÂ%-10sÔö¼ÓÁË%s(%s) [%s]\n",
+		        sprintf("%-20s åƒä¸‹%-10så¢åŠ äº†%s(%s) [%s]\n",
 		        me->query("name")+"("+me->query("id")+")",
 		        base_name(this_object()),
-		        "±ÛÁ¦","str",ctime(time())));
+		        "è‡‚åŠ›","str",ctime(time())));
 	}
-// ¸ù¹Ç
+// æ ¹éª¨
 	if (me->query("gift/con/all") < 10 && me->query("con") < 35 && random(2))
 	{
 		effect++;
-//		write(HIC "Äã¾õµÃ×Ô¼ºµÄÄÚÏ¢¸üÍ¨³©ÁË¡£\n" NOR);
-		write(HIC "ÄãµÄ¸ù¹ÇÔö¼ÓÁË¡£\n" NOR);
+//		write(HIC "ä½ è§‰å¾—è‡ªå·±çš„å†…æ¯æ›´é€šç•…äº†ã€‚\n" NOR);
+		write(HIC "ä½ çš„æ ¹éª¨å¢åŠ äº†ã€‚\n" NOR);
 		me->add("gift/con/succeed",1);
 		me->add("gift/con/all", 1);
 		me->add("con", 1);
 		log_file("gift/tianfu",
-		        sprintf("%-20s ³ÔÏÂ%-10sÔö¼ÓÁË%s(%s) [%s]\n",
+		        sprintf("%-20s åƒä¸‹%-10så¢åŠ äº†%s(%s) [%s]\n",
 		        me->query("name")+"("+me->query("id")+")",
 		        base_name(this_object()),
-		        "¸ù¹Ç","con",ctime(time())));
+		        "æ ¹éª¨","con",ctime(time())));
 	}
 
-//Éí·¨
+//èº«æ³•
 	if (me->query("gift/dex/all") < 10 && me->query("dex") < 35 && random(2))
 	{
 		effect++;
-//		write(HIR "Äã¾õµÃ×Ô¼ºµÄÍÈ½Å¸üÁé»îÁË¡£\n" NOR);
-		write(HIR "ÄãµÄÉí·¨Ôö¼ÓÁË¡£\n" NOR);
+//		write(HIR "ä½ è§‰å¾—è‡ªå·±çš„è…¿è„šæ›´çµæ´»äº†ã€‚\n" NOR);
+		write(HIR "ä½ çš„èº«æ³•å¢åŠ äº†ã€‚\n" NOR);
 		me->add("gift/dex/succeed",1);
 		me->add("gift/dex/all", 1);
 		me->add("dex", 1);
 		log_file("gift/tianfu",
-		        sprintf("%-20s ³ÔÏÂ%-10sÔö¼ÓÁË%s(%s) [%s]\n",
+		        sprintf("%-20s åƒä¸‹%-10så¢åŠ äº†%s(%s) [%s]\n",
 		        me->query("name")+"("+me->query("id")+")",
 		        base_name(this_object()),
-		        "Éí·¨","dex",ctime(time())));
+		        "èº«æ³•","dex",ctime(time())));
 	}	
-// ¸£Ôµ
+// ç¦ç¼˜
 	if (me->query("gift/kar/all") < 10 && me->query("kar") < 35 && random(2))
 	{
 		effect++;
-		write("ÄãµÄ¸£ÔµÌá¸ßÁË¡£\n" NOR);
+		write("ä½ çš„ç¦ç¼˜æé«˜äº†ã€‚\n" NOR);
 		me->add("gift/kar/succeed",1);
 		me->add("gift/kar/all", 1);
 		me->add("kar", 1);
 		log_file("gift/tianfu",
-		        sprintf("%-20s ³ÔÏÂ%-10sÔö¼ÓÁË%s(%s) [%s]\n",
+		        sprintf("%-20s åƒä¸‹%-10så¢åŠ äº†%s(%s) [%s]\n",
 		        me->query("name")+"("+me->query("id")+")",
 		        base_name(this_object()),
-		        "¸£Ôµ","kar",ctime(time())));
+		        "ç¦ç¼˜","kar",ctime(time())));
 	}
-// µ¨Ê¶
+// èƒ†è¯†
 	if (me->query("gift/cor/all") < 10 && me->query("cor") < 35 && random(2))
 	{
 		effect++;
-		write("ÄãµÄµ¨Ê¶Ìá¸ßÁË¡£\n" NOR);
+		write("ä½ çš„èƒ†è¯†æé«˜äº†ã€‚\n" NOR);
 		me->add("gift/cor/succeed",1);
 		me->add("gift/cor/all", 1);
 		me->add("cor", 1);
 		log_file("gift/tianfu",
-		        sprintf("%-20s ³ÔÏÂ%-10sÔö¼ÓÁË%s(%s) [%s]\n",
+		        sprintf("%-20s åƒä¸‹%-10så¢åŠ äº†%s(%s) [%s]\n",
 		        me->query("name")+"("+me->query("id")+")",
 		        base_name(this_object()),
-		        "µ¨Ê¶","cor",ctime(time())));
+		        "èƒ†è¯†","cor",ctime(time())));
 	}
 
-// ¶¨Á¦
+// å®šåŠ›
 	if (me->query("gift/cps/all") < 10 && me->query("cps") < 35 && random(2))
 	{
 		effect++;
-		write("ÄãµÄ¶¨Á¦Ìá¸ßÁË¡£\n" NOR);
+		write("ä½ çš„å®šåŠ›æé«˜äº†ã€‚\n" NOR);
 		me->add("gift/cps/succeed",1);
 		me->add("gift/cps/all", 1);
 		me->add("cps", 1);
 		log_file("gift/tianfu",
-		        sprintf("%-20s ³ÔÏÂ%-10sÔö¼ÓÁË%s(%s) [%s]\n",
+		        sprintf("%-20s åƒä¸‹%-10så¢åŠ äº†%s(%s) [%s]\n",
 		        me->query("name")+"("+me->query("id")+")",
 		        base_name(this_object()),
-		        "¶¨Á¦","cps",ctime(time())));
+		        "å®šåŠ›","cps",ctime(time())));
 	}
-// ÁéĞÔ
+// çµæ€§
 	if (me->query("gift/spi/all") < 10 && me->query("spi") < 35 && random(2))
 	{
 		effect++;
-		write("ÄãµÄÁéĞÔÌá¸ßÁË¡£\n" NOR);
+		write("ä½ çš„çµæ€§æé«˜äº†ã€‚\n" NOR);
 		me->add("gift/spi/succeed",1);
 		me->add("gift/spi/all", 1);
 		me->add("spi", 1);
 		log_file("gift/tianfu",
-		        sprintf("%-20s ³ÔÏÂ%-10sÔö¼ÓÁË%s(%s) [%s]\n",
+		        sprintf("%-20s åƒä¸‹%-10så¢åŠ äº†%s(%s) [%s]\n",
 		        me->query("name")+"("+me->query("id")+")",
 		        base_name(this_object()),
-		        "ÁéĞÔ","spi",ctime(time())));
+		        "çµæ€§","spi",ctime(time())));
 	}
-// ÄÍÁ¦
+// è€åŠ›
 	if (me->query("gift/sta/all") < 10 && me->query("sta") < 35 && random(2))
 	{
 		effect++;
-		write("ÄãµÄÄÍÁ¦Ìá¸ßÁË¡£\n" NOR);
+		write("ä½ çš„è€åŠ›æé«˜äº†ã€‚\n" NOR);
 		me->add("gift/sta/succeed",1);
 		me->add("gift/sta/all", 1);
 		me->add("sta", 1);
 		log_file("gift/tianfu",
-		        sprintf("%-20s ³ÔÏÂ%-10sÔö¼ÓÁË%s(%s) [%s]\n",
+		        sprintf("%-20s åƒä¸‹%-10så¢åŠ äº†%s(%s) [%s]\n",
 		        me->query("name")+"("+me->query("id")+")",
 		        base_name(this_object()),
-		        "ÄÍÁ¦","sta",ctime(time())));
+		        "è€åŠ›","sta",ctime(time())));
 	}
-// ÈİÃ²
+// å®¹è²Œ
 	if (me->query("gift/per/all") < 10 && me->query("per") < 35 && random(2))
 	{
 		effect++;
-		write("ÄãµÄÈİÃ²Ìá¸ßÁË¡£\n" NOR);
+		write("ä½ çš„å®¹è²Œæé«˜äº†ã€‚\n" NOR);
 		me->add("gift/per/succeed",1);
 		me->add("gift/per/all", 1);
 		me->add("per", 1);
 		log_file("gift/tianfu",
-		        sprintf("%-20s ³ÔÏÂ%-10sÔö¼ÓÁË%s(%s) [%s]\n",
+		        sprintf("%-20s åƒä¸‹%-10så¢åŠ äº†%s(%s) [%s]\n",
 		        me->query("name")+"("+me->query("id")+")",
 		        base_name(this_object()),
-		        "ÈİÃ²","per",ctime(time())));
+		        "å®¹è²Œ","per",ctime(time())));
 	}
 	if (! effect)
-		tell_object(me, "²»¹ıÄã¾õµÃºÃÏñÃ»Ê²Ã´×÷ÓÃ¡£\n");
+		tell_object(me, "ä¸è¿‡ä½ è§‰å¾—å¥½åƒæ²¡ä»€ä¹ˆä½œç”¨ã€‚\n");
 		destruct(this_object());
 	return 1;
 }

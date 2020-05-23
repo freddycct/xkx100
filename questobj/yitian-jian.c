@@ -1,4 +1,4 @@
-// yitian-jian ÒĞÌì½£
+// yitian-jian å€šå¤©å‰‘
 
 #include <weapon.h>
 #include <ansi.h>
@@ -6,19 +6,19 @@ inherit SWORD;
 
 void create()
 {
-	set_name(YEL"ÒĞÌì½£"NOR,({ "yitian jian", "yitian", "sword", "jian" }));
+	set_name(YEL"å€šå¤©å‰‘"NOR,({ "yitian jian", "yitian", "sword", "jian" }));
 	set_weight(1000);
 	set("taskobj", 1);
 	if( clonep() )
 		set_default_object(__FILE__);
 	else
 	{
-		set("unit", "°Ñ");
+		set("unit", "æŠŠ");
 		set("value", 0);
 		set("material", "steel");
-		set("long", "ÕâÊÇÒ»±úËÄ³ßÀ´³¤µÄ¹Å½££¬½£ÇÊÉÏ½ğË¿Ïâ×ÅÁ½¸ö×Ö¡°ÒĞÌì¡±¡£\nÕû¸ö½£ÉíÒşÒş·¢³öÒ»²ãÇàÆø£¬½£Î´³öÇÊ£¬ÒÑ¿É¼ûÆä²»·²¡£\n");
-		set("wield_msg", HIY "$N¡°à§¡±µÄÒ»Éù³é³ö$nÍìÁË¸ö½£»¨£¬Ö»¾õµ­µ­ÇåÏã£¬\n½£É«µ­»Æ£¬Õâ°ÑÒĞÌì½£¾¹ÊÇÌ´ÏãÄ¾ËùÖÆ¡£$NÒ»Ê±²»ÖªËù´ë¡£\n"NOR);
-		set("unwield_msg", HIY "$N½«Ä¾½£»¹Èë½£ÇÊ¡£\n" NOR);
+		set("long", "è¿™æ˜¯ä¸€æŸ„å››å°ºæ¥é•¿çš„å¤å‰‘ï¼Œå‰‘é˜ä¸Šé‡‘ä¸é•¶ç€ä¸¤ä¸ªå­—â€œå€šå¤©â€ã€‚\næ•´ä¸ªå‰‘èº«éšéšå‘å‡ºä¸€å±‚é’æ°”ï¼Œå‰‘æœªå‡ºé˜ï¼Œå·²å¯è§å…¶ä¸å‡¡ã€‚\n");
+		set("wield_msg", HIY "$Nâ€œå”°â€çš„ä¸€å£°æŠ½å‡º$næŒ½äº†ä¸ªå‰‘èŠ±ï¼Œåªè§‰æ·¡æ·¡æ¸…é¦™ï¼Œ\nå‰‘è‰²æ·¡é»„ï¼Œè¿™æŠŠå€šå¤©å‰‘ç«Ÿæ˜¯æª€é¦™æœ¨æ‰€åˆ¶ã€‚$Nä¸€æ—¶ä¸çŸ¥æ‰€æªã€‚\n"NOR);
+		set("unwield_msg", HIY "$Nå°†æœ¨å‰‘è¿˜å…¥å‰‘é˜ã€‚\n" NOR);
 	}
 	setup();
 }

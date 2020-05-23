@@ -22,11 +22,11 @@ int main(object me)
 		}
 		i++;
 	}
-	if( i >= 0 ) return notify_fail("ÏÂÊ²Ã´ÏÂ£¡Äã¸ù±¾¾ÍÃ»×øÆï£¡\n");
-	message_vision("$N´Ó$nÉÏ·ÉÉíÌøÏÂ¡£\n", me, obj);
-//ÌøÏÂ¶¯Îï¼õÉÙëöÁ¦ºÍÉí·¨¡£
+	if( i >= 0 ) return notify_fail("ä¸‹ä»€ä¹ˆä¸‹ï¼ä½ æ ¹æœ¬å°±æ²¡åéª‘ï¼\n");
+	message_vision("$Nä»Ž$nä¸Šé£žèº«è·³ä¸‹ã€‚\n", me, obj);
+//è·³ä¸‹åŠ¨ç‰©å‡å°‘è†‚åŠ›å’Œèº«æ³•ã€‚
 	if( !living(obj) || obj->query_temp("noliving"))
-		return notify_fail("Õâ¸ö¶«Î÷×Ô¼º¶¼ÔÎµ¹ÁË£¬ÄãÒ²Ã»·¨ÏÂÁË¡£\n");
+		return notify_fail("è¿™ä¸ªä¸œè¥¿è‡ªå·±éƒ½æ™•å€’äº†ï¼Œä½ ä¹Ÿæ²¡æ³•ä¸‹äº†ã€‚\n");
 /*
 	if(obj->query("dex"))
 		me->delete_temp("apply/dexerity");
@@ -42,24 +42,24 @@ int main(object me)
 int help(object me)
 {
 	write(@HELP
-Ö¸Áî¸ñÊ½ : unride
+æŒ‡ä»¤æ ¼å¼ : unride
  
-    Õâ¸öÖ¸Áî¿ÉÒÔÈÃÄã´ÓÆï×ÅµÄÒÑÑ±ÑøµÄ¶¯ÎïÉÏÌøÏÂÀ´¡£
+    è¿™ä¸ªæŒ‡ä»¤å¯ä»¥è®©ä½ ä»Žéª‘ç€çš„å·²é©¯å…»çš„åŠ¨ç‰©ä¸Šè·³ä¸‹æ¥ã€‚
  
-    ¶ÔÓÚÒÑ¾­Ñ±·þµÄ¶¯Îï£¬¿ÉÒÔ½øÐÐÏÂÊöÖ¸Áî£º
+    å¯¹äºŽå·²ç»é©¯æœçš„åŠ¨ç‰©ï¼Œå¯ä»¥è¿›è¡Œä¸‹è¿°æŒ‡ä»¤ï¼š
 
-»ù±¾Ö¸Áî£º
-        come <¶¯ÎïÃû>:                  ÈÃ¶¯Îï¸úËæÖ÷ÈËÐÐ¶¯¡£
-        stay:                           Í£Ö¹¶¯ÎïµÄ¸úËæ×´Ì¬¡£
-        attack <Ä³Îï>:                  ÈÃ¶¯Îï¹¥»÷µÐÈË¡£
-        stop <¶¯ÎïÃû>:                  ÈÃ¶¯ÎïÍ£Ö¹¶ÔÈËµÄ¹¥»÷¡£
-        release:                        ½áÊøÖ÷Å«×´Ì¬£¬½«¶¯Îï·ÅÀë¡£
+åŸºæœ¬æŒ‡ä»¤ï¼š
+        come <åŠ¨ç‰©å>:                  è®©åŠ¨ç‰©è·Ÿéšä¸»äººè¡ŒåŠ¨ã€‚
+        stay:                           åœæ­¢åŠ¨ç‰©çš„è·ŸéšçŠ¶æ€ã€‚
+        attack <æŸç‰©>:                  è®©åŠ¨ç‰©æ”»å‡»æ•Œäººã€‚
+        stop <åŠ¨ç‰©å>:                  è®©åŠ¨ç‰©åœæ­¢å¯¹äººçš„æ”»å‡»ã€‚
+        release:                        ç»“æŸä¸»å¥´çŠ¶æ€ï¼Œå°†åŠ¨ç‰©æ”¾ç¦»ã€‚
 
-ÌØÊâÖ¸Áî£º£¨Ö»¶ÔÄ³Ð©¶¯ÎïÊÊÓÃ£©
-        ride <¶¯ÎïÃû>:                  Æï£¬ÈçÆïÂí£¬»¢£¬µñ£¬öèµÈ¡£
-        unride <¶¯ÎïÃû>:                ÏÂ£¬Àë¿ª×øÆï¡£
-        feed <ËÇÁÏ> to <¶¯ÎïÃû>:        Ìæ¶¯ÎïÎ¹Ê³¡£
-        imbibe <¶¯ÎïÃû>:                ¸ø¶¯ÎïÒûË®¡£
+ç‰¹æ®ŠæŒ‡ä»¤ï¼šï¼ˆåªå¯¹æŸäº›åŠ¨ç‰©é€‚ç”¨ï¼‰
+        ride <åŠ¨ç‰©å>:                  éª‘ï¼Œå¦‚éª‘é©¬ï¼Œè™Žï¼Œé›•ï¼Œé²¨ç­‰ã€‚
+        unride <åŠ¨ç‰©å>:                ä¸‹ï¼Œç¦»å¼€åéª‘ã€‚
+        feed <é¥²æ–™> to <åŠ¨ç‰©å>:        æ›¿åŠ¨ç‰©å–‚é£Ÿã€‚
+        imbibe <åŠ¨ç‰©å>:                ç»™åŠ¨ç‰©é¥®æ°´ã€‚
 
 HELP
 	);

@@ -3,9 +3,9 @@ inherit NPC;
 
 void create()
 {
-	set_name("·½ÏÈÉú", ({ "fang xiansheng", "fang", "xiansheng"}));
-	set("long", "ÕâÎ»ÀÏÏÈÉú£¬ÕıÔÚÈÏÕæµØ¶ÁÊé¡£\n");
-	set("gender", "ÄĞĞÔ");
+	set_name("æ–¹å…ˆç”Ÿ", ({ "fang xiansheng", "fang", "xiansheng"}));
+	set("long", "è¿™ä½è€å…ˆç”Ÿï¼Œæ­£åœ¨è®¤çœŸåœ°è¯»ä¹¦ã€‚\n");
+	set("gender", "ç”·æ€§");
 	set("age", 35);
 	set_skill("literate", 60);
 	set_temp("apply/attack", 100);

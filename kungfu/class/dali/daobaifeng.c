@@ -1,4 +1,4 @@
-// daobaifeng.c µ¶°×·ï
+// daobaifeng.c åˆ€ç™½å‡¤
 
 #include <ansi.h>
 inherit NPC;
@@ -6,13 +6,13 @@ inherit F_MASTER;
 
 void create()
 {
-	set_name("µ¶°×·ï", ({ "dao baifeng", "dao" }));
-	set("title",  "´óÀí¹úÍõåú" );
-	set("nickname",  CYN"ÓñĞéÉ¢ÈË"NOR );
-	set("gender", "Å®ĞÔ");
-	set("long", "ÕâÊÇ¸öÈİÃ²ĞãÀöµÄÖĞÄêµÀ¹Ã£¬ÊÇ¸ö°ÚÒÄ×åÅ®×Ó£¬ÆÄÓĞÓºÈİÆøÖÊ¡£
-Ëı±¾ÊÇ´óÀí¹ú»ÊµÛ¶ÎÕı´¾µÄÕı·¿Ô­Åä·òÈË¡£
-ÒòÄÕÕÉ·ò·çÁ÷²»î¿£¬Õ´»¨ÈÇ²İ£¬Ò»Å­Ö®ÏÂÅÜµ½ÕâÀï³öÁË¼Ò¡£Ëı¿´ÆğÀ´Ô¼ÈıÊ®¶àËê¡£\n");
+	set_name("åˆ€ç™½å‡¤", ({ "dao baifeng", "dao" }));
+	set("title",  "å¤§ç†å›½ç‹å¦ƒ" );
+	set("nickname",  CYN"ç‰è™šæ•£äºº"NOR );
+	set("gender", "å¥³æ€§");
+	set("long", "è¿™æ˜¯ä¸ªå®¹è²Œç§€ä¸½çš„ä¸­å¹´é“å§‘ï¼Œæ˜¯ä¸ªæ‘†å¤·æ—å¥³å­ï¼Œé¢‡æœ‰é›å®¹æ°”è´¨ã€‚
+å¥¹æœ¬æ˜¯å¤§ç†å›½çš‡å¸æ®µæ­£æ·³çš„æ­£æˆ¿åŸé…å¤«äººã€‚
+å› æ¼ä¸ˆå¤«é£æµä¸ç¾ï¼Œæ²¾èŠ±æƒ¹è‰ï¼Œä¸€æ€’ä¹‹ä¸‹è·‘åˆ°è¿™é‡Œå‡ºäº†å®¶ã€‚å¥¹çœ‹èµ·æ¥çº¦ä¸‰åå¤šå²ã€‚\n");
 	set("age", 35);
 	set("class", "officer");
 	set("attitude", "friendly");
@@ -68,34 +68,34 @@ void create()
 	carry_object("/d/dali/obj/fuchen")->wield();
 	add_money("silver", 10);
 
-	create_family("´óÀí¶Î¼Ò",18,"Íõåú");
+	create_family("å¤§ç†æ®µå®¶",18,"ç‹å¦ƒ");
 }
 
 void attempt_apprentice(object ob)
 {
 	if ((int)ob->query_skill("kurong-changong",1) < 30 )
 	{
-		command("say ÄãµÄ±¾ÃÅÄÚ¹¦ĞÄ·¨Ì«µÍÁË£¬»¹ÊÇÅ¬Å¬Á¦ÏÈÌá¸ßÒ»ÏÂ°É¡£");
+		command("say ä½ çš„æœ¬é—¨å†…åŠŸå¿ƒæ³•å¤ªä½äº†ï¼Œè¿˜æ˜¯åŠªåŠªåŠ›å…ˆæé«˜ä¸€ä¸‹å§ã€‚");
 		return;
 	}
-	if ((string)ob->query("gender") != "Å®ĞÔ")
+	if ((string)ob->query("gender") != "å¥³æ€§")
 	{
-		command("say ÎÒÖ»ÊÕÅ®µÜ×Ó¡£");
+		command("say æˆ‘åªæ”¶å¥³å¼Ÿå­ã€‚");
 		return;
 	}
 	if ((int)ob->query("shen") < 10000  )
 	{
-		command("say ÎÒ´óÀí¶ÎÊÏÏòÀ´ĞĞÏÀÕÌÒå£¬ÄúÇë»Ø°É£¡");
+		command("say æˆ‘å¤§ç†æ®µæ°å‘æ¥è¡Œä¾ ä»—ä¹‰ï¼Œæ‚¨è¯·å›å§ï¼");
 		return;
 	}
-	if (strsrch(ob->query("guard"), "ÕòÄÏÍõ¸®") >= 0) 
+	if (strsrch(ob->query("guard"), "é•‡å—ç‹åºœ") >= 0) 
 	{
-		command("say ºÜºÃ£¬¼ÈÈ»ÈëÎÒÃÅÀ´¾ÍµÃÖÕÉíÎªÅ«¹©ÎÒÇıÊ¹¡£");
+		command("say å¾ˆå¥½ï¼Œæ—¢ç„¶å…¥æˆ‘é—¨æ¥å°±å¾—ç»ˆèº«ä¸ºå¥´ä¾›æˆ‘é©±ä½¿ã€‚");
 		command("recruit " + ob->query("id"));
 	}
 	else
 	{
-		command("say ÄãÊÇºÎÈË£¬Èç´Ë´óµ¨£¬¼ÙÃ°ÎÒ¸®ÖĞØËÆÍ£¡");
+		command("say ä½ æ˜¯ä½•äººï¼Œå¦‚æ­¤å¤§èƒ†ï¼Œå‡å†’æˆ‘åºœä¸­å®ä»†ï¼");
 		return;
 	}
 }

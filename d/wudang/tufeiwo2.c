@@ -1,16 +1,16 @@
-// tufeiwo2.c ����С·
+// tufeiwo2.c 林中小路
 // by Cleansword 1996/2/2
 
 inherit ROOM;
 
 void create()
 {
-	set("short", "����С·");
+	set("short", "林中小路");
 	set("long", @LONG
-������һ��Ƨ��������С·�ϣ���������ɭɭ�����֡�ֻ������ǰ
-�󣬵�����������ǵص������֡���ʮ�ɸߵĴ���������һ�飬��ʵ��
-֦Ҷ��һ�����ɡ��������գ��������ڵ�˿��Ҳ�ޡ���˵���ﾭ����
-���˳�û�����ɾ�����
+你走在一条僻静的林中小路上，两旁是阴森森的树林。只见左右前
+后，到处都是铺天盖地的松树林。几十丈高的大松树簇在一块，密实的
+枝叶象一蓬蓬巨伞般伸向天空，把阳光遮得丝毫也无。据说这里经常有
+土匪出没，不可久留。
 LONG );
 	set("outdoors", "sanbuguan");
 	set("no_sleep_room",1);

@@ -1,4 +1,4 @@
-// yang.c ÑîÀÏ°å 
+// yang.c æ¨è€æ¿ 
 
 inherit NPC;
 inherit F_DEALER;
@@ -6,15 +6,15 @@ string ask_mask();
 
 void create()
 {
-	set_name("ÑîÓÀ¸£", ({ "Yang yongfu", "yang" }));
-	set("title", "ÔÓ»õÆÌÀÏ°å");
+	set_name("æ¨æ°¸ç¦", ({ "Yang yongfu", "yang" }));
+	set("title", "æ‚è´§é“ºè€æ¿");
 	set("shen_type", 1);
 
-	set("gender", "ÄĞĞÔ");
+	set("gender", "ç”·æ€§");
 	set("age", 45);
 	set("long",
-		"ÑîÀÏ°åÊÇÍÁÉúÍÁ³¤µÄÑïÖİÈË£¬×öÁË¼¸Ê®ÄêµÄĞ¡ÂòÂô¡£
-ÌıËµËû×î½üµÃÁËÒ»Ñù±¦Îï£¬È´²»ÖªÊÇÊ²Ã´ºÃ¶«Î÷¡£\n");
+		"æ¨è€æ¿æ˜¯åœŸç”ŸåœŸé•¿çš„æ‰¬å·äººï¼Œåšäº†å‡ åå¹´çš„å°ä¹°å–ã€‚
+å¬è¯´ä»–æœ€è¿‘å¾—äº†ä¸€æ ·å®ç‰©ï¼Œå´ä¸çŸ¥æ˜¯ä»€ä¹ˆå¥½ä¸œè¥¿ã€‚\n");
 	set_skill("unarmed", 50);
 	set_skill("dodge", 50);
 	set_temp("apply/damage", 15);
@@ -22,10 +22,10 @@ void create()
 	set("combat_exp", 40000);
 	set("attitude", "friendly");
 	set("inquiry", ([
-		"±¦Îï" : (: ask_mask :),
-		"±¦±´" : (: ask_mask :),
+		"å®ç‰©" : (: ask_mask :),
+		"å®è´" : (: ask_mask :),
 		"mask" : (: ask_mask :),
-		"Ãæ¾ß" : (: ask_mask :),
+		"é¢å…·" : (: ask_mask :),
 	]));
 	set("vendor_goods", ({
 		"/clone/misc/chutou",
@@ -73,10 +73,10 @@ string ask_mask()
 	ob = this_object();
 	if (query("count")>0)
 	{
-		message("vision",ob->name()+"ÔÚ"+me->name()+"¶ú±ßàÖ¹¾ÁË¼¸¾äÊ²Ã´¡£\n",me,({me}));
-		tell_object(me,ob->name()+"ÇÄÇÄ¸æËßÄã£ºÎÒÊÇÓĞÑùÉÏ¹Å±¦±´£¬¸øÎÒÎå°ÙÁ½»Æ½ğ¾Í×ªÈÃ¸øÄã¡£\n");
+		message("vision",ob->name()+"åœ¨"+me->name()+"è€³è¾¹å˜€å’•äº†å‡ å¥ä»€ä¹ˆã€‚\n",me,({me}));
+		tell_object(me,ob->name()+"æ‚„æ‚„å‘Šè¯‰ä½ ï¼šæˆ‘æ˜¯æœ‰æ ·ä¸Šå¤å®è´ï¼Œç»™æˆ‘äº”ç™¾ä¸¤é»„é‡‘å°±è½¬è®©ç»™ä½ ã€‚\n");
 	}
-	return "Ã»ÓĞÃ»ÓĞ£¬ÎÒÊ²Ã´¶¼²»ÖªµÀ°¡¡£";
+	return "æ²¡æœ‰æ²¡æœ‰ï¼Œæˆ‘ä»€ä¹ˆéƒ½ä¸çŸ¥é“å•Šã€‚";
 }
 int accept_object(object who,object ob)
 {
@@ -84,7 +84,7 @@ int accept_object(object who,object ob)
 	
 	if (!query("count") || !ob->query("money_id") || ob->value()<5000000)
 	{
-		message_vision("$NËµµÀ£ºÄã¸øÎÒÕâ¸ö×öÊ²Ã´£¿\n",this_object());
+		message_vision("$Nè¯´é“ï¼šä½ ç»™æˆ‘è¿™ä¸ªåšä»€ä¹ˆï¼Ÿ\n",this_object());
 		return 0;
 	}
 	if (query("count")>0)
@@ -92,8 +92,8 @@ int accept_object(object who,object ob)
 		obj = new("/clone/misc/mask1");
 		obj->move(this_player());
 		add("count",-1);
-		message_vision("$NÈ¡³öÒ»¸ö°ü¹ü£¬½»¸ø$n¡£\n",this_object(),who);
-		tell_object(who,"Äã¼±Ã¦´ò¿ª°ü¹ü£¬¾¹È»ÊÇÒ»¸ö¾«ÖÂµÄÈËÆ¤Ãæ¾ß¡£\n");
+		message_vision("$Nå–å‡ºä¸€ä¸ªåŒ…è£¹ï¼Œäº¤ç»™$nã€‚\n",this_object(),who);
+		tell_object(who,"ä½ æ€¥å¿™æ‰“å¼€åŒ…è£¹ï¼Œç«Ÿç„¶æ˜¯ä¸€ä¸ªç²¾è‡´çš„äººçš®é¢å…·ã€‚\n");
 		return 1;
 	}
 }

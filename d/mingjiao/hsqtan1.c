@@ -4,11 +4,11 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "��̶");
+	set("short", "深潭");
 	set("long", @LONG
-�������ٲ��µĺ�̶��ˮ���İ��ޱȣ������ƺ��м������ڣ���ʵ
-�ڿ�������ͨ��δ���ˮ�б���̹ǣ������������ܣ���ֻ����������
-һ��һ����ʧ��
+这里是瀑布下的寒潭，水中幽暗无比，四周似乎有几处出口，但实
+在看不清是通向何处。水中冰冷刺骨，令人难以忍受，你只觉得气力在
+一点一点消失。
 LONG );
 	set("exits", ([
 		"east" : __DIR__"hsqtan1",

@@ -11,28 +11,28 @@ int main(object me, string arg)
 	object ob;
 
 	if( !arg || sscanf(arg, "%s %s", dest, msg)!=2 )
-		return notify_fail("ÄãÒª¶ÔË­¶úÓïĞ©Ê²Ã´£¿\n");
+		return notify_fail("ä½ è¦å¯¹è°è€³è¯­äº›ä»€ä¹ˆï¼Ÿ\n");
 
 	ob = present(dest, environment(me));
 	if( !ob || !ob->is_character() )
-		return notify_fail("ÄãÒª¶ÔË­¶úÓï£¿\n");
+		return notify_fail("ä½ è¦å¯¹è°è€³è¯­ï¼Ÿ\n");
 
-	write( GRN "ÄãÔÚ" + ob->name() + "µÄ¶ú±ßÇÄÉùËµµÀ£º" + msg + "\n" NOR);
-	tell_room( environment(me), me->name() + "ÔÚ" + ob->name()
-		+ "¶ú±ßĞ¡ÉùµØËµÁËĞ©»°¡£\n", ({ me, ob }) );
+	write( GRN "ä½ åœ¨" + ob->name() + "çš„è€³è¾¹æ‚„å£°è¯´é“ï¼š" + msg + "\n" NOR);
+	tell_room( environment(me), me->name() + "åœ¨" + ob->name()
+		+ "è€³è¾¹å°å£°åœ°è¯´äº†äº›è¯ã€‚\n", ({ me, ob }) );
 	if( !userp(ob) ) ob->relay_whisper(me, msg);
 	else
-		tell_object( ob, GRN + me->name() + "ÔÚÄãµÄ¶ú±ßÇÄÉùËµµÀ£º" + msg + "\n" NOR);
-	message("channel:snp", HIB"¡¾¼àÌı¡¿"+me->query("name")+"ÔÚ"+ob->query("name")+"µÄ¶ú±ßÇÄÉùËµµÀ£º"+msg+"\n"NOR, users());
+		tell_object( ob, GRN + me->name() + "åœ¨ä½ çš„è€³è¾¹æ‚„å£°è¯´é“ï¼š" + msg + "\n" NOR);
+	message("channel:snp", HIB"ã€ç›‘å¬ã€‘"+me->query("name")+"åœ¨"+ob->query("name")+"çš„è€³è¾¹æ‚„å£°è¯´é“ï¼š"+msg+"\n"NOR, users());
 	return 1;
 }
 
 int help(object me)
 {
 	write( @TEXT
-Ö¸Áî¸ñÊ½£ºwhisper <Ä³ÈË> <Ñ¶Ï¢>
+æŒ‡ä»¤æ ¼å¼ï¼šwhisper <æŸäºº> <è®¯æ¯>
 
-    Õâ¸öÖ¸Áî¿ÉÒÔÓÃÀ´ºÍÍ¬Ò»·¿¼äÖĞµÄÈË¶úÓï£¬°üÀ¨ NPC ÔÚÄÚ¡£
+    è¿™ä¸ªæŒ‡ä»¤å¯ä»¥ç”¨æ¥å’ŒåŒä¸€æˆ¿é—´ä¸­çš„äººè€³è¯­ï¼ŒåŒ…æ‹¬ NPC åœ¨å†…ã€‚
 
 TEXT
 	);

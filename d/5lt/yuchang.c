@@ -5,11 +5,11 @@ int do_jump(string arg);
 
 void create()
 {
-	set("short", "����ԡ��");
+	set("short", "海滨浴场");
 	set("long", @LONG
-����һ���ǳ��ɾ��ĺ���ԡ����ÿ���ļ�����ͱ��ȫ�������ֵĵ�
-��������������Ǳˮ���������㡢���˺���Ӿ�����ߵ���ͷ(pier)
-�����Կ���һ�Һ�����ͧ��
+这是一个非常干净的海滨浴场，每到夏季这里就变成全村最热闹的地
+方，在这儿可以深海潜水、出海钓鱼、冲浪和游泳。海边的码头(pier)
+还可以看到一艘豪华游艇。
 LONG);
 	set("outdoors", "5lt");
 	set("exits", ([

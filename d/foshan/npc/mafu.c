@@ -1,4 +1,4 @@
-// mafu1.c Âí·ò
+// mafu1.c é©¬å¤«
 
 inherit NPC;
 #include <ansi.h>
@@ -6,10 +6,10 @@ int do_ride();
 
 void create()
 {
-        set_name("Âí·ò", ({ "ma fu","ma fu"}));
+        set_name("é©¬å¤«", ({ "ma fu","ma fu"}));
         set("age", 32);
-        set("gender", "ÄĞĞÔ");
-        set("long","Ñ±ÂíºÍ×âÂíµÄĞ¡··£¬¸øËû×â½ğ¾Í¿ÉÒÔ¹Íµ½Âí¡£\n");
+        set("gender", "ç”·æ€§");
+        set("long","é©¯é©¬å’Œç§Ÿé©¬çš„å°è´©ï¼Œç»™ä»–ç§Ÿé‡‘å°±å¯ä»¥é›‡åˆ°é©¬ã€‚\n");
         set("attitude", "peaceful");
         set("str", 24);
         set("dex", 16);
@@ -44,7 +44,7 @@ void greeting(object ob)
 	chance = random(10);		
         if( !ob || environment(ob) != environment() ) return;
         ob->set_temp("ridechance",chance);        
-        say( "Âí·òµãÍ·¹şÑüµØËµµÀ£ºÕâÎ»¿Í¹Ù£¬ÊÇÏëµ½ÕâÀïÌôÒ»Æ¥ºÃÂí°É£¿\n");
+        say( "é©¬å¤«ç‚¹å¤´å“ˆè…°åœ°è¯´é“ï¼šè¿™ä½å®¢å®˜ï¼Œæ˜¯æƒ³åˆ°è¿™é‡ŒæŒ‘ä¸€åŒ¹å¥½é©¬å§ï¼Ÿ\n");
 }
 
 int accept_object(object who, object ob)
@@ -55,19 +55,19 @@ int accept_object(object who, object ob)
 	{
 	  if ((int)this_player()->query_temp("ridechance")<=2)
 	  {
-	    message_vision("Âí·ò¾ª»ÅµØ¶Ô$NËµ£º¶Ô²»Æğ´óÒ¯£¬×î½üµÀÉÏ²»Ì«Æ½£¬Ğ¡µÄ¿É²»¸Òµ£Õâ¸öÏÕ¡£\n", who); 
+	    message_vision("é©¬å¤«æƒŠæ…Œåœ°å¯¹$Nè¯´ï¼šå¯¹ä¸èµ·å¤§çˆ·ï¼Œæœ€è¿‘é“ä¸Šä¸å¤ªå¹³ï¼Œå°çš„å¯ä¸æ•¢æ‹…è¿™ä¸ªé™©ã€‚\n", who); 
 	    return 0;
 	   }
 	  else  
 	   {     
-	        message_vision("Âí·ò¶Ô$NËµ£ººÃ£¡ÕâÎ»"+RANK_D->query_respect(who) +
-		"ÏÖÔÚ¾Í³ö·¢Âğ£¿ÄÇ¾ÍÉÏÂí°É¡£\n", who);
+	        message_vision("é©¬å¤«å¯¹$Nè¯´ï¼šå¥½ï¼è¿™ä½"+RANK_D->query_respect(who) +
+		"ç°åœ¨å°±å‡ºå‘å—ï¼Ÿé‚£å°±ä¸Šé©¬å§ã€‚\n", who);
 		this_player()->set_temp("marks/horserent",1);		
  	      	return 1;
  	    }  	
 	}
 	else  
-		message_vision("Âí·òÖåÃ¼¶Ô$NËµ£ºÄú¸øµÄÒ²Ì«ÉÙÁË°É£¿\n", who);
+		message_vision("é©¬å¤«çš±çœ‰å¯¹$Nè¯´ï¼šæ‚¨ç»™çš„ä¹Ÿå¤ªå°‘äº†å§ï¼Ÿ\n", who);
 	return 1;
 }
 

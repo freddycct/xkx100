@@ -4,9 +4,9 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "·ï»ËÁÖ");
+	set("short", "å‡¤å‡°æ—");
 	set("long", @LONG
-ÕâÀï¾ÍÊÇ´«ËµÖĞµÄ·ï»ËÁÖ¡£
+è¿™é‡Œå°±æ˜¯ä¼ è¯´ä¸­çš„å‡¤å‡°æ—ã€‚
 LONG);
 	set("exits", ([
 		"eastdown" : __DIR__"fanshudi",

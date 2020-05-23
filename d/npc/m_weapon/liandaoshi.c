@@ -4,11 +4,11 @@
 inherit ROOM;
 void create()
 {
-	set("short", "Á¶µ¶³¡");
+	set("short", "ç‚¼åˆ€åœº");
 	set("long", @LONG
-ÕâÀïÊÇÐþ±ø¹Å¶´µÄÁ¶µ¶³¡¡£ËÄ´¦³äÂúÁË½ðÊôµÄÆøÎ¶£¬ÖËÈÈµÄÆøÀË³å
-µÄÈË²»ÓÉ´òÁË¸öôóôò¡£Ò»¸öÆ¤·ô÷îºÚµÄÐ¡»ïÕý×øÔÚÒ»¿éÊ¯Í·ÉÏÐÝÏ¢£¬ÊÖ
-ÖÐÒ»¸ö¾Þ´óµÄ´¸Í·Õý²»Í£µÄÀ´»Ø°Ú¶¯×Å¡£¿´À´ÕâÐ¡»ï¿ìÒªË¯×ÅÁË¡£
+è¿™é‡Œæ˜¯çŽ„å…µå¤æ´žçš„ç‚¼åˆ€åœºã€‚å››å¤„å……æ»¡äº†é‡‘å±žçš„æ°”å‘³ï¼Œç‚™çƒ­çš„æ°”æµªå†²
+çš„äººä¸ç”±æ‰“äº†ä¸ªè¶”è¶„ã€‚ä¸€ä¸ªçš®è‚¤é»é»‘çš„å°ä¼™æ­£ååœ¨ä¸€å—çŸ³å¤´ä¸Šä¼‘æ¯ï¼Œæ‰‹
+ä¸­ä¸€ä¸ªå·¨å¤§çš„é”¤å¤´æ­£ä¸åœçš„æ¥å›žæ‘†åŠ¨ç€ã€‚çœ‹æ¥è¿™å°ä¼™å¿«è¦ç¡ç€äº†ã€‚
 LONG );
 	set("exits", ([
 		"south" : "/d/xingxiu/tianroad5",

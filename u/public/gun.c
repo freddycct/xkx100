@@ -13,19 +13,19 @@ void init()
 
 void create()
 {
-	set_name("½ðÊÖÇ¹", ({ "shou qiang", "qiang", "gun" }) );
+	set_name("é‡‘æ‰‹æžª", ({ "shou qiang", "qiang", "gun" }) );
 	set_weight(2000);
 	if( clonep() )
 		set_default_object(__FILE__);
 	else {
-		set("unit", "°Ñ");
+		set("unit", "æŠŠ");
 		set("bullet", 10);
 		set("value", 50000);
 		set("material", "steel");
-		set("long", "ÕâÊÇÒ»°ÑÁãÁãÆßÓÃ¹ýµÄ½ðÊÖÇ¹£¬ÀïÃæÂú×°×ÅÊ®·¢»Æ½ð×Ó
-µ¯¡£ÏÈÃé×¼(aim)Ä³ÈË£¬ÔÙÉä»÷(shoot)£¡\n");
-		set("wield_msg", "$N´ÓÑü±ßµÄÇ¹Ì×ÀïÌÍ³öÒ»°Ñ$nÎÕÔÚÊÖÖÐ¡£\n");
-		set("unequip_msg", "$N½«ÊÖÖÐµÄ$n²å»ØÑü¼äµÄÇ¹Ì×Àï¡£\n");
+		set("long", "è¿™æ˜¯ä¸€æŠŠé›¶é›¶ä¸ƒç”¨è¿‡çš„é‡‘æ‰‹æžªï¼Œé‡Œé¢æ»¡è£…ç€åå‘é»„é‡‘å­
+å¼¹ã€‚å…ˆçž„å‡†(aim)æŸäººï¼Œå†å°„å‡»(shoot)ï¼\n");
+		set("wield_msg", "$Nä»Žè…°è¾¹çš„æžªå¥—é‡ŒæŽå‡ºä¸€æŠŠ$næ¡åœ¨æ‰‹ä¸­ã€‚\n");
+		set("unequip_msg", "$Nå°†æ‰‹ä¸­çš„$næ’å›žè…°é—´çš„æžªå¥—é‡Œã€‚\n");
 	}
 	init_blade(100);
 	setup();
@@ -38,21 +38,21 @@ int do_aim(string arg)
 	me = this_player();
 
 	if( !arg )
-		return notify_fail("ÄãÏëÉ±Ë­£¿\n");
+		return notify_fail("ä½ æƒ³æ€è°ï¼Ÿ\n");
 
 	if( this_object()->query("bullet") <=0)
-		return notify_fail("½ð×Óµ¯ÒÑ¾­´ò¹âÁË¡£\n");
+		return notify_fail("é‡‘å­å¼¹å·²ç»æ‰“å…‰äº†ã€‚\n");
 
 	if(!objectp(obj = present(arg, environment(me))))
-		return notify_fail("ÕâÀïÃ»ÓÐÕâ¸öÈË¡£\n");
+		return notify_fail("è¿™é‡Œæ²¡æœ‰è¿™ä¸ªäººã€‚\n");
 
 	if( !obj->is_character() || obj->is_corpse() )
-		return notify_fail("¿´Çå³þÒ»µã£¬ÄÇ²¢²»ÊÇ»îÎï¡£\n");
+		return notify_fail("çœ‹æ¸…æ¥šä¸€ç‚¹ï¼Œé‚£å¹¶ä¸æ˜¯æ´»ç‰©ã€‚\n");
 
 	if(obj == me)
-		return notify_fail("ÓÃ suicide Ö¸Áî»á±È½Ï¿ì:P¡£\n");
+		return notify_fail("ç”¨ suicide æŒ‡ä»¤ä¼šæ¯”è¾ƒå¿«:Pã€‚\n");
 
-	message_vision(HIY "\n$N¾ÙÆð½ðÊÖÇ¹£¬Ô¶Ô¶µØÃé×¼$n£¬½Ó×Å¡¸¿Ë¡¹µØÒ»Éù£¬°Ñ×Óµ¯Ñ¹ÉÏÁËÌÅ¡£\n\n" NOR, 
+	message_vision(HIY "\n$Nä¸¾èµ·é‡‘æ‰‹æžªï¼Œè¿œè¿œåœ°çž„å‡†$nï¼ŒæŽ¥ç€ã€Œå…‹ã€åœ°ä¸€å£°ï¼ŒæŠŠå­å¼¹åŽ‹ä¸Šäº†è†›ã€‚\n\n" NOR, 
 			me, obj);
 
 	this_object()->set_temp("target", arg);
@@ -68,12 +68,12 @@ int do_shoot()
 	me = this_player();
 
 	if( !(arg = this_object()->query_temp("target")) ) 
-		return notify_fail("Äã»¹Ã»ÓÐÃé×¼ÄãµÄÉä»÷Ä¿±ê£¡\n");
+		return notify_fail("ä½ è¿˜æ²¡æœ‰çž„å‡†ä½ çš„å°„å‡»ç›®æ ‡ï¼\n");
 
 	if( !objectp(obj = present(arg, environment(me)) ))
-		return notify_fail("ÄãÒªÉä»÷µÄ¶ÔÏóÒÑ¾­Àë¿ªÁË¡£\n");
+		return notify_fail("ä½ è¦å°„å‡»çš„å¯¹è±¡å·²ç»ç¦»å¼€äº†ã€‚\n");
 
-	message_vision(HIR "\n$N¶Ô×¼$n¿Û¶¯ÁË°â»ú£¡£¡£¡\nÖ»Ìý¡¸Æ¹¡¹µØÒ»Éù¾ÞÏì£¬$n²Ò½ÐÒ»Éù£¬»º»ºµØÆÍµ¹ÔÚÑª²´Àï£¡\n\n" NOR,
+	message_vision(HIR "\n$Nå¯¹å‡†$næ‰£åŠ¨äº†æ‰³æœºï¼ï¼ï¼\nåªå¬ã€Œä¹’ã€åœ°ä¸€å£°å·¨å“ï¼Œ$næƒ¨å«ä¸€å£°ï¼Œç¼“ç¼“åœ°ä»†å€’åœ¨è¡€æ³Šé‡Œï¼\n\n" NOR,
 			me, obj);
 
 	this_object()->add("bullet", -1);

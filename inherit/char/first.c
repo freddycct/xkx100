@@ -1,7 +1,7 @@
-// first.c ÕÆÃÅµÜ×Ó
+// first.c æŒé—¨å¼Ÿå­
 // Last Modified by Winder on Mar. 27 2000
 // Based on XYJ4.51
-// Modified by Zeratul 4.11 2001 Ê×´Î³ÉÎªÕÆÃÅµÜ×Ó¿É»ñµÃÉÍÉÆ·£¶ñÁî£¬¼Ó´óÁËÌôÕ½ÕÆÃÅµÜ×ÓµÄÄÑ¶È¡£
+// Modified by Zeratul 4.11 2001 é¦–æ¬¡æˆä¸ºæŒé—¨å¼Ÿå­å¯è·å¾—èµå–„ç½šæ¶ä»¤ï¼ŒåŠ å¤§äº†æŒ‘æˆ˜æŒé—¨å¼Ÿå­çš„éš¾åº¦ã€‚
 // qingyun 2004
 
 #include <ansi.h>
@@ -10,22 +10,22 @@ inherit NPC;
 inherit F_SAVE;
 
 string zname(object);
-void reset(object me);// ³õÊ¼»¯Îä¹¦¡¢¾­Ñé¡¢title µÈ
-void create_identity (mixed master, mixed where);//ÎªµÜ×ÓÖØÖÃ×¼±¸(Ö»Ò»´Î)
-int init_identity (object me, object master, object where);//ÖØÖÃµÜ×Órestore
-int save_record(object me, object ob);//ÍêÈ«¿½±´obµÄÎä¹¦µÈ¸øme ²¢±£´æ
-void self_adjust (object me); //ÉèËùÓĞÎä¹¦60 ÆøÑªÍ¬reset  ÓÃÓÚcopy from masterºó»Ö¸´ 
-string zm_apply();// ´¦Àíask about ÕÆÃÅÊÂ¼ş
-int fully_recover (object me); // ¿ªÊ¼´ò¼ÜÖ®Ç° »Ö¸´×´Ì¬
-int check_result(object me, object ob); // ¿ªÊ¼´ò¼Ü ²¢¼ì²é½áÊø
-void find_master (object me, object ob); // ´øÈ¥ÕÆÃÅÂ·ÉÏÑ­»·¼ì²â
-void master_announce (object me, object who, object ob); //ÕÆÃÅÍ¨Öª
-int convert_identity (object me, object ob);//¸üĞÂÕÆÃÅµÜ×Ó
+void reset(object me);// åˆå§‹åŒ–æ­¦åŠŸã€ç»éªŒã€title ç­‰
+void create_identity (mixed master, mixed where);//ä¸ºå¼Ÿå­é‡ç½®å‡†å¤‡(åªä¸€æ¬¡)
+int init_identity (object me, object master, object where);//é‡ç½®å¼Ÿå­restore
+int save_record(object me, object ob);//å®Œå…¨æ‹·è´obçš„æ­¦åŠŸç­‰ç»™me å¹¶ä¿å­˜
+void self_adjust (object me); //è®¾æ‰€æœ‰æ­¦åŠŸ60 æ°”è¡€åŒreset  ç”¨äºcopy from masteråæ¢å¤ 
+string zm_apply();// å¤„ç†ask about æŒé—¨äº‹ä»¶
+int fully_recover (object me); // å¼€å§‹æ‰“æ¶ä¹‹å‰ æ¢å¤çŠ¶æ€
+int check_result(object me, object ob); // å¼€å§‹æ‰“æ¶ å¹¶æ£€æŸ¥ç»“æŸ
+void find_master (object me, object ob); // å¸¦å»æŒé—¨è·¯ä¸Šå¾ªç¯æ£€æµ‹
+void master_announce (object me, object who, object ob); //æŒé—¨é€šçŸ¥
+int convert_identity (object me, object ob);//æ›´æ–°æŒé—¨å¼Ÿå­
 
 void create()
 {
-	set_name("ÕÆÃÅ´óµÜ×Ó", ({ "zhang men", "zhangmen", "first" }) );
-	set("gender", "ÄĞĞÔ" );
+	set_name("æŒé—¨å¤§å¼Ÿå­", ({ "zhang men", "zhangmen", "first" }) );
+	set("gender", "ç”·æ€§" );
 	set("age", 30);
 	set("str", 30);
 	set("int", 30);
@@ -34,7 +34,7 @@ void create()
 	set("per", 30);
 	set("no_get", 1);
 	set("no_get_from", 1);
-	set("long", "ÕâÊÇ±¾ÃÅÕÆÃÅ´óµÜ×Ó¡£ÄãÈç¹û²»·ş£¬¿ÉÒÔÌôÕ½¡£\n" );
+	set("long", "è¿™æ˜¯æœ¬é—¨æŒé—¨å¤§å¼Ÿå­ã€‚ä½ å¦‚æœä¸æœï¼Œå¯ä»¥æŒ‘æˆ˜ã€‚\n" );
 	set("attitude", "heroism");
 	set("combat_exp", 100000);
 	set("current_player","none of us");
@@ -48,11 +48,11 @@ void init()
 
 	me->create_identity(me->query("master_dir"), me->query("start_room"));
 	me->set("inquiry", ([
-		"ÕÆÃÅ´óµÜ×Ó" : (: zm_apply :),
-		"ÕÆÃÅµÜ×Ó" : (: zm_apply :),
-		"´óµÜ×Ó" : (: zm_apply :),
-		"ÕÆÃÅ" : (: zm_apply :),
-		"ÌôÕ½" : (: zm_apply :),
+		"æŒé—¨å¤§å¼Ÿå­" : (: zm_apply :),
+		"æŒé—¨å¼Ÿå­" : (: zm_apply :),
+		"å¤§å¼Ÿå­" : (: zm_apply :),
+		"æŒé—¨" : (: zm_apply :),
+		"æŒ‘æˆ˜" : (: zm_apply :),
 	]) );
 	add_action("do_bandage","bandage");
 	add_action("do_reset", "reset");
@@ -62,13 +62,13 @@ int do_reset(string arg)
 	object ob=this_player();
 	object me=this_object();
 	if (!wizardp(ob)) return 0;
-	if (arg != "zhangmen") return notify_fail("ÄãÒªreset zhangmenÂğ£¿\n");
-	set_name("ÕÆÃÅ´óµÜ×Ó", ({ "zhang men", "zhangmen", "first" }) );
+	if (arg != "zhangmen") return notify_fail("ä½ è¦reset zhangmenå—ï¼Ÿ\n");
+	set_name("æŒé—¨å¤§å¼Ÿå­", ({ "zhang men", "zhangmen", "first" }) );
 	me->reset_me(me);
 	me->set("current_player","none of us");
 	me->delete("weapon");
 	me->save();
-  write("ÖØÖÃ"+me->query("family/family_name")+"ÕÆÃÅµÜ×Ó³É¹¦¡£\n");
+  write("é‡ç½®"+me->query("family/family_name")+"æŒé—¨å¼Ÿå­æˆåŠŸã€‚\n");
   return 1;
 }
 
@@ -338,19 +338,19 @@ string zm_apply()
 
 	if (me->query("family/family_name") != ob->query("family/family_name")) 
 	{
-		return "ÎÒ±ãÊÇ"+me->query("family/family_name")+"ÕÆÃÅµÜ×Ó£¡\n";
+		return "æˆ‘ä¾¿æ˜¯"+me->query("family/family_name")+"æŒé—¨å¼Ÿå­ï¼\n";
 	}
 	if (ob->query("betrayer") || ob->query("detach/"+me->query("family/family_name")) )
 	{
-		return "ÄãÔøÅÑÊ¦ÆÛ×æ£¬ÑÔÎŞĞÅĞĞ²»¹ì£¬ÆñÄÜ³öÈÎÕÆÃÅµÜ×ÓÒ»Ö°£¡\n";
+		return "ä½ æ›¾å›å¸ˆæ¬ºç¥–ï¼Œè¨€æ— ä¿¡è¡Œä¸è½¨ï¼Œå²‚èƒ½å‡ºä»»æŒé—¨å¼Ÿå­ä¸€èŒï¼\n";
 	}
 	if (me->query("current_player") == ob->query("id")) 
 	{
-		return "ÄãÓÖºıÍ¿ÁË£¡\n";
+		return "ä½ åˆç³Šæ¶‚äº†ï¼\n";
 	}
 	if (me->is_fighting())
 	{
-		return "ÎÒÔÚ±ÈÎäÖ®ÖĞ£¬ÇëÉÔºò¡£\n";
+		return "æˆ‘åœ¨æ¯”æ­¦ä¹‹ä¸­ï¼Œè¯·ç¨å€™ã€‚\n";
 	}
 	ob->set_temp("zm_applied", 1);
 	fully_recover (me);
@@ -360,7 +360,7 @@ string zm_apply()
 	me->set_temp("zhangmen/kill",0);
 	remove_call_out("check_result");
 	call_out("check_result", 1, me, ob);
-	return "ºÃ£¡ÄãÓĞÒâ³öÈÎÕÆÃÅµÜ×ÓÒ»Ö°£¿ÎÒÃÇ¾ÍÇĞ´èÒ»ÏÂ°É£¡\n";
+	return "å¥½ï¼ä½ æœ‰æ„å‡ºä»»æŒé—¨å¼Ÿå­ä¸€èŒï¼Ÿæˆ‘ä»¬å°±åˆ‡ç£‹ä¸€ä¸‹å§ï¼\n";
 }
 
 int fully_recover (object me)
@@ -493,10 +493,10 @@ int check_result(object me, object ob)
 	if (((int)me->query("qi")*100/(1+my_max_qi)) <= 50 )
 	{
 		object who;
-		message_vision ("$N·­ÉíÏÂ°İ£¬Á¬ÉùÅå·ş£¡\n",me);
+		message_vision ("$Nç¿»èº«ä¸‹æ‹œï¼Œè¿å£°ä½©æœï¼\n",me);
 		if (me->query_temp("zhangmen/kill") && ob->query_temp("zm_applied"))
 		{
-			message_vision ("$NÖåÁËÖåÃ¼µÀ£º´Ë´Î±ÈÎäÎÒÎ´ÄÜ¾²ĞÄ¾¡Á¦£¬Ï£ÍûÖØĞÂÀ´¹ı¡£\n", me);
+			message_vision ("$Nçš±äº†çš±çœ‰é“ï¼šæ­¤æ¬¡æ¯”æ­¦æˆ‘æœªèƒ½é™å¿ƒå°½åŠ›ï¼Œå¸Œæœ›é‡æ–°æ¥è¿‡ã€‚\n", me);
 			return 1;
 		}
 		if( ob->query_temp("zm_applied") != 1 ) return 1;
@@ -509,7 +509,7 @@ int check_result(object me, object ob)
 		}
 		else
 		{
-			message_vision("$N¹ªÉí¶Ô$nµÀ£º¹§Çë°İ¼ûÊ¦¸¸¡£\n",me,ob);
+			message_vision("$Nèº¬èº«å¯¹$né“ï¼šæ­è¯·æ‹œè§å¸ˆçˆ¶ã€‚\n",me,ob);
 			command ("follow "+ob->query("id"));
 			if (! me->query("where"))
 				me->set("where",base_name(environment(me)));
@@ -520,11 +520,11 @@ int check_result(object me, object ob)
 	}
 	else if (( (int)ob->query("qi")*100/his_max_qi)<=50)
 	{
-		message_vision ("$N½«$n·öÆğ¡£\n",me,ob);
+		message_vision ("$Nå°†$næ‰¶èµ·ã€‚\n",me,ob);
 	}
 	else 
 	{
-		message_vision ("$NÖåÁËÖåÃ¼µÀ£º´Ë´Î±ÈÎäÎ´ÄÜÒ»½Ï¸ßÏÂ£¬Ï£ÍûÖØĞÂÀ´¹ı¡£\n", me);
+		message_vision ("$Nçš±äº†çš±çœ‰é“ï¼šæ­¤æ¬¡æ¯”æ­¦æœªèƒ½ä¸€è¾ƒé«˜ä¸‹ï¼Œå¸Œæœ›é‡æ–°æ¥è¿‡ã€‚\n", me);
 	}
 	return 1;  
 }
@@ -541,9 +541,9 @@ void find_master (object me, object ob)
 	}
 	else
 	{
-		message_vision ("$N¼ûÁËÊ¦¸¸¸Ï½ôÏÂ°İ£¬ÓÖÌ§ÆğÍ·³¯$nÊ¹ÁË¸öÑÛÉ«¡£\n\n",me,ob);
-		message_vision ("$NÎ¢Î¢µØµãÁËµãÍ·¡£\n\n",who);
-		message_vision ("$NÍËÏÂ¡£\n\n",me);
+		message_vision ("$Nè§äº†å¸ˆçˆ¶èµ¶ç´§ä¸‹æ‹œï¼ŒåˆæŠ¬èµ·å¤´æœ$nä½¿äº†ä¸ªçœ¼è‰²ã€‚\n\n",me,ob);
+		message_vision ("$Nå¾®å¾®åœ°ç‚¹äº†ç‚¹å¤´ã€‚\n\n",who);
+		message_vision ("$Né€€ä¸‹ã€‚\n\n",me);
 		me->set_leader(0);
 		call_out("master_announce",1,me,who,ob);
 		me->move(me->query("where"));
@@ -555,7 +555,7 @@ void master_announce (object me, object who, object ob)
 	// Modified by Zeratul 4.11 2001
 	object ling;
 
-	CHANNEL_D->do_channel(who,"chat","±¾ÅÉÕÆÃÅµÜ×Ó"+ob->query("name")+"½ñÈÕ×ßÂíÉÏÈÎ¡£¹§Çë¸÷Î»´óÏÀ¶à¼ÓÅõ³¡£¡");
+	CHANNEL_D->do_channel(who,"chat","æœ¬æ´¾æŒé—¨å¼Ÿå­"+ob->query("name")+"ä»Šæ—¥èµ°é©¬ä¸Šä»»ã€‚æ­è¯·å„ä½å¤§ä¾ å¤šåŠ æ§åœºï¼");
 	ob->delete_temp("zm_applied");
 	me->set("new_player",1);
 
@@ -570,8 +570,8 @@ void master_announce (object me, object who, object ob)
 		ling = new( "/d/xiakedao/obj/tongpai2" );
 		ling->set( "own", ob->query("id") );
 		ling->move( ob );
-		message_vision( HIY"$N¶Ô$nËµµÀ£ºÏÀ¿Íµº×òÈÕËÍÀ´ÉÍÉÆ·£¶ñÁî£¬ÑûÇëÎªÊ¦ÉÏµº¡£\n                ÄãÊÇ±¾ÃÅÕÆÃÅµÜ×Ó£¬¾Í´úÎªÊ¦×ßÒ»ÌË°É¡£\n"NOR, who, ob );
-		message_vision( HIC"ËµÍê£¬$N°ÑÁ½¿éÁîÅÆ½»µ½$nÊÖÀï¡£\n"NOR, who, ob );
+		message_vision( HIY"$Nå¯¹$nè¯´é“ï¼šä¾ å®¢å²›æ˜¨æ—¥é€æ¥èµå–„ç½šæ¶ä»¤ï¼Œé‚€è¯·ä¸ºå¸ˆä¸Šå²›ã€‚\n                ä½ æ˜¯æœ¬é—¨æŒé—¨å¼Ÿå­ï¼Œå°±ä»£ä¸ºå¸ˆèµ°ä¸€è¶Ÿå§ã€‚\n"NOR, who, ob );
+		message_vision( HIC"è¯´å®Œï¼Œ$NæŠŠä¸¤å—ä»¤ç‰Œäº¤åˆ°$næ‰‹é‡Œã€‚\n"NOR, who, ob );
 		ob->set( "xkd/ling", 1 );
 		ob->set( "xkd/time", time() + 86400 );
 	}
@@ -598,7 +598,7 @@ int convert_identity (object me, object ob)
 		else if (who->query("family/family_name"))
 		{
 			who->set("title",
-			sprintf("%sµÚ%s´ú%s",
+			sprintf("%sç¬¬%sä»£%s",
 			who->query("family/family_name"),
 			chinese_number(who->query("family/generation")),
 			who->query("family/title")));
@@ -629,7 +629,7 @@ int convert_identity (object me, object ob)
 
 void die()
 {
-        message_vision(HIW"$N´óºÈµ½£º¡°½ñÈÕËãÄã×ßÔË£¬´ıÎÒÇëÀ´±¾ÃÅÊ¦×ğÎªÎÒ±¨³ğ£¡¡±Ëµ»°¼äÈËÒÑ¸ºÉË¶İÈ¥£¡\n"NOR,this_object());	
+        message_vision(HIW"$Nå¤§å–åˆ°ï¼šâ€œä»Šæ—¥ç®—ä½ èµ°è¿ï¼Œå¾…æˆ‘è¯·æ¥æœ¬é—¨å¸ˆå°Šä¸ºæˆ‘æŠ¥ä»‡ï¼â€è¯´è¯é—´äººå·²è´Ÿä¼¤éå»ï¼\n"NOR,this_object());	
 	destruct(this_object());
 }
 
@@ -664,8 +664,8 @@ void kill_ob(object ob)
 
 string zname(object ob)
 {
-	if( (string)ob->query("gender") == "Å®ĞÔ" ) return "ÕÆÃÅ´óÊ¦½ã";
-	else return "ÕÆÃÅ´óÊ¦ĞÖ";
+	if( (string)ob->query("gender") == "å¥³æ€§" ) return "æŒé—¨å¤§å¸ˆå§";
+	else return "æŒé—¨å¤§å¸ˆå…„";
 }
 
 int do_bandage(string arg)
@@ -675,18 +675,18 @@ int do_bandage(string arg)
 
 	if (! arg || me != present(arg, environment(me))) return 0;
 
-	message_vision ("$N±ğÓĞÓÃĞÄµØÒª¸ø$n°üÔúÉË¿Ú¡£\n",who,me);
+	message_vision ("$Nåˆ«æœ‰ç”¨å¿ƒåœ°è¦ç»™$nåŒ…æ‰ä¼¤å£ã€‚\n",who,me);
 	call_out("no_bandage",1,who,me);
 	return 1;
 }
 
 void no_bandage(object who, object me)
 {
-	message_vision ("$NÏò$nÒ¡ÁËÒ¡Í·¡£\n",me,who);
+	message_vision ("$Nå‘$næ‘‡äº†æ‘‡å¤´ã€‚\n",me,who);
 }
 int accept_hit(object me)
 {
-   command("say ÎÒÊÇÌÃÌÃÕÆÃÅµÜ×Ó£¡ÒªÇĞ´èÄãÕÒ±ğÈËÈ¥¡£\n");
+   command("say æˆ‘æ˜¯å ‚å ‚æŒé—¨å¼Ÿå­ï¼è¦åˆ‡ç£‹ä½ æ‰¾åˆ«äººå»ã€‚\n");
    return notify_fail("");
 }
 int accept_fight(object who)	{return accept_hit(who);}

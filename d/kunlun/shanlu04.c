@@ -7,11 +7,11 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "ʯ��·");
+	set("short", "石阶路");
 	set("long",@long
-�߹���ɽ·������һ�κ�ƽ����ʯ��ɽ·��ǰ�洫��������������
-�����쵽�ˣ��㲻�ɵüӿ��˽Ų���ԶԶ��ȥ���ƺ��Ǹ���㳡��Χ��
-�����������䡣
+走过盘山路，就是一段很平整的石阶山路。前面传来刀剑相碰的声
+音，快到了，你不由得加快了脚步，远远望去，似乎是个大广场，围着
+不少人在练武。
 long);
 	set("exits",([
 		"southdown" : __DIR__"shanlu03",

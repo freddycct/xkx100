@@ -9,10 +9,10 @@ int heye = 1;
 
 void create()
 {
-	set_name("Âô»¨¹ÃÄï", ({ "flower girl","girl"}) );
-	set("gender", "Å®ÐÔ" );
+	set_name("å–èŠ±å§‘å¨˜", ({ "flower girl","girl"}) );
+	set("gender", "å¥³æ€§" );
 	set("age", 18);
-	set("long", "Ò»¸öÈÝÃ²ÇåÀöµÄÐ¡¹ÃÄï¡£\n");
+	set("long", "ä¸€ä¸ªå®¹è²Œæ¸…ä¸½çš„å°å§‘å¨˜ã€‚\n");
 	set("str", 20);
 	set("dex", 18);
 	set("con", 19);
@@ -23,7 +23,7 @@ void create()
 		__DIR__"obj/huaban"
 	}));
 	set("inquiry", ([
-		"ºÉÒ¶"	: (: ask_for_h :),
+		"è·å¶"	: (: ask_for_h :),
 	]));
 	setup();
 	carry_object("/clone/misc/cloth")->wear();
@@ -42,9 +42,9 @@ int ask_for_h()
 	if ( heye == 0 || random(me->query("kar")) < 10 ) 
 		return 0;
 	else {
-		message_vision("Âô»¨¹ÃÄï¿´×Å$N³Ô³ÔµÄÐ¦ÁËÆðÀ´¡£\n", me );
-		command("say ÎÒºÍ½ãÃÃÃÇÍæË£Ê±ÕªµÄºÉÒ¶ÄãÒ²Òª£¿" );
-		message_vision("Âô»¨¹ÃÄïËÍ¸ø$N¼¸Æ¬ºÉÒ¶¡£\n", me );
+		message_vision("å–èŠ±å§‘å¨˜çœ‹ç€$Nåƒåƒçš„ç¬‘äº†èµ·æ¥ã€‚\n", me );
+		command("say æˆ‘å’Œå§å¦¹ä»¬çŽ©è€æ—¶æ‘˜çš„è·å¶ä½ ä¹Ÿè¦ï¼Ÿ" );
+		message_vision("å–èŠ±å§‘å¨˜é€ç»™$Nå‡ ç‰‡è·å¶ã€‚\n", me );
 		ob = new( __DIR__"obj/heye" );
 		ob->move( me );
 		heye = 0;

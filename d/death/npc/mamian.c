@@ -5,10 +5,10 @@ inherit NPC;
 
 void create()
 {
-	set_name(HIY "ÂíÃæ" NOR, ({ "ma mian" }) );
-        set("nickname",CYN "Ñı¹Ö" NOR);
+	set_name(HIY "é©¬é¢" NOR, ({ "ma mian" }) );
+        set("nickname",CYN "å¦–æ€ª" NOR);
         set("long",GRN @LONG
-Ò»¸öËÆÈË·ÇÈË£¬ËÆĞó·ÇĞóµÄÑı¹Ö£¬ÈËÉíÂíÃæ£¬ËÆĞ¦ËÆ¿Ş£¬¼âÑÀö·Â¶...
+ä¸€ä¸ªä¼¼äººéäººï¼Œä¼¼ç•œéç•œçš„å¦–æ€ªï¼Œäººèº«é©¬é¢ï¼Œä¼¼ç¬‘ä¼¼å“­ï¼Œå°–ç‰™é¾‡éœ²...
 LONG NOR);
 	set("max_jing", 10000);
 	set("max_qi", 10000);

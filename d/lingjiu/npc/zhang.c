@@ -3,10 +3,10 @@ inherit NPC;
 
 void create()
 {
-	set_name("â¯", ({ "zhang" }) );
-	set("race", "×ßĞó");
+	set_name("ç", ({ "zhang" }) );
+	set("race", "èµ°ç•œ");
 	set("age", 2);
-	set("long", "Ò»Í·¿É°®µÄâ¯£¬ËüµÄÑªÊÇ´ó²¹Ö®Îï¡£\n");
+	set("long", "ä¸€å¤´å¯çˆ±çš„çï¼Œå®ƒçš„è¡€æ˜¯å¤§è¡¥ä¹‹ç‰©ã€‚\n");
 	set("attitude", "peaceful");
 	set("str", 30);
 	set("con", 26);
@@ -21,6 +21,6 @@ void create()
 
 void die()
 {
-	message_vision("$NÁ½ÍÈÒ»µÅ£¬$NËÀÁË¡£\n", this_object());
+	message_vision("$Nä¸¤è…¿ä¸€è¹¬ï¼Œ$Næ­»äº†ã€‚\n", this_object());
 	destruct(this_object());
 }

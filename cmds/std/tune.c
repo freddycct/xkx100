@@ -28,43 +28,43 @@ int main(object me, string arg)
 	if( !arg )
 	{
 		if( !pointerp(tuned_ch) || !sizeof(tuned_ch) )
-			write("�����ڲ�û�������κ�Ƶ����\n");
+			write("你现在并没有收听任何频道。\n");
 		else
-			write("������������Ƶ����" + implode(tuned_ch, ", ") + "��\n");
+			write("你现在收听的频道：" + implode(tuned_ch, ", ") + "。\n");
 		return 1;
 	}
 
 	switch (arg)
 	{
-		  case "sys" 	: chinese_name = "ϵͳ"; break;
-		  case "snp" 	: chinese_name = "����"; break;
-		  case "debug"	: chinese_name = "����"; break;
-		  case "wiz"	: chinese_name = "��ʦ"; break;
-		  case "gwiz"	: chinese_name = "������ʦ"; break;
-		  case "qst"  : chinese_name = "����"; break;
-		  case "rumor"	: chinese_name = "ҥ��"; break;
-		  case "chat"	: chinese_name = "����"; break;
-		  case "xkx"	: chinese_name = "������"; break;
-		  case "sing"	: chinese_name = "�質"; break;
-		  case "party"	: chinese_name = "����"; break;
-		  case "es"	: chinese_name = "��������"; break;
-		  case "snow": chinese_name = "����"; break;
+		  case "sys" 	: chinese_name = "系统"; break;
+		  case "snp" 	: chinese_name = "监听"; break;
+		  case "debug"	: chinese_name = "调试"; break;
+		  case "wiz"	: chinese_name = "巫师"; break;
+		  case "gwiz"	: chinese_name = "网际巫师"; break;
+		  case "qst"  : chinese_name = "任务"; break;
+		  case "rumor"	: chinese_name = "谣言"; break;
+		  case "chat"	: chinese_name = "闲聊"; break;
+		  case "xkx"	: chinese_name = "侠客行"; break;
+		  case "sing"	: chinese_name = "歌唱"; break;
+		  case "party"	: chinese_name = "门派"; break;
+		  case "es"	: chinese_name = "网际闲聊"; break;
+		  case "snow": chinese_name = "风闻"; break;
 	}	
 	if( pointerp(tuned_ch) && member_array(arg, tuned_ch)!=-1 )
 	{
 		tuned_ch -= ({ arg });
 		me->set("channels", tuned_ch);
-		write("�ر�" + chinese_name + "Ƶ����\n");
+		write("关闭" + chinese_name + "频道。\n");
 		return 1;
 	}
 	else
 		if ( !undefinedp(channel_name[arg]))
 		{
 			if (!wizardp(me) && channel_name[arg])
-				return notify_fail("��û��ʹ�����Ƶ����Ȩ����\n");
+				return notify_fail("你没有使用这个频道的权力。\n");
 			tuned_ch += ({ arg });
 			me->set("channels",tuned_ch);
-			write("��" + chinese_name + "Ƶ����\n");
+			write("打开" + chinese_name + "频道。\n");
 			return 1;
 		}
 
@@ -76,39 +76,39 @@ int main(object me, string arg)
 				wizardp(me) )
 				tuned_ch += ({ keys(channel_name)[i] });
 		me->set("channels", tuned_ch);
-		write("�Ѵ�����Ƶ����\n");
+		write("已打开所有频道。\n");
 		return 1;
 	}
 	if ( arg == "off" )
 	{
 		tuned_ch = ({ });
 		me->set("channels", tuned_ch);
-		write("�ѹر�����Ƶ����\n");
+		write("已关闭所有频道。\n");
 		return 1;
 	}
 
-	return notify_fail("�����Ƶ����\n");
+	return notify_fail("有这个频道吗？\n");
 }
 
 int help(object me)
 {
 	write(@HELP
-ָ���ʽ��tune [<Ƶ������> | on | off]
+指令格式：tune [<频道名称> | on | off]
 
-    ���ָ������ѡ���Ƿ�Ҫ����ĳһƵ����ѶϢ�����û��ָ��Ƶ
-�����ƣ��ͻ��г���Ŀǰ�����е�Ƶ�������ָ����Ƶ����ԭ������
-�еľͻ�ص�����֮�򿪡�
-    �� tune on|off ���Դ򿪻�ر�����Ƶ����
+    这个指令让你选择是否要收听某一频道的讯息，如果没有指定频
+道名称，就会列出你目前收听中的频道，如果指定了频道，原来收听
+中的就会关掉，反之打开。
+    用 tune on|off 可以打开或关闭所有频道。
 
-������һ��û�������е�Ƶ�����������Զ������򿪡�
-Ҫ��һ��Ƶ��������ֻҪ�ã�
+如果你对一个没有收听中的频道讲话，会自动将它打开。
+要对一个频道讲话，只要用：
 
-<Ƶ������> <ѶϢ> ....
+<频道名称> <讯息> ....
 
-���ӣ�
+例子：
      chat hello everyone!
 
-������� help channels ��ѯĿǰ����ЩƵ������������
+你可以用 help channels 查询目前有哪些频道可以收听。
 
 see also : shout
 HELP

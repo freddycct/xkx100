@@ -1,4 +1,4 @@
-// caolianfang.c ²ÙÁ··¿
+// caolianfang.c æ“ç»ƒæˆ¿
 // Modified by Marz 03/27/96
 
 #include <room.h>
@@ -6,9 +6,9 @@ inherit ROOM;
 
 void create()
 {
-        set("short", "²ÙÁ··¿");
+        set("short", "æ“ç»ƒæˆ¿");
         set("long", @LONG
-ÕâÊÇ¶şÂ¥²ÙÁ··¿ÉÏ£¬ËÄÃæ°Ë·½¶¼ÊÇ´ò¶·Éù£¬Îäµ±µÜ×ÓÀ´È¥´Ò´Ò¡£
+è¿™æ˜¯äºŒæ¥¼æ“ç»ƒæˆ¿ä¸Šï¼Œå››é¢å…«æ–¹éƒ½æ˜¯æ‰“æ–—å£°ï¼Œæ­¦å½“å¼Ÿå­æ¥å»åŒ†åŒ†ã€‚
 LONG );
         set("exits", ([
                 "south"     : __DIR__"caolian1",

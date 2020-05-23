@@ -1,4 +1,4 @@
-// daerba.c ´ï¶ø°Í
+// daerba.c è¾¾è€Œå·´
 
 #include <ansi.h>
 
@@ -6,14 +6,14 @@ inherit NPC;
 
 void create()
 {
-        set_name("´ï¶û°Í", ({ "daerba  huofo", "huofo" }));
+        set_name("è¾¾å°”å·´", ({ "daerba  huofo", "huofo" }));
         set("long",@LONG
-ËûÊÇ½ğÂÖ·¨Íõ×ùÏÂµÄ´óµÜ×Ó¡£ÉîµÃ·¨ÍõµÄÕæ´«¡£
-Éí´©Ò»¼ş»ÆÉ«ôÂôÄ£¬Í·´øÉ®Ã±¡£
+ä»–æ˜¯é‡‘è½®æ³•ç‹åº§ä¸‹çš„å¤§å¼Ÿå­ã€‚æ·±å¾—æ³•ç‹çš„çœŸä¼ ã€‚
+èº«ç©¿ä¸€ä»¶é»„è‰²è¢ˆè£Ÿï¼Œå¤´å¸¦åƒ§å¸½ã€‚
 LONG
         );
-        set("title", HIY "»î·ğ" NOR);
-        set("gender", "ÄĞĞÔ");
+        set("title", HIY "æ´»ä½›" NOR);
+        set("gender", "ç”·æ€§");
         set("age", 45);
         set("attitude", "peaceful");
         set("str", 30);

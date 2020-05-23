@@ -1,13 +1,13 @@
-// bei.c ±´½õÒÇ
+// bei.c è´é”¦ä»ª
 
 inherit NPC;
 inherit F_MASTER;
 int ask_for_ji();
 void create()
 {
-	set_name("±´½õÒÇ", ({ "bei jinyi","bei","jinyi"}));
-	set("long", "ËıÊÇ¶ëáÒÅÉµÄµÚËÄ´úË×¼ÒµÜ×Ó¡£\n");
-	set("gender", "Å®ĞÔ");
+	set_name("è´é”¦ä»ª", ({ "bei jinyi","bei","jinyi"}));
+	set("long", "å¥¹æ˜¯å³¨åµ‹æ´¾çš„ç¬¬å››ä»£ä¿—å®¶å¼Ÿå­ã€‚\n");
+	set("gender", "å¥³æ€§");
 	set("age", 21);
 	set("attitude", "peaceful");
 	set("class", "fighter");
@@ -28,8 +28,8 @@ void create()
 	set("jingli", 1500);
 	set("max_jingli", 1500);
 	set("inquiry",([
-		"ÒĞÌì½£" : "Ê¦¸¸°ÑËı½»¸ø¼ÍÊ¦æ¢ÁË¡£",
-		"¼ÍÏşÜ½" : (: ask_for_ji :),
+		"å€šå¤©å‰‘" : "å¸ˆçˆ¶æŠŠå¥¹äº¤ç»™çºªå¸ˆå§Šäº†ã€‚",
+		"çºªæ™“èŠ™" : (: ask_for_ji :),
 	]));
 
 	set("combat_exp", 150000);
@@ -65,7 +65,7 @@ void create()
 		(: exert_function, "regenerate" :),
 	}) );
 
-	create_family("¶ëáÒÅÉ", 4, "µÜ×Ó");
+	create_family("å³¨åµ‹æ´¾", 4, "å¼Ÿå­");
 
 	setup();
 	carry_object(WEAPON_DIR"changjian")->wield();
@@ -76,18 +76,18 @@ void create()
 void attempt_apprentice(object ob)
 {
 	if ((int)ob->query("combat_exp") > 10000) {
-		command("say ÎÒ¶ëáÒ×¢ÖØÇåĞŞ£¬¶ÔµÜ×ÓÒªÇóÄÜÈÌÊÜ¼ÅÄ¯¡£");
-		command("say ÔÚ½­ºşÔÄÀú·½Ãæ£¬" + RANK_D->query_respect(ob) +
-			"¾­Àú·á¸»£¬ÊÇ·ñÄÜÔÚ¶ëáÒĞŞµÀ£¿");
+		command("say æˆ‘å³¨åµ‹æ³¨é‡æ¸…ä¿®ï¼Œå¯¹å¼Ÿå­è¦æ±‚èƒ½å¿å—å¯‚å¯ã€‚");
+		command("say åœ¨æ±Ÿæ¹–é˜…å†æ–¹é¢ï¼Œ" + RANK_D->query_respect(ob) +
+			"ç»å†ä¸°å¯Œï¼Œæ˜¯å¦èƒ½åœ¨å³¨åµ‹ä¿®é“ï¼Ÿ");
 		return;
 	}
 	if ((int)ob->query("shen") < 0) {
-		command("say ÎÒ¶ëáÒÄËÊÇÌÃÌÃÃûÃÅÕıÅÉ£¬¶ÔµÜ×ÓÒªÇó¼«ÑÏ¡£");
-		command("say ÔÚµÂĞĞ·½Ãæ£¬" + RANK_D->query_respect(ob) +
-			"ÊÇ·ñ»¹×öµÃ²»¹»£¿");
+		command("say æˆ‘å³¨åµ‹ä¹ƒæ˜¯å ‚å ‚åé—¨æ­£æ´¾ï¼Œå¯¹å¼Ÿå­è¦æ±‚æä¸¥ã€‚");
+		command("say åœ¨å¾·è¡Œæ–¹é¢ï¼Œ" + RANK_D->query_respect(ob) +
+			"æ˜¯å¦è¿˜åšå¾—ä¸å¤Ÿï¼Ÿ");
 		return;
 	}
-	command("say ºÃ°É£¬ÎÒ¾ÍÊÕÏÂÄãÁË¡£");
+	command("say å¥½å§ï¼Œæˆ‘å°±æ”¶ä¸‹ä½ äº†ã€‚");
 	command("recruit " + ob->query("id"));
 }
 int ask_for_ji()
@@ -96,10 +96,10 @@ int ask_for_ji()
 
 	if(query("ji_count") > 0)
 	{
-		tell_object(ob,"±´½õÒÇËµµÀ£ºÄãÕÒÏşÜ½£¿¿´¿´ÓĞÃ»ÓĞÔÚÉáÉíÑÂ¡£\n"); 
+		tell_object(ob,"è´é”¦ä»ªè¯´é“ï¼šä½ æ‰¾æ™“èŠ™ï¼Ÿçœ‹çœ‹æœ‰æ²¡æœ‰åœ¨èˆèº«å´–ã€‚\n"); 
 		add("ji_count", -1);
 		ob->set("marks/ji",1);
 	}
-	else tell_object(ob,"±´½õÒÇËµµÀ£ºÄãÕÒÏşÜ½£¿ÎÒÒ²ÔÚÕÒËıÄØ¡£\n"); 
+	else tell_object(ob,"è´é”¦ä»ªè¯´é“ï¼šä½ æ‰¾æ™“èŠ™ï¼Ÿæˆ‘ä¹Ÿåœ¨æ‰¾å¥¹å‘¢ã€‚\n"); 
 	return 1;
 }

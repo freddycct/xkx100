@@ -5,9 +5,9 @@ int update_condition(object me, int duration)
 {
   if (me->is_ghost()) return 1;
 	if(me->query_temp("nopoison")) return 0;
-	tell_object(me, HIB "ÄãÖÐµÄ" HIC "±ùÆÇÒøÕë¶¾" HIB "·¢×÷ÁË£¡\n" NOR );
-	me->receive_wound("jing", 10,"±ùÆÇÒøÕë¶¾·¢×÷");
-	me->receive_damage("qi", 10,"±ùÆÇÒøÕë¶¾·¢×÷");
+	tell_object(me, HIB "ä½ ä¸­çš„" HIC "å†°é­„é“¶é’ˆæ¯’" HIB "å‘ä½œäº†ï¼\n" NOR );
+	me->receive_wound("jing", 10,"å†°é­„é“¶é’ˆæ¯’å‘ä½œ");
+	me->receive_damage("qi", 10,"å†°é­„é“¶é’ˆæ¯’å‘ä½œ");
 	if ((int)me->query("eff_jing")<0 || (int)me->query("eff_qi")<0) return 0;
 	me->apply_condition("ice_sting", duration - random(5));
 	if( duration < 1 ) return 0;

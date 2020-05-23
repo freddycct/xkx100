@@ -1,4 +1,4 @@
-// qufeng.c Çý·äÖ®Êõ
+// qufeng.c é©±èœ‚ä¹‹æœ¯
 // Last Modified by winder on Mar. 10 2000
 
 #include <ansi.h>
@@ -15,26 +15,26 @@ int power_point(object me) { return 1; }
 int valid_learn(object me)
 {
 	if ((int)me->query_skill("yunv-xinfa", 1) < 10)
-		return notify_fail("ÄãµÄÓñÅ®ÐÄ·¨»ðºò²»¹»£¬ÎÞ·¨Ñ§Çý·äÖ®Êõ¡£\n");
+		return notify_fail("ä½ çš„çŽ‰å¥³å¿ƒæ³•ç«å€™ä¸å¤Ÿï¼Œæ— æ³•å­¦é©±èœ‚ä¹‹æœ¯ã€‚\n");
 	if ((int)me->query("max_neili") < 30)
-		return notify_fail("ÄãµÄÄÚÁ¦Ì«Èõ£¬ÎÞ·¨Ñ§Ï°Çý·äÖ®Êõ¡£\n");
+		return notify_fail("ä½ çš„å†…åŠ›å¤ªå¼±ï¼Œæ— æ³•å­¦ä¹ é©±èœ‚ä¹‹æœ¯ã€‚\n");
 	return 1;
 }
 int practice_skill(object me)
 {
-	return notify_fail("Çý·äÖ®ÊõÖ»ÄÜ¿¿Ñ§Ï°À´Ìá¸ß¡£\n");
+	return notify_fail("é©±èœ‚ä¹‹æœ¯åªèƒ½é å­¦ä¹ æ¥æé«˜ã€‚\n");
 }
 int help(object me)
 {
-	write(HIC"\nÇý·äÖ®Êõ£º"NOR"\n");
+	write(HIC"\né©±èœ‚ä¹‹æœ¯ï¼š"NOR"\n");
 	write(@HELP
 
-    ¹ÅÄ¹µÜ×ÓÈç¹ûÉí¾ßÇý·äÊõ£¬Ê¹ÓÃ·ä½¬Æ¿¼´¿ÉÇý·ä¿ËµÐ¡£
-    Çëhelp qufeng¡£
+    å¤å¢“å¼Ÿå­å¦‚æžœèº«å…·é©±èœ‚æœ¯ï¼Œä½¿ç”¨èœ‚æµ†ç“¶å³å¯é©±èœ‚å…‹æ•Œã€‚
+    è¯·help qufengã€‚
 
-	Ñ§Ï°ÒªÇó£º
-		ÓñÅ®ÐÄ·¨10¼¶
-		ÄÚÁ¦30
+	å­¦ä¹ è¦æ±‚ï¼š
+		çŽ‰å¥³å¿ƒæ³•10çº§
+		å†…åŠ›30
 HELP
 	);
 	return 1;

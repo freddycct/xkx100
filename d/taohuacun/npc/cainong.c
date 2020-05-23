@@ -4,10 +4,10 @@ inherit F_DEALER;
 
 void  create()
 {
-	set_name("²ËÅ©", ({ "cai nong" }));
-	set("gender", "ÄĞĞÔ");
+	set_name("èœå†œ", ({ "cai nong" }));
+	set("gender", "ç”·æ€§");
 	set("age", 25);
-	set("long", "Ò»Î»Ãæ¿×÷îºÚµÄÏçÏÂ²ËÅ©¡£\n");
+	set("long", "ä¸€ä½é¢å­”é»é»‘çš„ä¹¡ä¸‹èœå†œã€‚\n");
 	set("combat_exp", 100);
 	set("attitude", "friendly");
 	set("vendor_goods", ({

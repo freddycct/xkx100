@@ -1,4 +1,4 @@
-// literate.c ¶ÁÊéĞ´×Ö
+// literate.c è¯»ä¹¦å†™å­—
 // Last Modified by winder on Mar. 10 2000
 
 #include <ansi.h>
@@ -16,19 +16,19 @@ void skill_improved(object me)
 int valid_learn(object me)
 {
 //	if ( me->query("class") != "bonze" )
-//		return notify_fail("ÄãÏÖÔÚ²»ÄÜÑ§Ï°¶ÁÊéĞ´×Ö¡£\n");
+//		return notify_fail("ä½ ç°åœ¨ä¸èƒ½å­¦ä¹ è¯»ä¹¦å†™å­—ã€‚\n");
 	return 1;
 }
 
 int help(object me)
 {
-	write(HIC"\n¶ÁÊéĞ´×Ö£º"NOR"\n");
+	write(HIC"\nè¯»ä¹¦å†™å­—ï¼š"NOR"\n");
 	write(@HELP
 
-    ¶ÁÊéĞ´×ÖÊÇ×ÔÑ§Îä¼®µÄ»ù´¡£¬²¢ÄÜ¸ÄÉÆÄãºóÌìµÄÎòĞÔ¡£
+    è¯»ä¹¦å†™å­—æ˜¯è‡ªå­¦æ­¦ç±çš„åŸºç¡€ï¼Œå¹¶èƒ½æ”¹å–„ä½ åå¤©çš„æ‚Ÿæ€§ã€‚
 
-	Ñ§Ï°ÒªÇó£º
-		ÎŞ
+	å­¦ä¹ è¦æ±‚ï¼š
+		æ— 
 HELP
 	);
 	return 1;

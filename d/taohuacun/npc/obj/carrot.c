@@ -4,12 +4,12 @@ inherit ITEM;
 
 void create()
 {
-	set_name(HIR"ºúÂÜ²·"NOR,({"carrot","huluobo"}));
+	set_name(HIR"èƒ¡èåœ"NOR,({"carrot","huluobo"}));
 	set_weight(300);
 	if( clonep() )
                 set_default_object(__FILE__);
         else {
-                set("long", "Ò»ÀººúÂÜ²·¡£\n");
-                set("unit", "Àº");
+                set("long", "ä¸€ç¯®èƒ¡èåœã€‚\n");
+                set("unit", "ç¯®");
         }
 }

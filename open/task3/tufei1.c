@@ -6,11 +6,11 @@ int ask_me();
 
 void create()
 {
-	set_name("ÅÌÁú»¨ÎÆ", ({ "picture"}) );
-	set("gender", "ÄÐÐÔ" );
+	set_name("ç›˜é¾™èŠ±çº¹", ({ "picture"}) );
+	set("gender", "ç”·æ€§" );
 	set("age", 34);
 	set("long",
-		"Ëû¾ÍÊÇÐ×ºÝµÄÃÉÃæ´óµÁ£¬×÷°¸´ÓÀ´²»Áô»î¿Ú¡£\n");
+		"ä»–å°±æ˜¯å‡¶ç‹ çš„è’™é¢å¤§ç›—ï¼Œä½œæ¡ˆä»Žæ¥ä¸ç•™æ´»å£ã€‚\n");
 	set("max_qi", 5000);
 	set("max_jing", 5000);
 	set("max_neili", 5000);
@@ -94,9 +94,9 @@ ited"))
 		set_skill("yunlong-shengong", maxskill);
 		if (!present("blade",obj))
 			carry_object("/clone/weapon/gangdao")->wield();
-		obj->set("title","É±ÈËÈçÂé");
+		obj->set("title","æ€äººå¦‚éº»");
 		obj->set_weight(500000);
-		set_name("ÃÉÃæ´óµÁ", ({ "mengmian dadao","md"}) );
+		set_name("è’™é¢å¤§ç›—", ({ "mengmian dadao","md"}) );
 		if (ob->query("id") == obj->query_temp("bt_ownname"))
 			obj->kill_ob(ob);
 		remove_call_out ("destroy_npc");
@@ -105,7 +105,7 @@ ited"))
 }
 void destroy_npc()
 {
-	message_vision("" + (string)this_object()->query("name") + "ºöÈ»´òÁË¸ö¶ßàÂ£¬²»ÓÉÐÄÉú¾åÒâ£¬ÉíÐÎÒ»»Î£¬¶ÙÊ±»ìÈëÃ§Ã§ÈËº£Ö®ÖÐ¡£\n", environment(this_object()));
+	message_vision("" + (string)this_object()->query("name") + "å¿½ç„¶æ‰“äº†ä¸ªå“†å—¦ï¼Œä¸ç”±å¿ƒç”Ÿæƒ§æ„ï¼Œèº«å½¢ä¸€æ™ƒï¼Œé¡¿æ—¶æ··å…¥èŽ½èŽ½äººæµ·ä¹‹ä¸­ã€‚\n", environment(this_object()));
 	destruct(this_object());
 }
 // int active_died()
@@ -113,7 +113,7 @@ void die()
 {
 	object ob,me;
 	string own;
-	message_vision("$Nµ¹ÔÚµØÉÏ£¬ËÀÁË£¡\n", this_object());
+	message_vision("$Nå€’åœ¨åœ°ä¸Šï¼Œæ­»äº†ï¼\n", this_object());
 	ob = this_object();
 	own = ob->query_temp("bt_ownname");
 	if(own) me = find_player(own);

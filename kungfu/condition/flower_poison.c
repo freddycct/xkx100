@@ -6,9 +6,9 @@ int update_condition(object me, int duration)
 {
   if (me->is_ghost()) return 1;
 	if(me->query_temp("nopoison")) return 0;
-	tell_object(me, HIG "ÄãÖÐµÄ" HIR "¶Ï³¦»¨¶¾" HIG "·¢×÷ÁË£¡\n" NOR );
-	me->receive_wound("jing", 20,"¶Ï³¦»¨¶¾·¢×÷");
-	me->receive_damage("qi", 10,"¶Ï³¦»¨¶¾·¢×÷");
+	tell_object(me, HIG "ä½ ä¸­çš„" HIR "æ–­è‚ èŠ±æ¯’" HIG "å‘ä½œäº†ï¼\n" NOR );
+	me->receive_wound("jing", 20,"æ–­è‚ èŠ±æ¯’å‘ä½œ");
+	me->receive_damage("qi", 10,"æ–­è‚ èŠ±æ¯’å‘ä½œ");
 	if ((int)me->query("eff_jing")<0 || (int)me->query("eff_qi")<0) return 0;
 	me->apply_condition("flower_poison", duration - random(5));
 	if( duration < 1 ) return 0;

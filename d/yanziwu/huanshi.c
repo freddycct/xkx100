@@ -4,12 +4,12 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "»¹Ê©Ë®¸ó");
+	set("short", "è¿˜æ–½æ°´é˜");
 	set("long",@LONG
-ÕâÀï¾ÍÊÇÎäÁÖÖÐÈËÈËÐÄÒÇµÄÄ½ÈÝ¼Ò²ØÊéÖ®Ëù¡£ÌìÏÂÏ°ÎäÖ®ÈË£¬·²ÎÅ
-¡°ÒÔ±ËÖ®µÀ£¬»¹Ê©±ËÉí¡±Ö®ÃûÕß£¬Äª²»Ï£ÍûÀ´´Ë£¬·¢¾òÄ½ÈÝÊÀ¼Ò¾ø¼¼µÄ
-ÃØÃÜ¡£¸óÖÐÂúÊÇÊé¼Ü£¬¼ÜÉÏ°Ú×ÅÐí¶àÆÄÎª¹Å¾ÉµÄÊé¼®£¬¼ÜÉÏ¾ùÌùÓÐ±êÇ©
-(sign)¡£Õâ¾ÍÊÇÄ½ÈÝÊÀ¼ÒÀú¾­Êý´ú²ÅÊÕ¼¯»ýÀÛ¶ø³ÉµÄÎäÑ§±¦¿â¡£
+è¿™é‡Œå°±æ˜¯æ­¦æž—ä¸­äººäººå¿ƒä»ªçš„æ…•å®¹å®¶è—ä¹¦ä¹‹æ‰€ã€‚å¤©ä¸‹ä¹ æ­¦ä¹‹äººï¼Œå‡¡é—»
+â€œä»¥å½¼ä¹‹é“ï¼Œè¿˜æ–½å½¼èº«â€ä¹‹åè€…ï¼ŒèŽ«ä¸å¸Œæœ›æ¥æ­¤ï¼Œå‘æŽ˜æ…•å®¹ä¸–å®¶ç»æŠ€çš„
+ç§˜å¯†ã€‚é˜ä¸­æ»¡æ˜¯ä¹¦æž¶ï¼Œæž¶ä¸Šæ‘†ç€è®¸å¤šé¢‡ä¸ºå¤æ—§çš„ä¹¦ç±ï¼Œæž¶ä¸Šå‡è´´æœ‰æ ‡ç­¾
+(sign)ã€‚è¿™å°±æ˜¯æ…•å®¹ä¸–å®¶åŽ†ç»æ•°ä»£æ‰æ”¶é›†ç§¯ç´¯è€Œæˆçš„æ­¦å­¦å®åº“ã€‚
 LONG );
 	set("exits", ([
 		"north": __DIR__"jiashan",
@@ -25,7 +25,7 @@ LONG );
 		__DIR__"book/unarmed_book": random(2),
 	]));
 	set("item_desc",([
-		"sign" : "Ç©ÉÏ±ê×ÅÉÙÁÖ¡¢Îäµ±¡¢Çà³Ç¡¢´óÀíµÈÃÅÅÉµÄÃû³Æ¡£\n"
+		"sign" : "ç­¾ä¸Šæ ‡ç€å°‘æž—ã€æ­¦å½“ã€é’åŸŽã€å¤§ç†ç­‰é—¨æ´¾çš„åç§°ã€‚\n"
 	]));
 	set("no_clean_up", 0);
 	set("coor/x", 840);

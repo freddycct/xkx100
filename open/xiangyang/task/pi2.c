@@ -1,16 +1,16 @@
 // Last Modified by winder on Apr. 25 2001
-// pi2.c ñÔ½« ÇàÁúÄÚÃÅ
+// pi2.c è£¨å°† é’é¾™å†…é—¨
 #include <ansi.h>
 inherit NPC;
 
 void create()
 {
-	set_name("ñÔ½«", ({ "pi jiang", "pi", "jiang" }));
-	set("gender", "ÄĞĞÔ");
+	set_name("è£¨å°†", ({ "pi jiang", "pi", "jiang" }));
+	set("gender", "ç”·æ€§");
 	set("age", random(10) + 30);
 	set("str", 25);
 	set("dex", 16);
-	set("long", "ÕâÊÇÒ»¸ö´óËÎÄêÇá½«Áì£¬ÂúÁ³Õ÷³¾¡£\n");
+	set("long", "è¿™æ˜¯ä¸€ä¸ªå¤§å®‹å¹´è½»å°†é¢†ï¼Œæ»¡è„¸å¾å°˜ã€‚\n");
 	set("combat_exp", 45000);
 	set("shen_type", 1);
 	set("attitude", "peaceful");
@@ -51,11 +51,11 @@ void greeting(object ob)
 	if( !ob || environment(ob) != environment() ) return;
 	if(ob->query_temp("start_job")==2)
 	{
-		say("ñÔ½«ÖåÁËÖåÃ¼£ºÕâÎ»" + RANK_D->query_respect(ob) + "£¬Äã»¹ÊÇ°²ĞÄÊØ³Ç°É¡£\n");
+		say("è£¨å°†çš±äº†çš±çœ‰ï¼šè¿™ä½" + RANK_D->query_respect(ob) + "ï¼Œä½ è¿˜æ˜¯å®‰å¿ƒå®ˆåŸå§ã€‚\n");
 	}	
 	else if(ob->query_temp("mark/job_shadi")==2)
 	{
-		say("ñÔ½«¹°ÊÖËµµÀ£ºÕâÎ»" + RANK_D->query_respect(ob) + "£¬ÄãÀ´µÃÕıÊÇÊ±ºò£¬ÃÉ¹Å÷°×ÓÒÑ¾­¿ì¹¥ÉÏ³ÇÁË¡£\n");
+		say("è£¨å°†æ‹±æ‰‹è¯´é“ï¼šè¿™ä½" + RANK_D->query_respect(ob) + "ï¼Œä½ æ¥å¾—æ­£æ˜¯æ—¶å€™ï¼Œè’™å¤é¼å­å·²ç»å¿«æ”»ä¸ŠåŸäº†ã€‚\n");
 		ob->apply_condition("jobshadi_limit", 5+random(5));
 		ob->set_temp("start_job",2);
 		ob->set_temp("where",environment(ob));
@@ -64,7 +64,7 @@ void greeting(object ob)
 	}
 	if(ob->query_temp("job_over")==1)
 	{
-		say("ñÔ½«¹°ÊÖËµµÀ£ºÕâÎ»" + RANK_D->query_respect(ob) + "£¬ÄãÒÑ¾­¿ÉÒÔ»ØÈ¥¸´ÃüÁË¡£\n");
+		say("è£¨å°†æ‹±æ‰‹è¯´é“ï¼šè¿™ä½" + RANK_D->query_respect(ob) + "ï¼Œä½ å·²ç»å¯ä»¥å›å»å¤å‘½äº†ã€‚\n");
 		return;
 	}
 }
@@ -82,16 +82,16 @@ void to_rob(object ob)
 		for(i=0;i<sizeof(target);i++)
 		{
 			if(target[i]->query("family/family_name") == my_fam["family_name"] && target[i]->query("id")!=ob->query("id"))
-			message("vission",HIR"Ò»Ö»»ëÉíÏÊÑªµÄ¸ë×Ó·Éµ½ÄãÃæÇ°´«¸øÄãÒ»ÕÅÖ½Ìõ£º\n"HIW"¨X¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨[
-¨U          ÃÉ¹Å÷°×ÓÈëÇÖÖĞÔ­£¬"+room->query("short")+"³Ô½ô£¡          ¨U\n¨^¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨a \n                              "+NOR+CYN+ob->query("family/family_name")+" "+ob->query("name")+"("+ob->query("id")+")\n" NOR,target[i]);
+			message("vission",HIR"ä¸€åªæµ‘èº«é²œè¡€çš„é¸½å­é£åˆ°ä½ é¢å‰ä¼ ç»™ä½ ä¸€å¼ çº¸æ¡ï¼š\n"HIW"â•”â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•—
+â•‘          è’™å¤é¼å­å…¥ä¾µä¸­åŸï¼Œ"+room->query("short")+"åƒç´§ï¼          â•‘\nâ•šâ•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• \n                              "+NOR+CYN+ob->query("family/family_name")+" "+ob->query("name")+"("+ob->query("id")+")\n" NOR,target[i]);
 		}
 	}
-	if( environment(ob)->query("short")=="ÇàÁúÄÚÃÅ")
+	if( environment(ob)->query("short")=="é’é¾™å†…é—¨")
 	{
 		robber=new(__DIR__"robber1");
 		robber->do_change(ob);
 		robber->move(room);
-		message_vision(HIR"Í»È»³ÇÏÂÅÀÉÏÀ´Ò»¸öÃÉ¹Å±øÊ¿¡£\n" NOR,ob);
+		message_vision(HIR"çªç„¶åŸä¸‹çˆ¬ä¸Šæ¥ä¸€ä¸ªè’™å¤å…µå£«ã€‚\n" NOR,ob);
 		robber->kill_ob(ob);
 		ob->kill_ob(robber);
 	}

@@ -9,14 +9,14 @@ int exert(object me, object target)
 	int n, j;
 
 	if (me != target)
-		return notify_fail("ÄãÖ»ÄÜÓÃÄÚ¹¦µ÷ÔÈ×Ô¼ºµÄ¾«Æø¡£\n");
+		return notify_fail("ä½ åªèƒ½ç”¨å†…åŠŸè°ƒåŒ€è‡ªå·±çš„ç²¾æ°”ã€‚\n");
 
 	if ((int)me->query("neili") < 20)
-		return notify_fail("ÄãµÄÄÚÁ¦²»¹»¡£\n");
+		return notify_fail("ä½ çš„å†…åŠ›ä¸å¤Ÿã€‚\n");
 
 	j = (int)me->query("eff_jing") - (int)me->query("jing");
 	if (j < 10)
-		return notify_fail("ÄãÏÖÔÚÆøÁ¦³äÅæ¡£\n");
+		return notify_fail("ä½ ç°åœ¨æ°”åŠ›å……æ²›ã€‚\n");
 	n = 100 * j / me->query_skill("force");
 	if (n < 20)
 		n = 20;
@@ -28,7 +28,7 @@ int exert(object me, object target)
 	me->add("neili", -n);
 	me->receive_heal("jing", j);
 	
-        message_combatd("$NÉîÉîÎüÁË¼¸¿ÚÆø£¬¾«Éñ¿´ÆğÀ´ºÃ¶àÁË¡£\n", me);
+        message_combatd("$Næ·±æ·±å¸äº†å‡ å£æ°”ï¼Œç²¾ç¥çœ‹èµ·æ¥å¥½å¤šäº†ã€‚\n", me);
 
         if( me->is_fighting() ) me->start_busy(1);
 	
@@ -36,15 +36,15 @@ int exert(object me, object target)
 }
 int help(object me)
 {
-	write(WHT"\n»ù±¾ÄÚ¹¦Ö®ÌáÕñ¾«Éñ£º"NOR"\n");
+	write(WHT"\nåŸºæœ¬å†…åŠŸä¹‹ææŒ¯ç²¾ç¥ï¼š"NOR"\n");
 	write(@HELP
 
-	Ê¹ÓÃ¹¦Ğ§£º
-		ÅàÖ²×Ô¼ººÄÓÃµÄ¾«Æø
+	ä½¿ç”¨åŠŸæ•ˆï¼š
+		åŸ¹æ¤è‡ªå·±è€—ç”¨çš„ç²¾æ°”
 
-	³öÊÖÒªÇó£º
-		»ù±¾ÄÚ¹¦
-		ÄÚÁ¦20
+	å‡ºæ‰‹è¦æ±‚ï¼š
+		åŸºæœ¬å†…åŠŸ
+		å†…åŠ›20
 HELP
 	);
 	return 1;

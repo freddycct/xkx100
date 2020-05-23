@@ -1,4 +1,4 @@
-// goudu.c ¹¶¶Á
+// goudu.c è‹Ÿè¯»
 // Modified by Winder June.25 2000
 inherit NPC;
 inherit F_MASTER;
@@ -8,10 +8,10 @@ string ask_me();
 
 void create()
 {
-	set_name("¹¶¶Á", ({ "gou du", "gou" }));
-	set("nickname","¡°º¯¹È°ËÓÑ¡±Êé´ô");
-	set("long","Ëû¿´ÉÏÈ¥Ò²ÊÇ¼¸Ê®ËêµÄÈËÁË£¬ĞÔºÃ¶ÁÊé£¬Öî×Ó°Ù¼Ò£¬ÎŞËù²»¿ú£¬ÊÇÒ»Î»¼«ÓĞÑ§ÎÊµÄËŞÈå£¬È´ÊÇ´¿È»Ò»¸öÊé´ô×ÓµÄÄ£Ñù¡£\n");
-	set("gender", "ÄĞĞÔ");
+	set_name("è‹Ÿè¯»", ({ "gou du", "gou" }));
+	set("nickname","â€œå‡½è°·å…«å‹â€ä¹¦å‘†");
+	set("long","ä»–çœ‹ä¸Šå»ä¹Ÿæ˜¯å‡ åå²çš„äººäº†ï¼Œæ€§å¥½è¯»ä¹¦ï¼Œè¯¸å­ç™¾å®¶ï¼Œæ— æ‰€ä¸çª¥ï¼Œæ˜¯ä¸€ä½ææœ‰å­¦é—®çš„å®¿å„’ï¼Œå´æ˜¯çº¯ç„¶ä¸€ä¸ªä¹¦å‘†å­çš„æ¨¡æ ·ã€‚\n");
+	set("gender", "ç”·æ€§");
 	set("age", 44);
 	set("attitude", "friendly");
 	set("class", "scholar");
@@ -22,7 +22,7 @@ void create()
 	set("dex", 25);
 
 	set("inquiry", ([
-		"ÂÛÓï":(:ask_me:),
+		"è®ºè¯­":(:ask_me:),
 	]) );
 
 	set("max_qi", 800);
@@ -62,7 +62,7 @@ void create()
 
 	set("book_count", 1);
 
-	create_family("åĞÒ£ÅÉ", 3, "µÜ×Ó");
+	create_family("é€é¥æ´¾", 3, "å¼Ÿå­");
 	setup();
 	carry_object("/clone/misc/cloth")->wear();
 	carry_object("/clone/weapon/gangdao")->wield();
@@ -71,7 +71,7 @@ void create()
 
 void attempt_apprentice(object ob)
 {
-	command("say ºÃ°É£¬ÎÒ¾ÍÊÕÏÂÄãÁË£¬ÒÔºóÒª¶àÎªåĞÒ£ÅÉ³öÁ¦°¡¡£");
+	command("say å¥½å§ï¼Œæˆ‘å°±æ”¶ä¸‹ä½ äº†ï¼Œä»¥åè¦å¤šä¸ºé€é¥æ´¾å‡ºåŠ›å•Šã€‚");
 	command("recruit " + ob->query("id"));
 }
 
@@ -81,23 +81,23 @@ string ask_me()
 	ob=this_player(); 
 
 	if (query("book_count") < 1)
-		return "ÄãÀ´ÍíÁË£¬ÄÇ±¾¡¶ÂÛÓï¡·ÎÒÒÑ¾­ÔùËÍ¸ø±ğÈËÁË¡£";   
+		return "ä½ æ¥æ™šäº†ï¼Œé‚£æœ¬ã€Šè®ºè¯­ã€‹æˆ‘å·²ç»èµ é€ç»™åˆ«äººäº†ã€‚";   
 	add("book_count", -1);                  
 
 	if(ob->query("family/master_id")=="xiaoyao zi")
 	{
-		command("say Ê¦ÊåÏëÒª¡¶ÂÛÓï¡·£¬ÄÃÈ¥¾ÍÊÇ¡£");
-		message_vision(HIY"¹¶¶Á´Ó»³ÀïÌÍ³öÒ»±¾¾ÉÊé£¬½»ÁË¸ø$N \n\n"NOR,ob);
+		command("say å¸ˆå”æƒ³è¦ã€Šè®ºè¯­ã€‹ï¼Œæ‹¿å»å°±æ˜¯ã€‚");
+		message_vision(HIY"è‹Ÿè¯»ä»æ€€é‡Œæå‡ºä¸€æœ¬æ—§ä¹¦ï¼Œäº¤äº†ç»™$N \n\n"NOR,ob);
 		me=new("/clone/book/lbook5");
 		me->move(ob);
-		return "Õâ±¾Êé¿ÉÇ§Íò²»Òª½è¸ø±ğÈË°¡£¬ËûÃÇÒ»½è¾Í²»»¹µÄÁË¡£\n";
+		return "è¿™æœ¬ä¹¦å¯åƒä¸‡ä¸è¦å€Ÿç»™åˆ«äººå•Šï¼Œä»–ä»¬ä¸€å€Ÿå°±ä¸è¿˜çš„äº†ã€‚\n";
 	}
-	command("say ¹ş¹ş£¬¡¶ÂÛÓï¡·¾ÍÃ»ÓĞÁË£¬ÕâÀïÓĞÎÒÅÉ¸ßÊÖ´ÓÉÙÁÖµÁÀ´µÄÊé¡£");
-	command("say ¼ÈÈ»ÄãÄÇÃ´ºÃÑ§£¬ÎÒ¾Í°ÑËüËÍ¸øÄã°É¡£\n");
-	message_vision(HIY"¹¶¶Á·­Ïäµ¹¹ñÕÒÁË°ëÌì£¬ÕÒ³öÒ»±¾¾ÉÊé£¬½»ÁË¸ø$N \n\n"NOR,ob);
+	command("say å“ˆå“ˆï¼Œã€Šè®ºè¯­ã€‹å°±æ²¡æœ‰äº†ï¼Œè¿™é‡Œæœ‰æˆ‘æ´¾é«˜æ‰‹ä»å°‘æ—ç›—æ¥çš„ä¹¦ã€‚");
+	command("say æ—¢ç„¶ä½ é‚£ä¹ˆå¥½å­¦ï¼Œæˆ‘å°±æŠŠå®ƒé€ç»™ä½ å§ã€‚\n");
+	message_vision(HIY"è‹Ÿè¯»ç¿»ç®±å€’æŸœæ‰¾äº†åŠå¤©ï¼Œæ‰¾å‡ºä¸€æœ¬æ—§ä¹¦ï¼Œäº¤äº†ç»™$N \n\n"NOR,ob);
 	if (random(2) == 1) me=new("/clone/book/strike_book");
 	else me=new("/clone/book/book-paper");
 	me->move(ob);
 
-	return "Õâ±¾Êé¿ÉÇ§Íò²»Òª½è¸ø±ğÈË°¡£¬ËûÃÇÒ»½è¾Í²»»¹µÄÁË¡£\n";
+	return "è¿™æœ¬ä¹¦å¯åƒä¸‡ä¸è¦å€Ÿç»™åˆ«äººå•Šï¼Œä»–ä»¬ä¸€å€Ÿå°±ä¸è¿˜çš„äº†ã€‚\n";
 }

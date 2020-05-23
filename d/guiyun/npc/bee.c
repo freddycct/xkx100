@@ -5,11 +5,11 @@ inherit NPC;
 
 void create()
 {
-        set_name("蜜蜂", ({ "bee", "mifeng", "feng" }) );
-	set("race", "昆虫");
-	set("subrace", "飞虫");
+        set_name("铚滆渹", ({ "bee", "mifeng", "feng" }) );
+	set("race", "鏄嗚櫕");
+	set("subrace", "椋炶櫕");
         set("age", 2);
-        set("long", "一只飞来飞去的小蜜蜂。\n");
+        set("long", "涓�鍙鏉ラ鍘荤殑灏忚湝铚傘�俓n");
 	set("attitude", "aggressive");
         set("combat_exp", 500);
 

@@ -4,8 +4,8 @@ inherit NPC;
 void create()
 {
 	int age = 20 + random(20);
-	set_name("Îä¹İÃÅÎÀ", ({ "men wei", "menwei", "wei" }));
-	set("gender", "ÄĞĞÔ");
+	set_name("æ­¦é¦†é—¨å«", ({ "men wei", "menwei", "wei" }));
+	set("gender", "ç”·æ€§");
 	set("age", age);
 	set_skill("unarmed", 80);
 	set_skill("dodge", 80);
@@ -36,14 +36,14 @@ void greeting(object ob)
                  
        if ( ob->query("combat_exp") < 1000)  
 
-           command("say ÕâÎ»" + RANK_D->query_respect(ob)+"£¬Îä¹¦ÕâÃ´²î£¬ÔõÃ´´³½­ºşÄØ£¿\n");
+           command("say è¿™ä½" + RANK_D->query_respect(ob)+"ï¼Œæ­¦åŠŸè¿™ä¹ˆå·®ï¼Œæ€ä¹ˆé—¯æ±Ÿæ¹–å‘¢ï¼Ÿ\n");
        
        if ( ob->query("combat_exp") > 1000  && ob->query("combat_exp") < 50000 )
           
-           command("say ÄãÎä¹¦ÒÑÓĞ¸ù»ù£¬ÕıºÃÀ´Îä¹İÀúÁ·£¬ÕâÎ»" + RANK_D->query_respect(ob)+"ÄãÎÒÒ²ËãÊÇÓĞÔµÒ»³¡¡£\n");
+           command("say ä½ æ­¦åŠŸå·²æœ‰æ ¹åŸºï¼Œæ­£å¥½æ¥æ­¦é¦†å†ç»ƒï¼Œè¿™ä½" + RANK_D->query_respect(ob)+"ä½ æˆ‘ä¹Ÿç®—æ˜¯æœ‰ç¼˜ä¸€åœºã€‚\n");
           
        if ( ob->query("combat_exp") > 50000)  
          
-          command("say ÕâÀïÖ»ÊÕÁô½­ºşĞÂÊÖ£¬Îä¹¦¸ßÇ¿¾Í²»ÒªÔÙ»ØÀ´ÁË£¡");
+          command("say è¿™é‡Œåªæ”¶ç•™æ±Ÿæ¹–æ–°æ‰‹ï¼Œæ­¦åŠŸé«˜å¼ºå°±ä¸è¦å†å›æ¥äº†ï¼");
 }
 

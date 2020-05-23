@@ -13,6 +13,6 @@ string zm_apply()
 	object ob = this_player();
 	if (ob->query("class") == "eunach" || ob->query("class") == "officer")
 	{
-		return "官场大内无耻之辈，岂能出任掌门弟子一职！";
+		return "瀹樺満澶у唴鏃犺�讳箣杈堬紝宀傝兘鍑轰换鎺岄棬寮熷瓙涓�鑱岋紒";
 	}	return ::zm_apply();
 }

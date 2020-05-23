@@ -1,15 +1,15 @@
-// shihou.c Ê¨ºğ×Ó
+// shihou.c ç‹®å¼å­
 #include <ansi.h>
 inherit NPC;
 inherit F_MASTER;
 string ask_job();
 void create()
 {
-	set_name("Ê¨ºğ×Ó", ({ "shihou zi", "shihou", "zi" }));
-	set("nickname", "ĞÇËŞÅÉ¶şµÜ×Ó");
-	set("long","ËûÈıÊ®¶àËê£¬Ë«¶úÉÏ¸÷´¹×ÅÒ»Ö»ÁÁ»Î»ÎµÄ»Æ´ó»·£¬Ê¨±ÇÀ«¿Ú£¬ĞÎÃ²ÆÄ
-ÎªĞ×ºİ¹îÒì¡£Ò»Íû¶øÖª²»ÊÇÖĞÍÁÈËÊ¿¡£\n");
-	set("gender", "ÄĞĞÔ");
+	set_name("ç‹®å¼å­", ({ "shihou zi", "shihou", "zi" }));
+	set("nickname", "æ˜Ÿå®¿æ´¾äºŒå¼Ÿå­");
+	set("long","ä»–ä¸‰åå¤šå²ï¼ŒåŒè€³ä¸Šå„å‚ç€ä¸€åªäº®æ™ƒæ™ƒçš„é»„å¤§ç¯ï¼Œç‹®é¼»é˜”å£ï¼Œå½¢è²Œé¢‡
+ä¸ºå‡¶ç‹ è¯¡å¼‚ã€‚ä¸€æœ›è€ŒçŸ¥ä¸æ˜¯ä¸­åœŸäººå£«ã€‚\n");
+	set("gender", "ç”·æ€§");
 	set("age", 32);
 	set("attitude", "peaceful");
 	set("shen_type", -1);
@@ -55,12 +55,12 @@ void create()
 	set("chat_msg_combat", ({
 		(: exert_function, "huagong" :),
 	}));
-	create_family("ĞÇËŞÅÉ", 2, "µÜ×Ó");
+	create_family("æ˜Ÿå®¿æ´¾", 2, "å¼Ÿå­");
 	set("inquiry", ([
-		"ĞÇËŞÅÉ" : "ÄãÏë¼ÓÈë£¬¾Í°İÎÒÎªÊ¦¡£",
-		"ĞÇËŞº£" : "È¥ĞÇËŞº£¸ÉÊ²Ã´£¿°İÎÒÎªÊ¦¾Í¹»ÄãÑ§µÄÁË¡£",
-		"¶¡´ºÇï" : "¶¡´ºÇïÊÇÄã½ĞµÄÂğ£¿Ã»´óÃ»Ğ¡µÄ¡£ÒÔºó½ĞÀÏÏÉ£¡", 
-		"ÀÏÏÉ"   : (: ask_job :), 
+		"æ˜Ÿå®¿æ´¾" : "ä½ æƒ³åŠ å…¥ï¼Œå°±æ‹œæˆ‘ä¸ºå¸ˆã€‚",
+		"æ˜Ÿå®¿æµ·" : "å»æ˜Ÿå®¿æµ·å¹²ä»€ä¹ˆï¼Ÿæ‹œæˆ‘ä¸ºå¸ˆå°±å¤Ÿä½ å­¦çš„äº†ã€‚",
+		"ä¸æ˜¥ç§‹" : "ä¸æ˜¥ç§‹æ˜¯ä½ å«çš„å—ï¼Ÿæ²¡å¤§æ²¡å°çš„ã€‚ä»¥åå«è€ä»™ï¼", 
+		"è€ä»™"   : (: ask_job :), 
 		"job"    : (: ask_job :), 
 	]));
 
@@ -70,17 +70,17 @@ void create()
 }
 void attempt_apprentice(object ob)
 {
-	if(ob->query("family/family_name") != "ĞÇËŞÅÉ")
+	if(ob->query("family/family_name") != "æ˜Ÿå®¿æ´¾")
 	{
-		say("Ê¨ºğ×Ó¶Ô"+ob->name()+"Àí¶¼²»Àí¡£\n");
+		say("ç‹®å¼å­å¯¹"+ob->name()+"ç†éƒ½ä¸ç†ã€‚\n");
 		return;
 	}
 	if(ob->query_skill("huagong-dafa",1) < 45 || ob->query("shen") > -500)
 	{
-		command("say ÄãµÄÌõ¼ş»¹²»¹»£¬ÎÒ²Å²»ÏëÊÕÄãÄØ¡£");
+		command("say ä½ çš„æ¡ä»¶è¿˜ä¸å¤Ÿï¼Œæˆ‘æ‰ä¸æƒ³æ”¶ä½ å‘¢ã€‚");
 		return;
 	}
-	command("say ºÃ°É£¬¿´À´ÄãµÄ»¯¹¦´ó·¨ÓĞµã»ù´¡ÁË£¬ÎÒ¾ÍÊÕÏÂÄã°É¡£");
+	command("say å¥½å§ï¼Œçœ‹æ¥ä½ çš„åŒ–åŠŸå¤§æ³•æœ‰ç‚¹åŸºç¡€äº†ï¼Œæˆ‘å°±æ”¶ä¸‹ä½ å§ã€‚");
 	command("recruit " + ob->query("id"));
 }
 string ask_job()
@@ -94,29 +94,29 @@ string ask_job()
 	exp=me->query("combat_exp",1); 
 
 	if(!fam)
-		return "¿´µÃ³öÄã¶ÔÀÏÏÉÌ¬¶È¹§¾´£¬ºÎ²»ÏÈ¼ÓÈëÎÒĞÇËŞÅÉÄØ£¿";
-	if(fam["family_name"] != "ĞÇËŞÅÉ" && !me->query_temp("ding_flatter"))
-		return "Äã¶ÔÀÏÏÉµÄÌ¬¶È¿´ÉÏÈ¥²»Ì«¹§¾´°¡£¡";
+		return "çœ‹å¾—å‡ºä½ å¯¹è€ä»™æ€åº¦æ­æ•¬ï¼Œä½•ä¸å…ˆåŠ å…¥æˆ‘æ˜Ÿå®¿æ´¾å‘¢ï¼Ÿ";
+	if(fam["family_name"] != "æ˜Ÿå®¿æ´¾" && !me->query_temp("ding_flatter"))
+		return "ä½ å¯¹è€ä»™çš„æ€åº¦çœ‹ä¸Šå»ä¸å¤ªæ­æ•¬å•Šï¼";
 	if(exp<250000)
-		return "¹ş¹ş¹ş£¬ÄãÔÙ¼Ó°ÑÁ¦Á·¹¦°É¡£";
+		return "å“ˆå“ˆå“ˆï¼Œä½ å†åŠ æŠŠåŠ›ç»ƒåŠŸå§ã€‚";
 	if(exp>=500000)
-		return "ÀÏÏÉ×î½üµÄÇé¿öÎÒ²»Ì«Çå³ş£¬ÄãÈ¥ÎÊÎÊÎÒÊ¦ĞÖÕªĞÇ×Ó°É¡£";
+		return "è€ä»™æœ€è¿‘çš„æƒ…å†µæˆ‘ä¸å¤ªæ¸…æ¥šï¼Œä½ å»é—®é—®æˆ‘å¸ˆå…„æ‘˜æ˜Ÿå­å§ã€‚";
 	if(me->query_condition("wait_xx_task"))
-		return "ÉÏ´Î¸ãÔÒÁË£¬Õâ´ÎÄã¾ÍµÈµÈ°É¡£"; 
+		return "ä¸Šæ¬¡æç ¸äº†ï¼Œè¿™æ¬¡ä½ å°±ç­‰ç­‰å§ã€‚"; 
 	if(interactive(me) && me->query_temp("xx_job"))
-		return "ÄãÔõÃ´»¹ÔÚÕâÀï·¢´ô£¿";
+		return "ä½ æ€ä¹ˆè¿˜åœ¨è¿™é‡Œå‘å‘†ï¼Ÿ";
 	if(interactive(me) && me->query_condition("wait_xx_task"))  
-		return "ÀÏÏÉÏÖÔÚĞÄÇé»¹ºÃ£¬²»ÓÃÄãÀ´ÎªËû·ÖÓÇ¡£";
+		return "è€ä»™ç°åœ¨å¿ƒæƒ…è¿˜å¥½ï¼Œä¸ç”¨ä½ æ¥ä¸ºä»–åˆ†å¿§ã€‚";
 	if(query("di_count") < 1)  
-		return "ÀÏÏÉÏÖÔÚĞÄÇé»¹ºÃ£¬Äã±ğÔÙÀ´·³ÎÒÁË¡£";
+		return "è€ä»™ç°åœ¨å¿ƒæƒ…è¿˜å¥½ï¼Œä½ åˆ«å†æ¥çƒ¦æˆ‘äº†ã€‚";
 
 	ob = new(__DIR__"obj/di");
 	add("di_count", -1);
 	ob->move(me);
 	ob->set("xx_user", getuid(me));
-	if(fam["family_name"] != "ĞÇËŞÅÉ")
-		me->set_temp("apply/short", ({WHT"ĞÇËŞÅÉ¸ú°à "NOR+me->name()+"("+me->query("id")+")"}));               
+	if(fam["family_name"] != "æ˜Ÿå®¿æ´¾")
+		me->set_temp("apply/short", ({WHT"æ˜Ÿå®¿æ´¾è·Ÿç­ "NOR+me->name()+"("+me->query("id")+")"}));               
 	me->set_temp("xx_job", 1);
-	message_vision("\n$NÄÃ³öÒ»Ö»ÓñÖÆ¶ÌµÑ£¬½»¸ø$n¡£\n", this_object(), me);
-	return "ÀÏÏÉ×î½üĞÄÇé²»¼Ñ£¬Äã¿ÉÒª¶à¶àÎªËûÀÏÈË¼Ò·ÖÓÇ²ÅÊÇ£¡\n";    
+	message_vision("\n$Næ‹¿å‡ºä¸€åªç‰åˆ¶çŸ­ç¬›ï¼Œäº¤ç»™$nã€‚\n", this_object(), me);
+	return "è€ä»™æœ€è¿‘å¿ƒæƒ…ä¸ä½³ï¼Œä½ å¯è¦å¤šå¤šä¸ºä»–è€äººå®¶åˆ†å¿§æ‰æ˜¯ï¼\n";    
 }

@@ -6,17 +6,17 @@ void random_leave();
 void random_eat();
 void create()
 {
-	set_name("ºÚğÕ", ({ "hei jiu"}) );
-	set("race", "·ÉÇİ");
+	set_name("é»‘é¹«", ({ "hei jiu"}) );
+	set("race", "é£ç¦½");
 	set("age", 16);
-	set("long", "Ä®±±Ò»ÖÖĞ×ÃÍµÄ·ÉÄñ£¬ÒÔ¸¯Ê¬ÎªÊ³¡£\n");
+	set("long", "æ¼ åŒ—ä¸€ç§å‡¶çŒ›çš„é£é¸Ÿï¼Œä»¥è…å°¸ä¸ºé£Ÿã€‚\n");
 	set("str", 24);
 	set("cor", 24);
 	set("combat_exp",50000);
 	set("chat_chance", 6);
 	set("chat_msg", ({
-		"ºÚğÕÔÚÄãÍ·¶¥ÅÌĞı£¬ËÆºõÔÚÑ°ÕÒÏÂÊÖµÄ»ú»á¡£\n",
-		"ºÚğÕÂäÔÚÄãÇ°Ãæ²»Ô¶µÄÑÒÊ¯ÉÏ£¬²»»³ºÃÒâµÄ¶¢×¡Äã¡£\n",
+		"é»‘é¹«åœ¨ä½ å¤´é¡¶ç›˜æ—‹ï¼Œä¼¼ä¹åœ¨å¯»æ‰¾ä¸‹æ‰‹çš„æœºä¼šã€‚\n",
+		"é»‘é¹«è½åœ¨ä½ å‰é¢ä¸è¿œçš„å²©çŸ³ä¸Šï¼Œä¸æ€€å¥½æ„çš„ç›¯ä½ä½ ã€‚\n",
 		(:random_leave:),
 		(:random_eat:),
 	}));
@@ -43,7 +43,7 @@ void eat_corpse(object ob)
 	corpse=present("corpse",environment());
 	if (corpse)
 	{
-		message_vision("$NÒ»µãµã×ÄÊ³×Å$n£¬Ê±²»Ê±ÕñÆğÉ¢ÂÒµÄÓğÃ«¡£\n",this_object(),corpse);
+		message_vision("$Nä¸€ç‚¹ç‚¹å•„é£Ÿç€$nï¼Œæ—¶ä¸æ—¶æŒ¯èµ·æ•£ä¹±çš„ç¾½æ¯›ã€‚\n",this_object(),corpse);
 		return;
 	}
 	return;
@@ -51,26 +51,26 @@ void eat_corpse(object ob)
 void random_leave()
 {
 mapping default_dirs = ([
-	"east":         "¶«",
-	"west":         "Î÷",
-	"south":        "ÄÏ",
-	"north":        "±±",
-	"eastup":       "¶«±ß",
-	"westup":       "Î÷±ß",
-	"southup":      "ÄÏ±ß",
-	"northup":      "±±±ß",
-	"eastdown":     "¶«±ß",
-	"westdown":     "Î÷±ß",
-	"southdown":    "ÄÏ±ß",
-	"northdown":    "±±±ß",
-	"southeast":    "¶«ÄÏ",
-	"southwest":    "Î÷ÄÏ",
-	"northeast":    "¶«±±",
-	"northwest":    "Î÷±±",
-	"up":           "ÉÏ",
-	"down":         "ÏÂ",
-	"out":          "Íâ",
-	"enter":        "Àï",
+	"east":         "ä¸œ",
+	"west":         "è¥¿",
+	"south":        "å—",
+	"north":        "åŒ—",
+	"eastup":       "ä¸œè¾¹",
+	"westup":       "è¥¿è¾¹",
+	"southup":      "å—è¾¹",
+	"northup":      "åŒ—è¾¹",
+	"eastdown":     "ä¸œè¾¹",
+	"westdown":     "è¥¿è¾¹",
+	"southdown":    "å—è¾¹",
+	"northdown":    "åŒ—è¾¹",
+	"southeast":    "ä¸œå—",
+	"southwest":    "è¥¿å—",
+	"northeast":    "ä¸œåŒ—",
+	"northwest":    "è¥¿åŒ—",
+	"up":           "ä¸Š",
+	"down":         "ä¸‹",
+	"out":          "å¤–",
+	"enter":        "é‡Œ",
 ]);
 
 	mapping exits;
@@ -84,9 +84,9 @@ mapping default_dirs = ([
 	
 	if( !undefinedp(default_dirs[dirs[i]]) ) dir = default_dirs[dirs[i]];
 	else dir =dirs[i];
-	message_vision("$NÒ»Éù¾ª½Ğ£¬Õñ³áÏò"+dir+"·ÉÈ¥¡£\n",this_object());
+	message_vision("$Nä¸€å£°æƒŠå«ï¼ŒæŒ¯ç¿…å‘"+dir+"é£å»ã€‚\n",this_object());
 	move(where[i]);
-	tell_room(where[i],"Ò»Ö»ºÚğÕ·ÉÁË¹ıÀ´£¬ÔÚ¿ÕÖĞÅÌĞı¡£\n");
+	tell_room(where[i],"ä¸€åªé»‘é¹«é£äº†è¿‡æ¥ï¼Œåœ¨ç©ºä¸­ç›˜æ—‹ã€‚\n");
 	return;
 }
 void do_kill(string arg)
@@ -101,7 +101,7 @@ void random_eat()
 	corpse=present("corpse",environment());
 	if (corpse)
 	{
-		message_vision("$NÒ»µãµã×ÄÊ³×Å$n£¬Ê±²»Ê±ÕñÆğÉ¢ÂÒµÄÓğÃ«¡£\n",this_object(),corpse);
+		message_vision("$Nä¸€ç‚¹ç‚¹å•„é£Ÿç€$nï¼Œæ—¶ä¸æ—¶æŒ¯èµ·æ•£ä¹±çš„ç¾½æ¯›ã€‚\n",this_object(),corpse);
 		return;
 	}
 	return;

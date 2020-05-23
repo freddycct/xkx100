@@ -6,11 +6,11 @@ string ask_me();
 
 void create()
 {
-	set_name("³øÊ¦", ({ "chu shi", "chu" }));
-	set("title", "Ã·×¯");
+	set_name("å¨å¸ˆ", ({ "chu shi", "chu" }));
+	set("title", "æ¢…åº„");
 	set("long",
-		"Ã·×¯µÄÒ»Ãû³øÊ¦£¬Ğ¦ÃĞÃĞµØ¿´×ÅÄã£¬¿´À´ºÜºÍÉÆµÄÑù×Ó¡£\n");
-	set("gender", "ÄĞĞÔ");
+		"æ¢…åº„çš„ä¸€åå¨å¸ˆï¼Œç¬‘çœ¯çœ¯åœ°çœ‹ç€ä½ ï¼Œçœ‹æ¥å¾ˆå’Œå–„çš„æ ·å­ã€‚\n");
+	set("gender", "ç”·æ€§");
 	set("age", 34);
 	set("attitude", "peaceful");
 	set("shen_type", 1);
@@ -34,7 +34,7 @@ void create()
 	set_skill("parry", 10);
 
 	set("inquiry", ([
-		"³Ô·¹" : (: ask_me :),
+		"åƒé¥­" : (: ask_me :),
 	]));
 	setup();
 }
@@ -46,12 +46,12 @@ string ask_me()
 	int i;
 
 	object me=this_player();
-	if(!(fam = me->query("family")) || fam["family_name"] != "ºÚÄ¾ÑÂ")
-		return RANK_D->query_respect(me) + "Óë±¾ÅÉËØÎŞÀ´Íù£¬²»Öª´Ë»°´ÓºÎÌ¸Æğ£¿";
+	if(!(fam = me->query("family")) || fam["family_name"] != "é»‘æœ¨å´–")
+		return RANK_D->query_respect(me) + "ä¸æœ¬æ´¾ç´ æ— æ¥å¾€ï¼Œä¸çŸ¥æ­¤è¯ä»ä½•è°ˆèµ·ï¼Ÿ";
 
 	me->set("food", (int)me->max_food_capacity());
 	me->set("water", (int)me->max_water_capacity());
 
-	return "ÂıÂı³Ô£¡±ğÒ­×¡ÁË¡£";
+	return "æ…¢æ…¢åƒï¼åˆ«å™ä½äº†ã€‚";
 }
 

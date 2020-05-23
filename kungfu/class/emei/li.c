@@ -1,12 +1,12 @@
-// li.c ÀîÃ÷Ï¼
+// li.c æŽæ˜Žéœž
 
 inherit NPC;
 inherit F_MASTER;
 void create()
 {
-	set_name("ÀîÃ÷Ï¼", ({ "li mingxia","li","mingxia"}));
-	set("long", "ËýÊÇ¶ëáÒÅÉµÄµÚËÄ´úË×¼ÒµÜ×Ó¡£\n");
-	set("gender", "Å®ÐÔ");
+	set_name("æŽæ˜Žéœž", ({ "li mingxia","li","mingxia"}));
+	set("long", "å¥¹æ˜¯å³¨åµ‹æ´¾çš„ç¬¬å››ä»£ä¿—å®¶å¼Ÿå­ã€‚\n");
+	set("gender", "å¥³æ€§");
 	set("age", 23);
 	set("attitude", "peaceful");
 	set("shen_type", 1);
@@ -60,7 +60,7 @@ void create()
 		(: exert_function, "regenerate" :),
 	}) );
 
-	create_family("¶ëáÒÅÉ", 4, "µÜ×Ó");
+	create_family("å³¨åµ‹æ´¾", 4, "å¼Ÿå­");
 
 	setup();
 	carry_object(WEAPON_DIR"changjian")->wield();
@@ -71,17 +71,17 @@ void create()
 void attempt_apprentice(object ob)
 {
 	if ((int)ob->query("combat_exp") > 10000) {
-		command("say ÎÒ¶ëáÒ×¢ÖØÇåÐÞ£¬¶ÔµÜ×ÓÒªÇóÄÜÈÌÊÜ¼ÅÄ¯¡£");
-		command("say ÔÚ½­ºþÔÄÀú·½Ãæ£¬" + RANK_D->query_respect(ob) +
-			"¾­Àú·á¸»£¬ÊÇ·ñÄÜÔÚ¶ëáÒÐÞµÀ£¿");
+		command("say æˆ‘å³¨åµ‹æ³¨é‡æ¸…ä¿®ï¼Œå¯¹å¼Ÿå­è¦æ±‚èƒ½å¿å—å¯‚å¯žã€‚");
+		command("say åœ¨æ±Ÿæ¹–é˜…åŽ†æ–¹é¢ï¼Œ" + RANK_D->query_respect(ob) +
+			"ç»åŽ†ä¸°å¯Œï¼Œæ˜¯å¦èƒ½åœ¨å³¨åµ‹ä¿®é“ï¼Ÿ");
 		return;
 	}
 	if ((int)ob->query("shen") < 0) {
-		command("say ÎÒ¶ëáÒÄËÊÇÌÃÌÃÃûÃÅÕýÅÉ£¬¶ÔµÜ×ÓÒªÇó¼«ÑÏ¡£");
-		command("say ÔÚµÂÐÐ·½Ãæ£¬" + RANK_D->query_respect(ob) +
-			"ÊÇ·ñ»¹×öµÃ²»¹»£¿");
+		command("say æˆ‘å³¨åµ‹ä¹ƒæ˜¯å ‚å ‚åé—¨æ­£æ´¾ï¼Œå¯¹å¼Ÿå­è¦æ±‚æžä¸¥ã€‚");
+		command("say åœ¨å¾·è¡Œæ–¹é¢ï¼Œ" + RANK_D->query_respect(ob) +
+			"æ˜¯å¦è¿˜åšå¾—ä¸å¤Ÿï¼Ÿ");
 		return;
 	}
-	command("say ºÃ°É£¬ÎÒ¾ÍÊÕÏÂÄãÁË¡£");
+	command("say å¥½å§ï¼Œæˆ‘å°±æ”¶ä¸‹ä½ äº†ã€‚");
 	command("recruit " + ob->query("id"));
 }

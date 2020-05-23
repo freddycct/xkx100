@@ -15,8 +15,8 @@ int update_condition(object me, int duration)
 	} else
 		if( duration > limit/2 )
 		{
-			tell_object(me,"Äã¾õµÃÄÔÖÐ»è»è³Á³Á£¬ÐÄÖÐ¿Õµ´µ´µÄ£¬Ö±ÏëÌÉÏÂÀ´Ë¯Ò»¾õ¡£\n");
-			message("vision", me->name() + "Ò¡Í·»ÎÄÔµØÕ¾¶¼Õ¾²»ÎÈ£¬ÏÔÈ»ÊÇÃÉº¹Ò©µÄÒ©Á¦·¢×÷ÁË¡£\n", environment(me), me);
+			tell_object(me,"ä½ è§‰å¾—è„‘ä¸­æ˜æ˜æ²‰æ²‰ï¼Œå¿ƒä¸­ç©ºè¡è¡çš„ï¼Œç›´æƒ³èººä¸‹æ¥ç¡ä¸€è§‰ã€‚\n");
+			message("vision", me->name() + "æ‘‡å¤´æ™ƒè„‘åœ°ç«™éƒ½ç«™ä¸ç¨³ï¼Œæ˜¾ç„¶æ˜¯è’™æ±—è¯çš„è¯åŠ›å‘ä½œäº†ã€‚\n", environment(me), me);
 		}
 
 	me->apply_condition("slumber_drug", duration - 1);

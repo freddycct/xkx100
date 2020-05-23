@@ -1,4 +1,4 @@
-// acupuncture.c Õë¾ÄÖ®Êõ
+// acupuncture.c é’ˆç¸ä¹‹æœ¯
 // Last modified by winder 2003.9.2
 
 #include <ansi.h>
@@ -16,25 +16,25 @@ int power_point(object me) { return 1; }
 int valid_learn(object me)
 {
         if ((int)me->query_skill("medicine", 1) < 50)
-                return notify_fail("ÄãµÄ¼ÃÊÀÖ®ÊõÔìÒèÌ«Ç³£¬ÎŞ·¨Áì»áÕë¾ÄÖ®Êõ¡£\n");
+                return notify_fail("ä½ çš„æµä¸–ä¹‹æœ¯é€ è¯£å¤ªæµ…ï¼Œæ— æ³•é¢†ä¼šé’ˆç¸ä¹‹æœ¯ã€‚\n");
         if ((int)me->query_skill("medicine", 1) <
 		(int)me->query_skill("acupuncture", 1))
-                return notify_fail("ÄãµÄ¼ÃÊÀÖ®ÊõÓĞÏŞ£¬ÎŞ·¨ÕÆÎÕ¸üÉî°ÂµÄÕë¾ÄÖ®Êõ¡£\n");
+                return notify_fail("ä½ çš„æµä¸–ä¹‹æœ¯æœ‰é™ï¼Œæ— æ³•æŒæ¡æ›´æ·±å¥¥çš„é’ˆç¸ä¹‹æœ¯ã€‚\n");
         return 1;
 }
 int practice_skill(object me)
 {
-	return notify_fail("Õë¾ÄÖ®ÊõÖ»ÄÜ¿¿Ñ§Ï°À´Ìá¸ß¡£\n");
+	return notify_fail("é’ˆç¸ä¹‹æœ¯åªèƒ½é å­¦ä¹ æ¥æé«˜ã€‚\n");
 }
 int help(object me)
 {
-	write(HIC"\nÕë¾ÄÖ®Êõ£º"NOR"\n");
+	write(HIC"\né’ˆç¸ä¹‹æœ¯ï¼š"NOR"\n");
 	write(@HELP
 
-    ¾«Í¨Õë¾ÄÖ®Êõ£¬¿ÉÒÔÓÆÓÎÌìÏÂ£¬ÖÎ²¡¾ÈÈË¡£
+    ç²¾é€šé’ˆç¸ä¹‹æœ¯ï¼Œå¯ä»¥æ‚ æ¸¸å¤©ä¸‹ï¼Œæ²»ç—…æ•‘äººã€‚
 
-	Ñ§Ï°ÒªÇó£º
-		Õë¾ÄÖ®ÊõÏŞÖÆÁË¶Ô¸ü¸ßÉî¾³½çµÄÅ¬Á¦
+	å­¦ä¹ è¦æ±‚ï¼š
+		é’ˆç¸ä¹‹æœ¯é™åˆ¶äº†å¯¹æ›´é«˜æ·±å¢ƒç•Œçš„åŠªåŠ›
 HELP
 	);
 	return 1;

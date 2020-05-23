@@ -12,35 +12,35 @@ int exert(object me)
   !me->query("perform/daxiao") &&
   !me->query("can_perform/linji-zhuang/daxiao") && 
   !me->query_temp("murong/xingyi"))
-   return notify_fail("ÄãËùÊ¹ÓÃµÄÄÚ¹¦ÖĞÃ»ÓĞÕâÖÖ¹¦ÄÜ¡£");
+   return notify_fail("ä½ æ‰€ä½¿ç”¨çš„å†…åŠŸä¸­æ²¡æœ‰è¿™ç§åŠŸèƒ½ã€‚");
 
 	if (me->query_condition("linji_daxiao") || me->query("linji/jing")>0)
-		return notify_fail("ÄãÒÑ¾­ÔÚÔË´óĞ¡×¯ÁË£¡\n");
+		return notify_fail("ä½ å·²ç»åœ¨è¿å¤§å°åº„äº†ï¼\n");
 
-	if (me->query("gender") != "Å®ĞÔ" || me->query("sex/number") )
-		return notify_fail("Äã²»ÊÇ´¦Å®´¿ÒõÖ®Ìå£¬²»ÄÜÔË´óĞ¡×¯£¡\n");
+	if (me->query("gender") != "å¥³æ€§" || me->query("sex/number") )
+		return notify_fail("ä½ ä¸æ˜¯å¤„å¥³çº¯é˜´ä¹‹ä½“ï¼Œä¸èƒ½è¿å¤§å°åº„ï¼\n");
 
 	if( me->is_fighting() )
-		return notify_fail("Õ½¶·ÖĞÎŞ·¨ÔË´óĞ¡×¯£¡\n");
+		return notify_fail("æˆ˜æ–—ä¸­æ— æ³•è¿å¤§å°åº„ï¼\n");
 
 	if( (int)me->query("neili") < 500)
-		return notify_fail("ÄãµÄÕæÆø²»¹»¡£\n");
+		return notify_fail("ä½ çš„çœŸæ°”ä¸å¤Ÿã€‚\n");
 
 	if( (int)me->query("jing") < skill + 100)
-		return notify_fail("ÄãµÄ¾«²»¹»ÔË´óĞ¡×¯¡£\n");
+		return notify_fail("ä½ çš„ç²¾ä¸å¤Ÿè¿å¤§å°åº„ã€‚\n");
 
 	if( (int)me->query_skill("linji-zhuang",1) < 150)
-		return notify_fail("ÄãµÄÁÙ¼Ã×¯¼¶±ğ²»¹»¡£\n");
+		return notify_fail("ä½ çš„ä¸´æµåº„çº§åˆ«ä¸å¤Ÿã€‚\n");
 
 	if( (int)me->query("eff_qi") < (int)me->query("max_qi") / 2 )
-		return notify_fail( "ÄãÒÑ¾­ÊÜÉË¹ıÖØ£¬ÎŞ·¨ÔË¹¦£¡\n");
+		return notify_fail( "ä½ å·²ç»å—ä¼¤è¿‡é‡ï¼Œæ— æ³•è¿åŠŸï¼\n");
 
 	if( (int)me->query("qi") < skill ||
 		(int)me->query("max_qi") < skill ||
 		(int)me->query("eff_qi") < skill)
-		return notify_fail("ÄãµÄÉíÌå×´¿öÏÖÔÚ²»ÊÊÒËÔË×ª´Ë¹¦·¨¡£\n");
+		return notify_fail("ä½ çš„èº«ä½“çŠ¶å†µç°åœ¨ä¸é€‚å®œè¿è½¬æ­¤åŠŸæ³•ã€‚\n");
 
-	message_vision("$N×øÁËÏÂÀ´ÔËÆğ´óĞ¡×¯£¬ºôÎüÍÂÄÉ£¬ÕæÆøÖ±Í¸¾ÅÖØ¡£Á³ÉÏÉñÉ«Ò»»á±ä"HIR"ºì"NOR"£¬Ò»\n»á±ä"HIC"Çà"NOR"£¬Ò»»áÓÖ±ä³É"HIY"»Æ"NOR"É«£¬×îºóÖÕÓÚ»Ø¸´Ô­À´µÄÁ³É«¡£\n"NOR,me);
+	message_vision("$Nåäº†ä¸‹æ¥è¿èµ·å¤§å°åº„ï¼Œå‘¼å¸åçº³ï¼ŒçœŸæ°”ç›´é€ä¹é‡ã€‚è„¸ä¸Šç¥è‰²ä¸€ä¼šå˜"HIR"çº¢"NOR"ï¼Œä¸€\nä¼šå˜"HIC"é’"NOR"ï¼Œä¸€ä¼šåˆå˜æˆ"HIY"é»„"NOR"è‰²ï¼Œæœ€åç»ˆäºå›å¤åŸæ¥çš„è„¸è‰²ã€‚\n"NOR,me);
 	me->apply_condition("linji_daxiao", (int)skill/20);
 	me->add("neili",  -500);
 	me->add("max_jing", 0 - skill);
@@ -56,16 +56,16 @@ int exert(object me)
 
 int help(object me)
 {
-	write(WHT"\nÁÙ¼ÃÊ®¶ş×¯Ö®´óĞ¡×¯£º"NOR"\n");
+	write(WHT"\nä¸´æµåäºŒåº„ä¹‹å¤§å°åº„ï¼š"NOR"\n");
 	write(@HELP
 
-	Ê¹ÓÃ¹¦Ğ§£º
-		ÒÔÆø»¯¾«
+	ä½¿ç”¨åŠŸæ•ˆï¼š
+		ä»¥æ°”åŒ–ç²¾
 
-	³öÊÖÒªÇó£º
-		ÁÙ¼ÃÊ®¶ş×¯150¼¶
-		ÄÚÁ¦500
-		´¦Å®´¿ÒõÖ®Ìå
+	å‡ºæ‰‹è¦æ±‚ï¼š
+		ä¸´æµåäºŒåº„150çº§
+		å†…åŠ›500
+		å¤„å¥³çº¯é˜´ä¹‹ä½“
 HELP
 	);
 	return 1;

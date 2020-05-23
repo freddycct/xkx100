@@ -6,10 +6,10 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "÷����");
+	set("short", "梅雨瀑");
 	set("long", @LONG
-����ٲ���Σ���ͱڶ�������ֱ�£����ٿڲ�Զ��һ��ͻ��ʯ����
-ʯ�ɽ�������ëëϸ�꣬�����塢����÷�꣬����÷���١�
+这道瀑布从危崖峭壁顶上悬挂直下，出瀑口不远遇一横突岩石，激
+石飞溅，化作毛毛细雨，类似五、六月梅雨，故名梅雨瀑。
 LONG
 	);
 	set("exits", ([

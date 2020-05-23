@@ -4,10 +4,10 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "���Ʒ�");
+	set("short", "梯云峰");
 	set("long", @LONG
-�����山����һɽ�壬�弹���ݺ��ٲ���Զ�����ڰ����ƣ�������
-�ݣ��������Ʒ塣
+玉柱峰北，有一山峰，峰脊出梯河瀑布，远望如腾白如云，纵列如
+梯，故名梯云峰。
 LONG );
 	set("exits", ([
 		"south"      : __DIR__"yuzhu",

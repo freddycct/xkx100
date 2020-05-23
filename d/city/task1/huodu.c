@@ -1,4 +1,4 @@
-// huodu.c »ô¶¼
+// huodu.c éœéƒ½
 
 #include <ansi.h>
 
@@ -6,9 +6,9 @@ inherit NPC;
 
 void create()
 {
-	set_name("»ô¶¼", ({ "huo  du"}));
-	set("long",@LONG ËûÊÇ½ğÂÖ·¨Íõ×ùÏÂµÄÈıµÜ×Ó¡£ÉîµÃ·¨ÍõµÄÕæ´«¡£ LONG);
-	set("gender", "ÄĞĞÔ");
+	set_name("éœéƒ½", ({ "huo  du"}));
+	set("long",@LONG ä»–æ˜¯é‡‘è½®æ³•ç‹åº§ä¸‹çš„ä¸‰å¼Ÿå­ã€‚æ·±å¾—æ³•ç‹çš„çœŸä¼ ã€‚ LONG);
+	set("gender", "ç”·æ€§");
 	set("age", 40);
 	set("attitude", "peaceful");
 	set("str", 30);

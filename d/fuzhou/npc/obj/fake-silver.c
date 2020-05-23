@@ -4,14 +4,14 @@
 inherit ITEM;
 void create()
 {
-	set_name(HIW"°×Òø"NOR, ({"silver", "ingot", "silver_money"}));
+	set_name(HIW"ç™½é“¶"NOR, ({"silver", "ingot", "silver_money"}));
 	set_weight(2500000);
 	set("no_get",1);
 	if( clonep() )
 		set_default_object(__FILE__);
 	else {
-		set("long", "°×»¨»¨µÄÒø×Ó£¬ÕæÊÇÈË¼ûÈË°®¡£²»¹ıºÃÏóÊÇïÚÒøÒ®¡£\n");
-		set("unit", "Á½");
+		set("long", "ç™½èŠ±èŠ±çš„é“¶å­ï¼ŒçœŸæ˜¯äººè§äººçˆ±ã€‚ä¸è¿‡å¥½è±¡æ˜¯é•–é“¶è€¶ã€‚\n");
+		set("unit", "ä¸¤");
 		set("material", "lead");
 	}
 	setup();

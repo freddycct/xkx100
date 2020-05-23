@@ -1,4 +1,4 @@
-//shenxiandan.c ÉñÏÉµ¤
+//shenxiandan.c ç¥ä»™ä¸¹
 #include <ansi.h>
 inherit ITEM;
 void setup()
@@ -9,16 +9,16 @@ void init()
 }
 void create()
 {
-	set_name(HIY"Éñ"HIG"ÏÉ"HIR"µ¤"NOR, ({"shenxian dan", "xian dan", "dan"}));
+	set_name(HIY"ç¥"HIG"ä»™"HIR"ä¸¹"NOR, ({"shenxian dan", "xian dan", "dan"}));
 	if (clonep())
 		set_default_object(__FILE__);
 	else {
-		set("unit", "¿Å");
+		set("unit", "é¢—");
 		set("vegetable", 54);
 		set("nostrum", 38);
 		set("level", 120);
-		set("long", "ÕâÊÇÒ»¿ÅÌìÉÏÏÉ¾³µÄµ¤Ò©£¬ÄËÏºßäÍë¸â´óÏÉ²ÉÏÉ¾³Ö®¾«ÆøÉñ£¬
-ÀúÊ±ÆßÆßËÄÊ®¾ÅÌì£¬Çã±ÏÉúÖ®¹¦Á¶ÖÆ¶ø³É¡£\n");
+		set("long", "è¿™æ˜¯ä¸€é¢—å¤©ä¸Šä»™å¢ƒçš„ä¸¹è¯ï¼Œä¹ƒè™¾å’ªç¢—ç³•å¤§ä»™é‡‡ä»™å¢ƒä¹‹ç²¾æ°”ç¥ï¼Œ
+å†æ—¶ä¸ƒä¸ƒå››åä¹å¤©ï¼Œå€¾æ¯•ç”Ÿä¹‹åŠŸç‚¼åˆ¶è€Œæˆã€‚\n");
 		set("value", 50000);
 	}
 	setup();
@@ -29,18 +29,18 @@ int do_eat(string arg)
 	int fw;
 	object me = this_player();
 
-	if (!id(arg))  return notify_fail("ÄãÒª³ÔÊ²Ã´£¿\n");
+	if (!id(arg))  return notify_fail("ä½ è¦åƒä»€ä¹ˆï¼Ÿ\n");
 	if (!present(this_object(), this_player()))
-                return notify_fail("ÄãÒª³ÔÊ²Ã´£¿\n");
+                return notify_fail("ä½ è¦åƒä»€ä¹ˆï¼Ÿ\n");
 
 	if (me->is_busy() )
-		return notify_fail("±ğ¼±£¬ÂıÂı³Ô£¬Ğ¡ĞÄ±ğÒ­×ÅÁË¡£\n");
+		return notify_fail("åˆ«æ€¥ï¼Œæ…¢æ…¢åƒï¼Œå°å¿ƒåˆ«å™ç€äº†ã€‚\n");
 	if(arg=="dan") 
 	{
           /*	if(me->query("eff_jing") >= me->query("max_jing") &&
 			me->query("eff_qi") >= me->query("max_qi") )
 		{
-			write("Ã»ÉËÃ»²¡µÄ£¬±ğÀË·ÑÕâÃ´Õä¹óµÄÒ©À²¡£\n");
+			write("æ²¡ä¼¤æ²¡ç—…çš„ï¼Œåˆ«æµªè´¹è¿™ä¹ˆçè´µçš„è¯å•¦ã€‚\n");
 			return 1;
 		}*/
 		fw = (int)me->max_food_capacity();
@@ -53,8 +53,8 @@ int do_eat(string arg)
 		me->set("qi",me->query("max_qi"));
 		me->set("neili",me->query("max_neili"));
 		me->set("tili",me->query("max_tili"));
-message_vision(HIG"$N³ÔÏÂÒ»¿ÅÉñÏÉµ¤£¬Ò»¹ÉÇåĞÂÁ¹Ë¬´Óµ¤ÌïÉıÆğ£¬ÏòÈ«ÉíÀ©É¢£¡É²Ê±£¬Äã¾õµÃ
-ÌåÄÚÕæÆøÁ÷¶¯£¬ÍğÈô±Å·¢£¡\n"NOR,me);
+message_vision(HIG"$Nåƒä¸‹ä¸€é¢—ç¥ä»™ä¸¹ï¼Œä¸€è‚¡æ¸…æ–°å‡‰çˆ½ä»ä¸¹ç”°å‡èµ·ï¼Œå‘å…¨èº«æ‰©æ•£ï¼åˆ¹æ—¶ï¼Œä½ è§‰å¾—
+ä½“å†…çœŸæ°”æµåŠ¨ï¼Œå®›è‹¥è¿¸å‘ï¼\n"NOR,me);
 		me->start_busy(1);
 		destruct(this_object());
 	}

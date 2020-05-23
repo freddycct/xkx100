@@ -1,4 +1,4 @@
-// tang.c ÌÆÀÏ°å 
+// tang.c å”è€æ¿ 
 
 #include <ansi.h>
 
@@ -8,11 +8,11 @@ int do_redeem(string arg);
 
 void create()
 {
-	set_name("ÌÆéª", ({ "tang nan", "tang" }));
-	set("title", "µ±ÆÌÀÏ°å");
+	set_name("å”æ¥ ", ({ "tang nan", "tang" }));
+	set("title", "å½“é“ºè€æ¿");
 	set("shen_type", 0);
 
-	set("gender", "ÄĞĞÔ");
+	set("gender", "ç”·æ€§");
 	set_max_encumbrance(100000000);
 	set("age", 35);
 	set("str", 100);
@@ -21,10 +21,10 @@ void create()
 	set("max_qi", 1000);
 	set("max_jing", 1000);
 	set("max_qi", 1000);
-	set("long", "¾İËµÌÆéªÊÇËÄ´¨ÌÆ¼ÒµÄºó´ú¡£\n");
+	set("long", "æ®è¯´å”æ¥ æ˜¯å››å·å”å®¶çš„åä»£ã€‚\n");
 	set("no_get_from", 1);
 
-//ÒÔÏÂÎª·ÀÖ¹Íæ¼ÒÔËÓÃÌØÊâ·½·¨½«µ±ÆÌÀÏ°å°á×ß¡£
+//ä»¥ä¸‹ä¸ºé˜²æ­¢ç©å®¶è¿ç”¨ç‰¹æ®Šæ–¹æ³•å°†å½“é“ºè€æ¿æ¬èµ°ã€‚
 	set("no_get", "1");
 
 	set_skill("unarmed", 60);
@@ -50,7 +50,7 @@ void init()
 }
 void die()
 {
-	message_vision("\n$NËÀÁË¡£\n", this_object());
+	message_vision("\n$Næ­»äº†ã€‚\n", this_object());
 	destruct(this_object());
 }
 int do_redeem(string target)
@@ -61,7 +61,7 @@ int do_redeem(string target)
 
 	all = users();
 
-	if (!target) return notify_fail("ÄãÏëÊêË­£¿ 1\n");
+	if (!target) return notify_fail("ä½ æƒ³èµè°ï¼Ÿ 1\n");
 
 	for(i=0; i<sizeof(all); i++) 
 	{
@@ -71,42 +71,42 @@ int do_redeem(string target)
 			dest = all[i];
 	}
 	if( !dest || !this_player()->visible(dest))
-		return notify_fail("ÌÆéªËµµÀ£ºÄãËµµÄÈËÏÖÔÚ²»ÔÚÓÎÏ·ÖĞ£¬Äã¹ı»áÔÙÀ´°É¡£\n");
+		return notify_fail("å”æ¥ è¯´é“ï¼šä½ è¯´çš„äººç°åœ¨ä¸åœ¨æ¸¸æˆä¸­ï¼Œä½ è¿‡ä¼šå†æ¥å§ã€‚\n");
 	else if( !dest->query_temp("selled"))
-		return notify_fail("ÌÆéª¼±µÀ£ºÄã¿É±ğÎÜÏİºÃÈË£¬ÎÒÔõÃ´»á·Ç·¨¿ÛÑºÍæ¼ÒÄØ£¡\n");
+		return notify_fail("å”æ¥ æ€¥é“ï¼šä½ å¯åˆ«è¯¬é™·å¥½äººï¼Œæˆ‘æ€ä¹ˆä¼šéæ³•æ‰£æŠ¼ç©å®¶å‘¢ï¼\n");
 
 	if (query_temp("busy"))
-		return notify_fail("Ó´£¬±§Ç¸°¡£¬ÎÒÕâ¶ùÕıÃ¦×ÅÄØ¡­¡­ÄúÇëÉÔºò¡£\n");
+		return notify_fail("å“Ÿï¼ŒæŠ±æ­‰å•Šï¼Œæˆ‘è¿™å„¿æ­£å¿™ç€å‘¢â€¦â€¦æ‚¨è¯·ç¨å€™ã€‚\n");
 // value = dest->query("per")* 700;
   value = 10000;
 
-  if (dest->query("gender") == "Å®ĞÔ")
+  if (dest->query("gender") == "å¥³æ€§")
   {
   	per = dest->query("per");
     if ( per >= 0 && per <= 10 )
-    value += per*100;          //0-10ÈİÃ² Ã¿µãÖµÒ»Á½°×Òø
+    value += per*100;          //0-10å®¹è²Œ æ¯ç‚¹å€¼ä¸€ä¸¤ç™½é“¶
     if ( per >10 && per <= 20)
-    value += (per-10)*10000; // 10-20 Ã¿µãÖµÒ»Á½»Æ½ğ
+    value += (per-10)*10000; // 10-20 æ¯ç‚¹å€¼ä¸€ä¸¤é»„é‡‘
     if ( per > 20 && per <= 30)
-    value += (per -20)* 100000;// 20-30 Ã¿µãÖµÊ®Á½»Æ½ğ
+    value += (per -20)* 100000;// 20-30 æ¯ç‚¹å€¼åä¸¤é»„é‡‘
     if ( per > 30 )
-    value += (per -30)* 10000000; //30-40 Ã¿µãÖµ Ò»Ç§Á½»Æ½ğ grin
+    value += (per -30)* 10000000; //30-40 æ¯ç‚¹å€¼ ä¸€åƒä¸¤é»„é‡‘ grin
                                  
   }
 	switch (MONEY_D->player_pay(this_player(), value))
 	{
 		case 0:
-			return notify_fail("Êê½ğÒª"+MONEY_D->price_str(value)+"£¬Ã»Ç®¾ÍÒ»±ß´ô×ÅÈ¥£¡\n");
+			return notify_fail("èµé‡‘è¦"+MONEY_D->price_str(value)+"ï¼Œæ²¡é’±å°±ä¸€è¾¹å‘†ç€å»ï¼\n");
 		case 2:
-			return notify_fail("ÄúµÄÁãÇ®²»¹»ÁË£¬ÒøÆ±ÓÖÃ»ÈËÕÒµÃ¿ª¡£\n");
+			return notify_fail("æ‚¨çš„é›¶é’±ä¸å¤Ÿäº†ï¼Œé“¶ç¥¨åˆæ²¡äººæ‰¾å¾—å¼€ã€‚\n");
 		default:
 			set_temp("busy", 1);
-			message_vision("$N´Ó$nÄÇÀïÊê»ØÁËÒ»" + dest->query("unit") + dest->query("name") + "¡£\n", this_player(), this_object());
+			message_vision("$Nä»$né‚£é‡Œèµå›äº†ä¸€" + dest->query("unit") + dest->query("name") + "ã€‚\n", this_player(), this_object());
 			dest->move(environment(this_player()));
 			dest->set("startroom","/d/city/kedian");
 			dest->delete_temp("selled");
-			message("vision", HIY"Ö»Ìı¼ûà²µÄÒ»Éù£¬Ò»¸ö±éÌåÁÛÉËµÄ¼Ò»ï´ÓÌì»¨°åÉÏµôÁËÏÂÀ´£¡\n" NOR, environment(dest), dest);
-			tell_object(dest, "Äã±»" + this_player()->query("name") + "ÊêÁË³öÀ´¡£\n");
+			message("vision", HIY"åªå¬è§å—–çš„ä¸€å£°ï¼Œä¸€ä¸ªéä½“é³ä¼¤çš„å®¶ä¼™ä»å¤©èŠ±æ¿ä¸Šæ‰äº†ä¸‹æ¥ï¼\n" NOR, environment(dest), dest);
+			tell_object(dest, "ä½ è¢«" + this_player()->query("name") + "èµäº†å‡ºæ¥ã€‚\n");
 	}
 	remove_call_out("enough_rest");
 	call_out("enough_rest", 1);

@@ -8,14 +8,14 @@ inherit CLOTH;
 
 void create()
 {
-	set_name(HIB"ÄñÓð´óë©"NOR, ({ "da chang" }) );
+	set_name(HIB"é¸Ÿç¾½å¤§æ°…"NOR, ({ "da chang" }) );
 	set_weight(3000);
 	set("taskobj", 1);
 	if( clonep() )
 		set_default_object(__FILE__);
 	else {
-		set("unit", "Áì");
-		set("long", "Ò»ÁìÓÃÍºÓ¥³¤ÓðÖ¯¾ÍµÄ´óë©. \n");
+		set("unit", "é¢†");
+		set("long", "ä¸€é¢†ç”¨ç§ƒé¹°é•¿ç¾½ç»‡å°±çš„å¤§æ°…. \n");
 		set("value", 0);
 		set("material", "cloth");
 		set("armor_prop/armor", 15);

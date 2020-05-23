@@ -1,4 +1,4 @@
-// huagong-dafa.c »¯¹¦´ó·¨
+// huagong-dafa.c åŒ–åŠŸå¤§æ³•
 // Last Modified by winder on Mar. 10 2000
 
 #include <ansi.h>
@@ -20,28 +20,28 @@ int valid_learn(object me)
 	int t = 1, j;
 	for (j = 1; j < i / 10; j++) t*= 2;
 
-	if(me->query("family/family_name")!="ĞÇËŞÅÉ")
-		return notify_fail("Ö»ÓĞĞÇËŞµÜ×Ó²ÅÄÜÑ§»¯¹¦´ó·¨¡£\n");
+	if(me->query("family/family_name")!="æ˜Ÿå®¿æ´¾")
+		return notify_fail("åªæœ‰æ˜Ÿå®¿å¼Ÿå­æ‰èƒ½å­¦åŒ–åŠŸå¤§æ³•ã€‚\n");
 	if ((int)me->query_skill("force", 1) < 10)
-		return notify_fail("ÄãµÄ»ù±¾ÄÚ¹¦»ğºò²»×ã£¬²»ÄÜÑ§»¯¹¦´ó·¨¡£\n");
+		return notify_fail("ä½ çš„åŸºæœ¬å†…åŠŸç«å€™ä¸è¶³ï¼Œä¸èƒ½å­¦åŒ–åŠŸå¤§æ³•ã€‚\n");
 	if (i > 10 && (int)me->query("shen") > t * 100)
-		return notify_fail("Ñ§»¯¹¦´ó·¨£¬ÒªĞÄºİÊÖÀ±£¬¼é¶ñ´õ¶¾£¬Äã¿É×öµÃ²»¹»Ñ½£¡\n");
+		return notify_fail("å­¦åŒ–åŠŸå¤§æ³•ï¼Œè¦å¿ƒç‹ æ‰‹è¾£ï¼Œå¥¸æ¶æ­¹æ¯’ï¼Œä½ å¯åšå¾—ä¸å¤Ÿå‘€ï¼\n");
 	if ( me->query_skill("buddhism",1) )
-		return notify_fail("ÄãÁ·ÁËÍºÂ¿ÃÇµÄĞÄ·¨£¬»¹Ñ§»¯¹¦´ó·¨×öÊ²÷á£¡\n");
+		return notify_fail("ä½ ç»ƒäº†ç§ƒé©´ä»¬çš„å¿ƒæ³•ï¼Œè¿˜å­¦åŒ–åŠŸå¤§æ³•åšä»€éº½ï¼\n");
 
 	return valid_public(me);
 }
 
 int practice_skill(object me)
 {
-	return notify_fail("»¯¹¦´ó·¨Ö»ÄÜÓÃÑ§(learn)µÄÀ´Ôö¼ÓÊìÁ·¶È¡£\n");
+	return notify_fail("åŒ–åŠŸå¤§æ³•åªèƒ½ç”¨å­¦(learn)çš„æ¥å¢åŠ ç†Ÿç»ƒåº¦ã€‚\n");
 }
 
 string exert_function_file(string func)
 {
 	return __DIR__"huagong-dafa/" + func;
 }
-/* ±»»÷ÖĞ¶Ô·½µÄ¸±×÷ÓÃ£¬Ä¿Ç°Ö÷ÒªÓÃÔÚÄÚ¹¦ÉÏ factor= ¼ÓÁ¦ damage_bonus=±ÛÁ¦ */
+/* è¢«å‡»ä¸­å¯¹æ–¹çš„å‰¯ä½œç”¨ï¼Œç›®å‰ä¸»è¦ç”¨åœ¨å†…åŠŸä¸Š factor= åŠ åŠ› damage_bonus=è‡‚åŠ› */
 mixed be_hit_ob(object me, object victim, int damage_bonus, int factor)
 {
 	int ap, dp;
@@ -61,22 +61,22 @@ mixed be_hit_ob(object me, object victim, int damage_bonus, int factor)
 	switch (random(4))
                 {
                 case 0:
-                        msg=HIB "$N" HIB "Ö»¾õµÃÄÚÁ¦Ô´Ô´¶øĞº£¬²»ÓÉµÃ´ó³ÔÒ»¾ª¡£\n" NOR;
+                        msg=HIB "$N" HIB "åªè§‰å¾—å†…åŠ›æºæºè€Œæ³»ï¼Œä¸ç”±å¾—å¤§åƒä¸€æƒŠã€‚\n" NOR;
                         break;
                 case 1:
-                        msg=HIB "$N" HIB "Ö»¾õµÃ·¢³öµÄÄÚÁ¦ÓÌÈçÊ¯³Á´óº££¬²»ÖªËù×Ù¡£\n" NOR;
+                        msg=HIB "$N" HIB "åªè§‰å¾—å‘å‡ºçš„å†…åŠ›çŠ¹å¦‚çŸ³æ²‰å¤§æµ·ï¼Œä¸çŸ¥æ‰€è¸ªã€‚\n" NOR;
                         break;
                 case 2:
-                        msg=HIB "$N" HIB "Ö»¾õµÃ·¢³öµÄÄÚÁ¦ÓÌÎŞÓ°ÎŞ×Ù£¬»ëÈ»²»Öª×ÅÂä¡£\n" NOR;
+                        msg=HIB "$N" HIB "åªè§‰å¾—å‘å‡ºçš„å†…åŠ›çŠ¹æ— å½±æ— è¸ªï¼Œæµ‘ç„¶ä¸çŸ¥ç€è½ã€‚\n" NOR;
                         break;
                 default:
-                        msg=HIB "$N" HIB "²»×¡´ß¶¯ÄÚÁ¦£¬µ«ÊÇÖ»¾õµÃ$n¾¹ËÆºÁ²»·ÑÁ¦¡£\n" NOR;
+                        msg=HIB "$N" HIB "ä¸ä½å‚¬åŠ¨å†…åŠ›ï¼Œä½†æ˜¯åªè§‰å¾—$nç«Ÿä¼¼æ¯«ä¸è´¹åŠ›ã€‚\n" NOR;
                         break;
                 }
 
-//if (dp/2+random(dp)<ap)  // ±±Ú¤Í¬µÈ¼¶1/2¼¸ÂÊ
-	if (dp*2/3+random(dp)<ap)	//Í¬µÈ¼¶1/3¼¸ÂÊ
-//»¯¹¦´ó·¨Ô´×Ô±±Ú¤ ÖØÓÃ¶¾£¬ÄÚ¹¦ÉÏÃæ±È±±Ú¤Èõ
+//if (dp/2+random(dp)<ap)  // åŒ—å†¥åŒç­‰çº§1/2å‡ ç‡
+	if (dp*2/3+random(dp)<ap)	//åŒç­‰çº§1/3å‡ ç‡
+//åŒ–åŠŸå¤§æ³•æºè‡ªåŒ—å†¥ é‡ç”¨æ¯’ï¼Œå†…åŠŸä¸Šé¢æ¯”åŒ—å†¥å¼±
 	{
 
 //		message("vision",msg,environment(me));
@@ -85,7 +85,7 @@ mixed be_hit_ob(object me, object victim, int damage_bonus, int factor)
 		   	victim->add("neili",-(ap/6+jiali));
     		if (me->query("neili") < me->query("max_neili") * 2)
         	{
-         //   	me->add("neili", ap/6+jiali);//»¯¹¦²»ËãÎüÄÚÁ¦£¿
+         //   	me->add("neili", ap/6+jiali);//åŒ–åŠŸä¸ç®—å¸å†…åŠ›ï¼Ÿ
         	}
         	return msg;
         }
@@ -94,18 +94,18 @@ mixed be_hit_ob(object me, object victim, int damage_bonus, int factor)
 }
 int help(object me)
 {
-	write(HIC"\n»¯¹¦´ó·¨£º"NOR"\n");
+	write(HIC"\nåŒ–åŠŸå¤§æ³•ï¼š"NOR"\n");
 	write(@HELP
 
-    ĞÇËŞ×æÊ¦¶¡´ºÇïÔ­ÎªåĞÒ£ÅÉÎŞÑÂ×ÓÖ®Í½£¬ÎŞÑÂ×Ó¾«Í¨±±Ú¤Éñ¹¦£¬
-µ«Î´ÊÚÓë¶¡´ºÇï¡£ºó¶¡´ºÇïÅÑÊ¦³öÃÅ£¬Æ¾×Å¹ıÈËµÄÖÇ»Û£¬ÎüÊÕ±±Ú¤
-Éñ¹¦µÄ¾«Ëè£¬×Ô´´³öÒ»Ì×»¯¹¦´ó·¨£¬Óë±±Ú¤Éñ¹¦¸÷ÉÃÊ¤³¡£¬ÄÑ·ÖĞù
-éù¡£
+    æ˜Ÿå®¿ç¥–å¸ˆä¸æ˜¥ç§‹åŸä¸ºé€é¥æ´¾æ— å´–å­ä¹‹å¾’ï¼Œæ— å´–å­ç²¾é€šåŒ—å†¥ç¥åŠŸï¼Œ
+ä½†æœªæˆä¸ä¸æ˜¥ç§‹ã€‚åä¸æ˜¥ç§‹å›å¸ˆå‡ºé—¨ï¼Œå‡­ç€è¿‡äººçš„æ™ºæ…§ï¼Œå¸æ”¶åŒ—å†¥
+ç¥åŠŸçš„ç²¾é«“ï¼Œè‡ªåˆ›å‡ºä¸€å¥—åŒ–åŠŸå¤§æ³•ï¼Œä¸åŒ—å†¥ç¥åŠŸå„æ“…èƒœåœºï¼Œéš¾åˆ†è½©
+è½¾ã€‚
 
-	Ñ§Ï°ÒªÇó£º
-		»ù±¾ÄÚ¹¦10¼¶
-		²»ÄÜÑ§ìø×ÚĞÄ·¨
-		ÏàÓ¦µÄìåÆø
+	å­¦ä¹ è¦æ±‚ï¼š
+		åŸºæœ¬å†…åŠŸ10çº§
+		ä¸èƒ½å­¦ç¦…å®—å¿ƒæ³•
+		ç›¸åº”çš„æˆ¾æ°”
 HELP
 	);
 	return 1;

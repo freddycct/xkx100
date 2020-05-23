@@ -9,10 +9,10 @@ int main(object me, string arg)
 	object target;
 
 	if(!arg || !objectp(target = present(arg, environment(me))))
-		return notify_fail("ÄãÏë»½ĞÑË­£¿\n");
+		return notify_fail("ä½ æƒ³å”¤é†’è°ï¼Ÿ\n");
 	if(target == me)
-		return notify_fail("Äã²»ÄÜ×Ô¼º»½ĞÑ×Ô¼º£¡\n");
-	message_vision(HIY "$NÅÄÁËÅÄ$nµÄÍ·£¬º°µÀ£º¡°±ğ×°ËâÁË£¬ÆğÀ´£¡¡±\n$nÕö¿ªÑÛ¾¦Ò»Á³²»ºÃÒâË¼µØÕ¾ÁËÆğÀ´¡£\n" NOR, me, target );
+		return notify_fail("ä½ ä¸èƒ½è‡ªå·±å”¤é†’è‡ªå·±ï¼\n");
+	message_vision(HIY "$Næ‹äº†æ‹$nçš„å¤´ï¼Œå–Šé“ï¼šâ€œåˆ«è£…è’œäº†ï¼Œèµ·æ¥ï¼â€\n$nçå¼€çœ¼ç›ä¸€è„¸ä¸å¥½æ„æ€åœ°ç«™äº†èµ·æ¥ã€‚\n" NOR, me, target );
 	target->receive_curing("qi", 10 );
 	target->remove_call_out("revive");
 	target->revive();
@@ -24,9 +24,9 @@ int main(object me, string arg)
 int help(object me)
 {
 write(@HELP
-Ö¸Áî¸ñÊ½ : wake <ÉúÎï>
+æŒ‡ä»¤æ ¼å¼ : wake <ç”Ÿç‰©>
  
-»½ĞÑ»îÎï
+å”¤é†’æ´»ç‰©
  
 HELP
     );

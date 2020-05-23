@@ -6,15 +6,15 @@ inherit ITEM;
 
 void create()
 {
-	set_name(RED"ÁîÅÆ"NOR, ({ "lingpai", "pai" }) );
+	set_name(RED"ä»¤ç‰Œ"NOR, ({ "lingpai", "pai" }) );
 	set_weight(200);
 	if( clonep() )
 		set_default_object(__FILE__);
 	else {
-		set("unit", "Ö§");
+		set("unit", "æ”¯");
 		set("value", 50);
 		set("material", "wood");
-		set("long", "ÕâÊÇÒ»Ö§Ä¾ÁîÅÆ£¬ÉÏÃæÓÃÖìÆáĞ´×ÅÒ»¸ö¡¸ÉñÁú¡¹Á½×Ö¡£\n");
+		set("long", "è¿™æ˜¯ä¸€æ”¯æœ¨ä»¤ç‰Œï¼Œä¸Šé¢ç”¨æœ±æ¼†å†™ç€ä¸€ä¸ªã€Œç¥é¾™ã€ä¸¤å­—ã€‚\n");
 	}
 	setup();
 }

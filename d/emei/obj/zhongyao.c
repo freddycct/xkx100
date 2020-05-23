@@ -1,4 +1,4 @@
-// zhongyao.c ÖĞÒ©
+// zhongyao.c ä¸­è¯
 inherit ITEM;
 void setup()
 {}
@@ -8,12 +8,12 @@ void init()
 }
 void create()
 {
-	set_name("ÖĞÒ©", ({"zhongyao", "yao"}));
+	set_name("ä¸­è¯", ({"zhongyao", "yao"}));
 	if (clonep())
 		set_default_object(__FILE__);
 	else {
-		set("unit", "°ü");
-		set("long", "ÕâÊÇÒ»°üÆÕÍ¨µÄÖĞÒ©¡£\n");
+		set("unit", "åŒ…");
+		set("long", "è¿™æ˜¯ä¸€åŒ…æ™®é€šçš„ä¸­è¯ã€‚\n");
 		set("value", 500);
 	}
 	setup();
@@ -21,15 +21,15 @@ void create()
 int do_use(string arg)
 {
 	object me=this_player();
-	if(!id(arg)) return notify_fail("ÄãÒªÓÃÊ²Ã´Ò©£¿\n");
-	if(!present(this_object(), me)) return notify_fail("ÄãÒªÓÃÊ²Ã´Ò©£¿\n");
+	if(!id(arg)) return notify_fail("ä½ è¦ç”¨ä»€ä¹ˆè¯ï¼Ÿ\n");
+	if(!present(this_object(), me)) return notify_fail("ä½ è¦ç”¨ä»€ä¹ˆè¯ï¼Ÿ\n");
 
 	if ((int)this_player()->query("eff_qi") ==
 	    (int)this_player()->query("max_qi"))
-		return notify_fail("ÄãÏÖÔÚ²»ĞèÒªÓÃÖĞÒ©¡£\n");
+		return notify_fail("ä½ ç°åœ¨ä¸éœ€è¦ç”¨ä¸­è¯ã€‚\n");
 	else {
 		this_player()->receive_curing("qi", 25);
-		message_vision("$N¼åÁËÒ»°üÖĞÒ©Íâ·óÄÚÓÃ£¬¸Ğµ½ÉËÊÆºÃ¶àÁË¡£\n", this_player());
+		message_vision("$Nç…äº†ä¸€åŒ…ä¸­è¯å¤–æ•·å†…ç”¨ï¼Œæ„Ÿåˆ°ä¼¤åŠ¿å¥½å¤šäº†ã€‚\n", this_player());
 		destruct(this_object());
 		return 1;
 	}

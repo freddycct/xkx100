@@ -7,10 +7,10 @@ inherit F_MASTER;
 
 void create()
 {
-	set_name("¿ÂÍò¾û",({"ke wanjun","ke"}));
-	set("gender", "ÄÐÐÔ");
+	set_name("æŸ¯ä¸‡é’§",({"ke wanjun","ke"}));
+	set("gender", "ç”·æ€§");
 	set("age", 20);
-	set("long", "ËûÊÇÁèÏö³ÇµÚÁù´úµÜ×Ó¿ÂÍò¾û¡£\n");
+	set("long", "ä»–æ˜¯å‡Œéœ„åŸŽç¬¬å…­ä»£å¼Ÿå­æŸ¯ä¸‡é’§ã€‚\n");
 	set("attitude", "peaceful");
 
 	set("str", 25);
@@ -57,7 +57,7 @@ void create()
 	map_skill("dodge", "snowstep");
 	prepare_skill("strike", "snow-strike");
 
-	create_family("ÁèÏö³Ç", 6, "µÜ×Ó");
+	create_family("å‡Œéœ„åŸŽ", 6, "å¼Ÿå­");
 	setup();
 	carry_object("/clone/weapon/changjian")->wield();
 	carry_object(CLOTH_DIR+"bai")->wear();
@@ -66,15 +66,15 @@ void attempt_apprentice(object ob)
 {
 	if (ob->query_int() < 20)
 	{
-		command("say ÄãÕâÖÖ×ÊÖÊ,²»ÒËÑ§½££¡");
+		command("say ä½ è¿™ç§èµ„è´¨,ä¸å®œå­¦å‰‘ï¼");
 		return;
 	}
-	if( (string)ob->query("gender") != "ÄÐÐÔ" )
+	if( (string)ob->query("gender") != "ç”·æ€§" )
 	{
-		command("say ÕâÎ»"+RANK_D->query_respect(ob)+"ÎÒ²»ÊÕÅ®Í½µÄ£¬Äã»¹ÊÇÈ¥ÕÒÎÒ»¨Ê¦ÃÃ°É.");
+		command("say è¿™ä½"+RANK_D->query_respect(ob)+"æˆ‘ä¸æ”¶å¥³å¾’çš„ï¼Œä½ è¿˜æ˜¯åŽ»æ‰¾æˆ‘èŠ±å¸ˆå¦¹å§.");
 		return;
 	}
-	command("say ºÜºÃ£¬ºÜºÃ¡£");
+	command("say å¾ˆå¥½ï¼Œå¾ˆå¥½ã€‚");
 	command("recruit " + ob->query("id"));
 } 
 

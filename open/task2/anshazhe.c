@@ -1,4 +1,4 @@
-// anshazhe.c °µÉ±Õß
+// anshazhe.c æš—æ€è€…
 inherit NPC;
 #include "aninit.h"
 
@@ -9,9 +9,9 @@ void create()
 
 	i = random(sizeof(name_msg));
 	set_name(name_msg[i], ({ long_id[i], short_id[i] }) );
-	set("gender", random(2)>0 ? "Å®ĞÔ" : "ÄĞĞÔ" );
+	set("gender", random(2)>0 ? "å¥³æ€§" : "ç”·æ€§" );
 	set("age", 15 + random(40) );
-	set("long","Ò»¸öÆÕÍ¨µÄÈË£¬·ÅÔÚÈËÈºÖĞÃ»ÓĞÒ»µãÍ»³öÖ®´¦¡£\n");
+	set("long","ä¸€ä¸ªæ™®é€šçš„äººï¼Œæ”¾åœ¨äººç¾¤ä¸­æ²¡æœ‰ä¸€ç‚¹çªå‡ºä¹‹å¤„ã€‚\n");
 
 	weapon = weapon_msg[random(sizeof(weapon_msg))];
 	setup();

@@ -6,10 +6,10 @@ inherit NPC;
 
 void create()
 {
-	set_name("ºôÑÓÍòÉÆ",({"huyan wanshan","huyan","wanshan"}));
-	set("gender", "ÄĞĞÔ");
+	set_name("å‘¼å»¶ä¸‡å–„",({"huyan wanshan","huyan","wanshan"}));
+	set("gender", "ç”·æ€§");
 	set("age", 20);
-	set("long", "ËûÊÇÁèÏö³ÇµÚÁù´úµÜ×ÓºôÑÓÍòÉÆ¡£\n");
+	set("long", "ä»–æ˜¯å‡Œéœ„åŸç¬¬å…­ä»£å¼Ÿå­å‘¼å»¶ä¸‡å–„ã€‚\n");
 	set("attitude", "peaceful");
 
 	set("str", 25);
@@ -26,8 +26,8 @@ void create()
 	set("combat_exp", 200000); 
 	set("chat_chance", 20);
 	set("chat_msg", ({
-		"ºôÑÓÍòÉÆ°Î³ö½£À´£¬ÎèÁËÒ»¸ö°ë»¡£¬ºÜÊÇÉñÆø¡£\n", 
-		"ºôÑÓÍòÉÆÍ¦ÁËÍ¦ĞØ£¬´óÉùËµ£ºÎÒÃÇÁèÏö³ÇµÄ½£·¨£¬ÊÇÌìÏÂµÚÒ»µÄ½£·¨¡£\n", 
+		"å‘¼å»¶ä¸‡å–„æ‹”å‡ºå‰‘æ¥ï¼Œèˆäº†ä¸€ä¸ªåŠå¼§ï¼Œå¾ˆæ˜¯ç¥æ°”ã€‚\n", 
+		"å‘¼å»¶ä¸‡å–„æŒºäº†æŒºèƒ¸ï¼Œå¤§å£°è¯´ï¼šæˆ‘ä»¬å‡Œéœ„åŸçš„å‰‘æ³•ï¼Œæ˜¯å¤©ä¸‹ç¬¬ä¸€çš„å‰‘æ³•ã€‚\n", 
 	}) ); 
 	set("shen_type", 0);
 	set("score", 20000);
@@ -57,7 +57,7 @@ void create()
 	map_skill("dodge", "snowstep");
 	prepare_skill("strike", "snow-strike");
 
-	create_family("ÁèÏö³Ç", 6, "µÜ×Ó");
+	create_family("å‡Œéœ„åŸ", 6, "å¼Ÿå­");
 	setup();
 	carry_object("/clone/weapon/changjian")->wield();
 	carry_object(CLOTH_DIR+"bai")->wear();

@@ -5,14 +5,14 @@ inherit ITEM;
 
 void create()
 {
-	set_name("ÏãÂ¯", ({ "xiang lu", "lu" }) );
+	set_name("é¦™ç‚‰", ({ "xiang lu", "lu" }) );
 	set_weight(3000);
 	set_max_encumbrance(5000);
 	if( clonep() )
 		set_default_object(__FILE__);
 	else {
-		set("unit", "¸ö");
-                set("long", "ÕâÊÇÒ»¸öºÜÑÅÖÂµÄÏãÂ¯£¬Â¯ÖĞÆ®³öÕóÕóµ­µ­Ì´Ïã¡£\n");
+		set("unit", "ä¸ª");
+                set("long", "è¿™æ˜¯ä¸€ä¸ªå¾ˆé›…è‡´çš„é¦™ç‚‰ï¼Œç‚‰ä¸­é£˜å‡ºé˜µé˜µæ·¡æ·¡æª€é¦™ã€‚\n");
 		set("value", 100);
 		set("material", "gold");
 		set("no_get",1);

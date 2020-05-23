@@ -8,16 +8,16 @@ void init()
 
 void create()
 {
-	set_name("¸¹Éßµ¨", ({"fushe dan","dan"}));
-        set("unit", "Ã¶");
-	set("long", "ÕâÊÇÒ»Ã¶»ðºìµÄ¸¹Éßµ¨¡£\n");
+	set_name("è…¹è›‡èƒ†", ({"fushe dan","dan"}));
+        set("unit", "æžš");
+	set("long", "è¿™æ˜¯ä¸€æžšç«çº¢çš„è…¹è›‡èƒ†ã€‚\n");
 	set("value", 500);
         setup();
 }
 
 int do_eat(string arg)
 {
-if (!id(arg))  return notify_fail("ÄãÒª³ÔÊ²Ã´£¿\n");
+if (!id(arg))  return notify_fail("ä½ è¦åƒä»€ä¹ˆï¼Ÿ\n");
 this_player()->unconcious();
 destruct(this_object());
 return 1;

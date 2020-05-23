@@ -1,14 +1,14 @@
-// /d/huashan/xiaofang.c Сľ��
+// /d/huashan/xiaofang.c 小木屋
 // Last Modified by winder on Jul. 12 2002
 
 inherit ROOM;
 
 void create()
 {
-	set("short", "Сľ��");
+	set("short", "小木屋");
 	set("long", @LONG
-һ������򵥵�Сľ�ݡ�������һ����¯��ǽ�Ϲ���һ����������
-������һλ���ߣ�������Ȼ���أ�ȴ���˲��ɵ�����������
+一所摆设简单的小木屋。室内有一个香炉，墙上挂着一炳长剑。当
+中坐着一位老者，穿著虽然朴素，却令人不由得心生敬仰。
 LONG
 	);
 	set("exits", ([

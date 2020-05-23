@@ -6,11 +6,11 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "����");
+	set("short", "长城");
 	set("long", WHT @LONG
-�㳪�ţ����ţ���Ȼӭ�����һ���磬��������ͷ������������
-��ɳ�ӡ���ļ�æ�������죬����һ��ȫû�ˡ��㿴��һ����Χ��ֻ��
-�����Ѿ����ٿ���ֲ������ǻ�ɳ��ʹ�˸е�һƬ������
+你唱着，唱着，忽然迎面刮来一阵大风，吹的你满头，满脸，满嘴
+的沙子。你的急忙闭上了嘴，兴致一下全没了。你看了一下周围，只见
+四周已经很少看到植物，到处是黄沙，使人感到一片荒凉。
 LONG
 NOR );
 	set("outdoors", "changcheng");

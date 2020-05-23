@@ -1,4 +1,4 @@
-// fengling.c ·çÁêÊ¦Ì«
+// fengling.c é£é™µå¸ˆå¤ª
 // Modified by Winder Jul.2000
 #include <command.h>
 #include <ansi.h>
@@ -10,9 +10,9 @@ mixed out_master(mixed arg);
 
 void create()
 {
-	set_name("·çÁêÊ¦Ì«", ({ "fengling shitai","fengling","shitai"}));
-	set("long","ËıÒ»¸±ÏÉ·çµÀ¹Ç£¬ÓëÊÀÎŞÕùÄ£Ñù£¬ÊÇ¶ëáÒÅÉµÄµÚ¶ş´úÕÆÃÅÈË¡£\n"); 
-	set("gender", "Å®ĞÔ");
+	set_name("é£é™µå¸ˆå¤ª", ({ "fengling shitai","fengling","shitai"}));
+	set("long","å¥¹ä¸€å‰¯ä»™é£é“éª¨ï¼Œä¸ä¸–æ— äº‰æ¨¡æ ·ï¼Œæ˜¯å³¨åµ‹æ´¾çš„ç¬¬äºŒä»£æŒé—¨äººã€‚\n"); 
+	set("gender", "å¥³æ€§");
 	set("age", 62);
 	set("attitude", "peaceful");
 	set("shen_type", 1);
@@ -20,8 +20,8 @@ void create()
 	set("class", "bonze");
 	set("env/wimpy", 60);
 	set("inquiry",([
-		"Ìê¶È" : "Æ¶ÄáÖ»Öª³ıÑıÉ±Ä§£¬²»Ìê¶ÈµÜ×Ó¡£",
-		"³ö¼Ò" : "Æ¶ÄáÖ»Öª³ıÑıÉ±Ä§£¬²»Ìê¶ÈµÜ×Ó¡£",
+		"å‰ƒåº¦" : "è´«å°¼åªçŸ¥é™¤å¦–æ€é­”ï¼Œä¸å‰ƒåº¦å¼Ÿå­ã€‚",
+		"å‡ºå®¶" : "è´«å°¼åªçŸ¥é™¤å¦–æ€é­”ï¼Œä¸å‰ƒåº¦å¼Ÿå­ã€‚",
 	]));
 
 	set("str", 35);
@@ -76,7 +76,7 @@ void create()
 		(: exert_function, "recover" :),
 		(: exert_function, "regenerate" :),
 	}) );
-	create_family("¶ëáÒÅÉ", 2, "ÕÆÃÅÈË");
+	create_family("å³¨åµ‹æ´¾", 2, "æŒé—¨äºº");
 
 	setup();
 	carry_object(WEAPON_DIR"changjian")->wield();
@@ -91,9 +91,9 @@ void attempt_apprentice(object ob)
 	string name, new_name;
 	name = ob->query("name");
 
-	if (!(ob_fam = ob->query("family")) || ob_fam["family_name"] != "¶ëáÒÅÉ")
+	if (!(ob_fam = ob->query("family")) || ob_fam["family_name"] != "å³¨åµ‹æ´¾")
 	{
-		command("say "+RANK_D->query_respect(ob)+"Óë±¾ÅÉËØÎŞÀ´Íù£¬²»Öª´Ë»°´ÓºÎÌ¸Æğ£¿");
+		command("say "+RANK_D->query_respect(ob)+"ä¸æœ¬æ´¾ç´ æ— æ¥å¾€ï¼Œä¸çŸ¥æ­¤è¯ä»ä½•è°ˆèµ·ï¼Ÿ");
 		return;
 	}
 	switch (random(2))
@@ -102,36 +102,36 @@ void attempt_apprentice(object ob)
 		default:
 			if ((string)ob->query("class")!="bonze" )
 			{
-				command ("say °¢ÃÖÍÓ·ğ£¡Æ¶Äá²»ÊÕË×¼ÒµÜ×Ó¡£");
+				command ("say é˜¿å¼¥é™€ä½›ï¼è´«å°¼ä¸æ”¶ä¿—å®¶å¼Ÿå­ã€‚");
 				return;
 			}
 			else
 			{
-				command ("say °¢ÃÖÍÓ·ğ£¡Æ¶Äá²»ÊÕµÜ×Ó¡£");
+				command ("say é˜¿å¼¥é™€ä½›ï¼è´«å°¼ä¸æ”¶å¼Ÿå­ã€‚");
 				return;
 			}
 	}
 	if ((int)ob->query_skill("mahayana",1)<120||
 		(int)ob->query_skill("linji-zhuang",1)<120)
 	{
-		command("say Äã±¾ÃÅµÄ¹¦·òĞŞÎª»¹Ì«µÍ¡£");
+		command("say ä½ æœ¬é—¨çš„åŠŸå¤«ä¿®ä¸ºè¿˜å¤ªä½ã€‚");
 		return;
 	}
 	if ((int)ob->query("shen") < 500000)
 	{
-		command("say "+RANK_D->query_respect(ob)+"ÄãĞĞÏÀÕÌÒåÖ®ÊÂ»¹×öµÄ²»¹»¡£");
+		command("say "+RANK_D->query_respect(ob)+"ä½ è¡Œä¾ ä»—ä¹‰ä¹‹äº‹è¿˜åšçš„ä¸å¤Ÿã€‚");
 		return;
 	}
 	if ((string)ob->query("class")=="bonze" )
 	{
 		name = ob->query("name");
-		new_name = "Ãğ" + name[2..3];
+		new_name = "ç­" + name[2..3];
 		ob->set("name", new_name);
-		command("say ´Ó½ñÒÔºóÄãµÄ·¨Ãû½Ğ×ö" + new_name + "£¬¹§Ï²Äã³ÉÎª¶ëáÒµÚÈı´úµÜ×Ó!");
+		command("say ä»ä»Šä»¥åä½ çš„æ³•åå«åš" + new_name + "ï¼Œæ­å–œä½ æˆä¸ºå³¨åµ‹ç¬¬ä¸‰ä»£å¼Ÿå­!");
 	}
 
-	command("say °¢ÃÖÍÓ·ğ£¬ÉÆÔÕ£¡ÉÆÔÕ£¡ºÃ°É£¬ÎÒ¾ÍÊÕÏÂÄãÁË¡£");
-	command("say Ï£ÍûÄãÄÜÒÔ´È±¯Ö®ĞÄ£¬ÒÔÖÇ»ÛÖ®Á¦£¬Å¬Á¦ĞĞÉÆ£¬¼Ã¶ÈÖÚÉú¡£");
+	command("say é˜¿å¼¥é™€ä½›ï¼Œå–„å“‰ï¼å–„å“‰ï¼å¥½å§ï¼Œæˆ‘å°±æ”¶ä¸‹ä½ äº†ã€‚");
+	command("say å¸Œæœ›ä½ èƒ½ä»¥æ…ˆæ‚²ä¹‹å¿ƒï¼Œä»¥æ™ºæ…§ä¹‹åŠ›ï¼ŒåŠªåŠ›è¡Œå–„ï¼Œæµåº¦ä¼—ç”Ÿã€‚");
 	command("recruit " + ob->query("id"));
 }
 

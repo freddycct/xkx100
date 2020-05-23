@@ -4,10 +4,10 @@ inherit NPC;
 
 void create()
 {
-	set_name("´óÀÇ¹·", ({ "wolf dog", "dog" }) );
-	set("race", "×ßÊŞ");
+	set_name("å¤§ç‹¼ç‹—", ({ "wolf dog", "dog" }) );
+	set("race", "èµ°å…½");
 	set("age", 4);
-	set("long", "Ò»Ö»°ºÊ×Í¦ĞØ£¬ÍÂ×Å³¤ÉàÍ·µÄ´óÀÇ¹·¡£ÏñÊÇ²ÆÖ÷¼ÒÀïÑøµÄ³èÎï¡£\n");
+	set("long", "ä¸€åªæ˜‚é¦–æŒºèƒ¸ï¼Œåç€é•¿èˆŒå¤´çš„å¤§ç‹¼ç‹—ã€‚åƒæ˜¯è´¢ä¸»å®¶é‡Œå…»çš„å® ç‰©ã€‚\n");
 	set("attitude", "peaceful");
 	
 	set("str", 26);
@@ -17,9 +17,9 @@ void create()
 	
 	set("chat_msg_combat", ({
 		(: this_object(), "random_move" :),
-		"´óÀÇ¹·´óÉù·Í½Ğ£ºÍô£¡Íô£¡Íô£¡Íô£¡Íô£¡Íô£¡\n",
-		"´óÀÇ¹·Í»È»ÌøÁËÆğÀ´£¬¿ÚÖĞÂÒÒ§£¬È´²»ÖªµÀÊÇÔÚÒ§Ë­¡£\n"
-	,		"´óÀÇ¹·Í»È»×óĞáĞáÓÒÇÆÇÆ,´ó¸ÅÓÖÊÇÔÚÕÒ°ü×Ó°É:P\n"		
+		"å¤§ç‹¼ç‹—å¤§å£°å å«ï¼šæ±ªï¼æ±ªï¼æ±ªï¼æ±ªï¼æ±ªï¼æ±ªï¼\n",
+		"å¤§ç‹¼ç‹—çªç„¶è·³äº†èµ·æ¥ï¼Œå£ä¸­ä¹±å’¬ï¼Œå´ä¸çŸ¥é“æ˜¯åœ¨å’¬è°ã€‚\n"
+	,		"å¤§ç‹¼ç‹—çªç„¶å·¦å—…å—…å³ç§ç§,å¤§æ¦‚åˆæ˜¯åœ¨æ‰¾åŒ…å­å§:P\n"		
 }) );
 	set("accept_baozi",0);		
 	set_temp("apply/attack", 15);
@@ -43,7 +43,7 @@ void init()
 void die()
 {
 	object ob;
-	message_vision("$N²Òº¿Ò»Éù£¬ËÀÁË£¡\n", this_object());
+	message_vision("$Næƒ¨åšä¸€å£°ï¼Œæ­»äº†ï¼\n", this_object());
 	ob = new(__DIR__"obj/goupi");
 	ob->move(environment(this_object()));
 	destruct(this_object());
@@ -58,9 +58,9 @@ int accept_object(object who, object ob)
 		this_object()->remove_all_enemy();
 		if (query("accept_baozi")>2) {
 		set_leader(who);
-	  	message("vision", name() + "ÔÚÄãµÄ½Å±ß°¤°¤²Á²ÁµÄ£¬ÏëÌÖ¶«Î÷³Ô¡£\n", environment());
+	  	message("vision", name() + "åœ¨ä½ çš„è„šè¾¹æŒ¨æŒ¨æ“¦æ“¦çš„ï¼Œæƒ³è®¨ä¸œè¥¿åƒã€‚\n", environment());
 		}
-		else message("vision", name() + "ÓÃ±Ç×ÓÎÅÁËÎÅ°ü×Ó£¬Ò»¿ÚÍÌÏÂ,²»ÔÙ×÷ÉùÁË¡£\n", environment());
+		else message("vision", name() + "ç”¨é¼»å­é—»äº†é—»åŒ…å­ï¼Œä¸€å£åä¸‹,ä¸å†ä½œå£°äº†ã€‚\n", environment());
 
 	return 1;
 	}

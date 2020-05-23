@@ -6,14 +6,14 @@ inherit NPC;
 
 void create()
 {
-	set_name("ÊÌ±Ş", ({ "shibian"}) );
-	set("nickname", HIM "±Ş" NOR );
-	set("gender", "Å®ĞÔ" );
-	set("type","±Ş");
+	set_name("ä¾é­", ({ "shibian"}) );
+	set("nickname", HIM "é­" NOR );
+	set("gender", "å¥³æ€§" );
+	set("type","é­");
 	set("age", 20);
 	set("no_get", 1);
 	set("long", 	
-		"ËıÍ·ÉÏ°ü×ÅÌìÇàÉ«É´½í£¬Ò»ÁìÌìÇàÉ«²¼ÅÛ£¬Ã»ÓĞÒ»Ë¿ñŞÖå¡£\n");
+		"å¥¹å¤´ä¸ŠåŒ…ç€å¤©é’è‰²çº±å·¾ï¼Œä¸€é¢†å¤©é’è‰²å¸ƒè¢ï¼Œæ²¡æœ‰ä¸€ä¸è¤¶çš±ã€‚\n");
 	set("str", 25);
 	set("dex", 20);
 	set("con", 17);
@@ -33,8 +33,8 @@ void create()
 	set("score",0);
 	set("attitude", "peaceful");
 	set("inquiry", ([
-		"Ôì±Ş" : "Ê¦¸µÃüÎÒ°ïÖú±ğÈËÔì±Ş£¬µ«µ½ÏÖÔÚÒ²²»¼ûÒ»¸öÈËÓ°¡£Ë­ÒªÔì±ŞÄØ£¿\n",
-		"Ô­ÁÏ" : "Ôì±ŞÖ»ÄÜÓÃº®Ë¿ÓğÖñ¡£\n",
+		"é€ é­" : "å¸ˆå‚…å‘½æˆ‘å¸®åŠ©åˆ«äººé€ é­ï¼Œä½†åˆ°ç°åœ¨ä¹Ÿä¸è§ä¸€ä¸ªäººå½±ã€‚è°è¦é€ é­å‘¢ï¼Ÿ\n",
+		"åŸæ–™" : "é€ é­åªèƒ½ç”¨å¯’ä¸ç¾½ç«¹ã€‚\n",
 	]) );
 	setup();
 	carry_object("/clone/misc/cloth")->wear();
@@ -45,22 +45,22 @@ int accept_object(object who, object ob)
 {	
 	if(!(who->query_temp("whip") ) )
 	{
-		message_vision(HIC"Ê¦¸µÃ»ÓĞÍ¬ÒâÎªÄãÔì±Ş£¬ÄúÇë»Ø°É£¡\n"NOR, who);
+		message_vision(HIC"å¸ˆå‚…æ²¡æœ‰åŒæ„ä¸ºä½ é€ é­ï¼Œæ‚¨è¯·å›å§ï¼\n"NOR, who);
 		return 0;
 	}
 	who->delete_temp("whip");
-	who->set_temp("m_make","±Ş");
+	who->set_temp("m_make","é­");
 	switch ((string)ob->query("id") ) 
 	{
 		case "han zhu": 
 			break;
 		default :
-			message("vision","ÕâÊÇÊ²Ã´£¡Ê¦¸µËµÕâ²»ÄÜÓÃÀ´´òÔì³¤±Ş£¡\n",who);
+			message("vision","è¿™æ˜¯ä»€ä¹ˆï¼å¸ˆå‚…è¯´è¿™ä¸èƒ½ç”¨æ¥æ‰“é€ é•¿é­ï¼\n",who);
 			return 0;
 	}
-	message("vision", "ÊÌ±ŞµÍÍ·¼ìÊÓÁËÒ»ÏÂÊÖÖĞµÄ"+(string)ob->query("name")+"µãÁËµãÍ·Ëµ£º\n", who);
-	message("vision","¡£¡£¡£ºÃÎÒÃÇÏÖÔÚ¾Í¿ªÊ¼Ôì±Ş£¡\n", who);
-	write("ÇëÕâÎ»"+RANK_D->query_respect(who)+"¸ø±ŞÆğÃû×Ö°É£¡(zhu ±ŞµÄÃû×Ö Ó¢ÎÄ´úºÅ)\n");
+	message("vision", "ä¾é­ä½å¤´æ£€è§†äº†ä¸€ä¸‹æ‰‹ä¸­çš„"+(string)ob->query("name")+"ç‚¹äº†ç‚¹å¤´è¯´ï¼š\n", who);
+	message("vision","ã€‚ã€‚ã€‚å¥½æˆ‘ä»¬ç°åœ¨å°±å¼€å§‹é€ é­ï¼\n", who);
+	write("è¯·è¿™ä½"+RANK_D->query_respect(who)+"ç»™é­èµ·åå­—å§ï¼(zhu é­çš„åå­— è‹±æ–‡ä»£å·)\n");
 	destruct(ob);
 	return 1;
 }

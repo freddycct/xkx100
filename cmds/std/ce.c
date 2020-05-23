@@ -21,65 +21,65 @@ int main(object me, string arg)
 			flag=0;
 
 //	if (!wizardp(me) && obj->query_temp("pigging_seat"))
-//		return notify_fail("ÄãµÄ°éÂÂÕıÔÚ¹°Öí£¬Ìı²»µ½ÇÄÇÄ»°....\n");
+//		return notify_fail("ä½ çš„ä¼´ä¾£æ­£åœ¨æ‹±çŒªï¼Œå¬ä¸åˆ°æ‚„æ‚„è¯....\n");
 
 	if( !arg )
 	{
-//		message_vision(MAG "\n$N¶àÃ´Ë¼Äî"+me->query("couple/couple_gender")+me->query("couple/couple_name")+"°¡£¬¿ÉÊÇÒÁÈËºÎ·½ÄØ...\n"NOR, me);
-		write(MAG "\nÄã¶àÃ´Ë¼Äî"+me->query("couple/couple_gender")+me->query("couple/couple_name")+"°¡£¬¿ÉÊÇÒÁÈËºÎ·½ÄØ...\n"NOR);
+//		message_vision(MAG "\n$Nå¤šä¹ˆæ€å¿µ"+me->query("couple/couple_gender")+me->query("couple/couple_name")+"å•Šï¼Œå¯æ˜¯ä¼Šäººä½•æ–¹å‘¢...\n"NOR, me);
+		write(MAG "\nä½ å¤šä¹ˆæ€å¿µ"+me->query("couple/couple_gender")+me->query("couple/couple_name")+"å•Šï¼Œå¯æ˜¯ä¼Šäººä½•æ–¹å‘¢...\n"NOR);
 		if (flag)
-		tell_object(obj,MAG"\nÄãµÄ"+obj->query("couple/couple_gender")+"ÔÚË¼ÄîÄã... ...\n" NOR);
+		tell_object(obj,MAG"\nä½ çš„"+obj->query("couple/couple_gender")+"åœ¨æ€å¿µä½ ... ...\n" NOR);
 	}
 	else
 		switch (arg)
 		{
 			case "kiss":
 				if( objectp(present(me->query("couple/couple_id"), environment(me))) )
-//					message_vision(MAG "\n$NÓµ±§×Å$nÉîÉîµØÒ»ÎÇ...\n"NOR, me, obj);
+//					message_vision(MAG "\n$Næ‹¥æŠ±ç€$næ·±æ·±åœ°ä¸€å»...\n"NOR, me, obj);
 				{
-					write(MAG "\nÄãÓµ±§×Å"+me->query("couple/couple_name")+"ÉîÉîµØÒ»ÎÇ...\n"NOR);
-					tell_object(obj,MAG"\n"+obj->query("couple/couple_name")+"Óµ±§×ÅÄãÉîÉîµØÒ»ÎÇ...\n" NOR);
+					write(MAG "\nä½ æ‹¥æŠ±ç€"+me->query("couple/couple_name")+"æ·±æ·±åœ°ä¸€å»...\n"NOR);
+					tell_object(obj,MAG"\n"+obj->query("couple/couple_name")+"æ‹¥æŠ±ç€ä½ æ·±æ·±åœ°ä¸€å»...\n" NOR);
 				}
 				else
 				{
-					write(MAG "\nÄã¶àÏëÓµ±§ÄãµÄ" + me->query("couple/couple_gender") + "ÉîÉîµØÒ»ÎÇ...\n" NOR);
+					write(MAG "\nä½ å¤šæƒ³æ‹¥æŠ±ä½ çš„" + me->query("couple/couple_gender") + "æ·±æ·±åœ°ä¸€å»...\n" NOR);
 					if (flag)
-					tell_object(obj, MAG "\nÄãµÄ"+obj->query("couple/couple_gender")+"¶àÏëÓµ±§Äã£¬¸øÄãÉîÉîµÄÒ»ÎÇ... ...\n" NOR);
+					tell_object(obj, MAG "\nä½ çš„"+obj->query("couple/couple_gender")+"å¤šæƒ³æ‹¥æŠ±ä½ ï¼Œç»™ä½ æ·±æ·±çš„ä¸€å»... ...\n" NOR);
 				}
 				break;	
 			case "bye":
 				if( objectp(present(me->query("couple/couple_id"), environment(me))) )
-//					message_vision(MAG "\n$Nº¬ÀáÄıÍû×Å$n£¬ßìÑÊµÀ: ÓÖÒªÔÙ¼ûÁË£¬ºÎÊ±²ÅÄÜ³¤Ïà¾Û²»·ÖÀëÑ½...\n"NOR, me, obj);
+//					message_vision(MAG "\n$Nå«æ³ªå‡æœ›ç€$nï¼Œå“½å’½é“: åˆè¦å†è§äº†ï¼Œä½•æ—¶æ‰èƒ½é•¿ç›¸èšä¸åˆ†ç¦»å‘€...\n"NOR, me, obj);
 				{
-							write(MAG "\nÄãº¬ÀáÄıÍû×Å"+me->query("couple/couple_name")+"£¬ßìÑÊµÀ: ÓÖÒªÔÙ¼ûÁË£¬ºÎÊ±²ÅÄÜ³¤Ïà¾Û²»·ÖÀëÑ½...\n"NOR);
-							tell_object(obj,MAG "\n"+obj->query("couple/couple_name")+"º¬ÀáÄıÍû×ÅÄã£¬ßìÑÊµÀ: ÓÖÒªÔÙ¼ûÁË£¬ºÎÊ±²ÅÄÜ³¤Ïà¾Û²»·ÖÀëÑ½...\n"NOR);
+							write(MAG "\nä½ å«æ³ªå‡æœ›ç€"+me->query("couple/couple_name")+"ï¼Œå“½å’½é“: åˆè¦å†è§äº†ï¼Œä½•æ—¶æ‰èƒ½é•¿ç›¸èšä¸åˆ†ç¦»å‘€...\n"NOR);
+							tell_object(obj,MAG "\n"+obj->query("couple/couple_name")+"å«æ³ªå‡æœ›ç€ä½ ï¼Œå“½å’½é“: åˆè¦å†è§äº†ï¼Œä½•æ—¶æ‰èƒ½é•¿ç›¸èšä¸åˆ†ç¦»å‘€...\n"NOR);
 				}
 				else
 				{
-					if (me->query("gender")=="Å®ĞÔ")
+					if (me->query("gender")=="å¥³æ€§")
 					{
-						write(MAG"\nÄã¶àÏëÔÙ¶à¿´ÄãµÄ"+me->query("couple/couple_gender")+"Ò»ÑÛ£¬ÈÃËûÖªµÀÄãÊÇÕâÑùµÄÒ»Ö±Äî¹Ò×ÅËû...\n"NOR);
+						write(MAG"\nä½ å¤šæƒ³å†å¤šçœ‹ä½ çš„"+me->query("couple/couple_gender")+"ä¸€çœ¼ï¼Œè®©ä»–çŸ¥é“ä½ æ˜¯è¿™æ ·çš„ä¸€ç›´å¿µæŒ‚ç€ä»–...\n"NOR);
 					if (flag)
-						tell_object(obj, sprintf(MAG "\nÄãµÄ%s¶àÏëÔÙ¶à¿´ÄãÒ»ÑÛ£¬É½Ò£Ë®¸ô£¬Ëı»áÒ»Ö±¼Ç¹ÒÄãµÄ£¬ÄãÒª×Ô¼º±£ÖØ°¡... ...\n" NOR, obj->query("couple/couple_gender")));
+						tell_object(obj, sprintf(MAG "\nä½ çš„%så¤šæƒ³å†å¤šçœ‹ä½ ä¸€çœ¼ï¼Œå±±é¥æ°´éš”ï¼Œå¥¹ä¼šä¸€ç›´è®°æŒ‚ä½ çš„ï¼Œä½ è¦è‡ªå·±ä¿é‡å•Š... ...\n" NOR, obj->query("couple/couple_gender")));
 					}
 					else
 					{
-						write(MAG"\nÄã¶àÏëÔÙ¶à¿´ÄãµÄ"+me->query("couple/couple_gender")+"Ò»ÑÛ£¬ÈÃËıÖªµÀÄãÊÇÕâÑùµÄÒ»Ö±Äî¹Ò×ÅËı...\n"NOR);
+						write(MAG"\nä½ å¤šæƒ³å†å¤šçœ‹ä½ çš„"+me->query("couple/couple_gender")+"ä¸€çœ¼ï¼Œè®©å¥¹çŸ¥é“ä½ æ˜¯è¿™æ ·çš„ä¸€ç›´å¿µæŒ‚ç€å¥¹...\n"NOR);
 					if (flag)
-						tell_object(obj, MAG "\nÄãµÄ"+obj->query("couple/couple_gender")+"¶àÏëÔÙ¶à¿´ÄãÒ»ÑÛ£¬É½Ò£Ë®¸ô£¬Ëû»áÒ»Ö±¼Ç¹ÒÄãµÄ£¬ÄãÒª×Ô¼º±£ÖØ°¡... ...\n" NOR);
+						tell_object(obj, MAG "\nä½ çš„"+obj->query("couple/couple_gender")+"å¤šæƒ³å†å¤šçœ‹ä½ ä¸€çœ¼ï¼Œå±±é¥æ°´éš”ï¼Œä»–ä¼šä¸€ç›´è®°æŒ‚ä½ çš„ï¼Œä½ è¦è‡ªå·±ä¿é‡å•Š... ...\n" NOR);
 					}
 				}
 				break;
 			default:
 			if (!flag)
-				if (me->query("gender")=="Å®ĞÔ")
-					return notify_fail(MAG"ÄãÏëºÍÄãµÄ" + me->query("couple/couple_gender")+"ËµËµ»°£¬¿ÉÊÇËûÏÖÔÚ²»ÔÚÏßÉÏ¡£\n"NOR);
+				if (me->query("gender")=="å¥³æ€§")
+					return notify_fail(MAG"ä½ æƒ³å’Œä½ çš„" + me->query("couple/couple_gender")+"è¯´è¯´è¯ï¼Œå¯æ˜¯ä»–ç°åœ¨ä¸åœ¨çº¿ä¸Šã€‚\n"NOR);
 				else
-					return notify_fail(MAG"ÄãÏëºÍÄãµÄ" + me->query("couple/couple_gender")+"ËµËµ»°£¬¿ÉÊÇËıÏÖÔÚ²»ÔÚÏßÉÏ¡£\n"NOR);
-			write(MAG "ÄãÇÄÇÄ¸æËßÄãµÄ" + me->query("couple/couple_gender") + "£º" + arg + "\n" NOR);
-			tell_object(obj, sprintf( MAG "ÄãµÄ%sÇÄÇÄ¸æËßÄã£º%s\n" NOR, obj->query("couple/couple_gender"), arg));
-//				message("channel:snp", HIB"¡¾¼àÌı¡¿" + me->name() + "ÇÄÇÄ¸æËß"+ obj->name() + "£º" + arg + "\n"NOR, users());
-// 				Ìı±ğÈËË½·¿»°²»ºÃ°É?
+					return notify_fail(MAG"ä½ æƒ³å’Œä½ çš„" + me->query("couple/couple_gender")+"è¯´è¯´è¯ï¼Œå¯æ˜¯å¥¹ç°åœ¨ä¸åœ¨çº¿ä¸Šã€‚\n"NOR);
+			write(MAG "ä½ æ‚„æ‚„å‘Šè¯‰ä½ çš„" + me->query("couple/couple_gender") + "ï¼š" + arg + "\n" NOR);
+			tell_object(obj, sprintf( MAG "ä½ çš„%sæ‚„æ‚„å‘Šè¯‰ä½ ï¼š%s\n" NOR, obj->query("couple/couple_gender"), arg));
+//				message("channel:snp", HIB"ã€ç›‘å¬ã€‘" + me->name() + "æ‚„æ‚„å‘Šè¯‰"+ obj->name() + "ï¼š" + arg + "\n"NOR, users());
+// 				å¬åˆ«äººç§æˆ¿è¯ä¸å¥½å§?
 		}
 		return 1;
 }
@@ -88,9 +88,9 @@ int help(object me)
 {
 	write(@HELP
 
-Ö¸Áî¸ñÊ½£ºce [kiss | bye] [<Ñ¶Ï¢>]
+æŒ‡ä»¤æ ¼å¼ï¼šce [kiss | bye] [<è®¯æ¯>]
 
-    Äã¿ÉÒÔÓÃÕâ¸öÖ¸Áî¶ÔÄãµÄ°éÂÂËµÇÄÇÄ»°¡£
+    ä½ å¯ä»¥ç”¨è¿™ä¸ªæŒ‡ä»¤å¯¹ä½ çš„ä¼´ä¾£è¯´æ‚„æ‚„è¯ã€‚
 
 HELP
 	);

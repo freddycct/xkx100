@@ -6,14 +6,14 @@ inherit F_UNIQUE;
 
 void create()
 {
-        set_name("ÀäÇ«", ({ "leng qian", "leng", "qian", }));
+        set_name("å†·è°¦", ({ "leng qian", "leng", "qian", }));
 	set("long",
-        "ËûÊÇÒ»Î»ÀäÀäµÄÀÏÕß£¬Éí´©Ò»¼ş°×²¼³¤ÅÛ¡£\n"
-        "ËûËµ»°¼«Îª¼ò½İ£¬±ãÊÇÉ±ÁËËûµÄÍ·Ò²²»¿Ï¶àËµ°ë¾ä·Ï»°¡£\n"
+        "ä»–æ˜¯ä¸€ä½å†·å†·çš„è€è€…ï¼Œèº«ç©¿ä¸€ä»¶ç™½å¸ƒé•¿è¢ã€‚\n"
+        "ä»–è¯´è¯æä¸ºç®€æ·ï¼Œä¾¿æ˜¯æ€äº†ä»–çš„å¤´ä¹Ÿä¸è‚¯å¤šè¯´åŠå¥åºŸè¯ã€‚\n"
 	);
 
-        set("nickname", "ÀäÃæÏÈÉú");
-	set("gender", "ÄĞĞÔ");
+        set("nickname", "å†·é¢å…ˆç”Ÿ");
+	set("gender", "ç”·æ€§");
 	set("attitude", "friendly");
         set("class", "fighter");
 
@@ -47,9 +47,9 @@ void create()
 	map_skill("parry", "jingang-quan");
 	prepare_skill("cuff", "jingang-quan");
 
-	set("party/party_name",HIG"Ã÷½Ì"NOR);
-	set("party/rank",HIY"ÎåÉ¢ÈË"NOR);
-	create_family("Ã÷½Ì", 35, "µÜ×Ó");
+	set("party/party_name",HIG"æ˜æ•™"NOR);
+	set("party/rank",HIY"äº”æ•£äºº"NOR);
+	create_family("æ˜æ•™", 35, "å¼Ÿå­");
 
 	setup();
 

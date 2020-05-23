@@ -5,11 +5,11 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "�η�");
+	set("short", "牢房");
 	set("long", @LONG
-�������һƬ����ϸϸ���������ñ�����ʯ�ŵķ�϶���Լ�ͷ��ȥ��
-ʯ�ž�����ҡ�Σ���֪�ж���ʵ��һ����ɫ�԰׵������ˣ���ͷɥ����
-���ڵ��ϡ�
+这里漆黑一片，你细细摸索。不久便摸到石门的缝隙，以肩头推去，
+石门竟绝不摇晃，不知有多重实。一个脸色苍白的年轻人，垂头丧气地
+坐在地上。
 LONG );
 	set("exits", ([
 		"west" : __DIR__"laolang",

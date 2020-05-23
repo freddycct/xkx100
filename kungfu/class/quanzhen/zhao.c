@@ -1,17 +1,17 @@
-// zhao.c ÕÔÖ¾¾´
+// zhao.c èµµå¿—æ•¬
 
 inherit NPC;
 
 void create()
 {
-        set_name("ÕÔÖ¾¾´", ({"zhao zhijing", "zhao"}));
-        set("gender", "ÄĞĞÔ");
+        set_name("èµµå¿—æ•¬", ({"zhao zhijing", "zhao"}));
+        set("gender", "ç”·æ€§");
         set("age", 26);
         set("class", "quanzhen");
         set("long",
-                "Ëû¾ÍÊÇÈ«Õæ½ÌµÚÈı´úµÜ×ÓÖĞµÄºÃÊÖ£¬Íõ´¦Ò»µÄ´óµÜ×ÓÕÔÖ¾¾´¡£ \n"
-                "ËûÏàÃ²¶ËÕı£¬µ«Ã¼Óî¼äËÆºõÒş²Ø×ÅÒ»Ë¿½Æ»«µÄÉñÉ«¡£\n"
-		"ËûÊÇÒ»¸ö³¤ĞëµÀÈË£¬¿´ÆğÀ´È´ÓĞĞ©É·Æø¡£\n");
+                "ä»–å°±æ˜¯å…¨çœŸæ•™ç¬¬ä¸‰ä»£å¼Ÿå­ä¸­çš„å¥½æ‰‹ï¼Œç‹å¤„ä¸€çš„å¤§å¼Ÿå­èµµå¿—æ•¬ã€‚ \n"
+                "ä»–ç›¸è²Œç«¯æ­£ï¼Œä½†çœ‰å®‡é—´ä¼¼ä¹éšè—ç€ä¸€ä¸ç‹¡çŒ¾çš„ç¥è‰²ã€‚\n"
+		"ä»–æ˜¯ä¸€ä¸ªé•¿é¡»é“äººï¼Œçœ‹èµ·æ¥å´æœ‰äº›ç…æ°”ã€‚\n");
         set("attitude", "friendly");
         set("shen_type",-1);
         set("str", 25);
@@ -45,17 +45,17 @@ void create()
 
         set_skill("array", 40);
         set_skill("force", 80);
-        set_skill("xiantian-qigong", 80);    //ÏÈÌìÆø¹¦
+        set_skill("xiantian-qigong", 80);    //å…ˆå¤©æ°”åŠŸ
         set_skill("sword", 80);
-        set_skill("quanzhen-jian", 120);  //È«Õæ½£
+        set_skill("quanzhen-jian", 120);  //å…¨çœŸå‰‘
         set_skill("dodge", 70);
-        set_skill("jinyan-gong", 100);   //½ğÑã¹¦
+        set_skill("jinyan-gong", 100);   //é‡‘é›åŠŸ
         set_skill("parry", 80);
         set_skill("unarmed", 80);
         set_skill("strike", 80);
-        set_skill("haotian-zhang", 120);    //ê»ÌìÕÆ
+        set_skill("haotian-zhang", 120);    //æ˜Šå¤©æŒ
         set_skill("cuff", 80);
-        set_skill("chunyang-quan", 120);    //´¿ÑôÈ­
+        set_skill("chunyang-quan", 120);    //çº¯é˜³æ‹³
         set_skill("literate", 60);
         set_skill("taoism", 60);
 
@@ -68,10 +68,10 @@ void create()
         prepare_skill("cuff", "chunyang-quan");
         prepare_skill("strike", "haotian-zhang");
 
-        create_family("È«Õæ½Ì", 3, "µÜ×Ó");
+        create_family("å…¨çœŸæ•™", 3, "å¼Ÿå­");
 
         set("inquiry", ([
-                "È«Õæ½Ì" :  "ÎÒÈ«Õæ½ÌÊÇÌìÏÂµÀ¼ÒĞşÃÅÕı×Ú¡£\n",
+                "å…¨çœŸæ•™" :  "æˆ‘å…¨çœŸæ•™æ˜¯å¤©ä¸‹é“å®¶ç„é—¨æ­£å®—ã€‚\n",
         ]) );
 
         setup();

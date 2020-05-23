@@ -1,4 +1,4 @@
-// xingyi-strike.c ĞÇÒÆÕÆ
+// xingyi-strike.c æ˜Ÿç§»æŒ
 // Last Modified by sega on Mar. 10 2000
 
 #include <ansi.h>
@@ -7,21 +7,21 @@ string type() { return "martial"; }
 string martialtype() { return "skill"; }
 
 mapping *action = ({
-([	"action" : "$NÁ½ÕÆÒ»ºÏ£¬È»ºó×óÕÆÅÄ³ö£¬ÉíĞÎ¸ú½ø£¬Ò»Ê½"CYN"¡¸»ÃĞÎ±äÓ°¡¹"NOR"£¬×óÕÆÊÕ»Ø£¬ÓÒÕÆ±ä»ÃÍÌÍÂ£¬ÃÍµØÍÆÏò$nµÄ$l",
+([	"action" : "$Nä¸¤æŒä¸€åˆï¼Œç„¶åå·¦æŒæ‹å‡ºï¼Œèº«å½¢è·Ÿè¿›ï¼Œä¸€å¼"CYN"ã€Œå¹»å½¢å˜å½±ã€"NOR"ï¼Œå·¦æŒæ”¶å›ï¼Œå³æŒå˜å¹»ååï¼ŒçŒ›åœ°æ¨å‘$nçš„$l",
 	"lvl" : 0,
-	"skill_name" : "»ÃĞÎ±äÓ°"
+	"skill_name" : "å¹»å½¢å˜å½±"
 ]),
-([	"action" : "$NÉì³öË«ÊÖ£¬Ê®Ö¸»şÕÅ£¬Ò»Ê½"RED"¡¸ĞÇĞÇµãµã¡¹"NOR"£¬ÊÖÖ¸×óÓÒÆ®ºö£¬Ê®Ö»Ö¸¼â¼²µã$nµÄ$l",
+([	"action" : "$Nä¼¸å‡ºåŒæ‰‹ï¼ŒåæŒ‡ç®•å¼ ï¼Œä¸€å¼"RED"ã€Œæ˜Ÿæ˜Ÿç‚¹ç‚¹ã€"NOR"ï¼Œæ‰‹æŒ‡å·¦å³é£˜å¿½ï¼ŒååªæŒ‡å°–ç–¾ç‚¹$nçš„$l",
 	"lvl" : 20,
-	"skill_name" : "ĞÇĞÇµãµã"
+	"skill_name" : "æ˜Ÿæ˜Ÿç‚¹ç‚¹"
 ]),
-([	"action" : "$NÊ¹Ò»Ê½"HIC"¡¸ÂşÌìĞÇ¶·¡¹"NOR"£¬Ò»¸ö·ÉÉíÔ¾Æğ£¬×óÕÆĞéÁ¢£¬ÓÒÕÆÕ§ÉìÕ§ºÏ£¬·ç³Ûµç³¸°ãÏò$nµÄ$lÅÄÁËÏÂÀ´",
+([	"action" : "$Nä½¿ä¸€å¼"HIC"ã€Œæ¼«å¤©æ˜Ÿæ–—ã€"NOR"ï¼Œä¸€ä¸ªé£èº«è·ƒèµ·ï¼Œå·¦æŒè™šç«‹ï¼Œå³æŒä¹ä¼¸ä¹åˆï¼Œé£é©°ç”µæ£èˆ¬å‘$nçš„$læ‹äº†ä¸‹æ¥",
 	"lvl" : 40,
-	"skill_name" : "ÂşÌìĞÇ¶·"
+	"skill_name" : "æ¼«å¤©æ˜Ÿæ–—"
 ]),
-([	"action" : "$NÒ»Éù³¤Ğ¥£¬Ò»Ê½"HIW"¡¸±±¶·ÆßĞÇ¡¹"NOR"£¬Ë«ÕÆ»Ã³ÉÂşÌìĞÇ¶·£¬ÆÌÌì¸ÇµØ°ãÏò$n»÷È¥",
+([	"action" : "$Nä¸€å£°é•¿å•¸ï¼Œä¸€å¼"HIW"ã€ŒåŒ—æ–—ä¸ƒæ˜Ÿã€"NOR"ï¼ŒåŒæŒå¹»æˆæ¼«å¤©æ˜Ÿæ–—ï¼Œé“ºå¤©ç›–åœ°èˆ¬å‘$nå‡»å»",
 	"lvl" : 60,
-	"skill_name" : "±±¶·ÆßĞÇ"
+	"skill_name" : "åŒ—æ–—ä¸ƒæ˜Ÿ"
 ])
 });
 
@@ -31,22 +31,22 @@ int valid_combine(string combo) { return combo=="canhe-finger"; }
 int valid_learn(object me)
 {
 	if (me->query_temp("weapon") || me->query_temp("secondary_weapon"))
-		return notify_fail("Á·ĞÇÒÆÕÆ±ØĞë¿ÕÊÖ¡£\n");
+		return notify_fail("ç»ƒæ˜Ÿç§»æŒå¿…é¡»ç©ºæ‰‹ã€‚\n");
 	if ((int)me->query_skill("shenyuan-gong", 1) < 15)
-		return notify_fail("ÄãµÄÉñÔª¹¦»ğºò²»¹»£¬ÎŞ·¨Ñ§ĞÇÒÆÕÆ¡£\n");
+		return notify_fail("ä½ çš„ç¥å…ƒåŠŸç«å€™ä¸å¤Ÿï¼Œæ— æ³•å­¦æ˜Ÿç§»æŒã€‚\n");
 	if ((int)me->query("max_neili") < 50)
-		return notify_fail("ÄãµÄÄÚÁ¦Ì«Èõ£¬ÎŞ·¨Á·ĞÇÒÆÕÆ¡£\n");
+		return notify_fail("ä½ çš„å†…åŠ›å¤ªå¼±ï¼Œæ— æ³•ç»ƒæ˜Ÿç§»æŒã€‚\n");
 	return 1;
 }
 
 int practice_skill(object me)
 {
 	if (me->query_temp("weapon") || me->query_temp("secondary_weapon"))
-		return notify_fail("ÄãµÄ±ØĞë¿ÕÊÖ²ÅÄÜÁ·Ï°¡£\n");
+		return notify_fail("ä½ çš„å¿…é¡»ç©ºæ‰‹æ‰èƒ½ç»ƒä¹ ã€‚\n");
 	if ((int)me->query("qi") < 40)
-		return notify_fail("ÄãµÄÌåÁ¦Ì«µÍÁË¡£\n");
+		return notify_fail("ä½ çš„ä½“åŠ›å¤ªä½äº†ã€‚\n");
 	if ((int)me->query("neili") < 40)
-		return notify_fail("ÄãµÄÄÚÁ¦²»¹»Á·ĞÇÒÆÕÆ¡£\n");
+		return notify_fail("ä½ çš„å†…åŠ›ä¸å¤Ÿç»ƒæ˜Ÿç§»æŒã€‚\n");
 	me->receive_damage("qi", 35);
 	me->add("neili", -20);
 	return 1;
@@ -73,16 +73,16 @@ mapping query_action(object me, object weapon)
 	for(i = ttl; i > 0; i--)
 		if(lvl > action[i-1]["lvl"])
 		{
-			seq = i; /* »ñµÃÕĞÊıĞòºÅÉÏÏŞ */
+			seq = i; /* è·å¾—æ‹›æ•°åºå·ä¸Šé™ */
 			break;
 		}
-	seq = random(seq);       /* Ñ¡Ôñ³öÊÖÕĞÊıĞòºÅ */
+	seq = random(seq);       /* é€‰æ‹©å‡ºæ‰‹æ‹›æ•°åºå· */
 	return ([
 		"action"      : action[seq]["action"],
 		"dodge"       : d_e1 + (d_e2 - d_e1) * seq / ttl,
 		"parry"       : p_e1 + (p_e2 - p_e1) * seq / ttl,
 		"force"       : f_e1 + (f_e2 - f_e1) * seq / ttl,
-		"damage_type" : random(2) ? "ÄÚÉË" : "ğöÉË",
+		"damage_type" : random(2) ? "å†…ä¼¤" : "ç˜€ä¼¤",
 	]);
 }
 int learn_bonus() { return 15; }
@@ -92,16 +92,16 @@ int power_point(object me) { return 1.0; }
 
 int help(object me)
 {
-	write(HIC"\nĞÇÒÆÕÆ£º"NOR"\n");
+	write(HIC"\næ˜Ÿç§»æŒï¼š"NOR"\n");
 	write(@HELP
 
-    ¹ÃËÕÄ½Èİ¼Ò×îÄÃÊÖµÄ¾ø¼¼£¬ÄËÊÇÒ»ÃÅ½èÁ¦´òÁ¦Ö®¼¼£¬½Ğ×ö¡°¶·
-×ªĞÇÒÆ¡±¡£ĞÇÒÆÕÆ±ãÊÇÒÀ´ËÑİ»¯µÄÄ½Èİ¼Ò´«ÕÆ·¨¡£
-    ¿ÉÓë²ÎºÏÖ¸»¥±¸¡£
+    å§‘è‹æ…•å®¹å®¶æœ€æ‹¿æ‰‹çš„ç»æŠ€ï¼Œä¹ƒæ˜¯ä¸€é—¨å€ŸåŠ›æ‰“åŠ›ä¹‹æŠ€ï¼Œå«åšâ€œæ–—
+è½¬æ˜Ÿç§»â€ã€‚æ˜Ÿç§»æŒä¾¿æ˜¯ä¾æ­¤æ¼”åŒ–çš„æ…•å®¹å®¶ä¼ æŒæ³•ã€‚
+    å¯ä¸å‚åˆæŒ‡äº’å¤‡ã€‚
 
-	Ñ§Ï°ÒªÇó£º
-		ÉñÔª¹¦15¼¶
-		ÄÚÁ¦50
+	å­¦ä¹ è¦æ±‚ï¼š
+		ç¥å…ƒåŠŸ15çº§
+		å†…åŠ›50
 HELP
 	);
 	return 1;

@@ -4,10 +4,10 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "�ܵ�");
+	set("short", "密道");
 	set("long", @LONG
-̨�������ߵ���ͷ����ǰ��һ��СС��ʯ�ң���Χǽ���ϲ��ż�յ
-�͵ƣ��յ�ʯ����һƬ��ơ�������һ��ͨ����
+台阶终于走到了头，眼前是一间小小的石室，周围墙壁上插着几盏
+油灯，照得石室里一片昏黄。北边有一条通道。
 LONG );
 	set("exits", ([
 		"westup" : __DIR__"midao3",

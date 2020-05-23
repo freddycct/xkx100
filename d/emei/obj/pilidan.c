@@ -1,16 +1,16 @@
-// pilidan.c Åùö¨µ¯
+// pilidan.c éœ¹é›³å¼¹
 #include <ansi.h>
 #include <command.h>
 inherit ITEM;
 void create()
 {
-	set_name(HIC"Åùö¨µ¯"NOR, ({"pilidan", "dan"}));
+	set_name(HIC"éœ¹é›³å¼¹"NOR, ({"pilidan", "dan"}));
 	set_weight(80);
 	if (clonep())
 		set_default_object(__FILE__);
 	else {
-		set("long", "Ò»Á£¾«ÖÂµ«ÍşÁ¦ÎŞ±ÈµÄÅùö¨µ¯¡£\n");
-		set("unit", "Á£");
+		set("long", "ä¸€ç²’ç²¾è‡´ä½†å¨åŠ›æ— æ¯”çš„éœ¹é›³å¼¹ã€‚\n");
+		set("unit", "ç²’");
 		set("value", 100);
 	}
 }
@@ -27,14 +27,14 @@ int do_apply(string arg)
 
 	me = this_player();
 	if( environment(me)->query("no_fight") )
-		return notify_fail("ÄãÒª¸ãÆÆ»µ°¡¡£\n");
-	if(!id(arg)) return notify_fail("ÄãÒª¸ãÊ²Ã´£¿\n");
+		return notify_fail("ä½ è¦æç ´åå•Šã€‚\n");
+	if(!id(arg)) return notify_fail("ä½ è¦æä»€ä¹ˆï¼Ÿ\n");
 	if(!present(this_object(), me))
-		return notify_fail("ÄãÒª¸ãÊ²Ã´£¿\n");
+		return notify_fail("ä½ è¦æä»€ä¹ˆï¼Ÿ\n");
 
-	if (me->is_busy()) return notify_fail("ÄãÕıÔÚÃ¦°¡¡£\n");
+	if (me->is_busy()) return notify_fail("ä½ æ­£åœ¨å¿™å•Šã€‚\n");
 
-	tell_room(environment(me),me->query("name")+"µÄÊÖÃÍµØÏòÏÂÒ»ÖÀ£¬Ò»Éù¾ŞÏì£¬´ó¼ÒÊ²Ã´Ò²¿´²»¼û£¬Ò»Æ¬»ìÂÒÖĞËÄÉ¢ÌÓ¿ª¡£\n"NOR);
+	tell_room(environment(me),me->query("name")+"çš„æ‰‹çŒ›åœ°å‘ä¸‹ä¸€æ·ï¼Œä¸€å£°å·¨å“ï¼Œå¤§å®¶ä»€ä¹ˆä¹Ÿçœ‹ä¸è§ï¼Œä¸€ç‰‡æ··ä¹±ä¸­å››æ•£é€ƒå¼€ã€‚\n"NOR);
 
 	inv = all_inventory(environment(me));
 	for(i=0; i<sizeof(inv); i++)

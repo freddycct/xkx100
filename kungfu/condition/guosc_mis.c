@@ -1,5 +1,5 @@
 // guosc_mis.c
-// ¹ù¾¸ÊØ³ÇÈÎÎñ
+// éƒ­é–å®ˆåŸä»»åŠ¡
 
 #include <ansi.h>
 #include <login.h>
@@ -17,7 +17,7 @@ int update_condition(object me, int duration)
 	{
 		if (me->query_temp("guosc_mis_where")!=environment(me)->query("short"))
 		{
-			message_vision( HIY"Ò»¸öËÎ±øÅÜ¹ıÀ´¶Ô$NËµµÀ£º½ĞÄãÊØ³Ç£¬ÄãÈ´µ½´¦ÏĞ¹ä£¬ÎÒÈ¥±¨¸æ¹ù´óÏÀ£¡\n"NOR,me);
+			message_vision( HIY"ä¸€ä¸ªå®‹å…µè·‘è¿‡æ¥å¯¹$Nè¯´é“ï¼šå«ä½ å®ˆåŸï¼Œä½ å´åˆ°å¤„é—²é€›ï¼Œæˆ‘å»æŠ¥å‘Šéƒ­å¤§ä¾ ï¼\n"NOR,me);
 		}
 		else me->set_temp("guosc_mis_flag",2);
 		if (me->query_temp("guosc_mis_flag")==2 && me->query_temp("guosc_mis_where")==environment(me)->query("short"))
@@ -25,45 +25,45 @@ int update_condition(object me, int duration)
 			switch( random(8) )
 			{
 				case 0:
-					message_vision( HIY"$NÕıÕ¾ÔÚ³ÇÇ½ÉÏÃÜÇĞ×¢ÊÓ×Å³ÇÏÂ"HIR"ÃÉ¹Å±ø"HIY"µÄÒ»¾ÙÒ»¶¯¡£\n"NOR,me);
+					message_vision( HIY"$Næ­£ç«™åœ¨åŸå¢™ä¸Šå¯†åˆ‡æ³¨è§†ç€åŸä¸‹"HIR"è’™å¤å…µ"HIY"çš„ä¸€ä¸¾ä¸€åŠ¨ã€‚\n"NOR,me);
 					break;
 				case 1:
-					message_vision(HIY"$NÖ¸»ÓÒ»¶ÓËÎ±øßººÈ×Å½«ÎŞÊı¾ŞÊ¯´Ó³ÇÇ½ÉÏÍÆÏÂÀ´£¬³ÇÏÂµÄ"HIR"ÃÉ¹Å±ø"HIY"Ò»Ê±²»±¸£¬ËÀÉË²»ÉÙ¡£\n"NOR,me);
+					message_vision(HIY"$NæŒ‡æŒ¥ä¸€é˜Ÿå®‹å…µå†å–ç€å°†æ— æ•°å·¨çŸ³ä»åŸå¢™ä¸Šæ¨ä¸‹æ¥ï¼ŒåŸä¸‹çš„"HIR"è’™å¤å…µ"HIY"ä¸€æ—¶ä¸å¤‡ï¼Œæ­»ä¼¤ä¸å°‘ã€‚\n"NOR,me);
 					break;
 				case 2:
-					message_vision(HIC"µ«ÌıÒ»Éù°ğ×ÓÏì£¬´Ó¼ı¶âºóÃæ×ê³öÎŞÊıÊ¿±ø£¬¼ıÈç·É»È£¬³ÇÍâµÄ"HIR"ÃÉ¹Å±ø"HIC"·×·×ÖĞ¼ıµ¹ÏÂ¡£\n"NOR,me);
+					message_vision(HIC"ä½†å¬ä¸€å£°æ¢†å­å“ï¼Œä»ç®­å›åé¢é’»å‡ºæ— æ•°å£«å…µï¼Œç®­å¦‚é£è—ï¼ŒåŸå¤–çš„"HIR"è’™å¤å…µ"HIC"çº·çº·ä¸­ç®­å€’ä¸‹ã€‚\n"NOR,me);
 					break;
 				case 3:
-					message_vision(HIR"$N´ó½Ğ£º·Å»ğ¡¢·Å»ğ¡£³ÇÉÏÈÓÏÂÎŞÊıÈ¼×ÅµÄ»ğ°Ñ£¬²Ò½ĞÉùÖĞ£¬ÃÉ¹ÅµÄÊ¿±øËÀÉËÉõÖÚ¡£\n"NOR,me);
+					message_vision(HIR"$Nå¤§å«ï¼šæ”¾ç«ã€æ”¾ç«ã€‚åŸä¸Šæ‰”ä¸‹æ— æ•°ç‡ƒç€çš„ç«æŠŠï¼Œæƒ¨å«å£°ä¸­ï¼Œè’™å¤çš„å£«å…µæ­»ä¼¤ç”šä¼—ã€‚\n"NOR,me);
 					break;
 				case 4:
-					message_vision(HIC"³ÇÍâÒ»ÉùºÅ½Ç´«À´£¬ÃÉ¹Å÷°×Ó·¢¶¯ÁËĞÂÒ»ÂÖµÄ¹¥ÊÆ£¬³ÇÖĞ¼ıÈçÓêÏÂ£¬ÊØ³ÇµÄËÎ±øËÀÉË²»ÉÙ¡£\n"NOR,me);
+					message_vision(HIC"åŸå¤–ä¸€å£°å·è§’ä¼ æ¥ï¼Œè’™å¤é¼å­å‘åŠ¨äº†æ–°ä¸€è½®çš„æ”»åŠ¿ï¼ŒåŸä¸­ç®­å¦‚é›¨ä¸‹ï¼Œå®ˆåŸçš„å®‹å…µæ­»ä¼¤ä¸å°‘ã€‚\n"NOR,me);
 					me->receive_wound("jing", 50+random(50));
 					me->receive_damage("qi", 300+random(100));
 					break;
 				case 5:
-					message_vision(HIR"$N´ó½ĞÒ»Éù£º´ó¼ÒĞ¡ĞÄ¡£³ÇÍâÃÉ¹Å±øµÄÍ¶Ê¯³µ·ÉÀ´ÎŞÊı¾ŞÊ¯£¬²Ò½ĞÉùÖĞ£¬³ÇÖĞµÄÊØ±øËÀÉËÉõÖÚ¡£\n"NOR,me);
+					message_vision(HIR"$Nå¤§å«ä¸€å£°ï¼šå¤§å®¶å°å¿ƒã€‚åŸå¤–è’™å¤å…µçš„æŠ•çŸ³è½¦é£æ¥æ— æ•°å·¨çŸ³ï¼Œæƒ¨å«å£°ä¸­ï¼ŒåŸä¸­çš„å®ˆå…µæ­»ä¼¤ç”šä¼—ã€‚\n"NOR,me);
 					me->receive_wound("jing", 50+random(50));
 					me->receive_damage("qi", 300+random(100));
 					break;
 				case 6:
-					message_vision(HIR"³ÇÖĞËÎ±ø´ó½Ğ£º×Å»ğÀ²¡¢×Å»ğÀ²¡£³ÇÖĞµÄÃÉ¹Å¼éÏ¸³ÃÊØ¾ü²»±¸ËÄ´¦·Å»ğ£¬Ò»Æ¬¾È»ğÉùÖĞ£¬³ÇÖĞµÄ¾ü±¸ËğÊ§²ÒÖØ£¡\n"NOR,me);
+					message_vision(HIR"åŸä¸­å®‹å…µå¤§å«ï¼šç€ç«å•¦ã€ç€ç«å•¦ã€‚åŸä¸­çš„è’™å¤å¥¸ç»†è¶å®ˆå†›ä¸å¤‡å››å¤„æ”¾ç«ï¼Œä¸€ç‰‡æ•‘ç«å£°ä¸­ï¼ŒåŸä¸­çš„å†›å¤‡æŸå¤±æƒ¨é‡ï¼\n"NOR,me);
 					me->receive_wound("jing", 50+random(50));
 					me->receive_damage("qi", 300+random(100));
 					break;
 				case 7:
-					message_vision(HIR"$N´ó½Ğ£ºĞ¡ĞÄ°µÆ÷£¡ÃÉ¹Å¼éÏ¸³ÃÊØ¾ü²»±¸Éä³ö²»ÉÙ°µÆ÷£¬³ÇÖĞµÄ¾üÊ¿Ò»Ê±´óÒâ£¬²»ÉÙÈËÖĞÁËÍµÏ®£¡\n"NOR,me);
+					message_vision(HIR"$Nå¤§å«ï¼šå°å¿ƒæš—å™¨ï¼è’™å¤å¥¸ç»†è¶å®ˆå†›ä¸å¤‡å°„å‡ºä¸å°‘æš—å™¨ï¼ŒåŸä¸­çš„å†›å£«ä¸€æ—¶å¤§æ„ï¼Œä¸å°‘äººä¸­äº†å·è¢­ï¼\n"NOR,me);
 					me->apply_condition("anqi_poison", 3+random(3));
 					break;
 				case 8:
-					message_vision(HIY"³ÇÍâÃÉ¹Å±ø·¢¶¯Ò»ÂÖ¼±¹¥£¬µ«ÊØ³ÇµÄËÎ±øÔÚ$NµÄ´øÁìÏÂÈ´ÔçÓĞ·À±¸£¬Ã»ÓĞÊÜµ½ËğÊ§¡£\n"NOR, me);
+					message_vision(HIY"åŸå¤–è’™å¤å…µå‘åŠ¨ä¸€è½®æ€¥æ”»ï¼Œä½†å®ˆåŸçš„å®‹å…µåœ¨$Nçš„å¸¦é¢†ä¸‹å´æ—©æœ‰é˜²å¤‡ï¼Œæ²¡æœ‰å—åˆ°æŸå¤±ã€‚\n"NOR, me);
 					break;
 			}
 		}
 	}
 	if(duration <1)
 	{
-		message_vision( CYN"\nÒ»¸öÊØ³ÇËÎ±øÅÜ¹ıÀ´ËµµÀ£ºÃÉ¹Å÷°×ÓÔİÊ±±»»÷ÍËÁË£¬$N¿ÉÒÔ»ØÈ¥¸´ÃüÁË£¡\n"NOR,me);
+		message_vision( CYN"\nä¸€ä¸ªå®ˆåŸå®‹å…µè·‘è¿‡æ¥è¯´é“ï¼šè’™å¤é¼å­æš‚æ—¶è¢«å‡»é€€äº†ï¼Œ$Nå¯ä»¥å›å»å¤å‘½äº†ï¼\n"NOR,me);
 		if (me->query_temp("guosc_mis_flag"))
 		{
 			me->set_temp("guosc_mis_flag",3);
@@ -72,21 +72,21 @@ int update_condition(object me, int duration)
                 for(i=0; i<sizeof(ob_list); i++) 
 		if(environment(ob_list[i]))
 		{
-			message_vision("$NÌ¾µÀ£ºÏåÑôÊØ¾ü¾¹ÓĞ¸ßÈËĞ­Öú£¬³·ºô£¡\n",ob_list[i]);	
+			message_vision("$Nå¹é“ï¼šè¥„é˜³å®ˆå†›ç«Ÿæœ‰é«˜äººååŠ©ï¼Œæ’¤å‘¼ï¼\n",ob_list[i]);	
 			destruct(ob_list[i]);
                 }
 		ob_list = children("/d/xiangyang/task/robber2");
                 for(i=0; i<sizeof(ob_list); i++) 
                 if(environment(ob_list[i]))
                 {
-                        message_vision("$NÌ¾µÀ£ºÏåÑôÊØ¾ü¾¹ÓĞ¸ßÈËĞ­Öú£¬³·ºô£¡\n",ob_list[i]);    
+                        message_vision("$Nå¹é“ï¼šè¥„é˜³å®ˆå†›ç«Ÿæœ‰é«˜äººååŠ©ï¼Œæ’¤å‘¼ï¼\n",ob_list[i]);    
                         destruct(ob_list[i]);
                 }
 		ob_list = children("/d/xiangyang/task/robber3");
                 for(i=0; i<sizeof(ob_list); i++)
                 if(environment(ob_list[i]))
                 {
-                        message_vision("$NÌ¾µÀ£ºÏåÑôÊØ¾ü¾¹ÓĞ¸ßÈËĞ­Öú£¬³·ºô£¡\n",ob_list[i]);
+                        message_vision("$Nå¹é“ï¼šè¥„é˜³å®ˆå†›ç«Ÿæœ‰é«˜äººååŠ©ï¼Œæ’¤å‘¼ï¼\n",ob_list[i]);
                         destruct(ob_list[i]);
                 }
 

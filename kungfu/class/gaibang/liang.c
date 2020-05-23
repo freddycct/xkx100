@@ -6,12 +6,12 @@ inherit F_MASTER;
 
 void create()
 {
-	set_name("Áº³¤ÀÏ", ({"liang zhanglao", "liang", "zhanglao"}));
-	set("gender", "ÄÐÐÔ");
+	set_name("æ¢é•¿è€", ({"liang zhanglao", "liang", "zhanglao"}));
+	set("gender", "ç”·æ€§");
 	set("age", 55);
 	set("long", 
-		"Áº³¤ÀÏÊÇØ¤°ï³öµÀ×î¾Ã£¬Îä¹¦×î¸ßµÄ³¤ÀÏ£¬ÔÚÎäÁÖÖÐÏíÃûÒÑ¾Ã¡£\n"
-		"Ø¤°ïÎä¹¦ÏòÀ´½ÏÇ¿£¬½üÀ´Áº³¤ÀÏÒ»Á¦Õû¶Ù£¬¸üÊÇÕôÕôÈÕÉÏ¡£\n");
+		"æ¢é•¿è€æ˜¯ä¸å¸®å‡ºé“æœ€ä¹…ï¼Œæ­¦åŠŸæœ€é«˜çš„é•¿è€ï¼Œåœ¨æ­¦æž—ä¸­äº«åå·²ä¹…ã€‚\n"
+		"ä¸å¸®æ­¦åŠŸå‘æ¥è¾ƒå¼ºï¼Œè¿‘æ¥æ¢é•¿è€ä¸€åŠ›æ•´é¡¿ï¼Œæ›´æ˜¯è’¸è’¸æ—¥ä¸Šã€‚\n");
 
 	set("attitude", "peaceful");
 	set("class", "beggar");
@@ -47,8 +47,8 @@ void create()
 	set_skill("begging", 80); 
 	set_skill("checking", 90);
 	set_skill("training", 80);
-	set_skill("strike",85);  // »ù±¾ÕÆ·¨
-	set_skill("lianhua-zhang",85); // Á«»¨ÕÆ
+	set_skill("strike",85);  // åŸºæœ¬æŽŒæ³•
+	set_skill("lianhua-zhang",85); // èŽ²èŠ±æŽŒ
 	set_skill("xianglong-zhang",85);
 
 	map_skill("strike","lianhua-zhang");
@@ -61,10 +61,10 @@ void create()
 	map_skill("parry", "liuhe-blade");
 	map_skill("dodge", "xiaoyaoyou");
 	
-	set("party/party_name", HIC"Ø¤°ï"NOR);
-	set("party/rank", RED"¾Å´ü³¤ÀÏ"NOR);
+	set("party/party_name", HIC"ä¸å¸®"NOR);
+	set("party/rank", RED"ä¹è¢‹é•¿è€"NOR);
 	set("party/level", 9);
-	create_family("Ø¤°ï", 18, "´«¹¦³¤ÀÏ");
+	create_family("ä¸å¸®", 18, "ä¼ åŠŸé•¿è€");
 	setup();
 
 	carry_object(__DIR__"obj/cloth")->wear();
@@ -82,7 +82,7 @@ void init()
 		file_name(environment(ob))!="/d/city/undertre") 
 	{
 		myfam = (mapping)ob->query("family");
-		if (!myfam || myfam["family_name"] != "Ø¤°ï")
+		if (!myfam || myfam["family_name"] != "ä¸å¸®")
 		{
 			remove_call_out("saying");
 			call_out("saying",1,ob);
@@ -94,7 +94,7 @@ void saying(object ob)
 {
 	if (!ob || environment(ob) != environment()) return;
 
-	message_vision("\nÁ»³¤ÀÏ¿´µ½$N´³½øÀ´£¬´óºÈÒ»Éù£ºÄã²»ÊÇØ¤°ïµÜ×Ó£¬¸øÎÒ¹ö³öÈ¥£¡\n\n", ob);
+	message_vision("\nç²±é•¿è€çœ‹åˆ°$Né—¯è¿›æ¥ï¼Œå¤§å–ä¸€å£°ï¼šä½ ä¸æ˜¯ä¸å¸®å¼Ÿå­ï¼Œç»™æˆ‘æ»šå‡ºåŽ»ï¼\n\n", ob);
 	call_out("kicking", 0, ob);	
 }
 
@@ -103,20 +103,20 @@ void kicking(object ob)
 	if (!ob || environment(ob) != environment()) return;
 
 	ob->move("/d/gaibang/inhole");
-	message("vision","Ö»Ìý¡°Æ¹¡±µØÒ»Éù£¬" + ob->query("name") +
-		"´ÓÐ¡ÃÅÀï·ÉÁË³öÀ´¡£\n", environment(ob), ob);
+	message("vision","åªå¬â€œä¹’â€åœ°ä¸€å£°ï¼Œ" + ob->query("name") +
+		"ä»Žå°é—¨é‡Œé£žäº†å‡ºæ¥ã€‚\n", environment(ob), ob);
 }
 */
 void attempt_apprentice(object ob)
 {
 	if ((int)ob->query("str") < 25) {
-		command("say ÎÒÃÇØ¤°ïµÄÎäÒÕÒ»ÏòÒÔ¸ÕÃÍÎªÖ÷£¬" + 
-		RANK_D->query_respect(ob) + "±ÛÁ¦Ì«Èõ£¬ËÆºõ²»ÒËÑ§Ø¤°ïµÄ¹¦·ò£¿");
+		command("say æˆ‘ä»¬ä¸å¸®çš„æ­¦è‰ºä¸€å‘ä»¥åˆšçŒ›ä¸ºä¸»ï¼Œ" + 
+		RANK_D->query_respect(ob) + "è‡‚åŠ›å¤ªå¼±ï¼Œä¼¼ä¹Žä¸å®œå­¦ä¸å¸®çš„åŠŸå¤«ï¼Ÿ");
 		return;
 	}
 
-	command("say ºÃ°É£¬Ï£Íû" + RANK_D->query_respect(ob) +
-	"ÄÜºÃºÃÑ§Ï°±¾ÃÅÎä¹¦£¬½«À´ÔÚ½­ºþÖÐ´³³öÒ»·¬×÷Îª¡£");
+	command("say å¥½å§ï¼Œå¸Œæœ›" + RANK_D->query_respect(ob) +
+	"èƒ½å¥½å¥½å­¦ä¹ æœ¬é—¨æ­¦åŠŸï¼Œå°†æ¥åœ¨æ±Ÿæ¹–ä¸­é—¯å‡ºä¸€ç•ªä½œä¸ºã€‚");
 	command("recruit " + ob->query("id"));
 }
 #include "/kungfu/class/gaibang/gaibang.h"

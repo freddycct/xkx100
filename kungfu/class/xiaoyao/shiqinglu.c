@@ -1,4 +1,4 @@
-// shiqinglu.c Ê¯ÇåÂ¶
+// shiqinglu.c çŸ³æ¸…éœ²
 // Modified by Winder June 25. 2000
 inherit NPC;
 inherit F_MASTER;
@@ -7,10 +7,10 @@ inherit F_MASTER;
 
 void create()
 {
-	set_name("Ê¯ÇåÂ¶", ({ "shi qinglu", "shi" }));
-	set("long","ËýÊÇº¯¹È°ËÓÑµÄÆßÊ¦ÃÃ£¬¾«ÓÚÝª»¨£¬ÌìÏÂµÄÆæ»¨Òì»Ü£¬Ò»¾­ËýµÄÅàÖ²£¬ÎÞ²»ÐÀÐÀÏòÈÙ¡£\n");
-	set("nickname","¡°º¯¹È°ËÓÑ¡±»¨³Õ");
-	set("gender", "Å®ÐÔ");
+	set_name("çŸ³æ¸…éœ²", ({ "shi qinglu", "shi" }));
+	set("long","å¥¹æ˜¯å‡½è°·å…«å‹çš„ä¸ƒå¸ˆå¦¹ï¼Œç²¾äºŽèŽ³èŠ±ï¼Œå¤©ä¸‹çš„å¥‡èŠ±å¼‚å‰ï¼Œä¸€ç»å¥¹çš„åŸ¹æ¤ï¼Œæ— ä¸æ¬£æ¬£å‘è£ã€‚\n");
+	set("nickname","â€œå‡½è°·å…«å‹â€èŠ±ç—´");
+	set("gender", "å¥³æ€§");
 	set("age", 34);
 	set("attitude", "friendly");
 	set("class", "scholar");
@@ -47,7 +47,7 @@ void create()
 	set("book_count", 1);
 	set("env/wimpy", 60);
 
-	create_family("åÐÒ£ÅÉ", 3, "µÜ×Ó");
+	create_family("é€é¥æ´¾", 3, "å¼Ÿå­");
 	setup();
 	carry_object("/clone/misc/cloth")->wear();
 	carry_object("/clone/weapon/gangdao")->wield();
@@ -55,6 +55,6 @@ void create()
 
 void attempt_apprentice(object ob)
 {
-	command("say ºÃ°É£¬ÎÒ¾ÍÊÕÏÂÄãÁË£¬ÒÔºóÒª¶àÎªåÐÒ£ÅÉ³öÁ¦°¡¡£");
+	command("say å¥½å§ï¼Œæˆ‘å°±æ”¶ä¸‹ä½ äº†ï¼Œä»¥åŽè¦å¤šä¸ºé€é¥æ´¾å‡ºåŠ›å•Šã€‚");
 	command("recruit " + ob->query("id"));
 }

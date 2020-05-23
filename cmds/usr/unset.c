@@ -4,7 +4,7 @@
 
 inherit F_CLEAN_UP;
 
-// Ôö¼ÓÒÔÏÂÁ½¸öÊı×é£¬ÓÃÓÚ¼ì²é»·¾³±äÁ¿ÉèÖÃµÄºÏ·¨ĞÔ¡£
+// å¢åŠ ä»¥ä¸‹ä¸¤ä¸ªæ•°ç»„ï¼Œç”¨äºæ£€æŸ¥ç¯å¢ƒå˜é‡è®¾ç½®çš„åˆæ³•æ€§ã€‚
 // Added by Constant Jan 4 2001
 string *player_settings = ({
 	"brief",
@@ -50,18 +50,18 @@ int main(object me, string arg)
 
 	if (arg == "all") { 
 		me->delete("env");
-		write("ÄãµÄ»·¾³±äÁ¿ÒÑ±»Çå¿Õ¡£\n");
+		write("ä½ çš„ç¯å¢ƒå˜é‡å·²è¢«æ¸…ç©ºã€‚\n");
 		return 1;
 	}
 
 	if (!me->query("env/" + arg))
-		return notify_fail("Äã²¢Ã»ÓĞÉè¹ıÕâ¸ö»·¾³±äÁ¿¡£\n");
+		return notify_fail("ä½ å¹¶æ²¡æœ‰è®¾è¿‡è¿™ä¸ªç¯å¢ƒå˜é‡ã€‚\n");
 
 	if (member_array(arg, player_settings) == -1) {
 		if (!wizardp(me))
-			return notify_fail("Ã»ÓĞÕâÖÖ»·¾³±äÁ¿£¬Çë²ÎÕÕ°ïÖú¡£\n");
+			return notify_fail("æ²¡æœ‰è¿™ç§ç¯å¢ƒå˜é‡ï¼Œè¯·å‚ç…§å¸®åŠ©ã€‚\n");
 		else if (member_array(arg, wizard_settings) == -1)
-			return notify_fail("Ã»ÓĞÕâÖÖ»·¾³±äÁ¿£¬Çë²ÎÕÕ°ïÖú¡£\n");
+			return notify_fail("æ²¡æœ‰è¿™ç§ç¯å¢ƒå˜é‡ï¼Œè¯·å‚ç…§å¸®åŠ©ã€‚\n");
 	}
 
 	me->delete("env/" + arg);
@@ -72,12 +72,12 @@ int main(object me, string arg)
 int help()
 {
 	write(@TEXT
-Ö¸Áî¸ñÊ½£ºunset <±äÁ¿Ãû> | all
+æŒ‡ä»¤æ ¼å¼ï¼šunset <å˜é‡å> | all
 
-    Õâ¸öÖ¸ÁîÈÃÄãÉ¾³ı»·¾³±äÁ¿µÄÉè¶¨£¬ÈôËù´ø²ÎÊıÎªall£¬ ÔòÉ¾
-³ıËùÓĞ»·¾³±äÁ¿¡£
+    è¿™ä¸ªæŒ‡ä»¤è®©ä½ åˆ é™¤ç¯å¢ƒå˜é‡çš„è®¾å®šï¼Œè‹¥æ‰€å¸¦å‚æ•°ä¸ºallï¼Œ åˆ™åˆ 
+é™¤æ‰€æœ‰ç¯å¢ƒå˜é‡ã€‚
 
-See also£ºset
+See alsoï¼šset
 TEXT
 	);
 	return 1;

@@ -1,4 +1,4 @@
-// xuantian-wuji ĞşÌìÎŞ¼«¹¦
+// xuantian-wuji ç„å¤©æ— æåŠŸ
 
 #include <ansi.h>
 #include "force.h";
@@ -22,14 +22,14 @@ int valid_learn(object me)
 	nx = (int)me->query_skill("xuantian-wuji", 1);
 
 	if ( nf < 20)
-		return notify_fail("ÄãµÄ»ù±¾ÄÚ¹¦»ğºò»¹²»¹»£¬ÎŞ·¨Áì»áĞşÌìÎŞ¼«¹¦¡£\n");
+		return notify_fail("ä½ çš„åŸºæœ¬å†…åŠŸç«å€™è¿˜ä¸å¤Ÿï¼Œæ— æ³•é¢†ä¼šç„å¤©æ— æåŠŸã€‚\n");
 
 	return valid_public(me);
 }
 
 int practice_skill(object me)
 {
-	return notify_fail("ĞşÌìÎŞ¼«¹¦Ö»ÄÜÓÃÑ§(learn)µÄÀ´Ôö¼ÓÊìÁ·¶È¡£\n");
+	return notify_fail("ç„å¤©æ— æåŠŸåªèƒ½ç”¨å­¦(learn)çš„æ¥å¢åŠ ç†Ÿç»ƒåº¦ã€‚\n");
 }
 
 string exert_function_file(string func)
@@ -38,14 +38,14 @@ string exert_function_file(string func)
 }
 int help(object me)
 {
-	write(HIC"\nĞşÌìÎŞ¼«¹¦£º"NOR"\n");
+	write(HIC"\nç„å¤©æ— æåŠŸï¼š"NOR"\n");
 	write(@HELP
 
-    ĞşÌìÎŞ¼«¹¦ÊÇÀ¥ÂØÅÉµÄ±¾ÃÅÄÚ¹¦¡£
+    ç„å¤©æ— æåŠŸæ˜¯æ˜†ä»‘æ´¾çš„æœ¬é—¨å†…åŠŸã€‚
 
-	Ñ§Ï°ÒªÇó£º
-		»ù±¾ÄÚ¹¦10¼¶
-		Ïàµ±µÄÇÙÆå¼¼ÒÕµÄÔìÒè
+	å­¦ä¹ è¦æ±‚ï¼š
+		åŸºæœ¬å†…åŠŸ10çº§
+		ç›¸å½“çš„ç´æ£‹æŠ€è‰ºçš„é€ è¯£
 HELP
 	);
 	return 1;

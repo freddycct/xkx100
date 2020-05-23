@@ -5,10 +5,10 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "²Ý¶ÑÏÂÃæ");
+	set("short", "è‰å †ä¸‹é¢");
 	set("long", @LONG
-ÕâÊÇÎÞÎý³ÇÍâÐÓ×ÓÁÖØ¤°ï´óÒå·Ö¶æ²Ý¶ÑµÄ¶´Àï¡£ËÄÖÜ¶ªÂúÁË¸÷ÖÖÔÓ
-Îï£¬»¹ÓÐØ¤°ïµÜ×ÓÊÕ¼¯µÄÆÆÍ­ÀÃÌúµÈ¡£´ÓÕâÀïÍ¨ÍùØ¤°ïµÄÃØÃÜÍ¨µÀ¡£
+è¿™æ˜¯æ— é”¡åŸŽå¤–æå­æž—ä¸å¸®å¤§ä¹‰åˆ†èˆµè‰å †çš„æ´žé‡Œã€‚å››å‘¨ä¸¢æ»¡äº†å„ç§æ‚
+ç‰©ï¼Œè¿˜æœ‰ä¸å¸®å¼Ÿå­æ”¶é›†çš„ç ´é“œçƒ‚é“ç­‰ã€‚ä»Žè¿™é‡Œé€šå¾€ä¸å¸®çš„ç§˜å¯†é€šé“ã€‚
 LONG );
 	set("exits", ([
 		"out"   : "/d/wuxi/dayifenduo",

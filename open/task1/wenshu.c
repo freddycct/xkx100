@@ -5,12 +5,12 @@ string target;
 
 void create()
 {
-	set_name(WHT "º£²¶ÎÄÊé" NOR, ({ "wenshu", "wen",}));
+	set_name(WHT "æµ·æ•æ–‡ä¹¦" NOR, ({ "wenshu", "wen",}));
 	set("weight", 100);
 	if(clonep()) set_default_object(__FILE__);
 	else{
-		set("unit", "ÕÅ");
-		set("long", WHT"ÕâÊÇÒ»ÕÅº£²¶ÎÄÊé£¬ÉÏÃæÓĞÒ»¸ö»­Ïñ£¬µ×ÏÂÓĞÒ»ĞĞĞ¡×Ö£¬Äã¿ÉÒÔ×ĞÏ¸¿´¿´¡£\n" NOR);
+		set("unit", "å¼ ");
+		set("long", WHT"è¿™æ˜¯ä¸€å¼ æµ·æ•æ–‡ä¹¦ï¼Œä¸Šé¢æœ‰ä¸€ä¸ªç”»åƒï¼Œåº•ä¸‹æœ‰ä¸€è¡Œå°å­—ï¼Œä½ å¯ä»¥ä»”ç»†çœ‹çœ‹ã€‚\n" NOR);
 		set("value", 0);
 		set("no_get", 1);
 		set("no_drop", 1);

@@ -6,11 +6,11 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "����С��");
+	set("short", "青泥小径");
 	set("long", @LONG
-�ƽ�¥����һ������С����С�����࣬��ľ���ʮ���徻��С
-�����������������죬ǰ�濴����ͤԺ���󲻼�¥��Ψ����������
-�͵�������
+云锦楼后，是一条青泥小径，小径两侧，林木幽深，十分清净。小
+径在曲折中蜿蜒延伸，前面看不到亭院，后不见楼阁，唯闻清风扶柳，
+低低吟唱。
 LONG );
 	set("outdoors", "mantuo");
 	set("no_clean_up", 0);

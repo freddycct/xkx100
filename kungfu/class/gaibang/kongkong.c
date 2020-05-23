@@ -1,4 +1,4 @@
-// kongkong.c ¿Õ¿Õ¶ù
+// kongkong.c ç©ºç©ºå„¿
 
 #include <ansi.h>
 inherit NPC;
@@ -8,11 +8,11 @@ inherit F_UNIQUE;
 void create()
 {
 	seteuid(getuid());
-	set_name("¿Õ¿Õ¶ù", ({ "kong kong","beggar","qi gai","kong" }) );
-	set("nickname", "ÃîÊÖÉñØ¤");
-	set("gender", "ÄĞĞÔ" );
+	set_name("ç©ºç©ºå„¿", ({ "kong kong","beggar","qi gai","kong" }) );
+	set("nickname", "å¦™æ‰‹ç¥ä¸");
+	set("gender", "ç”·æ€§" );
 	set("age", 53);
-	set("long", "Ò»¸öÂúÁ³·çËªÖ®É«µÄÀÏÆòØ¤¡£\n");
+	set("long", "ä¸€ä¸ªæ»¡è„¸é£éœœä¹‹è‰²çš„è€ä¹ä¸ã€‚\n");
 	set("attitude", "peaceful");
 	set("class", "beggar");
 
@@ -56,16 +56,16 @@ void create()
 	map_skill("parry", "suohou-hand");
 	map_skill("dodge", "xiaoyaoyou");
 
-	set("party/party_name", HIC"Ø¤°ï"NOR);
-	set("party/rank", HIG"°Ë´ü»¤·¨"NOR);
+	set("party/party_name", HIC"ä¸å¸®"NOR);
+	set("party/rank", HIG"å…«è¢‹æŠ¤æ³•"NOR);
 	set("party/level", 8);
-	create_family("Ø¤°ï", 19, "µÜ×Ó");
+	create_family("ä¸å¸®", 19, "å¼Ÿå­");
 
 	set("chat_chance", 20);
 	set("chat_msg", ({
-		"¿Õ¿Õ¶ùËµµÀ£ººÃĞÄµÄ´óÒ¯ÄÄ¡« ÉÍÎÒÒª·¹µÄ¼¸¸öÍ­°å°É¡«\n",
-		"¿Õ¿Õ¶ùÀÁÑóÑóµØ´òÁË¸ö¹şÇ·¡£\n",
-		"¿Õ¿Õ¶ùÉìÊÖ×½×¡ÁËÉíÉÏµÄÊ­×Ó£¬ÂîµÀ£ºÀÏ×ÓÉíÉÏÃ»¼¸Á½Èâ£¬È«½ĞÄãÃÇ¸øÒ§ÃÓÁË¡£ \n",
+		"ç©ºç©ºå„¿è¯´é“ï¼šå¥½å¿ƒçš„å¤§çˆ·å“ªï½ èµæˆ‘è¦é¥­çš„å‡ ä¸ªé“œæ¿å§ï½\n",
+		"ç©ºç©ºå„¿æ‡’æ´‹æ´‹åœ°æ‰“äº†ä¸ªå“ˆæ¬ ã€‚\n",
+		"ç©ºç©ºå„¿ä¼¸æ‰‹æ‰ä½äº†èº«ä¸Šçš„è™±å­ï¼Œéª‚é“ï¼šè€å­èº«ä¸Šæ²¡å‡ ä¸¤è‚‰ï¼Œå…¨å«ä½ ä»¬ç»™å’¬ç³œäº†ã€‚ \n",
 		(: random_move :)
 	}) );
 	setup();
@@ -78,8 +78,8 @@ void create()
 
 void attempt_apprentice(object ob)
 {
-	command("say ºÃ°É£¬Ï£Íû" + RANK_D->query_respect(ob) +
-		"ÄÜºÃºÃÑ§Ï°±¾ÃÅÎä¹¦£¬½«À´ÔÚ½­ºşÖĞ´³³öÒ»·¬×÷Îª¡£");
+	command("say å¥½å§ï¼Œå¸Œæœ›" + RANK_D->query_respect(ob) +
+		"èƒ½å¥½å¥½å­¦ä¹ æœ¬é—¨æ­¦åŠŸï¼Œå°†æ¥åœ¨æ±Ÿæ¹–ä¸­é—¯å‡ºä¸€ç•ªä½œä¸ºã€‚");
 	command("recruit " + ob->query("id"));
 }
 
@@ -100,7 +100,7 @@ void stealing(object ob)
 	mapping fam; 
  
 	if( !ob || environment(ob) != environment() ||
-		((fam = ob->query("family")) && fam["family_name"] == "Ø¤°ï") ||
+		((fam = ob->query("family")) && fam["family_name"] == "ä¸å¸®") ||
 		(int)ob->query_skill("taoism", 1) > 30 || 
 		ob->query_int() > 30) return;
 
@@ -139,13 +139,13 @@ int accept_object(object me, object obj)
 {
 	if (obj->query("money_id") && obj->value() >= 1) {
 		command("smile");
-		command("say ¶àĞ»À²£¡ÆäÊµÎÒ»¹ÊÇÓĞµãÇ®µÄ£¬Õâ´ÎÖ»²»¹ıÊÔÊÔÄã°ÕÁË£¡");
+		command("say å¤šè°¢å•¦ï¼å…¶å®æˆ‘è¿˜æ˜¯æœ‰ç‚¹é’±çš„ï¼Œè¿™æ¬¡åªä¸è¿‡è¯•è¯•ä½ ç½¢äº†ï¼");
 		command("give 10 silver to " + me->query("id"));
 	}
 	else
 	{
 		command("shake");
-		command("say ÕâÖÖ¶«Î÷¹í²ÅÒª£¡¹öÒ»±ßÈ¥£¡");
+		command("say è¿™ç§ä¸œè¥¿é¬¼æ‰è¦ï¼æ»šä¸€è¾¹å»ï¼");
 		command("give " + obj->query("id") + " to " + me->query("id"));
 //		obj->move(this_player());
 	}
@@ -155,6 +155,6 @@ int accept_object(object me, object obj)
 
 int accept_fight(object me)
 {
-	command("say " + RANK_D->query_respect(me) + "ÈÄÃü~~Ğ¡µÄÕâ¾ÍÀë¿ª~~\n");
+	command("say " + RANK_D->query_respect(me) + "é¥¶å‘½~~å°çš„è¿™å°±ç¦»å¼€~~\n");
 	return 0;
 }

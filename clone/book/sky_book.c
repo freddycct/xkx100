@@ -8,21 +8,21 @@ inherit F_AUTOLOAD;
 
 void create()
 {
-	set_name(HIY"ÎŞ×ÖÌìÊé"NOR, ({"skybook","book"}) );
+	set_name(HIY"æ— å­—å¤©ä¹¦"NOR, ({"skybook","book"}) );
 	set_weight(10);
 	set("no_steal", 1);
 	set("no_beg", 1);
 	set("no_get", 1);
-	set("no_drop","ÍÛ£¿ÌìÊé¶¼Ïë¶ªµô,Ğ¡ĞÄÔâÌìÇ´¡£\n\n");
+	set("no_drop","å“‡ï¼Ÿå¤©ä¹¦éƒ½æƒ³ä¸¢æ‰,å°å¿ƒé­å¤©è°´ã€‚\n\n");
 	set("long",@LONG
-´ËÄËµ±ÄêÏÉÈËÔùÓÚ"µ°Éú"µÄ±¦Îï,ÒòÎªµ°Éú²»Ê¶×Ö,ÏÉÈËÊ©ÁË·¨,
-°ÑÌìÊé±ä³ÉÁËÎŞ×ÖÌìÊé,ºÇºÇ!¾ÍÊÇÎÄÃ¤Ò²ÄÜ¶Á¶®,¿ì¿´¿´(kan)°É£¡
+æ­¤ä¹ƒå½“å¹´ä»™äººèµ äº"è›‹ç”Ÿ"çš„å®ç‰©,å› ä¸ºè›‹ç”Ÿä¸è¯†å­—,ä»™äººæ–½äº†æ³•,
+æŠŠå¤©ä¹¦å˜æˆäº†æ— å­—å¤©ä¹¦,å‘µå‘µ!å°±æ˜¯æ–‡ç›²ä¹Ÿèƒ½è¯»æ‡‚,å¿«çœ‹çœ‹(kan)å§ï¼
 LONG );
 	if( clonep() )
 		set_default_object(__FILE__);
 	else
 	{
-		set("unit", "±¾");
+		set("unit", "æœ¬");
 		set("material", "unknow");
 	}
 }
@@ -39,7 +39,7 @@ int query_autoload()
 	return 1;
 }
 
-//½éÉÜ
+//ä»‹ç»
 int kan_book()
 {
 	object me;
@@ -48,17 +48,17 @@ int kan_book()
 		return 0;
 
 	tell_object(me,
-    "·¨¾÷ö		    ¹¦ÄÜ
+    "æ³•è¯€		    åŠŸèƒ½
 
-±Ù¹È(bigu)        ÈıÌìÈıÒ¹²»³Ô²»ºÈ\n
+è¾Ÿè°·(bigu)        ä¸‰å¤©ä¸‰å¤œä¸åƒä¸å–\n
 
-¿µ¸´(body)        Á¢Âí»Ö¸´¾«ÉñÌåÁ¦\n
+åº·å¤(body)        ç«‹é©¬æ¢å¤ç²¾ç¥ä½“åŠ›\n
 
-½î¶·ÔÆ(cloud)     µ½ÏëÈ¥µÄµØ·½\n");
+ç­‹æ–—äº‘(cloud)     åˆ°æƒ³å»çš„åœ°æ–¹\n");
 	return 1;
 }
 
-// ±Ù¹È
+// è¾Ÿè°·
 
 int bigu_eat()
 {
@@ -73,22 +73,22 @@ int bigu_eat()
 
 	if( !me->query_condition("f_condi") )
 	{
-		write(HIY"Äã¿ÚÖĞÄîÄîÓĞ´Ê,ÄÇß×ßäßèÎû...\n"NOR);
-		tell_object(me, "ÄãÖ»¾õÉñÇåÆøË¬,¿ÉÒÔ²»³Ô·¹ÁË...\n" );
+		write(HIY"ä½ å£ä¸­å¿µå¿µæœ‰è¯,é‚£å’¦å’ªå“å˜»...\n"NOR);
+		tell_object(me, "ä½ åªè§‰ç¥æ¸…æ°”çˆ½,å¯ä»¥ä¸åƒé¥­äº†...\n" );
 
 		fw = (int)me->max_food_capacity();
 		me->set("food", fw);
 		fw = (int)me->max_water_capacity();
 		me->set("water", fw);
 
-		write("ÈıÌìÈıÒ¹Ò²²»»á¶öÁË£¡\n\n");
+		write("ä¸‰å¤©ä¸‰å¤œä¹Ÿä¸ä¼šé¥¿äº†ï¼\n\n");
 		me->apply_condition("f_condi", 5);
 		ob->set("eated", "xixi");
 	}
 	else
 	{
 
-		tell_object(me, "Ou¡£¡£Äã´òÁË¸ö±¥àÃ¡£¡£¡£Ou...Ou...\n" );
+		tell_object(me, "Ouã€‚ã€‚ä½ æ‰“äº†ä¸ªé¥±å—ã€‚ã€‚ã€‚Ou...Ou...\n" );
 
 		fw = (int)me->max_food_capacity();
 		me->set("food", fw);
@@ -98,7 +98,7 @@ int bigu_eat()
 
 	return 1;
 }
-// ½î¶·ÔÆ
+// ç­‹æ–—äº‘
 
 int cloud_goto(string arg)
 {
@@ -111,11 +111,11 @@ int cloud_goto(string arg)
 	if (!present(this_object(), this_player()))
 		return 0;
 
-	if( !arg ) return notify_fail("ÄãÒªÈ¥ÄÄÀï£¿\n");
+	if( !arg ) return notify_fail("ä½ è¦å»å“ªé‡Œï¼Ÿ\n");
 
 	if( sscanf(arg, "-i %s", arg) ) goto_inventory = 1;
 
-	if( !arg ) return notify_fail("ÄãÒªÈ¥ÄÄÀï£¿\n");
+	if( !arg ) return notify_fail("ä½ è¦å»å“ªé‡Œï¼Ÿ\n");
 
 	obj = find_player(arg);
 	if(!obj) obj = find_living(arg);
@@ -125,23 +125,23 @@ int cloud_goto(string arg)
 		if( !(obj = find_object(arg)) ) {
 			if( file_size(arg)>=0 )
 				return mme->move(arg);
-			return notify_fail("Ã»ÓĞÕâ¸öÍæ¼Ò¡¢ÉúÎï¡¢»òµØ·½¡£\n");
+			return notify_fail("æ²¡æœ‰è¿™ä¸ªç©å®¶ã€ç”Ÿç‰©ã€æˆ–åœ°æ–¹ã€‚\n");
 		}
 	}
 
 	if(!goto_inventory && environment(obj))
 		obj = environment(obj);
 
-	if( !obj ) return notify_fail("Õâ¸öÎï¼şÃ»ÓĞ»·¾³¿ÉÒÔ goto¡£\n");
-	tell_object(mme,HIM"ÄãÒ»¸ö½î¶·´ÜÏò¿ÕÖĞ,Ö»¼ûÑÛÇ°ºìÔÆ·É¹ı,¶ú±ß·çºôºô×÷Ïì .
+	if( !obj ) return notify_fail("è¿™ä¸ªç‰©ä»¶æ²¡æœ‰ç¯å¢ƒå¯ä»¥ gotoã€‚\n");
+	tell_object(mme,HIM"ä½ ä¸€ä¸ªç­‹æ–—çªœå‘ç©ºä¸­,åªè§çœ¼å‰çº¢äº‘é£è¿‡,è€³è¾¹é£å‘¼å‘¼ä½œå“ .
 .\n\n"NOR);
-	tell_object(mme,"ÍÛà¸,ºÃÍ´¿ì,ºÃË¬,Ë¬ÍáÍá!\n\n");
+	tell_object(mme,"å“‡å–”,å¥½ç—›å¿«,å¥½çˆ½,çˆ½æ­ªæ­ª!\n\n");
 	mme->move(obj);
 
-	tell_object(mme,"Äã¼İ×ÅÔÆ»º»ºÏÂ½µ,°Èß´Ò»Éù,ºÙ!°²È«×ÅÂ½...\n");
+	tell_object(mme,"ä½ é©¾ç€äº‘ç¼“ç¼“ä¸‹é™,å­å½ä¸€å£°,å˜¿!å®‰å…¨ç€é™†...\n");
 	return 1;
 }
-// »Ö¸´
+// æ¢å¤
 int body_recover()
 {
     object mme;
@@ -151,11 +151,11 @@ int body_recover()
     mme->set("qi",mme->query("max_qi"));
     mme->set("eff_qi",mme->query("max_qi"));
     mme->set("neili",mme->query("max_neili"));
-    tell_object(mme,"ÍÛà¸,Ì«ºÃÁË,Äã¾õµÃÈ«Éí¶¼ÊÇÁ¦Á¿!\n");
+    tell_object(mme,"å“‡å–”,å¤ªå¥½äº†,ä½ è§‰å¾—å…¨èº«éƒ½æ˜¯åŠ›é‡!\n");
     return 1;
 }
 void owner_is_killed() {
 
-	write(HIY"Ö»¼ûÑÛÇ°½ğ¹âÒ»ÉÁ...ºÃÏóÊÇ.....\n"NOR);
+	write(HIY"åªè§çœ¼å‰é‡‘å…‰ä¸€é—ª...å¥½è±¡æ˜¯.....\n"NOR);
 	destruct(this_object());
 }

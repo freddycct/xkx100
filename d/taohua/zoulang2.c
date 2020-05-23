@@ -5,10 +5,10 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "����");
+	set("short", "回廊");
 	set("long", @LONG
-һ�����Ӵ��������ҵĻ��ȡ������⻨ľ���裬�һ����أ�Զ����
-��ɫ�Ĵ󺣺ʹ��̵ĵ���ӳ���ŵ��׷��������续��
+一条连接大厅和内室的回廊。走廊外花木扶疏，桃花满地，远处碧
+蓝色的大海和翠绿的岛屿映衬着点点白帆，历历如画。
 LONG
 	);
 	set("no_clean_up", 0);

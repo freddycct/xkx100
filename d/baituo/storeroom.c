@@ -19,15 +19,15 @@ string* obj = ({
 
 void create()
 {
-	set("short", "´¢²ØÊÒ");
+	set("short", "å‚¨è—å®¤");
 	set("long", @LONG
-ÕâÊÇÒ»¸ö´¢²ØÊÒ£¬ËÄÖÜÃÜ²»Í¸·ç¡£ÄãÒ»½øÃÅ±ãÎÅµ½Ò»¹ÉÃ¹Î¶£¬ÔÚÃÅ
-ÍâÉä½øÀ´µÄÑô¹âµÄÕÕÒ«ÏÂ£¬Äã¿´¼ûÕâÀïÂúÎÝµÄ»Ò³¾£¬³É¶Ñ³É¶ÑµÄÎïÆ·¿ì
-¶ÑÂúÁËÕû¼ä·¿¼ä¡£ÄãºÜÊÇÆæ¹ÖÎªÊ²Ã´ÆÍÒÛÃÇÀë¿ªÊ±²»°ÑÕâÐ©ÎïÆ·Ò²´ø×ß¡£
-Ö»ÓÐ¹Ø±Õ×ÅµÄ´óÃÅ(door)¡£
+è¿™æ˜¯ä¸€ä¸ªå‚¨è—å®¤ï¼Œå››å‘¨å¯†ä¸é€é£Žã€‚ä½ ä¸€è¿›é—¨ä¾¿é—»åˆ°ä¸€è‚¡éœ‰å‘³ï¼Œåœ¨é—¨
+å¤–å°„è¿›æ¥çš„é˜³å…‰çš„ç…§è€€ä¸‹ï¼Œä½ çœ‹è§è¿™é‡Œæ»¡å±‹çš„ç°å°˜ï¼Œæˆå †æˆå †çš„ç‰©å“å¿«
+å †æ»¡äº†æ•´é—´æˆ¿é—´ã€‚ä½ å¾ˆæ˜¯å¥‡æ€ªä¸ºä»€ä¹ˆä»†å½¹ä»¬ç¦»å¼€æ—¶ä¸æŠŠè¿™äº›ç‰©å“ä¹Ÿå¸¦èµ°ã€‚
+åªæœ‰å…³é—­ç€çš„å¤§é—¨(door)ã€‚
 LONG	);
 	set("item_desc" , ([
-		"door" : "Ò»ÉÈÄ¾ÃÅ£¬Ò²ÐíÄÜ´ò¿ª¡£\n",
+		"door" : "ä¸€æ‰‡æœ¨é—¨ï¼Œä¹Ÿè®¸èƒ½æ‰“å¼€ã€‚\n",
 	]) );
 	set("no_clean_up", 0);
 	set("no_fight", "1");
@@ -50,15 +50,15 @@ int do_open(string arg)
 	object me=this_player();
 	object room;
 
-	if( me->is_busy()) return notify_fail("ÄãÕýÃ¦×ÅÄØ£¬Ã»ÊÖ¿ªÃÅ¡£\n");
-	if( !arg|| arg!="door") return notify_fail("ÄãÒª¿ªÊ²Ã´£¿\n");
+	if( me->is_busy()) return notify_fail("ä½ æ­£å¿™ç€å‘¢ï¼Œæ²¡æ‰‹å¼€é—¨ã€‚\n");
+	if( !arg|| arg!="door") return notify_fail("ä½ è¦å¼€ä»€ä¹ˆï¼Ÿ\n");
 	if(!( room = find_object(__DIR__"kongdi")) )
 		room = load_object(__DIR__"kongdi");
 	if(!objectp(room)) return notify_fail("ERROR:not found 'kongdi.c' \n");
 	if(room->query_temp("lock")==1)
-		return notify_fail("ÃÅÒÑ¾­´ÓÍâÃæËø×¡ÁË¡£\n");
-	message_vision("$NÇáÇáÍÆ¿ªÃÅ£¬×ßÁË³öÈ¥£¬ËæÊÖ°ÑÃÅÑÚÁËÆðÀ´¡£\n",me);
-	message("vision", "ÓÐÈË×ßÁË³öÀ´£¬ËæÊÖ°ÑÃÅÑÚÉÏÁË¡£\n",room);
+		return notify_fail("é—¨å·²ç»ä»Žå¤–é¢é”ä½äº†ã€‚\n");
+	message_vision("$Nè½»è½»æŽ¨å¼€é—¨ï¼Œèµ°äº†å‡ºåŽ»ï¼Œéšæ‰‹æŠŠé—¨æŽ©äº†èµ·æ¥ã€‚\n",me);
+	message("vision", "æœ‰äººèµ°äº†å‡ºæ¥ï¼Œéšæ‰‹æŠŠé—¨æŽ©ä¸Šäº†ã€‚\n",room);
 	me->move(room);
 	return 1;
 }
@@ -68,21 +68,21 @@ int do_find()
 	object me, ob;
 	me = this_player();
 	if( (int)me->query_temp("baituo_find") ) 
-		return notify_fail("ÄãÒÑ¾­·¢ÏÖ¶«Î÷ÁË£¬ÄÃÁË¾Í×ß°É¡£\n");
+		return notify_fail("ä½ å·²ç»å‘çŽ°ä¸œè¥¿äº†ï¼Œæ‹¿äº†å°±èµ°å§ã€‚\n");
 	if (me->query_skill("hamagong", 1) > 10 &&
 		me->query_skill("xidu-poison", 1) > 30)
 	{
-		message_vision("$NÄó×Å±Ç×ÓÔÚÎïÆ·¶ÑÖÐÂÒ·­×Å¡£\n", me);
+		message_vision("$Næç€é¼»å­åœ¨ç‰©å“å †ä¸­ä¹±ç¿»ç€ã€‚\n", me);
 		remove_call_out("found");
 		call_out("found", 1, me);    
 		return 1;
 	}
 	if (me->query_skill("xidu-poison", 1) < 50)
 	{
-		message_vision("$NÄó×Å±Ç×ÓÔÚÎïÆ·¶ÑÖÐÂÒ·­×Å¡£\n", me);
+		message_vision("$Næç€é¼»å­åœ¨ç‰©å“å †ä¸­ä¹±ç¿»ç€ã€‚\n", me);
 		if(random((int)me->query("kar")) < 15)
 		{
-			write("ÄãÎüÁË¿ÚÆø£¬Í»È»¾õµÃÍ·ÖÐÒ»ÕóÑ£ÔÎ¡£\n");
+			write("ä½ å¸äº†å£æ°”ï¼Œçªç„¶è§‰å¾—å¤´ä¸­ä¸€é˜µçœ©æ™•ã€‚\n");
 			me->unconcious();
 			return 1;
 		}
@@ -95,8 +95,8 @@ int do_find()
 	}
 	else
 	{ 
-		message_vision("$NÄó×Å±Ç×ÓÔÚÎïÆ·¶ÑÖÐÂÒ·­×Å¡£\n", me);
-		write("ÄãÎüÁË¿ÚÆø£¬Í»È»¾õµÃÍ·ÖÐÒ»ÕóÑ£ÔÎ¡£¡£²»ºÃ£¡ÄãÖÐ¶¾ÁË£¡\n");
+		message_vision("$Næç€é¼»å­åœ¨ç‰©å“å †ä¸­ä¹±ç¿»ç€ã€‚\n", me);
+		write("ä½ å¸äº†å£æ°”ï¼Œçªç„¶è§‰å¾—å¤´ä¸­ä¸€é˜µçœ©æ™•ã€‚ã€‚ä¸å¥½ï¼ä½ ä¸­æ¯’äº†ï¼\n");
 		me->apply_condition("snake_poison", 22);
 		me->unconcious();
 		return 1;
@@ -108,7 +108,7 @@ int found(object me)
 	object ob;
 	ob = new(obj[random(sizeof(obj))] );
 	ob->move(environment(me));
-	message_vision("$N·­ÁË°ëÌì£¬ÕÒµ½ÁË"+ob->query("name")+"¡£\n", me);
+	message_vision("$Nç¿»äº†åŠå¤©ï¼Œæ‰¾åˆ°äº†"+ob->query("name")+"ã€‚\n", me);
 	me->set_temp("baituo_find", 1);
 	return 1;
 }

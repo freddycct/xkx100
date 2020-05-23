@@ -1,4 +1,4 @@
-// bahuang-gong.c °Ë»ÄÁùºÏÎ¨ÎÒ¶À×ğ¹¦
+// bahuang-gong.c å…«è’å…­åˆå”¯æˆ‘ç‹¬å°ŠåŠŸ
 // Last Modified by winder on Mar. 10 2000
 
 #include <ansi.h>
@@ -19,14 +19,14 @@ int valid_learn(object me)
 	&& (string)me->query("family/master_id")!="mei jian"
 	&& (string)me->query("family/master_id")!="tong lao"
 	&& (string)me->query("family/master_id")!="xu zhu")
-	return notify_fail("Ö»ÓĞÁéğÕ¹¬ÃÅÏÂµÜ×Ó²ÅÄÜÑ§Ï°°Ë»ÄÁùºÏÎ¨ÎÒ¶À×ğ¹¦¡£\n");
+	return notify_fail("åªæœ‰çµé¹«å®«é—¨ä¸‹å¼Ÿå­æ‰èƒ½å­¦ä¹ å…«è’å…­åˆå”¯æˆ‘ç‹¬å°ŠåŠŸã€‚\n");
 	if ((int)me->query_skill("force", 1) < 10)
-		return notify_fail("ÄãµÄ»ù±¾ÄÚ¹¦»ğºò»¹²»¹»¡£\n");
+		return notify_fail("ä½ çš„åŸºæœ¬å†…åŠŸç«å€™è¿˜ä¸å¤Ÿã€‚\n");
 	return valid_public(me,"beiming-shengong");
 }
 int practice_skill(object me)
 {
-	return notify_fail("°Ë»ÄÁùºÏÎ¨ÎÒ¶À×ğ¹¦Ö»ÄÜÓÃÑ§(learn)µÄÀ´Ìá¸ß¡£\n");
+	return notify_fail("å…«è’å…­åˆå”¯æˆ‘ç‹¬å°ŠåŠŸåªèƒ½ç”¨å­¦(learn)çš„æ¥æé«˜ã€‚\n");
 }
 string exert_function_file(string func)
 {
@@ -34,16 +34,16 @@ string exert_function_file(string func)
 }
 int help(object me)
 {
-	write(HIC"\n°Ë»ÄÁùºÏÎ¨ÎÒ¶À×ğ¹¦£º"NOR"\n");
+	write(HIC"\nå…«è’å…­åˆå”¯æˆ‘ç‹¬å°ŠåŠŸï¼š"NOR"\n");
 	write(@HELP
 
-    °Ë»ÄÁùºÏÎ¨ÎÒ¶À×ğ¹¦ÊÇÁéğÕ¹¬ÖÁ¸ßÎŞÉÏµÄÄÚ¹¦£¬ĞëÒÔ×îÉÏ³ËÄÚ
-¹¦Îª¸ù»ù¡£Õâ¹¦·òÍşÁ¦Ææ´ó£¬È´ÓĞÒ»¸ö´ó´óµÄ²»ÀûÖ®´¦£¬Ã¿ÈıÊ®Äê£¬
-±ãÒª·µÀÏ»¹Í¯Ò»´Î¡£
+    å…«è’å…­åˆå”¯æˆ‘ç‹¬å°ŠåŠŸæ˜¯çµé¹«å®«è‡³é«˜æ— ä¸Šçš„å†…åŠŸï¼Œé¡»ä»¥æœ€ä¸Šä¹˜å†…
+åŠŸä¸ºæ ¹åŸºã€‚è¿™åŠŸå¤«å¨åŠ›å¥‡å¤§ï¼Œå´æœ‰ä¸€ä¸ªå¤§å¤§çš„ä¸åˆ©ä¹‹å¤„ï¼Œæ¯ä¸‰åå¹´ï¼Œ
+ä¾¿è¦è¿”è€è¿˜ç«¥ä¸€æ¬¡ã€‚
 
-	Ñ§Ï°ÒªÇó£º
-		ÁéğÕ¹¬µÜ×Ó
-		»ù±¾ÄÚ¹¦10¼¶
+	å­¦ä¹ è¦æ±‚ï¼š
+		çµé¹«å®«å¼Ÿå­
+		åŸºæœ¬å†…åŠŸ10çº§
 HELP
 	);
 	return 1;

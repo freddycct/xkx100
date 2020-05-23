@@ -4,10 +4,10 @@ inherit NPC;
 
 void create()
 {
-	set_name("Ê©ÁîÍþ", ({ "shi lingwei", "shi" }));
-	set("long", "Ëû¾ÍÊÇÒþ¾Ó½­ºþÊýÄêµÄÎåÂ·ÉñÊ©ÁîÍþ£¬ÏÖÔÚÔÚÃ·×¯µ±¹Ü¼Ò¡£\n");
-	set("gender", "ÄÐÐÔ");
-	set("nickname", HIR"ÎåÂ·Éñ"NOR);
+	set_name("æ–½ä»¤å¨", ({ "shi lingwei", "shi" }));
+	set("long", "ä»–å°±æ˜¯éšå±…æ±Ÿæ¹–æ•°å¹´çš„äº”è·¯ç¥žæ–½ä»¤å¨ï¼ŒçŽ°åœ¨åœ¨æ¢…åº„å½“ç®¡å®¶ã€‚\n");
+	set("gender", "ç”·æ€§");
+	set("nickname", HIR"äº”è·¯ç¥ž"NOR);
 	set("attitude", "friendly");
 
 	set("age", 30);
@@ -29,13 +29,13 @@ void create()
 	set_skill("sword", 120);
 	set_skill("parry", 100);
 
-	set("party/party_name", HIB"ÈÕÔÂÉñ½Ì"NOR);
-	set("party/rank", HIW"½ÌÖÚ"NOR);
-	create_family("ºÚÄ¾ÑÂ", 10, "µÜ×Ó");
+	set("party/party_name", HIB"æ—¥æœˆç¥žæ•™"NOR);
+	set("party/rank", HIW"æ•™ä¼—"NOR);
+	create_family("é»‘æœ¨å´–", 10, "å¼Ÿå­");
 	setup();
 	set("chat_chance", 10);
 	set("chat_msg", ({
-	"Ê©ÁîÍþÉñÇé»ÅÕÅµÄ³¯×À×ÓºóÃæÇÆÁËÒ»ÑÛ¡£\n",
+	"æ–½ä»¤å¨ç¥žæƒ…æ…Œå¼ çš„æœæ¡Œå­åŽé¢çž§äº†ä¸€çœ¼ã€‚\n",
 	}) );
 	carry_object(CLOTH_DIR"male-cloth")->wear();
 	carry_object(WEAPON_DIR"changjian")->wield();

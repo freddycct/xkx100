@@ -7,12 +7,12 @@ int update_condition(object me, int duration)
 {
 	if (duration < 1)
 	{
-		message_vision(HIW"Í»È»Ìì¿ÕÖÐ·ÉÏÂÒ»Ö»°×¸ë£¬½µÔÚ$NµÄ¼çÍ·¡£\n"NOR, me);
+		message_vision(HIW"çªç„¶å¤©ç©ºä¸­é£žä¸‹ä¸€åªç™½é¸½ï¼Œé™åœ¨$Nçš„è‚©å¤´ã€‚\n"NOR, me);
 		if(me->query_temp("job_type") == 1)
-			tell_object(me, BLU"ÕâÊÇÒ»·â·É¸ë´«Êé£¬Ô­À´ÀÏÏÉÒÑ¾­¶ÔÉ±²»É±¡¸"+me->query_temp("xx_target")+"¡¹µÄÊÂ²»¸ÐÐËÈ¤ÁË£¡\n"NOR);
+			tell_object(me, BLU"è¿™æ˜¯ä¸€å°é£žé¸½ä¼ ä¹¦ï¼ŒåŽŸæ¥è€ä»™å·²ç»å¯¹æ€ä¸æ€ã€Œ"+me->query_temp("xx_target")+"ã€çš„äº‹ä¸æ„Ÿå…´è¶£äº†ï¼\n"NOR);
 		else if(me->query_temp("job_type") == 2)
 			{
-				tell_object(me, BLU"ÕâÊÇÒ»·â·É¸ë´«Êé£¬Ô­À´ÀÏÏÉÒÑ¾­¶Ô¡¸"+me->query_temp("xx_target")+"¡¹²»¸ÐÐËÈ¤ÁË£¡\n"NOR);
+				tell_object(me, BLU"è¿™æ˜¯ä¸€å°é£žé¸½ä¼ ä¹¦ï¼ŒåŽŸæ¥è€ä»™å·²ç»å¯¹ã€Œ"+me->query_temp("xx_target")+"ã€ä¸æ„Ÿå…´è¶£äº†ï¼\n"NOR);
 				if(me->query("xx_points") > 10)
 					me->add("xx_points", -1);
 				me->delete_temp("xx_bonus");

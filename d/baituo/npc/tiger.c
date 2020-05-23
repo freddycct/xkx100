@@ -1,4 +1,4 @@
-// tiger.c ÀÏ»¢
+// tiger.c è€è™Ž
 // Last Modified by Winder on May. 15 2001
 // Date: Sep.22 1997
 
@@ -6,11 +6,11 @@ inherit NPC;
 
 void create()
 {
-	set_name("ÀÏ»¢", ({ "tiger", "laohu", "hu" }) );
-	set("race", "×ßÊÞ");
+	set_name("è€è™Ž", ({ "tiger", "laohu", "hu" }) );
+	set("race", "èµ°å…½");
 	set("age", 20);
 	set("long", @LONG
-Ò»Ö»°ßìµÃÍ»¢£¬ÐÛÎ°¼«ÁË¡£
+ä¸€åªæ–‘æ–“çŒ›è™Žï¼Œé›„ä¼Ÿæžäº†ã€‚
 
          _.-'"''--..__.("\-''-'")
  ('.__.-' (  *  ) .-'    ( @ _@'
@@ -32,8 +32,8 @@ LONG);
 
 	set("chat_chance", 10);
 	set("chat_msg", ({
-		"ÀÏ»¢ÔÚ¿£Ñ²£¬ÏÅµÃÄã´óÆø¶¼²»¸Ò³ö¡£\n",
-		"ÀÏ»¢ÑöÌì³¤Ð¥£¬ÉùÕðÉ½¹È£¬»ÆÒ¶·××¹¡£\n",
+		"è€è™Žåœ¨æµšå·¡ï¼Œå“å¾—ä½ å¤§æ°”éƒ½ä¸æ•¢å‡ºã€‚\n",
+		"è€è™Žä»°å¤©é•¿å•¸ï¼Œå£°éœ‡å±±è°·ï¼Œé»„å¶çº·å ã€‚\n",
 	}) );
 }
 
@@ -41,7 +41,7 @@ LONG);
 void die()
 {
 	object ob, corpse;
-	message_vision("$N·¢³öÕðÌì¶¯µØµÄÒ»Éù³¤Ð¥£¬ºäµØµ¹ÔÚµØÉÏ£¬ËÀÁË£¡\n", this_object());
+	message_vision("$Nå‘å‡ºéœ‡å¤©åŠ¨åœ°çš„ä¸€å£°é•¿å•¸ï¼Œè½°åœ°å€’åœ¨åœ°ä¸Šï¼Œæ­»äº†ï¼\n", this_object());
 	if( objectp(corpse = CHAR_D->make_corpse(this_object())) )
 	ob = new("/clone/medicine/vegetable/hugu");
 	ob->move(corpse);

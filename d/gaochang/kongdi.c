@@ -5,10 +5,10 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "�յ�");
+	set("short", "空地");
 	set("long", @LONG
-ͻȻ֮�䣬��ǰ��Ȼ���ʣ�����һ��Ƭ�յأ��յؾ�ͷ����������
-���ţ�Ƕ�ڴ�ɽ���С�
+突然之间，眼前豁然开朗，出现一大片空地，空地尽头处又有两扇
+铁门，嵌在大山岩中。
 LONG
 	);
 

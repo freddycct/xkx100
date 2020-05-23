@@ -5,11 +5,11 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "ÓÐËù²»ÎªÐù");
+	set("short", "æœ‰æ‰€ä¸ä¸ºè½©");
 	set("long", @LONG
-ÕâÊÇ»ªÉ½ÕÆÃÅÔÀ²»ÈºµÄ¾ÓËù¡¸ÓÐËù²»ÎªÐù¡¹£¬´Ë´¦ÊÇÇ°Ìü£¬ÌüÉÏ¹Ò
-×Å¡¸ÕýÆøÌÃ¡¹Èý×ÖØÒ¶î¡£ÌüÖÐºÜ¿í³¨£¬È´Ã»Ê²Ã´°ÚÉè£¬¿¿Ç½·Å×ÅÁ½°Ñ½»
-ÒÎ£¬ÕâÀïÊÇÔÀ²»ÈºÒéÊÂ¡¢ÊÚÍ½µÄµØ·½£¬ºóÃæÊÇÇÞÊÒ¡£
+è¿™æ˜¯åŽå±±æŽŒé—¨å²³ä¸ç¾¤çš„å±…æ‰€ã€Œæœ‰æ‰€ä¸ä¸ºè½©ã€ï¼Œæ­¤å¤„æ˜¯å‰åŽ…ï¼ŒåŽ…ä¸ŠæŒ‚
+ç€ã€Œæ­£æ°”å ‚ã€ä¸‰å­—åŒ¾é¢ã€‚åŽ…ä¸­å¾ˆå®½æ•žï¼Œå´æ²¡ä»€ä¹ˆæ‘†è®¾ï¼Œé å¢™æ”¾ç€ä¸¤æŠŠäº¤
+æ¤…ï¼Œè¿™é‡Œæ˜¯å²³ä¸ç¾¤è®®äº‹ã€æŽˆå¾’çš„åœ°æ–¹ï¼ŒåŽé¢æ˜¯å¯å®¤ã€‚
 LONG );
 	set("exits", ([ /* sizeof() == 2 */
 		"north" : __DIR__"buwei2",
@@ -31,9 +31,9 @@ int valid_leave(object me, string dir)
 {
 	mapping myfam;
 	myfam=(mapping)me->query("family");
-	if ((!myfam ||myfam["family_name"] != "»ªÉ½ÅÉ") && dir == "north" &&
+	if ((!myfam ||myfam["family_name"] != "åŽå±±æ´¾") && dir == "north" &&
 		objectp(present("lu dayou", environment(me))))
-		return notify_fail("Â½´óÓÐºÈµÀ£ººóÃæÊÇ¼ÒÊ¦ÇÞÊÒ£¬ÕâÎ»" + RANK_D->query_respect(me) + "ÇëÖ¹²½¡£\n");
+		return notify_fail("é™†å¤§æœ‰å–é“ï¼šåŽé¢æ˜¯å®¶å¸ˆå¯å®¤ï¼Œè¿™ä½" + RANK_D->query_respect(me) + "è¯·æ­¢æ­¥ã€‚\n");
 	return ::valid_leave(me, dir);
 }
  

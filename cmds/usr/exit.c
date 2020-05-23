@@ -10,28 +10,28 @@ int savequit(object me);
 void create() 
 {
 	seteuid(getuid());
-	set("name", "ÀëÏßÖ¸Áî");
+	set("name", "ç¦»çº¿æŒ‡ä»¤");
 	set("id", "quit");
-	set("channel_id", "ÀëÏß¾«Áé");
+	set("channel_id", "ç¦»çº¿ç²¾çµ");
 }
 
 int main(object me, string arg)
 {
 	if( time() - me->query("last/lastquit") < 30 && !wizardp(me))
-		return notify_fail("ÄãÀëÉÏ´ÎÀë¿ªÓÎÏ·µÄÊ±¼ä¼ä¸ô²»×ã£¬ÔİÊ±ÎŞ·¨Àë¿ªÓÎÏ·¡£\n");
+		return notify_fail("ä½ ç¦»ä¸Šæ¬¡ç¦»å¼€æ¸¸æˆçš„æ—¶é—´é—´éš”ä¸è¶³ï¼Œæš‚æ—¶æ— æ³•ç¦»å¼€æ¸¸æˆã€‚\n");
 		
 	if( environment(me)->query("no_quit"))
-		return notify_fail("¿Õ¼äÒÑ¾­·â±Õ£¬Ã»ÓĞÈËÄÜ¹»ÍË³öÕâ¸öÊ±¿ÕÁË\n");
+		return notify_fail("ç©ºé—´å·²ç»å°é—­ï¼Œæ²¡æœ‰äººèƒ½å¤Ÿé€€å‡ºè¿™ä¸ªæ—¶ç©ºäº†\n");
 
 /*
 	if( LOGIN_D->get_madlock()) 
-		return notify_fail("Ê±¿ÕÒÑ¾­·â±Õ£¬Ã»ÓĞÈËÄÜ¹»ÍË³öÕâ¸öÊ±¿ÕÁË¡£\n");
+		return notify_fail("æ—¶ç©ºå·²ç»å°é—­ï¼Œæ²¡æœ‰äººèƒ½å¤Ÿé€€å‡ºè¿™ä¸ªæ—¶ç©ºäº†ã€‚\n");
 */
-	if( me->is_busy()) return notify_fail("ÄãÏÖÔÚÕıÃ¦×Å×öÆäËûÊÂ£¬²»ÄÜÍË³öÓÎÏ·£¡\n");
+	if( me->is_busy()) return notify_fail("ä½ ç°åœ¨æ­£å¿™ç€åšå…¶ä»–äº‹ï¼Œä¸èƒ½é€€å‡ºæ¸¸æˆï¼\n");
 	if (me->query_temp("sleeped")) me->set("marks/insleeping",1);
 
 	if( me->over_encumbranced() )
-		return notify_fail("ÉíÉÏ´øµÄ¶«Î÷Ì«¶àÁË£¬Àë²»¿ªÓÎÏ·ÁË¡£\n");
+		return notify_fail("èº«ä¸Šå¸¦çš„ä¸œè¥¿å¤ªå¤šäº†ï¼Œç¦»ä¸å¼€æ¸¸æˆäº†ã€‚\n");
 	return savequit(me);
 }
 int savequit(object me)
@@ -43,7 +43,7 @@ int savequit(object me)
 	string err;
 
         if( time()-me->query_temp("LAST_PKER_TIME")<7200&&!wizardp(me))
-              return notify_fail("Äã¸ÕÉ±ÈË²»¾Ã£¬ÔİÊ±ÎŞ·¨Àë¿ªÓÎÏ·¡£\n");
+              return notify_fail("ä½ åˆšæ€äººä¸ä¹…ï¼Œæš‚æ—¶æ— æ³•ç¦»å¼€æ¸¸æˆã€‚\n");
 
 	if( !wizardp(me) ) {
 		inv = all_inventory(me);
@@ -61,12 +61,12 @@ int savequit(object me)
 
 		// Are we possessing in others body ?
 		if( link_ob->is_character() ) {
-			write("ÄãµÄ»êÆÇ»Øµ½" + link_ob->name(1) + "µÄÉíÉÏ¡£\n");
+			write("ä½ çš„é­‚é­„å›åˆ°" + link_ob->name(1) + "çš„èº«ä¸Šã€‚\n");
 			exec(link_ob, me);
 			link_ob->setup();
 			return 1;
 		}
-// Î×Ê¦ÒşÉíÍË³öÊ±²»¼Ç last_login
+// å·«å¸ˆéšèº«é€€å‡ºæ—¶ä¸è®° last_login
 		if(!wizardp(me) || !me->query("env/invisibility") )
 		{
 		    a=0;
@@ -82,18 +82,18 @@ int savequit(object me)
 	p=me->query("potential")-me->query_temp("nowpot");
 	pexp = e*3600 / t;
 	ppot = p*3600 / t;
-	ct=chinese_number(t/3600)+"Ğ¡Ê±"+chinese_number(t%3600/60)+"·ÖÖÓ"+chinese_number(t%60)+"Ãë";
+	ct=chinese_number(t/3600)+"å°æ—¶"+chinese_number(t%3600/60)+"åˆ†é’Ÿ"+chinese_number(t%60)+"ç§’";
 	ce=chinese_number(e);
 	cp=chinese_number(p);
 	log_file( "USAGE", sprintf("%-20s logout with %7d second, %6d exp, %6d pot, %6d exp/h %6d pot/h.\n", me->query("name")+"("+me->query("id")+")", t, e, p, pexp, ppot));
 	if (e > 10000 || p > 5000 || e < -10000 || p < -5000)
 		log_file( "NOTICE", sprintf("%-20s logout with %7d second, %6d exp, %6d pot. %6d exp/h %6d pot/h.\n", me->query("name")+"("+me->query("id")+")", t, e, p, pexp, ppot));
 
-	write("Äã¹²Í£ÁôÁË"+ct+"£¬³¤ÁË"+ce+"¾­Ñé£¬ºÍ"+cp+"µãÇ±ÄÜ¡£\n");
-	write("»¶Ó­ÏÂ´ÎÔÙÀ´£¡\n");
+	write("ä½ å…±åœç•™äº†"+ct+"ï¼Œé•¿äº†"+ce+"ç»éªŒï¼Œå’Œ"+cp+"ç‚¹æ½œèƒ½ã€‚\n");
+	write("æ¬¢è¿ä¸‹æ¬¡å†æ¥ï¼\n");
 
-	message("system", me->name() + "Àë¿ªÓÎÏ·¡£\n", environment(me), me);
-	CHANNEL_D->do_channel(this_object(), "sys", me->name() + "(" + me->query("id") + ")Àë¿ªÓÎÏ·ÁË¡£\n¹²Í£ÁôÁË"+ct+"£¬³¤ÁË"+ce+"µã¾­Ñé£¬ºÍ"+cp+"µãÇ±ÄÜ¡£¹²Çå³ı "+reclaim_objects()+" ¸ö±äÊı¡£\n");
+	message("system", me->name() + "ç¦»å¼€æ¸¸æˆã€‚\n", environment(me), me);
+	CHANNEL_D->do_channel(this_object(), "sys", me->name() + "(" + me->query("id") + ")ç¦»å¼€æ¸¸æˆäº†ã€‚\nå…±åœç•™äº†"+ct+"ï¼Œé•¿äº†"+ce+"ç‚¹ç»éªŒï¼Œå’Œ"+cp+"ç‚¹æ½œèƒ½ã€‚å…±æ¸…é™¤ "+reclaim_objects()+" ä¸ªå˜æ•°ã€‚\n");
 	me->dismiss_team();
 	me->set("last/lastquit", time());
 
@@ -102,13 +102,13 @@ int savequit(object me)
 		if( !wizardp(me) )
 		{
 			if (stringp(err= catch(ob=new("/clone/topten/magic-rice"))))
-				message("channel:sys",me->name()+"topten½¨Á¢Ê§°Ü£¬ÇëÔÚÏßÎ×Ê¦¾¡¿ìÇå²é¡£\n"+err,users());
+				message("channel:sys",me->name()+"toptenå»ºç«‹å¤±è´¥ï¼Œè¯·åœ¨çº¿å·«å¸ˆå°½å¿«æ¸…æŸ¥ã€‚\n"+err,users());
 			if (objectp(ob))
 			{
 				if (stringp(err = catch(ob->movein(me))))
-				message("channel:sys",me->name()+"toptenÒÆ¶¯Ê§°Ü£¬ÇëÔÚÏßÎ×Ê¦¾¡¿ìÇå²é¡£\n"+err,users());
+				message("channel:sys",me->name()+"toptenç§»åŠ¨å¤±è´¥ï¼Œè¯·åœ¨çº¿å·«å¸ˆå°½å¿«æ¸…æŸ¥ã€‚\n"+err,users());
 				if (stringp(err = catch(ob->savetopten(me))))
-				message("channel:sys",me->name()+"topten±£´æÊ§°Ü£¬ÇëÔÚÏßÎ×Ê¦¾¡¿ìÇå²é¡£\n"+err,users());
+				message("channel:sys",me->name()+"toptenä¿å­˜å¤±è´¥ï¼Œè¯·åœ¨çº¿å·«å¸ˆå°½å¿«æ¸…æŸ¥ã€‚\n"+err,users());
 				destruct( ob );
 			}
 		}
@@ -120,15 +120,15 @@ int savequit(object me)
     	return 1;
     }
     else
-    return notify_fail(HIR"¾¯¸æ£ºµµ°¸±£´æÊ§°Ü£¬ÎŞ·¨ÍË³öÓÎÏ·£¬ÇëÂíÉÏÁªÏµÎ×Ê¦½â¾ö¡£\n"NOR);
+    return notify_fail(HIR"è­¦å‘Šï¼šæ¡£æ¡ˆä¿å­˜å¤±è´¥ï¼Œæ— æ³•é€€å‡ºæ¸¸æˆï¼Œè¯·é©¬ä¸Šè”ç³»å·«å¸ˆè§£å†³ã€‚\n"NOR);
 }
 
 int help(object me)
 {
 	write(@HELP
-Ö¸Áî¸ñÊ½ : quit | exit
+æŒ‡ä»¤æ ¼å¼ : quit | exit
 
-    µ±ÄãÏëÔİÊ±Àë¿ªÕâ¸öÓÎÏ·Ê±£¬¿ÉÀûÓÃ´ËÒ»Ö¸Áî¡£
+    å½“ä½ æƒ³æš‚æ—¶ç¦»å¼€è¿™ä¸ªæ¸¸æˆæ—¶ï¼Œå¯åˆ©ç”¨æ­¤ä¸€æŒ‡ä»¤ã€‚
 HELP
 	);
 	return 1;

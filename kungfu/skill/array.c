@@ -12,13 +12,13 @@ int power_point(object me) { return 1; }
 
 int help(object me)
 {
-	write(HIC"\n»ù±¾Õó·¨£º"NOR"\n");
+	write(HIC"\nåŸºæœ¬é˜µæ³•ï¼š"NOR"\n");
 	write(@HELP
 
-    ÌÒ»¨µºµÜ×Ó²¼ÕóËùÓÃ»ù±¾¼¼ÄÜ¡£
+    æ¡ƒèŠ±å²›å¼Ÿå­å¸ƒé˜µæ‰€ç”¨åŸºæœ¬æŠ€èƒ½ã€‚
 
-	Ñ§Ï°ÒªÇó£º
-		ÎŞ
+	å­¦ä¹ è¦æ±‚ï¼š
+		æ— 
 HELP
 	);
 	return 1;

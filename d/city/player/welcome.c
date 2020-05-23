@@ -3,11 +3,11 @@
 
 inherit NPC;
 void create()
-{       set_name("ĞÇÖ¾ĞÇ", ({ "welcome"}));
-	set("gender", "ÄĞĞÔ");
+{       set_name("æ˜Ÿå¿—æ˜Ÿ", ({ "welcome"}));
+	set("gender", "ç”·æ€§");
 	set("class", "quanzhen");
-	set("title", "È«Õæ½ÌµÚ¶ş´úµÜ×Ó");
-	set("nickname", HIR"ÏÀ¿ÍĞĞĞ¦Ğ¦Éú"NOR);
+	set("title", "å…¨çœŸæ•™ç¬¬äºŒä»£å¼Ÿå­");
+	set("nickname", HIR"ä¾ å®¢è¡Œç¬‘ç¬‘ç”Ÿ"NOR);
 	set("age", 50);
 	set("attitude", "friendly");
 
@@ -18,7 +18,7 @@ void create()
 	set("con", 20);
 	set("str", 20);
 	set("weiwang", 80);
-	create_family("È«Õæ½Ì" ,2, "µÜ×Ó");	
+	create_family("å…¨çœŸæ•™" ,2, "å¼Ÿå­");	
 	setup();
 	carry_object(CLOTH_DIR"dao-cloth")->wear();
         carry_object(CLOTH_DIR"dao-shoe")->wear();

@@ -1,16 +1,16 @@
-//Room: yuzhengong.c ÓöÕæ¹¬
+//Room: yuzhengong.c é‡çœŸå®«
 //Date: Sep 22 1997
 
 inherit ROOM;
 
 void create()
 {
-	set("short","ÓöÕæ¹¬");
+	set("short","é‡çœŸå®«");
 	set("long",@LONG
-ÕâÀïÊÇ½øÈëÎäµ±É½µÄµÚÒ»µÀ¹¬ÓîÓöÕæ¹¬£¬¿í³¨ÎŞ±È£¬¿ÉÈİÇ§ÈËÊ³ËŞ£¬
-ÊÇ½øÏã¿ÍµÄÒ»´óĞª½Å´¦¡£Èı·áÕæÈËÔøÔÚ´Ë½áâÖĞŞÁ¶£¬Òò´Ë¹¬ÖĞ¹©×ÅÕÅÈı
-·áÕæÈËÏñ¡£ÓÉÓÚÕÅÕæÈË±Õ¹ØÒÑ¾Ã£¬ÍâÈË²»ÖªÆäÊÇ·ñÈÔÔÚÈË¼ä£¬Ãñ¼ä´«Ëµ
-ËûÒÑµÃµÀÏÉÊÅ£¬Á¢ÏñÄ¤°İ¡£
+è¿™é‡Œæ˜¯è¿›å…¥æ­¦å½“å±±çš„ç¬¬ä¸€é“å®«å®‡é‡çœŸå®«ï¼Œå®½æ•æ— æ¯”ï¼Œå¯å®¹åƒäººé£Ÿå®¿ï¼Œ
+æ˜¯è¿›é¦™å®¢çš„ä¸€å¤§æ­‡è„šå¤„ã€‚ä¸‰ä¸°çœŸäººæ›¾åœ¨æ­¤ç»“åºµä¿®ç‚¼ï¼Œå› æ­¤å®«ä¸­ä¾›ç€å¼ ä¸‰
+ä¸°çœŸäººåƒã€‚ç”±äºå¼ çœŸäººé—­å…³å·²ä¹…ï¼Œå¤–äººä¸çŸ¥å…¶æ˜¯å¦ä»åœ¨äººé—´ï¼Œæ°‘é—´ä¼ è¯´
+ä»–å·²å¾—é“ä»™é€ï¼Œç«‹åƒè†œæ‹œã€‚
 LONG);
 	set("objects", ([
 	     CLASS_D("wudang") +"/zhixiang": 1,
@@ -33,12 +33,12 @@ int valid_leave(object me, string dir)
 
 	if ( dir == "southup" &&
 		me->query("wudang/offerring")<me->query("age") &&
-		me->query("title") != "Îäµ±µÀÍ¯" &&
-		me->query("family/family_name") != "Îäµ±ÅÉ" &&
+		me->query("title") != "æ­¦å½“é“ç«¥" &&
+		me->query("family/family_name") != "æ­¦å½“æ´¾" &&
 		objectp(present("lingxu daozhang", environment(me))) &&
 		!objectp(present("incense", me)) )
 	{
-		return notify_fail("ÁèĞéµÀ³¤ºÈµÀ£ºÈç²»ÊÇÉÏÉ½¾´Ïã£¬¼´¿ÌÇë»Ø£¡\n");
+		return notify_fail("å‡Œè™šé“é•¿å–é“ï¼šå¦‚ä¸æ˜¯ä¸Šå±±æ•¬é¦™ï¼Œå³åˆ»è¯·å›ï¼\n");
 	}
 	return ::valid_leave(me, dir);
 }

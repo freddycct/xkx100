@@ -3,7 +3,7 @@
 
 #include <ansi.h>
 inherit F_SSERVER;
-#define PNAME "≥™œ…∑®÷Æ∫ﬂ◊÷æˆ"
+#define PNAME "Âî±‰ªôÊ≥ï‰πãÂìºÂ≠óÂÜ≥"
 int perform(object me, object target)
 {
 	int skill;
@@ -18,14 +18,14 @@ int perform(object me, object target)
    !me->query("can_perform/"+sskill+"/"+pfname) &&
    !me->query_temp("murong/xingyi") &&
    !SCBORN_D->valid_perform(me,sskill,pfname))
-   return notify_fail("ƒ„À˘ π”√µƒÕ‚π¶÷–√ª”–’‚÷÷π¶ƒ‹°£\n");
+   return notify_fail("‰Ω†ÊâÄ‰ΩøÁî®ÁöÑÂ§ñÂäü‰∏≠Ê≤°ÊúâËøôÁßçÂäüËÉΩ„ÄÇ\n");
 
 /*	if( !objectp(target) ) {flag =1;target = offensive_target(me);}
 	
 	if( !target || !target->is_character() || target == me ||	
 	  	!me->is_fighting(target) ||
   	!living(target) || target->query_temp("noliving") )
-		return notify_fail(PNAME"÷ªƒ‹∂‘’Ω∂∑÷–µƒ∂‘ ÷ π”√°£\n");
+		return notify_fail(PNAME"Âè™ËÉΩÂØπÊàòÊñó‰∏≠ÁöÑÂØπÊâã‰ΩøÁî®„ÄÇ\n");
 */	
 	fskill = "dulong-dafa";
 	bskill = "staff";
@@ -39,20 +39,20 @@ int perform(object me, object target)
 	}
 
 	if( (int)me->query_skill(fskill, 1) < 70 )
-		return notify_fail("ƒ„µƒ"+to_chinese(fskill)+"≤ªπªÊµ Ï£¨≤ªª· π”√"+PNAME+"°£\n");
+		return notify_fail("‰Ω†ÁöÑ"+to_chinese(fskill)+"‰∏çÂ§üÂ®¥ÁÜüÔºå‰∏ç‰ºö‰ΩøÁî®"+PNAME+"„ÄÇ\n");
 
 	if( (int)me->query_skill(sskill, 1) < 80 )
-		return notify_fail("ƒ„µƒ"+to_chinese(sskill)+"≤ªπªÊµ Ï£¨≤ªª· π”√"+PNAME+"°£\n");
+		return notify_fail("‰Ω†ÁöÑ"+to_chinese(sskill)+"‰∏çÂ§üÂ®¥ÁÜüÔºå‰∏ç‰ºö‰ΩøÁî®"+PNAME+"„ÄÇ\n");
 
 	if((int)me->query_temp("apply/attack") <= 0 ||
 		(int)me->query_temp("apply/dodge") <= 0 ||
 		(int)me->query_temp("apply/defense") <= 0)
-		return notify_fail("ƒ„ƒø«∞’Ω∂∑¡¶Ã´µÕ£¨≤ªƒ‹‘Ÿª÷∏¥ƒ⁄¡¶¡À°£\n");
+		return notify_fail("‰Ω†ÁõÆÂâçÊàòÊñóÂäõÂ§™‰ΩéÔºå‰∏çËÉΩÂÜçÊÅ¢Â§çÂÜÖÂäõ‰∫Ü„ÄÇ\n");
 
 	if( (int)me->query_temp("chang") <=-30 )
-		return notify_fail("ƒ„“—æ≠≥™µ√Ã´æ√¡À£¨≤ªƒ‹‘Ÿ≥™¡À°£\n");
+		return notify_fail("‰Ω†Â∑≤ÁªèÂî±ÂæóÂ§™‰πÖ‰∫ÜÔºå‰∏çËÉΩÂÜçÂî±‰∫Ü„ÄÇ\n");
 
-	message_combatd(HIR "÷ªÃ˝$N"HIR"ø⁄÷–∫ﬂ∫ﬂﬂÛﬂÛ£¨«ÍøÃ÷Æº‰ƒ⁄¡¶¥Û’«£°\n" NOR, me);
+	message_combatd(HIR "Âè™Âê¨$N"HIR"Âè£‰∏≠ÂìºÂìºÂîßÂîßÔºåÈ°∑Âàª‰πãÈó¥ÂÜÖÂäõÂ§ßÊ∂®ÔºÅ\n" NOR, me);
 	me->add_temp("apply/attack", -1);
 	me->add_temp("apply/dodge", -1);
 	me->add_temp("apply/defense", -1);
@@ -61,20 +61,20 @@ int perform(object me, object target)
 
 	return 1;
 }
-string name() {return replace_string(replace_string(PNAME,"°∏",""),"°π","");}
+string name() {return replace_string(replace_string(PNAME,"„Äå",""),"„Äç","");}
 
 int help(object me)
 {
-	write(WHT"\n"+to_chinese(explode(__FILE__,"/")[<2])+"÷Æ"+name()+WHT"£∫"NOR"\n");
+	write(WHT"\n"+to_chinese(explode(__FILE__,"/")[<2])+"‰πã"+name()+WHT"Ôºö"NOR"\n");
 	write(@HELP
 
-	 π”√π¶–ß£∫
-		ΩµµÕ◊‘º∫µƒπ•ª˜¡¶°¢∑¿”˘¡¶
-		‘ˆ≤π◊‘º∫µƒƒ⁄¡¶
+	‰ΩøÁî®ÂäüÊïàÔºö
+		Èôç‰ΩéËá™Â∑±ÁöÑÊîªÂáªÂäõ„ÄÅÈò≤Âæ°Âäõ
+		Â¢ûË°•Ëá™Â∑±ÁöÑÂÜÖÂäõ
 
-	≥ˆ ÷“™«Û£∫
-		∂æ¡˙¥Û∑®70º∂
-		…Ò¡˙’»∑®80º∂
+	Âá∫ÊâãË¶ÅÊ±ÇÔºö
+		ÊØíÈæôÂ§ßÊ≥ï70Á∫ß
+		Á•ûÈæôÊùñÊ≥ï80Á∫ß
 HELP
 	);
 	return 1;

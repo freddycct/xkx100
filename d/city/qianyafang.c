@@ -5,11 +5,11 @@ void bt_same(object who,object me);
 
 void create()
 {
-	set("short", "Ç©Ñº·¿");
+	set("short", "ç­¾æŠ¼æˆ¿");
 	set("long", @LONG
-ÕâÀïÊÇÑïÖÝ¸®µÄÇ©Ñº·¿£¬Æ½³£²¶Í·ÑÃÒÛÃÇ¶¼ÔÚÕâÀïµÈºò³Ì´óÈËµÄ´«
-ÕÐ¡£³öÃÅµÄ±±Ãæ¾ÍÊÇ´óÌÃÁË£¬Ðí¶àÈË´ÓÕâÀïµÄÃÅÇ°½ø½ø³ö³ö£¬´óÌÃÉÏ³Ì
-´óÈËÕýÔÚÉýÌÃÎÊ°¸¡£
+è¿™é‡Œæ˜¯æ‰¬å·žåºœçš„ç­¾æŠ¼æˆ¿ï¼Œå¹³å¸¸æ•å¤´è¡™å½¹ä»¬éƒ½åœ¨è¿™é‡Œç­‰å€™ç¨‹å¤§äººçš„ä¼ 
+æ‹›ã€‚å‡ºé—¨çš„åŒ—é¢å°±æ˜¯å¤§å ‚äº†ï¼Œè®¸å¤šäººä»Žè¿™é‡Œçš„é—¨å‰è¿›è¿›å‡ºå‡ºï¼Œå¤§å ‚ä¸Šç¨‹
+å¤§äººæ­£åœ¨å‡å ‚é—®æ¡ˆã€‚
 LONG
 	);
 	set("exits", ([

@@ -5,16 +5,16 @@
 inherit ROOM;
 void create()
 {
-	set("short", "ÂÒÊ¯¶Ñ");
+	set("short", "ä¹±çŸ³å †");
 	set("long", @LONG
-ÕâÀïËÄÖÜËùÎ§È«ÊÇ¾ŞÊ¯£¬µØÉÏÆÌÂúÁËÁèÂÒµÄËéÊ¯×Ó£¬ÏóÊÇ±»ÈË»÷´ò
-¾ŞÊ¯Ëù´òÏÂÀ´µÄËé¿é¡£ÕıÖĞÒ»¿éÆ½»¬µÄÇàÊ¯°åÉÏ¶××ÅÒ»Ö»Ñ©°×µÄ¸òó¡¡£
+è¿™é‡Œå››å‘¨æ‰€å›´å…¨æ˜¯å·¨çŸ³ï¼Œåœ°ä¸Šé“ºæ»¡äº†å‡Œä¹±çš„ç¢çŸ³å­ï¼Œè±¡æ˜¯è¢«äººå‡»æ‰“
+å·¨çŸ³æ‰€æ‰“ä¸‹æ¥çš„ç¢å—ã€‚æ­£ä¸­ä¸€å—å¹³æ»‘çš„é’çŸ³æ¿ä¸Šè¹²ç€ä¸€åªé›ªç™½çš„è›¤èŸ†ã€‚
 LONG);	
 	set("objects", ([
 		__DIR__"npc/chanchu" : 1,
 	]));
 	set("item_desc", ([
-		"stone": "\nÕâĞ©¾ŞÊ¯¶¼ÓĞ°¼Ãæ£¬¿´µÃ³öÊÇ±»ÈËÄÃÀ´Á·ÕÆÁ¦ÓÃµÄ¡£\n",
+		"stone": "\nè¿™äº›å·¨çŸ³éƒ½æœ‰å‡¹é¢ï¼Œçœ‹å¾—å‡ºæ˜¯è¢«äººæ‹¿æ¥ç»ƒæŒåŠ›ç”¨çš„ã€‚\n",
 	]));
 	set("outdoors", "baituo");
 	set("coor/x", -49910);
@@ -29,11 +29,11 @@ void init()
 	if(me->query("id") != "xuanbing chanchu") 
 	if(me->query_skill("xidu-poison",1) < 50) 
 	{
-		message_vision(HIW"Ğş±ùó¸òÜÍ»È»×İÆğ£¬¶Ô×Å$NÒ»¿Ú¶¾ÆøÅç³ö£¡\n"NOR,this_player()); 
-		tell_object(me, HIB"Äã¸Ğµ½ÄÔÖĞÒ»ÕóĞıÔÎ£¬Á¢Ê±»èÁË¹ıÈ¥¡£\n" NOR );
+		message_vision(HIW"ç„å†°èŸ¾èœçªç„¶çºµèµ·ï¼Œå¯¹ç€$Nä¸€å£æ¯’æ°”å–·å‡ºï¼\n"NOR,this_player()); 
+		tell_object(me, HIB"ä½ æ„Ÿåˆ°è„‘ä¸­ä¸€é˜µæ—‹æ™•ï¼Œç«‹æ—¶æ˜äº†è¿‡å»ã€‚\n" NOR );
 		me->unconcious();
 		me->move(__DIR__"yuanzi5");
-		tell_room(environment(me),me->name()+"Í»È»´Ó¾ŞÊ¯Ö®ÉÏÖ±ÂäÏÂÀ´£¬¡®°È¡¯µÄÒ»ÉùË¤ÔÚµØÉÏ£¡\n", ({ me }));
+		tell_room(environment(me),me->name()+"çªç„¶ä»å·¨çŸ³ä¹‹ä¸Šç›´è½ä¸‹æ¥ï¼Œâ€˜å­â€™çš„ä¸€å£°æ‘”åœ¨åœ°ä¸Šï¼\n", ({ me }));
 		me->add("max_neili", -1);
 	}
 	add_action("do_climb", "climb");
@@ -48,10 +48,10 @@ int do_climb(string arg)
 	if( !arg || arg=="" ) return 0;
 	if (arg == "stone" )
 	{
-		message_vision("$NÊÖ½Å²¢ÓÃ£¬ÅÀÉÏÁË¾ŞÊ¯È¥¡£\n", me);
-		message_vision("$N·­ÉíÒ»×İ£¬ÒÑ¾­ÌøÁË³öÈ¥¡£\n", me);
+		message_vision("$Næ‰‹è„šå¹¶ç”¨ï¼Œçˆ¬ä¸Šäº†å·¨çŸ³å»ã€‚\n", me);
+		message_vision("$Nç¿»èº«ä¸€çºµï¼Œå·²ç»è·³äº†å‡ºå»ã€‚\n", me);
 		me->move(__DIR__"yuanzi5");
-		message("vision", me->name() + "´ÓÀïÃæÌøÁË³öÀ´¡£\n",environment(me), ({me}) );
+		message("vision", me->name() + "ä»é‡Œé¢è·³äº†å‡ºæ¥ã€‚\n",environment(me), ({me}) );
 		return 1;
 	}
 }
@@ -68,19 +68,19 @@ int do_strike(string arg)
 	if (arg == "stone" )
 	{
 		if(!me->query_skill("hamagong", 1))
-			return notify_fail("ÄãÓÃÊÖÖ¸ÍÆÁËÍÆ¾ŞÊ¯£¬Á³ÉÏÂ¶³öÒ»Ë¿ÄÑ¿°µÄÉñÉ«¡£\n");
+			return notify_fail("ä½ ç”¨æ‰‹æŒ‡æ¨äº†æ¨å·¨çŸ³ï¼Œè„¸ä¸Šéœ²å‡ºä¸€ä¸éš¾å ªçš„ç¥è‰²ã€‚\n");
 		if(me->query_skill("hamagong", 1) > 100)
-			return notify_fail("ÄãÒ»ÕÆÏò¾ŞÊ¯ÍÆÈ¥£¬Ö»ÌıºäµÄÒ»Éù£¬¾ŞÊ¯±»ÄãÕÆÁ¦Õğ³ÉÁ½°ë£¡\n");
+			return notify_fail("ä½ ä¸€æŒå‘å·¨çŸ³æ¨å»ï¼Œåªå¬è½°çš„ä¸€å£°ï¼Œå·¨çŸ³è¢«ä½ æŒåŠ›éœ‡æˆä¸¤åŠï¼\n");
 		cost = 300 / (int)me->query("int");
 		cost = 300 / (int)me->query("int");
 
 		if((int)me->query("qi") < cost || (int)me->query("jing") < cost)
 		{
-			message_vision("$NÓÃÁ¦¹ıÃÍ, Ò»²»ÁôÉñ¾¢Á¦·´µ¯£¬ÕğµÃ$NÔÎÁË¹ıÈ¥¡£\n",me);
+			message_vision("$Nç”¨åŠ›è¿‡çŒ›, ä¸€ä¸ç•™ç¥åŠ²åŠ›åå¼¹ï¼Œéœ‡å¾—$Næ™•äº†è¿‡å»ã€‚\n",me);
 			me->unconcious();
 			return 1;
 		} 
-		message_vision("$NÄ¬ËĞ¸òó¡¹¦¿Ú¾÷£¬ÔËÁ¦ÓÚË«ÕÆÖ®ÉÏ£¬Ò»ÕÆÕÆÏò¾ŞÊ¯ÍÆÈ¥¡£\n"NOR,this_player());
+		message_vision("$Né»˜è¯µè›¤èŸ†åŠŸå£è¯€ï¼Œè¿åŠ›äºåŒæŒä¹‹ä¸Šï¼Œä¸€æŒæŒå‘å·¨çŸ³æ¨å»ã€‚\n"NOR,this_player());
 		if ( lvl < 100 && lvl*lvl*lvl/10 < exp)
 			me->improve_skill("strike", improve/4); 
 		me->improve_skill("hamagong", improve);

@@ -4,12 +4,12 @@
 inherit ROOM;
 void create()
 {
-        set("short", "ºúÇìÓàÌÃ");
+        set("short", "èƒ¡åº†ä½™å ‚");
         set("long", @LONG
-ÕâÊÇÒ»¼ÒÃ÷¾»¿í³¨µÄÒ©ÌÃ£¬ááÇ½ÉÏÊÇÒ»¸ö´óÒ©¹ñ¡£¼¸¸ö»ï¼ÆÕýÃ¦
-×ÅÅÀÉÏÅÀÏÂµØ´ÓÐ¡³éÌëÀï×¥Ò©¡£Ò©¹ñÇ°°Ú×ÅÒ»ÕÅ×À×Ó£¬×ÀÅÔÒ»Î»ÀÏÕß
-ÕýÔÚÎªÈË°ÑÂö¡£Ëû¾ÍÊÇÃûÒ½ºúÇìÓà¡£
-    ¹ñÌ¨ÉÏ·½¸ß¹ÒÒ»¸ö´óÅÆ×Ó(paizi).
+è¿™æ˜¯ä¸€å®¶æ˜Žå‡€å®½æ•žçš„è¯å ‚ï¼Œå¾Œå¢™ä¸Šæ˜¯ä¸€ä¸ªå¤§è¯æŸœã€‚å‡ ä¸ªä¼™è®¡æ­£å¿™
+ç€çˆ¬ä¸Šçˆ¬ä¸‹åœ°ä»Žå°æŠ½å±‰é‡ŒæŠ“è¯ã€‚è¯æŸœå‰æ‘†ç€ä¸€å¼ æ¡Œå­ï¼Œæ¡Œæ—ä¸€ä½è€è€…
+æ­£åœ¨ä¸ºäººæŠŠè„‰ã€‚ä»–å°±æ˜¯ååŒ»èƒ¡åº†ä½™ã€‚
+    æŸœå°ä¸Šæ–¹é«˜æŒ‚ä¸€ä¸ªå¤§ç‰Œå­(paizi).
 LONG);
         set("exits", ([
             "west"      : __DIR__"road14",
@@ -22,9 +22,9 @@ LONG);
         set("item_desc", ([
             "paizi" :
 @TEXT
-        ±¾µêÌá¹©ÏÂÁÐ·þÎñ:
-    ÏÈ¸øºú´ó·òÎå°ÙÁ½»Æ½ð, È»ºó:
-    ¸ÄÃû:          name ÐÂÃû
+        æœ¬åº—æä¾›ä¸‹åˆ—æœåŠ¡:
+    å…ˆç»™èƒ¡å¤§å¤«äº”ç™¾ä¸¤é»„é‡‘, ç„¶åŽ:
+    æ”¹å:          name æ–°å
 TEXT]));
         set("no_clean_up", 0);
 	set("coor/x", 4150);

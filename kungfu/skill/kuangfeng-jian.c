@@ -1,4 +1,4 @@
-//kuangfeng-jian ¿ñ·ç¿ì½£
+//kuangfeng-jian ç‹‚é£å¿«å‰‘
 // Last Modified by sir 10.22.2001
 
 #include <ansi.h>
@@ -7,21 +7,21 @@ string type() { return "martial"; }
 string martialtype() { return "skill"; }
 
 mapping *action = ({
-([	"action" : "$N×İÉíÔ¾ÆğÊÖÖĞ$wÇá»Ó£¬Õ¶Ïò$nºó¾±",
+([	"action" : "$Nçºµèº«è·ƒèµ·æ‰‹ä¸­$wè½»æŒ¥ï¼Œæ–©å‘$nåé¢ˆ",
 	"lvl"    : 0,
-	"skill_name" : "·çÆ½ÀË¾²"
+	"skill_name" : "é£å¹³æµªé™"
 ]),
-([	"action" : "$NÊÖÖĞ$wÁ¬»°Èı¸ö»¡ĞÎ£¬Ïò$nµÄÓÒ±ÛÆë¼çÕ¶Âä",
+([	"action" : "$Næ‰‹ä¸­$wè¿è¯ä¸‰ä¸ªå¼§å½¢ï¼Œå‘$nçš„å³è‡‚é½è‚©æ–©è½",
 	"lvl"    : 20,
-	"skill_name" : "·çÆğÔÆÓ¿"
+	"skill_name" : "é£èµ·äº‘æ¶Œ"
 ]),
-([	"action" : "$NÇáÓõÒ»Éù£¬Ë¢Ë¢Ë¢Ë¢ËÄ½££¬Ïò$nĞØ£¬¸¹£¬Ñü£¬¼çËÄ´¦Á¬´Ì",
+([	"action" : "$Nè½»åä¸€å£°ï¼Œåˆ·åˆ·åˆ·åˆ·å››å‰‘ï¼Œå‘$nèƒ¸ï¼Œè…¹ï¼Œè…°ï¼Œè‚©å››å¤„è¿åˆº",
 	"lvl"    : 40,
-	"skill_name" : "·ç¾í²ĞÔÆ"
+	"skill_name" : "é£å·æ®‹äº‘"
 ]),
-([	"action" : "$NÑöÌìÒ»ÉùÇåĞ¥£¬Ğ±ĞĞÏòÇ°£¬$wºáÏ÷Ö±»÷£¬Ñ¸½İÎŞ±È£¬»÷Ïò$nµÄ$l",
+([	"action" : "$Nä»°å¤©ä¸€å£°æ¸…å•¸ï¼Œæ–œè¡Œå‘å‰ï¼Œ$wæ¨ªå‰Šç›´å‡»ï¼Œè¿…æ·æ— æ¯”ï¼Œå‡»å‘$nçš„$l",
 	"lvl"    : 60,
-	"skill_name" : "·çÁ÷ÔÆÉ¢"
+	"skill_name" : "é£æµäº‘æ•£"
 ]),
 });
 
@@ -32,13 +32,13 @@ int valid_learn(object me)
 	myfam = (mapping)me->query("family");
 
 	if ((int)me->query("max_neili") < 300)
-		return notify_fail("ÄãµÄÄÚÁ¦²»¹»¡£\n");
+		return notify_fail("ä½ çš„å†…åŠ›ä¸å¤Ÿã€‚\n");
 	if ((int)me->query_skill("huashan-neigong", 1) < 60)
-		return notify_fail("ÄãµÄÄÚ¹¦ĞÄ·¨»ğºòÌ«Ç³¡£\n");
+		return notify_fail("ä½ çš„å†…åŠŸå¿ƒæ³•ç«å€™å¤ªæµ…ã€‚\n");
 	if ((int)me->query_skill("dodge", 1) < 60)
-		return notify_fail("ÄãµÄÇá¹¦»ğºòÌ«Ç³¡£\n");
+		return notify_fail("ä½ çš„è½»åŠŸç«å€™å¤ªæµ…ã€‚\n");
 	if ((int)me->query_dex() < 25)
-		return notify_fail("ÄãµÄÉí·¨»¹²»¹»Áé»î¡£\n");
+		return notify_fail("ä½ çš„èº«æ³•è¿˜ä¸å¤Ÿçµæ´»ã€‚\n");
 	return 1;
 }
 
@@ -48,9 +48,9 @@ int practice_skill(object me)
 
 	if (!objectp(weapon = me->query_temp("weapon"))
 		|| (string)weapon->query("skill_type") != "sword")
-		return notify_fail("ÄãÊ¹ÓÃµÄÎäÆ÷²»¶Ô¡£\n");
+		return notify_fail("ä½ ä½¿ç”¨çš„æ­¦å™¨ä¸å¯¹ã€‚\n");
 	if( (int)me->query("qi") < 40 || (int)me->query("neili") < 30 )
-		return notify_fail("ÄãµÄÄÚÁ¦»òÆø²»¹»Á·¿ñ·ç¿ì½£¡£\n");
+		return notify_fail("ä½ çš„å†…åŠ›æˆ–æ°”ä¸å¤Ÿç»ƒç‹‚é£å¿«å‰‘ã€‚\n");
 	me->receive_damage("qi", 35);
 	me->add("neili", -20);
 	return 1;
@@ -79,17 +79,17 @@ mapping query_action(object me, object weapon)
 	for(i = ttl; i > 0; i--)
 		if(lvl > action[i-1]["lvl"])
 		{
-			seq = i; /* »ñµÃÕĞÊıĞòºÅÉÏÏŞ */
+			seq = i; /* è·å¾—æ‹›æ•°åºå·ä¸Šé™ */
 			break;
 		}
-	seq = random(seq);       /* Ñ¡Ôñ³öÊÖÕĞÊıĞòºÅ */
+	seq = random(seq);       /* é€‰æ‹©å‡ºæ‰‹æ‹›æ•°åºå· */
 	return ([
 		"action"      : action[seq]["action"],
 		"dodge"       : d_e1 + (d_e2 - d_e1) * seq / ttl,
 		"parry"       : p_e1 + (p_e2 - p_e1) * seq / ttl,
 		"force"       : f_e1 + (f_e2 - f_e1) * seq / ttl,
 		"damage"      : m_e1 + (m_e2 - m_e1) * seq / ttl,
-		"damage_type" : random(2) ? "¸îÉË" : "´ÌÉË",
+		"damage_type" : random(2) ? "å‰²ä¼¤" : "åˆºä¼¤",
 	]);
 }
 int learn_bonus() { return 20; }
@@ -103,20 +103,20 @@ string perform_action_file(string action)
 }
 int help(object me)
 {
-	write(HIC"\n¿ñ·ç¿ì½££º"NOR"\n");
+	write(HIC"\nç‹‚é£å¿«å‰‘ï¼š"NOR"\n");
 	write(@HELP
 
-    ¿ñ·ç¿ì½£Îª»ªÉ½½£×ÚµÄ½£·¨¡£
-    ÕâÌ×¡°¿ñ·ç¿ì½£¡±£¬ÊÇ·â²»Æ½ÔÚÖĞÌõÉ½Òş¾ÓÊ®ÎåÄê¶ø´´ÖÆ³öÀ´
-µÄµÃÒâ½£·¨£¬½£ÕĞÒ»½£¿ìËÆÒ»½£¡£ËûĞØ»³´óÖ¾£¬²»µ«ÒªÖ´ÕÆ»ªÉ½Ò»
-ÅÉ£¬»¹Ïë³ÉÁË»ªÉ½ÅÉÕÆÃÅÈËÖ®ºó£¬¸ü½ø¶øÎªÎåÔÀ½£ÅÉÃËÖ÷£¬ËùÆ¾³Ö
-µÄ±ãÊÇÕâÌ×Ò»°ÙÁã°ËÊ½¡°¿ñ·ç¿ì½£¡±¡£
+    ç‹‚é£å¿«å‰‘ä¸ºåå±±å‰‘å®—çš„å‰‘æ³•ã€‚
+    è¿™å¥—â€œç‹‚é£å¿«å‰‘â€ï¼Œæ˜¯å°ä¸å¹³åœ¨ä¸­æ¡å±±éšå±…åäº”å¹´è€Œåˆ›åˆ¶å‡ºæ¥
+çš„å¾—æ„å‰‘æ³•ï¼Œå‰‘æ‹›ä¸€å‰‘å¿«ä¼¼ä¸€å‰‘ã€‚ä»–èƒ¸æ€€å¤§å¿—ï¼Œä¸ä½†è¦æ‰§æŒåå±±ä¸€
+æ´¾ï¼Œè¿˜æƒ³æˆäº†åå±±æ´¾æŒé—¨äººä¹‹åï¼Œæ›´è¿›è€Œä¸ºäº”å²³å‰‘æ´¾ç›Ÿä¸»ï¼Œæ‰€å‡­æŒ
+çš„ä¾¿æ˜¯è¿™å¥—ä¸€ç™¾é›¶å…«å¼â€œç‹‚é£å¿«å‰‘â€ã€‚
 
-	Ñ§Ï°ÒªÇó£º
-		»ªÉ½ÄÚ¹¦60¼¶
-		»ù±¾Çá¹¦60¼¶
-		ºóÌìÉí·¨25ÒÔÉÏ
-		ÄÚÁ¦300
+	å­¦ä¹ è¦æ±‚ï¼š
+		åå±±å†…åŠŸ60çº§
+		åŸºæœ¬è½»åŠŸ60çº§
+		åå¤©èº«æ³•25ä»¥ä¸Š
+		å†…åŠ›300
 HELP
 	);
 	return 1;

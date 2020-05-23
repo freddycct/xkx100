@@ -3,12 +3,12 @@ inherit ITEM;
 
 void create()
 {
-	set_name(HIW "°×²Ë" NOR,({"baicai"}));
+	set_name(HIW "ç™½èœ" NOR,({"baicai"}));
 	set_weight(1000);
 	if( clonep() )
                 set_default_object(__FILE__);
         else {
-                set("long", "Ò»¿ğ°×²Ë¡£\n");
-                set("unit", "¿ğ");
+                set("long", "ä¸€ç­ç™½èœã€‚\n");
+                set("unit", "ç­");
         }
 }

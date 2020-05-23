@@ -4,10 +4,10 @@ inherit  ROOM;
 
 void  create  ()
 {
-	set("short",  "�յ�");
+	set("short",  "空地");
 	set("long",  @LONG
-������Ϫ��һ��ƽ̹�Ŀյء��յص����˴��û��ʲô��Ͼ��ֻ��
-��΢ƽ��һ�£�����Щ�̲ݡ�����ĳ����Ǿ����������ˣ��
+这里是溪边一块平坦的空地。空地的主人大概没有什么闲暇，只是
+略微平整一下，种了些绿草。村里的宠物们经常在这儿玩耍。
 LONG);
 	set("exits",  ([  /*  sizeof()  ==  2  */
 		"southwest"  :  __DIR__"fantexi",

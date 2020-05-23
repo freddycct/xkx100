@@ -4,17 +4,17 @@
 inherit ROOM;
 void create()
 {
-	set("short","Ä¹ÃÅ");
+	set("short","å¢“é—¨");
 	set("long", @LONG
-ÕâÊÇ¸öÒ»×ùºÀ»ªÄ¹µØµÄÄ¹ÃÅ¡£´óÀíÊ¯µñ»¨µÄÃÅÁº£¬ÇàÊ¯°åµÄÂ·Ãæ£¬
-ĞŞ¼ôÕûÆëµÄ³¤ÇàÄ¾£¬ÏÔµÃ×¯ÖØËàÄÂ¡£Ä¹ÃÅ±ßÁ¢×ÅÒ»¿éÇà°×É«Ê¯±®(bei)¡£
+è¿™æ˜¯ä¸ªä¸€åº§è±ªåå¢“åœ°çš„å¢“é—¨ã€‚å¤§ç†çŸ³é›•èŠ±çš„é—¨æ¢ï¼Œé’çŸ³æ¿çš„è·¯é¢ï¼Œ
+ä¿®å‰ªæ•´é½çš„é•¿é’æœ¨ï¼Œæ˜¾å¾—åº„é‡è‚ƒç©†ã€‚å¢“é—¨è¾¹ç«‹ç€ä¸€å—é’ç™½è‰²çŸ³ç¢‘(bei)ã€‚
 LONG	);
 	set("exits",([
 		"south"     : __DIR__"fendi",
 //		"northeast" : __DIR__"gongzhu",
 	]));
 	set("item_desc",([
-		"bei" : "   ¡º¹«Ö÷·Ø¡»  \nÎŞ¡¸½ğÁîÅÆ¡¹Õß½ûÈë£¡\n",
+		"bei" : "   ã€å…¬ä¸»åŸã€  \næ— ã€Œé‡‘ä»¤ç‰Œã€è€…ç¦å…¥ï¼\n",
 	]));
 	set("objects",([
 		__DIR__"npc/shiwei" : 1,
@@ -30,7 +30,7 @@ int valid_leave(object me, string dir)
 {
 	if (  (dir == "northeast") && (!present("jinpai",me)) &&
 		objectp(present("shi wei", environment(me))) )
-		return notify_fail("ÊËÎÀ°ÑÊÖÒ»À¹£ºÄãÃ»ÓĞ¡¸½ğÁîÅÆ¡¹£¬²»ÄÜ½øÈ¥£¡\n");
+		return notify_fail("ä»•å«æŠŠæ‰‹ä¸€æ‹¦ï¼šä½ æ²¡æœ‰ã€Œé‡‘ä»¤ç‰Œã€ï¼Œä¸èƒ½è¿›å»ï¼\n");
 	return ::valid_leave(me, dir);
 }
 

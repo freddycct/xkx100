@@ -3,11 +3,11 @@ inherit NPC;
 
 void create()
 {
-       set_name("ÄÏÉÙÁÖµÜ×Ó", ({ "nanshaolin dizi", "dizi" }) );
-       set("gender", "ÄÐÐÔ" );
+       set_name("å—å°‘æž—å¼Ÿå­", ({ "nanshaolin dizi", "dizi" }) );
+       set("gender", "ç”·æ€§" );
        set("age", 26);
        set("long",
-               "ËûÊÇÒ»¸öÉí²Ä¿ýÎàµÄ´óºÍÉÐ¡£\n");
+               "ä»–æ˜¯ä¸€ä¸ªèº«æé­æ¢§çš„å¤§å’Œå°šã€‚\n");
        set("combat_exp", 12500);
        set("attitude", "friendly");
  
@@ -31,14 +31,14 @@ void greeting(object ob)
 	if (!ob || !present(ob, environment())) return;
 	switch( random(3) ) {
 		case 0:
-			say( "ÄÏÉÙÁÖµÜ×ÓËµµÀ£ºÕâÎ»" + RANK_D->query_respect(ob)
-            + "Ïë¼ÓÈëÄÏÉÙÁÖÂð£¬¿ÉÒÔ¿´"BRED"(help nanshaolin)"NOR"¡£\n");
+			say( "å—å°‘æž—å¼Ÿå­è¯´é“ï¼šè¿™ä½" + RANK_D->query_respect(ob)
+            + "æƒ³åŠ å…¥å—å°‘æž—å—ï¼Œå¯ä»¥çœ‹"BRED"(help nanshaolin)"NOR"ã€‚\n");
 			break;
 		case 1:
-			say( "ÄÏÉÙÁÖµÜ×ÓËµµÀ£º¡¶Ò×½î¡·£¬¡¶Ï´Ëè¡·¶þ¾­ÏòÎªÉÙÁÖÕòËÂÖ®±¦£¬Ïà´«Îª´ïÄ¦×æÊ¦Ëù´´¡£\n");
+			say( "å—å°‘æž—å¼Ÿå­è¯´é“ï¼šã€Šæ˜“ç­‹ã€‹ï¼Œã€Šæ´—é«“ã€‹äºŒç»å‘ä¸ºå°‘æž—é•‡å¯ºä¹‹å®ï¼Œç›¸ä¼ ä¸ºè¾¾æ‘©ç¥–å¸ˆæ‰€åˆ›ã€‚\n");
 			break;
 		case 2:
-			say( "ÄÏÉÙÁÖµÜ×ÓËµµÀ£ºÄÏÉÙÁÖÎä¹¦²©´ó¾«Éî£¬ÄãÈçÄÜÑ§µÃÒ»¶þ£¬¾ÍÄÜ³öÈËÍ·µØÁË¡£\n");
+			say( "å—å°‘æž—å¼Ÿå­è¯´é“ï¼šå—å°‘æž—æ­¦åŠŸåšå¤§ç²¾æ·±ï¼Œä½ å¦‚èƒ½å­¦å¾—ä¸€äºŒï¼Œå°±èƒ½å‡ºäººå¤´åœ°äº†ã€‚\n");
 			break;
 	}
 

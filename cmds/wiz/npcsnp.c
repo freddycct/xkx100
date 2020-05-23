@@ -5,38 +5,38 @@ int main(object me, string arg)
         object ob,snpee;
         string snoopee;
         seteuid(getuid());
-        if( !arg ) return notify_fail("ÄãÒª¼àÌıË­?\n");
+        if( !arg ) return notify_fail("ä½ è¦ç›‘å¬è°?\n");
         if( arg == "none" )
         {
                 snoopee = me->query_temp("snoopee");
-                if( !snoopee ) return notify_fail("ÄãÃ»ÓĞ¼àÌıÈÎºÎÈË.\n");
+                if( !snoopee ) return notify_fail("ä½ æ²¡æœ‰ç›‘å¬ä»»ä½•äºº.\n");
                 snpee = find_player(snoopee);
                 if( !snpee )
                 snpee = find_living(snoopee);
-                if( !snpee ) return notify_fail("ÕÒ²»µ½ÄãËù¼àÌıµÄÈË.\n");
+                if( !snpee ) return notify_fail("æ‰¾ä¸åˆ°ä½ æ‰€ç›‘å¬çš„äºº.\n");
                 snpee->set_temp("is_snooped",0);
                 me->set_temp("snoopee",0);
-                return notify_fail("ÄãÏÖÔÚÍ£Ö¹¼àÌı"+snpee->name()+"ËùÊÕµ½µÄĞÅÏ¢\n");
+                return notify_fail("ä½ ç°åœ¨åœæ­¢ç›‘å¬"+snpee->name()+"æ‰€æ”¶åˆ°çš„ä¿¡æ¯\n");
         }
         if( me->query_temp("snoopee") )
-                return notify_fail("ÄãÒÑ¾­ÔÚ¼àÌıÖĞÁË.\n");
+                return notify_fail("ä½ å·²ç»åœ¨ç›‘å¬ä¸­äº†.\n");
         ob = find_player(arg);
         if( !ob )
                 ob = find_living(arg);
         if( !ob )
-                return notify_fail("ÕÒ²»µ½Õâ¸öÈË¡£\n");
+                return notify_fail("æ‰¾ä¸åˆ°è¿™ä¸ªäººã€‚\n");
         ob->set_temp("is_snooped",1);
         ob->set_temp("snooper",me->query("id"));
         me->set_temp("snoopee",ob->query("id"));
-        write("ÄãÏÖÔÚ¿ªÊ¼¼àÌı"+ob->name()+"ËùÊÕµ½µÄĞÅÏ¢.\n");
+        write("ä½ ç°åœ¨å¼€å§‹ç›‘å¬"+ob->name()+"æ‰€æ”¶åˆ°çš„ä¿¡æ¯.\n");
         return 1;
 }
 
 int help(object me)
 {
    write( @HELP
-Ö¸Áî¸ñÊ½: snp <someone> ¿ªÊ¼¼àÌı.
-        »ò snp none È¡Ïû¼àÌı.
+æŒ‡ä»¤æ ¼å¼: snp <someone> å¼€å§‹ç›‘å¬.
+        æˆ– snp none å–æ¶ˆç›‘å¬.
 HELP
    );
    return 1;

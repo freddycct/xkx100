@@ -1,14 +1,14 @@
-// Roon: chaoyangpath1.c ³¯Ñô·åĞ¡Â·
+// Roon: chaoyangpath1.c æœé˜³å³°å°è·¯
 //Date: Oct. 2 1997 by Venus
 
 inherit ROOM;
 
 void create()
 {
-	set("short","³¯Ñô·åĞ¡Â·");
+	set("short","æœé˜³å³°å°è·¯");
 	set("long",@LONG
-ÕâÀïÊÇ³¯Ñô·åĞ¡Â·£¬É½ÊÆ¶¸ÇÍ£¬Á½±ßÏÂÁÙÉî¹È£¬Ò»²»Ğ¡ĞÄ¶¼»áµôÁË
-ÏÂÈ¥¡£
+è¿™é‡Œæ˜¯æœé˜³å³°å°è·¯ï¼Œå±±åŠ¿é™¡å³­ï¼Œä¸¤è¾¹ä¸‹ä¸´æ·±è°·ï¼Œä¸€ä¸å°å¿ƒéƒ½ä¼šæ‰äº†
+ä¸‹å»ã€‚
 LONG);
 	set("outdoors", "huashan");
 	set("exits",([ /* sizeof() == 1 */

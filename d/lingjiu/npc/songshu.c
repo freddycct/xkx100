@@ -3,10 +3,10 @@ inherit NPC;
 
 void create()
 {
-	set_name("ËÉÊó", ({ "song shu", "shu" }) );
-	set("race", "×ßÊŞ");
+	set_name("æ¾é¼ ", ({ "song shu", "shu" }) );
+	set("race", "èµ°å…½");
 	set("age", 2);
-	set("long", "Ò»Ö»¿É°®µÄËÉÊó¡£\n");
+	set("long", "ä¸€åªå¯çˆ±çš„æ¾é¼ ã€‚\n");
 	set("attitude", "peaceful");
 	set("str", 15);
 	set("con", 16);

@@ -12,10 +12,10 @@ string* npcs = ({
  
 void create()
 {
-	set("short", "�յ�");
+	set("short", "空地");
 	set("long",@LONG
-����һƬ�����ҲݵĿյأ����ܶ�����ʯ���Ӳݴ����������Ǻ�ɽ
-ɽ·��������һ��С�ݣ�����������Ĺ�ľ�֣�������һƬ��ƺ��
+这是一片长满乱草的空地，四周都是乱石，杂草丛生。北边是后山
+山路，东边有一间小屋，南面是深深的灌木林，西面是一片草坪。
 LONG);
 	set("exits", ([
 		"west"    : __DIR__"caoping",

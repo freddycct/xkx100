@@ -7,12 +7,12 @@ inherit F_DEALER;
 
 void create()
 {
-	set_name("Â·ÈËÒÒ", ({ "hehehehe" }));
-	set("title", "Ğ¡··");
+	set_name("è·¯äººä¹™", ({ "hehehehe" }));
+	set("title", "å°è´©");
 	set("shen_type", 1);
 
-	set("gender", "ÄĞĞÔ" );
-	set("nickname", HIW"µçÊÓÌ¨ÈÈĞÄ¹ÛÖÚ"NOR);
+	set("gender", "ç”·æ€§" );
+	set("nickname", HIW"ç”µè§†å°çƒ­å¿ƒè§‚ä¼—"NOR);
 	set("age", 20);
 	set("per", 30);
 	set("attitude", "friendly");		

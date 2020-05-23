@@ -1,18 +1,18 @@
-// Obj: /d/lingxiao/obj/bottle.c »¨Æ¿
+// Obj: /d/lingxiao/obj/bottle.c èŠ±ç“¶
 // Last Modified by winder on Jul. 15 2001
 
 inherit ITEM;
 
 void create()
 {
-	set_name("»¨Æ¿", ({ "bottle", "hua ping", "bag" }));
+	set_name("èŠ±ç“¶", ({ "bottle", "hua ping", "bag" }));
 	set_weight(500);
 	set_max_encumbrance(10000);
 	if (clonep())
 		set_default_object(__FILE__);
 	else {
-		set("unit", "×ğ");
-		set("long","Ò»×ğÓÃÍòÄêº®ÓñËùÖÆµÄ»¨Æ¿£¬¾§Ó¨ÌŞÍ¸£¬¹â½àÎŞ±È£¬¼¸Ö¦Ã·»¨²åÔÚÀïÃæ£¬·¼ÏãËÄÒç¡£\n");
+		set("unit", "å°Š");
+		set("long","ä¸€å°Šç”¨ä¸‡å¹´å¯’ç‰æ‰€åˆ¶çš„èŠ±ç“¶ï¼Œæ™¶è¹å‰”é€ï¼Œå…‰æ´æ— æ¯”ï¼Œå‡ ææ¢…èŠ±æ’åœ¨é‡Œé¢ï¼ŒèŠ³é¦™å››æº¢ã€‚\n");
 		set("value", 0);
 	}
 }

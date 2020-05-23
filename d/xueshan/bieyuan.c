@@ -1,13 +1,13 @@
-//      bieyuan.c ѩɽ��Ժ
+//      bieyuan.c 雪山别院
 
 inherit ROOM;
 
 void create()
 {
-        set("short","ѩɽ��Ժ");
+        set("short","雪山别院");
         set("long",@LONG
-������ѩɽ�µķֲ������깱�Ʋִ����ﲻԶ���������ʥ������
-Ϊ��ʦ�����ڴ˴�����𷨡�
+这里是雪山寺的分部，当年贡唐仓大喇嘛不远万里进京面圣，被封
+为国师，就在此处宣扬佛法。
 LONG );
         set("exits",([
                 "east" : "/d/beijing/road5",

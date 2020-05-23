@@ -5,9 +5,9 @@ inherit NPC;
 
 void create()
 {
-	set_name("ãå½£ÆÁ", ({"mu jianping", "mu" }));
-	set("long","ËıÊÇãåÍõ¸®Ğ¡¿¤Ö÷£¬Á÷Âä½­ºş³ÉÁËÉñÁú½Ì³àÁúÃÅÅ®µÜ×Ó£¬³¤µÃÊ®·Ö½¿ĞßĞãÃÀ¡£\n");
-	set("gender", "Å®ĞÔ");
+	set_name("æ²å‰‘å±", ({"mu jianping", "mu" }));
+	set("long","å¥¹æ˜¯æ²ç‹åºœå°éƒ¡ä¸»ï¼Œæµè½æ±Ÿæ¹–æˆäº†ç¥é¾™æ•™èµ¤é¾™é—¨å¥³å¼Ÿå­ï¼Œé•¿å¾—ååˆ†å¨‡ç¾ç§€ç¾ã€‚\n");
+	set("gender", "å¥³æ€§");
 	set("attitude", "peaceful");
 
 	set("age", 14);
@@ -32,10 +32,10 @@ void create()
 	map_skill("hand","shenlong-bashi");
 	map_skill("sword","meiren-sanzhao");
 	prepare_skill("hand","shenlong-bashi");
-	set("party/party_name", HIY"ÉñÁú½Ì"NOR);
-	set("party/rank", HIR"³àÁúÃÅ"NOR"½ÌÖÚ");
+	set("party/party_name", HIY"ç¥é¾™æ•™"NOR);
+	set("party/rank", HIR"èµ¤é¾™é—¨"NOR"æ•™ä¼—");
 	set("party/level", 1);
-	create_family("ÉñÁú½Ì",3,"µÜ×Ó");
+	create_family("ç¥é¾™æ•™",3,"å¼Ÿå­");
 
 	setup();
 	carry_object(VEGETABLE_DIR"xionghuang");

@@ -8,10 +8,10 @@ int main(object me, string arg)
 	string str;
 	int i;
 
-	if( !arg ) return notify_fail("ÄãÒªÍÑµôÊ²Ã´£¿\n");
+	if( !arg ) return notify_fail("ä½ è¦è„±æ‰ä»€ä¹ˆï¼Ÿ\n");
 
 	if(me->query_temp("no_unwield",1))
-		return notify_fail("ÄãÏÖÔÚ²»ÄÜÍê³ÉÕâ¸ö¶¯×÷! \n");
+		return notify_fail("ä½ ç°åœ¨ä¸èƒ½å®Œæˆè¿™ä¸ªåŠ¨ä½œ! \n");
 
 	if( arg == "all" )
 	{
@@ -22,25 +22,25 @@ int main(object me, string arg)
 			if( inv[i]->unequip() ) 
 			{
 				if(!stringp(str = inv[i]->query("unwield_msg")))
-					str = "$N·ÅÏÂÊÖÖĞµÄ$n¡£\n";
+					str = "$Næ”¾ä¸‹æ‰‹ä¸­çš„$nã€‚\n";
 				message_vision(str, me, inv[i]);
 			}
 
 		}
-		write("ºÃÁË¡£\n");
+		write("å¥½äº†ã€‚\n");
 		return 1;
 	}
 
 	if( !objectp(ob = present(arg, me)) )
-		return notify_fail("ÄãÉíÉÏÃ»ÓĞÕâÑù¶«Î÷¡£\n");
+		return notify_fail("ä½ èº«ä¸Šæ²¡æœ‰è¿™æ ·ä¸œè¥¿ã€‚\n");
 
 	if( (string)ob->query("equipped")!="wielded" )
-		return notify_fail("Äã²¢Ã»ÓĞ×°±¸ÕâÑù¶«Î÷×÷ÎªÎäÆ÷¡£\n");
+		return notify_fail("ä½ å¹¶æ²¡æœ‰è£…å¤‡è¿™æ ·ä¸œè¥¿ä½œä¸ºæ­¦å™¨ã€‚\n");
 
 	if( ob->unequip() )
 	{
 		if( !stringp(str = ob->query("unwield_msg")) )
-			str = "$N·ÅÏÂÊÖÖĞµÄ$n¡£\n";
+			str = "$Næ”¾ä¸‹æ‰‹ä¸­çš„$nã€‚\n";
 		message_vision(str, me, ob);
 		return 1;
 	}
@@ -50,9 +50,9 @@ int main(object me, string arg)
 int help(object me)
 {
 	write(@HELP
-Ö¸Áî¸ñÊ½ : unwield <ÎïÆ·Ãû>
+æŒ‡ä»¤æ ¼å¼ : unwield <ç‰©å“å>
  
-    Õâ¸öÖ¸ÁîÈÃÄã·ÅÏÂÊÖÖĞµÄÎäÆ÷¡£
+    è¿™ä¸ªæŒ‡ä»¤è®©ä½ æ”¾ä¸‹æ‰‹ä¸­çš„æ­¦å™¨ã€‚
  
 HELP
 	);

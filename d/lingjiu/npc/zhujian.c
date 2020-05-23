@@ -5,12 +5,12 @@ inherit NPC;
 
 void create()
 {
-	set_name("Öñ½£", ({ "zhu jian", "zhu"}));
+	set_name("ç«¹å‰‘", ({ "zhu jian", "zhu"}));
 	set("long",
-		"ÕâÊÇ¸öÈİÃ²æ¯ºÃµÄÅ®×Ó£¬¹Ï×ÓÁ³µ°£¬ÑÛÈçµãÆá£¬ÇåĞã¾øË×¡£
-Äã×Ü¾õµÃÔÚÄÄ¼û¹ıËı¡£\n");
-	set("title", "ÁéğÕ¹¬µÚÈı´úµÜ×Ó");
-	set("gender", "Å®ĞÔ");
+		"è¿™æ˜¯ä¸ªå®¹è²Œå§£å¥½çš„å¥³å­ï¼Œç“œå­è„¸è›‹ï¼Œçœ¼å¦‚ç‚¹æ¼†ï¼Œæ¸…ç§€ç»ä¿—ã€‚
+ä½ æ€»è§‰å¾—åœ¨å“ªè§è¿‡å¥¹ã€‚\n");
+	set("title", "çµé¹«å®«ç¬¬ä¸‰ä»£å¼Ÿå­");
+	set("gender", "å¥³æ€§");
 	set("class", "dancer");
 	set("age", 18);
 	set("shen_type",1);
@@ -53,7 +53,7 @@ void create()
 	prepare_skill("strike","liuyang-zhang");
 	prepare_skill("hand", "zhemei-shou");
 
-	create_family("ÁéğÕ¹¬",3,"µÜ×Ó");
+	create_family("çµé¹«å®«",3,"å¼Ÿå­");
 	setup();
  	carry_object("/d/lingjiu/obj/qingyi")->wear();
 	carry_object("/d/lingjiu/obj/doupeng")->wear();

@@ -13,7 +13,7 @@ string zm_apply()
 	object ob = this_player();
 	if (ob->query("class") != "quanzhen")
 	{
-		return "±¾½ÌÀıÓÉÈ«ÕæµÀÊ¿ÕÆÃÅ£¡";
+		return "æœ¬æ•™ä¾‹ç”±å…¨çœŸé“å£«æŒé—¨ï¼";
 	}
 	return ::zm_apply();
 }

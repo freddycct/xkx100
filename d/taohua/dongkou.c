@@ -5,10 +5,10 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "����");
+	set("short", "洞口");
 	set("long", @LONG
-���һ������Ȼ��������ôһ���Ҷ����ɼ���������֮�ɡ��Ҷ���
-Χȫ���һ��������￴���ں�����ʲôҲ��������
+在桃花丛里居然安排了这么一个岩洞，可见岛主用心之巧。岩洞周
+围全是桃花，而向洞里看，黑乎乎地什么也看不见。
 LONG
 	);
 	set("exits", ([ 

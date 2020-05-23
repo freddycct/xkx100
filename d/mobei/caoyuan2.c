@@ -5,11 +5,11 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "�ɹŲ�ԭ");
+	set("short", "蒙古草原");
 	set("long", @LONG
-���������Į����ԭ����Ⱥ��ţ��İ����±��ܣ����ſ���������
-�˻��������еĳ��ޣ������Ĳ�ԭ���ϱ�ȥ�ǵ���ԭ�������ȥ������
-ľ���Ӫ�ʡ�
+广袤无垠的漠北草原，成群的牛羊的白云下奔跑，骑着骏马的游牧
+人挥舞着手中的长鞭，塞北的草原。南边去是到中原，北面过去就是铁
+木真的营帐。
 LONG);
 	set("no_clean_up", 0);
 	set("outdoors","mobei");

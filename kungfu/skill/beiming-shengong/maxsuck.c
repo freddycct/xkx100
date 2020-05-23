@@ -13,11 +13,11 @@ int exert(object me, object target)
   !me->query("perform/maxsuck") &&
   !me->query("can_perform/beiming-shengong/maxsuck") && 
   !me->query_temp("murong/xingyi"))
-   return notify_fail("ÄãËùÊ¹ÓÃµÄÄÚ¹¦ÖĞÃ»ÓĞÕâÖÖ¹¦ÄÜ¡£");
+   return notify_fail("ä½ æ‰€ä½¿ç”¨çš„å†…åŠŸä¸­æ²¡æœ‰è¿™ç§åŠŸèƒ½ã€‚");
 	if ( target == me ) target = offensive_target(me);
 
 	if( environment(me)->query("no_fight") )
-		return notify_fail("ÔÚÕâÀï²»ÄÜ¹¥»÷ËûÈË¡£\n");
+		return notify_fail("åœ¨è¿™é‡Œä¸èƒ½æ”»å‡»ä»–äººã€‚\n");
 
 	if( !objectp(target) ||
 		target->query("id") == "mu ren" ||
@@ -28,43 +28,43 @@ int exert(object me, object target)
 		target->query("id") == "jin ren" ||
 		target->query("id") == "gongping zi" ||
 		target->query("id") == "du jiangshi")
-		return notify_fail("ÄãÒªÎüÈ¡Ë­µÄµ¤Ôª£¿\n");
+		return notify_fail("ä½ è¦å¸å–è°çš„ä¸¹å…ƒï¼Ÿ\n");
 
-	notify_fail("²»ÊÇÄãÒª×¥µÄÈË£¬´ÕÊ²Ã´ÈÈÄÖ£¡\n");
+	notify_fail("ä¸æ˜¯ä½ è¦æŠ“çš„äººï¼Œå‡‘ä»€ä¹ˆçƒ­é—¹ï¼\n");
 	if (!userp(target) && !target->accept_hit(me)) return 0;
-	if (target->query("race") != "ÈËÀà")
-		return notify_fail("¸ã´íÁË£¡Ö»ÓĞÈË²ÅÄÜÓĞµ¤Ôª£¡\n");
+	if (target->query("race") != "äººç±»")
+		return notify_fail("æé”™äº†ï¼åªæœ‰äººæ‰èƒ½æœ‰ä¸¹å…ƒï¼\n");
        
 	my_max = me->query("max_neili");
 	tg_max = target->query("max_neili");
 
 	if ( me->query_temp("sucked") )
-		return notify_fail("Äã¸Õ¸ÕÎüÈ¡¹ıµ¤Ôª£¡\n");
+		return notify_fail("ä½ åˆšåˆšå¸å–è¿‡ä¸¹å…ƒï¼\n");
 
 	if( objectp(me->query_temp("weapon")) )
-		return notify_fail("Äã±ØĞë¿ÕÊÖ²ÅÄÜÊ©ÓÃ±±Ú¤Éñ¹¦ÎüÈËµ¤Ôª£¡\n");
+		return notify_fail("ä½ å¿…é¡»ç©ºæ‰‹æ‰èƒ½æ–½ç”¨åŒ—å†¥ç¥åŠŸå¸äººä¸¹å…ƒï¼\n");
 
 //	if( !me->is_fighting() || !target->is_fighting())
 
 	if( (int)me->query_skill("beiming-shengong",1) < 90 )
-		return notify_fail("ÄãµÄ±±Ú¤Éñ¹¦¹¦Á¦²»¹»£¬²»ÄÜÎüÈ¡¶Ô·½µÄµ¤Ôª£¡\n");
+		return notify_fail("ä½ çš„åŒ—å†¥ç¥åŠŸåŠŸåŠ›ä¸å¤Ÿï¼Œä¸èƒ½å¸å–å¯¹æ–¹çš„ä¸¹å…ƒï¼\n");
 
 	if( (int)me->query("neili") > 2*(int)me->query("max_neili")  )
-		return notify_fail(HIR "ÄãÖ»¾õëşÖĞÆøº£ËÆºõÒªÕÍÁÑ¿ªÒ»°ã£¬ĞÄÖĞÔïÈÈÄÑµ±Ö®¼«¡£\n"NOR);
+		return notify_fail(HIR "ä½ åªè§‰è†»ä¸­æ°”æµ·ä¼¼ä¹è¦èƒ€è£‚å¼€ä¸€èˆ¬ï¼Œå¿ƒä¸­ç‡¥çƒ­éš¾å½“ä¹‹æã€‚\n"NOR);
 
 	if( (int)me->query("neili") < 20 )
-		return notify_fail("ÄãµÄÄÚÁ¦²»¹»£¬²»ÄÜÊ¹ÓÃ±±Ú¤Éñ¹¦¡£\n");
+		return notify_fail("ä½ çš„å†…åŠ›ä¸å¤Ÿï¼Œä¸èƒ½ä½¿ç”¨åŒ—å†¥ç¥åŠŸã€‚\n");
 
 	if( (int)me->query_skill("force") < (int)me->query("max_neili") /10 )
-		return notify_fail("ÄãµÄÄÚ¹¦Ì«µÍÁË£¬ÔÙÎüÈ¡Ò²ÊÇÍ½ÀÍ¡£\n");
+		return notify_fail("ä½ çš„å†…åŠŸå¤ªä½äº†ï¼Œå†å¸å–ä¹Ÿæ˜¯å¾’åŠ³ã€‚\n");
 
 	if( (int)target->query("max_neili") < 100 )
-		return notify_fail( target->name() + "µ¤Ôª»ÁÉ¢£¬¹¦Á¦Î´¾Û£¬ÄãÎŞ·¨´ÓËûÌåÄÚÎüÈ¡ÈÎºÎ¶«Î÷£¡\n");
+		return notify_fail( target->name() + "ä¸¹å…ƒæ¶£æ•£ï¼ŒåŠŸåŠ›æœªèšï¼Œä½ æ— æ³•ä»ä»–ä½“å†…å¸å–ä»»ä½•ä¸œè¥¿ï¼\n");
 
 	if( (int)target->query("max_neili") < (int)me->query("max_neili")/10 )
-		return notify_fail( target->name() + "µÄÄÚ¹¦ĞŞÎªÔ¶²»ÈçÄã£¬ÄãÎŞ·¨´ÓËûÌåÄÚÎüÈ¡µ¤Ôª£¡\n");
+		return notify_fail( target->name() + "çš„å†…åŠŸä¿®ä¸ºè¿œä¸å¦‚ä½ ï¼Œä½ æ— æ³•ä»ä»–ä½“å†…å¸å–ä¸¹å…ƒï¼\n");
 
-	message_combatd(HIG"$NÈ«ÉíÒ»Õñ£¬Éì³öÓÒÊÖ£¬ÇáÇáÎÕÔÚ$nµÄÊÖ±ÛÉÏ¡£\n\n" NOR,me,target);
+	message_combatd(HIG"$Nå…¨èº«ä¸€æŒ¯ï¼Œä¼¸å‡ºå³æ‰‹ï¼Œè½»è½»æ¡åœ¨$nçš„æ‰‹è‡‚ä¸Šã€‚\n\n" NOR,me,target);
 
 	if ( living(target) && !target->query_temp("noliving") )
 	{
@@ -78,8 +78,8 @@ int exert(object me, object target)
 	if (( random(sp) > random(dp) ) ||
 		!living(target) || target->query_temp("noliving") )
 	{
-		tell_object(target, HIR"ÄãÖ»¾õÈ«Éí·¦Á¦£¬È«Éí¹¦Á¦ÈçÈÚÑ©°ãÏûÊ§µÃÎŞÓ°ÎŞ×Ù£¡\n" NOR);
-		tell_object(me, HIG"Äã¾õµÃ" + target->name() + "µÄµ¤Ôª×ÔÊÖÕÆÔ´Ô´²»¾øµØÁ÷ÁË½øÀ´¡£\n" NOR);
+		tell_object(target, HIR"ä½ åªè§‰å…¨èº«ä¹åŠ›ï¼Œå…¨èº«åŠŸåŠ›å¦‚èé›ªèˆ¬æ¶ˆå¤±å¾—æ— å½±æ— è¸ªï¼\n" NOR);
+		tell_object(me, HIG"ä½ è§‰å¾—" + target->name() + "çš„ä¸¹å…ƒè‡ªæ‰‹æŒæºæºä¸ç»åœ°æµäº†è¿›æ¥ã€‚\n" NOR);
 
 		target->add("max_neili",  -1*(1+(me->query_skill("beiming-shengong", 1)-90)/5) );
 		me->add("max_neili", 1*(1+(me->query_skill("beiming-shengong",1)-90)/5) );
@@ -97,7 +97,7 @@ int exert(object me, object target)
 	}
 	else
 	{	
-		message_combatd(HIY "¿ÉÊÇ$p¿´ÆÆÁË$PµÄÆóÍ¼£¬»úÁéµØÁïÁË¿ªÈ¥¡£\n" NOR, me, target);
+		message_combatd(HIY "å¯æ˜¯$pçœ‹ç ´äº†$Pçš„ä¼å›¾ï¼Œæœºçµåœ°æºœäº†å¼€å»ã€‚\n" NOR, me, target);
 		me->start_busy(7);
 		call_out("del_sucked", 20, me);
 	}
@@ -111,16 +111,16 @@ void del_sucked(object me)
 
 int help(object me)
 {
-	write(WHT"\n±±Ú¤Éñ¹¦Ö®ÎüÈ¡µ¤Ôª£º"NOR"\n");
+	write(WHT"\nåŒ—å†¥ç¥åŠŸä¹‹å¸å–ä¸¹å…ƒï¼š"NOR"\n");
 	write(@HELP
 
-	Ê¹ÓÃ¹¦Ğ§£º
-		ÎüÈ¡¶Ô·½µ¤Ôª
-		ÔöÇ¿×Ô¼ºÄÚÁ¦ÉÏÏŞ
+	ä½¿ç”¨åŠŸæ•ˆï¼š
+		å¸å–å¯¹æ–¹ä¸¹å…ƒ
+		å¢å¼ºè‡ªå·±å†…åŠ›ä¸Šé™
 
-	³öÊÖÒªÇó£º
-		±±Ú¤Éñ¹¦90¼¶
-		ÄÚÁ¦20
+	å‡ºæ‰‹è¦æ±‚ï¼š
+		åŒ—å†¥ç¥åŠŸ90çº§
+		å†…åŠ›20
 HELP
 	);
 	return 1;

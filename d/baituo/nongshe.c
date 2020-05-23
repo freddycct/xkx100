@@ -5,10 +5,10 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "ũ��");
+	set("short", "农舍");
 	set("long", @LONG
-������һ��Сũ�ᣬ�Ҿߺ��¡��ű߹��ų�������������¹���һ
-�������������ڱ��Ϲ��������ǹ���������˱Ƚϸ�ԣ��
+这里是一间小农舍，家具很新。门边挂着长庆对联，屋檐下挂着一
+串串辣椒。屋内壁上挂着犁和猎枪，看来主人比较富裕。
 LONG );
 	set("exits", ([
 		"west" : __DIR__"guangchang",

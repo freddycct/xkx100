@@ -5,11 +5,11 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "����");
+	set("short", "岸边");
 	set("long", @LONG
-���ɻ�ؿ������ܣ���������һ���ô�����ܳ������ҵĽ�ʯ�⣬
-ʲô��û�С������濴��һ��Сɽ�������������ͨ�������ұڵ���
-ɽ����
+你疑惑地看着四周，这里就是桃花岛么？四周除了凌乱的礁石外，
+什么都没有。往北面看，一座小山耸立在那里，可以通过攀爬岩壁到达
+山顶。
 LONG
 	);
 	set("exits", ([ /* sizeof() == 1 */

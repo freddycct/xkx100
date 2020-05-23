@@ -1,4 +1,4 @@
-// yinggu.c Áõçø¹Ã
+// yinggu.c åˆ˜ç‘›å§‘
 
 #include <ansi.h>
 
@@ -8,13 +8,13 @@ string ask_book();
 string ask_yideng();
 void create()
 {
-        set_name("Áõçø¹Ã", ({ "liu yinggu", "liu", "yinggu" }));
-        set("gender", "Å®ĞÔ");
-        set("nickname", CYN "ÉñËã×Ó" NOR ) ;
+        set_name("åˆ˜ç‘›å§‘", ({ "liu yinggu", "liu", "yinggu" }));
+        set("gender", "å¥³æ€§");
+        set("nickname", CYN "ç¥ç®—å­" NOR ) ;
         set("age", 42);
         set("long",
-        "µ«¼ûËı¶îÍ·Âú²¼ÖåÎÆ£¬Ãæ¼ÕÈ´ÈçÄıÖ¬£¬Ò»ÕÅÁ³ÒÔÑÛÎª½ç£¬ÉÏ
-°ëÀÏ£¬ÏÂ°ëÉÙ£¬È´ËÆÏà²îÁË¶şÊ®¶àËêÄê¼Í¡£\n",);
+        "ä½†è§å¥¹é¢å¤´æ»¡å¸ƒçš±çº¹ï¼Œé¢é¢Šå´å¦‚å‡è„‚ï¼Œä¸€å¼ è„¸ä»¥çœ¼ä¸ºç•Œï¼Œä¸Š
+åŠè€ï¼Œä¸‹åŠå°‘ï¼Œå´ä¼¼ç›¸å·®äº†äºŒåå¤šå²å¹´çºªã€‚\n",);
 
         set("combat_exp", 1000000);
         set("shen_type", 1);
@@ -33,9 +33,9 @@ void create()
         set_skill("sword", 120);
         set_skill("duanjia-sword",120);
         set_skill("dodge", 120);
-        set_skill("tiannan-step", 120);      //½ğÑã¹¦
+        set_skill("tiannan-step", 120);      //é‡‘é›åŠŸ
         set_skill("unarmed", 100);
-        set_skill("kongming-quan",100);     //¿ÕÃ÷È­
+        set_skill("kongming-quan",100);     //ç©ºæ˜æ‹³
         set_skill("parry", 120);
         set_skill("literate",80);
 
@@ -46,10 +46,10 @@ void create()
         map_skill("unarmed","kongming-quan");
 
         set("inquiry", ([
-                "ÖÜ²®Í¨"     : "Ëû¡¢Ëû¡¢¡¢ËûÔÚÄÄÀï£¡",
-                "¶ÎÖÇĞË"     : "Õâ¸öÀÏºÍÉĞ£¬Í÷³Æ´È±¯£¡\n",
-                "Ò»µÆ´óÊ¦"   : (: ask_yideng :),
-                "¾ÅÕÂËãÊõ"   : (: ask_book :),
+                "å‘¨ä¼¯é€š"     : "ä»–ã€ä»–ã€ã€ä»–åœ¨å“ªé‡Œï¼",
+                "æ®µæ™ºå…´"     : "è¿™ä¸ªè€å’Œå°šï¼Œæ‰ç§°æ…ˆæ‚²ï¼\n",
+                "ä¸€ç¯å¤§å¸ˆ"   : (: ask_yideng :),
+                "ä¹ç« ç®—æœ¯"   : (: ask_book :),
         ]) );
 	set("book_count", 1);
 	set("yideng_count", 1);
@@ -64,19 +64,19 @@ string ask_book()
 	object ob;
 
 	if ( (!(fam = this_player()->query("family")) ||
-		fam["family_name"] != "´óÀí¶Î¼Ò") ||
+		fam["family_name"] != "å¤§ç†æ®µå®¶") ||
 		(query("book_count") < 1) ) 
 		return RANK_D->query_respect(this_player()) + 
-		"ËµÊ²Ã´£¿ÎÒÊµÔÚ²»Ã÷°×¡£";
+		"è¯´ä»€ä¹ˆï¼Ÿæˆ‘å®åœ¨ä¸æ˜ç™½ã€‚";
 
 	if (this_player()->query_skill("literate",1) < 100)
 		return RANK_D->query_respect(this_player()) + 
-		"ÏëÒªÕâÊé£¿Äã»¹¶Á²»¶®ËüÄØ¡£";
+		"æƒ³è¦è¿™ä¹¦ï¼Ÿä½ è¿˜è¯»ä¸æ‡‚å®ƒå‘¢ã€‚";
 	add("book_count", -1);
 	ob = new("/clone/book/lbook4");
 	ob->move(this_player());
-	command("rumor "+this_player()->query("name")+"ÄÃµ½¾ÅÕÂËãÊõÀ²¡£\n");
-	return "ºÃ°É£¬Õâ±¾¡¸¾ÅÕÂËãÊõ¡¹ÄãÄÃ»ØÈ¥ºÃºÃ×êÑĞ¡£\n";
+	command("rumor "+this_player()->query("name")+"æ‹¿åˆ°ä¹ç« ç®—æœ¯å•¦ã€‚\n");
+	return "å¥½å§ï¼Œè¿™æœ¬ã€Œä¹ç« ç®—æœ¯ã€ä½ æ‹¿å›å»å¥½å¥½é’»ç ”ã€‚\n";
 }
 
 string ask_yideng()
@@ -86,7 +86,7 @@ string ask_yideng()
 	
 	if (query("yideng_count") < 1)
 		return RANK_D->query_respect(this_player()) + 
-		"ÏëËµÊ²Ã´£¿ÕÒÒ»µÆ´óÊ¦£¬ÄÇ¿É±ğÕÒÎÒ¡£";
+		"æƒ³è¯´ä»€ä¹ˆï¼Ÿæ‰¾ä¸€ç¯å¤§å¸ˆï¼Œé‚£å¯åˆ«æ‰¾æˆ‘ã€‚";
 	add("yideng_count", -1);
 	ob = new(__DIR__"obj/whiteobj");
 	ob->move(this_player());
@@ -94,5 +94,5 @@ string ask_yideng()
 	ob->move(this_player());
 	ob = new(__DIR__"obj/redobj");
 	ob->move(this_player());
-	return "ÄãÏë¼ûËû£¿ºÃ°É£¬ÕâÈı¸öÄÒ¶ù¸øÄã£¬ÓĞÔµÄã¾ÍÈ¥ÕÒËû°É¡£\n";
+	return "ä½ æƒ³è§ä»–ï¼Ÿå¥½å§ï¼Œè¿™ä¸‰ä¸ªå›Šå„¿ç»™ä½ ï¼Œæœ‰ç¼˜ä½ å°±å»æ‰¾ä»–å§ã€‚\n";
 }

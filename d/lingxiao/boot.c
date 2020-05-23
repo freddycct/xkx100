@@ -5,14 +5,14 @@
 inherit ROOM;
 void create()
 {
-	set("short","ɽ·");
+	set("short","山路");
 	set("long",@LONG
-������һ����ɽ��ɽ´��̧ͷ������ɽ�ϻ�ѩ���������չ���ӳ��
-��˸���ԡ�ɽ���ƺ���ã��ѩ�����������⽻���ڰ������ѩ֮�䣬��
-���ܿ�����һ������ɽ����·����һ��ľ��(sign)��
+这里是一座大山的山麓，抬头仰望，山上积雪皑皑，在日光下映得
+闪烁生辉。山上云海迷茫，雪峰林立，阳光交辉在白云与飞雪之间，隐
+隐能看见有一座城在山顶。路旁有一块木板(sign)。
 LONG ); 
 	set("item_desc", ([
-		"sign": HIG"���"+HIC"����"+HIW"һ��ë"NOR+"\n"
+		"sign": HIG"万古"+HIC"凌霄"+HIW"一羽毛"NOR+"\n"
 	]) );
 	set("exits",([
 		"southeast"  : "/d/xuedao/sroad3",

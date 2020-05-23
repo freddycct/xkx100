@@ -2,10 +2,10 @@
 inherit ROOM;
 void create()
 {
-	set("short","ɽ��");
+	set("short","山洞");
 	set("long",@LONG
-�ⶴ�������ģ���֪������ס��ʲô������ʿ��������ʲ
-ôɽ��ľ�֡��ǲ������������أ��������ò������⡣
+这洞里黑黝黝的，不知道里面住着什么武林异士，还是有什
+么山魈木怪。是不是再往里走呢？你心里拿不定主意。
 LONG
 	);
 	set("exits",([

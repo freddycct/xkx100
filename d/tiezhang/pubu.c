@@ -9,11 +9,11 @@ void init()
 }
 void create()
 {
-	set("short", HIC"ÆÙ²¼"NOR);
+	set("short", HIC"ç€‘å¸ƒ"NOR);
 	set("long", @LONG
-É½Â·ÐÐµ½ÕâÀï£¬ºöÌýÔ¶´¦´«À´ÒþÒþË®Éù£¬×ª¹ýÒ»µÀÉ½Áº£¬Ö»¼ûÒ»µÀ
-°×ÁúËÆµÄ´óÆÙ²¼´Ó¶ÔÃæË«·åÖ®¼ä±¼ÌÚ¶øÏÂ£¬¿ÕÉ½¼Å¼Å£¬ÄÇË®ÉùÔÚÉ½¹ÈÖÐ
-¼¤µ´»ØÏì£¬ÉùÊÆÉõÊÇ¾ªÈË¡£
+å±±è·¯è¡Œåˆ°è¿™é‡Œï¼Œå¿½å¬è¿œå¤„ä¼ æ¥éšéšæ°´å£°ï¼Œè½¬è¿‡ä¸€é“å±±æ¢ï¼Œåªè§ä¸€é“
+ç™½é¾™ä¼¼çš„å¤§ç€‘å¸ƒä»Žå¯¹é¢åŒå³°ä¹‹é—´å¥”è…¾è€Œä¸‹ï¼Œç©ºå±±å¯‚å¯‚ï¼Œé‚£æ°´å£°åœ¨å±±è°·ä¸­
+æ¿€è¡å›žå“ï¼Œå£°åŠ¿ç”šæ˜¯æƒŠäººã€‚
 LONG );
 	set("exits", ([ /* sizeof() == 2 */
 		"northup"  : __DIR__"xzfeng",
@@ -35,26 +35,26 @@ int lingwu(string arg)
 
 	if (!living(me)) return 0;
 	if (me->is_busy() || me->is_fighting())
-		 return notify_fail("ÄãÕýÃ¦×ÅÄØ¡£\n");
-//	if(!me->query("luohan_winner")) return notify_fail("Äã¼¶±ð²»¹»£¬²»ÄÜÔÚ´ËÁìÎò¡£\n");
-	if (!arg) return notify_fail("ÄãÒªÁìÎòÊ²Ã´£¿\n");
+		 return notify_fail("ä½ æ­£å¿™ç€å‘¢ã€‚\n");
+//	if(!me->query("luohan_winner")) return notify_fail("ä½ çº§åˆ«ä¸å¤Ÿï¼Œä¸èƒ½åœ¨æ­¤é¢†æ‚Ÿã€‚\n");
+	if (!arg) return notify_fail("ä½ è¦é¢†æ‚Ÿä»€ä¹ˆï¼Ÿ\n");
 	if (me->query_skill(arg,1) < 100)
-		return notify_fail("ÄãµÄ¸ù»ù²»¹»ÁìÎòÕâÖÖ¼¼ÄÜ¡£\n");
+		return notify_fail("ä½ çš„æ ¹åŸºä¸å¤Ÿé¢†æ‚Ÿè¿™ç§æŠ€èƒ½ã€‚\n");
 	if (me->query_skill(arg,1) > 150)
-		return notify_fail("ÄãÒÑ¾­²»ÄÜÔÚÕâÀïÁìÎòÕâÏî¼¼ÄÜÁË¡£\n");
+		return notify_fail("ä½ å·²ç»ä¸èƒ½åœ¨è¿™é‡Œé¢†æ‚Ÿè¿™é¡¹æŠ€èƒ½äº†ã€‚\n");
 	if (!(special=me->query_skill_mapped(arg)))
-		return notify_fail("ÄãÖ»ÄÜ´ÓÌØÊâ¼¼ÄÜÖÐÁìÎò»ù±¾¼¼ÄÜ¡£\n");
+		return notify_fail("ä½ åªèƒ½ä»Žç‰¹æ®ŠæŠ€èƒ½ä¸­é¢†æ‚ŸåŸºæœ¬æŠ€èƒ½ã€‚\n");
 	bl=me->query_skill(arg,1);
 	if (bl > me->query("jing") ||
 		me->query("jing")*100/me->query("max_jing") < 20)
 	{
 		me->receive_damage("jing",bl/2);
-		return notify_fail("ÄãÃ»°ì·¨¼¯ÖÐ¾«Éñ¡£\n");
+		return notify_fail("ä½ æ²¡åŠžæ³•é›†ä¸­ç²¾ç¥žã€‚\n");
 	}
 	sl=me->query_skill(special,1);
 	if (bl > sl)
-		return notify_fail("ÄãµÄ"+ to_chinese(special)+"ÔìÒè²»¹»£¬ÎÞ·¨ÁìÎò¸üÉîÒ»²ãµÄ"+CHINESE_D->chinese(arg)+"¡£\n");
-	write("Äãî¨Ë¼¿àÏë£¬¶Ô"+to_chinese(arg)+"µÄÌå»áÓÖÉîÁËÒ»²ã¡£\n");
+		return notify_fail("ä½ çš„"+ to_chinese(special)+"é€ è¯£ä¸å¤Ÿï¼Œæ— æ³•é¢†æ‚Ÿæ›´æ·±ä¸€å±‚çš„"+CHINESE_D->chinese(arg)+"ã€‚\n");
+	write("ä½ çž‘æ€è‹¦æƒ³ï¼Œå¯¹"+to_chinese(arg)+"çš„ä½“ä¼šåˆæ·±äº†ä¸€å±‚ã€‚\n");
 	me->receive_damage("jing",bl/3);
 	me->improve_skill(arg,sl/5+1);
 	return 1;

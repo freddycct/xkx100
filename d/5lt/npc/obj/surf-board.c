@@ -5,16 +5,16 @@ inherit DAGGER;
 
 void create()
 {
-	set_name("³åÀË°å", ({"surf board", "board"}));
+	set_name("å†²æµªæ¿", ({"surf board", "board"}));
 	set_weight(800);
 	if( clonep() )
 		set_default_object(__FILE__);
 	else {
-		set("unit", "Ë«");
+		set("unit", "åŒ");
 		set("value", 100);
                 set("material", "steel");
-                set("wield_msg", "$N¡¸à§¡¹µÄÒ»Éù´Ó»³ÖĞÌÍ³öÒ»Ö»$nÎÕÔÚÊÖÖĞ¡£\n");
-                set("unwield_msg", "$N½«ÊÖÖĞµÄ$n´§»Ø»³Àï¡£\n");
+                set("wield_msg", "$Nã€Œå”°ã€çš„ä¸€å£°ä»æ€€ä¸­æå‡ºä¸€åª$næ¡åœ¨æ‰‹ä¸­ã€‚\n");
+                set("unwield_msg", "$Nå°†æ‰‹ä¸­çš„$næ£å›æ€€é‡Œã€‚\n");
         }
         init_dagger(50);
         setup();

@@ -4,10 +4,10 @@ inherit NPC;
 
 void create()
 {
-	set_name("ÀÇ", ({ "wolf2", "lang" }) );
-	set("race", "×ßÊŞ");
+	set_name("ç‹¼", ({ "wolf2", "lang" }) );
+	set("race", "èµ°å…½");
 	set("age", 5);
-	set("long", "Ò»Æ¥°ºÊ×Ö±Á¢£¬Á½ÑÛ·Å×ÅÂÌ¹âµÄÀÇ¡£\n");
+	set("long", "ä¸€åŒ¹æ˜‚é¦–ç›´ç«‹ï¼Œä¸¤çœ¼æ”¾ç€ç»¿å…‰çš„ç‹¼ã€‚\n");
 	set("attitude", "aggressive");
 
 	set("str", 26);

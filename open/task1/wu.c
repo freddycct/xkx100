@@ -1,13 +1,13 @@
-// wu.c ÎâÁùÆÆ
+// wu.c å´å…­ç ´
  
 inherit NPC;
  
 void create()
 {
-	set_name("ÎâÁùÆÆ", ({ "wu  liupo", "wu" }));
-	set("nickname", "Éñ¼ı°ËĞÛ");
-	set("long","Ô­ÊÇÎäÁÖÖĞµÄ¾Ş¿Ü£¬ºóÀ´Îª¶ã±Ü¹Ù¸®ºÍ³ğ¼Ò£¬Ëæ±ãÆğÁË¸ö¼ÙÃû×Ö¡£\n");
-	set("gender", "ÄĞĞÔ");
+	set_name("å´å…­ç ´", ({ "wu  liupo", "wu" }));
+	set("nickname", "ç¥ç®­å…«é›„");
+	set("long","åŸæ˜¯æ­¦æ—ä¸­çš„å·¨å¯‡ï¼Œåæ¥ä¸ºèº²é¿å®˜åºœå’Œä»‡å®¶ï¼Œéšä¾¿èµ·äº†ä¸ªå‡åå­—ã€‚\n");
+	set("gender", "ç”·æ€§");
 	set("age", 36);
 	set("attitude", "peaceful");
 	set("str", 28);

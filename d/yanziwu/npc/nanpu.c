@@ -4,8 +4,8 @@ inherit NPC;
 
 void create()
 {
-	set_name("ÄĞÆÍ", ({ "nan pu", "pu" }));
-	set("gender", "ÄĞĞÔ");
+	set_name("ç”·ä»†", ({ "nan pu", "pu" }));
+	set("gender", "ç”·æ€§");
 	set("age", 25);
 
 	set("combat_exp", 4000);
@@ -14,7 +14,7 @@ void create()
 	set_temp("apply/attack",  10);
 	set_temp("apply/defense", 10);
 	set("shen_type", -1);
-	create_family("¹ÃËÕÄ½Èİ", 34, "µÜ×Ó");
+	create_family("å§‘è‹æ…•å®¹", 34, "å¼Ÿå­");
 	setup();
 
 	add_money("silver",3);

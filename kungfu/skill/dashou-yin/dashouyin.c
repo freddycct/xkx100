@@ -1,11 +1,11 @@
-// dashouyin.c ¥Û ÷”°
+// dashouyin.c Â§ßÊâãÂç∞
 // Last Modified by winder on Feb. 17 2001
 
 #include <ansi.h>
 #include <combat.h>
 #include "/kungfu/skill/eff_msg.h";
 inherit F_SSERVER;
-#define PNAME "°∏¥Û ÷”°°π"
+#define PNAME "„ÄåÂ§ßÊâãÂç∞„Äç"
 int perform(object me, object target)
 {
 	string msg, dodge_skill;					  
@@ -22,17 +22,17 @@ int perform(object me, object target)
    !me->query("can_perform/"+sskill+"/"+pfname) &&
    !me->query_temp("murong/xingyi") &&
    !SCBORN_D->valid_perform(me,sskill,pfname) )
-   return notify_fail("ƒ„À˘ π”√µƒÕ‚π¶÷–√ª”–’‚÷÷π¶ƒ‹°£\n");
+   return notify_fail("‰Ω†ÊâÄ‰ΩøÁî®ÁöÑÂ§ñÂäü‰∏≠Ê≤°ÊúâËøôÁßçÂäüËÉΩ„ÄÇ\n");
 
 	if( !objectp(target) ) {flag =1;target = offensive_target(me);}
 	
 	if( !target || !target->is_character() || target == me ||	
 	  	!me->is_fighting(target) ||
   	!living(target) || target->query_temp("noliving") )
-		return notify_fail(PNAME"÷ªƒ‹∂‘’Ω∂∑÷–µƒ∂‘ ÷ π”√°£\n");
+		return notify_fail(PNAME"Âè™ËÉΩÂØπÊàòÊñó‰∏≠ÁöÑÂØπÊâã‰ΩøÁî®„ÄÇ\n");
 		
 	if( objectp(me->query_temp("weapon")) )
-		return notify_fail("ƒ„±ÿ–Îø’ ÷ π”√°∏¥Û ÷”°°π£°\n");
+		return notify_fail("‰Ω†ÂøÖÈ°ªÁ©∫Êâã‰ΩøÁî®„ÄåÂ§ßÊâãÂç∞„ÄçÔºÅ\n");
 
 	fskill = "longxiang";
 	bskill = "hand";
@@ -45,27 +45,27 @@ int perform(object me, object target)
 		bskill = "parry";
 	}
 	if( (int)me->query_skill(fskill, 1) < 120 )
-		return notify_fail("ƒ„µƒ"+to_chinese(fskill)+"µ»º∂≤ªπª£¨≤ªƒ‹ π”√"+PNAME+"°£\n");
+		return notify_fail("‰Ω†ÁöÑ"+to_chinese(fskill)+"Á≠âÁ∫ß‰∏çÂ§üÔºå‰∏çËÉΩ‰ΩøÁî®"+PNAME+"„ÄÇ\n");
 	if( (int)me->query_skill(sskill, 1) < 120 )
-		return notify_fail("ƒ„µƒ"+to_chinese(sskill)+"ªπ≤ªπªÊµ Ï£¨Œﬁ∑® π”√"+PNAME+"°£\n");
+		return notify_fail("‰Ω†ÁöÑ"+to_chinese(sskill)+"Ëøò‰∏çÂ§üÂ®¥ÁÜüÔºåÊó†Ê≥ï‰ΩøÁî®"+PNAME+"„ÄÇ\n");
 	if( (int)me->query_skill(bskill, 1) < 120 )
-		return notify_fail("ƒ„µƒ"+to_chinese(bskill)+"≤ªπªÊµ Ï£¨≤ªª· π”√"+PNAME+"°£\n");
+		return notify_fail("‰Ω†ÁöÑ"+to_chinese(bskill)+"‰∏çÂ§üÂ®¥ÁÜüÔºå‰∏ç‰ºö‰ΩøÁî®"+PNAME+"„ÄÇ\n");
 
 	if( !me->query_temp("murong/xingyi") )
 	{
 		if (me->query_skill_prepared("hand") != "dashou-yin" ||
 			me->query_skill_mapped("hand") != "dashou-yin" ||
 			me->query_skill_mapped("parry") != "dashou-yin")
-			return notify_fail("ƒ„±ÿ–Î”√ª˘±æ ÷∑®∫Õª˘±æ’–º‹º§∑¢¥Û ÷”°£°\n");
+			return notify_fail("‰Ω†ÂøÖÈ°ªÁî®Âü∫Êú¨ÊâãÊ≥ïÂíåÂü∫Êú¨ÊãõÊû∂ÊøÄÂèëÂ§ßÊâãÂç∞ÔºÅ\n");
 	}
 	if( (int)me->query_str() < 35 )
-		return notify_fail("ƒ„µƒÎˆ¡¶≤ªπª«ø£¨≤ªƒ‹ π”√"PNAME"£°\n");
+		return notify_fail("‰Ω†ÁöÑËÜÇÂäõ‰∏çÂ§üÂº∫Ôºå‰∏çËÉΩ‰ΩøÁî®"PNAME"ÔºÅ\n");
 	if( (int)me->query("max_neili") < 1200 )
-		return notify_fail("ƒ„µƒƒ⁄¡¶–ﬁŒ™Ã´»ı£¨≤ªƒ‹ π”√"PNAME"£°\n");
+		return notify_fail("‰Ω†ÁöÑÂÜÖÂäõ‰øÆ‰∏∫Â§™Âº±Ôºå‰∏çËÉΩ‰ΩøÁî®"PNAME"ÔºÅ\n");
 	if( (int)me->query("neili") < 800 )
-		return notify_fail("ƒ„µƒƒ⁄¡¶Ã´…Ÿ¡À£¨Œﬁ∑® π”√≥ˆ"PNAME"£°\n");
+		return notify_fail("‰Ω†ÁöÑÂÜÖÂäõÂ§™Â∞ë‰∫ÜÔºåÊó†Ê≥ï‰ΩøÁî®Âá∫"PNAME"ÔºÅ\n");
 	if( (int)target->query_condition("dashouyin"))
-		return notify_fail("∂‘∑Ω‘Á“—…Ì÷–"PNAME"æ¯ºº¡À£°\n");   
+		return notify_fail("ÂØπÊñπÊó©Â∑≤Ë∫´‰∏≠"PNAME"ÁªùÊäÄ‰∫ÜÔºÅ\n");   
 	
 
 	jiali = me->query("jiali")+1;
@@ -80,7 +80,7 @@ int perform(object me, object target)
 	damage = me->query_skill(bskill, 1)/40 * jiali;
 	if(damage > 1500) damage = 1500;
 	
-	message_combatd(BLU"\n$N"BLU"Õª»ª√Ê…´π÷“Ï£¨µÕ…˘ƒ¨ƒÓ√‹◊⁄’Ê—‘£¨À´±€π«Ω⁄“ª’Û±¨œÏ£¨\n√Õ»ªÃ⁄ø’∂¯∆£¨…Ï ÷œÚ$n"BLU"–ÿ«∞∞¥»•£¨∫√“ª Ω√‹◊⁄°∏¥Û ÷”°°π£°\n"NOR,me,target);
+	message_combatd(BLU"\n$N"BLU"Á™ÅÁÑ∂Èù¢Ëâ≤ÊÄ™ÂºÇÔºå‰ΩéÂ£∞ÈªòÂøµÂØÜÂÆóÁúüË®ÄÔºåÂèåËáÇÈ™®ËäÇ‰∏ÄÈòµÁàÜÂìçÔºå\nÁåõÁÑ∂ËÖæÁ©∫ËÄåËµ∑Ôºå‰º∏ÊâãÂêë$n"BLU"ËÉ∏ÂâçÊåâÂéªÔºåÂ•Ω‰∏ÄÂºèÂØÜÂÆó„ÄåÂ§ßÊâãÂç∞„ÄçÔºÅ\n"NOR,me,target);
  
 	if( attack > defense )
 	{ 
@@ -88,21 +88,21 @@ int perform(object me, object target)
 			armor->query("armor_prop/armor") < 200 &&
 			damage > 500)
 		{
-			message_combatd( HIY"÷ªº˚’‚∂∑¥Ûµƒ ÷”°’˝∫√”°‘⁄$Nµƒ$n"HIY"…œ£¨‘Ω±‰‘Ω¥Û£¨æπΩ´À¸’µ√∑€ÀÈ£¨¡—≥…“ªøÈøÈµÙ‘⁄µÿ…œ£°\n"NOR, target, armor);
+			message_combatd( HIY"Âè™ËßÅËøôÊñóÂ§ßÁöÑÊâãÂç∞Ê≠£Â•ΩÂç∞Âú®$NÁöÑ$n"HIY"‰∏äÔºåË∂äÂèòË∂äÂ§ßÔºåÁ´üÂ∞ÜÂÆÉÈúáÂæóÁ≤âÁ¢éÔºåË£ÇÊàê‰∏ÄÂùóÂùóÊéâÂú®Âú∞‰∏äÔºÅ\n"NOR, target, armor);
 			armor->unequip();
       seteuid(getuid());
       piece = new("/clone/misc/piece");
-      piece->set_name( "∆∆ÀÈµƒ"+armor->query("name"), ({armor->query("id"),"piece"}) );
+      piece->set_name( "Á†¥Á¢éÁöÑ"+armor->query("name"), ({armor->query("id"),"piece"}) );
       piece->move(environment(target));
       destruct(armor);
 			target->reset_action();
 		}
-		tell_object(target, RED"ƒ„÷ªæıµ√ªÙµƒ–ÿø⁄“ª’ÛæÁÕ¥£¨“—æ≠±ª≈ƒ÷–¡À«∞–ÿ£°\n"NOR);
+		tell_object(target, RED"‰Ω†Âè™ËßâÂæóÈúçÁöÑËÉ∏Âè£‰∏ÄÈòµÂâßÁóõÔºåÂ∑≤ÁªèË¢´Êãç‰∏≠‰∫ÜÂâçËÉ∏ÔºÅ\n"NOR);
 		target->apply_condition("dashouyin", 1+(me->query_str()/8));
 		target->receive_damage("qi", damage,  me); 
 		target->receive_wound("qi", damage/4, me);
 		p = (int)target->query("qi")*100/(int)target->query("max_qi");
-		msg = damage_msg(damage, "ƒ⁄…À");
+		msg = damage_msg(damage, "ÂÜÖ‰º§");
 		msg += "( $n"+eff_status_msg(p)+" )\n";
 		message_combatd(msg, me, target);
 		me->add("neili", -jiali);
@@ -117,24 +117,24 @@ int perform(object me, object target)
 	me->start_busy(2+random(2));		
 	return 1;
 }
-string name() {return replace_string(replace_string(PNAME,"°∏",""),"°π","");}
+string name() {return replace_string(replace_string(PNAME,"„Äå",""),"„Äç","");}
 
 int help(object me)
 {
-	write(WHT"\n"+to_chinese(explode(__FILE__,"/")[<2])+"÷Æ"+name()+WHT"£∫"NOR"\n");
+	write(WHT"\n"+to_chinese(explode(__FILE__,"/")[<2])+"‰πã"+name()+WHT"Ôºö"NOR"\n");
         write(@HELP
 
-	 π”√π¶–ß£∫
-		À∫¶∂‘ ÷æ´∆¯∫Õ∆¯—™
-		÷¬∂‘ ÷¥Û ÷”°∂æ
+	‰ΩøÁî®ÂäüÊïàÔºö
+		ÊçüÂÆ≥ÂØπÊâãÁ≤æÊ∞îÂíåÊ∞îË°Ä
+		Ëá¥ÂØπÊâãÂ§ßÊâãÂç∞ÊØí
 
-	≥ˆ ÷“™«Û£∫
-		¡˙œÛ∞„»Ùπ¶120º∂
-		√‹◊⁄¥Û ÷”°120º∂
-		ª˘±æ ÷∑®120º∂
-		∫ÛÃÏÎˆ¡¶35
-		ƒ⁄¡¶800
-		ƒ⁄¡¶–ﬁŒ™1200
+	Âá∫ÊâãË¶ÅÊ±ÇÔºö
+		ÈæôË±°Ëà¨Ëã•Âäü120Á∫ß
+		ÂØÜÂÆóÂ§ßÊâãÂç∞120Á∫ß
+		Âü∫Êú¨ÊâãÊ≥ï120Á∫ß
+		ÂêéÂ§©ËÜÇÂäõ35
+		ÂÜÖÂäõ800
+		ÂÜÖÂäõ‰øÆ‰∏∫1200
 HELP
         );
         return 1;

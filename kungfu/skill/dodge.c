@@ -1,4 +1,4 @@
-// dodge.c �����Ṧ
+// dodge.c 基本轻功
 // Last Modified by winder on Mar. 10 2000
 
 #include <ansi.h>
@@ -12,11 +12,11 @@ int success() { return 30; }
 int power_point(object me) { return 1; }
 
 string *dodge_msg = ({
-	"���Ǻ�$p$lƫ�˼��硣\n",
-	"���Ǳ�$p����ض㿪�ˡ�\n",
-	"����$n����һ�࣬���˿�ȥ��\n",
-	"���Ǳ�$p��ʱ�ܿ���\n",
-	"����$n����׼�������Ų�æ�Ķ㿪��\n",
+	"但是和$p$l偏了几寸。\n",
+	"但是被$p机灵地躲开了。\n",
+	"但是$n身子一侧，闪了开去。\n",
+	"但是被$p及时避开。\n",
+	"但是$n已有准备，不慌不忙的躲开。\n",
 });
 
 string query_dodge_msg()
@@ -25,15 +25,15 @@ string query_dodge_msg()
 }
 int help(object me)
 {
-	write(HIC"\n�����Ṧ��"NOR"\n");
+	write(HIC"\n基本轻功："NOR"\n");
 	write(@HELP
 
-    �Ṧ���似�Ļ����������ܸ���������������
-    �Ṧ�ߵ�һ���̶ȿ������׶ɺ�(cross)����ϰһЩ�ر���Ṧ
-����Ϊ���״ﵽ����������
+    轻功类武技的基本功，并能改善你后天的身法。
+    轻功高到一定程度可以轻易渡河(cross)，练习一些特别的轻功
+将更为容易达到过河条件。
 
-	ѧϰҪ��
-		��
+	学习要求：
+		无
 HELP
 	);
 	return 1;

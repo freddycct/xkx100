@@ -10,14 +10,14 @@ string ask_me();
 
 void create()
 {
-	set_name("·¶Ò£", ({"fan yao","fan","yao",}));
+	set_name("èŒƒé¥", ({"fan yao","fan","yao",}));
 	set("long",
-		"ËûÊÇÒ»Î»´ø·¢ĞŞĞĞµÄÍ·ÍÓ£¬Éí´©°×²¼³¤ÅÛ¡£\n"
-		"ËûµÄÁ³ÉÏÆßÆß°Ë°ËµÄÈ«ÊÇÉË°Ì£¬¼òÖ±¿´²»³ö±¾À´ÃæÄ¿ÁË¡£\n"
+		"ä»–æ˜¯ä¸€ä½å¸¦å‘ä¿®è¡Œçš„å¤´é™€ï¼Œèº«ç©¿ç™½å¸ƒé•¿è¢ã€‚\n"
+		"ä»–çš„è„¸ä¸Šä¸ƒä¸ƒå…«å…«çš„å…¨æ˜¯ä¼¤ç–¤ï¼Œç®€ç›´çœ‹ä¸å‡ºæœ¬æ¥é¢ç›®äº†ã€‚\n"
 	);
 
-	set("nickname", HIY "åĞÒ£¶şÏÉ" NOR);
-	set("gender", "ÄĞĞÔ");
+	set("nickname", HIY "é€é¥äºŒä»™" NOR);
+	set("gender", "ç”·æ€§");
 	set("attitude", "peaceful");
 	set("class", "bonze");
 
@@ -65,9 +65,9 @@ void create()
 	prepare_skill("claw", "sougu");
 
 	set("inquiry", ([
-		"¹âÃ÷Ê¥»ğÕó" : (: ask_me :),
-		"Ã÷½ÌÊ¥»ğÕó" : (: ask_me :),
-		"Ê¥»ğÕó"     : (: ask_me :)
+		"å…‰æ˜åœ£ç«é˜µ" : (: ask_me :),
+		"æ˜æ•™åœ£ç«é˜µ" : (: ask_me :),
+		"åœ£ç«é˜µ"     : (: ask_me :)
 	]));
 
 	set("env/wimpy", 60);
@@ -76,9 +76,9 @@ void create()
 		(: prepare_skill("finger", "nianhua-zhi") :),
 		(: prepare_skill("strike", "sanhua-zhang") :),
 	}) );
-	set("party/party_name",HIG"Ã÷½Ì"NOR);
-	set("party/rank",HIR"¹âÃ÷ÓÒÊ¹"NOR);
-	create_family("Ã÷½Ì", 34, "µÜ×Ó");
+	set("party/party_name",HIG"æ˜æ•™"NOR);
+	set("party/rank",HIR"å…‰æ˜å³ä½¿"NOR);
+	create_family("æ˜æ•™", 34, "å¼Ÿå­");
 
 	setup();
 
@@ -102,7 +102,7 @@ void init()
 
 void attempt_apprentice(object ob)
 {
-	command("say ÎÒ²»ÊÕÍ½µÄ£¬ÄãÕÒ¸÷Î»·¨ÍõÈ¥¡£");
+	command("say æˆ‘ä¸æ”¶å¾’çš„ï¼Œä½ æ‰¾å„ä½æ³•ç‹å»ã€‚");
 	return 0;
 }
 

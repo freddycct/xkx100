@@ -1,16 +1,16 @@
-//Room: ztpo2.c ������
+//Room: ztpo2.c 钻天坡
 //Date: Oct. 2 1997 by That
 
 inherit ROOM;
 
 void create()
 {
-	set("short","������");
+	set("short","钻天坡");
 	set("long",@LONG
-����ʯ��ϴ���֮�䣬��·������ʯջ���ݣ�ֱ�����죬ʯ�Ŵ�һǧ����
-�༶�����ڶ���ɽ���Ͽ���������µ����������ϣ�ǰ������ӣ�һ����졣
-���·�С������졹����ζ���Ҳ��˶��С������¡������������¶��㵽
-ϴ��أ����¿ɴ�����ʯ��
+莲花石与洗象池之间，道路陡绝，石栈若齿，直上蓝天，石蹬达一千三百
+多级，是在陡峭山壁上开凿出来的坡道。人行其上，前后顶踵相接，一如登天。
+这段路叫「鹁鸽钻天」，这段陡坡也因此而叫「钻天坡」。这里西上坡顶便到
+洗象池，东下可达莲花石。
 LONG);
 	set("outdoors", "emei");
 	set("exits",([ /* sizeof() == 1 */
@@ -39,7 +39,7 @@ int valid_leave(object me, string dir)
 			if (((c_skill*c_skill*c_skill/10)< c_exp) &&
 				(c_skill < 101))
 				me->improve_skill("dodge", (int)me->query_skill("dodge", 1));
-			tell_object(me,"������������������һ�󣬺����ˡ�\n");
+			tell_object(me,"你在钻天坡往上爬了一阵，好累人。\n");
 		}
 	}
 	return 1;

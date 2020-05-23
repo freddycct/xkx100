@@ -7,11 +7,11 @@ int do_tiao(string arg);
 
 void create()
 {
-	set("short", "ÄÏÁ·Îä³¡");
+	set("short", "å—ç»ƒæ­¦åœº");
 	set("long", @LONG
-ÕâÊÇÂ¶ÌìÁ·Îä³¡£¬ºÃ¶àÈËÔÚÕâÀïÐÁ¿àµÄÁ·×Å£¬Äã×ßÔÚ³¡ÖÐ£¬Ã»ÓÐÈË
-»ØÍ·¿´ÄãÒ»ÑÛ£¬¶¼ÔÚ¾Û¾«»ãÉñµÄÁ·×Å×Ô¼ºµÄ¹¦·ò£¬³¡×ÓµÄ¶«½ÇÓÐÒ»¸öÉ³
-¿Ó(shakeng)¡£
+è¿™æ˜¯éœ²å¤©ç»ƒæ­¦åœºï¼Œå¥½å¤šäººåœ¨è¿™é‡Œè¾›è‹¦çš„ç»ƒç€ï¼Œä½ èµ°åœ¨åœºä¸­ï¼Œæ²¡æœ‰äºº
+å›žå¤´çœ‹ä½ ä¸€çœ¼ï¼Œéƒ½åœ¨èšç²¾æ±‡ç¥žçš„ç»ƒç€è‡ªå·±çš„åŠŸå¤«ï¼Œåœºå­çš„ä¸œè§’æœ‰ä¸€ä¸ªæ²™
+å‘(shakeng)ã€‚
 LONG);
 	set("exits", ([
 		"east" : __DIR__"wg_wuchang4",
@@ -21,7 +21,7 @@ LONG);
 		__DIR__"npc/wg_mjbz" : 1,
 	]));
 	set("item_desc", ([
-		"shakeng" : "ÕâÊÇÒ»¸ö´óÉ³¿Ó£¬¼¸¸öÐ¡»ï×ÓÔÚÉ³¿ÓÖÐÉÏÏÂÌø(tiao)Ô¾×Å¡£\n",
+		"shakeng" : "è¿™æ˜¯ä¸€ä¸ªå¤§æ²™å‘ï¼Œå‡ ä¸ªå°ä¼™å­åœ¨æ²™å‘ä¸­ä¸Šä¸‹è·³(tiao)è·ƒç€ã€‚\n",
 	]));
 	set("outdoors", "wuguan");
 	setup();
@@ -38,25 +38,25 @@ int do_tiao(string arg)
 	int costj, costq,c_exp,c_skill;
 
 	me = this_player();
-	if (me->is_busy()) return notify_fail("ÄãÏÖÔÚÕýÃ¦×ÅÄØ£¡\n");
+	if (me->is_busy()) return notify_fail("ä½ çŽ°åœ¨æ­£å¿™ç€å‘¢ï¼\n");
 	if (me->is_fighting())
-		return notify_fail("ÄãÕýÔÚÕ½¶·ÖÐ£¬ÎÞ·¨×¨ÐÄÁ·¹¦£¡\n");
-	if ( !living(me)) return notify_fail("Äã·¢·èÁË£¿\n");
+		return notify_fail("ä½ æ­£åœ¨æˆ˜æ–—ä¸­ï¼Œæ— æ³•ä¸“å¿ƒç»ƒåŠŸï¼\n");
+	if ( !living(me)) return notify_fail("ä½ å‘ç–¯äº†ï¼Ÿ\n");
 
 	if ( !arg || arg != "shakeng" )
-		return notify_fail("ÄãÔÚ³¡×ÓÀï±Ä±ÄÌøÌøÁË°ëÌì£¬±ðÈË»¹ÒÔÎªÄã·¢Éñ¾­£¡\n");
+		return notify_fail("ä½ åœ¨åœºå­é‡Œè¹¦è¹¦è·³è·³äº†åŠå¤©ï¼Œåˆ«äººè¿˜ä»¥ä¸ºä½ å‘ç¥žç»ï¼\n");
 	costj = random((int)me->query("con"))+1;
 	costq = random((int)me->query("str"))+1;
 
 	if ((int)me->query("jing") < costj || (int)me->query("qi") < costq)
 	{
-		message_vision("$N·ÜÁ¦Ò»Ìø£¬½á¹û½ÅÒ»»¬£¬ÔÚÉ³¿ÓÀïË¤ÁË¸ö¹·³ÔÊº£¡\n",me);
+		message_vision("$Nå¥‹åŠ›ä¸€è·³ï¼Œç»“æžœè„šä¸€æ»‘ï¼Œåœ¨æ²™å‘é‡Œæ‘”äº†ä¸ªç‹—åƒå±Žï¼\n",me);
 		me->unconcious();
 		return 1;
 	}
 	me->receive_damage("jing", costj);
 	me->receive_damage("qi", costq);
-	message_vision("$NÆø´Óµ¤ÌïÌáÉý£¬ÔÚ´óÉ³¿ÓÖÐ·ÜÁ¦ÌøÉÏÌøÏÂ¡£\n", me);
+	message_vision("$Næ°”ä»Žä¸¹ç”°æå‡ï¼Œåœ¨å¤§æ²™å‘ä¸­å¥‹åŠ›è·³ä¸Šè·³ä¸‹ã€‚\n", me);
 	c_exp=me->query("combat_exp");
 	c_skill=me->query_skill("dodge",1);
 	if ( (int)me->query("combat_exp") < 50000)
@@ -64,7 +64,7 @@ int do_tiao(string arg)
 		if ( ((c_skill*c_skill*c_skill/10)< c_exp) &&
 			(int)me->query_skill("dodge", 1) < 30 && random(10)>6 )
 		{
-			write(HIM"Äã²»¶ÏµÄÔÚÉ³¿ÓÖÐÌø×Å£¬×Ô¼ºµÄ»ù±¾Çá¹¦ÓÐÁËÌá¸ß£¡\n"NOR);
+			write(HIM"ä½ ä¸æ–­çš„åœ¨æ²™å‘ä¸­è·³ç€ï¼Œè‡ªå·±çš„åŸºæœ¬è½»åŠŸæœ‰äº†æé«˜ï¼\n"NOR);
 			me->improve_skill("dodge", (int)(me->query("int") / 4));
 		}
 		me->add("potential",random(2));

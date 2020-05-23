@@ -8,12 +8,12 @@ string ask_me();
 
 void create()
 {
-	set_name("×æÇ§Çï", ({ "zu qianqiu", "zu", "qianqiu" }) );
-	set("nickname", "»ÆºÓÀÏ×æ");
-	set("gender", "ÄĞĞÔ" );
+	set_name("ç¥–åƒç§‹", ({ "zu qianqiu", "zu", "qianqiu" }) );
+	set("nickname", "é»„æ²³è€ç¥–");
+	set("gender", "ç”·æ€§" );
 	set("age", 52);
-	set("long", "Ò»¸öÒÂÉÀñÜñÚµÄÂäÆÇÊéÉú¡£½¹»ÆÁ³Æ¤£¬Ò»¸ö¾ÆÔã±Ç£¬ÊèÊèÂäÂäµÄ
-¼¸¸ùºú×Ó£¬Á½ÑÛÎŞÉñ¡£ÒÂÉÀÉÏÒ»Æ¬ÓÍ¹â£¬ÓÒÊÖÄÃÁËÒ»°ÑÆÆÕÛÉÈ¡£\n");
+	set("long", "ä¸€ä¸ªè¡£è¡«è¤´è¤›çš„è½é­„ä¹¦ç”Ÿã€‚ç„¦é»„è„¸çš®ï¼Œä¸€ä¸ªé…’ç³Ÿé¼»ï¼Œç–ç–è½è½çš„
+å‡ æ ¹èƒ¡å­ï¼Œä¸¤çœ¼æ— ç¥ã€‚è¡£è¡«ä¸Šä¸€ç‰‡æ²¹å…‰ï¼Œå³æ‰‹æ‹¿äº†ä¸€æŠŠç ´æŠ˜æ‰‡ã€‚\n");
 	set("combat_exp", 400000);
 	set("attitude", "friendly");
 
@@ -31,7 +31,7 @@ void create()
 	set_skill("parry", 100);
 	set_skill("unarmed", 100);
 	set("inquiry", ([
-		"ĞøÃü°ËÍè" : (: ask_me :),
+		"ç»­å‘½å…«ä¸¸" : (: ask_me :),
 		"8wan"     : (: ask_me :),
 	]));
 
@@ -50,24 +50,24 @@ string ask_me()
 	wan_num = read_file("/data/XUMING", 1, 1);
 	wannum = atoi(wan_num);
 	if (uptime() < 1000)
-		return "ÕâÎ»"+RANK_D->query_respect(this_player()) + 
-		"£¬ĞøÃü°ËÍè»¹ÔÚÀÏÍ·×ÓÄÇÀï£¬ÎÒÔõÃ´¸øÄã£¿";
+		return "è¿™ä½"+RANK_D->query_respect(this_player()) + 
+		"ï¼Œç»­å‘½å…«ä¸¸è¿˜åœ¨è€å¤´å­é‚£é‡Œï¼Œæˆ‘æ€ä¹ˆç»™ä½ ï¼Ÿ";
 	if (wannum == 0)
-		return "ÕâÎ»"+RANK_D->query_respect(this_player()) + 
-		"£¬ĞøÃü°ËÍè»¹ÔÚÀÏÍ·×ÓÄÇÀïÄØ£¬ÎÒÔõÃ´¸øÄã£¿";
+		return "è¿™ä½"+RANK_D->query_respect(this_player()) + 
+		"ï¼Œç»­å‘½å…«ä¸¸è¿˜åœ¨è€å¤´å­é‚£é‡Œå‘¢ï¼Œæˆ‘æ€ä¹ˆç»™ä½ ï¼Ÿ";
 	if (random(10) < 3)
-		return "ÕâÎ»"+RANK_D->query_respect(this_player()) + 
-		"£¬ĞøÃü°ËÍè¸øÁîºü¹«×Ó³ÔµôÁË£¬ÎÒÄÃÊ²Ã´¸øÄã£¿";
+		return "è¿™ä½"+RANK_D->query_respect(this_player()) + 
+		"ï¼Œç»­å‘½å…«ä¸¸ç»™ä»¤ç‹å…¬å­åƒæ‰äº†ï¼Œæˆ‘æ‹¿ä»€ä¹ˆç»™ä½ ï¼Ÿ";
 	if (random(10) < 6)
-		return "ÕâÎ»"+RANK_D->query_respect(this_player()) + 
-		"£¬³ÔÁËĞøÃü°ËÍè¾ÍÒª¸øÀÏ²»ËÀÏÍÖ¶Å®·ÅÑªÖÎ²¡£¬ÄãÄÜ³ÉÃ´£¿";
+		return "è¿™ä½"+RANK_D->query_respect(this_player()) + 
+		"ï¼Œåƒäº†ç»­å‘½å…«ä¸¸å°±è¦ç»™è€ä¸æ­»è´¤ä¾„å¥³æ”¾è¡€æ²»ç—…ï¼Œä½ èƒ½æˆä¹ˆï¼Ÿ";
 	if (random(10) < 9)
-		return "ÕâÎ»"+RANK_D->query_respect(this_player()) + 
-		"£¬¸øÁËÄãĞøÃü°ËÍè£¬Æñ²»ÉËÁËÎÒºÍÀÏÍ·×ÓµÄ»ÆºÓÀÏ×æµÄÒåÆø£¿";
+		return "è¿™ä½"+RANK_D->query_respect(this_player()) + 
+		"ï¼Œç»™äº†ä½ ç»­å‘½å…«ä¸¸ï¼Œå²‚ä¸ä¼¤äº†æˆ‘å’Œè€å¤´å­çš„é»„æ²³è€ç¥–çš„ä¹‰æ°”ï¼Ÿ";
 	ob = new("/clone/medicine/nostrum/xuming8wan");
 	ob->move(this_player());
 	write_file("/data/XUMING", "0", 1);
-	command("rumor "+this_player()->query("name")+"ÄÃµ½ĞøÃü°ËÍèÁËÀ²¡£\n");
-	return "ºÃ°É£¬¿´ÔÚÊ¥¹Ã·İÉÏ¾Í¸øÄã³¢³¢ĞøÃü°ËÍèµÄÎ¶µÀ°É¡£";
+	command("rumor "+this_player()->query("name")+"æ‹¿åˆ°ç»­å‘½å…«ä¸¸äº†å•¦ã€‚\n");
+	return "å¥½å§ï¼Œçœ‹åœ¨åœ£å§‘ä»½ä¸Šå°±ç»™ä½ å°å°ç»­å‘½å…«ä¸¸çš„å‘³é“å§ã€‚";
 }
 

@@ -5,11 +5,11 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "������");
+	set("short", "仙人崖");
 	set("long", @LONG
-�����Դ�˵�����ɳ�û��������ÿ��ʢ��ҹ����������ɳ�����
-Ի�����͵ơ���ɽ��ˮ��Ⱥ�廷�ţ�Ұ�����ף��滨�����������վ���
-���˾��ס�
+这里以传说有神仙出没而得名，每到盛夏夜，火光从崖面飞出，名
+曰仙人送灯。面山带水，群峰环峙，野草蒙茸，奇花异树，清幽险峻，
+令人绝俗。
 LONG);
 	set("outdoors", "silu");
 	set("exits", ([

@@ -4,9 +4,9 @@ inherit  ROOM;
 
 void  create  ()
 {
-	set  ("short",  "Ãæ°üÎİ");
+	set  ("short",  "é¢åŒ…å±‹");
 	set  ("long",  @LONG
-ÕâÊÇÒ»¼ÒÃæ°üÎİ¡£
+è¿™æ˜¯ä¸€å®¶é¢åŒ…å±‹ã€‚
 LONG);
 	set("exits",  ([  //sizeof()  ==  1
 		"east"  :  __DIR__"nroad1",

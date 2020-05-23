@@ -8,10 +8,10 @@ string ask_me();
 void init();
 void create()
 {
-	set_name("¼Ö²¼", ({ "jia bu", "jia", "bu"}) );
-	set("gender", "ÄĞĞÔ" );
+	set_name("è´¾å¸ƒ", ({ "jia bu", "jia", "bu"}) );
+	set("gender", "ç”·æ€§" );
 	set("age", 45);
-	set("long", "ËûÀ¯»ÆÊİÁ³£¬Á½±ßÌ«ÑôÑ¨¸ß¸ß¹ÄÆğ£¬±ãÈç²ØÁËÒ»Ã¶Ã¶ºËÌÒËÆµÄ¡£\n");
+	set("long", "ä»–èœ¡é»„ç˜¦è„¸ï¼Œä¸¤è¾¹å¤ªé˜³ç©´é«˜é«˜é¼“èµ·ï¼Œä¾¿å¦‚è—äº†ä¸€æšæšæ ¸æ¡ƒä¼¼çš„ã€‚\n");
 	set("attitude", "friendly");
 	set("shen_type", -1);
 	set("env/wimpy", 40);
@@ -45,18 +45,18 @@ void create()
 	map_skill("blade", "taiji-dao");
 
 	set("inquiry", ([
-		"ÈÕÔÂÉñ½Ì" :    (: ask_me :),
-		"Èë½Ì"     :    (: ask_me :),
+		"æ—¥æœˆç¥æ•™" :    (: ask_me :),
+		"å…¥æ•™"     :    (: ask_me :),
 	]));
 
-	set("party/party_name",HIG"Ã÷½Ì"NOR);
-	set("party/party_name", HIB"ÈÕÔÂÉñ½Ì"NOR);
-	set("party/rank", HIG"ÇàÁúÌÃ³¤ÀÏ"NOR);
-	create_family("ºÚÄ¾ÑÂ", 9, "µÜ×Ó");
+	set("party/party_name",HIG"æ˜æ•™"NOR);
+	set("party/party_name", HIB"æ—¥æœˆç¥æ•™"NOR);
+	set("party/rank", HIG"é’é¾™å ‚é•¿è€"NOR);
+	create_family("é»‘æœ¨å´–", 9, "å¼Ÿå­");
 
 	set("chat_chance", 2);
 	set("chat_msg", ({
-		 "¼Ö²¼Ì¾µÀ: ¡°ÈÁÍâ±ØÏÈ°²ÄÚ£¬ÌÃÖĞÁîÅÆ±»µÁÈôÊÇ±»½ÌÖ÷ÖªµÀ£¬ÎÒÃüĞİÒÓ¡£¡±\n"
+		 "è´¾å¸ƒå¹é“: â€œæ”˜å¤–å¿…å…ˆå®‰å†…ï¼Œå ‚ä¸­ä»¤ç‰Œè¢«ç›—è‹¥æ˜¯è¢«æ•™ä¸»çŸ¥é“ï¼Œæˆ‘å‘½ä¼‘çŸ£ã€‚â€\n"
         }) );
 	setup();
         carry_object("/d/heimuya/npc/obj/dadao")->wield();
@@ -65,7 +65,7 @@ void create()
 
 void attempt_apprentice(object ob)
 {
-     command("say ÎÒÕâµãÆ¤Ã«£¬²»¸Ò£¬²»¸Ò£¡\n");
+     command("say æˆ‘è¿™ç‚¹çš®æ¯›ï¼Œä¸æ•¢ï¼Œä¸æ•¢ï¼\n");
 }
 
 void init()
@@ -86,7 +86,7 @@ void init()
 
 string ask_me()
 {
-	return "ÄãÏë¼ÓÈëÎÒÈÕÔÂÉñ½Ì(join riyuejiao)Âğ£¿";
+	return "ä½ æƒ³åŠ å…¥æˆ‘æ—¥æœˆç¥æ•™(join riyuejiao)å—ï¼Ÿ";
 }
 
 #include "riyuejiao.h"

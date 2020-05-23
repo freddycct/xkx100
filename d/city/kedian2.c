@@ -5,11 +5,11 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "�ػ���Ԣ��¥");
+	set("short", "秦淮客寓二楼");
 	set("long", @LONG
-�������ڿ�Ԣ��¥�������ϣ����������ͷ��ﲻʱ�ش���������
-��������һ��߹�һ�󡣲�ʱ��˯�����ʵ��ÿͽ�����������¥�µ�
-�ƹ񴦸���Ǯ������˯����
+你正走在客寓二楼的走廊上，可以听到客房里不时地传来呼呼的
+打鼾声，一阵高过一阵。不时有睡意朦胧的旅客进进出出，到楼下的
+掌柜处付了钱再上来睡觉。
 LONG );
 	set("exits", ([
 		"down"  : __DIR__"kedian",

@@ -5,11 +5,11 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "���޺�");
+	set("short", "星宿海");
 	set("long", @LONG
-����������޺��ľ�ͷ�ˡ���Ŀң��, ��Χ���޼ʵĺ���������
-���ǻ���, Ȼ������ʪ, ���深ֳ���������޵��ӳ����˲�׽����,��
-������֮�á�
+这儿便是星宿海的尽头了。举目遥望, 周围是无际的湖泊和沼泽。
+虽是荒芜, 然阴暗潮湿, 毒虫繁殖甚富。星宿弟子常来此捕捉毒虫,以
+备练毒之用。
 LONG );
 	set("objects", ([
 		__DIR__"npc/gushou"  : 1,

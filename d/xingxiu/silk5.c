@@ -5,11 +5,11 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "Ë¿³ñÖ®Â·");
+	set("short", "ä¸ç»¸ä¹‹è·¯");
 	set("long", @LONG
-ÕâÊÇÒ»ÌõÖĞÔ­ºÍÎ÷ÓòÖ®¼äµÄÉÌµÀ¡£Î÷ÃæÊÇÒ»ÍûÎŞ¼ÊµÄ´óÉ³Ä®£¬´«Ëµ
-ÄÇÀï³£ÓĞµÁ·Ë³öÃ»¡£Î÷±±ÔòÍ¨ÏòÒ»Æ¬Á¬ÃàµÄÉ½Âö£¬¶«Ãæ¾ÍÊÇÍ¨ÏòÖĞÔ­µÄ
-Â·¡£Â·±ßÓĞÒ»¿éÊ¯±®(shibei)¡£
+è¿™æ˜¯ä¸€æ¡ä¸­åŸå’Œè¥¿åŸŸä¹‹é—´çš„å•†é“ã€‚è¥¿é¢æ˜¯ä¸€æœ›æ— é™…çš„å¤§æ²™æ¼ ï¼Œä¼ è¯´
+é‚£é‡Œå¸¸æœ‰ç›—åŒªå‡ºæ²¡ã€‚è¥¿åŒ—åˆ™é€šå‘ä¸€ç‰‡è¿ç»µçš„å±±è„‰ï¼Œä¸œé¢å°±æ˜¯é€šå‘ä¸­åŸçš„
+è·¯ã€‚è·¯è¾¹æœ‰ä¸€å—çŸ³ç¢‘(shibei)ã€‚
 LONG );
 	set("outdoors", "xiyu");
 	set("exits", ([
@@ -22,7 +22,7 @@ LONG );
 		__DIR__"npc/trader" : 1,
 	]));
 	set("item_desc", ([
-		"shibei" : "±±ÖÁÎ÷Óò£¬¶«´ïÖĞÔ­¡£Ë­ÈôÎ÷ĞĞ£¬¸ñÉ±ÎğÂÛ¡£°×ÍÕÉ½Ö÷ÈËÆô¡£\n",
+		"shibei" : "åŒ—è‡³è¥¿åŸŸï¼Œä¸œè¾¾ä¸­åŸã€‚è°è‹¥è¥¿è¡Œï¼Œæ ¼æ€å‹¿è®ºã€‚ç™½é©¼å±±ä¸»äººå¯ã€‚\n",
 	]));
 	set("coor/x", -24000);
 	set("coor/y", 1000);
@@ -44,13 +44,13 @@ int valid_leave(object me, string dir)
 	return ::valid_leave(me, dir);
 	if(me->query_temp("wait_target") &&
 		objectp(present("anran zi", environment(me))))
-		return notify_fail("÷öÈ»×ÓÉÁÉíÀ¹ÔÚÄãÃæÇ°£¬ºÈµÀ£ºÁÙÕóÏëÁï£¿¸øÎÒ¹ö»ØÀ´£¡\n");
+		return notify_fail("é»¯ç„¶å­é—ªèº«æ‹¦åœ¨ä½ é¢å‰ï¼Œå–é“ï¼šä¸´é˜µæƒ³æºœï¼Ÿç»™æˆ‘æ»šå›æ¥ï¼\n");
 	if(me->query_temp("xx_rob") &&
 		objectp(ob = present("hubiao biaoshi", environment(me))) &&
 		ob->query("target") == me)
-		return notify_fail("»¤ïÚïÚÊ¦ÉÁÉíÀ¹×¡ÄãµÄÈ¥Â·£¬¿´À´ÊÇÏë°ÑÄã¸ø·ÏÁË£¡\n");  
+		return notify_fail("æŠ¤é•–é•–å¸ˆé—ªèº«æ‹¦ä½ä½ çš„å»è·¯ï¼Œçœ‹æ¥æ˜¯æƒ³æŠŠä½ ç»™åºŸäº†ï¼\n");  
 	if(me->query_temp("xx_rob") && objectp(present("shangdui",environment(me))))
-		return notify_fail("ÉÌ¶ÓÔÚÕâÀïÄØ£¬¿ìÇÀ(qiang)°¡£¡\n");  
+		return notify_fail("å•†é˜Ÿåœ¨è¿™é‡Œå‘¢ï¼Œå¿«æŠ¢(qiang)å•Šï¼\n");  
 	return ::valid_leave(me, dir);
 }
 
@@ -62,15 +62,15 @@ int do_push(string arg)
 	if( !arg || arg=="" ) return 0;
 	if( arg=="shibei" )
 	{
-		if((fam = me->query("family")) && fam["family_name"] == "Ø¤°ï")
+		if((fam = me->query("family")) && fam["family_name"] == "ä¸å¸®")
 		{
-			message_vision("$NÍÆ¿ªÊ¯±®£¬Ö»¼ûÄàÉ³·×·×µøÂä£¬µØÃæÉÏÂ¶³öÒ»¸öĞ¡¶´¡£\n", me);
-			message("vision", me->name() + "ÔËÆğØ¤°ïËõ¹Ç¹¦£¬Ò»ÍäÑüÍù¶´Àï×êÁË½øÈ¥¡£\n", environment(me), ({me}) );
+			message_vision("$Næ¨å¼€çŸ³ç¢‘ï¼Œåªè§æ³¥æ²™çº·çº·è·Œè½ï¼Œåœ°é¢ä¸Šéœ²å‡ºä¸€ä¸ªå°æ´ã€‚\n", me);
+			message("vision", me->name() + "è¿èµ·ä¸å¸®ç¼©éª¨åŠŸï¼Œä¸€å¼¯è…°å¾€æ´é‡Œé’»äº†è¿›å»ã€‚\n", environment(me), ({me}) );
 			me->move("/d/gaibang/underxx");
-			message("vision", me->name() + "´Ó¶´Àï×ßÁË½øÀ´¡£\n", environment(me), ({me}) );
+			message("vision", me->name() + "ä»æ´é‡Œèµ°äº†è¿›æ¥ã€‚\n", environment(me), ({me}) );
 			return 1;
 		}
-		else return notify_fail("ÕâÃ´Ğ¡µÄ¶´£¬Äã×êµÃ½øÈ¥Âğ£¿\n");
+		else return notify_fail("è¿™ä¹ˆå°çš„æ´ï¼Œä½ é’»å¾—è¿›å»å—ï¼Ÿ\n");
 	}
 }	
 

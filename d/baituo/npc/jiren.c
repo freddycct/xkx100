@@ -5,13 +5,13 @@ inherit NPC;
 
 void create()
 {
-	set_name("°×ÒÂ¼§ÈË", ({ "white jiren", "jiren", "white" }) );
-	set("gender", "Å®ĞÔ" );
+	set_name("ç™½è¡£å§¬äºº", ({ "white jiren", "jiren", "white" }) );
+	set("gender", "å¥³æ€§" );
 	set("age", 18);
 	set("long", "
-Ò»¸öÉíÅû°×ÅÛ¡¢¾±Î§õõôÃ¡¢ÌåÌ¬æ¹ÄÈ¡¢Ğ¦ÈİÒ±ÑŞµÄÎ÷ÓòÃÀÃ²ÉÙÅ®£¬
-·ôÉ«°×Îú£¬Éí²Ä¸ß´ó£¬½ğ·¢±ÌÑÛ£¬¹ûÈ»ºÍÖĞÍÁÅ®×Ó´ó²»ÏàÍ¬¡£µ«Èİ
-Ã²ÑŞÀö£¬×ËÌ¬ÑıÃÄ£¬Òà×Ô¶¯ÈË¡£\n");
+ä¸€ä¸ªèº«æŠ«ç™½è¢ã€é¢ˆå›´è²‚è£˜ã€ä½“æ€å©€å¨œã€ç¬‘å®¹å†¶è‰³çš„è¥¿åŸŸç¾è²Œå°‘å¥³ï¼Œ
+è‚¤è‰²ç™½æ™°ï¼Œèº«æé«˜å¤§ï¼Œé‡‘å‘ç¢§çœ¼ï¼Œæœç„¶å’Œä¸­åœŸå¥³å­å¤§ä¸ç›¸åŒã€‚ä½†å®¹
+è²Œè‰³ä¸½ï¼Œå§¿æ€å¦–åªšï¼Œäº¦è‡ªåŠ¨äººã€‚\n");
 	set("shen_type", -1);
 	set("combat_exp", 1000);
 	set("str", 20);
@@ -39,7 +39,7 @@ void create()
 	map_skill("dodge", "chanchu-bufa");
 	map_skill("parry", "hamaquan");
 	prepare_skill("cuff", "hamaquan");
-	create_family("°×ÍÕÉ½ÅÉ", 3, "µÜ×Ó");
+	create_family("ç™½é©¼å±±æ´¾", 3, "å¼Ÿå­");
 	setup();
 	carry_object("/d/baituo/obj/baipao")->wear();
 	carry_object("/d/baituo/obj/diaoqiu")->wear();

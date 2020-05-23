@@ -1,8 +1,8 @@
-// cimu.c  ±ÙĞ°½£·¨¡¸´ÌÄ¿¡¹
+// cimu.c  è¾Ÿé‚ªå‰‘æ³•ã€Œåˆºç›®ã€
 // Last Modified by winder on Mar. 10 2000
 
 #include <ansi.h>
-#define PNAME "¡¸´ÌÄ¿¡¹"
+#define PNAME "ã€Œåˆºç›®ã€"
 
 inherit F_SSERVER;
 int perform(object me, object target)
@@ -21,16 +21,16 @@ int perform(object me, object target)
    !me->query("can_perform/"+sskill+"/"+pfname) &&
    !me->query_temp("murong/xingyi") &&
    !SCBORN_D->valid_perform(me,sskill,pfname) )
-   return notify_fail("ÄãËùÊ¹ÓÃµÄÍâ¹¦ÖĞÃ»ÓĞÕâÖÖ¹¦ÄÜ¡£\n");
+   return notify_fail("ä½ æ‰€ä½¿ç”¨çš„å¤–åŠŸä¸­æ²¡æœ‰è¿™ç§åŠŸèƒ½ã€‚\n");
 
 	if( !objectp(target) ) {flag =1;target = offensive_target(me);}
 	
 	if( !target || !target->is_character() || target == me ||	
 	  	!me->is_fighting(target) ||
   	!living(target) || target->query_temp("noliving") )
-		return notify_fail(PNAME"Ö»ÄÜ¶ÔÕ½¶·ÖĞµÄ¶ÔÊÖÊ¹ÓÃ¡£\n");
+		return notify_fail(PNAME"åªèƒ½å¯¹æˆ˜æ–—ä¸­çš„å¯¹æ‰‹ä½¿ç”¨ã€‚\n");
 		
-		// ±øÆ÷¿ÕÊÖ¾ù¿É
+		// å…µå™¨ç©ºæ‰‹å‡å¯
 		
 	bskill = "sword";
 	if (SCBORN_D->valid_perform(me,sskill,pfname))
@@ -42,21 +42,21 @@ int perform(object me, object target)
 		bskill = "parry";
 	}
 	if( (int)me->query_skill(sskill, 1) < 80 )
-		return notify_fail("ÄãµÄ"+to_chinese(sskill)+"²»¹»æµÊì£¬Ê¹²»³ö"+PNAME+"¡£\n");
+		return notify_fail("ä½ çš„"+to_chinese(sskill)+"ä¸å¤Ÿå¨´ç†Ÿï¼Œä½¿ä¸å‡º"+PNAME+"ã€‚\n");
 
 	if ((int)me->query("max_neili") < 400)
-		return notify_fail(RED"ÄãÄÚÁ¦ĞŞÎª²»×ã£¬ÎŞ·¨ÔË×ãÄÚÁ¦¡£\n"NOR);
+		return notify_fail(RED"ä½ å†…åŠ›ä¿®ä¸ºä¸è¶³ï¼Œæ— æ³•è¿è¶³å†…åŠ›ã€‚\n"NOR);
 
 	if ((int)me->query("neili") < 200)
-		return notify_fail("ÄãÏÖÔÚÄÚÁ¦²»¹»£¬Ã»ÄÜ½«"PNAME"Ê¹Íê£¡\n");
+		return notify_fail("ä½ ç°åœ¨å†…åŠ›ä¸å¤Ÿï¼Œæ²¡èƒ½å°†"PNAME"ä½¿å®Œï¼\n");
 
 	if (target->query_temp("bixie/cimu"))
-		return notify_fail(HIR"¶Ô·½ÒÑ¾­ÉíÖĞ"PNAME"ÁË£¡\n"NOR);
+		return notify_fail(HIR"å¯¹æ–¹å·²ç»èº«ä¸­"PNAME"äº†ï¼\n"NOR);
 
 	if (!objectp(weapon = me->query_temp("weapon")) ||
 		(string)weapon->query("skill_type") != "sword")
-		msg = HIC"$N"HIC"×óÊÖÁ½Ö¸²¢Â££¬ÊÖ±Û±©³¤£¬Ñ¸½İÒì³£·Ö´Ì$n"HIC"Ë«Ä¿£¬\n"NOR;
-	else msg = HIC"$N"HIC"ÊÖÖĞ³¤½£Ò»Õñ£¬½£¼âÒ»µã±©³¤£¬·Ö´Ì$n"HIC"×óÓÒË«Ä¿£¬\n"NOR;
+		msg = HIC"$N"HIC"å·¦æ‰‹ä¸¤æŒ‡å¹¶æ‹¢ï¼Œæ‰‹è‡‚æš´é•¿ï¼Œè¿…æ·å¼‚å¸¸åˆ†åˆº$n"HIC"åŒç›®ï¼Œ\n"NOR;
+	else msg = HIC"$N"HIC"æ‰‹ä¸­é•¿å‰‘ä¸€æŒ¯ï¼Œå‰‘å°–ä¸€ç‚¹æš´é•¿ï¼Œåˆ†åˆº$n"HIC"å·¦å³åŒç›®ï¼Œ\n"NOR;
 
 
 	if ((int)me->query("dex")>35 && 
@@ -70,7 +70,7 @@ int perform(object me, object target)
 		damage = damage*2 + random(damage);
 		target->receive_damage("qi", damage*2,me);
 		target->receive_wound("qi", damage,me);
-		msg += HIC "$nÖ»¿´µ½º®¼âÒ»µã£¬Ë«Ä¿Ò»Õó¾çÍ´£¬ÑÛÇ°Ò»ºÚ£¬¶ÙÊ±³¤ÉùÍ´¼«¶øºô£¬ÔÙÒ²¿´²»µ½¶«Î÷ÁË£¡\n"NOR;
+		msg += HIC "$nåªçœ‹åˆ°å¯’å°–ä¸€ç‚¹ï¼ŒåŒç›®ä¸€é˜µå‰§ç—›ï¼Œçœ¼å‰ä¸€é»‘ï¼Œé¡¿æ—¶é•¿å£°ç—›æè€Œå‘¼ï¼Œå†ä¹Ÿçœ‹ä¸åˆ°ä¸œè¥¿äº†ï¼\n"NOR;
 		message_combatd(msg, me, target);
 	  me->add("neili", -200);
 		target->set_temp("bixie/cimu", 1);
@@ -86,7 +86,7 @@ int perform(object me, object target)
 		damage = damage/2 + random(damage);
 		target->receive_damage("qi", damage,me);
 		target->receive_wound("qi", damage/2,me);
-		msg += HIC "$nÖ»¿´µ½º®¼âÒ»µã£¬Ë«Ä¿Ò»Õó¾çÍ´£¬ÑÛÇ°Ò»ºÚ£¬¾ÍÊ²Ã´Ò²¿´²»¼ûÁË£¬¶ÙÊ±³¤ÉùÍ´¼«¶øºô£¡\n"NOR;
+		msg += HIC "$nåªçœ‹åˆ°å¯’å°–ä¸€ç‚¹ï¼ŒåŒç›®ä¸€é˜µå‰§ç—›ï¼Œçœ¼å‰ä¸€é»‘ï¼Œå°±ä»€ä¹ˆä¹Ÿçœ‹ä¸è§äº†ï¼Œé¡¿æ—¶é•¿å£°ç—›æè€Œå‘¼ï¼\n"NOR;
 		message_combatd(msg, me, target);
 		me->add("neili", -200);
 		target->set_temp("bixie/cimu", 1);
@@ -97,7 +97,7 @@ int perform(object me, object target)
 	{
 		me->start_busy(2);
 		me->add("neili", -100);
-		msg += HIY"$pÇé¼±ÖÇÉú£¬Ì§ÊÖÒ²$PÓÒÑÛ´ÌÈ¥£¬ÆÈµÃ$P»Ø½£Ô¾¿ª¡£\n"NOR;
+		msg += HIY"$pæƒ…æ€¥æ™ºç”Ÿï¼ŒæŠ¬æ‰‹ä¹Ÿ$På³çœ¼åˆºå»ï¼Œè¿«å¾—$På›å‰‘è·ƒå¼€ã€‚\n"NOR;
 		message_combatd(msg, me, target);
 	}
 	
@@ -107,28 +107,28 @@ int perform(object me, object target)
 
 void cimu_end(object target)
 {
-	message_combatd(HIY"$N"HIY"Ä¨ÁËÄ¨Á÷×Å"HIR"ÏÊÑª"HIY"£¬ÖÕÓÚÄÜ¿´¼ûÁË¡£\n"NOR, target);
+	message_combatd(HIY"$N"HIY"æŠ¹äº†æŠ¹æµç€"HIR"é²œè¡€"HIY"ï¼Œç»ˆäºèƒ½çœ‹è§äº†ã€‚\n"NOR, target);
 	target->set_temp("block_msg/all", 0);
-	tell_object(target,HIR"ÄãÖÕÓÚÄ¨µôÁËÑÛÇ°µÄÏÊÑª£¬ÄÜ¿´¼ûÁË¡£\n"NOR);
+	tell_object(target,HIR"ä½ ç»ˆäºæŠ¹æ‰äº†çœ¼å‰çš„é²œè¡€ï¼Œèƒ½çœ‹è§äº†ã€‚\n"NOR);
 	target->delete_temp("bixie/cimu");
 
 	return;
 }
-string name() {return replace_string(replace_string(PNAME,"¡¸",""),"¡¹","");}
+string name() {return replace_string(replace_string(PNAME,"ã€Œ",""),"ã€","");}
 
 int help(object me)
 {
-	write(WHT"\n"+to_chinese(explode(__FILE__,"/")[<2])+"Ö®"+name()+WHT"£º"NOR"\n");
+	write(WHT"\n"+to_chinese(explode(__FILE__,"/")[<2])+"ä¹‹"+name()+WHT"ï¼š"NOR"\n");
 	write(@HELP
 
-	Ê¹ÓÃ¹¦Ğ§£º
-		Ê©ÕĞ´Ì¶Ô·½µÄÑÛÄ¿£¬Ê¹¶Ô·½ÊÜÉË²¢ÔİÊ±ÖÂÃ¤
-		ËğÉË¶Ô·½ÆøÑª
+	ä½¿ç”¨åŠŸæ•ˆï¼š
+		æ–½æ‹›åˆºå¯¹æ–¹çš„çœ¼ç›®ï¼Œä½¿å¯¹æ–¹å—ä¼¤å¹¶æš‚æ—¶è‡´ç›²
+		æŸä¼¤å¯¹æ–¹æ°”è¡€
 
-	³öÊÖÒªÇó£º
-		±ÙĞ°½£·¨80¼¶
-		×î´óÄÚÁ¦400
-		ÄÚÁ¦200
+	å‡ºæ‰‹è¦æ±‚ï¼š
+		è¾Ÿé‚ªå‰‘æ³•80çº§
+		æœ€å¤§å†…åŠ›400
+		å†…åŠ›200
 HELP
 	);
 	return 1;

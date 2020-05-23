@@ -9,12 +9,12 @@ void greeting(object);
 void init();
 void create()
 {
-	set_name("¾Õ½£", ({ "ju jian", "ju"}));
-	set("title", "ÁéğÕ¹¬µÚÈı´úµÜ×Ó");
+	set_name("èŠå‰‘", ({ "ju jian", "ju"}));
+	set("title", "çµé¹«å®«ç¬¬ä¸‰ä»£å¼Ÿå­");
 	set("long",
-		"ÕâÊÇ¸öÈİÃ²æ¯ºÃµÄÅ®×Ó£¬¹Ï×ÓÁ³µ°£¬ÑÛÈçµãÆá£¬ÇåĞã¾øË×¡£
-Äã×Ü¾õµÃÔÚÄÄ¼û¹ıËı¡£\n");
-	set("gender", "Å®ĞÔ");
+		"è¿™æ˜¯ä¸ªå®¹è²Œå§£å¥½çš„å¥³å­ï¼Œç“œå­è„¸è›‹ï¼Œçœ¼å¦‚ç‚¹æ¼†ï¼Œæ¸…ç§€ç»ä¿—ã€‚
+ä½ æ€»è§‰å¾—åœ¨å“ªè§è¿‡å¥¹ã€‚\n");
+	set("gender", "å¥³æ€§");
 	set("class", "dancer");
 	set("age", 18);
 	set("shen_type",1);
@@ -68,7 +68,7 @@ void create()
 		(: exert_function, "recover" :),
 	}) );		
 
-	create_family("åĞÒ£ÅÉ",3,"µÜ×Ó");
+	create_family("é€é¥æ´¾",3,"å¼Ÿå­");
 	setup();
 	carry_object("/d/lingjiu/obj/qingyi")->wear();
 	carry_object("/d/lingjiu/obj/doupeng")->wear();
@@ -92,18 +92,18 @@ void init()
 void greeting(object ob)
 {
 	if (objectp(ob) && environment(ob)==environment(this_object()))
-	if ((string)ob->query("family/family_name") == "ÁéğÕ¹¬") 
+	if ((string)ob->query("family/family_name") == "çµé¹«å®«") 
 	{
-		message_vision("¾Õ½£³å×Å$NµãµãÍ·£¬Î¢Î¢Ğ¦ÁËĞ¦¡£\n",ob);
+		message_vision("èŠå‰‘å†²ç€$Nç‚¹ç‚¹å¤´ï¼Œå¾®å¾®ç¬‘äº†ç¬‘ã€‚\n",ob);
 		return;
 	}
 }
 
 void attempt_apprentice(object ob)
 {
-	if ((string)ob->query("gender")=="Å®ĞÔ")
+	if ((string)ob->query("gender")=="å¥³æ€§")
 	{
-		message_vision("¾Õ½£´¹Ä¿³ÁË¼Æ¬¿Ì, ËµµÀ£º¡°ºÃ°É, ÎÒ¾ÍÊÕÏÂÄãÁË¡£¡±\n",ob);
+		message_vision("èŠå‰‘å‚ç›®æ²‰æ€ç‰‡åˆ», è¯´é“ï¼šâ€œå¥½å§, æˆ‘å°±æ”¶ä¸‹ä½ äº†ã€‚â€\n",ob);
 		command("recruit " + ob->query("id"));
 //		if((string)ob->query("class") != "dancer")
 //			ob->set("class", "dancer");
@@ -111,7 +111,7 @@ void attempt_apprentice(object ob)
 	}
 	else
 	{
-		message_vision("¾Õ½£µÉ×ÅÄã¿´ÁË°ëÌì, ½¿àÁµÀ£º¡°ÄãÒ»¸ö´óÄĞÈË£¬ÅÜÕâÀïÀ´Ñ§¹¦·ò£¬ĞßÒ²²»Ğß¡£¡±\n",ob);
+		message_vision("èŠå‰‘çªç€ä½ çœ‹äº†åŠå¤©, å¨‡å—”é“ï¼šâ€œä½ ä¸€ä¸ªå¤§ç”·äººï¼Œè·‘è¿™é‡Œæ¥å­¦åŠŸå¤«ï¼Œç¾ä¹Ÿä¸ç¾ã€‚â€\n",ob);
 		return;
 	}
 }
@@ -121,6 +121,6 @@ int recruit_apprentice(object ob)
         {
 		if((string)ob->query("class") != "dancer")
 			ob->set("class", "dancer");
-		ob->set("title","ÁéğÕ¹¬µÚËÄ´úµÜ×Ó");
+		ob->set("title","çµé¹«å®«ç¬¬å››ä»£å¼Ÿå­");
 	}
 }

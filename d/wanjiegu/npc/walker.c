@@ -4,8 +4,8 @@ inherit NPC;
 
 void create()
 {
-        set_name("Â·ÈË", ({ "walker" }) );
-        set("gender", "ÄĞĞÔ" );
+        set_name("è·¯äºº", ({ "walker" }) );
+        set("gender", "ç”·æ€§" );
         set("age", 45);
         set("str", 16);
         set("con", 24);

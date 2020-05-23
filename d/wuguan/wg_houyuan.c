@@ -3,10 +3,10 @@
 inherit ROOM;
 void create()
 {
-	set("short", "��Ժ");
+	set("short", "后院");
 	set("long", @LONG
-�����Ǻ�Ժ������Щ�ɻ����µĵط��������ȥ���ǲ񷿣�������
-һ��ˮ��������ææµµ�Ľ����������Լ��Ļ
+这里是后院，都是些干活做事的地方，南面过去都是柴房，北面是
+一个水房。人们忙忙碌碌的进出，干着自己的活。
 LONG);
 	set("exits", ([
 		"south" : __DIR__"wg_chaifang",

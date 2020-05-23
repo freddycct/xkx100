@@ -4,16 +4,16 @@ inherit ITEM;
 
 void create()
 {
-	set_name("С����", ({"small box", "box"}));
+	set_name("小铁盒", ({"small box", "box"}));
         if (clonep())
                 set_default_object(__FILE__);
         else {
         	set("long",
-"��ֻ����С�öֻ࣬һ�߼���������һ�ż���д��������
-���Һ����ߣ����Һ��ǣ��������ر������������п���ʱ
-�ж���������������׵�ͼ���٣����о綾���Գ�̰����
-ͽ�������ڴ�С�����ڡ���\n");
-        	set("unit", "ֻ");
+"这只盒子小得多，只一尺见方。盒中一张笺上写道：“君
+是忠厚仁者，葬我骸骨，当酬以重宝秘术。大铁盒开启时
+有毒箭射出，愈中书谱地图均假，上有剧毒，以惩贪欲恶
+徒。真者在此小铁盒内。”\n");
+        	set("unit", "只");
         	set("open_count", 1);
         	set("weight", 1000);
         }
@@ -26,5 +26,5 @@ void init()
 
 int do_open()
 {
-return notify_fail("�����Ѿ������˴򿪹��ˡ�\n");
+return notify_fail("铁盒已经被别人打开过了。\n");
 }

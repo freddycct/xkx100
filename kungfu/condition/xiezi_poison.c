@@ -6,9 +6,9 @@ int update_condition(object me, int duration)
   if (me->is_ghost()) return 1;
 	if(me->query_temp("nopoison")) return 0;
 	if( duration < 1 ) return 0;
-	me->receive_wound("qi", 15+random(10), "Ð«×Ó¶¾·¢×÷");
-	me->receive_damage("jing", 25+random(20), "Ð«×Ó¶¾·¢×÷");
-	tell_object(me, HIG"Äã¸Ðµ½ºôÎüÀ§ÄÑ£¬ËÄÖ«½¥½¥Ö×ÁËÆðÀ´¡£ÄãÖÐµÄÐ«×Ó¶¾·¢×÷ÁË£¡\n" NOR );
+	me->receive_wound("qi", 15+random(10), "èŽå­æ¯’å‘ä½œ");
+	me->receive_damage("jing", 25+random(20), "èŽå­æ¯’å‘ä½œ");
+	tell_object(me, HIG"ä½ æ„Ÿåˆ°å‘¼å¸å›°éš¾ï¼Œå››è‚¢æ¸æ¸è‚¿äº†èµ·æ¥ã€‚ä½ ä¸­çš„èŽå­æ¯’å‘ä½œäº†ï¼\n" NOR );
 	if ((int)me->query("eff_jing")<0 || (int)me->query("eff_qi")<0) return 0;
 	me->apply_condition("xiezi_poison", duration - 1);
 	return 1;

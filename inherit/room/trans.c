@@ -9,10 +9,10 @@ inherit ROOM;
 
 void init_connections();
 
-// ½»Í¨Òªµã£¬ËùÓĞ½»Í¨ĞÅÏ¢±£´æÔÚ MAP_D ÖĞ£¬±¾µØÁ¬½ÓÇé¿ö±£´æÔÚ
-// F_DBASE ÖĞµÄ trans ±äÁ¿ÖĞ£¬Ç°ÎªËùÈ¥µØµã£¬ºóÎª¼Û¸ñ¡£
+// äº¤é€šè¦ç‚¹ï¼Œæ‰€æœ‰äº¤é€šä¿¡æ¯ä¿å­˜åœ¨ MAP_D ä¸­ï¼Œæœ¬åœ°è¿æ¥æƒ…å†µä¿å­˜åœ¨
+// F_DBASE ä¸­çš„ trans å˜é‡ä¸­ï¼Œå‰ä¸ºæ‰€å»åœ°ç‚¹ï¼Œåä¸ºä»·æ ¼ã€‚
 
-// ÌáÊ¾¸ø¹Ë¿ÍµÄĞÅÏ¢
+// æç¤ºç»™é¡¾å®¢çš„ä¿¡æ¯
 string trans_prompt()
 {
         string msg;
@@ -22,10 +22,10 @@ string trans_prompt()
         mixed pos;
 
         if (! mapp(trans = query("trans")) || sizeof(trans) < 1)
-                return "±¾µêÕıÔÚÎ¬ĞŞÖĞ£¬ÔİÊ±²»Ìá¹©½»Í¨·şÎñ¡£\n";
+                return "æœ¬åº—æ­£åœ¨ç»´ä¿®ä¸­ï¼Œæš‚æ—¶ä¸æä¾›äº¤é€šæœåŠ¡ã€‚\n";
 
-        msg = WHT "±¾µêÏÖÔÚ¿ªÍ¨ÁËÈ¥ÒÔÏÂµØ·½µÄÍ¨Â·£º\n" HIY
-              "©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤\n" NOR;
+        msg = WHT "æœ¬åº—ç°åœ¨å¼€é€šäº†å»ä»¥ä¸‹åœ°æ–¹çš„é€šè·¯ï¼š\n" HIY
+              "â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€\n" NOR;
 	for (i = 0; i < sizeof(keys(trans)); i++)
         {
 		if (to == keys(trans)[i])
@@ -47,9 +47,9 @@ string trans_prompt()
                                MONEY_D->price_str(trans[to]));
         }
 */
-        msg += HIY "©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤\n" NOR
-               WHT "¼´À´¼´×ß(" HIY "goto" NOR + WHT ")ÎŞ"
-               "ĞèµÈ´ı£¬¶ùÍ¯Ò»ÂÉÃâ·Ñ¡£\n" NOR;
+        msg += HIY "â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€\n" NOR
+               WHT "å³æ¥å³èµ°(" HIY "goto" NOR + WHT ")æ— "
+               "éœ€ç­‰å¾…ï¼Œå„¿ç«¥ä¸€å¾‹å…è´¹ã€‚\n" NOR;
 
         return msg;
 }
@@ -60,7 +60,7 @@ void setup()
         init_connections();
 }
 
-// ³õÊ¼»¯Á¬½Ó
+// åˆå§‹åŒ–è¿æ¥
 void init_connections()
 {
         mapping trans;
@@ -71,7 +71,7 @@ void init_connections()
 	int i;
 
         pos = MAP_D->query_trans_info();
-/* Ìæ´ú foreach */
+/* æ›¿ä»£ foreach */
 	for (i = 0; i < sizeof(keys(pos)); i++)
 	{
 		if (item == keys(pos)[i])
@@ -79,7 +79,7 @@ void init_connections()
 			if (stringp(pos[item]["room"]) &&
 				find_object(pos[item]["room"]) == this_object())
 			{
-			// È·¶¨ÁË×Ô¼ºµÄÎ»ÖÃ
+			// ç¡®å®šäº†è‡ªå·±çš„ä½ç½®
 				here = item;
 				break;
 			}
@@ -91,7 +91,7 @@ void init_connections()
                 if (stringp(pos[item]["room"]) &&
                     find_object(pos[item]["room"]) == this_object())
                 {
-                        // È·¶¨ÁË×Ô¼ºµÄÎ»ÖÃ
+                        // ç¡®å®šäº†è‡ªå·±çš„ä½ç½®
                         here = item;
                         break;
                 }
@@ -100,7 +100,7 @@ void init_connections()
         if (here && arrayp(conn = MAP_D->query_connect_info()))
         {
                 trans = ([ ]);
-/* Ìæ´ú foreach */
+/* æ›¿ä»£ foreach */
 		for (i = 0; i < sizeof(conn); i++)
 		{
 			if (item == conn[i])
@@ -135,47 +135,47 @@ int do_goto(string arg)
         int pay;
 
         if (! arg)
-                return notify_fail("ÄãÒªÈ¥ÄÄÀï£¿\n");
+                return notify_fail("ä½ è¦å»å“ªé‡Œï¼Ÿ\n");
 
         if (undefinedp(pay = query("trans/" + arg)))
-                return notify_fail("¿´Çå³şÅÆ×Ó(paizi)£¬ÉÏÃæÄÄÀïÓĞÕâ¸öµØ·½£¿\n");
+                return notify_fail("çœ‹æ¸…æ¥šç‰Œå­(paizi)ï¼Œä¸Šé¢å“ªé‡Œæœ‰è¿™ä¸ªåœ°æ–¹ï¼Ÿ\n");
 
         me = this_player();
 
         if (me->is_busy())
-                return notify_fail("Ê²Ã´¶¼µÈÄãÃ¦ÍêÁËÔÙËµ°É¡£\n");
+                return notify_fail("ä»€ä¹ˆéƒ½ç­‰ä½ å¿™å®Œäº†å†è¯´å§ã€‚\n");
 
         pos = MAP_D->query_trans_info(arg);
 
         if (! mapp(pos) || ! stringp(pos["name"]))
         {
-                write("Âí·ò´óºôµÀ£º¡°BUG£¡BUG£¡¡±\n");
+                write("é©¬å¤«å¤§å‘¼é“ï¼šâ€œBUGï¼BUGï¼â€\n");
                 return 1;
         }
 
         if (! stringp(pos["room"]))
         {
-                write(CYN "Âí·ò¿àĞ¦µÀ£º¡°ÄÇ¸öµØ·½È¥²»ÁËÅ¶¡£¡±\n" NOR);
+                write(CYN "é©¬å¤«è‹¦ç¬‘é“ï¼šâ€œé‚£ä¸ªåœ°æ–¹å»ä¸äº†å“¦ã€‚â€\n" NOR);
                 return 1;
         }
 
         if (wiz_level(me) > 0)
         {
-                write(CYN "Âí·òĞ¦µÀ£ºÔ­À´ÊÇÎ×Ê¦°¡£¬Äã²»»á·ÉÃ´£¿¼ÈÈ»·Ç"
-                      "Òª×ßÂ·£¬ÄÇ¾Í²»ÊÕÇ®ÁË¡£\n" NOR);
+                write(CYN "é©¬å¤«ç¬‘é“ï¼šåŸæ¥æ˜¯å·«å¸ˆå•Šï¼Œä½ ä¸ä¼šé£ä¹ˆï¼Ÿæ—¢ç„¶é"
+                      "è¦èµ°è·¯ï¼Œé‚£å°±ä¸æ”¶é’±äº†ã€‚\n" NOR);
                 pay = 0;
         } else
-        if (me->query("family/family_name") == "¶ÎÊÏ»Ê×å")
+        if (me->query("family/family_name") == "æ®µæ°çš‡æ—")
         {
                 pay = 0;
-                write(CYN "Âí·òµÀ£ºßÏ£¬ÊÇÄú°¡£¬Äú¾Í×ß°É£¬ÎÒÔõºÃÒâË¼ÊÕ"
-                      "ÄúµÄÇ®¡£\n" NOR);
+                write(CYN "é©¬å¤«é“ï¼šå‘¦ï¼Œæ˜¯æ‚¨å•Šï¼Œæ‚¨å°±èµ°å§ï¼Œæˆ‘æ€å¥½æ„æ€æ”¶"
+                      "æ‚¨çš„é’±ã€‚\n" NOR);
         } else
         if (me->query("age") <= 14)
         {
                 pay = 0;
-                write(CYN "Âí·òÑÈµÀ£ºĞ¡Ğ¡Äê¼Í¾Í³öÀ´ÁË£¿ËãÁË£¬ÎÒ¾Í²»ÊÕ"
-                      "ÄãµÄÇ®ÁË¡£\n" NOR);
+                write(CYN "é©¬å¤«è®¶é“ï¼šå°å°å¹´çºªå°±å‡ºæ¥äº†ï¼Ÿç®—äº†ï¼Œæˆ‘å°±ä¸æ”¶"
+                      "ä½ çš„é’±äº†ã€‚\n" NOR);
         } else
         if (me->query_skill("higgling", 1) >= 30)
         {
@@ -183,48 +183,48 @@ int do_goto(string arg)
                 switch (random(5))
                 {
                 case 0:
-                        write("ÄãµÀ£º¿´ÔÚÎÒ³£ÄêÕÕ¹ËÄãÉúÒâ·İÉÏ£¬»¹²»¸øµãÕÛ¿Û£¿\n");
+                        write("ä½ é“ï¼šçœ‹åœ¨æˆ‘å¸¸å¹´ç…§é¡¾ä½ ç”Ÿæ„ä»½ä¸Šï¼Œè¿˜ä¸ç»™ç‚¹æŠ˜æ‰£ï¼Ÿ\n");
                         break;
 
                 case 1:
-                        write("ÄãµÀ£ºÄãÃÇÀÏ°å¿ÉÊÇÎÒµÄÊìÈË°¡¡£\n");
+                        write("ä½ é“ï¼šä½ ä»¬è€æ¿å¯æ˜¯æˆ‘çš„ç†Ÿäººå•Šã€‚\n");
                         break;
 
                 case 2:
-                        write("ÄãµÀ£ºÕâÎ»ĞÖµÜºÃ£¬×î½üÉúÒâºÃ°É£¬¸øµãÕÛ¿ÛÈçºÎ£¿\n");
+                        write("ä½ é“ï¼šè¿™ä½å…„å¼Ÿå¥½ï¼Œæœ€è¿‘ç”Ÿæ„å¥½å§ï¼Œç»™ç‚¹æŠ˜æ‰£å¦‚ä½•ï¼Ÿ\n");
                         break;
 
                 case 3:
-                        write("ÄãµÀ£ºÌ«¹óÁË£¬±ãÒËµã£¬±ãÒËµãÎÒ¾Í×ßÁË¡£\n");
+                        write("ä½ é“ï¼šå¤ªè´µäº†ï¼Œä¾¿å®œç‚¹ï¼Œä¾¿å®œç‚¹æˆ‘å°±èµ°äº†ã€‚\n");
                         break;
 
                 case 4:
-                        write("ÄãµÀ£ºÎÒÕâÊÇ¼±ÊÂ£¬Äú¾ÍĞĞ¸öºÃ£¬±ãÒËµã°É¡£\n");
+                        write("ä½ é“ï¼šæˆ‘è¿™æ˜¯æ€¥äº‹ï¼Œæ‚¨å°±è¡Œä¸ªå¥½ï¼Œä¾¿å®œç‚¹å§ã€‚\n");
                         break;
                 }
 
                 pay /= 10;
                 pay *= 10;
                 if (pay < 10) pay = 10; 
-                write(CYN "Âí·òÎŞÄÎµÀ£º¡°ºÃ°É£¬ºÃ°É£¬ÄÇ¾Í" + MONEY_D->price_str(pay) +
-                      CYN "ËãÁË¡£¡±\n" NOR);
+                write(CYN "é©¬å¤«æ— å¥ˆé“ï¼šâ€œå¥½å§ï¼Œå¥½å§ï¼Œé‚£å°±" + MONEY_D->price_str(pay) +
+                      CYN "ç®—äº†ã€‚â€\n" NOR);
         }
 
         if (pay > 0)
         {
                 if (MONEY_D->player_pay(me, pay) != 1)
                 {
-                        write(CYN "Âí·òÖåÁËÖåÃ¼Í·£¬ËµµÀ£ºĞ¡±¾¾­Óª£¬¸Å²»"
-                              "ÉŞÕÊ£¬×¼±¸ºÃÁãÇ®ÔÙÀ´¡£\n" NOR);
+                        write(CYN "é©¬å¤«çš±äº†çš±çœ‰å¤´ï¼Œè¯´é“ï¼šå°æœ¬ç»è¥ï¼Œæ¦‚ä¸"
+                              "èµŠå¸ï¼Œå‡†å¤‡å¥½é›¶é’±å†æ¥ã€‚\n" NOR);
                         return 1;
                 }
 
-                message_vision(WHT "$N" WHT "¸¶ÁËÕÊ£¬¶ÔÂí·òËµÁËÁ½¾äÊ²Ã´¡£\n"
+                message_vision(WHT "$N" WHT "ä»˜äº†å¸ï¼Œå¯¹é©¬å¤«è¯´äº†ä¸¤å¥ä»€ä¹ˆã€‚\n"
                                NOR, me);
         }
 
-        message_vision(HIC "Âí·òÒ»ÉùÕĞºô£¬¿ª¹ıÀ´Ò»Á¾´ó³µ£¬$N"
-                       HIC "ÉÏÁË³µ¾Í³ö·¢ÁË¡£\n" NOR, me);
+        message_vision(HIC "é©¬å¤«ä¸€å£°æ‹›å‘¼ï¼Œå¼€è¿‡æ¥ä¸€è¾†å¤§è½¦ï¼Œ$N"
+                       HIC "ä¸Šäº†è½¦å°±å‡ºå‘äº†ã€‚\n" NOR, me);
         cart = new("/clone/misc/trans_cart");
         obs = filter_array(all_inventory(),
                            (: $1 == $(me) || $1->query_leader() == $(me) &&
@@ -250,18 +250,18 @@ void arrival(object me, object cart, mapping pos)
                                           ! userp($1) &&
                                           ! $1->is_killing($(me)->query("id")) :));
 
-        tell_object(me, HIY "Äãµ½ÁË" + pos["name"] + HIY "£¬ÏÂÁË³µ¡£\n" NOR);
+        tell_object(me, HIY "ä½ åˆ°äº†" + pos["name"] + HIY "ï¼Œä¸‹äº†è½¦ã€‚\n" NOR);
 
         obs->move(pos["room"]);
 
-        message("vision", "Ö¨Ñ½Ö¨Ñ½Ò»Á¾´ó³µ¸ÏÁË¹ıÀ´£¬Ëæ¼´¾Í¼û" +
-                          me->name() + "ÌøÁËÏÂÀ´¡£\n",
+        message("vision", "å±å‘€å±å‘€ä¸€è¾†å¤§è½¦èµ¶äº†è¿‡æ¥ï¼Œéšå³å°±è§" +
+                          me->name() + "è·³äº†ä¸‹æ¥ã€‚\n",
                           environment(me), me);
 
         if (sizeof(obs = all_inventory(cart)) > 0)
         {
-                message("vision", WHT "Ö»ÌıÏ¡Àï»©À²Ò»ÕóÏì£¬´Ó³µÉÏÈÓÏÂ"
-                                  "Ò»¶Ñ¶«Î÷À´¡£\n" NOR, me);
+                message("vision", WHT "åªå¬ç¨€é‡Œå“—å•¦ä¸€é˜µå“ï¼Œä»è½¦ä¸Šæ‰”ä¸‹"
+                                  "ä¸€å †ä¸œè¥¿æ¥ã€‚\n" NOR, me);
                 obs->move(pos["room"]);
         }
 

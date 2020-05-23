@@ -16,9 +16,9 @@ mapping spe_skill = ([
 	"damage" : ({"10"}),
 	"dodge" : ({"10"}),
 	"parry": ({"10"}),
-	"damage_type" : ({"ğöÉË"}),
+	"damage_type" : ({"ç˜€ä¼¤"}),
 	"lvl" : ({"10"}),
-	"skill_name" : ({"ºá¿Õ³öÊÀ"}),
+	"skill_name" : ({"æ¨ªç©ºå‡ºä¸–"}),
 	"skill_total_num" : ({"0"}),
 	"skill_en_name" : ({" "}),
 	"skill_ch_name" : ({" "}),
@@ -28,27 +28,27 @@ string spe_skill_name;
 string spe_skill_basename;
 string spe_skill_help;
 string oldfile;
-//¼ì²éÊÇ·ñÊÇ3£­12Î»µÄÓ¢ÎÄid
+//æ£€æŸ¥æ˜¯å¦æ˜¯3ï¼12ä½çš„è‹±æ–‡id
 int check_legal_id(string id);
-//¼ì²éÊÇ·ñÊÇ1£­5¸öÖĞÎÄ×Ö
+//æ£€æŸ¥æ˜¯å¦æ˜¯1ï¼5ä¸ªä¸­æ–‡å­—
 int check_legal_name(string name);
-// ¼ì²éÊÇ·ñÊÇÔÊĞíµÄ»ù±¾Îä¹¦
+// æ£€æŸ¥æ˜¯å¦æ˜¯å…è®¸çš„åŸºæœ¬æ­¦åŠŸ
 int check_legal_basename(string name);
 void skill_init_header(string skill_en_name,string skill_ch_name);
-// ÌáÊ¾ÓÃ»§ÊäÈëµ±Ç°ÕĞÊ½ÖĞÎÄÃû
+// æç¤ºç”¨æˆ·è¾“å…¥å½“å‰æ‹›å¼ä¸­æ–‡å
 void get_zhaoshi_ch_name(string yn, object ob);
-// ÌáÊ¾ÓÃ»§ÊäÈëµ±Ç°ÕĞÊ½ÃèÊö
+// æç¤ºç”¨æˆ·è¾“å…¥å½“å‰æ‹›å¼æè¿°
 void get_zhaoshi_ch_action(string yn, object ob);
-// ÌáÊ¾ÓÃ»§ÊäÈë¸ÃÎä¹¦µÄ°ïÖúÎÄ¼ş
+// æç¤ºç”¨æˆ·è¾“å…¥è¯¥æ­¦åŠŸçš„å¸®åŠ©æ–‡ä»¶
 void get_skill_help(string yn,object ob);
-// ¼ì²éÍæ¼ÒÊÇ·ñ¿ÉÒÔ´´½¨µÚskill_numÕĞ ·µ»Øskill_num
+// æ£€æŸ¥ç©å®¶æ˜¯å¦å¯ä»¥åˆ›å»ºç¬¬skill_numæ‹› è¿”å›skill_num
 int check_skillnum_exist(object me,string skill_en_name,int skill_num);
 void finish_write_skill(object ob);
-// ¼ì²éÍæ¼ÒÊÇ·ñ¿ÉÒÔ¸Ä¶¯skill_en_nameÕâ¸öÎÄ¼ş
+// æ£€æŸ¥ç©å®¶æ˜¯å¦å¯ä»¥æ”¹åŠ¨skill_en_nameè¿™ä¸ªæ–‡ä»¶
 int check_owner_skill(object me,string skill_en_name);
-// ´ÓÎÄ¼şÖĞ¶ÁÈ¡Õâ¸öÎä¹¦µÄÖĞÎÄÃû
+// ä»æ–‡ä»¶ä¸­è¯»å–è¿™ä¸ªæ­¦åŠŸçš„ä¸­æ–‡å
 string get_header_skillchname(string file);
-// ´ÓÎÄ¼şÖĞ¶ÁÈ¡Õâ¸öÎä¹¦µÄ»ù±¾Îä¹¦Ãû 
+// ä»æ–‡ä»¶ä¸­è¯»å–è¿™ä¸ªæ­¦åŠŸçš„åŸºæœ¬æ­¦åŠŸå 
 string get_header_skillbasename(string file);
 int main(object me, string arg)
 {
@@ -64,13 +64,13 @@ int main(object me, string arg)
 	
 	seteuid(getuid());
 	if(!arg)
-		return notify_fail(WHT"Ö¸Áî¸ñÊ½£ºeditskill »ù±¾¼¼ÄÜ Îä¹¦Ó¢ÎÄÃû×Ö Îä¹¦ÖĞÎÄÃû×Ö µÚ¼¸ÕĞ\n"NOR);
+		return notify_fail(WHT"æŒ‡ä»¤æ ¼å¼ï¼šeditskill åŸºæœ¬æŠ€èƒ½ æ­¦åŠŸè‹±æ–‡åå­— æ­¦åŠŸä¸­æ–‡åå­— ç¬¬å‡ æ‹›\n"NOR);
 	if( sscanf(arg, "%s %s %s %d", skill_base_name,skill_en_name,skill_ch_name,skill_num)!=4)
-		return notify_fail(WHT"Ö¸Áî¸ñÊ½£ºeditskill »ù±¾¼¼ÄÜ Îä¹¦Ó¢ÎÄÃû×Ö Îä¹¦ÖĞÎÄÃû×Ö µÚ¼¸ÕĞ\n"NOR);
+		return notify_fail(WHT"æŒ‡ä»¤æ ¼å¼ï¼šeditskill åŸºæœ¬æŠ€èƒ½ æ­¦åŠŸè‹±æ–‡åå­— æ­¦åŠŸä¸­æ–‡åå­— ç¬¬å‡ æ‹›\n"NOR);
 	skill_en_name=lower_case(skill_en_name);
 	spe_skill_basename=skill_base_name;
 	if(check_legal_basename(skill_base_name)==0)
-		return notify_fail(RED"ÄãÊäÈëµÄ»ù±¾¼¼ÄÜ²»´æÔÚ¡£\n"NOR);
+		return notify_fail(RED"ä½ è¾“å…¥çš„åŸºæœ¬æŠ€èƒ½ä¸å­˜åœ¨ã€‚\n"NOR);
 	if(check_legal_id(skill_en_name)==0)
 		return 1;
 	spe_skill["skill_en_name"]=skill_en_name+"-"+skill_base_name+".c";
@@ -78,33 +78,33 @@ int main(object me, string arg)
 	if(check_legal_name(skill_ch_name)==0) return 1;             
 	spe_skill["skill_ch_name"]=skill_ch_name;
 	if( skill_num!=1 && get_header_skillchname(spe_skill["skill_en_name"])!=skill_ch_name)
-		return notify_fail( HIR"ÄãÊäÈëµÄÖĞÎÄÎä¹¦Ãû³ÆºÍËùÑ¡µÄÓ¢ÎÄÎä¹¦´úºÅÓĞÃ¬¶Ü¡£\n"NOR);
+		return notify_fail( HIR"ä½ è¾“å…¥çš„ä¸­æ–‡æ­¦åŠŸåç§°å’Œæ‰€é€‰çš„è‹±æ–‡æ­¦åŠŸä»£å·æœ‰çŸ›ç›¾ã€‚\n"NOR);
 	if( skill_num!=1 && get_header_skillbasename(spe_skill["skill_en_name"])!=skill_base_name)
-		return notify_fail( HIR"ÄãÊäÈëµÄ»ù±¾¼¼ÄÜÃûºÍËùÑ¡µÄÓ¢ÎÄÎä¹¦´úºÅÓĞÃ¬¶Ü¡£\n"NOR);
+		return notify_fail( HIR"ä½ è¾“å…¥çš„åŸºæœ¬æŠ€èƒ½åå’Œæ‰€é€‰çš„è‹±æ–‡æ­¦åŠŸä»£å·æœ‰çŸ›ç›¾ã€‚\n"NOR);
 	if(mapp(me->query("skillmaxim")) &&
 		sizeof(me->query("skillmaxim")) >3 )
-		return notify_fail(HIR"Äã×î¶àÖ»ÄÜ×Ô´´ÈıÖÖÎä¹¦¡£\n"NOR);
+		return notify_fail(HIR"ä½ æœ€å¤šåªèƒ½è‡ªåˆ›ä¸‰ç§æ­¦åŠŸã€‚\n"NOR);
 	switch(check_owner_skill(me,spe_skill["skill_en_name"]))
 	{
 		case 2:
-			return notify_fail( HIR"´Ë¹¦·òÒÑ´æÔÚ£¬ÎŞ·¨´´ĞÂ¡£\n"NOR);
+			return notify_fail( HIR"æ­¤åŠŸå¤«å·²å­˜åœ¨ï¼Œæ— æ³•åˆ›æ–°ã€‚\n"NOR);
 			break;
 		case 0: 
 			break;
 		case 1:
-			return notify_fail( HIR"ÄãÄ¿Ç°Ö»ÄÜÕë¶ÔÕâ¸ö»ù±¾¼¼ÄÜ´´½¨Ò»¸ö¹¦·ò¡£\n"NOR);
+			return notify_fail( HIR"ä½ ç›®å‰åªèƒ½é’ˆå¯¹è¿™ä¸ªåŸºæœ¬æŠ€èƒ½åˆ›å»ºä¸€ä¸ªåŠŸå¤«ã€‚\n"NOR);
 		default:
-			return notify_fail( HIR"Ëù´´¹¦·ò²»¶Ô£¬Çë¿´°ïÖú¡£\n"NOR);
+			return notify_fail( HIR"æ‰€åˆ›åŠŸå¤«ä¸å¯¹ï¼Œè¯·çœ‹å¸®åŠ©ã€‚\n"NOR);
 	}
 	if(skill_num < 1)
-		return notify_fail(HIR"ÄãĞèÒª´ÓµÚÒ»ÕĞ¿ªÊ¼´´½¨¡£\n"NOR);
+		return notify_fail(HIR"ä½ éœ€è¦ä»ç¬¬ä¸€æ‹›å¼€å§‹åˆ›å»ºã€‚\n"NOR);
 	if((int)me->query("combat_exp") < (skill_num)*1000000+9000000)
-		return notify_fail(HIR"ÄãµÄ¾­Ñé»¹²»¹»£¬²»ÄÜ×Ô´´Îä¹¦ÁË¡£\n"NOR);
+		return notify_fail(HIR"ä½ çš„ç»éªŒè¿˜ä¸å¤Ÿï¼Œä¸èƒ½è‡ªåˆ›æ­¦åŠŸäº†ã€‚\n"NOR);
 	if((int)me->query("score") < 20000)
-		return notify_fail(HIR"ÄãµÄ½­ºşÔÄÀú»¹²»¹»£¬²»ÄÜ×Ô´´Îä¹¦ÁË¡£\n"NOR);
+		return notify_fail(HIR"ä½ çš„æ±Ÿæ¹–é˜…å†è¿˜ä¸å¤Ÿï¼Œä¸èƒ½è‡ªåˆ›æ­¦åŠŸäº†ã€‚\n"NOR);
 	if(//(int)me->query_skill(spe_skill_name,1)!=0  &&
 		(int)me->query_skill(spe_skill_name,1) < (skill_num-1)*20)
-		return notify_fail( HIR"ÄãµÄÕĞÊ½»¹²»¹»ÊìÁ·£¬ÏÈÌá¸ßÒ»ÏÂ£¬È»ºóÔÚÏëĞÂÕĞ°É¡£\n"NOR);
+		return notify_fail( HIR"ä½ çš„æ‹›å¼è¿˜ä¸å¤Ÿç†Ÿç»ƒï¼Œå…ˆæé«˜ä¸€ä¸‹ï¼Œç„¶ååœ¨æƒ³æ–°æ‹›å§ã€‚\n"NOR);
 	spe_skillnum=skill_num;
 	skill_num_result=(check_skillnum_exist(me,spe_skill["skill_en_name"],skill_num));
 	if (file_size(SKILL_D(spe_skill["skill_en_name"])))
@@ -112,21 +112,21 @@ int main(object me, string arg)
 	switch(skill_num_result)
 	{
 		case -1 :
-			//ÎŞ·¨È¡µÃÒÑ¾­´´µÄÕĞÊ½×ÜÊı
-			return notify_fail(HIR"ÄãµÄËùÒª´´½¨µÄÎä¹¦ÓĞ´í£¬ÇëÍ¨ÖªÎ×Ê¦½â¾ö¡£\n"NOR);
+			//æ— æ³•å–å¾—å·²ç»åˆ›çš„æ‹›å¼æ€»æ•°
+			return notify_fail(HIR"ä½ çš„æ‰€è¦åˆ›å»ºçš„æ­¦åŠŸæœ‰é”™ï¼Œè¯·é€šçŸ¥å·«å¸ˆè§£å†³ã€‚\n"NOR);
 		case 0 :
-			return notify_fail( HIR"ÄãÖ»ÄÜ´´½¨ĞÂÕĞ»òÕßĞŞ¸Ä×î½ü´´½¨µÄÕĞÊ½£¬ÇëÖØĞÂ³¢ÊÔ¡£\n"NOR);
+			return notify_fail( HIR"ä½ åªèƒ½åˆ›å»ºæ–°æ‹›æˆ–è€…ä¿®æ”¹æœ€è¿‘åˆ›å»ºçš„æ‹›å¼ï¼Œè¯·é‡æ–°å°è¯•ã€‚\n"NOR);
 		case 1 :
-			// Èç¹û´´»ò¸ÄµÚÒ»ÕĞµÄ»° ÄÇÃ´Ò»ÇĞÖØÀ´
+			// å¦‚æœåˆ›æˆ–æ”¹ç¬¬ä¸€æ‹›çš„è¯ é‚£ä¹ˆä¸€åˆ‡é‡æ¥
 //			rm(SKILL_D(spe_skill["skill_en_name"]));
 			skill_init_header(spe_skill["skill_en_name"],skill_ch_name);
-			write( HIG"ÄãÏÖÔÚ¿ªÊ¼´´½¨"+skill_ch_name+"("+spe_skill_name+")"HIG"¡£\n"NOR);
-			write( HIW"¸øÕâ¸öÎä¹¦Ğ´Ò»¸ö¼ò½é£¬ÒÔºó»áÔÚ°ïÖúÎÄµµÖĞÌåÏÖ£¬»»ĞĞÓÃ$´úÌæ¡£\n"NOR);
+			write( HIG"ä½ ç°åœ¨å¼€å§‹åˆ›å»º"+skill_ch_name+"("+spe_skill_name+")"HIG"ã€‚\n"NOR);
+			write( HIW"ç»™è¿™ä¸ªæ­¦åŠŸå†™ä¸€ä¸ªç®€ä»‹ï¼Œä»¥åä¼šåœ¨å¸®åŠ©æ–‡æ¡£ä¸­ä½“ç°ï¼Œæ¢è¡Œç”¨$ä»£æ›¿ã€‚\n"NOR);
 			input_to( (: get_skill_help :) ,this_player());
 			return 1;
 		default:
-		//Èç¹ûÔÚÔ­ÓĞÕĞÊ½ÉÏÔö¼ÓĞÂµÄÕĞÊ½
-			write(HIW"\r¸øÕĞÊ½Æğ¸öÃû×Ö£¨²»Òª´ËÊ±¶ÏÏß£¬·ñÔòÓÀÔ¶ÎŞ·¨ÔÙÕıÈ·´´½¨£©£º"NOR);
+		//å¦‚æœåœ¨åŸæœ‰æ‹›å¼ä¸Šå¢åŠ æ–°çš„æ‹›å¼
+			write(HIW"\rç»™æ‹›å¼èµ·ä¸ªåå­—ï¼ˆä¸è¦æ­¤æ—¶æ–­çº¿ï¼Œå¦åˆ™æ°¸è¿œæ— æ³•å†æ­£ç¡®åˆ›å»ºï¼‰ï¼š"NOR);
 			input_to( (: get_zhaoshi_ch_name :), this_player() );
 			return 1;
 	}
@@ -136,13 +136,13 @@ void get_skill_help(string yn,object ob)
 {
 	if (yn=="")
 	{
-		write( HIW"¸øÕâ¸öÎä¹¦Ğ´Ò»¸ö¼ò½é£¬½«»áÔÚ°ïÖúÎÄµµÖĞÌåÏÖ¡£\n"NOR);
-		write( HIW"»»ĞĞ¿ÉÒÔÓÃ$´úÌæ\n"NOR);
+		write( HIW"ç»™è¿™ä¸ªæ­¦åŠŸå†™ä¸€ä¸ªç®€ä»‹ï¼Œå°†ä¼šåœ¨å¸®åŠ©æ–‡æ¡£ä¸­ä½“ç°ã€‚\n"NOR);
+		write( HIW"æ¢è¡Œå¯ä»¥ç”¨$ä»£æ›¿\n"NOR);
 		input_to( (:get_skill_help:) ,ob);
 		return;
 	}
 	spe_skill_help = "\n\t"+yn;
-	write(HIW"\r¸øÕĞÊ½Æğ¸öÃû×Ö£¨²»Òª´ËÊ±¶ÏÏß£¬·ñÔòÓÀÔ¶ÎŞ·¨ÔÙÕıÈ·´´½¨£©£º"NOR);
+	write(HIW"\rç»™æ‹›å¼èµ·ä¸ªåå­—ï¼ˆä¸è¦æ­¤æ—¶æ–­çº¿ï¼Œå¦åˆ™æ°¸è¿œæ— æ³•å†æ­£ç¡®åˆ›å»ºï¼‰ï¼š"NOR);
 	input_to( (: get_zhaoshi_ch_name :), this_player() );
 	return;
 }
@@ -188,7 +188,7 @@ void skill_init_header(string skill_en_name,string skill_ch_name)
 	result="";
 	header="";
 
-	header="// ÕâÊÇÍæ¼Ò×Ô´´Îä¹¦³ÌĞò¡£\n";		//list[0]
+	header="// è¿™æ˜¯ç©å®¶è‡ªåˆ›æ­¦åŠŸç¨‹åºã€‚\n";		//list[0]
 	header+="// "+geteuid(me)+"\n";			//list[1]
 	header+="// "+me->query("name")+"\n";		//list[2]
 	header+="// "+me->query("title")+"\n";		//list[3]
@@ -202,28 +202,28 @@ void skill_init_header(string skill_en_name,string skill_ch_name)
 	header+="string martialtype() { return \"skill\"; }\n";
 	header+="string owner() {return \""+geteuid(me)+"\";}\n";
 	header+="\nmapping *action = ({\n});\n";		
-	header+="// ZHAOSHI :0";			//×¢Òâ£º×îºóÃ»ÓĞÓÃ\n
+	header+="// ZHAOSHI :0";			//æ³¨æ„ï¼šæœ€åæ²¡æœ‰ç”¨\n
 	write_file(SKILL_D(skill_en_name),header,1);
 }
 void get_zhaoshi_ch_name(string yn, object ob)
 {
 	if( yn=="" )
 	{
-		write(HIW"\rÇë¸øÕĞÊ½Æğ¸öÃû×Ö£¨²»Òª´ËÊ±¶ÏÏß£¬·ñÔòÓÀÔ¶ÎŞ·¨ÔÚÕıÈ·´´½¨£©£º"NOR);
+		write(HIW"\rè¯·ç»™æ‹›å¼èµ·ä¸ªåå­—ï¼ˆä¸è¦æ­¤æ—¶æ–­çº¿ï¼Œå¦åˆ™æ°¸è¿œæ— æ³•åœ¨æ­£ç¡®åˆ›å»ºï¼‰ï¼š"NOR);
 		input_to( (: get_zhaoshi_ch_name :), ob );
 		return;
 	}
 	if( !check_legal_name(yn) )
 	{
-		write(HIW"\rÇë¸øÕĞÊ½Æğ¸öÃû×Ö£¨²»Òª´ËÊ±¶ÏÏß£¬·ñÔòÓÀÔ¶ÎŞ·¨ÔÚÕıÈ·´´½¨£©£º"NOR);
+		write(HIW"\rè¯·ç»™æ‹›å¼èµ·ä¸ªåå­—ï¼ˆä¸è¦æ­¤æ—¶æ–­çº¿ï¼Œå¦åˆ™æ°¸è¿œæ— æ³•åœ¨æ­£ç¡®åˆ›å»ºï¼‰ï¼š"NOR);
 		input_to( (: get_zhaoshi_ch_name :), ob );
 		return;
 	}
 	spe_skill["skill_name"]=yn;
-	write(WHT"\nÏëÏóÒ»ÏÂÄãºÍÄ³ÈËµÄÕ½¶·£¬Ö¸ÄÏ£º±ØĞëÒªÓĞ["+HIR+"Äã¡¢Ä³ÈË¡¢Ä³²¿Î»"NOR+WHT"]µÄ×ÖÑù³öÏÖ£¡");
-	write("\nÈç¹ûÊÇsword»òbladeÇë¼ÓÈë["HIR"ÎäÆ÷"NOR+WHT"]×ÖÑù¡£ÒÔÏÂÊÇ¾ÙÀı¡£");
-	write( HIG"\nÈ­·¨Ê¾Àı£º"NOR+WHT"ÄãÇ°ÍÈÌß³ö£¬ºóÍÈ½Å¼âµãµØ£¬Ò»Ê½¡¸³öÊÀ¡¹£¬¶şÕÆÖ±³ö£¬¹¥ÏòÄ³ÈËµÄÄ³²¿Î»\n");
-	write( HIG"ÎäÆ÷ÀàÀı£º"NOR+WHT"Äã×İÉíÒ»Ô¾£¬ÊÖÖĞÎäÆ÷Ò»ÕĞ¡¸½ğ¹âĞºµØ¡¹¶Ô×¼µÄÄ³²¿Î»Ğ±Ğ±´Ì³öÒ»½£\n"NOR);
+	write(WHT"\næƒ³è±¡ä¸€ä¸‹ä½ å’ŒæŸäººçš„æˆ˜æ–—ï¼ŒæŒ‡å—ï¼šå¿…é¡»è¦æœ‰["+HIR+"ä½ ã€æŸäººã€æŸéƒ¨ä½"NOR+WHT"]çš„å­—æ ·å‡ºç°ï¼");
+	write("\nå¦‚æœæ˜¯swordæˆ–bladeè¯·åŠ å…¥["HIR"æ­¦å™¨"NOR+WHT"]å­—æ ·ã€‚ä»¥ä¸‹æ˜¯ä¸¾ä¾‹ã€‚");
+	write( HIG"\næ‹³æ³•ç¤ºä¾‹ï¼š"NOR+WHT"ä½ å‰è…¿è¸¢å‡ºï¼Œåè…¿è„šå°–ç‚¹åœ°ï¼Œä¸€å¼ã€Œå‡ºä¸–ã€ï¼ŒäºŒæŒç›´å‡ºï¼Œæ”»å‘æŸäººçš„æŸéƒ¨ä½\n");
+	write( HIG"æ­¦å™¨ç±»ä¾‹ï¼š"NOR+WHT"ä½ çºµèº«ä¸€è·ƒï¼Œæ‰‹ä¸­æ­¦å™¨ä¸€æ‹›ã€Œé‡‘å…‰æ³»åœ°ã€å¯¹å‡†çš„æŸéƒ¨ä½æ–œæ–œåˆºå‡ºä¸€å‰‘\n"NOR);
 	input_to( (: get_zhaoshi_ch_action :), ob);
 }
 void get_zhaoshi_ch_action(string yn, object ob)
@@ -233,10 +233,10 @@ void get_zhaoshi_ch_action(string yn, object ob)
 
 	if( yn=="" )
 	{
-		write(WHT"\nÏëÏóÒ»ÏÂÄãºÍÄ³ÈËµÄÕ½¶·£¬Ö¸ÄÏ£º×îºÃÒªÓĞ["+HIR+"Äã¡¢Ä³ÈË¡¢Ä³²¿Î»"NOR+WHT"]µÄ×ÖÑù³öÏÖ!");
-		write( "\nÈç¹ûÊÇsword»òbladeÇë¼ÓÈë["HIR"ÎäÆ÷"NOR+WHT"]×ÖÑù¡£ÒÔÏÂÊÇ¾ÙÀı¡£");
-		write( HIG"\nÈ­·¨Ê¾Àı£º"NOR+WHT"ÄãÇ°ÍÈÌß³ö£¬ºóÍÈ½Å¼âµãµØ£¬Ò»Ê½¡¸³öÊÀ¡¹£¬¶şÕÆÖ±³ö£¬¹¥ÏòÄ³ÈËµÄÄ³²¿Î»\n");
-		write( HIG"ÎäÆ÷ÀàÀı£º"NOR+WHT"Äã×İÉíÒ»Ô¾£¬ÊÖÖĞÎäÆ÷Ò»ÕĞ¡¸½ğ¹âĞºµØ¡¹¶Ô×¼µÄÄ³²¿Î»Ğ±Ğ±´Ì³öÒ»½£\n"NOR);
+		write(WHT"\næƒ³è±¡ä¸€ä¸‹ä½ å’ŒæŸäººçš„æˆ˜æ–—ï¼ŒæŒ‡å—ï¼šæœ€å¥½è¦æœ‰["+HIR+"ä½ ã€æŸäººã€æŸéƒ¨ä½"NOR+WHT"]çš„å­—æ ·å‡ºç°!");
+		write( "\nå¦‚æœæ˜¯swordæˆ–bladeè¯·åŠ å…¥["HIR"æ­¦å™¨"NOR+WHT"]å­—æ ·ã€‚ä»¥ä¸‹æ˜¯ä¸¾ä¾‹ã€‚");
+		write( HIG"\næ‹³æ³•ç¤ºä¾‹ï¼š"NOR+WHT"ä½ å‰è…¿è¸¢å‡ºï¼Œåè…¿è„šå°–ç‚¹åœ°ï¼Œä¸€å¼ã€Œå‡ºä¸–ã€ï¼ŒäºŒæŒç›´å‡ºï¼Œæ”»å‘æŸäººçš„æŸéƒ¨ä½\n");
+		write( HIG"æ­¦å™¨ç±»ä¾‹ï¼š"NOR+WHT"ä½ çºµèº«ä¸€è·ƒï¼Œæ‰‹ä¸­æ­¦å™¨ä¸€æ‹›ã€Œé‡‘å…‰æ³»åœ°ã€å¯¹å‡†çš„æŸéƒ¨ä½æ–œæ–œåˆºå‡ºä¸€å‰‘\n"NOR);
 		input_to( (: get_zhaoshi_ch_action :), ob );
 		return;
 	}
@@ -257,9 +257,9 @@ void get_zhaoshi_ch_action(string yn, object ob)
 		err = catch(call_other(file,"???"));
 		if (stringp(err))
 		{
-			log_file("CREATESKILL","Ê§°Ü£¬´íÎóÃèÊö£º"+err);
-			message("channel:sys",HIR"¡¾ÏµÍ³¡¿×Ô´´Îä¹¦±à¼­³ö´í¡£\n"NOR,users());
-			write("´´½¨Îä¹¦Ê§°Ü£¬ÇëÁªÏµµ±ÖµÎ×Ê¦½â¾ö¡£\n");
+			log_file("CREATESKILL","å¤±è´¥ï¼Œé”™è¯¯æè¿°ï¼š"+err);
+			message("channel:sys",HIR"ã€ç³»ç»Ÿã€‘è‡ªåˆ›æ­¦åŠŸç¼–è¾‘å‡ºé”™ã€‚\n"NOR,users());
+			write("åˆ›å»ºæ­¦åŠŸå¤±è´¥ï¼Œè¯·è”ç³»å½“å€¼å·«å¸ˆè§£å†³ã€‚\n");
 			if (stringp(oldfile))
 			{
 				write_file(file,oldfile,1);
@@ -273,10 +273,10 @@ void finish_write_skill(object ob)
 	string action, file, *list, content, *list2, header2, result;
 	int before_skillnum,i;
 	int flag,x,y;
-	int d_e1,d_e2;//dodgeÉÏÏÂÏŞ
-	int p_e1,p_e2;//parryÉÏÏÂÏŞ
-	int f_e1,f_e2;//forceÉÏÏÂÏŞ
-	int m_e1,m_e2;//damageÉÏÏÂÏŞ
+	int d_e1,d_e2;//dodgeä¸Šä¸‹é™
+	int p_e1,p_e2;//parryä¸Šä¸‹é™
+	int f_e1,f_e2;//forceä¸Šä¸‹é™
+	int m_e1,m_e2;//damageä¸Šä¸‹é™
 	object me = this_player();
 
 	header2="";
@@ -302,10 +302,10 @@ void finish_write_skill(object ob)
 	spe_skill["action"]= replace_string(spe_skill["action"],"$NOR$", NOR);
 	spe_skill["action"]= replace_string(spe_skill["action"],"\"", "");
 	spe_skill["action"]= replace_string(spe_skill["action"],"$","\n");
-	spe_skill["action"]= replace_string(spe_skill["action"],"Äã","$N");
-	spe_skill["action"]= replace_string(spe_skill["action"],"Ä³ÈË","$n");
-	spe_skill["action"]= replace_string(spe_skill["action"],"Ä³²¿Î»","$l");
-	spe_skill["action"]= replace_string(spe_skill["action"],"ÎäÆ÷","$w");
+	spe_skill["action"]= replace_string(spe_skill["action"],"ä½ ","$N");
+	spe_skill["action"]= replace_string(spe_skill["action"],"æŸäºº","$n");
+	spe_skill["action"]= replace_string(spe_skill["action"],"æŸéƒ¨ä½","$l");
+	spe_skill["action"]= replace_string(spe_skill["action"],"æ­¦å™¨","$w");
 	spe_skill["action"] += NOR;
 	action  = "\n([\n";
 	action += "\t"+SHUANGYIN_HAO+"action"+SHUANGYIN_HAO+" : "
@@ -324,11 +324,11 @@ void finish_write_skill(object ob)
 	file=read_file(SKILL_D(spe_skill["skill_en_name"]));
 	if ((int)file==0)
 	{
-		write(HIR"¿ÉÄÜ³öÏÖÒì³£ÁË£¬ÇëÁªÏµÎ×Ê¦½â¾ö¡£\n"NOR);
+		write(HIR"å¯èƒ½å‡ºç°å¼‚å¸¸äº†ï¼Œè¯·è”ç³»å·«å¸ˆè§£å†³ã€‚\n"NOR);
 		return;
 	}
 	list = explode(file, "\n");
-// °ïÖúÎÄµµ
+// å¸®åŠ©æ–‡æ¡£
 	for(i=0;i<sizeof(list);i++)
 	{
 		if (list[i]=="	write\(\@HELP")	x=i;
@@ -339,13 +339,13 @@ void finish_write_skill(object ob)
 		if (intp(x) && intp(y))
 		spe_skill_help = implode(list[x+1..y-1],"\n");
 		else
-		spe_skill_help = this_player()->query("name")+"µÄ×Ô´´Îä¹¦¡£\n";
+		spe_skill_help = this_player()->query("name")+"çš„è‡ªåˆ›æ­¦åŠŸã€‚\n";
 	}
 	spe_skill_help = replace_string(spe_skill_help,"\"","");
 	spe_skill_help = replace_string(spe_skill_help,"$","\n");
-// °ïÖúÎÄµµ½áÊø
+// å¸®åŠ©æ–‡æ¡£ç»“æŸ
 /*
-²Î¿¼
+å‚è€ƒ
 string *spe_skill_lvl=({ "0","12","20","30","40","50","60","80","100",});
 string *spe_skill_force=({ "50","80","100","130","150","180","200","220", });
 string *spe_skill_unarmeddodge=({ "10","-10","-20","-30","-50","-60","-80","-90","-100", });
@@ -420,7 +420,7 @@ string *spe_skill_weaponparry=({ "20","20","10","10","5","5","5","5","5", });
 	}
 	if (!flag)
 	{
-		write(HIR"¿ÉÄÜ³öÏÖÒì³£ÁË£¬Çë¿´°ïÖú½â¾ö¡£\n"NOR);
+		write(HIR"å¯èƒ½å‡ºç°å¼‚å¸¸äº†ï¼Œè¯·çœ‹å¸®åŠ©è§£å†³ã€‚\n"NOR);
 		return;
 	}
 	if( before_skillnum==spe_skillnum)
@@ -436,7 +436,7 @@ string *spe_skill_weaponparry=({ "20","20","10","10","5","5","5","5","5", });
 		}
 		if (!flag)
 		{
-			write(HIR"¿ÉÄÜ³öÏÖÒì³£Çé¿öÁË£¬ÇëÁªÏµÎ×Ê¦½â¾ö¡£\n"NOR);
+			write(HIR"å¯èƒ½å‡ºç°å¼‚å¸¸æƒ…å†µäº†ï¼Œè¯·è”ç³»å·«å¸ˆè§£å†³ã€‚\n"NOR);
 			return;
 		}
 		content = implode(list[0..i],"\n");
@@ -465,13 +465,13 @@ int check_legal_id(string id)
 	i = strlen(id);
 	if( (strlen(id) < 3) || (strlen(id) > 12 ) )
 	{
-		write("ÄãµÄÎä¹¦´úºÅ±ØĞëÊÇ 3 µ½ 12 ¸öÓ¢ÎÄ×ÖÄ¸¡£\n");
+		write("ä½ çš„æ­¦åŠŸä»£å·å¿…é¡»æ˜¯ 3 åˆ° 12 ä¸ªè‹±æ–‡å­—æ¯ã€‚\n");
 		return 0;
 	}
 	while(i--)
 		if( id[i]<'a' || id[i]>'z' )
 		{
-			write("ÄãµÄÎä¹¦´úºÅÖ»ÄÜÓÃÓ¢ÎÄ×ÖÄ¸¡£\n");
+			write("ä½ çš„æ­¦åŠŸä»£å·åªèƒ½ç”¨è‹±æ–‡å­—æ¯ã€‚\n");
 			return 0;
 		}
         return 1;
@@ -482,25 +482,25 @@ int check_legal_name(string name)
 	i = strlen(name);
 	if( (strlen(name) < 2) || (strlen(name) > 12 ) )
 	{
-		write("Îä¹¦µÄÖĞÎÄÃû³Æ±ØĞëÊÇ 1 µ½ 6 ¸öÖĞÎÄ×Ö¡£\n");
+		write("æ­¦åŠŸçš„ä¸­æ–‡åç§°å¿…é¡»æ˜¯ 1 åˆ° 6 ä¸ªä¸­æ–‡å­—ã€‚\n");
 		return 0;
 	}
 	while(i--)
 	{
 		if( name[i]<=' ' )
 		{
-			write("ÄãµÄÎä¹¦ÖĞÎÄÃû³Ç²»ÄÜÓÃ¿ØÖÆ×ÖÔª¡£\n");
+			write("ä½ çš„æ­¦åŠŸä¸­æ–‡ååŸä¸èƒ½ç”¨æ§åˆ¶å­—å…ƒã€‚\n");
 			return 0;
 		}
 		if( i%2==0 && !is_chinese(name[i..<0]) )
 		{
-			write("ÄãµÄÎä¹¦ÖĞÎÄÃûÒªÓÃ¡¸ÖĞÎÄ¡¹!\n");
+			write("ä½ çš„æ­¦åŠŸä¸­æ–‡åè¦ç”¨ã€Œä¸­æ–‡ã€!\n");
 			return 0;
 		}
 	}
 	if( member_array(name,banned_name)!=-1 )
 	{
-		write("ÄãµÄÎä¹¦ÖĞÎÄÃû³Æ»áÔì³ÉÆäËûÈËµÄÀ§ÈÅ¡£\n");
+		write("ä½ çš„æ­¦åŠŸä¸­æ–‡åç§°ä¼šé€ æˆå…¶ä»–äººçš„å›°æ‰°ã€‚\n");
 		return 0;
 	}
 	return 1;
@@ -521,7 +521,7 @@ int check_skillnum_exist(object me,string skill_en_name,int skill_num)
 	else list = explode(file, "\n");
 
 	playername=geteuid(me);
-	if(list[0]!="// ÕâÊÇÍæ¼Ò×Ô´´Îä¹¦³ÌĞò¡£")
+	if(list[0]!="// è¿™æ˜¯ç©å®¶è‡ªåˆ›æ­¦åŠŸç¨‹åºã€‚")
 		return 0;
 	if(list[1]!="// "+playername)
 		return 0;
@@ -558,39 +558,39 @@ int check_owner_skill(object me,string skill_en_name)
 	else list = explode(file, "\n");
 	playername=geteuid(me);
 	if(list[1]!="// "+playername) return 2;
-	if(list[0]!="// ÕâÊÇÍæ¼Ò×Ô´´Îä¹¦³ÌĞò¡£") return 2;
+	if(list[0]!="// è¿™æ˜¯ç©å®¶è‡ªåˆ›æ­¦åŠŸç¨‹åºã€‚") return 2;
 	else return 0;
 }
 
 int help (object me)
 {
 	write(@HELP
-Ö¸Áî¸ñÊ½£ºeditskill Îä¹¦»ù±¾¼¼ÄÜ Îä¹¦Ó¢ÎÄÃû×Ö Îä¹¦ÖĞÎÄÃû×Ö µÚ¼¸ÕĞ
-ÀıÈç£ºeditskill unarmed jueqin ¾øÇéÈ­ 1 
+æŒ‡ä»¤æ ¼å¼ï¼šeditskill æ­¦åŠŸåŸºæœ¬æŠ€èƒ½ æ­¦åŠŸè‹±æ–‡åå­— æ­¦åŠŸä¸­æ–‡åå­— ç¬¬å‡ æ‹›
+ä¾‹å¦‚ï¼šeditskill unarmed jueqin ç»æƒ…æ‹³ 1 
  
-    ÕâÊÇÓÃÀ´´´½¨×Ô¼º·ç¸ñÎä¹¦µÄÖ¸Áî£¬Ëæ×Å¾­ÑéÖµµÄÔö³¤£¬¿ÉÒÔÊµÏÖµÄÕĞÊ½
-Ô½À´Ô½¶à£¬ÕĞÊ½µÄÍşÁ¦Ò²Ô½À´Ô½´ó¡£Ã¿´´ÔìÒ»ÖÖÎä¹¦£¬±ØĞëÒªÓĞÁ½Íòµã½­ºşÔÄ
-Àú¡£
-    Íæ¼ÒÔö¼ÓÕĞÊ½µÄÊìÁ·³Ì¶ÈµÄ·½Ê½ÊÇÊ¹ÓÃ¸ö×¨ÓÃÖ¸Áî£º
-    mylian£¬ÓÃpracticeÒ²¿ÉÒÔ£¬µ«ÊÇÄÑ¶È»á¼Ó´ó¡£
+    è¿™æ˜¯ç”¨æ¥åˆ›å»ºè‡ªå·±é£æ ¼æ­¦åŠŸçš„æŒ‡ä»¤ï¼Œéšç€ç»éªŒå€¼çš„å¢é•¿ï¼Œå¯ä»¥å®ç°çš„æ‹›å¼
+è¶Šæ¥è¶Šå¤šï¼Œæ‹›å¼çš„å¨åŠ›ä¹Ÿè¶Šæ¥è¶Šå¤§ã€‚æ¯åˆ›é€ ä¸€ç§æ­¦åŠŸï¼Œå¿…é¡»è¦æœ‰ä¸¤ä¸‡ç‚¹æ±Ÿæ¹–é˜…
+å†ã€‚
+    ç©å®¶å¢åŠ æ‹›å¼çš„ç†Ÿç»ƒç¨‹åº¦çš„æ–¹å¼æ˜¯ä½¿ç”¨ä¸ªä¸“ç”¨æŒ‡ä»¤ï¼š
+    mylianï¼Œç”¨practiceä¹Ÿå¯ä»¥ï¼Œä½†æ˜¯éš¾åº¦ä¼šåŠ å¤§ã€‚
 
-    ÓÉÓÚÊÇ×Ô¼ºÃşË÷ÕĞÊ½£¬ËùÒÔÄÑ¶ÈÒª´óĞ©¡£Íæ¼ÒÖ»ÄÜĞŞ¸Äµ±Ç°µÄÕĞÊ½£¬¶ÔÒÔ
-Ç°µÄÕĞÊ½ÎŞ·¨¸Ä¶¯¡£ËùÒÔÍæ¼ÒÒªÊÂÏÈ¹æ»®ºÃ×Ü¹²Òª´´¼¸ÕĞ£¬±ßÁ·±ßĞŞ¸Ä£¬ÒÔÃâ
-µ½Ê±ºîÎŞ·¨¸Ä¶¯ÒÔÇ°µÄ»ù±¾ÕĞÊ½¡£
+    ç”±äºæ˜¯è‡ªå·±æ‘¸ç´¢æ‹›å¼ï¼Œæ‰€ä»¥éš¾åº¦è¦å¤§äº›ã€‚ç©å®¶åªèƒ½ä¿®æ”¹å½“å‰çš„æ‹›å¼ï¼Œå¯¹ä»¥
+å‰çš„æ‹›å¼æ— æ³•æ”¹åŠ¨ã€‚æ‰€ä»¥ç©å®¶è¦äº‹å…ˆè§„åˆ’å¥½æ€»å…±è¦åˆ›å‡ æ‹›ï¼Œè¾¹ç»ƒè¾¹ä¿®æ”¹ï¼Œä»¥å…
+åˆ°æ—¶ä¾¯æ— æ³•æ”¹åŠ¨ä»¥å‰çš„åŸºæœ¬æ‹›å¼ã€‚
 
-    ¿ÉÒÔÀûÓÃµÄ»ù±¾¹¦·òÓĞ£º
+    å¯ä»¥åˆ©ç”¨çš„åŸºæœ¬åŠŸå¤«æœ‰ï¼š
 	unarmed,
 	sword,
 	blade,
-×¢Òâ:
-    ÕĞÊ½µÄÓ¢ÎÄÃû³ÆºóÃæ½«±»¼ÓÉÏ»ù±¾¼¼ÄÜµÄ¼¸¸ö±êÊ¶£¬Íæ¼ÒÒªÊÂÏÈÏëºÃ£¬Ò»
-µ©¿ªÊ¼´´½¨ÔòÎŞ·¨ËæÒâ¸Ä¶¯Ó¢ÎÄÃû³Æ£¬ÈçÉÏÀı½«»áµÃµ½ÃûÎªjueqin-unarmedµÄ
-Ò»ÏîÎä¹¦¡£ÕĞÊ½ÃèÊöÖĞ²»Òª¼ÓÈë¿ØÖÆ×Ö·û¡£Íæ¼Ò×î¶àÖ»ÄÜ´´½¨ÈıÖÖ¸ß¼¶¹¦·ò¡£
-    ÕĞÊ½ÃèÊöÖĞµÄ£º
-    Ä³ÈË£¬Äã£¬Ä³²¿Î»£¬ÎäÆ÷´øÓĞÆÕ±éĞÔ£¬½«À´¿ÉÒÔÓÃÀ´¶Ô¸¶¸÷ÖÖ²»Í¬µĞÈË¡£
+æ³¨æ„:
+    æ‹›å¼çš„è‹±æ–‡åç§°åé¢å°†è¢«åŠ ä¸ŠåŸºæœ¬æŠ€èƒ½çš„å‡ ä¸ªæ ‡è¯†ï¼Œç©å®¶è¦äº‹å…ˆæƒ³å¥½ï¼Œä¸€
+æ—¦å¼€å§‹åˆ›å»ºåˆ™æ— æ³•éšæ„æ”¹åŠ¨è‹±æ–‡åç§°ï¼Œå¦‚ä¸Šä¾‹å°†ä¼šå¾—åˆ°åä¸ºjueqin-unarmedçš„
+ä¸€é¡¹æ­¦åŠŸã€‚æ‹›å¼æè¿°ä¸­ä¸è¦åŠ å…¥æ§åˆ¶å­—ç¬¦ã€‚ç©å®¶æœ€å¤šåªèƒ½åˆ›å»ºä¸‰ç§é«˜çº§åŠŸå¤«ã€‚
+    æ‹›å¼æè¿°ä¸­çš„ï¼š
+    æŸäººï¼Œä½ ï¼ŒæŸéƒ¨ä½ï¼Œæ­¦å™¨å¸¦æœ‰æ™®éæ€§ï¼Œå°†æ¥å¯ä»¥ç”¨æ¥å¯¹ä»˜å„ç§ä¸åŒæ•Œäººã€‚
 
-    ÕĞÊ½µÄÃèÊö²»Òª´øÓĞ¶Ô×Ô¼º»ò¶ÔÊÖ×´Ì¬µÄÃèĞ´£¬²»Òª²»¸ºÔğµÄÂÒĞ´¡£Î×Ê¦
-½«¼ì²éÍæ¼ÒËù´´½¨µÄ¹¦·ò£¬Èç²»·ûºÏ¹æ¶¨£¬½«±»É¾³ı¡£
+    æ‹›å¼çš„æè¿°ä¸è¦å¸¦æœ‰å¯¹è‡ªå·±æˆ–å¯¹æ‰‹çŠ¶æ€çš„æå†™ï¼Œä¸è¦ä¸è´Ÿè´£çš„ä¹±å†™ã€‚å·«å¸ˆ
+å°†æ£€æŸ¥ç©å®¶æ‰€åˆ›å»ºçš„åŠŸå¤«ï¼Œå¦‚ä¸ç¬¦åˆè§„å®šï¼Œå°†è¢«åˆ é™¤ã€‚
 HELP);
 	return 1;
 }

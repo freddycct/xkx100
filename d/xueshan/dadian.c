@@ -1,13 +1,13 @@
-//      dadian.c ���
+//      dadian.c 大殿
 
 inherit ROOM;
 
 void create()
 {
-        set("short","���");
+        set("short","大殿");
         set("long",@LONG
-������ѩɽ�µĴ����빩���ŷ�������ɮ���������ž��ġ�
-Զ����������������ϵ�Ĥ�ݡ�������඼�ǲ�
+这里是雪山寺的大殿，中央供奉着佛祖塑像。僧人们在念着经文。
+远来的香客们在这里虔诚地膜拜。大殿两侧都是侧殿。
 LONG );
         set("exits",([
                 "east"  : __DIR__"cedian1",

@@ -3,11 +3,11 @@
 
 inherit NPC;
 void create()
-{       set_name("¿ŞÈıÉÙ", ({ "autodami"}));
-	set("gender", "ÄĞĞÔ");
+{       set_name("å“­ä¸‰å°‘", ({ "autodami"}));
+	set("gender", "ç”·æ€§");
 	set("class", "beggar");
-	set("title", "Ø¤°ïµÚ¶şÊ®´úµÜ×Ó");
-	set("nickname", HIY"ÎÒÊÇÎäÃí3Â¥µÄ´óÃûÈËĞ¦ÈıÉÙµÄ¸ú°à"NOR);
+	set("title", "ä¸å¸®ç¬¬äºŒåä»£å¼Ÿå­");
+	set("nickname", HIY"æˆ‘æ˜¯æ­¦åº™3æ¥¼çš„å¤§åäººç¬‘ä¸‰å°‘çš„è·Ÿç­"NOR);
 	set("age", 14);
 	set("attitude", "friendly");
 

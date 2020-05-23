@@ -6,10 +6,10 @@ inherit F_MASTER;
 
 void create()
 {
-	set_name("Õ²´º", ({ "zhan chun", "zhan", "chun" }));
+	set_name("è©¹æ˜¥", ({ "zhan chun", "zhan", "chun" }));
 	set("long",
-		"ËýÊÇºÎÌ«³å×îÏ²»¶µÄµÜ×Ó£¬³¤µÃµ¹Ò²ÆÄÎªÇÎÀö¡£\n");
-	set("gender", "Å®ÐÔ");
+		"å¥¹æ˜¯ä½•å¤ªå†²æœ€å–œæ¬¢çš„å¼Ÿå­ï¼Œé•¿å¾—å€’ä¹Ÿé¢‡ä¸ºä¿ä¸½ã€‚\n");
+	set("gender", "å¥³æ€§");
 	set("age", 24);
 	set("attitude", "friendly");
 	set("shen_type", 1);
@@ -43,7 +43,7 @@ void create()
 	map_skill("sword", "xunlei-sword");
 	prepare_skill("leg", "chuanyun-leg");
 
-	create_family("À¥ÂØÅÉ", 5, "µÜ×Ó");
+	create_family("æ˜†ä»‘æ´¾", 5, "å¼Ÿå­");
 	set("env/wimpy", 60);
 	setup();
 	carry_object("/clone/weapon/changjian")->wield();
@@ -52,21 +52,21 @@ void create()
 
 void attempt_apprentice(object ob)
 {
-	if(ob->query("gender")=="ÄÐÐÔ")
+	if(ob->query("gender")=="ç”·æ€§")
 	{
 		command("fear");
 		command("say "+RANK_D->query_respect(ob)+
-			"£¬Ê¦Ä¸²»×¼ÎÒÊÕÄÐµÜ×Ó£¬ÄãÈ¥ÕÒÎÒÊ¦ÐÖÈ¥°É¡£");
+			"ï¼Œå¸ˆæ¯ä¸å‡†æˆ‘æ”¶ç”·å¼Ÿå­ï¼Œä½ åŽ»æ‰¾æˆ‘å¸ˆå…„åŽ»å§ã€‚");
 		return;
 	}
 
 	if(ob->query("appren_hezudao", 1) == 1)
 	{
-		command("say Ê¦×æÔõ¸Ò¿ªÈç´ËÍæÐ¦£¬Íí±²È´ÊÇÍòÍò²»¸ÒµÄ£¡");
+		command("say å¸ˆç¥–æ€Žæ•¢å¼€å¦‚æ­¤çŽ©ç¬‘ï¼Œæ™šè¾ˆå´æ˜¯ä¸‡ä¸‡ä¸æ•¢çš„ï¼");
 		return;
 	}
 
-	command("say ºÃ°É£¬ÎÒ¾ÍÊÕÏÂÄã£¬½ÌÄãÒ»Ð©Æ¤Ã«¹¦·ò¡£");
+	command("say å¥½å§ï¼Œæˆ‘å°±æ”¶ä¸‹ä½ ï¼Œæ•™ä½ ä¸€äº›çš®æ¯›åŠŸå¤«ã€‚");
 	command("recruit " + ob->query("id"));
 }
 

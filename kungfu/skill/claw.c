@@ -1,4 +1,4 @@
-// claw.c »ù±¾×¦·¨
+// claw.c åŸºæœ¬çˆªæ³•
 // Last Modified by winder on Mar. 10 2000
 
 #include <ansi.h>
@@ -13,13 +13,13 @@ int power_point(object me) { return 1; }
 
 int help(object me)
 {
-	write(HIC"\n»ù±¾×¦·¨£º"NOR"\n");
+	write(HIC"\nåŸºæœ¬çˆªæ³•ï¼š"NOR"\n");
 	write(@HELP
 
-    ×¦ÀàÎä¼¼µÄ»ù±¾¹¦£¬²¢ÄÜ¸ÄÉÆÄãºóÌìµÄëöÁ¦¡£
+    çˆªç±»æ­¦æŠ€çš„åŸºæœ¬åŠŸï¼Œå¹¶èƒ½æ”¹å–„ä½ åå¤©çš„è†‚åŠ›ã€‚
 
-	Ñ§Ï°ÒªÇó£º
-		ÎŞ
+	å­¦ä¹ è¦æ±‚ï¼š
+		æ— 
 HELP
 	);
 	return 1;

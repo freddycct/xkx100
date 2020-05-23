@@ -6,10 +6,10 @@ inherit  ROOM;
 
 void  create  ()
 {
-	set  ("short",  "»á¿ÍÊÒ");
+	set  ("short",  "ä¼šå®¢å®¤");
 	set  ("long",  @LONG
-ÕâÀïÊÇ´åÖ§²¿µÄ»á¿ÍÊÒ¡£ÊÒÀïÁÕÀÅÂúÄ¿µÄ½õÆì¡¢½±×´ºÍÈÙÓşÖ¤Êé£¬
-ÈÃÄã²»½û¿´»¨ÁËÑÛ¡£
+è¿™é‡Œæ˜¯æ‘æ”¯éƒ¨çš„ä¼šå®¢å®¤ã€‚å®¤é‡Œç³ç…æ»¡ç›®çš„é”¦æ——ã€å¥–çŠ¶å’Œè£èª‰è¯ä¹¦ï¼Œ
+è®©ä½ ä¸ç¦çœ‹èŠ±äº†çœ¼ã€‚
 LONG);
 	set("exits",  ([  //sizeof()  ==  1
 		"north"  :  __DIR__"czoffice",
@@ -17,7 +17,7 @@ LONG);
 	set("objects",  ([
 	]));
 
-        create_door("north", "Ä¾ÃÅ", "south", DOOR_CLOSED);
+        create_door("north", "æœ¨é—¨", "south", DOOR_CLOSED);
 	set("no_fight", 1);
 	set("coor/x", -170);
 	set("coor/y", 20);

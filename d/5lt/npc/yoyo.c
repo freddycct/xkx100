@@ -5,13 +5,13 @@ inherit NPC;
 
 void create()
 {
-	set_name("Ó´Ó´", ({ "yoyo" }));
-	set("title", HIM"µçÊÓÌ¨Ì¨³¤"NOR);
+	set_name("å“Ÿå“Ÿ", ({ "yoyo" }));
+	set("title", HIM"ç”µè§†å°å°é•¿"NOR);
 	set("shen_type", 1);
 
-	set("gender", "ÄĞĞÔ" );
+	set("gender", "ç”·æ€§" );
 
-	set("nickname", HIW"Ò»¶äÀæ»¨Ñ¹º£ÌÄ"NOR);
+	set("nickname", HIW"ä¸€æœµæ¢¨èŠ±å‹æµ·æ£ "NOR);
 	set("age", 20);
 	set("per", 30);
 	set("attitude", "friendly");		

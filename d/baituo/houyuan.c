@@ -5,10 +5,10 @@ inherit ROOM;
 
 void create()
 {
-	set("short","��Ժ");
+	set("short","后院");
 	set("long", @LONG
-����Ƨ���ĺ�Ժ��ס�š�ŷ���ˡ��������衺���衻������������
-�ߣ����Ѿ����ɻ��ˣ������ﾲ����
+这是僻静的后院，住着『欧阳克』的老奶妈『张妈』。由于年岁已
+高，她已经不干活了，在这里静养。
 LONG	);
 	set("exits",([
 		"southeast" : __DIR__"zhuyuan",

@@ -5,11 +5,11 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "ÕÊÅñ");
+	set("short", "å¸ç¯·");
 	set("long", @LONG
-Õâ¸öÅ£Æ¤ÕÊÅñ´óÔ¼ÄÜÈÝÊ®¶àÈË¡£µØÉÏÆÌ×Å»ªÀöµÄµØÌº£¬ÉÏÃæÐå×ÅÃÀ
-ÀöµÄ»¨ÎÆ£¬±ßÉÏÍÏ×ÅÁ÷ËÕ¡£Ìº×ÓÖÐ¼ä°Ú×Å¹ûÅè¡£±ßÉÏÊÇ¼¸¸ö´óµÄÏä×Ó£¬
-Ò»±ß»¹ºá×Å°ÑÌú±³¹­¡£
+è¿™ä¸ªç‰›çš®å¸ç¯·å¤§çº¦èƒ½å®¹åå¤šäººã€‚åœ°ä¸Šé“ºç€åŽä¸½çš„åœ°æ¯¯ï¼Œä¸Šé¢ç»£ç€ç¾Ž
+ä¸½çš„èŠ±çº¹ï¼Œè¾¹ä¸Šæ‹–ç€æµè‹ã€‚æ¯¯å­ä¸­é—´æ‘†ç€æžœç›†ã€‚è¾¹ä¸Šæ˜¯å‡ ä¸ªå¤§çš„ç®±å­ï¼Œ
+ä¸€è¾¹è¿˜æ¨ªç€æŠŠé“èƒŒå¼“ã€‚
 LONG );
 	set("objects", ([ /* sizeof() == 1 */
 		__DIR__"npc/muzhuolun": 1,

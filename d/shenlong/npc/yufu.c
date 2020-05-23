@@ -1,14 +1,14 @@
-// yufu.c Óæ·ò
+// yufu.c æ¸”å¤«
 // Last Modified by winder on Jul. 12 2002
 
 inherit NPC;
 
 void create()
 {
-	set_name("Óæ·ò", ({ "yu fu","fu" }) );
-	set("gender", "ÄĞĞÔ");
+	set_name("æ¸”å¤«", ({ "yu fu","fu" }) );
+	set("gender", "ç”·æ€§");
 	set("age", 35);
-	set("long", "µºÉÏÒÔ´òÓãÎªÉúµÄÓæ·ò¡£\n");
+	set("long", "å²›ä¸Šä»¥æ‰“é±¼ä¸ºç”Ÿçš„æ¸”å¤«ã€‚\n");
 	set("combat_exp", 8800);
 	set("shen_type", 0);
 	set("attitude", "friendly");

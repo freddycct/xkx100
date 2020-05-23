@@ -17,13 +17,13 @@ int main(object me, string arg)
 
         if (!arg)
         {
-         	 write("ÄãÏÖÔÚÌåÖØÊÇ"+me->query_weight()+"¸ºÖØ"+me->query_encumbrance()+"¡£\n");
+         	 write("ä½ ç°åœ¨ä½“é‡æ˜¯"+me->query_weight()+"è´Ÿé‡"+me->query_encumbrance()+"ã€‚\n");
            return 1;
         }
         else if (arg=="-1")
         {
          	me->set_weight(40000+(me->query("str") - 10)*2000);
-          write("ÄãµÄÌåÖØ»Ö¸´µ½Ô­À´µÄ"+me->query_weight()+"¡£\n");
+          write("ä½ çš„ä½“é‡æ¢å¤åˆ°åŸæ¥çš„"+me->query_weight()+"ã€‚\n");
           return 1;
         }
         else if (sscanf(arg,"%d",origin)==1)
@@ -31,7 +31,7 @@ int main(object me, string arg)
         	if ( origin < 200)
         	 origin=200;
          	me->set_weight(origin);
-          write("Äã°ÑÌåÖØµ÷ÕûÎª"+me->query_weight()+"¡£\n");
+          write("ä½ æŠŠä½“é‡è°ƒæ•´ä¸º"+me->query_weight()+"ã€‚\n");
           return 1;
         }
         else
@@ -42,9 +42,9 @@ int main(object me, string arg)
 int help(object me)
 {
         write(@HELP
-Ö¸Áî¸ñÊ½ : wieght [ÊıÖµ| -1]
+æŒ‡ä»¤æ ¼å¼ : wieght [æ•°å€¼| -1]
  
-Õâ¸öÖ¸Áî»áÊ¹ÄãµÄÖØÁ¿±ä»¯¡£Èç¹û²ÎÊıÊÇ-1¾Í»Ö¸´Ô­À´µÄÌåÖØ¡£
+è¿™ä¸ªæŒ‡ä»¤ä¼šä½¿ä½ çš„é‡é‡å˜åŒ–ã€‚å¦‚æœå‚æ•°æ˜¯-1å°±æ¢å¤åŸæ¥çš„ä½“é‡ã€‚
  
 HELP );
     return 1;

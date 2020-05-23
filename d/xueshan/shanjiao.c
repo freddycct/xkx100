@@ -1,13 +1,13 @@
-//      shanjiao.c ɽ��
+//      shanjiao.c 山脚
 
 inherit ROOM;
 
 void create()
 {
-        set("short","ɽ��");
+        set("short","山脚");
         set("long",@LONG
-������ɽ���µ�һƬƽ�أ�ɽ�ϲ�Զ����������ѩӳ���µ�һ��Ƭ
-��ǽ���ߴ�������Զ��������ѩɽ�¡�
+这里是山脚下的一片平地，山上不远处，皑皑白雪映照下的一大片
+红墙金瓦处，就是远近闻名的雪山寺。
 LONG );
         set("outdoors","xueshan");
         set("exits",([

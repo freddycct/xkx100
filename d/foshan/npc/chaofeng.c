@@ -6,16 +6,16 @@ inherit F_DEALER;
 
 void create()
 {
-	set_name("ÀÏ³¯·î", ({ "lao chaofeng", "chaofeng" }));
-	set("title", "µ±ÆÌÀÏ°å");
+	set_name("è€æœå¥‰", ({ "lao chaofeng", "chaofeng" }));
+	set("title", "å½“é“ºè€æ¿");
 	set("shen_type", 0);
 
-	set("gender", "ÄĞĞÔ");
+	set("gender", "ç”·æ€§");
 	set_max_encumbrance(100000000);
 	set("age", 35);
-	set("long", "Ò»¸öÒÂ×Å¹âÏÊµÄÀÏ³¯·î¡£\n");
+	set("long", "ä¸€ä¸ªè¡£ç€å…‰é²œçš„è€æœå¥‰ã€‚\n");
 	set("no_get_from", 1);
-//ÒÔÏÂÎª·ÀÖ¹Íæ¼ÒÔËÓÃÌØÊâ·½·¨½«µ±ÆÌÀÏ°å°á×ß¡£
+//ä»¥ä¸‹ä¸ºé˜²æ­¢ç©å®¶è¿ç”¨ç‰¹æ®Šæ–¹æ³•å°†å½“é“ºè€æ¿æ¬èµ°ã€‚
 	set("no_get", "1");
 
 	set_skill("unarmed", 60);
@@ -41,6 +41,6 @@ void init()
 
 void die()
 {
-	message_vision("\n$NËÀÁË¡£\n", this_object());
+	message_vision("\n$Næ­»äº†ã€‚\n", this_object());
 	destruct(this_object());
 }

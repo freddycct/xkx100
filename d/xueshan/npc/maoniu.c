@@ -1,13 +1,13 @@
-// maoniu.c êóÅ£
+// maoniu.c ç‰¦ç‰›
 
 inherit NPC;
 
 void create()
 {
-	set_name("êóÅ£", ({ "mao niu", "niu" ,"yak"}) );
-	set("race", "×ßÐó");
+	set_name("ç‰¦ç‰›", ({ "mao niu", "niu" ,"yak"}) );
+	set("race", "èµ°ç•œ");
 	set("age", 5);
-	set("long", "Ò»Ö»ÉíÇ¿Ìå×³µÄêóÅ££¬È«Éí³¤×Å³¤Ã«£¬ËÆºõÔÚÃÙÊ³¡£\n");
+	set("long", "ä¸€åªèº«å¼ºä½“å£®çš„ç‰¦ç‰›ï¼Œå…¨èº«é•¿ç€é•¿æ¯›ï¼Œä¼¼ä¹Žåœ¨è§…é£Ÿã€‚\n");
 	set("attitude", "peaceful");
 	set("str",60);
 	set("max_qi",1000);
@@ -27,7 +27,7 @@ void create()
 void die()
 {
 	object ob, corpse;
-	message_vision("$N·¢³ößèµØÒ»Éù°§Ãù£¬¾²¾²µ¹ÔÚµØÉÏËÀÈ¥¡£\n", this_object());
+	message_vision("$Nå‘å‡ºå“žåœ°ä¸€å£°å“€é¸£ï¼Œé™é™å€’åœ¨åœ°ä¸Šæ­»åŽ»ã€‚\n", this_object());
 	if( objectp(corpse = CHAR_D->make_corpse(this_object())) )
 		ob = new("/clone/medicine/vegetable/niuhuang");
 	ob->move(corpse);

@@ -37,7 +37,7 @@ compile_object(string file)
 // etc.  As it's static it can't be called by anything but the driver (and
 // master).
 
-static void
+protected void
 crash(string error, object command_giver, object current_object)
 {
 	shout("Master object shouts: Damn!\n");
@@ -60,7 +60,7 @@ crash(string error, object command_giver, object current_object)
 // Return:          Array of nonblank lines that don't begin with '#'
 // Note:            must be declared static (else a security hole)
 
-static string *
+protected string *
 update_file(string file)
 {
 	string *array;

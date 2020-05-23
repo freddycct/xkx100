@@ -1,4 +1,4 @@
-//Room: jiejianyan.c ½â½£ÑÒ
+//Room: jiejianyan.c è§£å‰‘å²©
 //Date: Sep 22 1997
 
 #include <ansi.h>
@@ -6,10 +6,10 @@ inherit ROOM;
 
 void create()
 {
-	set("short","½â½£ÑÒ");
+	set("short","è§£å‰‘å²©");
 	set("long",@LONG
-ÕâÊÇÎäÁÖÖĞ¼«¸ºÊ¢ÃûµÄÎäµ±½â½£ÑÒ£¬ÑÒÏÂ½â½£³ØË®Ã÷³ºÕÕÈË¡£ÎäÁÖ
-ÈËÊ¿¾­´Ë¶¼×Ô¾õ½â½££¬ÒÔÊ¾¶ÔÎäµ±ÅÉµÄ×ğ¾´¡£Ç§°ÙÄêÀ´£¬¸ÅÎŞÀıÍâ¡£
+è¿™æ˜¯æ­¦æ—ä¸­æè´Ÿç››åçš„æ­¦å½“è§£å‰‘å²©ï¼Œå²©ä¸‹è§£å‰‘æ± æ°´æ˜æ¾ˆç…§äººã€‚æ­¦æ—
+äººå£«ç»æ­¤éƒ½è‡ªè§‰è§£å‰‘ï¼Œä»¥ç¤ºå¯¹æ­¦å½“æ´¾çš„å°Šæ•¬ã€‚åƒç™¾å¹´æ¥ï¼Œæ¦‚æ— ä¾‹å¤–ã€‚
 LONG);
 	set("objects", ([
 	   CLASS_D("wudang") +"/shan": 1,
@@ -35,7 +35,7 @@ int valid_leave(object me, string dir)
 		 && dir == "westup"
 		 && objectp(present("zhang cuishan", environment(me))))
 	{
-		return notify_fail(HIR"ÕÅ´äÉ½µÀ£º¡°¸÷É«ÈËµÈ£¬µ½½â½£ÑÒ¶¼Ğè½â½££¬Ç§°ÙÄêÀ´¸ÅÎŞÀıÍâ£¡¡±\n"NOR);
+		return notify_fail(HIR"å¼ ç¿ å±±é“ï¼šâ€œå„è‰²äººç­‰ï¼Œåˆ°è§£å‰‘å²©éƒ½éœ€è§£å‰‘ï¼Œåƒç™¾å¹´æ¥æ¦‚æ— ä¾‹å¤–ï¼â€\n"NOR);
 	}
 	return ::valid_leave(me, dir);
 }

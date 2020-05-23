@@ -4,11 +4,11 @@ inherit NPC;
 
 void create()
 {
-	set_name("ºûµû", ({"hudie"}) );
-	set("race", "À¥³æ");
-	set("subrace", "·É³æ");
+	set_name("è´è¶", ({"hudie"}) );
+	set("race", "æ˜†è™«");
+	set("subrace", "é£žè™«");
 	set("age", 8);
-	set("long", "ÕâÊÇÒ»Ö»ÔÚ»¨¼äôæôæ·ÉÎèµÄºûµû£¬ËÆºõ²»ÅÂÈËÄØ¡£\n");
+	set("long", "è¿™æ˜¯ä¸€åªåœ¨èŠ±é—´ç¿©ç¿©é£žèˆžçš„è´è¶ï¼Œä¼¼ä¹Žä¸æ€•äººå‘¢ã€‚\n");
 
 	set("str", 20);
 	set("dex", 50);
@@ -18,7 +18,7 @@ void create()
 	set("chat_chance", 5);
 	set("chat_msg", ({
 		(: this_object(), "random_move" :),
-		"ºûµû·É¹ýÀ´£¬ÈÆ×ÅÄãµÄÉíÌå·ÉÎèÆðÀ´¡£µÈÄãÉì³öÊÖÀ´Ïë×¥×¡ËüÊ±£¬ËüÓÖ·É×ßÁË¡£\n",
+		"è´è¶é£žè¿‡æ¥ï¼Œç»•ç€ä½ çš„èº«ä½“é£žèˆžèµ·æ¥ã€‚ç­‰ä½ ä¼¸å‡ºæ‰‹æ¥æƒ³æŠ“ä½å®ƒæ—¶ï¼Œå®ƒåˆé£žèµ°äº†ã€‚\n",
 	 }) );
 
 	setup();

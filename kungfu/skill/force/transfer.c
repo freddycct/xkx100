@@ -1,4 +1,4 @@
-// transfer.c ×ªÄÚÁ¦
+// transfer.c è½¬å†…åŠ›
 // Last Modified by winder on Mar. 10 2000
 
 #include <ansi.h>
@@ -8,55 +8,55 @@ int exert(object me, object target)
 	int force, trans;
 
 	if( query_ip_name(target)==query_ip_name(me))
-		return notify_fail("ÄãÖ»ÄÜ½«ÕæÆø´«¸øÆäËûÍæ¼Ò¡£\n");
+		return notify_fail("ä½ åªèƒ½å°†çœŸæ°”ä¼ ç»™å…¶ä»–çŽ©å®¶ã€‚\n");
 
 	if( !target || target==me ||
 		!living(target) || target->query_temp("noliving") )
-		return notify_fail("ÄãÒª½«ÕæÆø´«¸øÄÄÎ»£¿\n");
+		return notify_fail("ä½ è¦å°†çœŸæ°”ä¼ ç»™å“ªä½ï¼Ÿ\n");
 
 	if(me->query_skill_mapped("force")!=target->query_skill_mapped("force"))
-		return notify_fail(target->name()+"ËùÊ¹ÓÃµÄÄÚ¹¦ºÍÄã²»Í¬£¬²»ÄÜ´«ÄÚÁ¦¡£\n");
+		return notify_fail(target->name()+"æ‰€ä½¿ç”¨çš„å†…åŠŸå’Œä½ ä¸åŒï¼Œä¸èƒ½ä¼ å†…åŠ›ã€‚\n");
 
 	if( (int)me->query("neili") <= (int)me->query("max_neili")/3 )
-		return notify_fail("ÄãµÄÕæÆø²»×ã¡£\n");
+		return notify_fail("ä½ çš„çœŸæ°”ä¸è¶³ã€‚\n");
 
 	if( (int)me->query("max_neili") <= (int)target->query("max_neili") )
-		return notify_fail("ÄãµÄÕæÆø»¹²»ÈçÈË¼Ò¶à£¬´«²»¹ýÈ¥¡£\n");
+		return notify_fail("ä½ çš„çœŸæ°”è¿˜ä¸å¦‚äººå®¶å¤šï¼Œä¼ ä¸è¿‡åŽ»ã€‚\n");
 
 	if ((int)target->query("neili") >= (int)target->query("max_neili")*2)
-		return notify_fail("¶Ô·½µÄÕæÆø³äÅæ£¬²»ÐèÒªÄãµÄÕæÆø¡£\n");
+		return notify_fail("å¯¹æ–¹çš„çœŸæ°”å……æ²›ï¼Œä¸éœ€è¦ä½ çš„çœŸæ°”ã€‚\n");
   if (target->is_busy())
-   return notify_fail("¶Ô·½ÕýÃ¦×ÅÄØ¡£\n");
+   return notify_fail("å¯¹æ–¹æ­£å¿™ç€å‘¢ã€‚\n");
 	force = me->query("neili") - (me->query("max_neili")/3);
 
-	if( (int)force/3 < 1 ) return notify_fail("ÄãµÄÕæÆø²»×ã¡£\n");
+	if( (int)force/3 < 1 ) return notify_fail("ä½ çš„çœŸæ°”ä¸è¶³ã€‚\n");
 	me->add("neili", -(int)force/3 );
 	me->start_busy(3);
 	if( (int)me->query("max_neili") <= (int)target->query("max_neili")*5/4 )
 		me->add("max_neili", -1);
 
-	message_combatd(HIW"$NÒ»ÕÆÅÄÔÚ$n±³ÐÄ£¬Ë³ÊÆÔËÆø½«ÌåÄÚÕæÆø´«ËÍ¹ýÈ¥¡£\n"NOR, me,target);
+	message_combatd(HIW"$Nä¸€æŽŒæ‹åœ¨$nèƒŒå¿ƒï¼Œé¡ºåŠ¿è¿æ°”å°†ä½“å†…çœŸæ°”ä¼ é€è¿‡åŽ»ã€‚\n"NOR, me,target);
 	target->add("neili", (int)force/3);
 	target->start_busy(3);
-	tell_object(target, HIW "Äã¾õµÃÒ»¹ÉÈÈÆø´Ó"+me->name()+"µÄÊÖÕÆÖÐ´«ÁË¹ýÀ´¡£\n" NOR);
+	tell_object(target, HIW "ä½ è§‰å¾—ä¸€è‚¡çƒ­æ°”ä»Ž"+me->name()+"çš„æ‰‹æŽŒä¸­ä¼ äº†è¿‡æ¥ã€‚\n" NOR);
 	return 1;
 }
 
 int help(object me)
 {
-	write(WHT"\n»ù±¾ÄÚ¹¦Ö®´«ËÍÄÚÁ¦£º"NOR"\n");
+	write(WHT"\nåŸºæœ¬å†…åŠŸä¹‹ä¼ é€å†…åŠ›ï¼š"NOR"\n");
 	write(@HELP
 
-	Ê¹ÓÃ¹¦Ð§£º
-		½«×Ô¼ºµÄÄÚÁ¦´«ËÍµ½±ðÈËÌåÄÚ¡¡
-		Èô½ÓÊÜ·½ÄÚÁ¦ÉÏÏÞ´ïµ½´«ËÍ·½µÄ°Ë³É£¬½«ËðºÄ´«ËÍ·½ÄÚÁ¦ÉÏÏÞ
+	ä½¿ç”¨åŠŸæ•ˆï¼š
+		å°†è‡ªå·±çš„å†…åŠ›ä¼ é€åˆ°åˆ«äººä½“å†…ã€€
+		è‹¥æŽ¥å—æ–¹å†…åŠ›ä¸Šé™è¾¾åˆ°ä¼ é€æ–¹çš„å…«æˆï¼Œå°†æŸè€—ä¼ é€æ–¹å†…åŠ›ä¸Šé™
 
-	³öÊÖÒªÇó£º
-		»ù±¾ÄÚ¹¦
-		ÄÚÁ¦20
-		Ë«·½ÊÇ²»Í¬µÄip
-		Ë«·½ÐÞÏ°Í¬Ò»ÖÖÄÚ¹¦
-		½ÓÊÜ·½×î´óÄÚÁ¦Ð¡ÓÚ´«ËÍ·½
+	å‡ºæ‰‹è¦æ±‚ï¼š
+		åŸºæœ¬å†…åŠŸ
+		å†…åŠ›20
+		åŒæ–¹æ˜¯ä¸åŒçš„ip
+		åŒæ–¹ä¿®ä¹ åŒä¸€ç§å†…åŠŸ
+		æŽ¥å—æ–¹æœ€å¤§å†…åŠ›å°äºŽä¼ é€æ–¹
 HELP
 	);
 	return 1;

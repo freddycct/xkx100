@@ -11,32 +11,32 @@ int main(object me, string arg)
 	object where = environment(me);
 
 	if (! me->query("is_vendor"))
-		return notify_fail("Ö»ÓĞ´ÓÊÂÉÌÒµµÄÈË²ÅÄÜ°ÚÌ¯¡£\n");
+		return notify_fail("åªæœ‰ä»äº‹å•†ä¸šçš„äººæ‰èƒ½æ‘†æ‘Šã€‚\n");
 	if (! present("shang ling", me))
-		return notify_fail("ÄãÎ´´øÉÌÁî£¡Èç½ñÊÀµÀÂÒ£¬Ğ¡ĞÄÎªÃî¡£\n");
+		return notify_fail("ä½ æœªå¸¦å•†ä»¤ï¼å¦‚ä»Šä¸–é“ä¹±ï¼Œå°å¿ƒä¸ºå¦™ã€‚\n");
 
 	if (me->is_fighting())
-		return notify_fail("Äã»¹ÊÇºÃºÃ´òÄãµÄ¼Ü°É¡£\n");
+		return notify_fail("ä½ è¿˜æ˜¯å¥½å¥½æ‰“ä½ çš„æ¶å§ã€‚\n");
 
 	if (me->query_temp("on_baitan"))
-		return notify_fail("ÄãÏÖÔÚÒÑ¾­Õ¼ÁËÒ»¸öÌ¯Î»£¬¾ÍÊÊ¿É¶øÖ¹°É¡£\n");
+		return notify_fail("ä½ ç°åœ¨å·²ç»å äº†ä¸€ä¸ªæ‘Šä½ï¼Œå°±é€‚å¯è€Œæ­¢å§ã€‚\n");
 	if (me->is_busy() || me->query_temp("pending/deriving"))
-		return notify_fail("ÄãÏÖÔÚÕıÃ¦×ÅÄØ£¬Ã»¹¦·ò°ÚÌ¯Éèµã¡£\n");
+		return notify_fail("ä½ ç°åœ¨æ­£å¿™ç€å‘¢ï¼Œæ²¡åŠŸå¤«æ‘†æ‘Šè®¾ç‚¹ã€‚\n");
 	if (me->query_condition("killer"))
-		return notify_fail("¹Ù¸®Õıµ½´¦×·²éÄãÄØ£¬ÄÑµÃ»¹ÓĞĞÄÇé°ÚÌ¯£¿\n");
+		return notify_fail("å®˜åºœæ­£åˆ°å¤„è¿½æŸ¥ä½ å‘¢ï¼Œéš¾å¾—è¿˜æœ‰å¿ƒæƒ…æ‘†æ‘Šï¼Ÿ\n");
 	if (where->query("no_trade"))
-		return notify_fail("ÕâÀï³£ÓĞ¹Ù±øÑ²Âß£¬×îºÃ»»¸öµØ·½×öÉúÒâ¡£\n");
+		return notify_fail("è¿™é‡Œå¸¸æœ‰å®˜å…µå·¡é€»ï¼Œæœ€å¥½æ¢ä¸ªåœ°æ–¹åšç”Ÿæ„ã€‚\n");
 	if (where->query("no_fight") && ! where->query("can_trade") && !wizardp(me))
-		return notify_fail("´Ë´¦¹ıÓÚàĞÔÓ£¬»¹ÊÇ»»¸öµØ·½×öÉúÒâ°É¡£\n");
-	message_vision(WHT"$N"WHT"Ñ°ÁË¿é¿ÕµØ£¬Ò»Æ¨¹É×øÁËÏÂÀ´£¬ËæºóÌÍ³öÒ»¿é²¼Ì¯¿ªÔÚµØ¡£\n" NOR, me);
-	tell_object(me, HIC"ÏÖÔÚÄã¿ÉÒÔ°ÚÉÏ(" HIW "stock" HIC ")»õÎï»òÊÇÊÕÆğ(" HIW "unstock" HIC ")Ä³ÖÖ»õÎï¡£\n" NOR);
+		return notify_fail("æ­¤å¤„è¿‡äºå˜ˆæ‚ï¼Œè¿˜æ˜¯æ¢ä¸ªåœ°æ–¹åšç”Ÿæ„å§ã€‚\n");
+	message_vision(WHT"$N"WHT"å¯»äº†å—ç©ºåœ°ï¼Œä¸€å±è‚¡åäº†ä¸‹æ¥ï¼Œéšåæå‡ºä¸€å—å¸ƒæ‘Šå¼€åœ¨åœ°ã€‚\n" NOR, me);
+	tell_object(me, HIC"ç°åœ¨ä½ å¯ä»¥æ‘†ä¸Š(" HIW "stock" HIC ")è´§ç‰©æˆ–æ˜¯æ”¶èµ·(" HIW "unstock" HIC ")æŸç§è´§ç‰©ã€‚\n" NOR);
 
 	me->set_temp("on_baitan", 1);
 	me->set_temp("baitan_place",file_name(environment(me)));
 	me->delete("vendor_goods");
-//	me->set_short_desc("ÕıÔÚµØÉÏ°ÚÌ¯¡£");
+//	me->set_short_desc("æ­£åœ¨åœ°ä¸Šæ‘†æ‘Šã€‚");
 //	me->start_busy((:baitan:),(:halt_baitan:));
-	me->set_temp("apply/short",({me->name()+"Õı×øÔÚµØÉÏ°ÚµØÌ¯¡£"}));
+	me->set_temp("apply/short",({me->name()+"æ­£ååœ¨åœ°ä¸Šæ‘†åœ°æ‘Šã€‚"}));
 	me->apply_condition("baitan",1);
 //        me->start_call_out((:call_other,__FILE__,"baitan",me,3:), 10);
         return 1;
@@ -48,16 +48,16 @@ int baitan(object me)
 	switch (random(15))
 	{
 		case 0:
-			message_vision(CYN"$N"CYN"»·¹ËÁËÒ»ÏÂËÄÖÜ£¬Ğ¦ÃĞÃĞµØÕĞºô×ÅÖÚÈË¡£\n"NOR, me);
+			message_vision(CYN"$N"CYN"ç¯é¡¾äº†ä¸€ä¸‹å››å‘¨ï¼Œç¬‘çœ¯çœ¯åœ°æ‹›å‘¼ç€ä¼—äººã€‚\n"NOR, me);
 			break;
 		case 1:
-			message_vision(CYN"$N"CYN"ßººÈµÀ£º×ß¹ıÂ·¹ı²»Òª´í¹ı£¬´ó¼Ò¿ìÀ´¿´¿´»õ¡£\n"NOR, me);
+			message_vision(CYN"$N"CYN"å†å–é“ï¼šèµ°è¿‡è·¯è¿‡ä¸è¦é”™è¿‡ï¼Œå¤§å®¶å¿«æ¥çœ‹çœ‹è´§ã€‚\n"NOR, me);
 			break;
 		case 2:
-			message_vision(CYN"$N"CYN"ßººÈµÀ£º´ó¼ÒÀ´¿´¿´£¬ÎÒÕâÀï»õÎïÆëÈ«£¬°üÄúÂúÒâ¡£\n"NOR, me);
+			message_vision(CYN"$N"CYN"å†å–é“ï¼šå¤§å®¶æ¥çœ‹çœ‹ï¼Œæˆ‘è¿™é‡Œè´§ç‰©é½å…¨ï¼ŒåŒ…æ‚¨æ»¡æ„ã€‚\n"NOR, me);
 			break;
 		case 3:
-			message_vision(CYN"$N"CYN"ßººÈµÀ£ºÀ´À´À´£¬ÏÖÔÚËùÓĞÎïÆ·¼ú¼Û³öÊÛ£¬±ğ´í¹ı¡£\n"NOR, me);
+			message_vision(CYN"$N"CYN"å†å–é“ï¼šæ¥æ¥æ¥ï¼Œç°åœ¨æ‰€æœ‰ç‰©å“è´±ä»·å‡ºå”®ï¼Œåˆ«é”™è¿‡ã€‚\n"NOR, me);
 			break;
 		default:
 		  break;
@@ -69,7 +69,7 @@ int baitan(object me)
 varargs int halt_baitan(object me,int silent)
 {
 	if (!silent)
-	message_vision(WHT"$N"WHT"ÌáÆğÌ¯²¼µÄËÄ¸ö½Ç£¬°Ñ»õÎïÒ»¹ÉÄÔµÄÊÕÁËÆğÀ´£¬Õ¾ÆğÉíÀ´¡£\n" NOR, me);
+	message_vision(WHT"$N"WHT"æèµ·æ‘Šå¸ƒçš„å››ä¸ªè§’ï¼ŒæŠŠè´§ç‰©ä¸€è‚¡è„‘çš„æ”¶äº†èµ·æ¥ï¼Œç«™èµ·èº«æ¥ã€‚\n" NOR, me);
 
 	me->delete_temp("on_baitan");
 	me->delete_temp("apply/short");
@@ -82,9 +82,9 @@ varargs int halt_baitan(object me,int silent)
 int help(object me)
 {
 	write(@HELP
-Ö¸Áî¸ñÊ½ : baitan
+æŒ‡ä»¤æ ¼å¼ : baitan
 
-°ÚÌ¯Éèµã£¬¶µÊÛ»õÎï¡£
+æ‘†æ‘Šè®¾ç‚¹ï¼Œå…œå”®è´§ç‰©ã€‚
 
 HELP);
 	return 1;

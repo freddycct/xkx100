@@ -6,13 +6,13 @@ inherit F_UNIQUE;
 
 void create()
 {
-	set_name("ÒóÎŞ¸£", ({ "yin wufu", "yin", "wufu", }));
+	set_name("æ®·æ— ç¦", ({ "yin wufu", "yin", "wufu", }));
 	set("long",
-	"ËûÊÇÒ»Î»ÀÏÕß£¬Éí´©Ò»¼ş°×²¼³¤ÅÛ¡£\n"
-	"ËûÊÇ°×Ã¼Ó¥ÍõÒóÌìÕıµÄÆÍ´Ó¡£Ò»Ë«Èı½ÇÑÛÒõ¹âËÄÉä£¬ÈÃÈËµ¨º®¡£\n"
+	"ä»–æ˜¯ä¸€ä½è€è€…ï¼Œèº«ç©¿ä¸€ä»¶ç™½å¸ƒé•¿è¢ã€‚\n"
+	"ä»–æ˜¯ç™½çœ‰é¹°ç‹æ®·å¤©æ­£çš„ä»†ä»ã€‚ä¸€åŒä¸‰è§’çœ¼é˜´å…‰å››å°„ï¼Œè®©äººèƒ†å¯’ã€‚\n"
 	);
 
-	set("gender", "ÄĞĞÔ");
+	set("gender", "ç”·æ€§");
 	set("attitude", "friendly");
 	set("class", "fighter");
 
@@ -46,8 +46,8 @@ void create()
 	map_skill("parry", "jingang-quan");
 	prepare_skill("cuff", "jingang-quan");
 
-	set("party/party_name",HIG"Ã÷½Ì"NOR);
-	set("party/rank",HIB "ÌìÎ¢ÌÃ" NOR "½ÌÖÚ");
+	set("party/party_name",HIG"æ˜æ•™"NOR);
+	set("party/rank",HIB "å¤©å¾®å ‚" NOR "æ•™ä¼—");
 	setup();
 
 	carry_object("/d/mingjiao/obj/baipao")->wear();

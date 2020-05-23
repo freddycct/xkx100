@@ -4,10 +4,10 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "Ê¯ÃÅ");
+	set("short", "çŸ³é—¨");
 	set("long", @LONG
-ÕâÊÇÔÚÒ»Ìõ»è°µ³±ÊªµÄµØµÀÀïµÄÒ»ÉÈÊ¯ÃÅ¡£Ç½±ÚÉÏµã×ÅÒ»ÕµÓÍµÆ£¬
-·¢³öµ­»ÆÉ«¹âÃ¢¡£
+è¿™æ˜¯åœ¨ä¸€æ¡æ˜æš—æ½®æ¹¿çš„åœ°é“é‡Œçš„ä¸€æ‰‡çŸ³é—¨ã€‚å¢™å£ä¸Šç‚¹ç€ä¸€ç›æ²¹ç¯ï¼Œ
+å‘å‡ºæ·¡é»„è‰²å…‰èŠ’ã€‚
 LONG
 	);
 	set("weapon_count",1);
@@ -28,18 +28,18 @@ int do_unlock(string arg)
 	object ob, midao2;
 
 	if (query("exits/southdown"))
-		return notify_fail("ÕâÉÈÊ¯ÃÅÒÑ¾­ÊÇ´ò¿ªµÄ¡£\n");
+		return notify_fail("è¿™æ‰‡çŸ³é—¨å·²ç»æ˜¯æ‰“å¼€çš„ã€‚\n");
 	if (!arg || (arg != "men" && arg != "door"))
-		return notify_fail("ÄãÒª´ò¿ªÊ²Ã´£¿\n");
+		return notify_fail("ä½ è¦æ‰“å¼€ä»€ä¹ˆï¼Ÿ\n");
 	if (!(ob = present("gang yaoshi", this_player())))
-		return notify_fail("Äã²»»áÇËËø¡£\n");
+		return notify_fail("ä½ ä¸ä¼šæ’¬é”ã€‚\n");
 	if(!( midao2 = find_object(__DIR__"midao2")) )
                 midao2 = load_object(__DIR__"midao2");
 	if(objectp(midao2))
 	{
 		set("exits/southdown", __DIR__"midao2");
-		message_vision("$N°Ñ¸ÖĞ¾Ô¿³×²åÈëÁËÒ»¸ö³×¿×£¬×ªÁË¼¸×ª£¬ÏòÄÚÍÆ¶¯¡£\nÖ»ÌıµÃÔşÔşÉùÏì£¬Ò»ÉÈÊ¯ÃÅ»º»º¿ªÁË¡£\n", this_player());
-		message("vision","Ö»ÌıÒ»ÕóÔ¿³×Ïë£¬Ê¯ÃÅÄÇ±ßºÃÏóÓĞÈË¿ªÃÅÁË¡£\n",
+		message_vision("$NæŠŠé’¢èŠ¯é’¥åŒ™æ’å…¥äº†ä¸€ä¸ªåŒ™å­”ï¼Œè½¬äº†å‡ è½¬ï¼Œå‘å†…æ¨åŠ¨ã€‚\nåªå¬å¾—è½§è½§å£°å“ï¼Œä¸€æ‰‡çŸ³é—¨ç¼“ç¼“å¼€äº†ã€‚\n", this_player());
+		message("vision","åªå¬ä¸€é˜µé’¥åŒ™æƒ³ï¼ŒçŸ³é—¨é‚£è¾¹å¥½è±¡æœ‰äººå¼€é—¨äº†ã€‚\n",
  midao2);
         }
 	return 1;

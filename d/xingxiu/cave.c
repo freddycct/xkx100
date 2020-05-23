@@ -4,11 +4,11 @@
 inherit ROOM;
 void create()
 {
-	set("short", "É½¶´");
+	set("short", "å±±æ´");
 	set("long", @LONG
-ºÚ÷î÷îµÄÉ½¶´Àï£¬ÓĞÒ»¹ÉĞÈ³ôÎ¶¡£µÈÑÛ¾¦ÊÊÓ¦ÁËÕâÀïµÄÈõ¹âºó£¬²Å
-·¢ÏÖµØÉÏÓĞÒ»ÌõÉ«²Ê°ßìµµÄ¾Şòş¡£¾ŞòşÅÔÓĞĞí¶à°×²Ò²ÒµÄ¹Çº§£¬ÁîÈËµ¨
-º®¡£Ïë±Ø¶¼ÊÇÌ½ÏÕÖ®ÈË£¬ÎóÈëÉ½¶´£¬Îª¾ŞòşËùº¦¡£
+é»‘é»é»çš„å±±æ´é‡Œï¼Œæœ‰ä¸€è‚¡è…¥è‡­å‘³ã€‚ç­‰çœ¼ç›é€‚åº”äº†è¿™é‡Œçš„å¼±å…‰åï¼Œæ‰
+å‘ç°åœ°ä¸Šæœ‰ä¸€æ¡è‰²å½©æ–‘æ–“çš„å·¨èŸ’ã€‚å·¨èŸ’æ—æœ‰è®¸å¤šç™½æƒ¨æƒ¨çš„éª¨éª‡ï¼Œä»¤äººèƒ†
+å¯’ã€‚æƒ³å¿…éƒ½æ˜¯æ¢é™©ä¹‹äººï¼Œè¯¯å…¥å±±æ´ï¼Œä¸ºå·¨èŸ’æ‰€å®³ã€‚
 LONG
 	);
 	set("exits", ([
@@ -37,8 +37,8 @@ int do_use(string arg)
 	if (!present("fire", me))  return 0;
 	if(arg=="fire")
 	{
-		write("ÄãµãÈ¼ÁË»ğÕÛ£¬·¢ÏÖÎ÷ÃæÊ¯±ÚÉÏÓĞÒ»µÀÁÑ·ì£¬ËÆºõ¿ÉÒÔ×ê(zuan)³öÈ¥¡£\n");
-		me->set_temp("marks/×ê", 1);
+		write("ä½ ç‚¹ç‡ƒäº†ç«æŠ˜ï¼Œå‘ç°è¥¿é¢çŸ³å£ä¸Šæœ‰ä¸€é“è£‚ç¼ï¼Œä¼¼ä¹å¯ä»¥é’»(zuan)å‡ºå»ã€‚\n");
+		me->set_temp("marks/é’»", 1);
 		me->start_busy(2);
 		return 1;
 	}
@@ -48,16 +48,16 @@ int do_zuan(string arg)
 {
 	object me = this_player();
 
-	if(me->query_temp("marks/×ê") )
+	if(me->query_temp("marks/é’»") )
 	{
-		message("vision", me->name() + "×ÌÁïÒ»ÏÂ²»Öª´ÓÊ²Ã´µØ·½×ê³öÈ¥ÁË¡£\n", environment(me), ({me}) );
+		message("vision", me->name() + "æ»‹æºœä¸€ä¸‹ä¸çŸ¥ä»ä»€ä¹ˆåœ°æ–¹é’»å‡ºå»äº†ã€‚\n", environment(me), ({me}) );
 		me->move(__DIR__"cave2");
-		message("vision", me->name() + "´ÓÊ¯·ìÀï×êÁË½øÀ´¡£\n", environment(me), ({me}) );
-		me->set_temp("marks/×ê", 0);
+		message("vision", me->name() + "ä»çŸ³ç¼é‡Œé’»äº†è¿›æ¥ã€‚\n", environment(me), ({me}) );
+		me->set_temp("marks/é’»", 0);
 		return 1;
 	}
 	else {
-		write("ÄãÏëÍùÄÄ¶ù×ê?!\n");
+		write("ä½ æƒ³å¾€å“ªå„¿é’»?!\n");
 		return 1;
 	}
 }

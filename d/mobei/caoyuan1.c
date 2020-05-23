@@ -5,11 +5,11 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "�ɹŲ�ԭ");
+	set("short", "蒙古草原");
 	set("long", @LONG
-Զ���̳��𴦣�һ�Ӷ��ɹ������ж���������������Ϧ����Ѫ����
-Բ�Ĳ������������Ӫ�ʺ�ţ���Ǿ�����ľ��Ĳ��䡣��������ֱ�
-����С��������ˣ�����ֺ���������ɽ�� 
+远处烟尘起处，一队队蒙古铁骑列队来往操练。西边夕阳如血，混
+圆的残阳下是连绵的营帐和牛羊，那就是铁木真的部落。东面的树林边
+几个小孩正在玩耍，树林后面是座荒山。 
 LONG);
 	set("outdoors","mobei");
 	set("objects", ([ /* sizeof() == 1 */

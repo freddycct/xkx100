@@ -1,4 +1,4 @@
- //liwenxiu.c ÀîÎÄĞã
+ //liwenxiu.c ææ–‡ç§€
 
 #include <ansi.h>
 
@@ -10,10 +10,10 @@ void dest(object ob);
 
 void create()
 {
-	set_name("ÀîÎÄĞã", ({ "li wenxiu", "li", "wenxiu" }));
-	set("gender", "Å®ĞÔ");
+	set_name("ææ–‡ç§€", ({ "li wenxiu", "li", "wenxiu" }));
+	set("gender", "å¥³æ€§");
 	set("age", 18);
-	set("long", "Ëı³¤µÃÇå´¿ÍÑĞã£¬æÌÈ»Ò»Ğ¦£¬²»½ûÈÃÈËâñÈ»ĞÄ¶¯¡£\n");
+	set("long", "å¥¹é•¿å¾—æ¸…çº¯è„±ç§€ï¼Œå«£ç„¶ä¸€ç¬‘ï¼Œä¸ç¦è®©äººæ€¦ç„¶å¿ƒåŠ¨ã€‚\n");
 
 	set("combat_exp", 100000);
 	set("shen_type", 1);
@@ -30,12 +30,12 @@ void create()
 	set_skill("parry", 100);
 
 	set("inquiry", ([
-		"ËÕÆÕ" : (: ask_supu :),
+		"è‹æ™®" : (: ask_supu :),
 		"supu" : (: ask_supu :),
-		"¸¸Ä¸" : (: ask_parent :),
+		"çˆ¶æ¯" : (: ask_parent :),
 		"parent" : (: ask_parent :),
-		"¸ß²ıµØÍ¼" : (: ask_gaochang:),
-		"¸ß²ıÃÔ¹¬" : (: ask_gaochang :),
+		"é«˜æ˜Œåœ°å›¾" : (: ask_gaochang:),
+		"é«˜æ˜Œè¿·å®«" : (: ask_gaochang :),
 		"map" : (: ask_gaochang:),
 	]) );
 
@@ -49,8 +49,8 @@ void create()
 
 int ask_supu()
 {
-	say("ÀîÎÄĞã÷öÈ»µÄËµ£ºËûÊÇÎÒ¶ùÊ±µÄ»ï°é£¬ËûÏÖÔÚºÍ°¢ÂüÔÚÒ»ÆğÁË£¬\n");
-	this_player()->set_temp("marks/Àî1", 1);
+	say("ææ–‡ç§€é»¯ç„¶çš„è¯´ï¼šä»–æ˜¯æˆ‘å„¿æ—¶çš„ä¼™ä¼´ï¼Œä»–ç°åœ¨å’Œé˜¿æ›¼åœ¨ä¸€èµ·äº†ï¼Œ\n");
+	this_player()->set_temp("marks/æ1", 1);
 	return 1;
 }
 
@@ -58,15 +58,15 @@ int ask_parent()
 {
 	object map;
 	object me = this_player(); 
-	if ((int)this_player()->query_temp("marks/Àî1"))
+	if ((int)this_player()->query_temp("marks/æ1"))
 	{
-		say("ÀîÎÄĞãßìÑÊµÄËµµÀ£ºÎÒµÄ¸¸Ä¸ÊÇ±»¼éÈËº¦ËÀµÄ£¬¼éÈËêéêìÎÒÃÇ¼ÒµÄ¸ß²ıµØÍ¼¡£\nÎÒÒ»¶¨ÒªÊÖÈĞ³ğÈË£¬ÎªÎÒ¸¸Ä¸±¨³ğ¡£\n");
-		me->set_temp("marks/Àî2", 1);
+		say("ææ–‡ç§€å“½å’½çš„è¯´é“ï¼šæˆ‘çš„çˆ¶æ¯æ˜¯è¢«å¥¸äººå®³æ­»çš„ï¼Œå¥¸äººè§Šè§æˆ‘ä»¬å®¶çš„é«˜æ˜Œåœ°å›¾ã€‚\næˆ‘ä¸€å®šè¦æ‰‹åˆƒä»‡äººï¼Œä¸ºæˆ‘çˆ¶æ¯æŠ¥ä»‡ã€‚\n");
+		me->set_temp("marks/æ2", 1);
 		return 1;
 	}
 	else
 	{
-		say("ÀîÎÄĞãËµµÀ£º¸¸Ä¸Ö®³ğ£¬²»¹²´÷Ìì¡£\n");
+		say("ææ–‡ç§€è¯´é“ï¼šçˆ¶æ¯ä¹‹ä»‡ï¼Œä¸å…±æˆ´å¤©ã€‚\n");
 		return 1;
 	}
 }
@@ -77,24 +77,24 @@ int ask_gaochang()
 	int exp,pot,score;
 	if (query("map_count") < 1)
 	{
-		say("ÀîÎÄĞãÒ»ã¶£¬Ã¦µÀ£ºµØÍ¼£¿ÎÒÃ»Ëµ¹ıÊ²Ã´µØÍ¼°¡¡£\n");	
+		say("ææ–‡ç§€ä¸€æ„£ï¼Œå¿™é“ï¼šåœ°å›¾ï¼Ÿæˆ‘æ²¡è¯´è¿‡ä»€ä¹ˆåœ°å›¾å•Šã€‚\n");	
 		return 1;
 	}
-	if ((int)me->query_temp("marks/Àî2"))
+	if ((int)me->query_temp("marks/æ2"))
 	{
-//		say( "ÀîÎÄĞãÒ»¾ª£¬ËµµÀ£ºÄãÔõÃ´ÖªµÀµÄ£¿àŞ£¬ÎÒ¸Õ²ÅËµÂ¶×ìÁË¡£\nÄÇÎÒ¾Í°ÑµØÍ¼ËÍ¸øÄã°É¡£Äã¿´¿´¸ß²ıÃÔ¹¬µ½µ×ÓĞÊ²Ã´£¿\n");
+//		say( "ææ–‡ç§€ä¸€æƒŠï¼Œè¯´é“ï¼šä½ æ€ä¹ˆçŸ¥é“çš„ï¼Ÿå™¢ï¼Œæˆ‘åˆšæ‰è¯´éœ²å˜´äº†ã€‚\né‚£æˆ‘å°±æŠŠåœ°å›¾é€ç»™ä½ å§ã€‚ä½ çœ‹çœ‹é«˜æ˜Œè¿·å®«åˆ°åº•æœ‰ä»€ä¹ˆï¼Ÿ\n");
 //  	map=new("/d/gaochang/obj/map");
 //		map->move(me);
 //		add("map_count", -1);
-		say( "ÀîÎÄĞãÒ»¾ª£¬ËµµÀ£ºÄãÔõÃ´ÖªµÀµÄ£¿àŞ£¬ÎÒ¸Õ²ÅËµÂ¶×ìÁË¡£\nÎÒ°Ñ¸ß²ıµØÍ¼¸øËÕÆÕÁË£¬ÄãÈ¥ÕÒËû°É¡£\n");
-    me->set_temp("marks/Àî3",1);
+		say( "ææ–‡ç§€ä¸€æƒŠï¼Œè¯´é“ï¼šä½ æ€ä¹ˆçŸ¥é“çš„ï¼Ÿå™¢ï¼Œæˆ‘åˆšæ‰è¯´éœ²å˜´äº†ã€‚\næˆ‘æŠŠé«˜æ˜Œåœ°å›¾ç»™è‹æ™®äº†ï¼Œä½ å»æ‰¾ä»–å§ã€‚\n");
+    me->set_temp("marks/æ3",1);
 	}
 	else
 	{
-		message("vision", HIY"ÀîÎÄĞã²ªÈ»´óÅ­£¬ºÈµÀ£ºÄãÒ²¿úÊÓÎÒ¸¸Ä¸µÄ¸ß²ıµØÍ¼£¿£¡ÎÒ¸úÄãÆ´ÁË£¡\n"NOR, environment(), this_object() );
+		message("vision", HIY"ææ–‡ç§€å‹ƒç„¶å¤§æ€’ï¼Œå–é“ï¼šä½ ä¹Ÿçª¥è§†æˆ‘çˆ¶æ¯çš„é«˜æ˜Œåœ°å›¾ï¼Ÿï¼æˆ‘è·Ÿä½ æ‹¼äº†ï¼\n"NOR, environment(), this_object() );
 		ob->kill_ob(me);
-		me->delete_temp("marks/Àî1");
-		me->delete_temp("marks/Àî2");
+		me->delete_temp("marks/æ1");
+		me->delete_temp("marks/æ2");
 	}
 	return 1;
 }
@@ -103,10 +103,10 @@ int accept_object(object me,object ob)
 	object li=this_object();
 	object map;
 	int exp,pot,score;
-	if (!me->query_temp("marks/Àî3"))
+	if (!me->query_temp("marks/æ3"))
 	{
 		command("shake");
-		command("say ¼ÆÒ¯Ò¯Ëµ²»ÄÜ±ğÈËµÄÌ°Í¼²ÆÎï¡£");
+		command("say è®¡çˆ·çˆ·è¯´ä¸èƒ½åˆ«äººçš„è´ªå›¾è´¢ç‰©ã€‚");
     return 0;
 	}
   if (ob->query("id")=="shou juan"&& ob->query("blood_soaked")>=2)
@@ -114,12 +114,12 @@ int accept_object(object me,object ob)
   	call_out("dest",0,ob);
   	if (!ob->query("owner") || ob->query("owner")!=me->query("id"))
   	{
-  		message_vision("$N²ªÈ»´óÅ­£ºÄãÄÄÀïÍµÀ´µÄÕâ¿éÊÖ¾î£¡\n",li);
+  		message_vision("$Nå‹ƒç„¶å¤§æ€’ï¼šä½ å“ªé‡Œå·æ¥çš„è¿™å—æ‰‹ç»¢ï¼\n",li);
   		me->fight_ob(li);
   		li->kill_ob(me);
   		return 1;
   	}
-    message_vision("$N¾ª½Ğ£ºÕâ²»ÕıÊÇ¸ß²ıµØÍ¼Âğ£¿\n",li);
+    message_vision("$NæƒŠå«ï¼šè¿™ä¸æ­£æ˜¯é«˜æ˜Œåœ°å›¾å—ï¼Ÿ\n",li);
     map=new(__DIR__"obj/map");
 		map->move(me);
 		ob=new(__DIR__"obj/shoujuan2");
@@ -134,10 +134,10 @@ int accept_object(object me,object ob)
      me->add("combat_exp",exp);
      me->add("potential",pot);
      me->add("score",score);
-     	tell_object(me,HIC"Äã³É¹¦µÃµ½ÁË¸ß²ıµØÍ¼£¡\nÔÚÕâ´ÎÀúÁ·ÖĞÄã»ñµÃÁË"+
-     	         chinese_number(exp)+"µã¾­Ñé¡¢"+
-               chinese_number(pot)+"µãÇ±ÄÜÒÔ¼°"+
-               chinese_number(score)+"µã½­ºşÔÄÀú¡£\n\n"NOR);
+     	tell_object(me,HIC"ä½ æˆåŠŸå¾—åˆ°äº†é«˜æ˜Œåœ°å›¾ï¼\nåœ¨è¿™æ¬¡å†ç»ƒä¸­ä½ è·å¾—äº†"+
+     	         chinese_number(exp)+"ç‚¹ç»éªŒã€"+
+               chinese_number(pot)+"ç‚¹æ½œèƒ½ä»¥åŠ"+
+               chinese_number(score)+"ç‚¹æ±Ÿæ¹–é˜…å†ã€‚\n\n"NOR);
   	}	
   	return 1;
   }

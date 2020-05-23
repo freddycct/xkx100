@@ -17,7 +17,7 @@ int main(object me, string arg)
 	string *clist=({});
 
 	if( !arg || arg=="" )
-		return notify_fail("ÄãÒª»Ø´ğÊ²Ã´£¿\n");
+		return notify_fail("ä½ è¦å›ç­”ä»€ä¹ˆï¼Ÿ\n");
 	if (me->query_temp("quest_gift/got") && stringp(me->query_temp("quest_gift/type")))
 	{
 		inv = all_inventory(environment(me));
@@ -28,28 +28,28 @@ int main(object me, string arg)
 		}
 	}
 	if( !stringp(target = me->query_temp("reply")) )
-		return notify_fail("¸Õ²ÅÃ»ÓĞÈËºÍÄãËµ¹ı»°¡£\n");
+		return notify_fail("åˆšæ‰æ²¡æœ‰äººå’Œä½ è¯´è¿‡è¯ã€‚\n");
 
 	if( sscanf(target, "%s@%s", target, mud)==2 ) {
 		GTELL->send_gtell(lower_case(mud), lower_case(target), me, arg);
-		write("ÍøÂ·Ñ¶Ï¢ÒÑËÍ³ö£¬¿ÉÄÜÒªÉÔºò²ÅÄÜµÃµ½»ØÓ¦¡£\n");
+		write("ç½‘è·¯è®¯æ¯å·²é€å‡ºï¼Œå¯èƒ½è¦ç¨å€™æ‰èƒ½å¾—åˆ°å›åº”ã€‚\n");
 		return 1;
 	}
 
 	obj = find_player(target);
 	if(!obj || !me->visible(obj) || obj->query_temp("block_msg/all"))
-		return notify_fail("¸Õ²ÅºÍÄãËµ»°µÄÈËÏÖÔÚÎŞ·¨Ìı¼ûÄã£¬»òÕßÒÑ¾­Àë¿ªÓÎÏ·ÁË¡£\n");
+		return notify_fail("åˆšæ‰å’Œä½ è¯´è¯çš„äººç°åœ¨æ— æ³•å¬è§ä½ ï¼Œæˆ–è€…å·²ç»ç¦»å¼€æ¸¸æˆäº†ã€‚\n");
 	if (stringp(obj->query("env/can_tell")))
 	clist = explode(obj->query("env/can_tell"),",");
 	if (!wizardp(me) && (obj->query("env/no_tell")=="all" || obj->query("env/no_tell")==me->query("id")) 
 	&& (!arrayp(clist) || member_array(me->query("id"),clist)==-1))
-		return notify_fail("Õâ¸öÈË²»ÏëÌıÄãÂŞàÂÀ²¡£\n");
-	write(HIG "Äã»Ø´ğ" + obj->name(1) + "£º" + arg + "\n" NOR);
-	tell_object(obj, sprintf(HIG "%s»Ø´ğÄã£º%s\n"NOR,
+		return notify_fail("è¿™ä¸ªäººä¸æƒ³å¬ä½ ç½—å—¦å•¦ã€‚\n");
+	write(HIG "ä½ å›ç­”" + obj->name(1) + "ï¼š" + arg + "\n" NOR);
+	tell_object(obj, sprintf(HIG "%så›ç­”ä½ ï¼š%s\n"NOR,
 		me->name(1)+"("+me->query("id")+")", arg));
 	if (stringp(obj->query("env/auto_reply")) && query_idle(obj)>60)
-	tell_object(me,HIW"(×Ô¶¯»Ø¸´)"NOR+obj->name()+"»Ø´ğÄã£º"+obj->query("env/auto_reply")+"\n");
-	message("channel:snp", HIB"¡¾¼àÌı¡¿"+me->query("name")+"»Ø´ğ"+obj->query("name")+"£º"+arg+"\n"NOR, users());
+	tell_object(me,HIW"(è‡ªåŠ¨å›å¤)"NOR+obj->name()+"å›ç­”ä½ ï¼š"+obj->query("env/auto_reply")+"\n");
+	message("channel:snp", HIB"ã€ç›‘å¬ã€‘"+me->query("name")+"å›ç­”"+obj->query("name")+"ï¼š"+arg+"\n"NOR, users());
 	obj->set_temp("reply", me->query("id"));
 	return 1;
 }
@@ -57,9 +57,9 @@ int main(object me, string arg)
 int help(object me)
 {
 	write(@HELP
-Ö¸Áî¸ñÊ½£ºreply <Ñ¶Ï¢>
+æŒ‡ä»¤æ ¼å¼ï¼šreply <è®¯æ¯>
 
-    Äã¿ÉÒÔÓÃÕâ¸öÖ¸ÁîºÍ¸Õ²ÅÓÃ tell ºÍÄãËµ»°µÄÊ¹ÓÃÕßËµ»°¡£
+    ä½ å¯ä»¥ç”¨è¿™ä¸ªæŒ‡ä»¤å’Œåˆšæ‰ç”¨ tell å’Œä½ è¯´è¯çš„ä½¿ç”¨è€…è¯´è¯ã€‚
 
 see also : tell
 HELP

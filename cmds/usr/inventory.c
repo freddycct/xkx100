@@ -26,14 +26,14 @@ int main(object me, string arg)
   	   ob = me;
     else 
     if ( ob && ob->is_baby() && member_array(me->query("id"),ob->query("parents")) < 0 ) 
-        return notify_fail("Ö»ÓĞµùÄïÄÜ²ì¿´±¦±¦ÉíÉÏµÄ¶«Î÷¡£");
+        return notify_fail("åªæœ‰çˆ¹å¨˜èƒ½å¯Ÿçœ‹å®å®èº«ä¸Šçš„ä¸œè¥¿ã€‚");
   }
   if (!ob) ob = me;
 	inv = all_inventory(ob);
 	if( !sizeof(inv) )
 	{
-		write((ob==me)? "Ä¿Ç°ÄãÉíÉÏÃ»ÓĞÈÎºÎ¶«Î÷¡£\n"
-			: ob->name() + "ÉíÉÏÃ»ÓĞĞ¯´øÈÎºÎ¶«Î÷¡£\n");
+		write((ob==me)? "ç›®å‰ä½ èº«ä¸Šæ²¡æœ‰ä»»ä½•ä¸œè¥¿ã€‚\n"
+			: ob->name() + "èº«ä¸Šæ²¡æœ‰æºå¸¦ä»»ä½•ä¸œè¥¿ã€‚\n");
 		return 1;
 	}
 	for (i = 0;i < sizeof(inv);i ++)
@@ -51,10 +51,10 @@ int main(object me, string arg)
 		  }
 		}
  
-	printf("%sÉíÉÏ´ø×ÅÏÂÁĞÕâĞ©¶«Î÷(¸ºÖØ %d%%)£º\n", (ob==me)? "Äã": ob->name(), (int)ob->query_encumbrance() * 100 / (int)ob->query_max_encumbrance());
+	printf("%sèº«ä¸Šå¸¦ç€ä¸‹åˆ—è¿™äº›ä¸œè¥¿(è´Ÿé‡ %d%%)ï¼š\n", (ob==me)? "ä½ ": ob->name(), (int)ob->query_encumbrance() * 100 / (int)ob->query_max_encumbrance());
 	for (i = 0;i < sizeof(inv1);i ++)
 	{
-		printf("%s%s%s%s \n",inv1[i]->query("equipped") ? ((inv1[i] == me->query_temp("secondary_weapon")) ? HIC "¡ğ" NOR: HIC "¡õ" NOR): "  ",
+		printf("%s%s%s%s \n",inv1[i]->query("equipped") ? ((inv1[i] == me->query_temp("secondary_weapon")) ? HIC "â—‹" NOR: HIC "â–¡" NOR): "  ",
 			(inv1[i]->query("base_unit") || inv1[i]->query("equipped"))?"":chinese_number(count[i]), 
 			(inv1[i]->query("base_unit") || inv1[i]->query("equipped"))?"":inv1[i]->query("unit"),
 			inv1[i]->short());
@@ -65,12 +65,12 @@ int main(object me, string arg)
 int help (object me)
 {
 	write(@HELP
-Ö¸Áî¸ñÊ½: inventory
+æŒ‡ä»¤æ ¼å¼: inventory
  
-    ¿ÉÁĞ³öÄãÄ¿Ç°ÉíÉÏËùĞ¯´øµÄËùÓĞÎïÆ·¡£
-    ¡õ±íÊ¾ÓÒÊÖ±øÆ÷£¬¡ğ±íÊ¾×óÊÖ±øÆ÷¡£
+    å¯åˆ—å‡ºä½ ç›®å‰èº«ä¸Šæ‰€æºå¸¦çš„æ‰€æœ‰ç‰©å“ã€‚
+    â–¡è¡¨ç¤ºå³æ‰‹å…µå™¨ï¼Œâ—‹è¡¨ç¤ºå·¦æ‰‹å…µå™¨ã€‚
 
-×¢ : ´ËÖ¸Áî¿ÉÒÔ " i " ´úÌæ¡£
+æ³¨ : æ­¤æŒ‡ä»¤å¯ä»¥ " i " ä»£æ›¿ã€‚
  
 HELP
 );

@@ -1,14 +1,14 @@
-// shanzei.c É½Ôô
+// shanzei.c å±±è´¼
 inherit NPC;
  
 void create()
 {
-	set_name("É½Ôô", ({ "shan  zei"}));
+	set_name("å±±è´¼", ({ "shan  zei"}));
 //	set("nickname", "");
 	set("long", 
-	"Ò»¸ö×¨ÃÅ´ò¼Ò½ÙÉáµÄÉ½Ôô¡£\n"
-	"Ò»·ùÔôÃ¼ÊóÑÛµÄÑù×Ó¡£\n");
-	set("gender", "ÄĞĞÔ");
+	"ä¸€ä¸ªä¸“é—¨æ‰“å®¶åŠ«èˆçš„å±±è´¼ã€‚\n"
+	"ä¸€å¹…è´¼çœ‰é¼ çœ¼çš„æ ·å­ã€‚\n");
+	set("gender", "ç”·æ€§");
 	set("age", random(10) + 25);
 	set("attitude", "peaceful");
 	set("str", 25);

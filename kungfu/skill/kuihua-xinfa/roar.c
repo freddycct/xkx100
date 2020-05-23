@@ -15,13 +15,13 @@ int exert(object me, object target)
   !me->query("perform/roar") &&
   !me->query("can_perform/kuihua-xinfa/roar") && 
   !me->query_temp("murong/xingyi"))
-   return notify_fail("ÄãËùÊ¹ÓÃµÄÄÚ¹¦ÖĞÃ»ÓĞÕâÖÖ¹¦ÄÜ¡£");
+   return notify_fail("ä½ æ‰€ä½¿ç”¨çš„å†…åŠŸä¸­æ²¡æœ‰è¿™ç§åŠŸèƒ½ã€‚");
 
 	if( ((int)me->query("neili") < 500 ) || ((int)me->query("max_neili") < 500 ) || ( (int)me->query_skill("kuihua-xinfa",1) < 100) )
-		return notify_fail("Äã¹Ä×ãÕæÆø£¢ß÷£¢µÄºğÁËÒ»Éù, ½á¹ûÏÅ×ßÁË¼¸Ö»ÀÏÊó¡£\n");
+		return notify_fail("ä½ é¼“è¶³çœŸæ°”ï¼‚å–µï¼‚çš„å¼äº†ä¸€å£°, ç»“æœå“èµ°äº†å‡ åªè€é¼ ã€‚\n");
 
 	if( environment(me)->query("no_fight") )
-		return notify_fail("ÔÚÕâÀï²»ÄÜ¹¥»÷ËûÈË¡£\n");
+		return notify_fail("åœ¨è¿™é‡Œä¸èƒ½æ”»å‡»ä»–äººã€‚\n");
 
 	skill = me->query_skill("force");
 
@@ -30,7 +30,7 @@ int exert(object me, object target)
 
 	me->start_busy(5);
 	message_combatd(
-		HIY"$NÉîÉîµØÎüÒ»àíÆø£¬ÕæÁ¦±Å·¢£¬ÔËÆğ¿û»¨ĞÄ·¨£¬·¢³öÒ»Éù¼âÀûµÄ³¤Ğ¥£º¡°"HIR"ÈÕ³ö¶«·½£¬Î¨ÎÒ²»°Ü£¡"HIY"¡±\n" NOR, me);
+		HIY"$Næ·±æ·±åœ°å¸ä¸€å›—æ°”ï¼ŒçœŸåŠ›è¿¸å‘ï¼Œè¿èµ·è‘µèŠ±å¿ƒæ³•ï¼Œå‘å‡ºä¸€å£°å°–åˆ©çš„é•¿å•¸ï¼šâ€œ"HIR"æ—¥å‡ºä¸œæ–¹ï¼Œå”¯æˆ‘ä¸è´¥ï¼"HIY"â€\n" NOR, me);
 
 	ob = all_inventory(environment(me));
 	for(i=0; i<sizeof(ob); i++)
@@ -48,7 +48,7 @@ int exert(object me, object target)
 			ob[i]->receive_damage("jing", damage * 2 );
 			if( (int)ob[i]->query("neili") < skill * 2 )
 				ob[i]->receive_wound("jing", damage);
-			tell_object(ob[i], "Äã¾õµÃÒ»ÕóÌì»èµØ°µ£¬¶ú¶äÈçÕëÔúÒ»°ãÌÛÍ´ÓûÁÑ£¡\n");
+			tell_object(ob[i], "ä½ è§‰å¾—ä¸€é˜µå¤©æ˜åœ°æš—ï¼Œè€³æœµå¦‚é’ˆæ‰ä¸€èˆ¬ç–¼ç—›æ¬²è£‚ï¼\n");
 		}
 
 		if( userp(ob[i]) ) ob[i]->fight_ob(me);
@@ -59,15 +59,15 @@ int exert(object me, object target)
 
 int help(object me)
 {
-	write(WHT"\n¿û»¨ĞÄ·¨Ö®¶«·½²»°Ü£º"NOR"\n");
+	write(WHT"\nè‘µèŠ±å¿ƒæ³•ä¹‹ä¸œæ–¹ä¸è´¥ï¼š"NOR"\n");
 	write(@HELP
 
-	Ê¹ÓÃ¹¦Ğ§£º
-		ÉËº¦×Ô¼ºÖÜÎ§µÄËùÓĞÉúÎïµÄ¾«Æø
+	ä½¿ç”¨åŠŸæ•ˆï¼š
+		ä¼¤å®³è‡ªå·±å‘¨å›´çš„æ‰€æœ‰ç”Ÿç‰©çš„ç²¾æ°”
 
-	³öÊÖÒªÇó£º
-		¿û»¨ĞÄ·¨100¼¶
-	        ÄÚÁ¦500
+	å‡ºæ‰‹è¦æ±‚ï¼š
+		è‘µèŠ±å¿ƒæ³•100çº§
+	        å†…åŠ›500
 HELP
 	);
 	return 1;

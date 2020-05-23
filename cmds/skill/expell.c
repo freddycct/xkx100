@@ -30,42 +30,42 @@ int main(object me, string arg)
 	myfam =(mapping)me->query("family");
 	
 	if( !arg || !ob = present(arg, environment(me)) )
-		return notify_fail("��Ҫ��˭���ʦ�ţ�\n");
+		return notify_fail("你要将谁逐出师门？\n");
 
 	if( !ob->is_character() || !myfam)
-		return notify_fail("���𲻶�����\n");
+		return notify_fail("你逐不动他。\n");
 
 	if( !userp(ob) )
-		return notify_fail("��ֻ�ܿ�����������ݵ����\n");
+		return notify_fail("你只能开除玩家所扮演的人物。\n");
 	
 	if(
 	ob->query("combat_exp")>10000
-	&&(myfam["title"]!= "��ɽ��ʦ")
-	&&(myfam["title"]!= "����")
-	&&(myfam["title"]!= "�ܶ���")
+	&&(myfam["title"]!= "开山祖师")
+	&&(myfam["title"]!= "掌门")
+	&&(myfam["title"]!= "总舵主")
 	&&(me->query("id")!= "feng qingyang")
-	&&(myfam["title"]!= "����")
+	&&(myfam["title"]!= "帮主")
 	)
-		return notify_fail("�Է�����̫�ߣ�����Ҫ��������ʦ��Ϊ�������ˣ�\n");
+		return notify_fail("对方经验太高，恐怕要找你掌门师尊为你做主了！\n");
 
 		if( ob->is_apprentice_of(me) )
 		{
-			message_vision("\n$N����$n˵�����ӽ���������ʦͽ������������߰ɣ�\n\n", me, ob);
-			tell_object(ob, "\n�㱻ʦ�������ʦ���ˣ�\n\n");
+			message_vision("\n$N对着$n说道：从今天起，你我师徒恩断情绝，你走吧！\n\n", me, ob);
+			tell_object(ob, "\n你被师父开革出师门了！\n\n");
 		}
 		else if( me->query("family/privs")==-1 &&
 		(string)me->query("family/family_name") ==
 		(string)ob->query("family/family_name") )
 	{
-		message_vision("\n$N����$n˵�����ӽ���������Ҳ������" + me->query("family/family_name") + "�ĵ����ˣ����߰ɣ�\n\n", me, ob);
-		tell_object(ob, "\n�㱻" + me->query("family/title") + "�����ʦ���ˣ�\n\n");
+		message_vision("\n$N对着$n说道：从今天起，你再也不是我" + me->query("family/family_name") + "的弟子了，你走吧！\n\n", me, ob);
+		tell_object(ob, "\n你被" + me->query("family/title") + "开革出师门了！\n\n");
 	}  else
-			return notify_fail("����˲�����ĵ��ӡ�\n");
+			return notify_fail("这个人不是你的弟子。\n");
 
 	ob->add("detach/"+ob->query("family/family_name"),1);
 	ob->delete("family");
 //	ob->delete("title");
-	ob->set("title","��ͨ����");
+	ob->set("title","普通百姓");
 	ob->set("score", 0);
 	ob->add("expell", 1);
 	ob_skills = ob->query_skills();
@@ -115,11 +115,11 @@ int main(object me, string arg)
 int help(object me)
 {
 	write(@HELP
-ָ���ʽ : expell|kaichu <ĳ��>
+指令格式 : expell|kaichu <某人>
  
-    ���ָ��������㿪�����ɲŵĵ��ӣ��������ĵ������л������ܶ���
-����ԭ����һ�룬�书ȫ�ϣ��ۺ�����һ��Ҳ�����㣬�����һ�������
-����һ�������������ء��Ĵ���������ڿ���һ������֮ǰ����������ǡ�
+    这个指令可以让你开除不成才的弟子，被开除的弟子所有基本技能都会
+降到原来的一半，武功全废，综合评价一项也会变成零，这对于一个人物而
+言是一个「比死还严重」的打击，请你在开除一名弟子之前务必审慎考虑。
  
 HELP
 	);

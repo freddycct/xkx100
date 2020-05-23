@@ -3,10 +3,10 @@
 inherit ROOM;
 void create()
 {
-	set("short", "�����ô���");
+	set("short", "青龙堂大厅");
 	set("long", @LONG
-���ǡ�������̡��µ������ã������õĴ�����һλ���߾��У���
-���㱡�
+这是『日月神教』下第三大堂：青龙堂的大厅。一位长者居中，神
+情恍惚。
 LONG );
 	set("exits", ([
 		"north" : __DIR__"chlang2",

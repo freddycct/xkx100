@@ -16,19 +16,19 @@ int main(object me, string arg)
         string prefix, file, *file_name;
 
         if (!me->query("env/yesiknow"))
-                return notify_fail("Σ��ָ����ã����ã�\n");
+                return notify_fail("危险指令，慎用！慎用！\n");
 
 	set_eval_limit(2100000000);
 	reset_eval_cost();
 
 	if (arg && arg != "here" && arg != "-a")
-		return notify_fail("�÷����ԣ���ο�������\n");
+		return notify_fail("用法不对，请参考帮助。\n");
 
 	if (env->query("recoored") && arg!= "here")
-		return notify_fail("�����ڵķ��������Ѿ�д����ˡ�\n");
+		return notify_fail("您所在的房间坐标已经写入过了。\n");
 
 	if (!env->query("coor"))
-        	return notify_fail("�����ڵķ�����δ��λ���꣬������hcoorָ�\n");
+        	return notify_fail("您所在的房间尚未定位坐标，请先用hcoor指令。\n");
 
 	if (arg == "-a")
 		all = 1;
@@ -57,11 +57,11 @@ int main(object me, string arg)
 				x, y, z));
 		write_file(base_name(env) + ".c", file, 1);
                 file_count ++;
-        	write("���� " + base_name(env) + " �����ѳɹ�д���ļ���\n");
+        	write("房间 " + base_name(env) + " 坐标已成功写入文件。\n");
         } else
                 non_recur_do(env, prefix);
 
-	write("��д�� " + sprintf("%d", file_count) + " ���ļ���\n");
+	write("共写入 " + sprintf("%d", file_count) + " 个文件。\n");
         return 1;
 }
 
@@ -83,7 +83,7 @@ int non_recur_do(object room, string prefix)
 			x, y, z));
 	write_file(base_name(room), file, 1);
 	file_count ++;
-        write("���� " + base_name(room) + " �����ѳɹ�д���ļ���\n");
+        write("房间 " + base_name(room) + " 坐标已成功写入文件。\n");
         room->set("recoored", 1);
         roomlist += ([base_name(room) : room]);
 
@@ -123,7 +123,7 @@ int non_recur_do(object room, string prefix)
 						x, y, z));
 				write_file(base_name(next_room) + ".c", file, 1);
 				file_count ++;
-        			write("���� " + base_name(next_room) + " �����ѳɹ�д���ļ���\n");
+        			write("房间 " + base_name(next_room) + " 坐标已成功写入文件。\n");
         			next_room->set("recoored", 1);
        				roomlist += ([base_name(next_room) : next_room]);
        			}
@@ -136,13 +136,13 @@ int non_recur_do(object room, string prefix)
 int help(object me)
 {
 write(@HELP
-ָ���ʽ : recoor [-a | here]
+指令格式 : recoor [-a | here]
 
-�÷���
-	recoor		����ǰ��������Ŀ¼�����з�������
-			��д���ļ�����ǰ������δ��д�����
-        recoor -a	ͬ�ϣ�����Ŀ¼���ơ�
-	recoor here	ǿ�ƽ���ǰ���������д���ļ���
+用法：
+	recoor		将当前房间所在目录下所有房间坐标
+			都写入文件，当前房间须未曾写入过。
+        recoor -a	同上，但无目录限制。
+	recoor here	强制将当前房间的坐标写入文件。
 	
 HELP
 );

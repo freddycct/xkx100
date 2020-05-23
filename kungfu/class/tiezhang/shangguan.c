@@ -6,9 +6,9 @@ inherit F_MASTER;
 
 void create()
 {
-	set_name("ÉÏ¹Ù½£ÄÏ", ({ "shangguan jiannan", "jiannan", "shangguan"}));
-	set("long", "Ëû¾ÍÊÇÍşÕğ´¨ÏæµÄÌúÕÆ°ïµÄÉÏ´ú°ïÖ÷-ÉÏ¹Ù½£ÄÏ¡£\n");
-	set("gender", "ÄĞĞÔ");
+	set_name("ä¸Šå®˜å‰‘å—", ({ "shangguan jiannan", "jiannan", "shangguan"}));
+	set("long", "ä»–å°±æ˜¯å¨éœ‡å·æ¹˜çš„é“æŒå¸®çš„ä¸Šä»£å¸®ä¸»-ä¸Šå®˜å‰‘å—ã€‚\n");
+	set("gender", "ç”·æ€§");
 	set("age", 70);
 	set("attitude", "peaceful");
 	set("shen_type", 1);
@@ -54,7 +54,7 @@ void create()
 		(: exert_function, "recover" :),
 	}) );
 
-	create_family("ÌúÕÆ°ï", 13, "°ïÖ÷");
+	create_family("é“æŒå¸®", 13, "å¸®ä¸»");
 	setup();
 	carry_object(__DIR__"obj/yellowcloth")->wear();
 	carry_object(WEAPON_DIR+"spear/yinqiang")->wield();
@@ -63,10 +63,10 @@ void create()
 void attempt_apprentice(object me)
 {
 	if(me->query_skill("guiyuan-tunafa", 1) < 100)
-		command("say ÄãµÄ¹éÔªÍÂÄÉ·¨¸ù»ùÌ«ÈõÁË¡£\n");
+		command("say ä½ çš„å½’å…ƒåçº³æ³•æ ¹åŸºå¤ªå¼±äº†ã€‚\n");
 	else
 	{
-		command( "say ºÃ°É£¬ÎÒ¾ÍÊÕÏÂÄãÁË¡£·ñÔòÎÒµÄÎä¹¦¾ÍÒªºÍÎÒÕâ°ÑÀÏ¹ÇÍ·Ò»ÆğÂñÔÚÕâ¸öÉ½¶´ÀïÁË¡£");
+		command( "say å¥½å§ï¼Œæˆ‘å°±æ”¶ä¸‹ä½ äº†ã€‚å¦åˆ™æˆ‘çš„æ­¦åŠŸå°±è¦å’Œæˆ‘è¿™æŠŠè€éª¨å¤´ä¸€èµ·åŸ‹åœ¨è¿™ä¸ªå±±æ´é‡Œäº†ã€‚");
 		command("recruit " + me->query("id"));
 	}
 }

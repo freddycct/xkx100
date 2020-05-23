@@ -4,11 +4,11 @@ inherit NPC;
 
 void create()
 {
-	set_name("蜜蜂", ({"bee"}) );
-	set("race", "昆虫");
-	set("subrace", "飞虫");
+	set_name("铚滆渹", ({"bee"}) );
+	set("race", "鏄嗚櫕");
+	set("subrace", "椋炶櫕");
 	set("age", 8);
-	set("long", "这是一只蜜蜂，正忙着采蜜。\n");
+	set("long", "杩欐槸涓�鍙湝铚傦紝姝ｅ繖鐫�閲囪湝銆俓n");
 	
 	set("str", 40);
 	set("dex", 50);
@@ -19,7 +19,7 @@ void create()
 	set("chat_chance", 2);
 	set("chat_msg", ({
 		(: this_object(), "random_move" :),
-	"蜜蜂嗡嗡嗡飞过来，在你头上转了一圈，有飞走了。\n",
+	"铚滆渹鍡″棥鍡￠杩囨潵锛屽湪浣犲ご涓婅浆浜嗕竴鍦堬紝鏈夐璧颁簡銆俓n",
 	 }) );
 
 	setup();

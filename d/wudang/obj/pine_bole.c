@@ -1,4 +1,4 @@
-// pine_bole.c ºìËÉÊ÷¸É 
+// pine_bole.c çº¢æ¾æ ‘å¹² 
 // Last Modified by winder on Aug. 18 2002
 
 #include <ansi.h>
@@ -7,13 +7,13 @@ inherit ITEM;
 
 void create()
 {
-	set_name(HIR"ºìËÉÊ÷¸É"NOR,({ "bole", "pine bole" }));
+	set_name(HIR"çº¢æ¾æ ‘å¹²"NOR,({ "bole", "pine bole" }));
 	set_weight(3000);
 	if (clonep())
 		set_default_object(__FILE__);
 	else {
-		set("long", "ÕâÊÇÒ»¸ùºìËÉÊ÷¸É£¬ÊÇÖÆÔìÏã»ğµÄºÃ²ÄÁÏ¡£\n");
-		set("unit", "¸ù");
+		set("long", "è¿™æ˜¯ä¸€æ ¹çº¢æ¾æ ‘å¹²ï¼Œæ˜¯åˆ¶é€ é¦™ç«çš„å¥½ææ–™ã€‚\n");
+		set("unit", "æ ¹");
 		set("value", 100);
 		set("material", "wood");
 		set("self_destruct", 1);

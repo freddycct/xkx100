@@ -6,10 +6,10 @@ inherit NPC;
 
 void create()
 {
-	set_name("¶¡¼á", ({"ding jian","ding",}));
-	set("long", "Ëû¾ÍÊÇÒş¾Ó½­ºşÊıÄêµÄÒ»×Öµç½£¶¡¼á£¬ÏÖÔÚÔÚÃ·×¯µ±¹Ü¼Ò¡£\n");
-	set("gender", "ÄĞĞÔ");
-	set("nickname", HIC"Ò»×Öµç½£"NOR);
+	set_name("ä¸åš", ({"ding jian","ding",}));
+	set("long", "ä»–å°±æ˜¯éšå±…æ±Ÿæ¹–æ•°å¹´çš„ä¸€å­—ç”µå‰‘ä¸åšï¼Œç°åœ¨åœ¨æ¢…åº„å½“ç®¡å®¶ã€‚\n");
+	set("gender", "ç”·æ€§");
+	set("nickname", HIC"ä¸€å­—ç”µå‰‘"NOR);
 	set("attitude", "friendly");
 
 	set("age", 30);
@@ -31,9 +31,9 @@ void create()
 	set_skill("sword", 120);
 	set_skill("parry", 100);
 
-	set("party/party_name", HIB"ÈÕÔÂÉñ½Ì"NOR);
-	set("party/rank", HIW"½ÌÖÚ"NOR);
-	create_family("ºÚÄ¾ÑÂ", 10, "µÜ×Ó");
+	set("party/party_name", HIB"æ—¥æœˆç¥æ•™"NOR);
+	set("party/rank", HIW"æ•™ä¼—"NOR);
+	create_family("é»‘æœ¨å´–", 10, "å¼Ÿå­");
 
 	setup();
 	carry_object(CLOTH_DIR"male-cloth")->wear();

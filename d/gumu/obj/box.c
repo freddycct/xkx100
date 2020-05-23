@@ -1,17 +1,17 @@
-// Room: /d/gumu/obj/box.c ÌúºĞ
+// Room: /d/gumu/obj/box.c é“ç›’
 // Last Modifyed by Winder on Jan. 14 2002
 
 #include <ansi.h>
 inherit ITEM;
 void create()
 {
-	set_name(RED "´óÌúºĞ" NOR, ({ "da tiehe", "tiehe", "box" }) );
+	set_name(RED "å¤§é“ç›’" NOR, ({ "da tiehe", "tiehe", "box" }) );
 	set_weight(30000000);
 	if( clonep())
 		set_default_object(__FILE__);
 	else {
-		set("unit", "¸ö");
-		set("long", "Ò»¸öĞâ¼£°ß°ßµÄ´óÌúºĞ×Ó£¬¿´À´ºÜ¾ÃÃ»ÓĞÈË¶¯¹ıÁË¡£\n");
+		set("unit", "ä¸ª");
+		set("long", "ä¸€ä¸ªé”ˆè¿¹æ–‘æ–‘çš„å¤§é“ç›’å­ï¼Œçœ‹æ¥å¾ˆä¹…æ²¡æœ‰äººåŠ¨è¿‡äº†ã€‚\n");
 		set("value", 1000);
 		set("material", "steel");
 		set("no_get",1);

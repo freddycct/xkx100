@@ -5,11 +5,11 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "���̨Ӫ��");
+	set("short", "察合台营帐");
 	set("long", @LONG
-���̨����ľ��Ķ��ӣ����Բ��̺�ɱ���ɹ�����ϲ���ԣ�������
-���޲�������Ȯ��ӥ�����̨���䰮����������Ӫ������˩����Ȯ��Ӫ
-���л�����Ȯ�����ӡ�
+察合台是铁木真的二子，生性残忍好杀，蒙古人性喜打猎，酋长贵
+人无不畜养猎犬猎鹰。察合台尤其爱狗，不但在营帐外面拴了獒犬，营
+帐中还有獒犬的笼子。
 LONG);
 	set("outdoors","mobei");
 	set("objects", ([ /* sizeof() == 2 */

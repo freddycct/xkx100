@@ -4,8 +4,8 @@
 inherit NPC;
 void create()
 {
-	set_name("ÌÆ¹âĞÛ", ({ "tang guangxiong", "tang", "guangxiong"}));
-	set("gender", "ÄĞĞÔ");
+	set_name("å”å…‰é›„", ({ "tang guangxiong", "tang", "guangxiong"}));
+	set("gender", "ç”·æ€§");
 	set("attitude", "friendly");
 
 	set("age", 18);
@@ -35,7 +35,7 @@ void create()
 	map_skill("sword", "damo-jian");
 	map_skill("parry", "damo-jian");
 
-	create_family("ÎŞÁ¿½£¶«×Ú", 5, "µÜ×Ó");
+	create_family("æ— é‡å‰‘ä¸œå®—", 5, "å¼Ÿå­");
 	setup();
 
         carry_object("/clone/cloth/cloth")->wear();

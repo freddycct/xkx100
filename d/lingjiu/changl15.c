@@ -4,12 +4,12 @@ inherit ROOM;
 
 void create()
 {
-	set("short","»­ÀÈ");
+	set("short","ç”»å»Š");
 	set("long",@LONG
-ÕâÊÇÒ»Ìõ·Ç³£¾«ÃÀµÄ³¤ÀÈ£¬Öù×ÓºÍÀ¸¸ËÊÇÓÃ»ª¹óµÄ×ÏÌ´Ä¾ÖÆ³É£¬ÉÏ
-ÃæµñÊÎ×ÅÃÀÀöµÄÍ¼»­£¬»­¹¤¾«ÇÉ£¬ÃÀ²»Ê¤ÊÕ¡£µØ°å²»ÖªÊÇÓÃÊ²Ã´²ÄÁÏ×ö
-µÄ£¬×ßÔÚÉÏÃæºÁÎÞÉùÏ¢£¬ÄãÖ»¸Ðµ½½ÅÏÂÈíÈíµÄ£¬·Ç³£Êæ·þ¡£Ò»ÕóÕó»¨Ïã
-´Ó±±±ß´«À´¡£
+è¿™æ˜¯ä¸€æ¡éžå¸¸ç²¾ç¾Žçš„é•¿å»Šï¼ŒæŸ±å­å’Œæ æ†æ˜¯ç”¨åŽè´µçš„ç´«æª€æœ¨åˆ¶æˆï¼Œä¸Š
+é¢é›•é¥°ç€ç¾Žä¸½çš„å›¾ç”»ï¼Œç”»å·¥ç²¾å·§ï¼Œç¾Žä¸èƒœæ”¶ã€‚åœ°æ¿ä¸çŸ¥æ˜¯ç”¨ä»€ä¹ˆææ–™åš
+çš„ï¼Œèµ°åœ¨ä¸Šé¢æ¯«æ— å£°æ¯ï¼Œä½ åªæ„Ÿåˆ°è„šä¸‹è½¯è½¯çš„ï¼Œéžå¸¸èˆ’æœã€‚ä¸€é˜µé˜µèŠ±é¦™
+ä»ŽåŒ—è¾¹ä¼ æ¥ã€‚
 LONG );
 	set("exits",([
 		"west"  : __DIR__"changl7",
@@ -27,17 +27,17 @@ LONG );
 void init()
 {
 	object me = this_player();
-	if((string)me->query("family/family_name")!="åÐÒ£ÅÉ"
-	&& (string)me->query("family/family_name")!="ÁéðÕ¹¬"
+	if((string)me->query("family/family_name")!="é€é¥æ´¾"
+	&& (string)me->query("family/family_name")!="çµé¹«å®«"
 	)
 	{
 		if(random(3)>0)
 		{
 			me->receive_damage("qi",80);
 			me->receive_wound("qi",80);
-			message_vision(HIR"$N½ÅÏÂÒ»»¬,...°¡...,Ò»Éù²Ò½Ð!\n"NOR,me);
+			message_vision(HIR"$Nè„šä¸‹ä¸€æ»‘,...å•Š...,ä¸€å£°æƒ¨å«!\n"NOR,me);
 			me->move(__DIR__"shanjiao");
-			tell_object(me,HIR"ÄãÄªÃûÆäÃîµÄµ½ÁËÉ½½Å.\n"NOR);
+			tell_object(me,HIR"ä½ èŽ«åå…¶å¦™çš„åˆ°äº†å±±è„š.\n"NOR);
 		}
 	}
 }	

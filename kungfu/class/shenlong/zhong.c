@@ -1,4 +1,4 @@
-// bailong shi °×ÁúÊ¹
+// bailong shi ç™½é¾™ä½¿
 // Last Modified by winder on Jul. 12 2002
 
 #include <ansi.h>
@@ -9,9 +9,9 @@ void apply_gift(object, int);
 
 void create()
 {
-	set_name("ÖÓÖ¾Áé", ({ "zhong zhiling","bailong shi", "shi","zhong" }));
-	set("long", "¿ıÎà´óºº£¬Ò»¿´¾ÍÖªÊÇ¹Ø¶«ÈË¡£\n");
-	set("gender", "ÄĞĞÔ");
+	set_name("é’Ÿå¿—çµ", ({ "zhong zhiling","bailong shi", "shi","zhong" }));
+	set("long", "é­æ¢§å¤§æ±‰ï¼Œä¸€çœ‹å°±çŸ¥æ˜¯å…³ä¸œäººã€‚\n");
+	set("gender", "ç”·æ€§");
 	set("age", 45);
 	set("attitude", "peaceful");
 	set("shen_type", -1);
@@ -46,19 +46,19 @@ void create()
 
 	prepare_skill("strike", "huagu-mianzhang");
 	set("inquiry", ([
-		"ºé°²Í¨" : "ÕâÈı¸ö×ÖÊÇÄãËµµÄÂğ£¿",
-		"ºé½ÌÖ÷" : "ºé½ÌÖ÷ÏÉ¸£ÓÀÏí£¬ÊÙÓëÌìÆë£¬ºé½ÌÖ÷ÉñÄ¿Èçµç£¬ÖòÕÕËÄ·½¡£",
-		"ËÕÜõ"   : "Ã»¹æÃ»¾ØµÄ¡£",
-		"ÉñÁúµº" : "ÉñÁúµºÔÚÈêÖİµÄ¶«±±·½Ïò£¬´ÓÌÁ¹Á¿Ú³öº£±ãµ½¡£",
-		"ÉñÁú½Ì" : "Ò»°ãÈËÊÇÈë²»ÁËÎÒÉñÁú½ÌµÄ(join shenlongjiao).\n",
-		"Èë½Ì"   : "Ò»°ãÈËÊÇÈë²»ÁËÎÒÉñÁú½ÌµÄ(join shenlongjiao).\n",
-		"½ÌÖ÷"   : "½ÌÖ÷Æ¢Æø²»ºÃ£¬ÒªÌÖËû»¶ĞÄ²ÅºÃ¡£\n",
-		"¿ÚºÅ"   : "ÍòÄê²»ÀÏ£¡ÓÀÏíÏÉ¸££¡ÊÙÓëÌìÆë£¡ÎÄÎäÈÊÊ¥£¡\n",
+		"æ´ªå®‰é€š" : "è¿™ä¸‰ä¸ªå­—æ˜¯ä½ è¯´çš„å—ï¼Ÿ",
+		"æ´ªæ•™ä¸»" : "æ´ªæ•™ä¸»ä»™ç¦æ°¸äº«ï¼Œå¯¿ä¸å¤©é½ï¼Œæ´ªæ•™ä¸»ç¥ç›®å¦‚ç”µï¼Œçƒ›ç…§å››æ–¹ã€‚",
+		"è‹èƒ"   : "æ²¡è§„æ²¡çŸ©çš„ã€‚",
+		"ç¥é¾™å²›" : "ç¥é¾™å²›åœ¨æ±å·çš„ä¸œåŒ—æ–¹å‘ï¼Œä»å¡˜æ²½å£å‡ºæµ·ä¾¿åˆ°ã€‚",
+		"ç¥é¾™æ•™" : "ä¸€èˆ¬äººæ˜¯å…¥ä¸äº†æˆ‘ç¥é¾™æ•™çš„(join shenlongjiao).\n",
+		"å…¥æ•™"   : "ä¸€èˆ¬äººæ˜¯å…¥ä¸äº†æˆ‘ç¥é¾™æ•™çš„(join shenlongjiao).\n",
+		"æ•™ä¸»"   : "æ•™ä¸»è„¾æ°”ä¸å¥½ï¼Œè¦è®¨ä»–æ¬¢å¿ƒæ‰å¥½ã€‚\n",
+		"å£å·"   : "ä¸‡å¹´ä¸è€ï¼æ°¸äº«ä»™ç¦ï¼å¯¿ä¸å¤©é½ï¼æ–‡æ­¦ä»åœ£ï¼\n",
 	]));
-	set("party/party_name", HIY"ÉñÁú½Ì"NOR);
-	set("party/rank", HIW"°×ÁúÃÅ"NOR"ÕÆÃÅÊ¹");
+	set("party/party_name", HIY"ç¥é¾™æ•™"NOR);
+	set("party/rank", HIW"ç™½é¾™é—¨"NOR"æŒé—¨ä½¿");
 	set("party/level", 2);
-	create_family("ÉñÁú½Ì", 2, "µÜ×Ó");
+	create_family("ç¥é¾™æ•™", 2, "å¼Ÿå­");
 
 	setup();
 	carry_object(WEAPON_DIR"hook")->wield();
@@ -95,7 +95,7 @@ void greeting(object ob)
 
 void attempt_apprentice(object ob)
 {
-	command("say Äã×ß¿ª£¡±ğ·³ÎÒ£¡");
+	command("say ä½ èµ°å¼€ï¼åˆ«çƒ¦æˆ‘ï¼");
 	return;
 }
 #include "/kungfu/class/shenlong/shenlong.h"; 

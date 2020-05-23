@@ -4,10 +4,10 @@ inherit NPC;
 
 void create()
 {
-        set_name("½ð±³òÚò¼",({"wu gong"}));
-	set("race", "À¥³æ");
-	set("subrace", "ÅÀ³æ");
-        set("long", "Ò»ÌõÒ»³ß¶à³¤£¬¹íÍ·¹íÄÔµÄ´óòÚò¼¡£\n");
+        set_name("é‡‘èƒŒèœˆèš£",({"wu gong"}));
+	set("race", "æ˜†è™«");
+	set("subrace", "çˆ¬è™«");
+        set("long", "ä¸€æ¡ä¸€å°ºå¤šé•¿ï¼Œé¬¼å¤´é¬¼è„‘çš„å¤§èœˆèš£ã€‚\n");
         set("age", 1000);
         set("attitude", "peaceful");
 
@@ -56,16 +56,16 @@ int init()
 
 int hit_ob(object me, object ob, int damage)
 {
-        if ((string)ob->query("family/family_name") != "Îå¶¾½Ì") {
+        if ((string)ob->query("family/family_name") != "äº”æ¯’æ•™") {
                 ob->apply_condition("wugong_poison", 20
               +(int)ob->query_condition("wugong_poison") );
-              tell_object(ob, HIG "Äã¾õµÃ±»Ò§ÖÐµÄµØ·½Ò»ÕóÂéÄ¾£¡\n" NOR );
+              tell_object(ob, HIG "ä½ è§‰å¾—è¢«å’¬ä¸­çš„åœ°æ–¹ä¸€é˜µéº»æœ¨ï¼\n" NOR );
         }
 }
 void die()
 {
         object ob;
-        message_vision("$Nµ¹ÔÚµØÉÏ£¬ËÀÁË£¡\n", this_object());
+        message_vision("$Nå€’åœ¨åœ°ä¸Šï¼Œæ­»äº†ï¼\n", this_object());
         ob=new(__DIR__"obj/wugongdu.c");
         ob->move(environment(this_object()));
         destruct(this_object());

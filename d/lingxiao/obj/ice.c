@@ -10,17 +10,17 @@ int do_make(string);
 
 void create()
 {
-	set_name(HIW "±ùÖù" NOR, ({ "bing zhu", "bing", "ice" }) ); 
+	set_name(HIW "å†°æŸ±" NOR, ({ "bing zhu", "bing", "ice" }) ); 
 	set_weight(5000); 
 	if (clonep())  
 		set_default_object(__FILE__); 
 	else { 
-		set("unit", "±ú"); 
-		set("long","ÕâÊÇÒ»Æ¬³¤³¤µÄ±ùÖù£¬¿´ÆðÀ´¾§Ó¨ÌÞÍ¸£¬·æÈñÎÞ±È£¬²»ÖªµÀÄÜ²»ÄÜ³Ô¡£\n");
-		set("unit", "Æ¬" ); 
+		set("unit", "æŸ„"); 
+		set("long","è¿™æ˜¯ä¸€ç‰‡é•¿é•¿çš„å†°æŸ±ï¼Œçœ‹èµ·æ¥æ™¶èŽ¹å‰”é€ï¼Œé”‹é”æ— æ¯”ï¼Œä¸çŸ¥é“èƒ½ä¸èƒ½åƒã€‚\n");
+		set("unit", "ç‰‡" ); 
 		set("value", 8); 
-		set("wield_msg", "$N¡¸à§¡¹µÄÒ»Éù³é³öÒ»±ú$nÎÕÔÚÊÖÖÐ¡£\n"); 
-		set("unwield_msg", "$NÐ¡ÐÄ½«ÊÖÖÐµÄ$n·Å»Ø»³ÖÐ¡£\n");
+		set("wield_msg", "$Nã€Œå”°ã€çš„ä¸€å£°æŠ½å‡ºä¸€æŸ„$næ¡åœ¨æ‰‹ä¸­ã€‚\n"); 
+		set("unwield_msg", "$Nå°å¿ƒå°†æ‰‹ä¸­çš„$næ”¾å›žæ€€ä¸­ã€‚\n");
 		set("material", "ice");
 	} 
 	init_sword(25);
@@ -41,7 +41,7 @@ void melt()
 //a player or a NPC.
 		if( (int)env->query_skill("bingxue-xinfa", 1) < 20 )
 		{
-			message_vision("$N¾õµÃÉíÉÏÁ¹Á¹µÄ£¬ÊªÊªµÄ£¬Ô­À´ÊÇ±ùÖù»¯ÁË¡£\n", env);
+			message_vision("$Nè§‰å¾—èº«ä¸Šå‡‰å‡‰çš„ï¼Œæ¹¿æ¹¿çš„ï¼ŒåŽŸæ¥æ˜¯å†°æŸ±åŒ–äº†ã€‚\n", env);
 			destruct(this_object());
 			return;
 		}
@@ -51,7 +51,7 @@ void melt()
 //a room.
 		if( (string)env->query("outdoors") != "lingxiao" )
 		{
-			tell_object(env,"±ùÖùÖÕÓÚ»¯³ÉÁËÒ»Ì²Ë®£¬Á÷µÃµ½´¦¶¼ÊÇ¡£\n");
+			tell_object(env,"å†°æŸ±ç»ˆäºŽåŒ–æˆäº†ä¸€æ»©æ°´ï¼Œæµå¾—åˆ°å¤„éƒ½æ˜¯ã€‚\n");
 			destruct(this_object());
 			return;
 		}
@@ -74,21 +74,21 @@ int do_make(string arg)
 	object ob, me = this_player();
 
 	if( !arg || (arg != "sword" && arg != "jian" ) )
-		return notify_fail("ÄãÒª×öÊ²Ã´£¿\n");
+		return notify_fail("ä½ è¦åšä»€ä¹ˆï¼Ÿ\n");
 	if(!present(this_object(), me))
-		return notify_fail("ÄãÒª×öÊ²Ã´£¿\n");
+		return notify_fail("ä½ è¦åšä»€ä¹ˆï¼Ÿ\n");
 
 	if( (int)me->query("neili") < 200 ||
 		(int)me->query_skill("bingxue-xinfa", 1) < 20 )
 	{
-		message_vision("$NÄÃÆð±ùÖùÄóÀ´ÄóÈ¥£¬½á¹û±ùÖùºÜ¿ì¾Í»¯µôÁË¡£\n", me);
+		message_vision("$Næ‹¿èµ·å†°æŸ±ææ¥æåŽ»ï¼Œç»“æžœå†°æŸ±å¾ˆå¿«å°±åŒ–æŽ‰äº†ã€‚\n", me);
 		destruct(this_object());
 		return 1;
 	}   
 	ob=new("/d/lingxiao/obj/icesword");
 	ob->move(me);
 	me->add("neili", -100);
-	message_vision( HIW"$NÄÃÆð±ùÖù£¬°µÔË±ùÑ©ÐÄ·¨£¬Ö»¼û±ùÖùÍ¸³öÒ»¹ÉÇåÆø£¬¾ÓÈ»±ä³ÉÁËÒ»°Ñ½££¡\n"NOR, me);
+	message_vision( HIW"$Næ‹¿èµ·å†°æŸ±ï¼Œæš—è¿å†°é›ªå¿ƒæ³•ï¼Œåªè§å†°æŸ±é€å‡ºä¸€è‚¡æ¸…æ°”ï¼Œå±…ç„¶å˜æˆäº†ä¸€æŠŠå‰‘ï¼\n"NOR, me);
 	destruct(this_object());
 	return 1;
 }
@@ -97,9 +97,9 @@ int do_chi(string arg)
 {   
 	if( !this_object()->id(arg) ) return 0;
 	if( this_player()->is_busy() )
-		return notify_fail("ÄãÉÏÒ»¸ö¶¯×÷»¹Ã»ÓÐÍê³É¡£\n");
-	if(!arg) return notify_fail("ÄãÒª³ÔÊ²Ã´£¿\n");
-	message_vision( "$NÄÃÆð±ùÖùÊ¹¾¢Ò»Ò§£¬Ö»Ìý¸ÂßÕ£¡Ò»Éù£¬ÑÀ±ÂÁË¡£\n" , this_player());
+		return notify_fail("ä½ ä¸Šä¸€ä¸ªåŠ¨ä½œè¿˜æ²¡æœ‰å®Œæˆã€‚\n");
+	if(!arg) return notify_fail("ä½ è¦åƒä»€ä¹ˆï¼Ÿ\n");
+	message_vision( "$Næ‹¿èµ·å†°æŸ±ä½¿åŠ²ä¸€å’¬ï¼Œåªå¬å˜Žå“’ï¼ä¸€å£°ï¼Œç‰™ç”­äº†ã€‚\n" , this_player());
 	if( (int)this_player()->query("qi") > 20 )
 		this_player()->add("qi", -20);
 	else this_player()->unconcious();

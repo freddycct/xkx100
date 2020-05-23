@@ -6,10 +6,10 @@ inherit ROOM;
 int have_man();
 void create()
 {
-	set("short", "×ßÀÈ");
+	set("short", "èµ°å»Š");
 	set("long", @LONG
-Äã×ßÔÚÒ»Ìõ×ßÀÈÉÏ¡£±±ÃæËÆºõÓÐ¸öºÚ°µµÄÐ¡ÎÝ£¬»¹ÒþÒþ´«À´Ò»Ð©º¨
-Éù¡£¶«ÃæÊÇÌúÕÆ°ïÖÚµÄÁ·¹¦³¡¡£
+ä½ èµ°åœ¨ä¸€æ¡èµ°å»Šä¸Šã€‚åŒ—é¢ä¼¼ä¹Žæœ‰ä¸ªé»‘æš—çš„å°å±‹ï¼Œè¿˜éšéšä¼ æ¥ä¸€äº›é…£
+å£°ã€‚ä¸œé¢æ˜¯é“æŽŒå¸®ä¼—çš„ç»ƒåŠŸåœºã€‚
 LONG );
 	set("exits", ([ 
 		"west" : __DIR__"zoulang1",
@@ -36,9 +36,9 @@ int close_men()
 	if(objectp(room))
 	{
 		delete("exits/north");
-		message("vision", "ÃÅÖ¨Ö¨Ñ½Ñ½µØ×Ô¼ººÏÉÏÁË¡£\n", this_object());
+		message("vision", "é—¨å±å±å‘€å‘€åœ°è‡ªå·±åˆä¸Šäº†ã€‚\n", this_object());
 		room->delete("exits/south");
-		message("vision", "ÃÅÖ¨Ö¨Ñ½Ñ½µØ×Ô¼ººÏÉÏÁË¡£\n", room);
+		message("vision", "é—¨å±å±å‘€å‘€åœ°è‡ªå·±åˆä¸Šäº†ã€‚\n", room);
 	}
 	else message("vision", "ERROR: men not found(close).\n", room);
 }
@@ -49,10 +49,10 @@ int do_tui(string arg)
 
 	if (!living(this_player())) return 0;
 	if (query("exits/north"))
-		return notify_fail("ÃÅÒÑ¾­ÊÇ¿ª×ÅÁË¡£\n");
+		return notify_fail("é—¨å·²ç»æ˜¯å¼€ç€äº†ã€‚\n");
 
 	if (arg != "door" && arg != "men")
-		return notify_fail("ÄãÒª×öÊ²Ã´£¿\n");
+		return notify_fail("ä½ è¦åšä»€ä¹ˆï¼Ÿ\n");
 
 	if(!(room = find_object(__DIR__"xxs")))
 		room = load_object(__DIR__"xxs");
@@ -62,7 +62,7 @@ int do_tui(string arg)
 //	if (!have_man())
 //	{
 		set("exits/north", __DIR__"xxs");
-		message_vision("$NÇáÇáµØ°ÑÃÅÍÆ¿ª¡£\n", this_player());
+		message_vision("$Nè½»è½»åœ°æŠŠé—¨æŽ¨å¼€ã€‚\n", this_player());
 		room->set("exits/south", __FILE__);
 		remove_call_out("close_men");
 		call_out("close_men", 10);

@@ -1,5 +1,5 @@
 // hp cmds (Mon 09-04-95)
-// Ôö¼ÓÎ×Ê¦²ì¿´²»ÔÚÏßÍæ¼Ò×´Ì¬µÄ¹¦ÄÜ¡£
+// å¢žåŠ å·«å¸ˆå¯Ÿçœ‹ä¸åœ¨çº¿çŽ©å®¶çŠ¶æ€çš„åŠŸèƒ½ã€‚
 // Added by Spacenet@FXLT 1.18.2000 
 inherit F_CLEAN_UP;
  
@@ -35,65 +35,65 @@ int main(object me, string arg)
 					if (!ob->restore())
 					{
 						destruct(ob);
-						return notify_fail("Ã»ÓÐÕâ¸öÍæ¼Ò¡£\n");
+						return notify_fail("æ²¡æœ‰è¿™ä¸ªçŽ©å®¶ã€‚\n");
 					}
 				}
 			}
 			else
 			{
-				if(!ob || !me->visible(ob)) return notify_fail("Ö»ÄÜ²ì¿´×Ô¼ºµÄ×´Ì¬¡£\n");
+				if(!ob || !me->visible(ob)) return notify_fail("åªèƒ½å¯Ÿçœ‹è‡ªå·±çš„çŠ¶æ€ã€‚\n");
 				if(!ob->query("parents"))
-					return notify_fail("Ö»ÓÐÎ×Ê¦ÄÜ²ì¿´±ðÈËµÄ×´Ì¬¡£\n");
+					return notify_fail("åªæœ‰å·«å¸ˆèƒ½å¯Ÿçœ‹åˆ«äººçš„çŠ¶æ€ã€‚\n");
 				else
 					if(member_array(me->query("id"),ob->query("parents"))<=-1)
-						return notify_fail("Ö»ÓÐµùÄïÄÜ²ì¿´±¦±¦µÄ×´Ì¬¡£\n");
+						return notify_fail("åªæœ‰çˆ¹å¨˜èƒ½å¯Ÿçœ‹å®å®çš„çŠ¶æ€ã€‚\n");
 			}
 		}
 
 	if (!ob->is_character())
-		return notify_fail("ÄÇ²»ÊÇ»îÎï¡£\n");
+		return notify_fail("é‚£ä¸æ˜¯æ´»ç‰©ã€‚\n");
 
 	my = ob->query_entire_dbase();
-	printf(HIC"¡Ô"HIY"©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤"HIC"¡Ô\n"NOR);
-	printf(HIC"¡¾ ¾« Æø ¡¿ %s%4d/ %4d %s(%3d£¥)" HIC "   ¡¾ ¾« Á¦ ¡¿ %s%4d / %4d (+%d)\n" NOR,
+	printf(HIC"â‰¡"HIY"â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€"HIC"â‰¡\n"NOR);
+	printf(HIC"ã€ ç²¾ æ°” ã€‘ %s%4d/ %4d %s(%3dï¼…)" HIC "   ã€ ç²¾ åŠ› ã€‘ %s%4d / %4d (+%d)\n" NOR,
 		status_color(my["jing"], my["eff_jing"]), my["jing"], my["eff_jing"],
 		status_color(my["eff_jing"], my["max_jing"]),	my["eff_jing"] * 100 / my["max_jing"],
 		status_color(my["jingli"], my["max_jingli"]),	my["jingli"], my["max_jingli"],
 		my["jiajing"] );
-	printf(HIC"¡¾ Æø Ñª ¡¿ %s%4d/ %4d %s(%3d£¥)" HIC "   ¡¾ ÄÚ Á¦ ¡¿ %s%4d / %4d (+%d)\n" NOR,
+	printf(HIC"ã€ æ°” è¡€ ã€‘ %s%4d/ %4d %s(%3dï¼…)" HIC "   ã€ å†… åŠ› ã€‘ %s%4d / %4d (+%d)\n" NOR,
 		status_color(my["qi"], my["eff_qi"]), my["qi"], my["eff_qi"],
 		status_color(my["eff_qi"], my["max_qi"]), my["eff_qi"] * 100 / my["max_qi"],
 		status_color(my["neili"], my["max_neili"]), my["neili"], my["max_neili"],
 		my["jiali"] );
 
 	if (ob->query("shen") >=0)
-		printf(HIW"¡¾ Õý Æø ¡¿%8d              ", ob->query("shen"));
+		printf(HIW"ã€ æ­£ æ°” ã€‘%8d              ", ob->query("shen"));
 	else  
-		printf(HIG"¡¾ ìå Æø ¡¿%8d              ", ob->query("shen"));
+		printf(HIG"ã€ æˆ¾ æ°” ã€‘%8d              ", ob->query("shen"));
 if (my["max_nuqi"] && my["nuqi"]>0)
     {
     if (my["nuqi"]>=my["max_nuqi"])
       {
        ob->set("nuqi",ob->query("max_nuqi"));
-	     printf(HIR "¡¾ ·ß " BLINK "Å­"+NOR+HIR" ¡¿ Å­»ðÖÐÉÕ \n"NOR);
+	     printf(HIR "ã€ æ„¤ " BLINK "æ€’"+NOR+HIR" ã€‘ æ€’ç«ä¸­çƒ§ \n"NOR);
       }
     else
-      printf(HIR "¡¾ ·ß Å­ ¡¿ %4d / %4d \n"NOR, my["nuqi"], my["max_nuqi"]);
+      printf(HIR "ã€ æ„¤ æ€’ ã€‘ %4d / %4d \n"NOR, my["nuqi"], my["max_nuqi"]);
     }
 else 
-	  printf(HIC "¡¾ Ìå Á¦ ¡¿ %s%4d / %4d \n"NOR,status_color(my["tili"], my["max_tili"]), my["tili"], my["max_tili"]);
-	printf(HIW"¡¾ Ê³ Îï ¡¿ %s%4d/ %4d      " HIW "     ¡¾ Ç± ÄÜ ¡¿  %s%d\n" NOR,
+	  printf(HIC "ã€ ä½“ åŠ› ã€‘ %s%4d / %4d \n"NOR,status_color(my["tili"], my["max_tili"]), my["tili"], my["max_tili"]);
+	printf(HIW"ã€ é£Ÿ ç‰© ã€‘ %s%4d/ %4d      " HIW "     ã€ æ½œ èƒ½ ã€‘  %s%d\n" NOR,
 		status_color(my["food"], ob->max_food_capacity()),
 		my["food"], ob->max_food_capacity(), HIY,
 		(int)ob->query("potential") - (int)ob->query("learned_points"));
-	printf(HIW"¡¾ Òû Ë® ¡¿ %s%4d/ %4d      " HIW "     ¡¾ ¾­ Ñé ¡¿  %s%d\n" NOR,
+	printf(HIW"ã€ é¥® æ°´ ã€‘ %s%4d/ %4d      " HIW "     ã€ ç» éªŒ ã€‘  %s%d\n" NOR,
 		status_color(my["water"], ob->max_water_capacity()),
 		my["water"], ob->max_water_capacity(), HIM,
 		my["combat_exp"] );
-	printf(HIC"¡Ô"HIY"©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤"HIC"¡Ô\n"NOR);
+	printf(HIC"â‰¡"HIY"â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€"HIC"â‰¡\n"NOR);
 	
 	if (flag) {
-		printf("¸ÃÍæ¼ÒÄ¿Ç°²»ÔÚÏß¡£\n");
+		printf("è¯¥çŽ©å®¶ç›®å‰ä¸åœ¨çº¿ã€‚\n");
 		destruct(ob);
 	}
 	return 1;
@@ -116,11 +116,11 @@ string status_color(int current, int max)
 int help(object me)
 {
 	write(@HELP
-Ö¸Áî¸ñÊ½ : hp
-           hp <¶ÔÏóÃû³Æ>                   (Î×Ê¦×¨ÓÃ)
+æŒ‡ä»¤æ ¼å¼ : hp
+           hp <å¯¹è±¡åç§°>                   (å·«å¸ˆä¸“ç”¨)
  
-    Õâ¸öÖ¸Áî¿ÉÒÔÏÔÊ¾Äã»òÖ¸¶¨¶ÔÏó£¨º¬¹ÖÎï£©µÄ¾«Æø¡¢ÆøÑª¡¢ÄÚ
-Á¦¡¢ÌåÁ¦¡¢¾«Á¦¡¢Ê³Îï¡¢ÒûË®¡¢Ç±ÄÜÒÔ¼°¾­ÑéµÈÊýÖµ¡£
+    è¿™ä¸ªæŒ‡ä»¤å¯ä»¥æ˜¾ç¤ºä½ æˆ–æŒ‡å®šå¯¹è±¡ï¼ˆå«æ€ªç‰©ï¼‰çš„ç²¾æ°”ã€æ°”è¡€ã€å†…
+åŠ›ã€ä½“åŠ›ã€ç²¾åŠ›ã€é£Ÿç‰©ã€é¥®æ°´ã€æ½œèƒ½ä»¥åŠç»éªŒç­‰æ•°å€¼ã€‚
  
 see also : score
 HELP

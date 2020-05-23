@@ -12,32 +12,32 @@ int exert(object me)
   !me->query("perform/zhixin") &&
   !me->query("can_perform/linji-zhuang/zhixin") && 
   !me->query_temp("murong/xingyi"))
-   return notify_fail("����ʹ�õ��ڹ���û�����ֹ��ܡ�");
+   return notify_fail("你所使用的内功中没有这种功能。");
 
 	if (me->query_temp("ljzhixin"))
-		return notify_fail("���Ѿ�����֮��ׯ�ˣ�\n");
+		return notify_fail("你已经在运之心庄了！\n");
 
-	if (me->query("gender") != "Ů��")
-		return notify_fail("�㲻�Ǵ���֮�壬������֮��ׯ��\n");
+	if (me->query("gender") != "女性")
+		return notify_fail("你不是纯阴之体，不能运之心庄！\n");
 
 //	if (me->query("sex/number") )
-//		return notify_fail("�㲻�Ǵ�Ů֮������������ڤׯ��\n");
+//		return notify_fail("你不是处女之身，不能运幽冥庄！\n");
 
 	if( me->is_fighting() )
-		return notify_fail("ս�����޷���֮��ׯ��\n");
+		return notify_fail("战斗中无法运之心庄！\n");
 
 	if( (int)me->query("neili") < 200)
-		return notify_fail("�������������\n");
+		return notify_fail("你的真气不够。\n");
 
 	if( (int)me->query_skill("linji-zhuang",1) < 60)
-		return notify_fail("����ټ�ׯ���𲻹���\n");
+		return notify_fail("你的临济庄级别不够。\n");
 
 	if( (int)me->query("eff_qi") < (int)me->query("max_qi") / 2 )
-		return notify_fail( "�Ѿ����˹��أ��޷��˹���\n");
+		return notify_fail( "已经受伤过重，无法运功！\n");
 
 	message_vision(
-HIY "$N������������֮��ׯ���������������Ͽ������£��پ���̨������....
-վ�������������Դ�������˲��١�\n" NOR, me );
+HIY "$N坐了下来运起之心庄，将手掌在脑门上磕了两下，顿觉灵台清明，....
+站了起来，发现脑袋瓜灵光了不少。\n" NOR, me );
 	me->add("neili", -200);
 	me->add("eff_jing", -10);
 	me->add("jing", -20);
@@ -52,22 +52,22 @@ void remove_effect(object me, int count)
 	me->add_temp("apply/intelligence",-count);
 	me->delete_temp("ljzhixin");
 	tell_object(me, 
-HIB "��Ȼ��ͷ����е�һ��հף�ԭ�����֮��ׯ�չ��ˣ����ʱ
-�����Լ����Ǹ���ľ�ϣ�\n" NOR );
+HIB "忽然你头脑里感到一阵空白，原来你的之心庄收功了，你顿时
+觉得自己还是个大笨木瓜！\n" NOR );
 }
 
 int help(object me)
 {
-	write(WHT"\n�ټ�ʮ��ׯ֮֮��ׯ��"NOR"\n");
+	write(WHT"\n临济十二庄之之心庄："NOR"\n");
 	write(@HELP
 
-	ʹ�ù�Ч��
-		��ʱ�������
+	使用功效：
+		临时提高悟性
 
-	����Ҫ��
-		�ټ�ʮ��ׯ60��
-		����200
-		��Ů����֮��
+	出手要求：
+		临济十二庄60级
+		内力200
+		处女纯阴之体
 HELP
 	);
 	return 1;

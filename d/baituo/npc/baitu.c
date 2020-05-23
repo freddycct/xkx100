@@ -4,10 +4,10 @@ inherit NPC;
 
 void create()
 {
-	set_name("°×ÍÃ", ({ "bai tu", "tu" }) );
-	set("race", "×ßÐó");
+	set_name("ç™½å…”", ({ "bai tu", "tu" }) );
+	set("race", "èµ°ç•œ");
 	set("age", 2);
-	set("long", "Ò»Ö»Ñ©°×µÄÐ¡°×ÍÃ£¬¿É°®Ö®ÖÂ¡£\n");
+	set("long", "ä¸€åªé›ªç™½çš„å°ç™½å…”ï¼Œå¯çˆ±ä¹‹è‡´ã€‚\n");
 	set("attitude", "peaceful");
 	set("str", 15);
 	set("cor", 16);
@@ -23,7 +23,7 @@ void create()
 void die()
 {
 	object ob;
-	message_vision("$NÁ½ÍÈÒ»µÅ£¬$NËÀÁË¡£\n", this_object());
+	message_vision("$Nä¸¤è…¿ä¸€è¹¬ï¼Œ$Næ­»äº†ã€‚\n", this_object());
 	ob = new("/d/baituo/obj/turou");
 	ob->move(environment(this_object()));
 	destruct(this_object());

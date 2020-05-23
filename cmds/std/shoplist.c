@@ -5,106 +5,106 @@ inherit F_CLEAN_UP;
 
 
 
-static mapping *all_shop = ({
+protected mapping *all_shop = ({
         ([
-                "id":             "±±¾©",
+                "id":             "åŒ—äº¬",
                 "dealer_id":      "jia laoliu",
                 "dealer_place":   "/d/beijing/dangpu",
         ]),
         ([
-                "id":             "ÑïÖİ",
+                "id":             "æ‰¬å·",
                 "dealer_id":      "tang nan",
                 "dealer_place":   "/d/city/dangpu",
         ]),
         ([
-                "id":             "³É¶¼",
+                "id":             "æˆéƒ½",
                 "dealer_id":      "yan liu",
                 "dealer_place":   "/d/city/dangpu",
         ]),
         ([
-                "id":             "·ğÉ½",
+                "id":             "ä½›å±±",
                 "dealer_id":      "lao chaofeng",
                 "dealer_place":   "/d/foshan/dangpu",
         ]),
         ([
-                "id":             "ÁèÏö",
+                "id":             "å‡Œéœ„",
                 "dealer_id":      "chen chaofeng",
                 "dealer_place":   "/d/lingxiao/sell",
         ]),
         ([
-                "id":             "ËÕÖİ",
+                "id":             "è‹å·",
                 "dealer_id":      "wang heji",
                 "dealer_place":   "/d/suzhou/dangpu",
         ]),
         ([
-                "id":             "ÎŞÎı",
+                "id":             "æ— é”¡",
                 "dealer_id":      "feng hu",
                 "dealer_place":   "/d/wuxi/dangpu",
         ]),
         ([
-                "id":             "ÏåÑô",
+                "id":             "è¥„é˜³",
                 "dealer_id":      "qiu hang",
                 "dealer_place":   "/d/xiangyang/dangpu",
         ]),
 //});
 //mapping *all_player_shop = ([
         ([
-                "id": 						"±±¾©",
+                "id": 						"åŒ—äº¬",
                 "dealer_id": 			"huo ji",
                 "dealer_place": 	SHOP_DIR"beijing_shop",
         ]),
         ([
-                "id": 						"³¤°²",
+                "id": 						"é•¿å®‰",
                 "dealer_id": 			"huo ji",
                 "dealer_place": 	SHOP_DIR"changan_shop",
         ]),
         ([
-                "id": 						"³É¶¼",
+                "id": 						"æˆéƒ½",
                 "dealer_id": 			"huo ji",
                 "dealer_place": 	SHOP_DIR"chengdu_shop",
         ]),
         ([
-                "id": 						"ÑïÖİ",
+                "id": 						"æ‰¬å·",
                 "dealer_id": 			"huo ji",
                 "dealer_place": 	SHOP_DIR"yangzhou_shop",
         ]),
         ([
-                "id": 						"ËÕÖİ",
+                "id": 						"è‹å·",
                 "dealer_id": 			"huo ji",
                 "dealer_place": 	SHOP_DIR"suzhou_shop",
         ]),
         ([
-                "id": 						"º¼Öİ",
+                "id": 						"æ­å·",
                 "dealer_id": 			"huo ji",
                 "dealer_place": 	SHOP_DIR"hangzhou_shop",
         ]),
         ([
-                "id": 						"¸£Öİ",
+                "id": 						"ç¦å·",
                 "dealer_id": 			"huo ji",
                 "dealer_place": 	SHOP_DIR"fuzhou_shop",
         ]),
         ([
-                "id": 						"ÎŞÎı",
+                "id": 						"æ— é”¡",
                 "dealer_id": 			"huo ji",
                 "dealer_place": 	SHOP_DIR"wuxi_shop",
         ]),
         ([
-                "id": 						"¿ª·â",
+                "id": 						"å¼€å°",
                 "dealer_id": 			"huo ji",
                 "dealer_place": 	SHOP_DIR"kaifeng_shop",
         ]),
         ([
-                "id": 						"ÑÓÆ½",
+                "id": 						"å»¶å¹³",
                 "dealer_id": 			"huo ji",
                 "dealer_place": 	SHOP_DIR"yanping_shop",
         ]),
         ([
-                "id": 						"ÈªÖİ",
+                "id": 						"æ³‰å·",
                 "dealer_id": 			"huo ji",
                 "dealer_place": 	SHOP_DIR"quanzhou_shop",
         ]),
         ([
-                "id": 						"·ğÉ½",
+                "id": 						"ä½›å±±",
                 "dealer_id": 			"huo ji",
                 "dealer_place": 	SHOP_DIR"foshan_shop",
         ]),
@@ -121,9 +121,9 @@ int main(object me, string arg)
   string msg="";
   mapping shop;
   int i;
-  if (!arg) return notify_fail("ÄãÒª²éÊ²Ã´¶«Î÷?\n");
+  if (!arg) return notify_fail("ä½ è¦æŸ¥ä»€ä¹ˆä¸œè¥¿?\n");
   if (time()-me->query("last/query_sell")<10 && !wizardp(me))
-    return notify_fail("ÏµÍ³Ã¦£¬ÇëÉÔºóÔÙÊÔ¡£\n");
+    return notify_fail("ç³»ç»Ÿå¿™ï¼Œè¯·ç¨åå†è¯•ã€‚\n");
   seteuid(getuid());
   for (i=0;i<sizeof(all_shop);i++)
   {
@@ -136,7 +136,7 @@ int main(object me, string arg)
     msg+=query_sell(me,dealer,arg,i);
   }
   if (!msg || msg== "")
-  return notify_fail("Ã»ÓĞÈÎºÎµ±ÆÌÂôÕâÑù¶«Î÷¡£\n");
+  return notify_fail("æ²¡æœ‰ä»»ä½•å½“é“ºå–è¿™æ ·ä¸œè¥¿ã€‚\n");
   me->set("last/query_sell",time());
   tell_object(me,msg);
   return 1;
@@ -155,8 +155,8 @@ string query_sell(object me,object seller,string arg,int shop_number)
         string *invstr;
         string *gk;
         int discount;
-// ÏÈ»ñÈ¡·ûºÏÌõ¼şµÄ»õÎïÁĞ±í
-//´¦Àíµ±ÆÌ
+// å…ˆè·å–ç¬¦åˆæ¡ä»¶çš„è´§ç‰©åˆ—è¡¨
+//å¤„ç†å½“é“º
    invstr=({});
    ob=({});
    count=({});
@@ -192,15 +192,15 @@ string query_sell(object me,object seller,string arg,int shop_number)
    }
 */  msg = HIW+"\n"+all_shop[shop_number]["id"];
   msg+= environment(seller)->query("short");
-//  msg+= "Çé¿öÈçÏÂ£º\n"NOR;
-  msg += "£º\n"NOR;
+//  msg+= "æƒ…å†µå¦‚ä¸‹ï¼š\n"NOR;
+  msg += "ï¼š\n"NOR;
   for (j=0 ;j<sizeof(ob);j++)
-  msg += sprintf("%30-s%sÊıÁ¿£º%3-i %s\n", 
+  msg += sprintf("%30-s%sæ•°é‡ï¼š%3-i %s\n", 
         ob[j]->short(),
         makeup_space(ob[j]->short()), count[j],
         MONEY_D->price_str(ob[j]->query("value") * 6 / 5));
  }
- else  //´¦ÀíµêÆÌ
+ else  //å¤„ç†åº—é“º
  {
  	 room = environment(seller);
  	 if (! room->query("shop_type"))  return "";
@@ -247,10 +247,10 @@ string query_sell(object me,object seller,string arg,int shop_number)
   if (sizeof(ob)<=0) return "";
   msg = HIW+"\n"+all_shop[shop_number]["id"];
   msg+= environment(seller)->query("short");
-//  msg+= "Çé¿öÈçÏÂ£º\n"NOR;
-  msg += "£º\n"NOR;
+//  msg+= "æƒ…å†µå¦‚ä¸‹ï¼š\n"NOR;
+  msg += "ï¼š\n"NOR;
   for (j=0;j<sizeof(ob);j++)
-  msg += sprintf("%30-s%sÊıÁ¿£º%3-i %s\n", 
+  msg += sprintf("%30-s%sæ•°é‡ï¼š%3-i %s\n", 
         ob[j]->short(),
         makeup_space(ob[j]->short()), count[j],
         MONEY_D->price_str(gk[j] ));
@@ -327,12 +327,12 @@ string filter_color(string arg)
 int help(object me)
 {
   write(@HELP
-Ö¸Áî¸ñÊ½£ºshoplist <ÎïÆ·id »ò ÎïÆ·ÖĞÎÄÃû>
+æŒ‡ä»¤æ ¼å¼ï¼šshoplist <ç‰©å“id æˆ– ç‰©å“ä¸­æ–‡å>
 
-          ÀıÈç shoplist ren shen
-               shoplist ÈË²Î
+          ä¾‹å¦‚ shoplist ren shen
+               shoplist äººå‚
                     
-    Õâ¸öÖ¸ÁîÈÃÄãÄÜ²éÕÒµ½Ö¸¶¨ÎïÆ·ÊÇ·ñÔÚµ±ÆÌÖĞÏúÊÛ¡£
+    è¿™ä¸ªæŒ‡ä»¤è®©ä½ èƒ½æŸ¥æ‰¾åˆ°æŒ‡å®šç‰©å“æ˜¯å¦åœ¨å½“é“ºä¸­é”€å”®ã€‚
  
 HELP
   );

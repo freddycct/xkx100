@@ -6,12 +6,12 @@ inherit ROOM;
 #include <ansi.h>
 void create()
 {
-	set("short", "Óñ±ÚÆÙ²¼");
+	set("short", "çŽ‰å£ç€‘å¸ƒ");
 	set("long", @LONG
-Ñ­Ð¡Â·Ö±ÍùºóÉ½Éî´¦£¬ÃÍÌýµÃË®ÉùÏìÁÁ£¬ºäºäÂ¡Â¡£¬±ãÈç³±Ë®´óÖÁ
-Ò»°ã£¬Ì§Í·Ò»¿´£¬Ö»¼ûÎ÷±±½ÇÉÏÓÌÈçÒøºÓµ¹Ðü£¬Ò»Ìõ´óÆÙ²¼´Ó¸ßÑÂÉÏÖ±
-ÐºÏÂÀ´¡£Óñ±ÚÖ®Ç°¾ÍÊÇ½£ºþ£¬ºþÎ÷ÓÖÊÇÍòÕÉÉî¹È£¬ÔÆÎíÃÖÂþ£¬Íû²»µ½¾¡
-Í·¡£¡£¡£¡£
+å¾ªå°è·¯ç›´å¾€åŽå±±æ·±å¤„ï¼ŒçŒ›å¬å¾—æ°´å£°å“äº®ï¼Œè½°è½°éš†éš†ï¼Œä¾¿å¦‚æ½®æ°´å¤§è‡³
+ä¸€èˆ¬ï¼ŒæŠ¬å¤´ä¸€çœ‹ï¼Œåªè§è¥¿åŒ—è§’ä¸ŠçŠ¹å¦‚é“¶æ²³å€’æ‚¬ï¼Œä¸€æ¡å¤§ç€‘å¸ƒä»Žé«˜å´–ä¸Šç›´
+æ³»ä¸‹æ¥ã€‚çŽ‰å£ä¹‹å‰å°±æ˜¯å‰‘æ¹–ï¼Œæ¹–è¥¿åˆæ˜¯ä¸‡ä¸ˆæ·±è°·ï¼Œäº‘é›¾å¼¥æ¼«ï¼Œæœ›ä¸åˆ°å°½
+å¤´ã€‚ã€‚ã€‚ã€‚
 LONG );
 	set("exits", ([ /* sizeof() == 2 */
 		"southdown" : "/d/wuliang/road6",
@@ -35,14 +35,14 @@ int do_jump(string arg)
 	int new_jing;
 	ob = this_player();
 	if (ob->query_temp("marks/wuliang") != 1)
-		return notify_fail("ÓÐÈË×·É±Äã°¡£¿ÕâÃ´¼±ÏëÒªÌøÑÂ×ÔÉ±£¿\n");
+		return notify_fail("æœ‰äººè¿½æ€ä½ å•Šï¼Ÿè¿™ä¹ˆæ€¥æƒ³è¦è·³å´–è‡ªæ€ï¼Ÿ\n");
 	new_jing = random( ob->query("max_jing")*3 );
 	if ( new_jing > ob->query("jing") ) new_jing = ob->query("jing") + 1;
         if( !arg || arg=="" ) return 0;
         if( arg != "down" )
-		return notify_fail("ÄãÏëÒªÌøÑÂ×ÔÉ±£¿ÕâÃ´Ïë²»¿ª°¡£¿\n");
-	tell_object(ob, HIR"Äã²»¼ÓË¼Ë÷£¬×ÝÉíÒ»Ô¾£¬ÌøÏÂÁËÐüÑÂ¡£¡£¡£¡£\n"NOR);
-	message("vision", NOR"Ö»¼û" + ob->query("name") + "ÍòÄî¾ã»Ò£¬×ÝÉíÌøÈëÁËÐüÑÂÖ®ÖÐ¡£¡£¡£¡£\n"NOR, environment(ob), ob);
+		return notify_fail("ä½ æƒ³è¦è·³å´–è‡ªæ€ï¼Ÿè¿™ä¹ˆæƒ³ä¸å¼€å•Šï¼Ÿ\n");
+	tell_object(ob, HIR"ä½ ä¸åŠ æ€ç´¢ï¼Œçºµèº«ä¸€è·ƒï¼Œè·³ä¸‹äº†æ‚¬å´–ã€‚ã€‚ã€‚ã€‚\n"NOR);
+	message("vision", NOR"åªè§" + ob->query("name") + "ä¸‡å¿µä¿±ç°ï¼Œçºµèº«è·³å…¥äº†æ‚¬å´–ä¹‹ä¸­ã€‚ã€‚ã€‚ã€‚\n"NOR, environment(ob), ob);
 	if((random((int)ob->query("kar")) < 5 ) && ((int)ob->query_skill("dodge")<30) )
 	{
 		ob->die();

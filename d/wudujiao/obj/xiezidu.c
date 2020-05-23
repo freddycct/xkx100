@@ -13,12 +13,12 @@ void init()
 
 void create()
 {
-               set_name("Ğ«×Ó¶¾ÄÒ", ({"xiezi dunang" ,"dunang"}));
+               set_name("èå­æ¯’å›Š", ({"xiezi dunang" ,"dunang"}));
 
-                set("unit", "¸ö");
-                set("long", "ÕâÊÇÒ»¸öĞ«×ÓµÄ¶¾ÄÒ¡£\n");
+                set("unit", "ä¸ª");
+                set("long", "è¿™æ˜¯ä¸€ä¸ªèå­çš„æ¯’å›Šã€‚\n");
                 set("value", 100);
-//            set("no_drop", "ÕâÑù¶«Î÷²»ÄÜÀë¿ªÄã¡£\n");
+//            set("no_drop", "è¿™æ ·ä¸œè¥¿ä¸èƒ½ç¦»å¼€ä½ ã€‚\n");
               set_weight(100);
 
 
@@ -31,6 +31,6 @@ int do_eat(string arg)
     object ob = this_object();
     if (arg != "xiezi dunang"& arg !="dunang")
     return 0;
-    tell_object(me,  "ÄãÏëËÀ°¡£¬ÓÃsuicide±È½Ï¿ìÒ»µã¡£\n" );
+    tell_object(me,  "ä½ æƒ³æ­»å•Šï¼Œç”¨suicideæ¯”è¾ƒå¿«ä¸€ç‚¹ã€‚\n" );
     return 1;
 }

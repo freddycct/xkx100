@@ -1,4 +1,4 @@
-// roar.c ±Ìº£Éú³±Çú
+// roar.c ç¢§æµ·ç”Ÿæ½®æ›²
 // Last Modified by winder on Mar. 10 2000
 
 #include <ansi.h>
@@ -14,13 +14,13 @@ int exert(object me, object target)
   !me->query("perform/roar") &&
   !me->query("can_perform/bibo-shengong/roar") && 
   !me->query_temp("murong/xingyi"))
-   return notify_fail("ÄãËùÊ¹ÓÃµÄÄÚ¹¦ÖĞÃ»ÓĞÕâÖÖ¹¦ÄÜ¡£");
+   return notify_fail("ä½ æ‰€ä½¿ç”¨çš„å†…åŠŸä¸­æ²¡æœ‰è¿™ç§åŠŸèƒ½ã€‚");
 
 	if( ((int)me->query("neili") < 300 ) || ((int)me->query("max_neili") < 300 ) || ( (int)me->query_skill("bibo-shengong",1) < 100) )
-		return notify_fail("Äã¹Ä×ãÕæÆø£¢ß÷£¢µÄºğÁËÒ»Éù, ½á¹ûÏÅ×ßÁË¼¸Ö»ÀÏÊó¡£\n");
+		return notify_fail("ä½ é¼“è¶³çœŸæ°”ï¼‚å–µï¼‚çš„å¼äº†ä¸€å£°, ç»“æœå“èµ°äº†å‡ åªè€é¼ ã€‚\n");
 
 	if( environment(me)->query("no_fight") )
-		return notify_fail("ÔÚÕâÀï²»ÄÜ¹¥»÷ËûÈË¡£\n");
+		return notify_fail("åœ¨è¿™é‡Œä¸èƒ½æ”»å‡»ä»–äººã€‚\n");
 
 	skill = me->query_skill("force");
 
@@ -29,7 +29,7 @@ int exert(object me, object target)
 	me->receive_damage("qi", 10);
 	me->start_busy(5);
 	message_combatd(
-	HIY "$NÆøÄıµ¤Ìï£¬ÔË¼¯È«ÉíÄÚÁ¦Ò÷³öÒ»Çú¡¸±Ìº£Éú³±¡¹£¡\n" NOR, me);
+	HIY "$Næ°”å‡ä¸¹ç”°ï¼Œè¿é›†å…¨èº«å†…åŠ›åŸå‡ºä¸€æ›²ã€Œç¢§æµ·ç”Ÿæ½®ã€ï¼\n" NOR, me);
 
 	ob = all_inventory(environment(me));
 	for(i=0; i<sizeof(ob); i++)
@@ -47,7 +47,7 @@ int exert(object me, object target)
 			ob[i]->receive_damage("jing", damage * 2 );
 			if( (int)ob[i]->query("neili") < skill * 2 )
 				ob[i]->receive_wound("jing", damage);
-			tell_object(ob[i], "ÄãÖ»¾õµÃÑÛÇ°Ò»Æ¬Ä£ºı£¬ëüëÊÖĞËÆºõÎŞÊıÅÅÉ½¾ŞÀËÏòÄã´òÀ´......\n");
+			tell_object(ob[i], "ä½ åªè§‰å¾—çœ¼å‰ä¸€ç‰‡æ¨¡ç³Šï¼Œæœ¦èƒ§ä¸­ä¼¼ä¹æ— æ•°æ’å±±å·¨æµªå‘ä½ æ‰“æ¥......\n");
 		}
 		if( !ob[i]->is_killing(me) ) ob[i]->kill_ob(me);
 		if( !me->is_killing(ob[i]) ) me->fight_ob(ob[i]);
@@ -56,16 +56,16 @@ int exert(object me, object target)
 }
 int help(object me)
 {
-	write(WHT"\n±Ì²¨Éñ¹¦Ö®±Ìº£Éú³±Çú£º"NOR"\n");
+	write(WHT"\nç¢§æ³¢ç¥åŠŸä¹‹ç¢§æµ·ç”Ÿæ½®æ›²ï¼š"NOR"\n");
 	write(@HELP
 
-	Ê¹ÓÃ¹¦Ğ§£º
-                ±Ìº£Éú³±Çú £¬¹à×¢ÄÚÁ¦Ò÷³öÇú×Ó£¬Ê¹µĞÈËĞÄ·³Òâ
-                ÂÒ£¬²»Õ½×ÔÀ£¡£ÉËº¦×Ô¼ºÖÜÎ§µÄËùÓĞÉúÎïµÄ¾«Æø
+	ä½¿ç”¨åŠŸæ•ˆï¼š
+                ç¢§æµ·ç”Ÿæ½®æ›² ï¼ŒçŒæ³¨å†…åŠ›åŸå‡ºæ›²å­ï¼Œä½¿æ•Œäººå¿ƒçƒ¦æ„
+                ä¹±ï¼Œä¸æˆ˜è‡ªæºƒã€‚ä¼¤å®³è‡ªå·±å‘¨å›´çš„æ‰€æœ‰ç”Ÿç‰©çš„ç²¾æ°”
 
-	³öÊÖÒªÇó£º
-		±Ì²¨Éñ¹¦100¼¶
-		ÄÚÁ¦300
+	å‡ºæ‰‹è¦æ±‚ï¼š
+		ç¢§æ³¢ç¥åŠŸ100çº§
+		å†…åŠ›300
 HELP
 	);
 	return 1;

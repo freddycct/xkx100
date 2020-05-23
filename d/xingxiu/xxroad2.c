@@ -5,10 +5,10 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "��ʯ���");
+	set("short", "青石大道");
 	set("long", @LONG
-����һ����ʯ�����������Լ���Կ������ݳǵĳ�ǽ����������С
-ɽ��
+这是一条青石大道。东面隐约可以看到兰州城的城墙。北面有座小
+山丘。
 LONG );
 	set("exits", ([
 	    "east"    : __DIR__"xxroad1",

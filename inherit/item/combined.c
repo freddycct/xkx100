@@ -9,7 +9,7 @@ inherit F_DBASE;
 inherit F_MOVE;
 inherit F_NAME;
 
-static int amount;
+protected int amount;
 
 void setup()
 {

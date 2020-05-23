@@ -14,39 +14,39 @@ inherit F_SKILL;
 
 
 mapping *combat_action = ({
-	([	"action":	"$N»ÓÈ­¹¥»÷$nµÄ$l",
-		"damage_type":	"ğöÉË",
+	([	"action":	"$NæŒ¥æ‹³æ”»å‡»$nçš„$l",
+		"damage_type":	"ç˜€ä¼¤",
 	]),
-	([	"action":	"$NÍù$nµÄ$lÒ»×¥",
-		"damage_type":	"×¥ÉË",
+	([	"action":	"$Nå¾€$nçš„$lä¸€æŠ“",
+		"damage_type":	"æŠ“ä¼¤",
 	]),
-	([	"action":	"$NÍù$nµÄ$lºİºİµØÌßÁËÒ»½Å",
-		"damage_type":	"ğöÉË",
+	([	"action":	"$Nå¾€$nçš„$lç‹ ç‹ åœ°è¸¢äº†ä¸€è„š",
+		"damage_type":	"ç˜€ä¼¤",
 	]),
-	([	"action":	"$NÌáÆğÈ­Í·Íù$nµÄ$l´·È¥",
-		"damage_type":	"ÄÚÉË",
+	([	"action":	"$Næèµ·æ‹³å¤´å¾€$nçš„$læ¶å»",
+		"damage_type":	"å†…ä¼¤",
 	]),
-	([	"action":	"$N¶Ô×¼$nµÄ$lÓÃÁ¦»Ó³öÒ»È­",
-		"damage_type":	"ğöÉË",
+	([	"action":	"$Nå¯¹å‡†$nçš„$lç”¨åŠ›æŒ¥å‡ºä¸€æ‹³",
+		"damage_type":	"ç˜€ä¼¤",
 	]),
 });
 
 void create()
 {
 	seteuid(getuid());
-	set("unit", "Î»");
-	set("gender", "ÄĞĞÔ");
+	set("unit", "ä½");
+	set("gender", "ç”·æ€§");
 	set("can_speak", 1);
 	set("attitude", "peaceful");
 	set("limbs", ({
-		"Í·¶¥", "¾±²¿", "ĞØ¿Ú", "ºóĞÄ", "×ó¼ç", "ÓÒ¼ç", "×ó±Û",
-		"ÓÒ±Û", "×óÊÖ", "ÓÒÊÖ", "Á½Àß", "×óÁ³", "Ñü¼ä", "Ğ¡¸¹",
-		"×óÍÈ", "ÓÒÍÈ", "ÓÒÁ³", "×ó½Å", "ÓÒ½Å", "×ó¶ú", "ÓÒ¶ú"
+		"å¤´é¡¶", "é¢ˆéƒ¨", "èƒ¸å£", "åå¿ƒ", "å·¦è‚©", "å³è‚©", "å·¦è‡‚",
+		"å³è‡‚", "å·¦æ‰‹", "å³æ‰‹", "ä¸¤è‚‹", "å·¦è„¸", "è…°é—´", "å°è…¹",
+		"å·¦è…¿", "å³è…¿", "å³è„¸", "å·¦è„š", "å³è„š", "å·¦è€³", "å³è€³"
 	}) );
 
-	set("dead_message", "\n$Nµ¹ÔÚµØÉÏ£¬ÕõÔúÁË¼¸ÏÂ¾ÍËÀÁË¡£\n\n");
-	set("unconcious_message", "\n$N½ÅÏÂÒ»¸ö²»ÎÈ£¬µøÔÚµØÉÏ»èÁË¹ıÈ¥¡£\n\n");
-	set("revive_message", "\n$NÂıÂıÕö¿ªÑÛ¾¦£¬ÇåĞÑÁË¹ıÀ´¡£\n\n");
+	set("dead_message", "\n$Nå€’åœ¨åœ°ä¸Šï¼ŒæŒ£æ‰äº†å‡ ä¸‹å°±æ­»äº†ã€‚\n\n");
+	set("unconcious_message", "\n$Nè„šä¸‹ä¸€ä¸ªä¸ç¨³ï¼Œè·Œåœ¨åœ°ä¸Šæ˜äº†è¿‡å»ã€‚\n\n");
+	set("revive_message", "\n$Næ…¢æ…¢çå¼€çœ¼ç›ï¼Œæ¸…é†’äº†è¿‡æ¥ã€‚\n\n");
 }
 
 void setup_human(object ob)
@@ -85,7 +85,7 @@ void setup_human(object ob)
 			my["max_jing"] -= i;
 		}
 
-		// µÀ¼Ò±£¾«£º
+		// é“å®¶ä¿ç²¾ï¼š
 		if(my["age"] > 60 && (int)ob->query_skill("taoism", 1) >= 120)
 		{
 			// Modified by zeratul Jan 6 2001
@@ -93,7 +93,7 @@ void setup_human(object ob)
 			my["max_jing"] += i;
 		}
 
-		// ·ğ¼ÒÑø¾«£º£³£°ËêÇ°²¹¾«£¬£³£°Ëêºó³¤¾«
+		// ä½›å®¶å…»ç²¾ï¼šï¼“ï¼å²å‰è¡¥ç²¾ï¼Œï¼“ï¼å²åé•¿ç²¾
 		if((xism_age=(int)ob->query_skill("buddhism", 1)) > 39)
 		{
 			xism_age = xism_age/2;
@@ -103,7 +103,7 @@ void setup_human(object ob)
 			if (xism_age > 0) my["max_jing"] += xism_age *((int)ob->query_skill("hunyuan-yiqi", 1)/10);
 		}
 
-		// ×ÏëµÒ÷³¤¾«£º
+		// ç´«æ°²åŸé•¿ç²¾ï¼š
 		if((xism_age=(int)ob->query_skill("ziyunyin", 1)) > 39) 
 		{
 			xism_age = xism_age/2;
@@ -131,7 +131,7 @@ void setup_human(object ob)
 			my["max_qi"] -= i;
 		}
 
-		// ·ğ¼Ò±£Æø£º
+		// ä½›å®¶ä¿æ°”ï¼š
 		if(my["age"] > 60 && (int)ob->query_skill("buddhism", 1) >= 120)
 		{
 			// Modified by zeratul Jan 6 2001
@@ -139,7 +139,7 @@ void setup_human(object ob)
 			my["max_qi"] += i;
 		}
 
-		// µÀ¼ÒÕıÒ»ÅÉÁ·Æø£º£³£°ËêÇ°²¹Æø£¬£³£°Ëêºó³¤Æø
+		// é“å®¶æ­£ä¸€æ´¾ç»ƒæ°”ï¼šï¼“ï¼å²å‰è¡¥æ°”ï¼Œï¼“ï¼å²åé•¿æ°”
 		if((xism_age=(int)ob->query_skill("taoism", 1)) > 39)
 		{
 			xism_age = xism_age/2;
@@ -148,7 +148,7 @@ void setup_human(object ob)
 
 			if (xism_age > 0) my["max_qi"] += xism_age *((int)ob->query_skill("taiji-shengong", 1)/10);
 		}
-		// µÀ¼ÒÈ«ÕæÅÉÁ·Æø£º£³£°ËêÇ°²¹Æø£¬£³£°Ëêºó³¤Æø
+		// é“å®¶å…¨çœŸæ´¾ç»ƒæ°”ï¼šï¼“ï¼å²å‰è¡¥æ°”ï¼Œï¼“ï¼å²åé•¿æ°”
 		if((xism_age=(int)ob->query_skill("taoism", 1)) > 39)
 		{
 			xism_age = xism_age/2;
@@ -157,7 +157,7 @@ void setup_human(object ob)
 
 			if (xism_age > 0) my["max_qi"] += xism_age *((int)ob->query_skill("xiantian-qigong", 1)/10);
 		}
-		// ÕıÆø¾÷³¤Æø£º
+		// æ­£æ°”è¯€é•¿æ°”ï¼š
 		if((xism_age=(int)ob->query_skill("zhengqijue", 1)) > 39) 
 		{
 			xism_age = xism_age/2;
@@ -165,7 +165,7 @@ void setup_human(object ob)
 
 			if (xism_age > 0) my["max_qi"] += xism_age *((int)ob->query_skill("zixia-shengong", 1) / 20);
 		}
-		// ¶¾¼¼Á·Æø£º£³£°ËêÇ°²¹Æø£¬£³£°Ëêºó³¤Æø
+		// æ¯’æŠ€ç»ƒæ°”ï¼šï¼“ï¼å²å‰è¡¥æ°”ï¼Œï¼“ï¼å²åé•¿æ°”
 		if((xism_age=(int)ob->query_skill("poison", 1)) > 39)
 		{
 			xism_age = xism_age/2;

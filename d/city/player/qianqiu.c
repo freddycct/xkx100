@@ -3,11 +3,11 @@
 inherit NPC;
 void create()
 {
-	set_name("Ò»ĞÄÏò·ğ", ({ "qianqiu"}));
-	set("gender", "ÄĞĞÔ");
+	set_name("ä¸€å¿ƒå‘ä½›", ({ "qianqiu"}));
+	set("gender", "ç”·æ€§");
 	set("class", "bonze");
-	set("title", "ĞùÔ¯½ÌÍâÎñ³¤ÀÏÉÙÁÖÅÉµÚÈıÊ®°Ë´úµÜ×Ó");
-	set("nickname", "¾ÆÈâ´©³¦¹ı·ğ×æĞÄÖĞ×ø");
+	set("title", "è½©è¾•æ•™å¤–åŠ¡é•¿è€å°‘æ—æ´¾ç¬¬ä¸‰åå…«ä»£å¼Ÿå­");
+	set("nickname", "é…’è‚‰ç©¿è‚ è¿‡ä½›ç¥–å¿ƒä¸­å");
 	set("age", 56);
 	set("attitude", "friendly");
 
@@ -18,7 +18,7 @@ void create()
 	set("con", 24);
 	set("str", 26);
 	set("weiwang", 80);
-	create_family("ÉÙÁÖÅÉ" , 38, "µÜ×Ó");
+	create_family("å°‘æ—æ´¾" , 38, "å¼Ÿå­");
 	setup();
 	carry_object(CLOTH_DIR"seng-cloth")->wear();
         carry_object(CLOTH_DIR"seng-shoe")->wear();

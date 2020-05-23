@@ -5,12 +5,12 @@ inherit ROOM;
 #include <ansi.h> 
 void create()
 {
-	set("short","×ßÀÈ");
+	set("short","èµ°å»Š");
 	set("long",@LONG 
-ÕâÊÇÒ»Ìõ°²¾²µÄ×ßÀÈ£¬ÉÙÓÐÏÐÈË×ß¶¯£¬ÁèÏö³ÇËÄÎ»Îå´ú³¤ÀÏ¾Í¾Ó×¡
-ÔÚ´ËÖÜÎ§¡£ËÄÀÏ²»Ï²»¨Ñ©£¬ÊÇÒÔÉî¾Ó´Ë´¦¡£µ«ÌýËµÓÉÓÚÁù´úµÜ×ÓÖÐ°×Íò
-½£×îÎª³öÉ«£¬ÉõÖÁÒþÒþÓÐÑ¹µ¹ËÄÎ»³¤ÀÏÖ®ÊÆ¡£ËÄÀÏÐÄÖÐ²»Ï²£¬ÒÑ²»ÊÕµÜ
-×Ó¡£
+è¿™æ˜¯ä¸€æ¡å®‰é™çš„èµ°å»Šï¼Œå°‘æœ‰é—²äººèµ°åŠ¨ï¼Œå‡Œéœ„åŸŽå››ä½äº”ä»£é•¿è€å°±å±…ä½
+åœ¨æ­¤å‘¨å›´ã€‚å››è€ä¸å–œèŠ±é›ªï¼Œæ˜¯ä»¥æ·±å±…æ­¤å¤„ã€‚ä½†å¬è¯´ç”±äºŽå…­ä»£å¼Ÿå­ä¸­ç™½ä¸‡
+å‰‘æœ€ä¸ºå‡ºè‰²ï¼Œç”šè‡³éšéšæœ‰åŽ‹å€’å››ä½é•¿è€ä¹‹åŠ¿ã€‚å››è€å¿ƒä¸­ä¸å–œï¼Œå·²ä¸æ”¶å¼Ÿ
+å­ã€‚
 LONG);
 	set("outdoors", "lingxiao");
 	set("exits",([ /* sizeof() == 1 */

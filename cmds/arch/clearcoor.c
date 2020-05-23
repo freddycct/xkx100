@@ -28,10 +28,10 @@ int main(object me, string arg, int recur_flag)
 		if (!sscanf(arg, "%*s.c"))
 			arg += ".c";
 		if (file_size(arg) > 0) {
-			notify_fail("´¦ÀíÍê±Ï¡£\n");
+			notify_fail("å¤„ç†å®Œæ¯•ã€‚\n");
 			return clearfile(me ,arg);
 		} else
-			return notify_fail("Ã»ÓĞÕâ¸öÎÄ¼ş¡£\n");
+			return notify_fail("æ²¡æœ‰è¿™ä¸ªæ–‡ä»¶ã€‚\n");
 	}
 
 	dir = resolve_path(me->query("cwd"), arg);
@@ -43,9 +43,9 @@ int main(object me, string arg, int recur_flag)
 
 	if (!sizeof(file)) {
 		if (file_size(dir) == -2)
-			return notify_fail("Ä¿Â¼ÊÇ¿ÕµÄ¡£\n");
+			return notify_fail("ç›®å½•æ˜¯ç©ºçš„ã€‚\n");
 		else
-			return notify_fail("Ã»ÓĞÕâ¸öÄ¿Â¼¡£\n");
+			return notify_fail("æ²¡æœ‰è¿™ä¸ªç›®å½•ã€‚\n");
 	}
 
 	i = sizeof(file);
@@ -54,7 +54,7 @@ int main(object me, string arg, int recur_flag)
 			file[i][0] += "/";
 	}
 
-	write("ÕıÔÚ´¦ÀíÄ¿Â¼£º" + dir + "\n");
+	write("æ­£åœ¨å¤„ç†ç›®å½•ï¼š" + dir + "\n");
 
 	if (sizeof(file)) {
 		for(i = 0,j = sizeof(file); i < j; i ++) {
@@ -93,7 +93,7 @@ int clearfile(object me, string file)
 
 	reset_eval_cost();
 
-	write("\tÕıÔÚÕûÀíÎÄ¼ş" + file);
+	write("\tæ­£åœ¨æ•´ç†æ–‡ä»¶" + file);
 	for (i = 0; i < sizeof(in_text); i ++) {
 		if (strsrch(in_text[i], "set(\"coor/") == -1) {
 			if (nullp(temp_text))
@@ -112,18 +112,18 @@ int clearfile(object me, string file)
 
 	write_file(file, out_text, 1);
 
-	write("Íê±Ï¡£\n");
+	write("å®Œæ¯•ã€‚\n");
 	return 1;
 }
 
 int help(object me)
 {
 write(@HELP
-Ö¸Áî¸ñÊ½: clearcoor [-d | -s] [<Â·¾¶Ãû> | <ÎÄ¼şÃû>]
+æŒ‡ä»¤æ ¼å¼: clearcoor [-d | -s] [<è·¯å¾„å> | <æ–‡ä»¶å>]
 
-Çå³ıÖ¸¶¨Ä¿Â¼ÏÂËùÓĞµÄÎÄ¼şµÄ¶àÓà×ø±ê£¬Èç¹û²»Ö¸¶¨
-Ä¿Â¼, ÔòÊ¹ÓÃµ±Ç°Ä¿Â¼¡£Èç¹û´ø²ÎÊı-d£¬ÔòÁ¬´ø´¦Àí
-×ÓÄ¿Â¼¡£Èç¹ûÖ¸¶¨²ÎÊı-s£¬ÔòÖ»´¦Àí¸ÃÎÄ¼ş¡£
+æ¸…é™¤æŒ‡å®šç›®å½•ä¸‹æ‰€æœ‰çš„æ–‡ä»¶çš„å¤šä½™åæ ‡ï¼Œå¦‚æœä¸æŒ‡å®š
+ç›®å½•, åˆ™ä½¿ç”¨å½“å‰ç›®å½•ã€‚å¦‚æœå¸¦å‚æ•°-dï¼Œåˆ™è¿å¸¦å¤„ç†
+å­ç›®å½•ã€‚å¦‚æœæŒ‡å®šå‚æ•°-sï¼Œåˆ™åªå¤„ç†è¯¥æ–‡ä»¶ã€‚
 
 HELP
 );

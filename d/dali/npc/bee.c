@@ -1,15 +1,15 @@
-// bee.c 毒蜂
+// bee.c 姣掕渹
 // Date: Sep.22 1997
 
 inherit NPC;
 
 void create()
 {
-	set_name("毒蜂", ({ "dufeng", "bee" }) );
-	set("race", "昆虫");
-	set("subrace", "飞虫");
+	set_name("姣掕渹", ({ "dufeng", "bee" }) );
+	set("race", "鏄嗚櫕");
+	set("subrace", "椋炶櫕");
 	set("age", 20);
-	set("long", "一只色彩斑斓大个野蜂，成群结队的。\n");
+	set("long", "涓�鍙壊褰╂枒鏂撳ぇ涓噹铚傦紝鎴愮兢缁撻槦鐨勩�俓n");
 	set("attitude", "aggressive");
 	set("shen_type", -1);
 

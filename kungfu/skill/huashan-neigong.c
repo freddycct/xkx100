@@ -1,4 +1,4 @@
-// huashan-neigong.c »ªÉ½ÄÚ¹¦
+// huashan-neigong.c åå±±å†…åŠŸ
 // Last Modified by winder on Mar. 10 2000
 
 #include <ansi.h>
@@ -18,13 +18,13 @@ int valid_learn(object me)
 // need more limit here
 {
 	if ((int)me->query_skill("zixia-shengong", 1) < 10)
-		return notify_fail("ÄãµÄ×ÏÏ¼Éñ¹¦»ğºò»¹²»¹»¡£\n");
+		return notify_fail("ä½ çš„ç´«éœç¥åŠŸç«å€™è¿˜ä¸å¤Ÿã€‚\n");
 	return valid_public(me,"zixia-shengong");
 }
 
 int practice_skill(object me)
 {
-	return notify_fail("»ªÉ½Æø¹¦Ö»ÄÜÓÃÑ§(learn)µÄÀ´Ôö¼ÓÊìÁ·¶È¡£\n");
+	return notify_fail("åå±±æ°”åŠŸåªèƒ½ç”¨å­¦(learn)çš„æ¥å¢åŠ ç†Ÿç»ƒåº¦ã€‚\n");
 }
 
 string exert_function_file(string func)
@@ -34,13 +34,13 @@ string exert_function_file(string func)
 
 int help(object me)
 {
-	write(HIC"\n»ªÉ½ÄÚ¹¦£º"NOR"\n");
+	write(HIC"\nåå±±å†…åŠŸï¼š"NOR"\n");
 	write(@HELP
 
-    »ªÉ½ÄÚ¹¦Îª»ªÉ½½£×Ú±¾ÃÅÄÚ¹¦ĞÄ·¨¡£
+    åå±±å†…åŠŸä¸ºåå±±å‰‘å®—æœ¬é—¨å†…åŠŸå¿ƒæ³•ã€‚
 
-	Ñ§Ï°ÒªÇó£º
-		×ÏÏ¼Éñ¹¦10¼¶
+	å­¦ä¹ è¦æ±‚ï¼š
+		ç´«éœç¥åŠŸ10çº§
 HELP
 	);
 	return 1;

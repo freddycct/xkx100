@@ -5,10 +5,10 @@ inherit NPC;
 #include <ansi.h>
 void create()
 {
-	set_name(HIG"ÖñÒ¶Çà"NOR, ({ "zhuye qing", "zhuye", "snake", "she" }) );
-	set("race", "ÅÀÉß");
+	set_name(HIG"ç«¹å¶é’"NOR, ({ "zhuye qing", "zhuye", "snake", "she" }) );
+	set("race", "çˆ¬è›‡");
 	set("age", 4);
-	set("long", "Ò»Ìõ±ÌÂÌµÄÉß£¬²»×ĞÏ¸£¬»á½«ËüºÍÖÜ±ß±ÌÂÌµÄÊ÷Ò¶»ìÎªÒ»Ìå¡£\n");
+	set("long", "ä¸€æ¡ç¢§ç»¿çš„è›‡ï¼Œä¸ä»”ç»†ï¼Œä¼šå°†å®ƒå’Œå‘¨è¾¹ç¢§ç»¿çš„æ ‘å¶æ··ä¸ºä¸€ä½“ã€‚\n");
 	set("attitude", "peaceful");
 	set("str", 26);
 	set("con", 30);

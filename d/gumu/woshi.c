@@ -7,15 +7,15 @@ inherit ROOM;
 
 void create()
 {
-	set("short",HIC"ÎÔÊÒ"NOR);
+	set("short",HIC"å§å®¤"NOR);
 	set("long", @LONG
-ÕâÀïÊÇĞ¡ÁúÅ®¾Ó×¡µÄÎÔÊÒ£¬·¿ÖĞ¿Õ¿Õ¶´¶´¡£ÓÒÊ×ÊÇÒ»¿é³¤ÌõÇàÊ¯×÷
-´² (bed)£¬´²ÉÏÆÌÁËÕÅ²İÏ¯£¬Ò»·ù°×²¼µ±×÷±¡±»£¬´ËÍâ³ıÁËÒ»¸ùÈË¸ßµÄ
-ÉşË÷ºá¹ıÊÒÖĞ£¬ÊÒ×óÁ¢×ÅÒ»¸ö´Ö²ÚÄ¾³÷(chu)¡£
+è¿™é‡Œæ˜¯å°é¾™å¥³å±…ä½çš„å§å®¤ï¼Œæˆ¿ä¸­ç©ºç©ºæ´æ´ã€‚å³é¦–æ˜¯ä¸€å—é•¿æ¡é’çŸ³ä½œ
+åºŠ (bed)ï¼ŒåºŠä¸Šé“ºäº†å¼ è‰å¸­ï¼Œä¸€å¹…ç™½å¸ƒå½“ä½œè–„è¢«ï¼Œæ­¤å¤–é™¤äº†ä¸€æ ¹äººé«˜çš„
+ç»³ç´¢æ¨ªè¿‡å®¤ä¸­ï¼Œå®¤å·¦ç«‹ç€ä¸€ä¸ªç²—ç³™æœ¨æ©±(chu)ã€‚
 LONG	);
 	set("item_desc", ([
-		"bed" : HIC"Ò»ÕÅÓÉÆÕÍ¨ÇàÊ¯ÆÌ³ÉµÄ´²£¬´²½ÇÂä´¦£¬ÓĞÒ»¿éÍ»ÆğµÄÊ¯°å£¬ËÆ¿É°â¶¯¡£\n"NOR, 
-		"chu" : HIY"Ò»×ùÆÕÍ¨Ö®¼«µÄ³÷×Ó¡£\n"NOR, 
+		"bed" : HIC"ä¸€å¼ ç”±æ™®é€šé’çŸ³é“ºæˆçš„åºŠï¼ŒåºŠè§’è½å¤„ï¼Œæœ‰ä¸€å—çªèµ·çš„çŸ³æ¿ï¼Œä¼¼å¯æ‰³åŠ¨ã€‚\n"NOR, 
+		"chu" : HIY"ä¸€åº§æ™®é€šä¹‹æçš„æ©±å­ã€‚\n"NOR, 
 	]));
 	set("exits", ([
 		"east" : __DIR__"mudao15",
@@ -42,36 +42,36 @@ int do_tang(string arg)
 	object me=this_player();
 
 	if (me->is_busy() || me->is_fighting())
-		return notify_fail("ÄãÕıÃ¦×ÅÄÄ£¡\n");
+		return notify_fail("ä½ æ­£å¿™ç€å“ªï¼\n");
 	if ( arg == "bed")
 	{
-		message_vision(HIC"$N¸©¸½ÉíÌÉÔÚÇàÊ¯ÖÆ³ÉµÄÊ¯´²ÉÏÃæ¡£\n"NOR,me);
-		me->set_temp("marks/´²", 1);
+		message_vision(HIC"$Nä¿¯é™„èº«èººåœ¨é’çŸ³åˆ¶æˆçš„çŸ³åºŠä¸Šé¢ã€‚\n"NOR,me);
+		me->set_temp("marks/åºŠ", 1);
 		return 1;
 	}
-	return notify_fail("ÄãÒªÌÉÔÚµØÉÏ£¬Ğ¡ĞÄ×ÅÁ¹Å¶£¡\n");
+	return notify_fail("ä½ è¦èººåœ¨åœ°ä¸Šï¼Œå°å¿ƒç€å‡‰å“¦ï¼\n");
 }  
 
 int do_ban(string arg)
 {  
 	object me=this_player();
 
-	if (!me->query_temp("marks/´²"))
-		return notify_fail("ÄãÃ»ÌÉ´²ÉÏ£¬¿ÖÅÂÓÃ²»ÉÏÁ¦°É£¡\n");	
+	if (!me->query_temp("marks/åºŠ"))
+		return notify_fail("ä½ æ²¡èººåºŠä¸Šï¼Œææ€•ç”¨ä¸ä¸ŠåŠ›å§ï¼\n");	
 	if (me->is_busy() || me->is_fighting())
-		return notify_fail("ÄãÕıÃ¦×ÅÄØ£¡\n");
+		return notify_fail("ä½ æ­£å¿™ç€å‘¢ï¼\n");
 	if ( arg == "shiban" || arg == "stone")
 	{
 		if (me->query("neili") < 500)
-			return notify_fail("ÄãÊ¹³ö³ÔÄÌµÄ¾¢Á¦£¬µ«Ê¯°åÈ´ÎÆË¿²»¶¯¡£\n");
-		message_vision(HIY "$NÓÃÁ¦°â¶¯Í»ÆğµÄÊ¯°å£¬Ö»ÌıµÃÔşÔş¼¸Ïì£¬Ê¯´²ÒÑÂäÈëÏÂ²ãÊ¯ÊÒ¡£\n"NOR,me);
+			return notify_fail("ä½ ä½¿å‡ºåƒå¥¶çš„åŠ²åŠ›ï¼Œä½†çŸ³æ¿å´çº¹ä¸ä¸åŠ¨ã€‚\n");
+		message_vision(HIY "$Nç”¨åŠ›æ‰³åŠ¨çªèµ·çš„çŸ³æ¿ï¼Œåªå¬å¾—è½§è½§å‡ å“ï¼ŒçŸ³åºŠå·²è½å…¥ä¸‹å±‚çŸ³å®¤ã€‚\n"NOR,me);
 		me->add("neili",-200);
-		me->delete_temp("marks/´²");
+		me->delete_temp("marks/åºŠ");
 		me->move(__DIR__"shishi0");
-		write(HIY"ÊÒ¶¥Ê¯±ÚÓÖÂıÂı×ÔĞĞÍÆÉÏÁË¡£\n"NOR);
+		write(HIY"å®¤é¡¶çŸ³å£åˆæ…¢æ…¢è‡ªè¡Œæ¨ä¸Šäº†ã€‚\n"NOR);
 		return 1;
 	}
-	return notify_fail("ÄãÒª°âÊ²Ã´£¿\n");
+	return notify_fail("ä½ è¦æ‰³ä»€ä¹ˆï¼Ÿ\n");
 }
 
 int do_open(string arg)
@@ -79,27 +79,27 @@ int do_open(string arg)
 	object ob, me=this_player();
 
 	if (me->is_busy() || me->is_fighting())
-		return notify_fail("ÄãÕıÃ¦×ÅÄÄ£¡\n");
+		return notify_fail("ä½ æ­£å¿™ç€å“ªï¼\n");
 	if ( arg=="chu")
 	{
 		if ( query("chu") == 1 )
 		{
 			if(!objectp(present("gold key", me)))	
-				return notify_fail("ÄãÃ»ÓĞÔ¿³×£¬ÔõÃ´¿ª°¡£¿\n");
-			message_vision("$NÂıÂıÓÃ½ğÔ¿³×´ò¿ªÁË³÷ÃÅ¡£\n",me);
+				return notify_fail("ä½ æ²¡æœ‰é’¥åŒ™ï¼Œæ€ä¹ˆå¼€å•Šï¼Ÿ\n");
+			message_vision("$Næ…¢æ…¢ç”¨é‡‘é’¥åŒ™æ‰“å¼€äº†æ©±é—¨ã€‚\n",me);
 			ob=new(__DIR__"obj/box");
 			ob->move(environment(me));
-			write("Äã·¢ÏÖ³÷ÄÚ·Å×Å¸ö³¤·½ĞÎµÄÌúºĞ×Ó¡£\n");
+			write("ä½ å‘ç°æ©±å†…æ”¾ç€ä¸ªé•¿æ–¹å½¢çš„é“ç›’å­ã€‚\n");
 			set("chu", 0);
 			return 1;
 		}
 		else
 		{
-			write("ÄãÀ´ÍíÁË£¬³÷ÃÅÏÖÔÚ¿ª×ÅÄØ¡£\n");
+			write("ä½ æ¥æ™šäº†ï¼Œæ©±é—¨ç°åœ¨å¼€ç€å‘¢ã€‚\n");
 			return 1;
 		}
 	}
-	return notify_fail("ÄãÒª¿ªÊ²Ã´£¿\n");
+	return notify_fail("ä½ è¦å¼€ä»€ä¹ˆï¼Ÿ\n");
 }
 
 int do_xian(string arg)
@@ -107,22 +107,22 @@ int do_xian(string arg)
 	object suo, me=this_player();
 
 	if (me->is_busy() || me->is_fighting())
-		return notify_fail("ÄãÕıÃ¦×ÅÄÄ£¡\n");
+		return notify_fail("ä½ æ­£å¿™ç€å“ªï¼\n");
 	if ( arg =="box" || arg=="da tiehe" || arg =="tiehe")
 	{
 		if(!(present("da tiehe", environment(me)))) 
-			return notify_fail("ÕâÀïÓĞÌúºĞÃ´£¿\n");
+			return notify_fail("è¿™é‡Œæœ‰é“ç›’ä¹ˆï¼Ÿ\n");
 		if(!objectp( present("silver key", me)))	
-			return notify_fail("ÄãÃ»ÓĞÔ¿³×£¬ÓÃÊ²Ã´¿ª°¡£¿\n");
-		me->delete_temp("marks/ÌúºĞ");
-		message_vision("$NÓÃÒøÔ¿³×¿ªÁËËø£¬ÇáÇáÏÆ¿ªÁËÌúºĞ¡£\n",me);
+			return notify_fail("ä½ æ²¡æœ‰é’¥åŒ™ï¼Œç”¨ä»€ä¹ˆå¼€å•Šï¼Ÿ\n");
+		me->delete_temp("marks/é“ç›’");
+		message_vision("$Nç”¨é“¶é’¥åŒ™å¼€äº†é”ï¼Œè½»è½»æ€å¼€äº†é“ç›’ã€‚\n",me);
 		suo=new(__DIR__"obj/yinsuo");
 		if(!clonep(suo))
-			return notify_fail("ÄãÀ´ÍíÁË£¬ºĞ×ÓÀïÃæ¿ÕÎŞÒ»Îï¡£\n");
-		write("ÏÆ¿ªÌúºĞ£¬Äã·¢ÏÖÀïÃæ·Å×ÅÒ»ÍÅ±ùç¯°ãµÄÎïÊÂ¡£\n");
+			return notify_fail("ä½ æ¥æ™šäº†ï¼Œç›’å­é‡Œé¢ç©ºæ— ä¸€ç‰©ã€‚\n");
+		write("æ€å¼€é“ç›’ï¼Œä½ å‘ç°é‡Œé¢æ”¾ç€ä¸€å›¢å†°ç»¡èˆ¬çš„ç‰©äº‹ã€‚\n");
 		suo->move(me);		
 		return 1;
 	}
-	return notify_fail("ÄãÒªÏÆ¿ªÊ²Ã´£¿\n");
+	return notify_fail("ä½ è¦æ€å¼€ä»€ä¹ˆï¼Ÿ\n");
 }
 

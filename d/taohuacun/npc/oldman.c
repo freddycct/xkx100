@@ -7,11 +7,11 @@ int sunjian = 1;
 
 void  create()
 {
-	set_name("ÀÏÅ©", ({ "old man" }));
-	set("gender", "ÄÐÐÔ");
+	set_name("è€å†œ", ({ "old man" }));
+	set("gender", "ç”·æ€§");
 	set("age", 50);
 	set("per", 15);
-	set("long", "Ò»Î»É½ÀïÀ´µÄÀÏ´óÒ¯¡£\n");
+	set("long", "ä¸€ä½å±±é‡Œæ¥çš„è€å¤§çˆ·ã€‚\n");
 	set("combat_exp", 100);
         set("attitude", "friendly");
         set("exchangeable_goods", ({
@@ -19,7 +19,7 @@ void  create()
         	__DIR__"obj/lizi",
         }));	
         set("inquiry", ([
-        	"Ëñ¼â"	:  (: ask_for_s :),
+        	"ç¬‹å°–"	:  (: ask_for_s :),
         ]));
         set("want_goods", ({
         	__DIR__"obj/cuke",
@@ -40,11 +40,11 @@ int  ask_for_s()
 	object me = this_player(), ob;
 	
 	if ( sunjian == 0 || random(me->query("kar")) < 10 ) 
-                  command( "say ÄúÀ´µÃÌ«³Ù£¬Ëñ¼âÎÒÒÑ¾­ËÍÈËÁË¡£" );
+                  command( "say æ‚¨æ¥å¾—å¤ªè¿Ÿï¼Œç¬‹å°–æˆ‘å·²ç»é€äººäº†ã€‚" );
  	else
  	   {
-	          command( "say ÎÒÕªÏã¹½µÄÊ±ºòË³±ãÕªÁËÐ©Ëñ¼â£¬ÕâÎ»" + RANK_D->query_respect(me) + "ÒªµÄ»°¾ÍËÍ¸øÄãºÃÁË¡£" );
-		  message_vision( "ÀÏÅ©ËÍ¸ø$NÒ»´üËñ¼â¡£\n", me );
+	          command( "say æˆ‘æ‘˜é¦™è‡çš„æ—¶å€™é¡ºä¾¿æ‘˜äº†äº›ç¬‹å°–ï¼Œè¿™ä½" + RANK_D->query_respect(me) + "è¦çš„è¯å°±é€ç»™ä½ å¥½äº†ã€‚" );
+		  message_vision( "è€å†œé€ç»™$Nä¸€è¢‹ç¬‹å°–ã€‚\n", me );
 		  ob = new( __DIR__"obj/sunjian" );
 		  ob->move( me );
 		  sunjian = 0;

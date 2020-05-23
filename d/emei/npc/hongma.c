@@ -1,4 +1,4 @@
-// hongma.c ºìÂí
+// hongma.c çº¢é©¬
 
 #include <command.h>
 #include <dbase.h>
@@ -8,9 +8,9 @@ inherit NPC;
 
 void create()
 {
-	set_name("ºìÂí", ({ "hong ma" }));
-	set("long","Ò»Æ¥¿¥Âí£¬È«Éí»ðºì£¬ÎÞÒ»¸ùÔÓÃ«¡£\n");
-	set("race", "×ßÐó");
+	set_name("çº¢é©¬", ({ "hong ma" }));
+	set("long","ä¸€åŒ¹éªé©¬ï¼Œå…¨èº«ç«çº¢ï¼Œæ— ä¸€æ ¹æ‚æ¯›ã€‚\n");
+	set("race", "èµ°ç•œ");
 	set("age", 5);
 	set("attitude","heroism");
 	set("str", 30);

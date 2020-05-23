@@ -3,12 +3,12 @@
 inherit ROOM;
 void create()
 {
-	set("short", "ÈÕÔÂ¶´¿Ú");
+	set("short", "æ—¥æœˆæ´žå£");
 	set("long", @LONG
-ÕâÀïÊÇÐÇËÞº£µÄ¾¡Í·¡£ËµÊÇº££¬ÆäÊµÊÇÆ¬ºþ²´ºÍÕÓÔó£¬µØÐÎÊ®·ÖÏÕ
-¶ñ¡£·½Ô²¼¸°ÙÀï¶¼ÊÇÒ»ÍûÎÞ¼ÊµÄºþ²´ºÍÕÓÔó£¬µ±µØÄÁÑòÈË¾Í³ÆÖ®Îª¡°º£
-¡±¡£ÕâÀï×óÓÒÁ½ÏáÍ¨ÏòÐÇËÞº£µÄÉî´¦£¬±±±ßÊÇÒ»×ùÐ¡Ê¯É½£¬ÐÇËÞÅÉ×Ü¶æ
-ÈÕÔÂ¶´±ãÉèÔÚÕâÀï£¬¶´¿ÚÁ¢×ÅÒ»¸öÍ­ÖÆÅÆ×Ó(paizi)¡£
+è¿™é‡Œæ˜¯æ˜Ÿå®¿æµ·çš„å°½å¤´ã€‚è¯´æ˜¯æµ·ï¼Œå…¶å®žæ˜¯ç‰‡æ¹–æ³Šå’Œæ²¼æ³½ï¼Œåœ°å½¢ååˆ†é™©
+æ¶ã€‚æ–¹åœ†å‡ ç™¾é‡Œéƒ½æ˜¯ä¸€æœ›æ— é™…çš„æ¹–æ³Šå’Œæ²¼æ³½ï¼Œå½“åœ°ç‰§ç¾Šäººå°±ç§°ä¹‹ä¸ºâ€œæµ·
+â€ã€‚è¿™é‡Œå·¦å³ä¸¤åŽ¢é€šå‘æ˜Ÿå®¿æµ·çš„æ·±å¤„ï¼ŒåŒ—è¾¹æ˜¯ä¸€åº§å°çŸ³å±±ï¼Œæ˜Ÿå®¿æ´¾æ€»èˆµ
+æ—¥æœˆæ´žä¾¿è®¾åœ¨è¿™é‡Œï¼Œæ´žå£ç«‹ç€ä¸€ä¸ªé“œåˆ¶ç‰Œå­(paizi)ã€‚
 LONG);
 	set("exits", ([
 		"north"     : __DIR__"riyuedong",
@@ -20,8 +20,8 @@ LONG);
 	]));
 	set("item_desc", ([
 		"paizi" : "
-	     ÐÇËÞº£¸£µØ
-	     ÈÕÔÂ¶´¶´Ìì¡£\n",
+	     æ˜Ÿå®¿æµ·ç¦åœ°
+	     æ—¥æœˆæ´žæ´žå¤©ã€‚\n",
 	]));
 	set("objects", ([
 		CLASS_D("xingxiu")+"/anran" : 1,

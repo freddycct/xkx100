@@ -6,11 +6,11 @@ int ask_me();
 
 void create()
 {
-	set_name("·É·ï»¨ÎÆ", ({ "picture"}) );
-	set("gender", "ÄÐÐÔ" );
+	set_name("é£žå‡¤èŠ±çº¹", ({ "picture"}) );
+	set("gender", "ç”·æ€§" );
 	set("age", 34);
 	set("long",
-		"Ëû¾ÍÊÇ´óÃû¶¦¶¦µÄËÄ´ó¶ñÈËÖ®Ò»µÄÔÆÖÐº×¡£\n");
+		"ä»–å°±æ˜¯å¤§åé¼Žé¼Žçš„å››å¤§æ¶äººä¹‹ä¸€çš„äº‘ä¸­é¹¤ã€‚\n");
 	set("max_qi", 5000);
 	set("max_jing", 5000);
 	set("max_neili", 5000);
@@ -91,9 +91,9 @@ ited"))
 		set_skill("sanshou", maxskill);
 		set_skill("qingfu-shenfa", maxskill*3/2);
 		set_skill("yunlong-shengong", maxskill);
-		obj->set("title","ÇîÐ×¼«¶ñ");
+		obj->set("title","ç©·å‡¶æžæ¶");
 		obj->set_weight(500000);
-		set_name("ÔÆÖÐº×", ({ "yun zhonghe","yz"}) );
+		set_name("äº‘ä¸­é¹¤", ({ "yun zhonghe","yz"}) );
 		if (ob->query("id") == obj->query_temp("bt_ownname"))
 			obj->kill_ob(ob);
 		remove_call_out ("destroy_npc");
@@ -102,7 +102,7 @@ ited"))
 }
 void destroy_npc()
 {
-	message_vision("" + (string)this_object()->query("name") + "ºöÈ»´òÁË¸ö¶ßàÂ£¬²»ÓÉÐÄÉú¾åÒâ£¬ÉíÐÎÒ»»Î£¬¶ÙÊ±»ìÈëÃ§Ã§ÈËº£Ö®ÖÐ¡£\n", environment(this_object()));
+	message_vision("" + (string)this_object()->query("name") + "å¿½ç„¶æ‰“äº†ä¸ªå“†å—¦ï¼Œä¸ç”±å¿ƒç”Ÿæƒ§æ„ï¼Œèº«å½¢ä¸€æ™ƒï¼Œé¡¿æ—¶æ··å…¥èŽ½èŽ½äººæµ·ä¹‹ä¸­ã€‚\n", environment(this_object()));
 	destruct(this_object());
 }
 //int active_died()
@@ -110,7 +110,7 @@ void die()
 {
 	object ob,me;
 	string own;
-	message_vision("$Nµ¹ÔÚµØÉÏ£¬ËÀÁË£¡\n", this_object());
+	message_vision("$Nå€’åœ¨åœ°ä¸Šï¼Œæ­»äº†ï¼\n", this_object());
 	ob = this_object();
 	own = ob->query_temp("bt_ownname");
 	if(own) me = find_player(own);

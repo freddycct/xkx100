@@ -5,10 +5,10 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "��԰");
+	set("short", "花园");
 	set("long", @LONG
-����һ��԰�ӣ�ͥԺ���ģ��軨���ţ�ɽʯ��׾�����ɴ��񣬾�
-��ɷ�����ˡ�����ͨ��һ��С�ݣ�������һ����������ͨ��������
+这是一个园子，庭院清幽，茶花争放，山石古拙，苍松翠竹，景
+致煞是宜人。东面通往一间小屋，西边是一条长长的甬道通向正厅。
 LONG );
         set("outdoors", "wuliang");
 	set("no_clean_up", 0);

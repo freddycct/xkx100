@@ -5,11 +5,11 @@ inherit ROOM;
 
 void  create()
 {
-	set( "short", "�м�" );
+	set( "short", "市集" );
 	set( "long", @LONG
-�������м��У�������ͷ�ܶ���ߺ�Ƚ���֮�������ڶ�����ֻ�뿴
-��(list)��ʲô����ģ���������(buy) ���ֻ�ȥ��������һĶ����
-��Ҳ�Ͳ����ˡ�
+你身处市集中，身边人头攒动，吆喝叫卖之声不绝于耳。你只想看
+看(list)有什么可买的，如果能买点(buy) 菜种回去，料理那一亩三分
+地也就不愁了。
 LONG
 	);
 	set( "exits", ([

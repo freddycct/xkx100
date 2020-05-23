@@ -22,11 +22,11 @@ int is_home() {return 1;}
 
 void create()
 {
-	 set_name("ĞÂ·¿",({"room"}));
-	 set("short", "±ê×¼ĞÂ·¿");
+	 set_name("æ–°æˆ¿",({"room"}));
+	 set("short", "æ ‡å‡†æ–°æˆ¿");
 	 set("long", @LONG
 
-Ò»ÇĞ¶¼ÉèÖÃºÃÁË£¬Ö»µÈÒ»Ğ©ÊÒÄÚ×°ĞŞ¡£
+ä¸€åˆ‡éƒ½è®¾ç½®å¥½äº†ï¼Œåªç­‰ä¸€äº›å®¤å†…è£…ä¿®ã€‚
 LONG
 	 );
 	 set("home_host",({"def_host"}));
@@ -93,22 +93,22 @@ void init()
 				 }
 				 if(!k)
 				 {
-					 write("Ö÷ÈË²»ÔÚ¼Ò£¬Äú»¹ÊÇ´ô»á¶ùÔÙÀ´°É¡£\n");
+					 write("ä¸»äººä¸åœ¨å®¶ï¼Œæ‚¨è¿˜æ˜¯å‘†ä¼šå„¿å†æ¥å§ã€‚\n");
 					 me->move(out,1);
-					 tell_room(out,me->query("name")+"Ê§ÍûµØ×ßÁË³öÀ´¡£\n",({me}));
+					 tell_room(out,me->query("name")+"å¤±æœ›åœ°èµ°äº†å‡ºæ¥ã€‚\n",({me}));
 					 return;
 				 }
 			 }
 			 else
 			 {
-				 tell_object(me, "°¡¹ş£¡ ´³½øÀ´ÁË£¡\n");
-				 tell_object(me, "Ä³Ä³·ÉÆğÒ»½Å£¬ÕıºÃÌßÖĞÄãµÄÆ¨¹É ¡£\n");
-				 tell_object(me, "Ä³Ä³·ÉÆğÒ»½Å£¬ÕıºÃÌßÖĞÄãµÄÆ¨¹É ¡£\n");
+				 tell_object(me, "å•Šå“ˆï¼ é—¯è¿›æ¥äº†ï¼\n");
+				 tell_object(me, "æŸæŸé£èµ·ä¸€è„šï¼Œæ­£å¥½è¸¢ä¸­ä½ çš„å±è‚¡ ã€‚\n");
+				 tell_object(me, "æŸæŸé£èµ·ä¸€è„šï¼Œæ­£å¥½è¸¢ä¸­ä½ çš„å±è‚¡ ã€‚\n");
 				 me->move(out,1);
-				 tell_room(out,me->query("name")+"ËÆºõ±»ÈËÒ»½ÅÌßÁË³öÀ´£¬ÉñÉ«ÓĞµãÀÇ±·¡£\n", ({me}));
+				 tell_room(out,me->query("name")+"ä¼¼ä¹è¢«äººä¸€è„šè¸¢äº†å‡ºæ¥ï¼Œç¥è‰²æœ‰ç‚¹ç‹¼ç‹ˆã€‚\n", ({me}));
 				 return;
 			 }
-			 tell_room(env,me->query("name")+"À­¿ªÃÅ£¬×ßÁË½øÀ´¡£\n",({me}));
+			 tell_room(env,me->query("name")+"æ‹‰å¼€é—¨ï¼Œèµ°äº†è¿›æ¥ã€‚\n",({me}));
 		 }
 		 add_action("do_bed", "gosleep");
 		 add_action("do_bed", "gobed" );
@@ -140,18 +140,18 @@ int do_invite(string arg)
 	if (sscanf(arg,"-d %s",arg)==1)
 	{
 		if (!sizeof(r_invited) || member_array(arg,r_invited)== -1)
-			return notify_fail(arg+"²¢Ã»ÓĞÔÚÑûÇëÃûµ¥ÉÏ¡£\n");
-		write("´ÓÑûÇëÃûµ¥ÉÏÉ¾³ı"+arg+"...");
+			return notify_fail(arg+"å¹¶æ²¡æœ‰åœ¨é‚€è¯·åå•ä¸Šã€‚\n");
+		write("ä»é‚€è¯·åå•ä¸Šåˆ é™¤"+arg+"...");
 		r_invited -= ({arg});
-		write("³É¹¦¡£\n");
+		write("æˆåŠŸã€‚\n");
 		return list_invite();
 	}
 	if (  sizeof(r_invited)>0 && member_array(arg,r_invited) > -1  )
-		return notify_fail(arg+"ÒÑ¾­ÔÚÑûÇëÃûµ¥ÉÏÁË¡£\n");
-    write("Ìí¼Ó"+arg+"µ½ÑûÇëÃûµ¥¡£\n");
+		return notify_fail(arg+"å·²ç»åœ¨é‚€è¯·åå•ä¸Šäº†ã€‚\n");
+    write("æ·»åŠ "+arg+"åˆ°é‚€è¯·åå•ã€‚\n");
 	if (who=find_player(arg))
-    tell_object(who,me->query("name")+"("+me->query("id")+")¸æËßÄã£ºµ½ÎÒµÄ"+home->query("short")+"¿´¿´°É¡£\n");
-//¼ÇÂ¼ÔÚ±¾·¿¼ä
+    tell_object(who,me->query("name")+"("+me->query("id")+")å‘Šè¯‰ä½ ï¼šåˆ°æˆ‘çš„"+home->query("short")+"çœ‹çœ‹å§ã€‚\n");
+//è®°å½•åœ¨æœ¬æˆ¿é—´
 	if (!sizeof(r_invited))
 		r_invited = ({arg});
 	else if ( member_array(arg,r_invited) == -1 )
@@ -165,9 +165,9 @@ int list_invite()
 	int size;
 	int i;
 	if (!sizeof(r_invited))
-	 return notify_fail("Ã»ÓĞÈÎºÎÈËÔÚ¼ÒÀïµÄÑûÇëÃûµ¥ÉÏ¡£\n");
+	 return notify_fail("æ²¡æœ‰ä»»ä½•äººåœ¨å®¶é‡Œçš„é‚€è¯·åå•ä¸Šã€‚\n");
   size=sizeof(r_invited);
-  write("¼ÒÀïÄ¿Ç°ÑûÇëµÄÈËÔ±Îª£º("+implode(r_invited[0..size-1],"¡¢")+")\n");
+  write("å®¶é‡Œç›®å‰é‚€è¯·çš„äººå‘˜ä¸ºï¼š("+implode(r_invited[0..size-1],"ã€")+")\n");
   return 1;
 }
 	
@@ -178,7 +178,7 @@ int do_findbaby()
 	string myid,*babyid;
 
 	number=me->query("child");
-	if(number==0) return notify_fail("Äú»¹Ã»ÓĞÉúÏÂº¢×ÓÄØ¡£:)\n");
+	if(number==0) return notify_fail("æ‚¨è¿˜æ²¡æœ‰ç”Ÿä¸‹å­©å­å‘¢ã€‚:)\n");
 
 	myid=me->query("id");
 
@@ -198,7 +198,7 @@ int do_findbaby()
 					if(where)
 					{
 						found=1;
-						write(list[j]->query("name")+"ÏÖÔÚÔÚ");
+						write(list[j]->query("name")+"ç°åœ¨åœ¨");
 						if(where->query("short"))
 						{
 							write(where->query("short"));
@@ -207,7 +207,7 @@ int do_findbaby()
 						{
 							write(where->short());
 						}
-						write("¡£\n");
+						write("ã€‚\n");
 						break;
 // If one have more than one boys or girls, break here after first match.
 					}
@@ -238,7 +238,7 @@ int do_findbaby()
 					baby->set_name(me->query("child_"+i+"/name"),babyid);
 					baby->update_me();
 					baby->move(environment(me));
-					message_vision("ÄãºöÈ»¿´µ½´²µ×ÏÂ"+ ({"Ì½³öÒ»¿ÅĞ¡ÄÔ¹Ï","Éì³öÒ»Ë«Ğ¡½ÅÑ¾","Éì³öÒ»Ö§Ğ¡ÊÖ"})[random(3)]+"£®£®£®\n",me);
+					message_vision("ä½ å¿½ç„¶çœ‹åˆ°åºŠåº•ä¸‹"+ ({"æ¢å‡ºä¸€é¢—å°è„‘ç“œ","ä¼¸å‡ºä¸€åŒå°è„šä¸«","ä¼¸å‡ºä¸€æ”¯å°æ‰‹"})[random(3)]+"ï¼ï¼ï¼\n",me);
 				}
 			}
 			else
@@ -297,16 +297,16 @@ int do_bed()
 {
 	object me=this_player(),bed;
 		 if (member_array(me->query("id"),this_object()->query("home_host")) == -1)
-		  return notify_fail("±ğÈË¼ÒÀïµÄ´²¿´¿´¾ÍºÃÁË£¬ÅÀÉÏÈ¥Ö÷ÈË»áÉúÆøµÄ¡£\n");
+		  return notify_fail("åˆ«äººå®¶é‡Œçš„åºŠçœ‹çœ‹å°±å¥½äº†ï¼Œçˆ¬ä¸Šå»ä¸»äººä¼šç”Ÿæ°”çš„ã€‚\n");
 	bed=find_bed(me);
-	message_vision(HIY "$NÏÆ¿ªÉ´ÕÊ£¬×¼±¸ÉÏ´²ÁË¡£\n\n" NOR, me);
+	message_vision(HIY "$Næ€å¼€çº±å¸ï¼Œå‡†å¤‡ä¸ŠåºŠäº†ã€‚\n\n" NOR, me);
 	if(!me->move(bed))
 	{
-		write(HIY "´²ÉÏÒÑ¾­¼·²»ÏÂÁË£¡\n" NOR);
+		write(HIY "åºŠä¸Šå·²ç»æŒ¤ä¸ä¸‹äº†ï¼\n" NOR);
 	}
 	else
 	{
-		message_vision(HIY "\nÉ³ÕÊÇáÇáÒ»¶¯£¬$N×êÁË½øÀ´¡£\n" NOR, me);
+		message_vision(HIY "\næ²™å¸è½»è½»ä¸€åŠ¨ï¼Œ$Né’»äº†è¿›æ¥ã€‚\n" NOR, me);
 	}
 	return 1;
 }
@@ -321,7 +321,7 @@ int save_room()
 	string file;
 
 	file=this_object()->query_save_file();
-	write("´æµµ £®£®£®£®£®\n");
+	write("å­˜æ¡£ ï¼ï¼ï¼ï¼ï¼\n");
 	if( save() )
 	{
 		write("Ok.\n");
@@ -329,7 +329,7 @@ int save_room()
 	}
 	else
 	{
-		write("ÄãÃ»ÓĞĞ´ÈëÕâ¸öµµ°¸µÄÈ¨Àû¡£\n");
+		write("ä½ æ²¡æœ‰å†™å…¥è¿™ä¸ªæ¡£æ¡ˆçš„æƒåˆ©ã€‚\n");
 		return 0;
 	}
 }
@@ -337,9 +337,9 @@ int save_room()
 int go_out()
 {
 	object me=this_player();
-	tell_room(this_object(),me->query("name")+"ÍÆ¿ªÃÅ£¬×ßÁË³öÈ¥¡£\n",({me}));
+	tell_room(this_object(),me->query("name")+"æ¨å¼€é—¨ï¼Œèµ°äº†å‡ºå»ã€‚\n",({me}));
 	me->move(out);
-	message_vision("$NÍÆ¿ªÃÅ£¬×ßÁË³öÀ´¡£\n",me);
+	message_vision("$Næ¨å¼€é—¨ï¼Œèµ°äº†å‡ºæ¥ã€‚\n",me);
 	return 1;
 }
 

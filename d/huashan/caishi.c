@@ -8,11 +8,11 @@ int do_cai(string arg);
 
 void create()
 {
-	set("short", "²ÉÊ¯³¡");
+	set("short", "é‡‡çŸ³åœº");
 	set("long", @LONG
-ÕâÀïÊÇÎ»ÓÚ»ªÉ½½ÅÏÂµÄ²ÉÊ¯³¡£¬Ò»ÈºÈºÈË²»Í£µØÀ´»Ø´©ËóÃ¦Âµ×Å£¬
-ÀÛµÃÂúÍ·´óº¹£¬Ô¶´¦ÓĞ¸ö´ó¹ñÌ¨£¬Ò»¸öÀÏ°åÄ£ÑùµÄÈË×øÔÚÌ¨Ç°£¬×ĞÏ¸µÄ
-´ò×ÅËãÅÌ¸øÈË½áÕÊ£¬Éí±ßÎ§ÁËÒ»Ğ©ÈË¡£
+è¿™é‡Œæ˜¯ä½äºåå±±è„šä¸‹çš„é‡‡çŸ³åœºï¼Œä¸€ç¾¤ç¾¤äººä¸åœåœ°æ¥å›ç©¿æ¢­å¿™ç¢Œç€ï¼Œ
+ç´¯å¾—æ»¡å¤´å¤§æ±—ï¼Œè¿œå¤„æœ‰ä¸ªå¤§æŸœå°ï¼Œä¸€ä¸ªè€æ¿æ¨¡æ ·çš„äººååœ¨å°å‰ï¼Œä»”ç»†çš„
+æ‰“ç€ç®—ç›˜ç»™äººç»“å¸ï¼Œèº«è¾¹å›´äº†ä¸€äº›äººã€‚
 LONG);
 	set("exits", ([
 		"north" : __DIR__"path1",
@@ -35,29 +35,29 @@ int do_cai(string arg)
 {
 	int i;
 	object weapon,me = this_player();
-	if (!arg || (arg != "stone" && arg != "Ê¯Í·"))
-		return notify_fail("ÄãÒª²ÉÊ²Ã´£¿\n");
+	if (!arg || (arg != "stone" && arg != "çŸ³å¤´"))
+		return notify_fail("ä½ è¦é‡‡ä»€ä¹ˆï¼Ÿ\n");
 	if (!objectp(weapon = me->query_temp("weapon")) ||
-		weapon->query("name") != "Ìú´¸")
-		return notify_fail(RED"ÄãÊÖ¶¼Ä¥ÆÆÁË£¬È´Ê²Ã´Ò²Ã»×ö³É¡£\n"NOR);
+		weapon->query("name") != "é“é”¤")
+		return notify_fail(RED"ä½ æ‰‹éƒ½ç£¨ç ´äº†ï¼Œå´ä»€ä¹ˆä¹Ÿæ²¡åšæˆã€‚\n"NOR);
 	if (me->query_temp("caishi/count")<1)
-		return notify_fail("ÕâÀï²»¹ØÄãµÄÊÂ£¬»¹ÊÇ×ßÔ¶µã°É£¡\n");
+		return notify_fail("è¿™é‡Œä¸å…³ä½ çš„äº‹ï¼Œè¿˜æ˜¯èµ°è¿œç‚¹å§ï¼\n");
 	if (me->query_temp("caishi/count")>4) 
 	{
 		me->set_temp("caishi/finish",1);
-		return notify_fail("ÄãÒÑ¾­²ÉµÃ²î²»¶àÁË£¬¸ÃÏòÀÏ°å½»¹¤ÁË£¡\n");
+		return notify_fail("ä½ å·²ç»é‡‡å¾—å·®ä¸å¤šäº†ï¼Œè¯¥å‘è€æ¿äº¤å·¥äº†ï¼\n");
 	}
 	if (me->query("qi")<30)
-		return notify_fail("Äã¿ìÖ§³Ö²»×¡ÁË£¬ÏÈĞª»á¶ù°É£¡\n");
-	if (me->is_busy()) return notify_fail ("£¨ÄãÉÏ¸ö¶¯×÷»¹Ã»Íê³É£¬²»ÄÜ½øĞĞÏÂÒ»¸ö¶¯×÷£¡£©\n");
+		return notify_fail("ä½ å¿«æ”¯æŒä¸ä½äº†ï¼Œå…ˆæ­‡ä¼šå„¿å§ï¼\n");
+	if (me->is_busy()) return notify_fail ("ï¼ˆä½ ä¸Šä¸ªåŠ¨ä½œè¿˜æ²¡å®Œæˆï¼Œä¸èƒ½è¿›è¡Œä¸‹ä¸€ä¸ªåŠ¨ä½œï¼ï¼‰\n");
 	me->add("qi",-15);
 	me->add_temp("caishi/count",1);
 	i=random(4);
-	message_vision(YEL"$N¾ÙÆğÌú´¸£¬¶Ô×¼Ê¯Í·ºİºİµØÔÒÁËÏÂÈ¥¡£\n"NOR,me);
+	message_vision(YEL"$Nä¸¾èµ·é“é”¤ï¼Œå¯¹å‡†çŸ³å¤´ç‹ ç‹ åœ°ç ¸äº†ä¸‹å»ã€‚\n"NOR,me);
 	if (i<1)
-		tell_object(me,"ÄãÓÃÁ¦¹ıÃÍ£¬ÕğµÃ»¢¿Ú·¢Âé£¬ÏÕĞ©Ë¤ÁËÒ»½»¡£\n");
-	else if (i==2) tell_object(me, "ÄãºİºİÒ»´¸£¬ÌÚÌÚÌÚµ¹ÍËÁË¼¸²½£¬²îµãÃ»Õ¾ÎÈ¡£\n");
-	else tell_object(me, "ÄãÓÃÁ¦Ò»´¸ÔÒÏÂ£¬¡°¿¦¡±µØÓ¦ÉùÂäÏÂÒ»¿éÊ¯Í·À´¡£\n");
+		tell_object(me,"ä½ ç”¨åŠ›è¿‡çŒ›ï¼Œéœ‡å¾—è™å£å‘éº»ï¼Œé™©äº›æ‘”äº†ä¸€äº¤ã€‚\n");
+	else if (i==2) tell_object(me, "ä½ ç‹ ç‹ ä¸€é”¤ï¼Œè…¾è…¾è…¾å€’é€€äº†å‡ æ­¥ï¼Œå·®ç‚¹æ²¡ç«™ç¨³ã€‚\n");
+	else tell_object(me, "ä½ ç”¨åŠ›ä¸€é”¤ç ¸ä¸‹ï¼Œâ€œå–€â€åœ°åº”å£°è½ä¸‹ä¸€å—çŸ³å¤´æ¥ã€‚\n");
 	me->start_busy(1);
 	return 1;
 }

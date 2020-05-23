@@ -5,11 +5,11 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "·¹Ìü");
+	set("short", "é¥­å…");
 	set("long", @LONG
-ÕâÀïÊÇÎä¹İÄÚÓÃ²ÍµÄµØ·½¡£ÎİÀï²¼ÖÃºÜ¼òµ¥, Ö»°Ú×Å¼¸ÕÅ×ÀÒÎ¼¸¸ö
-ÈËÔÚÒ»Éù²»ÏìµØ³Ô×Å¡£Ò»¸ö³ø×ÓÔÚ²»Í£µÄÃ¦Âµ×Å£¬Äã¿ÉÒÔÏòËûÒªÊ³ÎïºÍ
-Ë®¡£¿´×Å¿É¿ÚµÄ·¹²Ë£¬ÄãÈÌ²»×¡Ò²Ïë½Ğ(order)Ò»·İ¡£
+è¿™é‡Œæ˜¯æ­¦é¦†å†…ç”¨é¤çš„åœ°æ–¹ã€‚å±‹é‡Œå¸ƒç½®å¾ˆç®€å•, åªæ‘†ç€å‡ å¼ æ¡Œæ¤…å‡ ä¸ª
+äººåœ¨ä¸€å£°ä¸å“åœ°åƒç€ã€‚ä¸€ä¸ªå¨å­åœ¨ä¸åœçš„å¿™ç¢Œç€ï¼Œä½ å¯ä»¥å‘ä»–è¦é£Ÿç‰©å’Œ
+æ°´ã€‚çœ‹ç€å¯å£çš„é¥­èœï¼Œä½ å¿ä¸ä½ä¹Ÿæƒ³å«(order)ä¸€ä»½ã€‚
 LONG);
 	set("exits", ([
 		"south" : __DIR__"wg_shilu-4",
@@ -31,12 +31,12 @@ int do_order(string arg)
 	object food;
 	object water;
 
-	if (arg) return notify_fail("ÕâÑù¶«Î÷ÕâÀïÃ»ÓĞ°¡¡£\n");
+	if (arg) return notify_fail("è¿™æ ·ä¸œè¥¿è¿™é‡Œæ²¡æœ‰å•Šã€‚\n");
 	if ((present("bowl",this_player()) || present("rice",this_player())))
-		message_vision("³ø×Ó³å³öÀ´£¬µÉÁË$NÒ»ÑÛ£º¡°»¹Ã»³ÔÍêÓÖÏëÒª£¡¡±\n", me);
+		message_vision("å¨å­å†²å‡ºæ¥ï¼Œçªäº†$Nä¸€çœ¼ï¼šâ€œè¿˜æ²¡åƒå®Œåˆæƒ³è¦ï¼â€\n", me);
 	else
 	{
-		message_vision("³ø×ÓÁ¬Ã¦´Ó³ø·¿³öÀ´£¬°ÑÒ»ÍëÃ×·¹ºÍÒ»ÍëË®ÄÃÁË¸ø$N¡£\n",me);
+		message_vision("å¨å­è¿å¿™ä»å¨æˆ¿å‡ºæ¥ï¼ŒæŠŠä¸€ç¢—ç±³é¥­å’Œä¸€ç¢—æ°´æ‹¿äº†ç»™$Nã€‚\n",me);
 		food=new(__DIR__"obj/rice");
 		water=new(__DIR__"obj/bowl");
 		food->move(me);
@@ -51,6 +51,6 @@ int valid_leave(object me,string dir)
 
 	if(( dir=="south" ) && (present("bowl",this_player()) ||
 		present("rice",this_player())))
-		return notify_fail("³ø×ÓËµµÀ£ºÊ³ÎïºÍÒûË®²»ÄÜ´ø³öÉÅÌÃÈ¥¡£\n");
+		return notify_fail("å¨å­è¯´é“ï¼šé£Ÿç‰©å’Œé¥®æ°´ä¸èƒ½å¸¦å‡ºè†³å ‚å»ã€‚\n");
 	return ::valid_leave(me,dir);
 }

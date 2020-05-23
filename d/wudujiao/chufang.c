@@ -4,11 +4,11 @@ inherit ROOM;
 
 void create()
 {
-        set("short", "³ø·¿");
+        set("short", "å¨æˆ¿");
         set("long", @LONG
-ÕâÀïÊÇÎå¶¾½ÌµÄ³ø·¿£¬Æ½³£µÜ×ÓÃÇ¶öÁË¿ÉÒÔµ½ÕâÀïÒª(serve)Ğ©
-Ê³Îï¡£·¿ÖĞÔî»ğÕıÍú£¬Ò»¸ö´ó³øÊ¦ÕıÃ¦µÄÂúÍ·´óº¹¡£Îİ½Ç·Å×ÅÒ»¸ö
-´óË®¸×¡£
+è¿™é‡Œæ˜¯äº”æ¯’æ•™çš„å¨æˆ¿ï¼Œå¹³å¸¸å¼Ÿå­ä»¬é¥¿äº†å¯ä»¥åˆ°è¿™é‡Œè¦(serve)äº›
+é£Ÿç‰©ã€‚æˆ¿ä¸­ç¶ç«æ­£æ—ºï¼Œä¸€ä¸ªå¤§å¨å¸ˆæ­£å¿™çš„æ»¡å¤´å¤§æ±—ã€‚å±‹è§’æ”¾ç€ä¸€ä¸ª
+å¤§æ°´ç¼¸ã€‚
 LONG
         );
 
@@ -33,13 +33,13 @@ int valid_leave(object who, string dir)
         object where=environment(who);
         if(present("baozi", who))
         {
-              return notify_fail("³ÔÍê°ü×ÓÔÙ×ßÂï£¡\n");
+              return notify_fail("åƒå®ŒåŒ…å­å†èµ°å˜›ï¼\n");
               who->move(where);
               return 1;
         }
         if(present("hulu", who))
         {
-               return notify_fail("Äã²»ÄÜ°ÑºùÂ«´ø×ß£¡\n");
+               return notify_fail("ä½ ä¸èƒ½æŠŠè‘«èŠ¦å¸¦èµ°ï¼\n");
               who->move(where);
               return 1;
          }

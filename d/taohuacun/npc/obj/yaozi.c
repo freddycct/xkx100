@@ -3,12 +3,12 @@ inherit ITEM;
 
 void create()
 {
-	set_name(YEL "Ğ¡Å£Ñü×Ó" NOR,({"yaozi"}));
+	set_name(YEL "å°ç‰›è…°å­" NOR,({"yaozi"}));
 	set_weight(300);
 	if( clonep() )
                 set_default_object(__FILE__);
         else {
-                set("long", "Ò»¸öĞ¡Å£Ñü×Ó¡£\n");
-                set("unit", "¸ö");
+                set("long", "ä¸€ä¸ªå°ç‰›è…°å­ã€‚\n");
+                set("unit", "ä¸ª");
         }
 }

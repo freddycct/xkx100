@@ -4,11 +4,11 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "��Ʒ��");
+	set("short", "甜品店");
 	set("long", @LONG
-����һ����ʳƷ��С���ӣ��������кö�ö�ԵĶ�������ֱ����
-��������Ŀ�����ݡ������ϰ����Ǵ峤�Ŀ��ģ�̨�������ã����Ե���
-�����Ǵ���ͷ�������ĺ�!
+这是一个卖食品的小铺子，店里面有好多好多吃的东西，简直可以
+用琳琅满目来形容。加上老板娘是村长的可心，台长的妹妹，所以店里
+生意是村里头出了名的好!
 LONG );
 	set("exits", ([
 		"north" : __DIR__"eroad1",

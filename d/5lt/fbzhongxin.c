@@ -7,11 +7,11 @@ string look_board();
 
 void create()
 {
-	set("short", "ÐÂÎÅ·¢²¼ÖÐÐÄ");
+	set("short", "æ–°é—»å‘å¸ƒä¸­å¿ƒ");
 	set("long", @LONG
-ÕâÀïÊÇÐÂÎÅ·¢²¼ÖÐÐÄ£¬ËùÓÐÎÞÀåÍ·µçÊÓÌ¨µÄÐÂÎÅºÍ¼ÇÕßÕÐ´ý»á¶¼ÊÇ
-ÕâÀïµÚÒ»Ê±¼ä·¢²¼³öÈ¥µÄ¡£ÕâÀï½ð¹âÉÁÉÁµÄ£¬±ÈÆðCCTVÇ¿¶àÁË£¬¶ÔÃæµÄ
-Ç½ÉÏÓÐÒ»¸öºÜ´óµÄµç×ÓÍ¨¸æÅÆ(board)£¬ÀïÍ·¹ö¶¯²¥·Å×Å×îÐÂµÄÐÂÎÅ¡£
+è¿™é‡Œæ˜¯æ–°é—»å‘å¸ƒä¸­å¿ƒï¼Œæ‰€æœ‰æ— åŽ˜å¤´ç”µè§†å°çš„æ–°é—»å’Œè®°è€…æ‹›å¾…ä¼šéƒ½æ˜¯
+è¿™é‡Œç¬¬ä¸€æ—¶é—´å‘å¸ƒå‡ºåŽ»çš„ã€‚è¿™é‡Œé‡‘å…‰é—ªé—ªçš„ï¼Œæ¯”èµ·CCTVå¼ºå¤šäº†ï¼Œå¯¹é¢çš„
+å¢™ä¸Šæœ‰ä¸€ä¸ªå¾ˆå¤§çš„ç”µå­é€šå‘Šç‰Œ(board)ï¼Œé‡Œå¤´æ»šåŠ¨æ’­æ”¾ç€æœ€æ–°çš„æ–°é—»ã€‚
 LONG);
 	set("outdoors", "5lt");
 	set("exits", ([
@@ -31,7 +31,7 @@ LONG);
 string look_board()
 {
 	return
-	"¡ù¡ù¡ù¡ù	"HIY"µç×Ó¹«¸æÅÆ:"NOR"			¡ù¡ù¡ù¡ù\n"
-	"¡ù¡ù¡ù¡ù	ÎåÔÂÌìÀ´ÏÃ,ÃØ»áç³ÎÅÅ®ÓÑ¡£	¡ù¡ù¡ù¡ù\n"
-	"¡ù¡ù¡ù¡ù	Ò¥ÑÔ£º¾ÝËµÄ³ÈËÁµ°®ÁË¡£		¡ù¡ù¡ù¡ù\n";
+	"â€»â€»â€»â€»	"HIY"ç”µå­å…¬å‘Šç‰Œ:"NOR"			â€»â€»â€»â€»\n"
+	"â€»â€»â€»â€»	äº”æœˆå¤©æ¥åŽ¦,ç§˜ä¼šç»¯é—»å¥³å‹ã€‚	â€»â€»â€»â€»\n"
+	"â€»â€»â€»â€»	è°£è¨€ï¼šæ®è¯´æŸäººæ‹çˆ±äº†ã€‚		â€»â€»â€»â€»\n";
 }

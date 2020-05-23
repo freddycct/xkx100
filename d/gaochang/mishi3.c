@@ -10,16 +10,16 @@ int do_zuan(string arg);
 
 void create()
 {
-        set("short", "°µÊÒ");
+        set("short", "æš—å®¤");
         set("long", @LONG
-ÕâÊÇÔÚ¸ß²ı×îÉî´¦µÄÒ»¸ö°µÊÒ£¬Ê²Ã´Ò²¿´²»Çå¡£
+è¿™æ˜¯åœ¨é«˜æ˜Œæœ€æ·±å¤„çš„ä¸€ä¸ªæš—å®¤ï¼Œä»€ä¹ˆä¹Ÿçœ‹ä¸æ¸…ã€‚
 LONG );
         set("exits", ([
                 "out" : __DIR__"mishi2",
         ]));
         set("no_clean_up", 0);
 		set("item_desc", ([
-				"hole" : "Ò»¸ö²»ÖªÉîÇ³µÄÊ¯¶´£¬²»Öª¸Ã²»¸ÃËÑÒ»ËÑ¿´¡£\n"
+				"hole" : "ä¸€ä¸ªä¸çŸ¥æ·±æµ…çš„çŸ³æ´ï¼Œä¸çŸ¥è¯¥ä¸è¯¥æœä¸€æœçœ‹ã€‚\n"
         ]));
         set("count",1);
         setup();
@@ -39,7 +39,7 @@ int do_use(string arg)
         if( !arg || arg=="" ) return 0;
         if (!present("fire", me))  return 0;
         if( arg=="fire" ) {
-             message_vision("$NµãÈ¼ÁË»ğÕÛ£¬·¢ÏÖÇ½±ÚÉÏÓĞÒ»Ğ¡¶´(hole)£¬ËÆºõÓĞÊ²Ã´¶«Î÷ÔÚÀïÃæ¡£\n",me);
+             message_vision("$Nç‚¹ç‡ƒäº†ç«æŠ˜ï¼Œå‘ç°å¢™å£ä¸Šæœ‰ä¸€å°æ´(hole)ï¼Œä¼¼ä¹æœ‰ä»€ä¹ˆä¸œè¥¿åœ¨é‡Œé¢ã€‚\n",me);
          me->set_temp("marks/fire", 1);
          return 1;
        }
@@ -55,14 +55,14 @@ int do_search(string arg)
 
 			if (!me->query_temp("marks/fire"))
 			return 0;
-			if (!arg || (arg!="hole" && arg!="Ğ¡¶´"))
-			return notify_fail("ÄãÒªËÑÄÄÀï£¿\n");
+			if (!arg || (arg!="hole" && arg!="å°æ´"))
+			return notify_fail("ä½ è¦æœå“ªé‡Œï¼Ÿ\n");
 			if (query("count")<1)
 				{
-					return notify_fail("¶´ÀïÃæÊ²Ã´Ò²Ã»ÓĞÁË¡£\n");
+					return notify_fail("æ´é‡Œé¢ä»€ä¹ˆä¹Ÿæ²¡æœ‰äº†ã€‚\n");
 					}
 			if (me->query("cor")<25)
-					return notify_fail("Äã¸ÕÏëÉìÊÖ£¬ºöÈ»ÓĞµãº¦ÅÂ£¬ÏëÁËÏë»¹ÊÇËãÁË¡£\n");
+					return notify_fail("ä½ åˆšæƒ³ä¼¸æ‰‹ï¼Œå¿½ç„¶æœ‰ç‚¹å®³æ€•ï¼Œæƒ³äº†æƒ³è¿˜æ˜¯ç®—äº†ã€‚\n");
 			add("count",-1);
       book=new(BOOK);
       if (book->violate_unique())
@@ -72,22 +72,22 @@ int do_search(string arg)
         }
 			if (random(4)>0 && book)
 				{
-					message_vision("$NÍù¶´ÀïÃşÁËÃş£¬Ãş³öÒ»±¾¹ÅÊéÀ´¡£\n",me);
- 					message("channel:rumor", MAG"¡¾Ò¥ÑÔ¡¿Ä³ÈË£º"+me->query("name")+"ÄÃµ½Ò»±¾"+book->query("name")+"À²¡£\n"NOR, users());
+					message_vision("$Nå¾€æ´é‡Œæ‘¸äº†æ‘¸ï¼Œæ‘¸å‡ºä¸€æœ¬å¤ä¹¦æ¥ã€‚\n",me);
+ 					message("channel:rumor", MAG"ã€è°£è¨€ã€‘æŸäººï¼š"+me->query("name")+"æ‹¿åˆ°ä¸€æœ¬"+book->query("name")+"å•¦ã€‚\n"NOR, users());
 					book->move(me);
 				}
 			else if(random(4)>1)
 				{
 					ob=new("clone/money/gold");
 					ob->set_amount(random(30));
-					message_vision("$NÍù¶´ÀïÃşÁËÃş£¬Ãş³öÁËÒ»Ğ©»Æ½ğ¡£\n",me);
+					message_vision("$Nå¾€æ´é‡Œæ‘¸äº†æ‘¸ï¼Œæ‘¸å‡ºäº†ä¸€äº›é»„é‡‘ã€‚\n",me);
 					ob->move(me);
 					}
 			else 
 				{
 					ob=new("clone/money/silver");
 					ob->set_amount(random(30));
-					message_vision("$NÍù¶´ÀïÃşÁËÃş£¬Ãş³öÁËÒ»Ğ©°×Òø¡£\n",me);
+					message_vision("$Nå¾€æ´é‡Œæ‘¸äº†æ‘¸ï¼Œæ‘¸å‡ºäº†ä¸€äº›ç™½é“¶ã€‚\n",me);
 					ob->move(me);
 					}
 			

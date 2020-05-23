@@ -1,4 +1,4 @@
-//      chufang.c ³ø·¿
+//      chufang.c å¨æˆ¿
 
 inherit ROOM;
 
@@ -7,13 +7,13 @@ int work();
 
 void create()
 {
-        set("short","³ø·¿");
+        set("short","å¨æˆ¿");
         set("long",@LONG
-ÕâÀïÊÇÑ©É½ËÂµÄ³ø·¿£¬ĞÂÀ´µÄÉ®ÈË¿ÉÒÔÔÚ´Ë´òÔÓ¡£·¿ÖĞĞÑÄ¿µÄÎ»ÖÃ
-ÓĞÒ»¿éÅÆ×Ó£¨paizi£©¡£
+è¿™é‡Œæ˜¯é›ªå±±å¯ºçš„å¨æˆ¿ï¼Œæ–°æ¥çš„åƒ§äººå¯ä»¥åœ¨æ­¤æ‰“æ‚ã€‚æˆ¿ä¸­é†’ç›®çš„ä½ç½®
+æœ‰ä¸€å—ç‰Œå­ï¼ˆpaiziï¼‰ã€‚
 LONG );
         set("item_desc",([
-                "paizi" : "±¾³ø·¿ÕĞÊÕÔÓ¹¤¡£¹¤×÷(work)Ò»´Î¸¶ÒøÊ®Á½¡£\n",
+                "paizi" : "æœ¬å¨æˆ¿æ‹›æ”¶æ‚å·¥ã€‚å·¥ä½œ(work)ä¸€æ¬¡ä»˜é“¶åä¸¤ã€‚\n",
         ]));
         set("no_fight",1);
         set("no_steal",1);
@@ -39,11 +39,11 @@ int do_work()
         object ob;
 
         if (query_temp("times")==0)
-                return notify_fail("½ñÌìµÄ»î¸ÉÍêÁË£¬Ã÷ÌìÔÙÀ´°É£¡\n");
+                return notify_fail("ä»Šå¤©çš„æ´»å¹²å®Œäº†ï¼Œæ˜å¤©å†æ¥å§ï¼\n");
         if(me->query("qi")<20)
-		return notify_fail("ÄãµÄÆøÌ«ĞéÈõ£¬²»ÄÜ¹¤×÷£¡\n");
+		return notify_fail("ä½ çš„æ°”å¤ªè™šå¼±ï¼Œä¸èƒ½å·¥ä½œï¼\n");
 	me->add("qi",-20);
-	message_vision("$N¸ÉÁËÒ»Ğ©ÔÓ»î£¬ÀÛµÃ¹»Çº¡£\n" , me);
+	message_vision("$Nå¹²äº†ä¸€äº›æ‚æ´»ï¼Œç´¯å¾—å¤Ÿå‘›ã€‚\n" , me);
 	add_temp("times",-1);
 
         ob=new("/clone/money/silver");

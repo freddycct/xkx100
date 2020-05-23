@@ -4,10 +4,10 @@
 inherit ROOM;
 void create()
 {
-	set("short", "ɳĮ����");
+	set("short", "沙漠绿洲");
 	set("long", @LONG
-������ɳĮ�в����һ�����ޣ����ϲ�Զ��Լ���Կ���һ���ںڵ�
-ɽ������紫��һЩ���������Ĵ�����������Ҳ��֪��˭�ڴ���ʲô��
+这里是沙漠中不多的一块绿洲，向南不远隐约可以看见一座黑黑的
+山洞。随风传来一些叮叮当当的打铁的声音。也不知是谁在打造什么。
 LONG );
 	set("exits", ([
 		"east"  : "/d/xingxiu/nanjiang2",

@@ -5,10 +5,10 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "Ë®·¿");
+	set("short", "æ°´æˆ¿");
 	set("long", @LONG
-Ò»½øÎÝ£¬Äã¿´¼ûÎÝÄÚ·Å×Å¼¸¿Ú´ó¸×£¬ºÃÏóÊÇ×°Ë®ÓÃµÄ£¬²»¹ý¸×ËÆºõ
-¶¼ÊÇ¿ÕµÄ£¬ÕâÀïÃ»ÓÐÒ»¸öÈË£¬¹À¼ÆÆÍÈË¶¼ÅÜÁË¡£
+ä¸€è¿›å±‹ï¼Œä½ çœ‹è§å±‹å†…æ”¾ç€å‡ å£å¤§ç¼¸ï¼Œå¥½è±¡æ˜¯è£…æ°´ç”¨çš„ï¼Œä¸è¿‡ç¼¸ä¼¼ä¹Ž
+éƒ½æ˜¯ç©ºçš„ï¼Œè¿™é‡Œæ²¡æœ‰ä¸€ä¸ªäººï¼Œä¼°è®¡ä»†äººéƒ½è·‘äº†ã€‚
 LONG);
 	set("exits", ([
 		"south" : __DIR__"wg_houyuan",
@@ -28,25 +28,25 @@ int do_tiao(string arg)
 	int costj, costq,c_skill,c_exp;
 	me = this_player();
 
-	if(me->query_temp("job_name")!="ÌôË®") 
-		return notify_fail("Äã±ØÐë¸ú¹ÝÖ÷ÁìÁËÕâ¹¤×÷²ÅÄÜÔÚÕâÀï¸É! \n");
-	if(me->query_temp("mark/ÌôÍêÁË")) 
-		return notify_fail("ÄãÒÑ¾­¸ÉÍê»îÁË£¬»ØÈ¥¸²Ãü(job ok)°É£¡\n");
-	if (me->is_busy()) return notify_fail("ÄãÏÖÔÚÕýÃ¦×ÅÄØ£¡\n");
+	if(me->query_temp("job_name")!="æŒ‘æ°´") 
+		return notify_fail("ä½ å¿…é¡»è·Ÿé¦†ä¸»é¢†äº†è¿™å·¥ä½œæ‰èƒ½åœ¨è¿™é‡Œå¹²! \n");
+	if(me->query_temp("mark/æŒ‘å®Œäº†")) 
+		return notify_fail("ä½ å·²ç»å¹²å®Œæ´»äº†ï¼Œå›žåŽ»è¦†å‘½(job ok)å§ï¼\n");
+	if (me->is_busy()) return notify_fail("ä½ çŽ°åœ¨æ­£å¿™ç€å‘¢ï¼\n");
 	if (me->is_fighting())
-		return notify_fail("ÄãÕýÔÚÕ½¶·ÖÐ£¬ÎÞ·¨×¨ÐÄ¸É»î£¡\n");
+		return notify_fail("ä½ æ­£åœ¨æˆ˜æ–—ä¸­ï¼Œæ— æ³•ä¸“å¿ƒå¹²æ´»ï¼\n");
 	if (!objectp(weapon = me->query_temp("weapon")) ||
 		weapon->query("id")!= "shuitong")
-		return notify_fail("ÄãÏëÓÃÊ²Ã´À´ÌôË®£¬ÓÃÊÖÌôÂð£¿\n");
+		return notify_fail("ä½ æƒ³ç”¨ä»€ä¹ˆæ¥æŒ‘æ°´ï¼Œç”¨æ‰‹æŒ‘å—ï¼Ÿ\n");
 
-	if ( !arg || arg != "Ë®" ) return notify_fail("ÄãÒªÌôÊ²Ã´£¿\n");
+	if ( !arg || arg != "æ°´" ) return notify_fail("ä½ è¦æŒ‘ä»€ä¹ˆï¼Ÿ\n");
 
 	costj = random((int)me->query("con")/3)+1;
 	costq = random((int)me->query("str")/3)+1;
 
 	if ((int)me->query("jing") < costj || (int)me->query("qi") < costq)
 	{
-		message_vision("$NÍäÑüÏò´ó¸×Àïµ¹Ë®£¬½á¹ûÒ»Ê§×ãÔÔ½øÁË¸×Àï£¡\n",me);
+		message_vision("$Nå¼¯è…°å‘å¤§ç¼¸é‡Œå€’æ°´ï¼Œç»“æžœä¸€å¤±è¶³æ ½è¿›äº†ç¼¸é‡Œï¼\n",me);
 		me->set("water", 350);
 		me->unconcious();
 		return 1;
@@ -56,22 +56,22 @@ int do_tiao(string arg)
 	me->receive_damage("qi", costq);
 
 	if (!(int)me->query_condition("wuguan_job") &&
-		(int)me->query_temp("mark/Ìô") > 10 + random(10) &&
+		(int)me->query_temp("mark/æŒ‘") > 10 + random(10) &&
 		present("shuifang guanshi", environment(me)))
 	{
-		me->set_temp("mark/ÌôÍêÁË",1);
-		message_vision(RED"Ë®·¿¹ÜÊÂ¶Ô$NËµ£º¸ÉµÄ²»´í£¬ºÃÁË£¬Äã¿ÉÒÔ»ØÈ¥¸²Ãü(job ok)ÁË¡£\n"NOR, me);
+		me->set_temp("mark/æŒ‘å®Œäº†",1);
+		message_vision(RED"æ°´æˆ¿ç®¡äº‹å¯¹$Nè¯´ï¼šå¹²çš„ä¸é”™ï¼Œå¥½äº†ï¼Œä½ å¯ä»¥å›žåŽ»è¦†å‘½(job ok)äº†ã€‚\n"NOR, me);
 		return 1;
 	}
-	message_vision("$NÓÃË®Í°´Ó¾®ÀïÌôÆðË®£¬ÔÙµ¹µ½Ë®¸×Àï¡£\n", me);
+	message_vision("$Nç”¨æ°´æ¡¶ä»Žäº•é‡ŒæŒ‘èµ·æ°´ï¼Œå†å€’åˆ°æ°´ç¼¸é‡Œã€‚\n", me);
 	me->start_busy(3);
-	me->add_temp("mark/Ìô",1);
+	me->add_temp("mark/æŒ‘",1);
 	c_exp=me->query("combat_exp");
 	c_skill=me->query_skill("hammer",1);
 	if ( ((c_skill*c_skill*c_skill/10)< c_exp) &&
 		(int)me->query_skill("hammer", 1) < 30 && random(10)>5 )
 	{
-		write(HIM"ÄãÔÚÌôË®ÖÐ¶ÔÓÚ»ù±¾´¸·¨ÓÐÐ©Ìå»á£¡\n"NOR);
+		write(HIM"ä½ åœ¨æŒ‘æ°´ä¸­å¯¹äºŽåŸºæœ¬é”¤æ³•æœ‰äº›ä½“ä¼šï¼\n"NOR);
 		me->improve_skill("hammer", (int)(me->query("int") / 10));
 	}
 	return 1;

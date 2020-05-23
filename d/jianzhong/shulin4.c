@@ -1,15 +1,15 @@
-//Room: songlin2.c ËÉÁÖ 
+//Room: songlin2.c æ¾æž— 
 //Date: Sep 22 1997
 
 inherit ROOM;
 
 void create()
 {
-      set("short","É½¹È");
+      set("short","å±±è°·");
       set("long",@LONG
-Ë³×ÅÐ¡Ïª£¬Äã²»Öª²»¾õÖÐÀ´µ½ÁËÒ»¸öÓÄ¾²µÄÉ½¹È£¬
-ÂÌÊ÷³ÉÒñ£¬É½»¨²ÓÀÃ¡£Ö»ÊÇ±±·½ÒþÒþ´«À´¼¸ÉùÐÛ
-×³±¯ÇºµÄµñÃù£¬´òÆÆÁËËÄÖÜµÄ¼Å¾²¡£
+é¡ºç€å°æºªï¼Œä½ ä¸çŸ¥ä¸è§‰ä¸­æ¥åˆ°äº†ä¸€ä¸ªå¹½é™çš„å±±è°·ï¼Œ
+ç»¿æ ‘æˆè«ï¼Œå±±èŠ±ç¿çƒ‚ã€‚åªæ˜¯åŒ—æ–¹éšéšä¼ æ¥å‡ å£°é›„
+å£®æ‚²å‘›çš„é›•é¸£ï¼Œæ‰“ç ´äº†å››å‘¨çš„å¯‚é™ã€‚
 LONG);
       set("outdoors", "jianzhong");
       set("exits",([ /* sizeof() == 1 */

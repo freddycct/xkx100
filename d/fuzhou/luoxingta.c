@@ -5,11 +5,11 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "ÂÞÐÇËþ");
+	set("short", "ç½—æ˜Ÿå¡”");
 	set("long", @LONG
-ÂÞÐÇËþ´£Á¢Âí½­ÅÏ¡£ÕâÀïÊÇ¶«·½´ó¸Û£¬Ïà´«Ö£ºÍÆßÏÂÎ÷Ñó£¬¼´ÔÚ´Ë
-ÔìÖÛÖýÖÓ£¬·ÅÑóÎ÷º£µÄ¡£Î÷ÑóË®ÊÖÒà½«´ËËþ×öÎªµ½´ï¶«·½µÄÈÏ¼Ç¡£ËþÉÏ
-ÓÐÃúÎÄ¶ÔÁª¡°³¯³¯³¯³¯³¯³¯Ï¦  ³¤³¤³¤³¤³¤³¤Ïû¡±¡£
+ç½—æ˜Ÿå¡”çŸ—ç«‹é©¬æ±Ÿç•”ã€‚è¿™é‡Œæ˜¯ä¸œæ–¹å¤§æ¸¯ï¼Œç›¸ä¼ éƒ‘å’Œä¸ƒä¸‹è¥¿æ´‹ï¼Œå³åœ¨æ­¤
+é€ èˆŸé“¸é’Ÿï¼Œæ”¾æ´‹è¥¿æµ·çš„ã€‚è¥¿æ´‹æ°´æ‰‹äº¦å°†æ­¤å¡”åšä¸ºåˆ°è¾¾ä¸œæ–¹çš„è®¤è®°ã€‚å¡”ä¸Š
+æœ‰é“­æ–‡å¯¹è”â€œæœæœæœæœæœæœå¤•  é•¿é•¿é•¿é•¿é•¿é•¿æ¶ˆâ€ã€‚
 LONG );
 	set("exits", ([
 		"northup" : __DIR__"gushan",

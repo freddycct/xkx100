@@ -4,11 +4,11 @@
 inherit ROOM;
 void create()
 {
-	set("short", "����Ժ");
+	set("short", "铸棒院");
 	set("long", @LONG
-�����������Ŷ��Ĵ���ĵط������ڳɶ�ؤ��ֶ��СԺ�һ��
-��׳�ĺ�������һ���������ڵĴ���¯������һ����������ͣ���ô���
-ʲô��
+这里是玄兵古洞的打造的地方。处在成都丐帮分舵的小院里。一个
+粗壮的汉子守着一个烈焰腾腾的大铁炉，拿着一个大铁锤不停地敲打着
+什么。
 LONG );
 	set("exits", ([
 		"south" : "/d/chengdu/ruin1",

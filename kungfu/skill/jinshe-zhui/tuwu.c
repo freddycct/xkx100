@@ -1,8 +1,8 @@
-// tuwu.c ½ğÉßÍÂÎí
+// tuwu.c é‡‘è›‡åé›¾
 // Last Modified by winder on Mar. 10 2000
 
 #include <ansi.h>
-#define PNAME "½ğÉßÍÂÎí"
+#define PNAME "é‡‘è›‡åé›¾"
 inherit F_SSERVER;
 
 int perform(object me, object target)
@@ -20,19 +20,19 @@ int perform(object me, object target)
    !me->query("can_perform/"+sskill+"/"+pfname) &&
    !me->query_temp("murong/xingyi") &&
    !SCBORN_D->valid_perform(me,sskill,pfname) )
-   return notify_fail("ÄãËùÊ¹ÓÃµÄÍâ¹¦ÖĞÃ»ÓĞÕâÖÖ¹¦ÄÜ¡£\n");
+   return notify_fail("ä½ æ‰€ä½¿ç”¨çš„å¤–åŠŸä¸­æ²¡æœ‰è¿™ç§åŠŸèƒ½ã€‚\n");
 
 	if( !objectp(target) ) {flag =1;target = offensive_target(me);}
 	
 	if( !target || !target->is_character() || target == me ||	
 	  	!me->is_fighting(target) ||
   	!living(target) || target->query_temp("noliving") )
-		return notify_fail(PNAME"Ö»ÄÜ¶ÔÕ½¶·ÖĞµÄ¶ÔÊÖÊ¹ÓÃ¡£\n");
+		return notify_fail(PNAME"åªèƒ½å¯¹æˆ˜æ–—ä¸­çš„å¯¹æ‰‹ä½¿ç”¨ã€‚\n");
 		
 	if (!objectp(weapon = me->query_temp("weapon")) ||
 		(string)weapon->query("id") != "jinshe zhui" ||
 		weapon->query("ownmake") == 1)
-		return notify_fail("ÄãÃ»ÓÃ½ğÉß×¶£¬²»ÄÜÊ¹ÓÃ¾øÕĞ£¡\n");
+		return notify_fail("ä½ æ²¡ç”¨é‡‘è›‡é”¥ï¼Œä¸èƒ½ä½¿ç”¨ç»æ‹›ï¼\n");
 
 	bskill = "throwing";
 	if (SCBORN_D->valid_perform(me,sskill,pfname))
@@ -45,13 +45,13 @@ int perform(object me, object target)
 	}
 
 	if( (int)me->query_skill(sskill, 1) < 100 )
-		return notify_fail("ÄãµÄ"+to_chinese(sskill)+"²»¹»æµÊì£¬²»»áÊ¹ÓÃ"+PNAME+"¡£\n");
+		return notify_fail("ä½ çš„"+to_chinese(sskill)+"ä¸å¤Ÿå¨´ç†Ÿï¼Œä¸ä¼šä½¿ç”¨"+PNAME+"ã€‚\n");
 
 	if (me->query_temp("jinshe/tuwu"))
-		return notify_fail("Äã²ÅÓÃµÄ½ğÉßÍÂÎí£¬Ã»·¨½Ó×Å¾Í³öÕĞ¡£\n");
+		return notify_fail("ä½ æ‰ç”¨çš„é‡‘è›‡åé›¾ï¼Œæ²¡æ³•æ¥ç€å°±å‡ºæ‹›ã€‚\n");
 
 	if( (int)me->query("neili") < 300 )
-		return notify_fail("ÄãÄÚÁ¦²»¹»ÁË¡£\n");
+		return notify_fail("ä½ å†…åŠ›ä¸å¤Ÿäº†ã€‚\n");
 
 	skill = me->query_skill(bskill, 1);
 	me->add("neili", -200);
@@ -63,8 +63,8 @@ int perform(object me, object target)
 		target->start_busy(random(3));
 		target->receive_damage("qi", 200,me);
 		message_combatd(
-HIY "Ö»ÌıÒ»Õó¿ñ·çÉ¨Ò¶°ãµÄÉùÏìÖĞ£¬$N"HIY"ÊÖÖĞµÄ"YEL"½ğÉß×¶"HIY"ÉÁ³ö¶áÄ¿µÄ¹âÃ¢£¬ÉÁÒ«µÃ
-$nÑÛÃ°½ğ»¨£¬¡°½ğÉßÍÂÎí¡±£¡³ıÁËÑÛÇ°Ò»ÖØÖØµÄÎíÆøÍâ£¬$nÉ¶Ò²¿´²»¼ûÁË£¡\n" NOR, me, target);
+HIY "åªå¬ä¸€é˜µç‹‚é£æ‰«å¶èˆ¬çš„å£°å“ä¸­ï¼Œ$N"HIY"æ‰‹ä¸­çš„"YEL"é‡‘è›‡é”¥"HIY"é—ªå‡ºå¤ºç›®çš„å…‰èŠ’ï¼Œé—ªè€€å¾—
+$nçœ¼å†’é‡‘èŠ±ï¼Œâ€œé‡‘è›‡åé›¾â€ï¼é™¤äº†çœ¼å‰ä¸€é‡é‡çš„é›¾æ°”å¤–ï¼Œ$nå•¥ä¹Ÿçœ‹ä¸è§äº†ï¼\n" NOR, me, target);
 		me->set_temp("jinshe/tuwu", 1);
 		me->set_temp("noliving/cimu",1);
 		target->set_temp("block_msg/all",1);
@@ -72,8 +72,8 @@ $nÑÛÃ°½ğ»¨£¬¡°½ğÉßÍÂÎí¡±£¡³ıÁËÑÛÇ°Ò»ÖØÖØµÄÎíÆøÍâ£¬$nÉ¶Ò²¿´²»¼ûÁË£¡\n" NOR, me, t
 	} else
 	{
 		me->start_busy(2);
-		message_combatd("$NÊ¹³öÒ»ÕĞ¡°½ğÉßÍÂÎí¡±£¬¿ÉÏ§×¶Î´·¢³ö£¬±»$nÖÆÁË
-ÏÈ»ú¡£¶ÙÊ±ÊÖ½Å´óÂÒ¡£\n", me, target);
+		message_combatd("$Nä½¿å‡ºä¸€æ‹›â€œé‡‘è›‡åé›¾â€ï¼Œå¯æƒœé”¥æœªå‘å‡ºï¼Œè¢«$nåˆ¶äº†
+å…ˆæœºã€‚é¡¿æ—¶æ‰‹è„šå¤§ä¹±ã€‚\n", me, target);
 	}
 	return 1;
 }
@@ -82,7 +82,7 @@ void tuwu_end(object me, object target)
 //	target->enable_player();
   if (objectp(target))
   {
-	  message_combatd("$NÂıÂı»Ö¸´ÁËÊÓÁ¦£¬ÖÕÓÚÕö¿ªÁËÑÛ¡£\n", target);
+	  message_combatd("$Næ…¢æ…¢æ¢å¤äº†è§†åŠ›ï¼Œç»ˆäºçå¼€äº†çœ¼ã€‚\n", target);
 	  target->set_temp("block_msg/all", 0);
 	  target->delete_temp("noliving");
   }
@@ -90,22 +90,22 @@ void tuwu_end(object me, object target)
 	me->delete_temp("jinshe/tuwu");
 	return;
 }
-string name() {return replace_string(replace_string(PNAME,"¡¸",""),"¡¹","");}
+string name() {return replace_string(replace_string(PNAME,"ã€Œ",""),"ã€","");}
 int sp() {return 1;}
 
 int help(object me)
 {
-	write(WHT"\n"+to_chinese(explode(__FILE__,"/")[<2])+"Ö®"+name()+WHT"£º"NOR"\n");
+	write(WHT"\n"+to_chinese(explode(__FILE__,"/")[<2])+"ä¹‹"+name()+WHT"ï¼š"NOR"\n");
 	write(@HELP
 
-	Ê¹ÓÃ¹¦Ğ§£º
-		ËğÉË¶Ô·½ÆøÑª
-		³ÙÖÍ¶Ô·½³öÊÖ
-		Ê¹¶Ô·½ÔİÊ±Ê§Ã÷
+	ä½¿ç”¨åŠŸæ•ˆï¼š
+		æŸä¼¤å¯¹æ–¹æ°”è¡€
+		è¿Ÿæ»å¯¹æ–¹å‡ºæ‰‹
+		ä½¿å¯¹æ–¹æš‚æ—¶å¤±æ˜
 
-	³öÊÖÒªÇó£º
-		½ğÉß×¶·¨100¼¶
-		ÄÚÁ¦300
+	å‡ºæ‰‹è¦æ±‚ï¼š
+		é‡‘è›‡é”¥æ³•100çº§
+		å†…åŠ›300
 HELP
 	);
 	return 1;

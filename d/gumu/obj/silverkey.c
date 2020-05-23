@@ -6,13 +6,13 @@ inherit ITEM;
 
 void create()
 {
-	set_name(HIW"ÒøÔ¿³×"NOR, ({"yin yaoshi","silver key","key"}));
+	set_name(HIW"é“¶é’¥åŒ™"NOR, ({"yin yaoshi","silver key","key"}));
 	set_weight(10);
 	if (clonep())
 		set_default_object(__FILE__);
 	else {
-		set("unit","°Ñ");
-		set("long","ÕâÊÇÒ»°Ñ°×Òø´òÖÆµÄÔ¿³×£¬ÉÏÊé¹ÅÄ¹×ÖÑù£¬ËÆºõºÍ¹ÅÄ¹µÄÄ³Ğ©ÃØÃÜÓĞ¹Ø¡£\n");
+		set("unit","æŠŠ");
+		set("long","è¿™æ˜¯ä¸€æŠŠç™½é“¶æ‰“åˆ¶çš„é’¥åŒ™ï¼Œä¸Šä¹¦å¤å¢“å­—æ ·ï¼Œä¼¼ä¹å’Œå¤å¢“çš„æŸäº›ç§˜å¯†æœ‰å…³ã€‚\n");
 		set("value", 400);
 		setup();
 	}

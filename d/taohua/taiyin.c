@@ -10,11 +10,11 @@ int do_save();
 
 void create()
 {
-	set("short", "̫��");
+	set("short", "太阴");
 	set("long", @LONG
-������������̫����̫��������֮����Ҳ��������������Ӧ����
-���е����䣬�ڹ�֮�Σ��кڡ��Է�λ�����У���һ������ֱͨ�·���
-�����ɹ�ˮ��
+这里是四象层的太阴。太阴是阴中之阴，也即至阴。北方对应四灵
+兽中的玄武，乌龟之形，尚黑。以方位入五行，有一道铁梯直通下方的
+北方壬癸水。
 LONG
 	);
 	set("exits", ([ 
@@ -47,12 +47,12 @@ void init()
 
 int do_save()
 {
-	write("���ﲻ׼���̣�\n");
+	write("这里不准存盘！\n");
 	return 1;
 }
 
 int do_quit()
 {
-	write("���ﲻ׼�˳���\n");
+	write("这里不准退出！\n");
 	return 1;
 }

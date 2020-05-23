@@ -4,11 +4,11 @@
 inherit ROOM;
 void create()
 {
-	set("short", "¹÷ñ½");
+	set("short", "æ£çª ");
 	set("long", @LONG
-ÕâÀïÊÇÐþ±ø¹Å¶´Ôì¹÷µÄµØ·½¡£ÖÜÎ§ÕûÆëµÄ¶Ñ·Å×ÅÔì¹÷ÓÃµÄÔ­ÁÏ£¬Ò»
-¸öÄêÇáÐ¡»ïÊÖÀïÄÃ×ÅÒ»±¾ÐþÌì¹÷·¨£¬ÕýÔÚ×ÐÏ¸µÄÑÐ¶Á×Å¡£¿´µ½Äã×ßÁË¹ý
-À´£¬Á¬Ã¦·ÅÏÂÊÖÖÐµÄÊé£¬´ø×ÅÒ»Á³´¿Õæ³åÄãº©º©µÄÒ»Ð¦£¬Á³²»ÓÉÓÖºìÁË¡£
+è¿™é‡Œæ˜¯çŽ„å…µå¤æ´žé€ æ£çš„åœ°æ–¹ã€‚å‘¨å›´æ•´é½çš„å †æ”¾ç€é€ æ£ç”¨çš„åŽŸæ–™ï¼Œä¸€
+ä¸ªå¹´è½»å°ä¼™æ‰‹é‡Œæ‹¿ç€ä¸€æœ¬çŽ„å¤©æ£æ³•ï¼Œæ­£åœ¨ä»”ç»†çš„ç ”è¯»ç€ã€‚çœ‹åˆ°ä½ èµ°äº†è¿‡
+æ¥ï¼Œè¿žå¿™æ”¾ä¸‹æ‰‹ä¸­çš„ä¹¦ï¼Œå¸¦ç€ä¸€è„¸çº¯çœŸå†²ä½ æ†¨æ†¨çš„ä¸€ç¬‘ï¼Œè„¸ä¸ç”±åˆçº¢äº†ã€‚
 LONG );
 	set("exits", ([
 		"east" : "/d/xueshan/shenghu",

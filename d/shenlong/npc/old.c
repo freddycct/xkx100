@@ -5,9 +5,9 @@ inherit NPC;
 
 void create()
 {
-	set_name("ÀÏÕß", ({"old man","old","man"}));
-	set("long", "ÕâÊÇÒ»¸öÉñÁú½ÌÀÏÕß£¬Ì«ÑôÑ¨¸ßËÊ£¬Á½ÑÛ¾¼¾¼ÓĞÉñ£¬ÏÔÈ»Îä¹¦Éõ¸ß¡£\nÈ»¶øÉñÉ«ÓôÓô£¬¶ÔÒ»°ïÄêÇáÄĞÅ®ÆÄÎªÓĞÀñ£¬ËÆºõº¦ÅÂÊ²Ã´£¬Ñù×ÓÊ®·Ö¿ÉÁ¯¡£\n");
-	set("gender", "ÄĞĞÔ");
+	set_name("è€è€…", ({"old man","old","man"}));
+	set("long", "è¿™æ˜¯ä¸€ä¸ªç¥é¾™æ•™è€è€…ï¼Œå¤ªé˜³ç©´é«˜è€¸ï¼Œä¸¤çœ¼ç‚¯ç‚¯æœ‰ç¥ï¼Œæ˜¾ç„¶æ­¦åŠŸç”šé«˜ã€‚\nç„¶è€Œç¥è‰²éƒéƒï¼Œå¯¹ä¸€å¸®å¹´è½»ç”·å¥³é¢‡ä¸ºæœ‰ç¤¼ï¼Œä¼¼ä¹å®³æ€•ä»€ä¹ˆï¼Œæ ·å­ååˆ†å¯æ€œã€‚\n");
+	set("gender", "ç”·æ€§");
 	set("attitude", "peaceful");
 
 	set("age", 30+random(50));
@@ -26,10 +26,10 @@ void create()
 	set_skill("unarmed", 80);
 	set_skill("parry", 80);
 	set_skill("sword", 80);
-	set("party/party_name", HIY"ÉñÁú½Ì"NOR);
-	set("party/rank", YEL"»ÆÁúÃÅ"NOR"³¤ÀÏ");
+	set("party/party_name", HIY"ç¥é¾™æ•™"NOR);
+	set("party/rank", YEL"é»„é¾™é—¨"NOR"é•¿è€");
 	set("party/level", 2);
-	create_family("ÉñÁú½Ì",2,"µÜ×Ó");
+	create_family("ç¥é¾™æ•™",2,"å¼Ÿå­");
 
 	setup();
 	carry_object(VEGETABLE_DIR"xionghuang");

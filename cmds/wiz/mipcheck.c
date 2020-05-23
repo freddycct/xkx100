@@ -9,7 +9,7 @@ int main(object me, string arg)
 {
 	int i, j, count = 0;
 	object *lob, obj, *obs;
-	string ip, tmp, str = HIR"\n  ¡­¡­ ¼ì²é¶àÖØµÇÂ¼ ¡­¡­ "NOR;
+	string ip, tmp, str = HIR"\n  â€¦â€¦ æ£€æŸ¥å¤šé‡ç™»å½• â€¦â€¦ "NOR;
 	mixed groups;
      	int ip1,ip2,ip3,ip4,n,myip,yourip;
     	string arg1;
@@ -25,14 +25,14 @@ int main(object me, string arg)
 		{
 			groups = unique_array(obs, (: query_ip_number($1) :));
 			if ( !sizeof(groups) )
-				return notify_fail(HIR"\n ¡­¡­ Íê±Ï ¡­¡­\n"NOR);
+				return notify_fail(HIR"\n â€¦â€¦ å®Œæ¯• â€¦â€¦\n"NOR);
 			for(i = 0; i < sizeof(groups); i++)
 			{
 				if( sizeof( groups[i]) < 1) continue;
 				obs = groups[i];
 				lob = obs->query_temp("link_ob") - ({0});
 				ip = query_ip_number(obs[0]);
-				tmp = sprintf("\n"HIY"%-16s"WHT" ¡ú "NOR, ip);
+				tmp = sprintf("\n"HIY"%-16s"WHT" â†’ "NOR, ip);
 				for( j = 0; j < sizeof(obs); j++ )
 				{
 					if( j > 0 && j % 4 == 0 ) tmp += "\n\t\t    ";
@@ -41,8 +41,8 @@ int main(object me, string arg)
 				str += tmp;
 			}
 
-			str += HIR"\n  ¡­¡­ Íê±Ï ¡­¡­ "NOR;
-			str += HIR"×Ü¹²ÓĞ"+chinese_number(sizeof(groups))+"¸öµØÖ·Á¬½Ó±¾Äà°Í"NOR;
+			str += HIR"\n  â€¦â€¦ å®Œæ¯• â€¦â€¦ "NOR;
+			str += HIR"æ€»å…±æœ‰"+chinese_number(sizeof(groups))+"ä¸ªåœ°å€è¿æ¥æœ¬æ³¥å·´"NOR;
 			me->start_more(str);
 			return 1;
 		}
@@ -50,10 +50,10 @@ int main(object me, string arg)
 			me->visible(obj) && interactive(obj))
 		{
 			arg = query_ip_number(obj);
-			tmp = "\n"+ obj->name(1)+"("+ obj->query("id") +")\nIP£º"+ arg + "\n";
-			tmp += "Ä¿Ç°ºÍ´ËÈË´ÓÏàÍ¬IPÁ¬ÈëµÄÍæ¼ÒÓĞ£º\n\t";
+			tmp = "\n"+ obj->name(1)+"("+ obj->query("id") +")\nIPï¼š"+ arg + "\n";
+			tmp += "ç›®å‰å’Œæ­¤äººä»ç›¸åŒIPè¿å…¥çš„ç©å®¶æœ‰ï¼š\n\t";
 		}
-		else tmp = "\nÄ¿Ç°Í¨¹ı " + arg + " Á¬ÈëµÄÍæ¼ÒÓĞ£º\n\t";
+		else tmp = "\nç›®å‰é€šè¿‡ " + arg + " è¿å…¥çš„ç©å®¶æœ‰ï¼š\n\t";
  		n=sscanf(arg,"%d.%d.%d.%d",ip1,ip2,ip3,ip4);
 		myip = (ip1<<24)+(ip2<<16)+(ip3<<8)+ip4;
 		while(i--)
@@ -79,7 +79,7 @@ int main(object me, string arg)
 	}
 	
 	groups = unique_array(obs, (: query_ip_number($1) :));
-	if ( !sizeof(groups) ) return notify_fail(HIR"\n ¡­¡­ Íê±Ï ¡­¡­ \n"NOR);
+	if ( !sizeof(groups) ) return notify_fail(HIR"\n â€¦â€¦ å®Œæ¯• â€¦â€¦ \n"NOR);
 	
 	for(i = 0; i < sizeof(groups); i++)
 	{
@@ -87,7 +87,7 @@ int main(object me, string arg)
 		obs = groups[i];
 		lob = obs->query_temp("link_ob") - ({0});
 		ip = query_ip_number(obs[0]);
-		tmp = sprintf("\n"HIY"%-16s"WHT" ¡ú "NOR, ip);
+		tmp = sprintf("\n"HIY"%-16s"WHT" â†’ "NOR, ip);
 		for( j = 0; j < sizeof(obs); j++ )
 		{
 			if( j > 0 && j % 4 == 0 ) tmp += "\n\t\t    ";
@@ -111,7 +111,7 @@ int main(object me, string arg)
 			j++;
 		}
 	 	if (j > 1) arg += "(" +tmp+") ";
-		if( arg != "" ) str += HIG"\n\t\t    ¿ÚÁîÏàÍ¬µÄÓĞ£º"+arg+NOR;
+		if( arg != "" ) str += HIG"\n\t\t    å£ä»¤ç›¸åŒçš„æœ‰ï¼š"+arg+NOR;
 		lob = sort_array(lob, (:strcmp($1->query("email"), $2->query("email")):));
 		count = sizeof(lob);
 		ip = j = 0;
@@ -129,10 +129,10 @@ int main(object me, string arg)
 			j++;
 		}
 		if (j > 1) arg += "(" +tmp+") ";
-		if( arg != "" ) str += HIC"\n\t\t    EmailÏàÍ¬µÄÓĞ£º"+arg+NOR;
+		if( arg != "" ) str += HIC"\n\t\t    Emailç›¸åŒçš„æœ‰ï¼š"+arg+NOR;
 	}
 
-	str += HIR"\n  ¡­¡­ Íê±Ï ¡­¡­ \n"NOR;
+	str += HIR"\n  â€¦â€¦ å®Œæ¯• â€¦â€¦ \n"NOR;
 	me->start_more(str);
 	return 1;
 }
@@ -140,14 +140,14 @@ int main(object me, string arg)
 int help(object me)
 {
 	write(@HELP
-Ö¸Áî¸ñÊ½£ºmipcheck [ip|Ä³ÈË]
+æŒ‡ä»¤æ ¼å¼ï¼šmipcheck [ip|æŸäºº]
 
-Àı£º
-	mipcheck 210.34.4.1 ÁĞ³ö´Ó´ËipÁ¬ÈëµÄÍæ¼Ò¡£
-	mipcheck 210.34.    ÁĞ³ö´Ó´Ëip·¶Î§ÄÚÁ¬ÈëµÄÍæ¼Ò¡£
-	mipcheck xxxxxxx    ÁĞ³öºÍ´ËÍæ¼ÒÏàÍ¬ipµÄÆäËüÍæ¼Ò¡£
-	mipcheck all        ÁĞ³öËùÓĞµÇÂ¼Íæ¼ÒÁĞ±í£¬°´ip·ÖÁĞ¡£
-	mipcheck            ÁĞ³öËùÓĞÏàÍ¬ipµÄÁĞ±í£¬¸½´øÏàÍ¬email£¬passwdÁĞ±í¡£
+ä¾‹ï¼š
+	mipcheck 210.34.4.1 åˆ—å‡ºä»æ­¤ipè¿å…¥çš„ç©å®¶ã€‚
+	mipcheck 210.34.    åˆ—å‡ºä»æ­¤ipèŒƒå›´å†…è¿å…¥çš„ç©å®¶ã€‚
+	mipcheck xxxxxxx    åˆ—å‡ºå’Œæ­¤ç©å®¶ç›¸åŒipçš„å…¶å®ƒç©å®¶ã€‚
+	mipcheck all        åˆ—å‡ºæ‰€æœ‰ç™»å½•ç©å®¶åˆ—è¡¨ï¼ŒæŒ‰ipåˆ†åˆ—ã€‚
+	mipcheck            åˆ—å‡ºæ‰€æœ‰ç›¸åŒipçš„åˆ—è¡¨ï¼Œé™„å¸¦ç›¸åŒemailï¼Œpasswdåˆ—è¡¨ã€‚
 	
 HELP
 	);

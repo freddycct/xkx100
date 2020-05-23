@@ -5,9 +5,9 @@ inherit F_CLEAN_UP;
 int update_condition(object me, int duration)
 {
 	if( !living(me) || me->query_temp("noliving") )
-		message("vision", me->name() + "打了个嗝，口里吐出一股蓝红之气。\n", environment(me), me);
+		message("vision", me->name() + "鎵撲簡涓棟锛屽彛閲屽悙鍑轰竴鑲¤摑绾箣姘斻�俓n", environment(me), me);
 	else
-		message("vision", me->name() + "摇头晃脑地站都站不稳，手心尽是蓝红的斑点。\n", environment(me), me);
+		message("vision", me->name() + "鎽囧ご鏅冭剳鍦扮珯閮界珯涓嶇ǔ锛屾墜蹇冨敖鏄摑绾㈢殑鏂戠偣銆俓n", environment(me), me);
 
 	me->apply_condition("binghuo", duration - 1);
 	if( !duration ) return 0;

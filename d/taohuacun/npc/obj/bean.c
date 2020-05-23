@@ -3,12 +3,12 @@ inherit ITEM;
 
 void create()
 {
-	set_name(CYN "¶¹°ê" NOR,({"bean"}));
+	set_name(CYN "è±†ç“£" NOR,({"bean"}));
 	set_weight(50);
 	if( clonep() )
                 set_default_object(__FILE__);
         else {
-                set("long", "Ò»Àº¶¹°ê¡£\n");
-                set("unit", "Àº");
+                set("long", "ä¸€ç¯®è±†ç“£ã€‚\n");
+                set("unit", "ç¯®");
         }
 }

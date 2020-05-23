@@ -5,10 +5,10 @@ int do_jump(string arg);
 
 void create()
 {
-	set("short", "º£Ì²");
+	set("short", "æµ·æ»©");
 	set("long", @LONG
-½à°×µÄÉ³Ì²¡¢Çå³ºµÄº£Ë®¡¢Á¹Ë¬µÄº£·ç¡¢Ã÷ÃÄµÄÑô¹â¡¢¸ßËÊÆÅæ¶µÄ
-Ò¬ÁÖ£¬Ã¿Ìì¶¼ÓÐºÜ¶à´åÃñµ½ÕâÀïÐÀÉÍÃÀÃîµÄ´ó×ÔÈ»·ç¹â¡£
+æ´ç™½çš„æ²™æ»©ã€æ¸…æ¾ˆçš„æµ·æ°´ã€å‡‰çˆ½çš„æµ·é£Žã€æ˜Žåªšçš„é˜³å…‰ã€é«˜è€¸å©†å¨‘çš„
+æ¤°æž—ï¼Œæ¯å¤©éƒ½æœ‰å¾ˆå¤šæ‘æ°‘åˆ°è¿™é‡Œæ¬£èµç¾Žå¦™çš„å¤§è‡ªç„¶é£Žå…‰ã€‚
 LONG);
 	set("outdoors", "5lt");
 	set("exits", ([
@@ -30,17 +30,17 @@ int do_jump(string arg)
 {
 	object me = this_player();
 
-	if (me->is_busy()) return notify_fail("ÄãÕýÃ¦×ÅÄØ£¡\n");
+	if (me->is_busy()) return notify_fail("ä½ æ­£å¿™ç€å‘¢ï¼\n");
 
 	if (arg != "chao" && arg != "tide")
-		return notify_fail("ÄãÒªÍùÄÄÀïÌø£¿\n");
+		return notify_fail("ä½ è¦å¾€å“ªé‡Œè·³ï¼Ÿ\n");
 
 	if (me->query_dex() < 59)
-		return notify_fail("ÄãÊÔÍ¼Ìø½øº£³±Àï£¬È´×Ü¾õµÃÁ¦²»´ÓÐÄ¡£\n");
+		return notify_fail("ä½ è¯•å›¾è·³è¿›æµ·æ½®é‡Œï¼Œå´æ€»è§‰å¾—åŠ›ä¸ä»Žå¿ƒã€‚\n");
 
 	if (me->query_skill("dodge") < 80)
-		return notify_fail("ÄãÊÔÍ¼Ìø½øº£³±Àï£¬È´·¢ÏÖ×Ô¼ºµÄÇá¹¦ÐÞÎª»¹Ã»ÓÐ´ïµ½ÕâÃ´¸ßµÄ¾³½ç¡£\n");
-	message_vision("$NËÊÉíÒ»Ô¾£¬Ìø½øÁËº£³±ÖÐ£¡\n", me);
+		return notify_fail("ä½ è¯•å›¾è·³è¿›æµ·æ½®é‡Œï¼Œå´å‘çŽ°è‡ªå·±çš„è½»åŠŸä¿®ä¸ºè¿˜æ²¡æœ‰è¾¾åˆ°è¿™ä¹ˆé«˜çš„å¢ƒç•Œã€‚\n");
+	message_vision("$Nè€¸èº«ä¸€è·ƒï¼Œè·³è¿›äº†æµ·æ½®ä¸­ï¼\n", me);
 	me->move(__DIR__"tide");
 	return 1;
 }

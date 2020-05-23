@@ -1,20 +1,20 @@
 // /d/xiakedao/obj/tongpai1.c
 //edit by noz
-// Modified by Zeratul Jan 11 2001 Í­ÅÆÍË³ö²»¶ª£¬²»ÄÜ¸øÈË
+// Modified by Zeratul Jan 11 2001 é“œç‰Œé€€å‡ºä¸ä¸¢ï¼Œä¸èƒ½ç»™äºº
 
 #include <ansi.h>
 inherit ITEM;
 
 void create()
 {
-	set_name( "ÉÍÉÆÍ­ÅÆ",({"shan pai"}));
+	set_name( "èµå–„é“œç‰Œ",({"shan pai"}));
   	set_weight(100);
 
   	if( clonep() )
         	set_default_object(__FILE__);
 
-  	set("unit", "¿é");
-  	set("long", "ÕâÊÇÒ»¿éÉÁÉÁ·¢¹âµÄ°×Í­Æ¬×Ó£¬Ô¼ÓĞ°ÍÕÆ´óĞ¡£¬ÅÆ×ÓÕıÃæ¿Ì×ÅÒ»ÕÅĞ¦Á³£¬ºÍ°ª´ÈÏé¡£\n");
+  	set("unit", "å—");
+  	set("long", "è¿™æ˜¯ä¸€å—é—ªé—ªå‘å…‰çš„ç™½é“œç‰‡å­ï¼Œçº¦æœ‰å·´æŒå¤§å°ï¼Œç‰Œå­æ­£é¢åˆ»ç€ä¸€å¼ ç¬‘è„¸ï¼Œå’Œè”¼æ…ˆç¥¥ã€‚\n");
 	set("no_put",1);
 	set("no_get",1);
 	set("no_drop",1);
@@ -53,7 +53,7 @@ int init()
 	string long_msg = this_object()->query( "long" );
 	
   	if ( this_player()->query( "xkd/time" ) )
-  		long_msg += HIC"ÅÆ×Ó±³Ãæ¿ÌµÃÓĞ×Ö£ºÏÀ¿ÍµºÓÚ" + CHINESE_D->chinese_date( ( (this_player()->query( "xkd/time" ) - 950000000 ) * 60 ) ) + "Ç°¹§ºò´ó¼İ¡£\n"NOR;
+  		long_msg += HIC"ç‰Œå­èƒŒé¢åˆ»å¾—æœ‰å­—ï¼šä¾ å®¢å²›äº" + CHINESE_D->chinese_date( ( (this_player()->query( "xkd/time" ) - 950000000 ) * 60 ) ) + "å‰æ­å€™å¤§é©¾ã€‚\n"NOR;
   	this_object()->set( "long", long_msg );
 	return 1;
 }

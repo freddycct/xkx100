@@ -6,12 +6,12 @@ int do_back(object me);
 
 void create()
 {
-	set_name("ºÚÒÂÈË", ({ "heiyi ren","ren"}));
-	set("gender", "ÄĞĞÔ");
+	set_name("é»‘è¡£äºº", ({ "heiyi ren","ren"}));
+	set("gender", "ç”·æ€§");
 	set("quest_no_guard",1);
 	set("no_steal",1);
 	set("no_ansuan",1);
-	set("long", "Ò»¸ö´©×ÅºÚÉ«Ò¹ĞĞÒÂµÄÈË¡£\n");
+	set("long", "ä¸€ä¸ªç©¿ç€é»‘è‰²å¤œè¡Œè¡£çš„äººã€‚\n");
 	set( "chat_chance_combat", 80);         
         set( "chat_msg_combat",({
         		(: exert_function, "recover" :),
@@ -26,7 +26,7 @@ int do_back(object me)
 {			
 	if (objectp(environment(me)))
 	{
-		tell_room(environment(me), me->query("name")+"´Ò´ÒÃ¦Ã¦µÄÀë¿ªÁË¡£\n", ({me}));	
+		tell_room(environment(me), me->query("name")+"åŒ†åŒ†å¿™å¿™çš„ç¦»å¼€äº†ã€‚\n", ({me}));	
 		destruct(me); 
 	}
   return 1;
@@ -48,7 +48,7 @@ int do_back(object me)
          me->add("combat_exp",exp);
          me->add("potential",pot);
 //         me->add("score",score);
-	me->set_temp("prize_reason","ÒåÊ¿");
+	me->set_temp("prize_reason","ä¹‰å£«");
 	me->set_temp("can_give_prize",1);
 	me->set_temp("prize_exp",exp);
 	me->set_temp("prize_pot",pot);
@@ -57,9 +57,9 @@ int do_back(object me)
 	       me->delete_temp("guoys_mis_flag");
 	       me->clear_condition("guoys_mis");	
 
-        tell_object(me,HIW"Äã³É¹¦µØ±£»¤ÁËÒåÊ¿µÄ°²È«£¬\nÄã±»½±ÀøÁË£º\n");
-        tell_object(me,chinese_number(exp) +"µãÊµÕ½¾­Ñé\n" +
-        chinese_number(pot) + "µãÇ±ÄÜ\n"NOR);
+        tell_object(me,HIW"ä½ æˆåŠŸåœ°ä¿æŠ¤äº†ä¹‰å£«çš„å®‰å…¨ï¼Œ\nä½ è¢«å¥–åŠ±äº†ï¼š\n");
+        tell_object(me,chinese_number(exp) +"ç‚¹å®æˆ˜ç»éªŒ\n" +
+        chinese_number(pot) + "ç‚¹æ½œèƒ½\n"NOR);
        } 
         ::die();    
    }
@@ -71,7 +71,7 @@ int accept_hit(object me)
 		if (!this_object()->is_fighting(me)) this_object()->kill_ob(me);
 		return 1;
 	}
-	else return notify_fail(HIW"²»ÊÇÄãÒª×¥µÄÈË£¬´ÕÊ²Ã´ÈÈÄÖ£¡\n"NOR);
+	else return notify_fail(HIW"ä¸æ˜¯ä½ è¦æŠ“çš„äººï¼Œå‡‘ä»€ä¹ˆçƒ­é—¹ï¼\n"NOR);
 }
 int accept_fight(object who)	{return accept_hit(who);}
 int accept_kill(object who)		{return accept_hit(who);}

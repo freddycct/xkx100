@@ -7,9 +7,9 @@ void init()
 }
 void create()
 {
-	set_name(HIB "Ğş±ù"HIG"±Ì»ğ"HIR"¾Æ" NOR,({"xuanbingbihuo jiu", "jiu"}));
+	set_name(HIB "ç„å†°"HIG"ç¢§ç«"HIR"é…’" NOR,({"xuanbingbihuo jiu", "jiu"}));
 	set("taskobj", 1);
-	set("unit", "ºø");
-	set("long", "ÕâÊÇÒ»ºøÕä¹óÖ®¼«µÄĞş±ù±Ì»ğ¾Æ, ¾İËµÄÜ½â°Ù¶¾¡£\n");
+	set("unit", "å£¶");
+	set("long", "è¿™æ˜¯ä¸€å£¶çè´µä¹‹æçš„ç„å†°ç¢§ç«é…’, æ®è¯´èƒ½è§£ç™¾æ¯’ã€‚\n");
 	setup();
 }

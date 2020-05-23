@@ -1,4 +1,4 @@
-// likuilei.c Àî¿þÀÜ
+// likuilei.c æŽå‚€å„¡
 // Modified by Winder June 25. 2000
 inherit NPC;
 inherit F_MASTER;
@@ -7,10 +7,10 @@ inherit F_MASTER;
 
 void create()
 {
-	set_name("Àî¿þÀÜ", ({ "li kuilei", "li" }));
-	set("long","Ëû¿´ÆðÀ´ÇàÃæâ²ÑÀ£¬ºì·¢ÂÌÐë£¬ÐÎ×´¿ÉÅÂÖ®¼«£¬Ö±ÊÇ¸öÑý¹Ö£¬Éí´©Ò»¼þÁÁ¹âÉÁÉÁµÄ½õÅÛ¡£ËûÒ»Éú³ÁÃÔ°çÑÝÏ·ÎÄ£¬·è·èµßµß£¬ÓÚÕâÎäÑ§Ò»µÀ£¬²»ÃâÊèºöÁË¡£\n");
-	set("nickname","¡°º¯¹È°ËÓÑ¡±Ï·ÃÔ");
-	set("gender", "ÄÐÐÔ");
+	set_name("æŽå‚€å„¡", ({ "li kuilei", "li" }));
+	set("long","ä»–çœ‹èµ·æ¥é’é¢ç ç‰™ï¼Œçº¢å‘ç»¿é¡»ï¼Œå½¢çŠ¶å¯æ€•ä¹‹æžï¼Œç›´æ˜¯ä¸ªå¦–æ€ªï¼Œèº«ç©¿ä¸€ä»¶äº®å…‰é—ªé—ªçš„é”¦è¢ã€‚ä»–ä¸€ç”Ÿæ²‰è¿·æ‰®æ¼”æˆæ–‡ï¼Œç–¯ç–¯é¢ é¢ ï¼ŒäºŽè¿™æ­¦å­¦ä¸€é“ï¼Œä¸å…ç–å¿½äº†ã€‚\n");
+	set("nickname","â€œå‡½è°·å…«å‹â€æˆè¿·");
+	set("gender", "ç”·æ€§");
 	set("age", 30);
 	set("attitude", "friendly");
 	set("class", "scholar");
@@ -47,7 +47,7 @@ void create()
 	set("book_count", 1);
 	set("env/wimpy", 60);
 
-	create_family("åÐÒ£ÅÉ", 3, "µÜ×Ó");
+	create_family("é€é¥æ´¾", 3, "å¼Ÿå­");
 	setup();
 	carry_object("/clone/cloth/male-cloth")->wear();
 	carry_object("/clone/weapon/gangdao")->wield();
@@ -55,6 +55,6 @@ void create()
 
 void attempt_apprentice(object ob)
 {
-	command("say ºÃ°É£¬ÎÒ¾ÍÊÕÏÂÄãÁË£¬ÒÔºóÒª¶àÎªåÐÒ£ÅÉ³öÁ¦°¡¡£");
+	command("say å¥½å§ï¼Œæˆ‘å°±æ”¶ä¸‹ä½ äº†ï¼Œä»¥åŽè¦å¤šä¸ºé€é¥æ´¾å‡ºåŠ›å•Šã€‚");
 	command("recruit " + ob->query("id"));
 }

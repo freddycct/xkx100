@@ -4,11 +4,11 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "У��");
+	set("short", "校场");
 	set("long", @LONG
-����У��Ϊ����ˮʦУ�������е㽫¥�ϸ߹ҡ�ʩ���ֺ�����˧
-�죬��ǹҫ�����ԡ�ˮʦ�ᶽʩ��ʩ��������ʮ���۱�������������׳
-�Ĳ��ѡ�
+福州校场为福建水师校场。场中点将楼上高挂“施”字黑锈金边帅
+旗，刀枪耀日生辉。水师提督施琅施大人亲率十万雄兵，隔海相望，壮
+心不已。
 LONG );
 	set("exits", ([ /* sizeof() == 1 */
 	    "west"   : __DIR__"nanmendou",

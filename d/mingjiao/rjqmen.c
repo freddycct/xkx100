@@ -4,10 +4,10 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "����");
+	set("short", "侧门");
 	set("long", @LONG
-����������һ�����ţ����ֻ�ݵ���һ���˽�����ÿ�����ڵ��ˣ�
-�������ʾһ�����ƣ��ſɽ��롣
+这是锐金旗的一个侧门，大概只容得下一个人进出，每个教众到此，
+都必须出示一张腰牌，才可进入。
 LONG );
 	set("exits", ([
 		"enter" : __DIR__"rjqyuan",

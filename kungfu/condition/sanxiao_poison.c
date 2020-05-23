@@ -4,13 +4,13 @@
 
 int update_condition(object me, int duration)
 {
-//	me->receive_wound("qi", 500,1,"ÈýÐ¦åÐÒ£É¢·¢×÷ËÀÁË£¬ËÀµÄÊ±ºò»¹Ãæ´øÎ¢Ð¦");
-//	me->receive_damage("qi", 500,1,"ÈýÐ¦åÐÒ£É¢·¢×÷ËÀÁË£¬ËÀµÄÊ±ºò»¹Ãæ´øÎ¢Ð¦");
-  message("vision", HIG + me->name() + "Á³ÉÏºöÈ»Â¶³ö¹îÒìµÄÒ»Ð¦¡£\n"NOR, environment(me), me);
+//	me->receive_wound("qi", 500,1,"ä¸‰ç¬‘é€é¥æ•£å‘ä½œæ­»äº†ï¼Œæ­»çš„æ—¶å€™è¿˜é¢å¸¦å¾®ç¬‘");
+//	me->receive_damage("qi", 500,1,"ä¸‰ç¬‘é€é¥æ•£å‘ä½œæ­»äº†ï¼Œæ­»çš„æ—¶å€™è¿˜é¢å¸¦å¾®ç¬‘");
+  message("vision", HIG + me->name() + "è„¸ä¸Šå¿½ç„¶éœ²å‡ºè¯¡å¼‚çš„ä¸€ç¬‘ã€‚\n"NOR, environment(me), me);
   if ( duration >= 2 )  duration = 2;
   if ( duration == 0 )
   {
-  	me->set_temp("die_reason","ÈýÐ¦åÐÒ£É¢·¢×÷ËÀÁË£¬ËÀµÄÊ±ºò»¹Ãæ´øÎ¢Ð¦¡£");
+  	me->set_temp("die_reason","ä¸‰ç¬‘é€é¥æ•£å‘ä½œæ­»äº†ï¼Œæ­»çš„æ—¶å€™è¿˜é¢å¸¦å¾®ç¬‘ã€‚");
   	me->die();
 	}
 	if ((int)me->query("eff_jing")<0 || (int)me->query("eff_qi")<0) return 0;

@@ -2,8 +2,8 @@
 inherit NPC;
 #include <ansi.h>
 
-string *first_name = ({"Ð¡"});
-string *name_words = ({ "»¢áÌ"});
+string *first_name = ({"å°"});
+string *name_words = ({ "è™Žå´½"});
 
 void create()
 {
@@ -13,8 +13,8 @@ void create()
 
         set_name(name,({"hu zai"}));
 
-	set("race", "×ßÊÞ");
-        set("long", "Ò»Ö»¸Õ³öÉú¼¸¸öÔÂµÄÐ¡ÀÏ»¢£¬ÕýºÍÍ¬°éÃÇÆË´òÓÎÏ·¡£\n");
+	set("race", "èµ°å…½");
+        set("long", "ä¸€åªåˆšå‡ºç”Ÿå‡ ä¸ªæœˆçš„å°è€è™Žï¼Œæ­£å’ŒåŒä¼´ä»¬æ‰‘æ‰“æ¸¸æˆã€‚\n");
         set("age", 1);
         set("attitude", "peaceful");
 
@@ -48,7 +48,7 @@ void init()
 void die()
 {
 	object ob, corpse;
-	message_vision("$N·¢³öÕðÌì¶¯µØµÄÒ»Éù³¤Ð¥£¬ºäµØµ¹ÔÚµØÉÏ£¬ËÀÁË£¡\n", this_object());
+	message_vision("$Nå‘å‡ºéœ‡å¤©åŠ¨åœ°çš„ä¸€å£°é•¿å•¸ï¼Œè½°åœ°å€’åœ¨åœ°ä¸Šï¼Œæ­»äº†ï¼\n", this_object());
 	if( objectp(corpse = CHAR_D->make_corpse(this_object())) )
 	ob = new("/clone/medicine/vegetable/hugu");
 	ob->move(corpse);

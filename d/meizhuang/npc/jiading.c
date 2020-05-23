@@ -5,12 +5,12 @@ inherit NPC;
 
 void create()
 {
-	set_name("¼Ò¶¡", ({"jia ding", "ding"}));
-	set("long", "ËûÊÇÒ»Î»Éí×ÅÇàÒÂµÄÃ·×¯¼Ò¶¡£¬ÒÂ·þµÄÐä¿ÚÉÏÐå×ÅÒ»¶äÃ·»¨¡£\n"
-		"ÊÖÖÐÄÃ×ÅÒ»¶ÔÅÐ¹Ù±Ê£¬ËÆºõÓÐÒ»ÉíÎäÒÕ¡£\n"
+	set_name("å®¶ä¸", ({"jia ding", "ding"}));
+	set("long", "ä»–æ˜¯ä¸€ä½èº«ç€é’è¡£çš„æ¢…åº„å®¶ä¸ï¼Œè¡£æœçš„è¢–å£ä¸Šç»£ç€ä¸€æœµæ¢…èŠ±ã€‚\n"
+		"æ‰‹ä¸­æ‹¿ç€ä¸€å¯¹åˆ¤å®˜ç¬”ï¼Œä¼¼ä¹Žæœ‰ä¸€èº«æ­¦è‰ºã€‚\n"
 	);
 
-	set("gender", "ÄÐÐÔ");
+	set("gender", "ç”·æ€§");
 	set("attitude", "peaceful");
 	set("class", "fighter");
 
@@ -48,8 +48,8 @@ void init()
 
 	if (interactive(ob) &&
 		(!ob->query("family") ||
-			ob->query("family/family_name") != "ºÚÄ¾ÑÂ") &&
-		environment(ob)->query("short")=="°ÙÄ¾Ô°")
+			ob->query("family/family_name") != "é»‘æœ¨å´–") &&
+		environment(ob)->query("short")=="ç™¾æœ¨å›­")
 	{
 		remove_call_out("kill_ob");
 		call_out("kill_ob", 1, ob);

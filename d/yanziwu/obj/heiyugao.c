@@ -7,24 +7,24 @@ void init()
 }
 void create()
 {
-	set_name(HIC "ºÚÓñ¶ÏĞø¸à" NOR, ({"heiyugao"}));
-	set("unit", "Á£");
-	set("long", "ÕâÊÇÒ»Á£Ç§Äê¼«ÆäÄÑÅäÖÆµÄµÄºÚÓñ¶ÏĞø¸à£¬¾İËµÄÜÆğËÀ»ØÉú¡£\n");
+	set_name(HIC "é»‘ç‰æ–­ç»­è†" NOR, ({"heiyugao"}));
+	set("unit", "ç²’");
+	set("long", "è¿™æ˜¯ä¸€ç²’åƒå¹´æå…¶éš¾é…åˆ¶çš„çš„é»‘ç‰æ–­ç»­è†ï¼Œæ®è¯´èƒ½èµ·æ­»å›ç”Ÿã€‚\n");
 	setup();
 }
 
 int do_eat(string arg)
 {
 	object me=this_player();
-	if(!id(arg)) return notify_fail("ÄãÒª³ÔÊ²Ã´£¿\n");
+	if(!id(arg)) return notify_fail("ä½ è¦åƒä»€ä¹ˆï¼Ÿ\n");
 	if(!present(this_object(), me))
-		return notify_fail("ÄãÒª³ÔÊ²Ã´£¿\n");
+		return notify_fail("ä½ è¦åƒä»€ä¹ˆï¼Ÿ\n");
 	if( me->is_busy() )
-		return notify_fail("±ğ¼±£¬ÂıÂı³Ô£¬Ğ¡ĞÄ±ğÒ­×ÅÁË¡£\n");
+		return notify_fail("åˆ«æ€¥ï¼Œæ…¢æ…¢åƒï¼Œå°å¿ƒåˆ«å™ç€äº†ã€‚\n");
 	this_player()->set_temp("nopoison", 1);
 	this_player()->receive_curing("jing", 200);
 	this_player()->recieve_curing("qi", 200);
-	tell_object(this_player(), HIG "ÄãÖ»¾õÒ»¹ÉÈÈÁ÷ÔÚÆß¾­°ËÂöÖĞÑ­»·ÁËÒ»¸öÖÜÌì£¬Á¢¿ÌÉñ²ÉŞÈŞÈÁË£¡\n" NOR );
+	tell_object(this_player(), HIG "ä½ åªè§‰ä¸€è‚¡çƒ­æµåœ¨ä¸ƒç»å…«è„‰ä¸­å¾ªç¯äº†ä¸€ä¸ªå‘¨å¤©ï¼Œç«‹åˆ»ç¥é‡‡å¥•å¥•äº†ï¼\n" NOR );
 	destruct(this_object());
 	return 1;
 }

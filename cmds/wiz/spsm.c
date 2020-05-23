@@ -10,9 +10,9 @@ int main(object me, string arg)
 	object ob;
 	string name1, name2;
 
-	if (!arg) return notify_fail("÷∏¡Ó∏Ò Ω: smash <living>\n");
+	if (!arg) return notify_fail("Êåá‰ª§Ê†ºÂºè: smash <living>\n");
 	ob = present(arg, environment(me));
-	if (!ob) return notify_fail("’“≤ªµΩ’‚∏ˆ…˙ŒÔ.\n");
+	if (!ob) return notify_fail("Êâæ‰∏çÂà∞Ëøô‰∏™ÁîüÁâ©.\n");
 	name1 = (string)me->query("name");
 	name2 = (string)ob->query("name");
 	ob -> die();
@@ -22,7 +22,7 @@ int main(object me, string arg)
 int help(object me)
 {
    write(@HELP
-÷∏¡Ó∏Ò Ω: smash <…˙ŒÔ>
+Êåá‰ª§Ê†ºÂºè: smash <ÁîüÁâ©>
  
 hehehehehe...........
 

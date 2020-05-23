@@ -6,11 +6,11 @@ inherit ROOM;
 
 void create()
 {
-	set("short", HIR"°µºÓ"NOR);
+	set("short", HIR"æš—æ²³"NOR);
 	set("long", @LONG
-Ô­À´ÕâÕýÊÇÒ»ÌõµØÏÂ°µºÓ£¬´Ë´¦Ë®ÉùÒÑÊÇºäºä£¬ÉùÊÆ¼«Îªº§ÈË¡£Äã
-½ÅÏÂÒ»´¦Ì¤¿Õ£¬±ãÓÐË®Á÷Ö±³åÑÊºí¡£´ËÇ±Á÷²»ÖªÀ´×ÔºÎ´¦£¬¸ü²»ÖªÍ¨Íù
-ºÎ·½¡£
+åŽŸæ¥è¿™æ­£æ˜¯ä¸€æ¡åœ°ä¸‹æš—æ²³ï¼Œæ­¤å¤„æ°´å£°å·²æ˜¯è½°è½°ï¼Œå£°åŠ¿æžä¸ºéª‡äººã€‚ä½ 
+è„šä¸‹ä¸€å¤„è¸ç©ºï¼Œä¾¿æœ‰æ°´æµç›´å†²å’½å–‰ã€‚æ­¤æ½œæµä¸çŸ¥æ¥è‡ªä½•å¤„ï¼Œæ›´ä¸çŸ¥é€šå¾€
+ä½•æ–¹ã€‚
 LONG	);
 
 	set("exits", ([
@@ -30,10 +30,10 @@ void init()
 
 	me->receive_damage("qi", 50 );
 	me->receive_damage("jing", 50 ); 
-	message_vision(HIB"$NµÄÕæÆøÕýÔÚÁ÷Ê§£¬ºôÎüÊ®·ÖÀ§ÄÑ¡£\n"NOR, me);
+	message_vision(HIB"$Nçš„çœŸæ°”æ­£åœ¨æµå¤±ï¼Œå‘¼å¸ååˆ†å›°éš¾ã€‚\n"NOR, me);
 	if ( me->query("qi") < 10 || (int)me->query("jing") < 10)
 	{
-		me->set_temp("last_damage_from","ÔÚ°µºÓÖÐ±»ÑÍ");
+		me->set_temp("last_damage_from","åœ¨æš—æ²³ä¸­è¢«æ·¹");
 		me->unconcious();
 		me->die();
 		return;

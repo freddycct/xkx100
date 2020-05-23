@@ -7,7 +7,7 @@ inherit F_CLEAN_UP;
 
 
 
-#define	SYNTAX	"Ö¸Áî¸ñÊ½£ºmudlist [<Mud Ãû³Æ>]\n"
+#define	SYNTAX	"æŒ‡ä»¤æ ¼å¼ï¼šmudlist [<Mud åç§°>]\n"
 
 int main(object me, string arg)
 {
@@ -18,7 +18,7 @@ int main(object me, string arg)
 	int loop, size;
 
 	if( !find_object(DNS_MASTER) )
-		return notify_fail("ÍøÂ·¾«Áé²¢Ã»ÓĞ±»ÔØÈë£¬ÇëÏÈ½«ÍøÂ·¾«ÁéÔØÈë¡£\n");
+		return notify_fail("ç½‘è·¯ç²¾çµå¹¶æ²¡æœ‰è¢«è½½å…¥ï¼Œè¯·å…ˆå°†ç½‘è·¯ç²¾çµè½½å…¥ã€‚\n");
 
 	//	Obtain mapping containing mud data
 	mud_list = (mapping)DNS_MASTER->query_muds();
@@ -27,7 +27,7 @@ int main(object me, string arg)
 	mud_svc = DNS_MASTER->query_svc() + ([ Mud_name() : 0 ]);
 
 	if(!mud_list)
-		return notify_fail( MUD_NAME + "Ä¿Ç°²¢Ã»ÓĞ¸úÍøÂ·ÉÏÆäËû Mud È¡µÃÁªÏµ¡£\n");
+		return notify_fail( MUD_NAME + "ç›®å‰å¹¶æ²¡æœ‰è·Ÿç½‘è·¯ä¸Šå…¶ä»– Mud å–å¾—è”ç³»ã€‚\n");
 
 	//	Get list of all mud names within name server
 	muds = keys( mud_list ) - ({ "DEFAULT" });
@@ -41,14 +41,14 @@ int main(object me, string arg)
 		arg = htonn(arg);
 
 		if(!mapp( mud_list[arg] )) {
-			write(MUD_NAME + "²¢Ã»ÓĞºÍÕâ¸ö Mud È¡µÃÁªÏµ¡£\n");
+			write(MUD_NAME + "å¹¶æ²¡æœ‰å’Œè¿™ä¸ª Mud å–å¾—è”ç³»ã€‚\n");
 			return 1;
 		}
-		printf("ÓĞ¹Ø %s µÄ×ÊÑ¶£º\n%O\n", arg, mud_list[arg]);
+		printf("æœ‰å…³ %s çš„èµ„è®¯ï¼š\n%O\n", arg, mud_list[arg]);
 		return 1;
 	}
 
-	output = "£Í£Õ£ÄÃû³Æ\t ÖĞÎÄÃû³Æ\t  Íø   Ö·\t¶Ë¿Ú\tÍæ¼ÒÊı\n©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤\n";
+	output = "ï¼­ï¼µï¼¤åç§°\t ä¸­æ–‡åç§°\t  ç½‘   å€\tç«¯å£\tç©å®¶æ•°\nâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€\n";
 
 	//	Loop through mud list and store one by one
 	for(loop = 0, size = sizeof(muds); loop<size; loop++)
@@ -66,9 +66,9 @@ int main(object me, string arg)
 int help(object me)
 {
 	write(@HELP
-Ö¸Áî¸ñÊ½£ºmudlist [<Äà°ÍÃû³Æ>]
+æŒ‡ä»¤æ ¼å¼ï¼šmudlist [<æ³¥å·´åç§°>]
 
-    Õâ¸öÖ¸ÁîÈÃÄãÁĞ³öÄ¿Ç°¸úÕâ¸ö Mud È¡µÃÁªÏµÖĞµÄÆäËû Mud¡£
+    è¿™ä¸ªæŒ‡ä»¤è®©ä½ åˆ—å‡ºç›®å‰è·Ÿè¿™ä¸ª Mud å–å¾—è”ç³»ä¸­çš„å…¶ä»– Mudã€‚
 HELP
 	);
 	return 1;

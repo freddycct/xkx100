@@ -4,10 +4,10 @@
 inherit NPC;
 void create()
 {
-	set_name("¾Þòþ", ({ "ju mang", "mang" }) );
-	set("race", "ÅÀÉß");
+	set_name("å·¨èŸ’", ({ "ju mang", "mang" }) );
+	set("race", "çˆ¬è›‡");
 	set("age", 70);
-	set("long", "Ò»ÌõÎåÕÉÀ´³¤µÄòþ£¡£¡£¡\n");
+	set("long", "ä¸€æ¡äº”ä¸ˆæ¥é•¿çš„èŸ’ï¼ï¼ï¼\n");
 	set("attitude", "aggressive");
 	set("str", 150);
 	set("con", 150);
@@ -22,7 +22,7 @@ void create()
 void die()
 {
 	object ob;
-	message_vision("$N´¹ËÀÕõÔúÁË¼¸ÏÂ¾Í²»¶¯ÁË¡£\n", this_object());
+	message_vision("$Nåž‚æ­»æŒ£æ‰Žäº†å‡ ä¸‹å°±ä¸åŠ¨äº†ã€‚\n", this_object());
 	ob = new("/d/baituo/obj/shepi");
 	ob->move(environment(this_object()));
 	destruct(this_object());

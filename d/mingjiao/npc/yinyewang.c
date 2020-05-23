@@ -7,14 +7,14 @@ inherit F_UNIQUE;
 
 void create()
 {
-	set_name("ÒóÒ°Íõ", ({ "yin yewang", "yin", "yewang", }));
+	set_name("æ®·é‡ç‹", ({ "yin yewang", "yin", "yewang", }));
 	set("long",
-	"ËûÊÇÒ»Î»ÊÖÒ¡ÕÛÉÈµÄÖĞÄêÄĞ×Ó£¬Éí´©Ò»¼ş°×²¼³¤ÅÛ¡£\n"
-	"ËûÊÇ°×Ã¼Ó¥ÍõÒóÌìÕıÖ®×Ó¡£Ò»Ë«ÑÛ¾¦ÓÌÈçÀäµç£¬¾«¹âËÄÉä£¬ÆøÊÆÉãÈË¡£\n"
+	"ä»–æ˜¯ä¸€ä½æ‰‹æ‘‡æŠ˜æ‰‡çš„ä¸­å¹´ç”·å­ï¼Œèº«ç©¿ä¸€ä»¶ç™½å¸ƒé•¿è¢ã€‚\n"
+	"ä»–æ˜¯ç™½çœ‰é¹°ç‹æ®·å¤©æ­£ä¹‹å­ã€‚ä¸€åŒçœ¼ç›çŠ¹å¦‚å†·ç”µï¼Œç²¾å…‰å››å°„ï¼Œæ°”åŠ¿æ‘„äººã€‚\n"
 	);
 
-	set("nickname", "Ò»·É³åÌì");
-	set("gender", "ÄĞĞÔ");
+	set("nickname", "ä¸€é£å†²å¤©");
+	set("gender", "ç”·æ€§");
 	set("attitude", "friendly");
 	set("class", "fighert");
 
@@ -48,9 +48,9 @@ void create()
 	map_skill("parry", "jingang-quan");
 
 	prepare_skill("cuff", "jingang-quan");
-	set("party/party_name",HIG"Ã÷½Ì"NOR);
-	set("party/rank",BLU "ÌìÎ¢ÌÃ" NOR "ÌÃÖ÷");
-	create_family("Ã÷½Ì", 35, "µÜ×Ó");
+	set("party/party_name",HIG"æ˜æ•™"NOR);
+	set("party/rank",BLU "å¤©å¾®å ‚" NOR "å ‚ä¸»");
+	create_family("æ˜æ•™", 35, "å¼Ÿå­");
 	setup();
 
 	carry_object("/d/mingjiao/obj/baipao")->wear();

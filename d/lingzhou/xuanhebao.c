@@ -7,13 +7,13 @@ inherit RIVER;
 void create()
 {
 	::create();
-	set("short", "���ͱ�");
+	set("short", "宣和堡");
 	set("long", @LONG
-�����������С�����ͱ��������ǻƺӣ�������ɳĮ��ֻ������
-��һƬ��������ޣ�ס���Ƕ��Ǵӹ���Ǩ�ƹ����ģ�����Ծ�Ӫ�ֹ�
-��ƷΪ��, �������֯��ë��̺����������ÿ���һ��ʮ�帽���İ�
-�ն�������ڶɹ��ӵ�����ȥ�ϼ����Ӱ����������������Ƕ�������
-��(yell)�����ӡ�
+这里就是西北小镇宣和堡，南面是黄河，西面是沙漠，只有这里
+有一片不大的绿洲，住户们都是从关内迁移过来的，大多以经营手工
+艺品为生, 这里的手织羊毛挂毯颇有名气。每逢初一、十五附近的百
+姓都来到这摆渡过河到关内去赶集。河案边熙熙攘攘，人们都在争着
+叫(yell)船过河。
 LONG	);
 	set("exits", ([
 		"northeast" : __DIR__"mingshazhou",
@@ -23,25 +23,25 @@ LONG	);
 	set("coor/x", -18000);
 	set("coor/y", 32000);
 	set("coor/z", 0);
-  set("yell_about", "����");             // yell ����
-  set("river_type", "��");               // �����ϴ�������
-  set("need_dodge",300);                 // ��Ҫ�����Ṧ
-  set("come_msg_out",   "һҶ���ۻ�����ʻ�˹�����������һ��̤�Ű���ϵ̰����Ա�˿����¡�\n");
-  set("busy_msg",       "ֻ���÷�������������������������æ���š�����\n");
-  set("wait_msg",       "����һֻ�ɴ��ϵ�������˵�������������أ������ɡ�\n");
-  set("leave_msg_out",  "������̤�Ű��������������һ�㣬��������г�ȥ��\n");
-  set("leave_msg_in",   "������̤�Ű���������˵��һ��������ඡ������һ�㣬��������г�ȥ��\n");
-  set("come_msg_in",    "����˵���������ϰ��ɡ����漴��һ��̤�Ű���ϵ̰���\n");
-  set("item_desc/river", HIC "\nֻ����������һ���ɴ���Ҳ��������("
-                         HIY "yell" HIC ")һ������(" HIY "boat" HIC
-                        ")��\n���������������Ը��Ṧ����,Ҳ��ֱ��"
-                        "��ˮ(" HIY "cross" HIC ")̤�Ӷ�����\n" NOR);
-  set("boat_short", "�ɴ�");    
+  set("yell_about", "船家");             // yell 船家
+  set("river_type", "河");               // 江面上传来回响
+  set("need_dodge",300);                 // 需要多少轻功
+  set("come_msg_out",   "一叶扁舟缓缓地驶了过来，艄公将一块踏脚板搭上堤岸，以便乘客上下。\n");
+  set("busy_msg",       "只听得风浪中隐隐传来：“别急嘛，这儿正忙着呐……”\n");
+  set("wait_msg",       "岸边一只渡船上的老艄公说道：正等着你呢，上来吧。\n");
+  set("leave_msg_out",  "艄公把踏脚板收了起来，竹篙一点，扁舟向河中撑去。\n");
+  set("leave_msg_in",   "艄公把踏脚板收起来，说了一声“坐稳喽”，竹篙一点，扁舟向河中撑去。\n");
+  set("come_msg_in",    "艄公说“到啦，上岸吧”，随即把一块踏脚板搭上堤岸。\n");
+  set("item_desc/river", HIC "\n只见近岸处有一条渡船，也许大声喊("
+                         HIY "yell" HIC ")一声船家(" HIY "boat" HIC
+                        ")就\n能听见。倘若你自负轻功绝佳,也可直接"
+                        "渡水(" HIY "cross" HIC ")踏河而过。\n" NOR);
+  set("boat_short", "渡船");    
   set("boat_desc",  @LONG
-�ƺ��ϵ�С�۶������ֺܼ�ª��С�ۡ�һλ����������վ�ڴ�β
-�������ƶ棬һλ����׳˶��С����Ҳ�ڴ�ͷ�þ��ػ�ˮ�Ŵ����ƺ�
-ˮ���ļ������»��ܿ죬���ȴ������
+黄河上的小舟都是这种很简陋的小舟。一位中年艄公正站在船尾
+吃力地掌舵，一位膀子壮硕的小伙子也在船头用劲地划水撑船。黄河
+水流湍急，船下滑很快，横渡却很慢。
 LONG );
-  set("to",         "/d/yongdeng/guchangcheng");  // �����յ� /*   ��ѡ   */
+  set("to",         "/d/yongdeng/guchangcheng");  // 船的终点 /*   必选   */
 	setup();
 }

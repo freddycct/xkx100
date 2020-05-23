@@ -38,28 +38,28 @@ int main(object me, string arg)
         string prefix, *file_name;
 
         if (!me->query("env/yesiknow"))
-                return notify_fail("Σ��ָ����ã����ã�\n");
+                return notify_fail("危险指令，慎用！慎用！\n");
 
 	set_eval_limit(2100000000);
 	reset_eval_cost();
 
 	if (!arg) {
 		if (env->query("border")) {
-                	write("���� " + base_name(env) + " �ѷǱ߽硣\n");
+                	write("房间 " + base_name(env) + " 已非边界。\n");
                 	env->delete("border");
                 	return 1;
                 } else 
-			return notify_fail("���ﱾ���Ͳ��Ǳ߽硣\n");
+			return notify_fail("这里本来就不是边界。\n");
 	}
 
 	if (member_array(arg, keys(map_dirs)) != -1) {
         	if (env->query("border/" + arg)) {
-                	write("���� " + base_name(env) + " �ѷǱ߽硣\n");
+                	write("房间 " + base_name(env) + " 已非边界。\n");
                 	env->delete("border");
                 	return 1;
                 } else {
 	               	env->set("border/" + arg, 1);
-        	       	write("���� " + base_name(env) + " ��" + arg + "��������Ϊ�߽硣\n");
+        	       	write("房间 " + base_name(env) + " 的" + arg + "方向已设为边界。\n");
                		return 1;
         	}
         }
@@ -71,7 +71,7 @@ int main(object me, string arg)
 		all = 1;
 
         if (sscanf(arg, "%d,%d,%d", x, y, z) != 3)
-               	return notify_fail("�÷����ԣ���ο�������\n");
+               	return notify_fail("用法不对，请参考帮助。\n");
 
         seteuid(getuid());
 
@@ -88,9 +88,9 @@ int main(object me, string arg)
         	if (env->query("coor"))
         		clear_old_coor(env);
                 if (env->query("coor") != 0)
-	                write("���� " + base_name(env) + " ���������趨�ɹ���\n");
+	                write("房间 " + base_name(env) + " 坐标重新设定成功。\n");
 	        else
-	        	write("���� " + base_name(env) + " �����趨�ɹ���\n");
+	        	write("房间 " + base_name(env) + " 坐标设定成功。\n");
                 env->set("coor/x", x);
                 env->set("coor/y", y);
                 env->set("coor/z", z);
@@ -98,7 +98,7 @@ int main(object me, string arg)
         } else
                 non_recur_do(env, x, y, z, prefix);
 
-	write("����λ " + sprintf("%d", file_count) + " �����䡣\n");
+	write("共定位 " + sprintf("%d", file_count) + " 个房间。\n");
         return 1;
 }
 
@@ -115,7 +115,7 @@ int non_recur_do(object room, int x, int y, int z, string prefix)
        	room->set("coor/y", y);
        	room->set("coor/z", z);
        	file_count ++;
-        write("���� " + base_name(room) + " �����趨�ɹ���\n");
+        write("房间 " + base_name(room) + " 坐标设定成功。\n");
         roomlist += ([base_name(room) : room]);
 
 	while (sizeof(roomlist)) {
@@ -162,14 +162,14 @@ int non_recur_do(object room, int x, int y, int z, string prefix)
        					next_room->set("coor/y", y);
        					next_room->set("coor/z", z);
        					file_count ++;
-        				write("���� " + base_name(next_room) + " �����趨�ɹ���\n");
+        				write("房间 " + base_name(next_room) + " 坐标设定成功。\n");
        				        roomlist += ([base_name(next_room) : next_room]);
        				} else if (!curr_room->query("border/" + dir)){
 				        next_room->set("coor/x", x);
        					next_room->set("coor/y", y);
        					next_room->set("coor/z", z);
        					file_count ++;
-        				write("���� " + base_name(next_room) + " �����趨�ɹ���\n");
+        				write("房间 " + base_name(next_room) + " 坐标设定成功。\n");
        				        roomlist += ([base_name(next_room) : next_room]);
        				}
        			}
@@ -199,17 +199,17 @@ void clear_old_coor(object room)
 int help(object me)
 {
 write(@HELP
-ָ���ʽ : coor <����> x,y,z
+指令格式 : coor <参数> x,y,z
 
-�÷���
-        coor		�����ǰ�������з���ı߽����ԡ�
-        coor <����>	���õ�ǰ����ĸ÷�����Ϊ�߽磬�����֮������
-        		���ø÷���Ϊ�߽硣
-        coor x,y,z	����ǰ�����Ѷ�λ�������µ����趨�õ�ǰ�����
-        		���ꣻ��������������ֱ��ͬһĿ¼�����з��䶼
-        		��������Ϊֹ��
-        coor -a x,y,z	ͬ�ϣ�����ͬһĿ¼���ơ�
-	coor -s x,y,z	���۵�ǰ�����Ƿ��Ѷ�λ�����²����������÷��䡣
+用法：
+        coor		清除当前房间所有方向的边界属性。
+        coor <方向>	若该当前房间的该方向已为边界，则清除之，否则
+        		设置该方向为边界。
+        coor x,y,z	若当前房间已定位，则重新单独设定该当前房间的
+        		坐标；否则连锁处理，直到同一目录下所有房间都
+        		被处理过为止。
+        coor -a x,y,z	同上，但无同一目录限制。
+	coor -s x,y,z	无论当前房间是否已定位，重新并单独处理该房间。
 	
 HELP
 );

@@ -7,7 +7,7 @@
 ###############################################################################
  
 # name of this mud
-name : ÏÀ¿ÍÐÐÒ»°Ù
+name : XKX100
  
 # port number to accept users on
 port number : 5555
@@ -18,10 +18,10 @@ address server ip : localhost
 address server port : 9030
  
 # absolute pathname of mudlib
-mudlib directory : .
+mudlib directory : /Users/bz681hk/Documents/mud/xkx100
  
 # absolute pathname of driver/config dir
-binary directory : .
+binary directory : /Users/bz681hk/Documents/mud/xkx100
  
 # debug.log and author/domain stats are stored here
 log directory : /adm/log
@@ -119,7 +119,7 @@ default fail message : What?
 
 # default message when error() occurs (optional)
 # default error message : Something *REALLY* bad just happened.
-default error message : Äã¾õµÃÓÐµãÊ²Ã´²»¶Ô¾¢, ¿ÉÊÇÄãÈ´Ëµ²»ÉÏÀ´.
+default error message : ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ðµï¿½Ê²Ã´ï¿½ï¿½ï¿½Ô¾ï¿½, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È´Ëµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½.
 
 # file to include in all LPC objects (optional)
 global include file : <global.h>

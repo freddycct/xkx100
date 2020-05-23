@@ -5,7 +5,7 @@
 
 #define MAX_MSG_BUFFER 500
 
-static string *msg_buffer = ({});
+protected string *msg_buffer = ({});
 
 void receive_message(string msgclass, string msg)
 {
@@ -50,7 +50,7 @@ void receive_message(string msgclass, string msg)
 void write_prompt()
 {
 	if( sizeof(msg_buffer) ) {
-		receive(BOLD "[输入时暂存讯息]\n" NOR);
+		receive(BOLD "[杈撳叆鏃舵殏瀛樿鎭痌\n" NOR);
 		for(int i=0; i<sizeof(msg_buffer); i++)
 			receive(msg_buffer[i]);
 		msg_buffer = ({});

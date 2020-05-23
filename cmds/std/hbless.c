@@ -30,7 +30,7 @@ TEXT,
                   |     .    .    . +.    +  .
                  \|/            .       .   . .
         . .       V          .    * . . .  .  +   .
-           +     ¡î           .   .      +
+           +     â˜†           .   .      +
                             .       . +  .+. .
   .                      .     . + .  . .     .      .
            .      .    .     . .   . . .
@@ -59,7 +59,7 @@ TEXT,
       __/M__                    p-p_|__|__|_____|__|__|_q-q      **Y**
  ____|O_^_O|___________________[EEEEM==M==MM===MM==M==MEEEE]-__....|....
 
-    £Ä£Ï £Ù£Ï£Õ £Æ£Å£Å£Ì £Ô£È£Å £Ì£Ï£Ö£Å £Ô£Ï£Î£É£Ç£È£Ô£¿
+    ï¼¤ï¼¯ ï¼¹ï¼¯ï¼µ ï¼¦ï¼¥ï¼¥ï¼¬ ï¼´ï¼¨ï¼¥ ï¼¬ï¼¯ï¼¶ï¼¥ ï¼´ï¼¯ï¼®ï¼©ï¼§ï¼¨ï¼´ï¼Ÿ
 TEXT,
 @TEXT
                     {}   {}
@@ -101,7 +101,7 @@ TEXT,
             /---------------------------------\
             ||                               ||
             ||                               ||
-            ||  £È£á£ğ£ğ£ù £â£é£ò£ô£è£ä£á£ù  ||
+            ||  ï¼¨ï½ï½ï½ï½™ ï½‚ï½‰ï½’ï½”ï½ˆï½„ï½ï½™  ||
             ||                               ||
             ||                               ||
             ||-------------------------------||
@@ -177,26 +177,26 @@ int main(object me,string arg)
 	env = environment(me);
 
 	if( !arg || sscanf(arg, "%s with %s", id1, id2) != 2 )
-		return notify_fail("Ö¸Áî¸ñÊ½£ºmbless MALE with FEMALE\n");
+		return notify_fail("æŒ‡ä»¤æ ¼å¼ï¼šmbless MALE with FEMALE\n");
 	if(!objectp(male = present(id1, environment(me))) ||
 		!objectp(female = present(id2, environment(me))))
-		return notify_fail("ÕâÀïÃ»ÓĞÕâÁ½¸öÈËÅ¶~~\n");
+		return notify_fail("è¿™é‡Œæ²¡æœ‰è¿™ä¸¤ä¸ªäººå“¦~~\n");
 
 	if ( ! living( male ) || ! living (female) )
-		return notify_fail("¿´Çå³şµã£¬ÄÇ²»ÊÇ»îµÄ¡£\n");
-	if(( male->query("gender")!="ÄĞĞÔ" && male->query("gender")!="ĞÛĞÔ") ||
-	(female->query("gender")!="Å®ĞÔ" && female->query("gender")!="´ÆĞÔ"))
-		return notify_fail("°İÍĞ£¬²»Òª´íµãÔ§ÑìÅ¶~~~\n");
+		return notify_fail("çœ‹æ¸…æ¥šç‚¹ï¼Œé‚£ä¸æ˜¯æ´»çš„ã€‚\n");
+	if(( male->query("gender")!="ç”·æ€§" && male->query("gender")!="é›„æ€§") ||
+	(female->query("gender")!="å¥³æ€§" && female->query("gender")!="é›Œæ€§"))
+		return notify_fail("æ‹œæ‰˜ï¼Œä¸è¦é”™ç‚¹é¸³é¸¯å“¦~~~\n");
 
 	name1 = male->query("name");
 	name2 = female->query("name");
 	if ((me->query("qi")<100) || (me->query("jing")<100) ||
 		(me->query("neili")<100))
-		return notify_fail("ÄãÃ»ÓĞ¾«Éñ×£¸£ÈË¼ÒÁË£¡\n");
+		return notify_fail("ä½ æ²¡æœ‰ç²¾ç¥ç¥ç¦äººå®¶äº†ï¼\n");
 	me->set("qi",10);
 	me->set("jing",10);
 	me->set("neili",10);
-	message_vision(CYN"$Nò¯³ÏµØË«ÊÖºÏÊ®£¬Ä¬Ä¬µØÆíµ»µÀ£º°®ÉñÑ½£¬Çë´ÍÓè"+name1+"ºÍ"+name2+CYN"ĞÒ¸£°É£¡Ô¸ËûÃÇ»á\nÓÀÔ¶ÏàÇ×Ïà°®£¬»¥Ïà·ö³Ö£¬°®»ğÓÀ²»Ï¨Ãğ£¡\n",me);
+	message_vision(CYN"$Nè™”è¯šåœ°åŒæ‰‹åˆåï¼Œé»˜é»˜åœ°ç¥ˆç¥·é“ï¼šçˆ±ç¥å‘€ï¼Œè¯·èµäºˆ"+name1+"å’Œ"+name2+CYN"å¹¸ç¦å§ï¼æ„¿ä»–ä»¬ä¼š\næ°¸è¿œç›¸äº²ç›¸çˆ±ï¼Œäº’ç›¸æ‰¶æŒï¼Œçˆ±ç«æ°¸ä¸ç†„ç­ï¼\n",me);
 	call_out("show_picture", 2 + random( 3 ), name1, name2);
 	return 1;
 }
@@ -204,7 +204,7 @@ int main(object me,string arg)
 void show_picture(string name1, string name2)
 {
 	string str;
-	str = GRN"Ö»Ìı¼û¶«·½ºäÂ¡Â¡µØÏìÁËÒ»Éù£¬Ò»¸öæ¯ÃÀµÄÅ®ÉùÏìÆğ£º\n\t"HIM+name1+BLU"ºÍ"HIM+name2+BLU"½«ÔÚÎÒµÄ±Ó»¤ÏÂÓÀÔ¶\nĞÒ¸££¡ÎÒÒÔ°®ÉñµÄÃûÒåÆğÊÄ£¡\n\n\n"NOR;
+	str = GRN"åªå¬è§ä¸œæ–¹è½°éš†éš†åœ°å“äº†ä¸€å£°ï¼Œä¸€ä¸ªå§£ç¾çš„å¥³å£°å“èµ·ï¼š\n\t"HIM+name1+BLU"å’Œ"HIM+name2+BLU"å°†åœ¨æˆ‘çš„åº‡æŠ¤ä¸‹æ°¸è¿œ\nå¹¸ç¦ï¼æˆ‘ä»¥çˆ±ç¥çš„åä¹‰èµ·èª“ï¼\n\n\n"NOR;
 	message("vision", str, users());
 	call_out("show_flower", 2, name1, name2);
 }
@@ -212,9 +212,9 @@ void show_picture(string name1, string name2)
 void show_flower(string name1, string name2)
 {
 	string str;
-	str = "Ìì¿ÕÖĞÍ»È»ÉÁ³öÒ»µÀÑ¤ÀöµÄ»ğ»¨£¬Ò»¸ö¾Ş´óµÄÍ¼°¸Öğ½¥\nÏÔÏÖ£º\n";
+	str = "å¤©ç©ºä¸­çªç„¶é—ªå‡ºä¸€é“ç»šä¸½çš„ç«èŠ±ï¼Œä¸€ä¸ªå·¨å¤§çš„å›¾æ¡ˆé€æ¸\næ˜¾ç°ï¼š\n";
 	str += color1[random(sizeof(color1))]+pic[random(sizeof(pic))]+NOR;
-	str += YEL"ËÄÏÂÀïÒşÒş´«À´ÖÚÈËÉî³ÁµÄ×£¸£Éù£º\n     ¡°"HIM+name1+YEL"ºÍ"HIM+name2+YEL"ÓÀÔ¶ĞÒ¸£...\n                                           ÓÀÔ¶ĞÒ¸££¡£¡¡±\n\n\n"NOR;
+	str += YEL"å››ä¸‹é‡Œéšéšä¼ æ¥ä¼—äººæ·±æ²‰çš„ç¥ç¦å£°ï¼š\n     â€œ"HIM+name1+YEL"å’Œ"HIM+name2+YEL"æ°¸è¿œå¹¸ç¦...\n                                           æ°¸è¿œå¹¸ç¦ï¼ï¼â€\n\n\n"NOR;
 	message("vision", str, users());
 	if ( random( 2) )
 		call_out( "show_flower",2 + random ( 3 ), name1, name2 );
@@ -223,9 +223,9 @@ void show_flower(string name1, string name2)
 int help(object me)
 {
 	write(@HELP
-Ö¸Áî¸ñÊ½ : hbless <ÄĞÃû> with <Å®Ãû>
+æŒ‡ä»¤æ ¼å¼ : hbless <ç”·å> with <å¥³å>
 
-    Õâ¸öÖ¸Áî¿ÉÒÔÈÃÄãÖÔĞÄ×£ºØÒ»Ğ©Ï²ÊÂ¡£
+    è¿™ä¸ªæŒ‡ä»¤å¯ä»¥è®©ä½ è¡·å¿ƒç¥è´ºä¸€äº›å–œäº‹ã€‚
 
 HELP
 	);

@@ -4,11 +4,11 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "��ʯ��");
+	set("short", "青石阶");
 	set("long", @LONG
-����ɽ·��������ʯ��·��̦�۵��࣬·������ΡΡ��·��������
-����ԶԶ�ģ�ֻ��ǰ��������ϡ�����ɫ������չ����˵�����һ�����
-�˾��أ���������������ʯ��
+这里山路渐宽，青石铺路，苔痕淡青，路左青松巍巍，路右藤萝绕
+树，远远的，只见前方房宇依稀，赤红色旗帜招展，听说明教烈火旗在
+此据守，数百年来固如磐石。
 LONG );
 	set("exits", ([
 		"southdown" : __DIR__"shanlu3",

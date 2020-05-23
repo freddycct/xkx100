@@ -9,9 +9,9 @@ inherit F_CLEAN_UP;
 
 
 string *reject_msg = ({
-	"˵������̫�����ˣ�����ô�ҵ���\n",
-	"�����ܳ�����һ����˵������̣�����ô�ҵ���\n",
-	"Ц��˵��������Ц�ˣ��������С�������ʸ�ָ�㡹��ʲô��\n",
+	"说道：您太客气了，这怎么敢当？\n",
+	"像是受宠若惊一样，说道：请教？这怎么敢当？\n",
+	"笑着说道：您见笑了，我这点雕虫小技怎够资格「指点」您什么？\n",
 });
 
 void create() { seteuid(getuid()); }
@@ -26,19 +26,19 @@ int main(object me, string arg)
 	 int i;
 	 
 	if (me->is_busy())
-		return notify_fail("��������æ���ء�\n");
+		return notify_fail("你现在正忙着呢。\n");
 	if (environment(me)->is_chat_room())
-	  return notify_fail("�����ֹ������\n");
+	  return notify_fail("这里禁止练功。\n");
 	if(!arg || (sscanf(arg, "%s %s %d", teacher, skill, times)!=3 ))
-		return notify_fail("ָ���ʽ��learn|xue <ĳ��> <����> <����>\n");
+		return notify_fail("指令格式：learn|xue <某人> <技能> <次数>\n");
 	if (times < 1 || times > 100)
-		return notify_fail("ѧϰ��������һ�Σ����Ҳ���ܳ���һ�ٴΡ�\n");
+		return notify_fail("学习次数最少一次，最多也不能超过一百次。\n");
 	if( me->is_fighting() )
-		return notify_fail("����ĥǹ������������\n");
+		return notify_fail("临阵磨枪？来不及啦。\n");
 	if( !(ob = present(teacher, environment(me))) || !ob->is_character())
-		return notify_fail("��Ҫ��˭��̣�\n");
+		return notify_fail("你要向谁求教？\n");
 	if( !living(ob) || ob->query_temp("noliving") )
-		return notify_fail("��....����Ȱ�"+ob->name()+"Ū����˵��\n");
+		return notify_fail("嗯....你得先把"+ob->name()+"弄醒再说。\n");
 
   notify_fail( ob ->name() + reject_msg[random(sizeof(reject_msg))] );
 	if( !me->is_apprentice_of(ob) && !(ob->recognize_apprentice(me,skill)) )
@@ -46,35 +46,35 @@ int main(object me, string arg)
 		return	0;	
 	}
 	if( !master_skill = ob->query_skill(skill, 1) )
-		return notify_fail("���������±����ұ���ѧ�ˡ�\n");
+		return notify_fail("这项技能你恐怕必须找别人学了。\n");
 
 	if (stringp(flag = ob->query("no_teach/" + skill)))
 	{
-		message_vision(CYN "$N" CYN "ҡҡͷ��˵����" + flag + "\n" NOR, ob);
+		message_vision(CYN "$N" CYN "摇摇头，说道：" + flag + "\n" NOR, ob);
 		return 1;
 	} else
 	if (intp(flag) && flag)
 	{
 		if (flag != 1)
 			// show the messaeg if the result was not -1
-			write(CYN + ob->name() + CYN "˵�����Բ���" +
-				to_chinese(skill) + "�ɲ�����㴫�ڡ�\n" NOR);
+			write(CYN + ob->name() + CYN "说道：对不起，" +
+				to_chinese(skill) + "可不能随便传授。\n" NOR);
 					return 1;
 	}
 
-  notify_fail(ob->name() + "��Ը���������ܡ�\n");
+  notify_fail(ob->name() + "不愿意教你这项技能。\n");
 	if( ob->prevent_learn(me, skill) )
 		return 0;
 	my_skill = me->query_skill(skill, 1);
 	if( my_skill >= master_skill )
-		return notify_fail("�������ĳ̶��Ѿ�������ʦ���ˡ�\n");
+		return notify_fail("这项技能你的程度已经不输你师父了。\n");
 	if( my_skill >= (int)(master_skill - me->query("betrayer")*2))
-		return notify_fail(ob->name() +"������üͷ�������������ȥ����ʦ������\n");
+		return notify_fail(ob->name() +"皱了皱眉头，不禁想起你过去的叛师经历。\n");
 	if ( userp(ob) && my_skill >= 200 )
-		return notify_fail("����Ŀǰ���������Ѳ��������ѧϰ�ˡ�\n");
+		return notify_fail("依你目前的能力，已不需向玩家学习了。\n");
 	if ((SKILL_D(skill)->type())!="knowledge" && my_skill >= 250)
-	  return notify_fail(ob->name() + "˵������" + to_chinese(skill) +"�Ĺ����Ѿ��Ƿ�ͬ�����ˣ��ҾͲ��ٽ��㣬���Լ����о��ɡ�\n");
-	notify_fail("����Ŀǰ��������û�а취ѧϰ���ּ��ܡ�\n");
+	  return notify_fail(ob->name() + "说道：你" + to_chinese(skill) +"的功力已经是非同凡响了，我就不再教你，你自己多研究吧。\n");
+	notify_fail("依你目前的能力，没有办法学习这种技能。\n");
 	if( !SKILL_D(skill)->valid_learn(me) ) 
 	return 0;
 
@@ -86,11 +86,11 @@ int main(object me, string arg)
 	}
 
 	if( (me->query("potential") - me->query("learned_points")) < times )
-		return notify_fail("���Ǳ�ܲ���ѧϰ��ô����ˡ�\n");
-	printf(HIC"����%s�����"+chinese_number(times)+"���йء�%s�������ʡ�\n"NOR, ob->name(), to_chinese(skill));
+		return notify_fail("你的潜能不够学习这么多次了。\n");
+	printf(HIC"你向%s请教了"+chinese_number(times)+"句有关「%s」的疑问。\n"NOR, ob->name(), to_chinese(skill));
 	if( ob->query("env/no_teach") )
-		return notify_fail("����" + ob->name() + "���ڲ���׼���ش�������⡣\n");
-	tell_object(ob, sprintf("%s��������йء�%s�������⡣\n",
+		return notify_fail("但是" + ob->name() + "现在并不准备回答你的问题。\n");
+	tell_object(ob, sprintf("%s向你请教有关「%s」的问题。\n",
 		me->name(), to_chinese(skill)));
 	if (userp(ob))
 	if(  (int)ob->query("jing") > jing_cost*times/5 + 1 )
@@ -99,18 +99,18 @@ int main(object me, string arg)
 	}
 	else
 	{
-		write("����" + ob->name() + "��Ȼ̫���ˣ�û�а취����ʲô��\n");
-		tell_object(ob, "������̫���ˣ�û�а취��"+me->name()+"��\n");
+		write("但是" + ob->name() + "显然太累了，没有办法教你什么。\n");
+		tell_object(ob, "但是你太累了，没有办法教"+me->name()+"。\n");
 		return 1;
 	}
 		if( (string)SKILL_D(skill)->type()=="martial" &&
 		my_skill*my_skill*my_skill/10 > (int)me->query("combat_exp") )
 		{
-			return notify_fail("Ҳ����ȱ��ʵս���飬���"+ob->name()+"�Ļش������޷���ᡣ\n");
+			return notify_fail("也许是缺乏实战经验，你对"+ob->name()+"的回答总是无法领会。\n");
 		}
     if (!me->query("env/auto_regenerate") && 
         				me->query("jing")< jing_cost * times)
-							return notify_fail("�����̫���ˣ����ʲôҲû��ѧ����\n");
+							return notify_fail("你今天太累了，结果什么也没有学到。\n");
 //	if( (int)me->query("jing") > jing_cost * times )
 			for (pertimes = 0; pertimes < times ; pertimes ++)
 			{
@@ -120,7 +120,7 @@ int main(object me, string arg)
                 SKILL_D("force/regenerate")->exert(me, me))
               {
               // try to regenerate & learn again
-               write("����þ������һЩ����������ѧϰ��\n");
+               write("你觉得精神好了一些，继续进行学习。\n");
                pertimes--;
                 continue;
             } else
@@ -137,60 +137,60 @@ int main(object me, string arg)
 			{
 				for (i=0;i<pertimes;i++)
 				{
-// ѧϰ�ٶ� = �������Լ����������Եĺ͵�һ�룬���书ѧϰ������
-// δ����ѧϰ�����ļ��ܣ�Ĭ��ѧϰ����Ϊ10��
+// 学习速度 = 后天悟性加上先天悟性的和的一半，加武功学习补偿。
+// 未定义学习补偿的技能，默认学习补偿为10。
 					improve_points = (me->query_int()+me->query("int"))/2;
 					if(SKILL_D(skill)->learn_bonus())
 						improve_points += SKILL_D(skill)->learn_bonus();
 					else improve_points += 10;
-// ������ʦ��ѧϰ���ܵ��ٶȣ����ض���ʦ�ĳͷ���
+// 调整向师父学习技能的速度，加重对叛师的惩罚。
 					improve_points = improve_points / (me->query("betrayer") + 1);
 					if (improve_points < 15) improve_points = 15;
 					improve_points = random(improve_points);
-// ��ʦ�����ڲ������ı��ʡ�== 0ʱ����⡣
+// 对师傅传授产生误解的比率。== 0时候误解。
 //				if(random(SKILL_D(skill)->success()) )
 						me->improve_skill(skill, improve_points);
 				}
 				if(skill_name = SKILL_D(skill)->query_skill_name(my_skill))
-	 				printf("������%s��ָ�����ԡ�%s����һ���ƺ���Щ�ĵá�\n", ob->name(), skill_name);
+	 				printf("你听了%s的指导，对「%s」这一招似乎有些心得。\n", ob->name(), skill_name);
 				else
-					printf("������%s��ָ�����ƺ���Щ�ĵá�\n", ob->name());
+					printf("你听了%s的指导，似乎有些心得。\n", ob->name());
         if (pertimes < times)
-         return notify_fail("���������̫���ˣ�ѧϰ��" + chinese_number(pertimes) +"���Ժ�ֻ����ͣ������\n");
+         return notify_fail("但是你今天太累了，学习了" + chinese_number(pertimes) +"次以后只好先停下来。\n");
 			}
 			else
-				return notify_fail("�����̫���ˣ����ʲôҲû��ѧ����\n");
+				return notify_fail("你今天太累了，结果什么也没有学到。\n");
 	return 1;
 }
 
 int help(object me)
 {
 	write(@HELP
-ָ���ʽ : learn|xue <ĳ��> <����> <����>
+指令格式 : learn|xue <某人> <技能> <次数>
 
-    ���ָ������������������й�ĳһ�ּ��ܵ��������⣬��Ȼ����
-��̵Ķ�����������ϵ�����������ߣ����㾭�����ַ�ʽѧϰ����
-�ļ���Ҳ�����ܸ���������̵��ˣ�Ȼ����Ϊ����ѧϰ��ʽ�൱�һ�֡�
-����Ĵ��С������ѧϰ����˵����Ϥһ���¼������ķ�����
+    这个指令可以让你向别人请教有关某一种技能的疑难问题，当然，你
+请教的对象在这项技能上的造诣必须比你高，而你经由这种方式学习得来
+的技能也不可能高于你所请教的人，然而因为这种学习方式相当於一种「
+经验的传承」，因此学习可以说是熟悉一种新技能最快的方法。
 
-    ͨ����һ���˸�ѧ��һ���¼����ǲ�����ʲô��������ģ����Ǿ���
-ʵ���ϵ�Ӧ�����������⣬��Щ������ѧϰһ���¼��ܵĹ����Ǻ���Ҫ
-�ģ������Ǹ�����Ϊ�������ܻ����Ļ������ܣ�����Ҫ���ɡ��������⡪
-������⡹�Ĺ��̲��ܵõ��Ϻõ�Ч��������ǽ����ַ�������Ĺ�����
-��Ǳ�ܡ��Ĺ����ʾ��һ�����ܹ��Լ�����ĳЩ���⣬��ʾ���������н�
-�����������Ǳ�ܣ��������������Ǳ��ʱ�Ϳ����������ָ����������
-����̣�����ý�����
+    通常，一个人刚学到一种新技能是不会有什么疑难问题的，而是经由
+实际上的应用中遭遇问题，这些问题对於学习一种新技能的过程是很重要
+的，尤其是各种作为其他技能基础的基本技能，更需要经由「发现问题—
+解决问题」的过程才能得到较好的效果因此我们将这种发现问题的过程用
+「潜能」的观念表示，一个人能够自己发现某些问题，表示他（她）有解
+决这项问题的潜能，当你具有这样的潜能时就可以利用这个指令来向其他
+人请教，而获得进步。
 
-(PS. Ǳ�ܻ�������������Ķ��壬����ֻ������֮һ )
+(PS. 潜能还有其他更广义的定义，这里只是其中之一 )
 
-    ����ѧϰҲ��Ҫ����һЩ�����������ĵľ��������Լ�������ѧϰ��
-��������йء�
+    此外学习也需要消耗一些精力，而消耗的精力跟你自己、与你学习对
+象的悟性有关。
 
-    �������֪�����ܴӶԷ�ѧ��ʲô���ܣ�����Է������ʦ��������
-�� skills ָ��ֱ�Ӳ鿴������������ʦ������ôͨ��������������ʾ��
-��ֻ���Լ���취��
+    至于如何知道你能从对方学到什么技能，如果对方是你的师父，可以
+用 skills 指令直接查看，如果不是你的师父，那么通常会有其他的提示，
+你只好自己想办法。
 
-�������ָ�� : apprentice, practice, skills, study
+其他相关指令 : apprentice, practice, skills, study
 HELP
 	);
 	return 1;

@@ -7,8 +7,8 @@ int yingtao = 1;
 
 void  create()
 {
-	set_name("¹ÏÅ©", ({ "gua nong" }));
-	set("gender", "ÄÐÐÔ");
+	set_name("ç“œå†œ", ({ "gua nong" }));
+	set("gender", "ç”·æ€§");
 	set("age", 25);
 	set("per", 15);
 	set("combat_exp", 100);
@@ -24,7 +24,7 @@ void  create()
         	__DIR__"obj/hen",
         }));	
         set("inquiry", ([
-        	"Ó£ÌÒ"	: (: ask_for_y :),
+        	"æ¨±æ¡ƒ"	: (: ask_for_y :),
         ]));
         setup();
         carry_object("/clone/misc/cloth")->wear();	
@@ -41,11 +41,11 @@ int  ask_for_y()
 	object me = this_player(), ob;
 	
 	if ( yingtao == 0 || random(me->query("kar")) < 10 ) 
-                command( "say ÄúÀ´µÃÌ«³Ù£¬Ó£ÌÒÎÒÒÑ¾­ËÍÈËÁË¡£" );
+                command( "say æ‚¨æ¥å¾—å¤ªè¿Ÿï¼Œæ¨±æ¡ƒæˆ‘å·²ç»é€äººäº†ã€‚" );
 	else {
-		command( "say ÎÒ×Ô¼ºÔÔµÄÓ£ÌÒÊ÷½ñÄê½á¹ûÁË£¬ÕªÁËÂúÂúÒ»ÀºÄÇ¡£" );
-		command( "say ¼ÈÈ»ÕâÎ»" + RANK_D->query_respect(me) + "¿ª¿ÚÁË£¬¾ÍËÍÄãÒ»Ð©°É¡£" );
-		message_vision( "¹ÏÅ©´ÓÀºÀïµ¹ÁËÒ»Ð©Ó£ÌÒ³öÀ´ËÍ¸ø$N¡£\n", me );
+		command( "say æˆ‘è‡ªå·±æ ½çš„æ¨±æ¡ƒæ ‘ä»Šå¹´ç»“æžœäº†ï¼Œæ‘˜äº†æ»¡æ»¡ä¸€ç¯®é‚£ã€‚" );
+		command( "say æ—¢ç„¶è¿™ä½" + RANK_D->query_respect(me) + "å¼€å£äº†ï¼Œå°±é€ä½ ä¸€äº›å§ã€‚" );
+		message_vision( "ç“œå†œä»Žç¯®é‡Œå€’äº†ä¸€äº›æ¨±æ¡ƒå‡ºæ¥é€ç»™$Nã€‚\n", me );
 		ob = new( __DIR__"obj/yingtao" );
 		ob->move( me );
 		yingtao = 0;

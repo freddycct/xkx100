@@ -7,16 +7,16 @@ inherit F_MASTER;
 
 void create()
 {
-	set_name("ÌìÉ½Í¯ÀÑ", ({ "tong lao", "tong", "lao" }));
+	set_name("å¤©å±±ç«¥å§¥", ({ "tong lao", "tong", "lao" }));
 	set("long",
-		"Ëı¾ÍÊÇ¡¸ÁéğÕ¹¬¡¹µÄ¿ªÉ½×æÊ¦¡£
-Õ§Ò»¿´ËÆºõÊÇ¸öÊ®Æß°ËËêµÄÅ®×Ó£¬¿ÉÉñÇéÈ´ÊÇÀÏÆøºáÇï¡£
-Ë«Ä¿Èçµç£¬¾¼¾¼ÓĞÉñ£¬ÏòÄãÇÆÀ´Ê±£¬×ÔÓĞÒ»¹ÉÁèÈËµÄÍşÑÏ¡£\n");
-	set("title", "ÌìÉ½ÁéğÕ¹¬Ö÷ÈË");
+		"å¥¹å°±æ˜¯ã€Œçµé¹«å®«ã€çš„å¼€å±±ç¥–å¸ˆã€‚
+ä¹ä¸€çœ‹ä¼¼ä¹æ˜¯ä¸ªåä¸ƒå…«å²çš„å¥³å­ï¼Œå¯ç¥æƒ…å´æ˜¯è€æ°”æ¨ªç§‹ã€‚
+åŒç›®å¦‚ç”µï¼Œç‚¯ç‚¯æœ‰ç¥ï¼Œå‘ä½ ç§æ¥æ—¶ï¼Œè‡ªæœ‰ä¸€è‚¡å‡Œäººçš„å¨ä¸¥ã€‚\n");
+	set("title", "å¤©å±±çµé¹«å®«ä¸»äºº");
 	set("class", "dancer");
-	set("gender", "Å®ĞÔ");
+	set("gender", "å¥³æ€§");
 	set("age", 96);
-	set("nickname", HIR "Î¨ÎÒ¶À×ğ" NOR);
+	set("nickname", HIR "å”¯æˆ‘ç‹¬å°Š" NOR);
 	set("shen_type",0);
 	set("attitude", "peaceful");
 
@@ -58,7 +58,7 @@ void create()
 	prepare_skill("hand","zhemei-shou");
 	prepare_skill("strike","liuyang-zhang");
 	set("no_teach", ([
-		"beiming-shengong" : "ÎÒÕâ±±Ú¤Éñ¹¦ÄËÊÇ²»´«Ö®Ñ§¡£",
+		"beiming-shengong" : "æˆ‘è¿™åŒ—å†¥ç¥åŠŸä¹ƒæ˜¯ä¸ä¼ ä¹‹å­¦ã€‚",
 	]));
 	set("env/wimpy", 60);
 	set("chat_chance_combat", 60);
@@ -70,7 +70,7 @@ void create()
 		(: exert_function, "reserve" :),
 		(: exert_function, "recover" :),
 	}) );
-	create_family("åĞÒ£ÅÉ",1, "¿ªÉ½×æÊ¦");
+	create_family("é€é¥æ´¾",1, "å¼€å±±ç¥–å¸ˆ");
 	setup();
 	carry_object("/d/lingjiu/obj/qingyi")->wear();
 	carry_object("/d/lingjiu/obj/doupeng")->wear();
@@ -81,19 +81,19 @@ void create()
 
 void attempt_apprentice(object ob)
 {
-	if ((string)ob->query("gender")!="Å®ĞÔ")
+	if ((string)ob->query("gender")!="å¥³æ€§")
 	{
-		command("say ÄãÕÒËÀ°¡£¡");
+		command("say ä½ æ‰¾æ­»å•Šï¼");
 		return;
 	}
 	if ((int)ob->query_skill("bahuang-gong", 1) < 130) 
 	{
-		command("say " + RANK_D->query_respect(ob) + "ÊÇ·ñ»¹Ó¦¸Ã¶àÁ·Á·°Ë»ÄÁùºÏÎ¨ÎÒ¶À×ğ¹¦£¿");
+		command("say " + RANK_D->query_respect(ob) + "æ˜¯å¦è¿˜åº”è¯¥å¤šç»ƒç»ƒå…«è’å…­åˆå”¯æˆ‘ç‹¬å°ŠåŠŸï¼Ÿ");
 		return;
 	}
 	if (ob->query_con() < 30) 
 	{
-		command("say ±¾ÃÅ¹¦·¨¼«ÎªÄÑÁ·£¬ÄãµÄ¸ù¹ÇËÆºõ²»¹»¡£");
+		command("say æœ¬é—¨åŠŸæ³•æä¸ºéš¾ç»ƒï¼Œä½ çš„æ ¹éª¨ä¼¼ä¹ä¸å¤Ÿã€‚");
 		return;
 	}
 	command("recruit " + ob->query("id"));
@@ -105,6 +105,6 @@ int recruit_apprentice(object ob)
         {
 		if((string)ob->query("class") != "dancer")
 			ob->set("class", "dancer");
-		ob->set("title","ÁéğÕ¹¬µÚ¶ş´úµÜ×Ó");
+		ob->set("title","çµé¹«å®«ç¬¬äºŒä»£å¼Ÿå­");
 	}
 }

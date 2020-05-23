@@ -16,10 +16,10 @@ mixed hit_ob(object me, object victim, int damage_bonus, int factor)
 			damage = - damage;
 			me->receive_damage( "qi", damage * 2 );
 			me->receive_wound( "qi", damage );
-			if( damage < 10 ) return "$NÊÜµ½$nµÄÄÚÁ¦·´Õð£¬ÃÆºßÒ»Éù¡£\n";
-			else if( damage < 20 ) return "$N±»$nÒÔÄÚÁ¦·´Õð£¬¡¸ºÙ¡¹µØÒ»ÉùÍËÁËÁ½²½¡£\n";
-			else if( damage < 40 ) return "$N±»$NÒÔÄÚÁ¦Ò»Õð£¬ÐØ¿ÚÓÐÈçÊÜµ½Ò»¼ÇÖØ´¸£¬Á¬ÍËÁËÎåÁù²½£¡\n";
-			else return "$N±»$nµÄÄÚÁ¦Ò»Õð£¬ÑÛÇ°Ò»ºÚ£¬Éí×ÓÏòºó·É³öÕÉÐí£¡£¡\n";
+			if( damage < 10 ) return "$Nå—åˆ°$nçš„å†…åŠ›åéœ‡ï¼Œé—·å“¼ä¸€å£°ã€‚\n";
+			else if( damage < 20 ) return "$Nè¢«$nä»¥å†…åŠ›åéœ‡ï¼Œã€Œå˜¿ã€åœ°ä¸€å£°é€€äº†ä¸¤æ­¥ã€‚\n";
+			else if( damage < 40 ) return "$Nè¢«$Nä»¥å†…åŠ›ä¸€éœ‡ï¼Œèƒ¸å£æœ‰å¦‚å—åˆ°ä¸€è®°é‡é”¤ï¼Œè¿žé€€äº†äº”å…­æ­¥ï¼\n";
+			else return "$Nè¢«$nçš„å†…åŠ›ä¸€éœ‡ï¼Œçœ¼å‰ä¸€é»‘ï¼Œèº«å­å‘åŽé£žå‡ºä¸ˆè®¸ï¼ï¼\n";
 		}
 		if( damage_bonus + damage < 0 ) return - damage_bonus;
 		return damage;
@@ -32,5 +32,5 @@ mixed hit_ob(object me, object victim, int damage_bonus, int factor)
 }
 
 //mixed be_hit_ob(object me, object victim, int damage_bonus, int factor) 
-// ¿ÉÒÔÖØÔØ,±»´òÖÐµÄÐ§¹û,factor Îª¶Ô·½µÄ¼ÓÁ¦,damage_bonus ÊÇ¶Ô·½µÄ
-//±ÛÁ¦Öµ,ÊÇ¼ÆËã×îºóÉËº¦µÄ»ùÊýÖ®Ò».
+// å¯ä»¥é‡è½½,è¢«æ‰“ä¸­çš„æ•ˆæžœ,factor ä¸ºå¯¹æ–¹çš„åŠ åŠ›,damage_bonus æ˜¯å¯¹æ–¹çš„
+//è‡‚åŠ›å€¼,æ˜¯è®¡ç®—æœ€åŽä¼¤å®³çš„åŸºæ•°ä¹‹ä¸€.

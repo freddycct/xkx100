@@ -1,5 +1,5 @@
 // Last Modified by winder on May. 15 2001
-// qinghua_poison.c Çé»¨¶¾
+// qinghua_poison.c æƒ…èŠ±æ¯’
 #include <ansi.h>
 #include <condition.h>
 
@@ -8,10 +8,10 @@ inherit F_CLEAN_UP;
 int update_condition(object me, int duration)
 {
   if (me->is_ghost()) return 1;
-	tell_object(me, HIM"ÄãµÄÊÖÖ¸ÉÏ´ÌËð´¦Í»È»¾çÍ´£¬ÉË¿ÚÎ¢Ï¸£¬Í´³þ¾¹È»À÷º¦Ö®¼«£¬ÍðÈçÐØ\n¿ÚÝëµØ¸øÈËÓÃ´óÌú´¸ÃÍ»÷Ò»ÏÂ£¬ÄãÈÌ²»×¡¡¸°¡¡¹µÄÒ»Éù½ÐÁË³öÀ´£¬Ã¦\n½«ÊÖÖ¸·ÅÔÚ¿ÚÖÐË±Îü¡£\n" NOR );
-	tell_room(environment(me), MAG+ me->name()+"È«ÉíÓÌËÆÎªÇ§ÍòÖ»»Æ·äÍ¬Ê±òüÒ§£¬ËÄÖ«°Ùº¡£¬¾çÍ´ÄÑµ±£¬ÈÌ²»×¡´óÉùºÅ½Ð¡£\n" NOR, ({ me }));
-	me->receive_damage("qi", 15,"ÖÐÇé»¨¶¾");
-	me->receive_wound("jing", 15,"ÖÐÇé»¨¶¾");
+	tell_object(me, HIM"ä½ çš„æ‰‹æŒ‡ä¸ŠåˆºæŸå¤„çªç„¶å‰§ç—›ï¼Œä¼¤å£å¾®ç»†ï¼Œç—›æ¥šç«Ÿç„¶åŽ‰å®³ä¹‹æžï¼Œå®›å¦‚èƒ¸\nå£è“¦åœ°ç»™äººç”¨å¤§é“é”¤çŒ›å‡»ä¸€ä¸‹ï¼Œä½ å¿ä¸ä½ã€Œå•Šã€çš„ä¸€å£°å«äº†å‡ºæ¥ï¼Œå¿™\nå°†æ‰‹æŒ‡æ”¾åœ¨å£ä¸­å®å¸ã€‚\n" NOR );
+	tell_room(environment(me), MAG+ me->name()+"å…¨èº«çŠ¹ä¼¼ä¸ºåƒä¸‡åªé»„èœ‚åŒæ—¶èž¯å’¬ï¼Œå››è‚¢ç™¾éª¸ï¼Œå‰§ç—›éš¾å½“ï¼Œå¿ä¸ä½å¤§å£°å·å«ã€‚\n" NOR, ({ me }));
+	me->receive_damage("qi", 15,"ä¸­æƒ…èŠ±æ¯’");
+	me->receive_wound("jing", 15,"ä¸­æƒ…èŠ±æ¯’");
 	if(!me->is_busy()) me->start_busy(2); 
 		me->apply_condition("qinghua_poison", duration - 1);
 	if ((int)me->query("eff_jing")<0 || (int)me->query("eff_qi")<0) return 0;

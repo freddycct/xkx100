@@ -1,4 +1,4 @@
-// yunv-xinfa.c ÓñÅ®ÐÄ·¨
+// yunv-xinfa.c çŽ‰å¥³å¿ƒæ³•
 // Last Modified by winder on Mar. 10 2000
 
 #include <ansi.h>
@@ -17,18 +17,18 @@ int valid_enable(string usage) { return usage == "force"; }
 int valid_learn(object me)
 {
 
-	if ( me->query("gender") == "ÎÞÐÔ")
-		return notify_fail("ÄãÎÞ¸ùÎÞÐÔ£¬ÒõÑôÄÑµ÷£¬²»ÄÜÐÞÏ°ÓñÅ®ÐÄ·¨¡£\n");
+	if ( me->query("gender") == "æ— æ€§")
+		return notify_fail("ä½ æ— æ ¹æ— æ€§ï¼Œé˜´é˜³éš¾è°ƒï¼Œä¸èƒ½ä¿®ä¹ çŽ‰å¥³å¿ƒæ³•ã€‚\n");
 
 	if ((int)me->query_skill("force", 1) < 10)
-		return notify_fail("ÄãµÄ»ù±¾ÄÚ¹¦»ðºò»¹²»¹»¡£\n");
+		return notify_fail("ä½ çš„åŸºæœ¬å†…åŠŸç«å€™è¿˜ä¸å¤Ÿã€‚\n");
 
 	return valid_public(me);
 }
 
 int practice_skill(object me)
 {
-	return notify_fail("ÓñÅ®ÐÄ·¨Ö»ÄÜÓÃÑ§(learn)À´Ôö¼ÓÊìÁ·¶È¡£\n");
+	return notify_fail("çŽ‰å¥³å¿ƒæ³•åªèƒ½ç”¨å­¦(learn)æ¥å¢žåŠ ç†Ÿç»ƒåº¦ã€‚\n");
 }
 
 string exert_function_file(string func)
@@ -38,16 +38,16 @@ string exert_function_file(string func)
 
 int help(object me)
 {
-	write(HIC"\nÓñÅ®ÐÄ·¨£º"NOR"\n");
+	write(HIC"\nçŽ‰å¥³å¿ƒæ³•ï¼š"NOR"\n");
 	write(@HELP
 
-    ¹ÅÄ¹ÄÚ¹¦½²¾¿Ò»¸ö¡°¾²¡±×Ö£¬Î¨ÓÐÆ½ÐÄ¾²Æø¡¢°ÚÍÑÊÀË×Ö®ÈÅ²Å
-ÄÜÐÞÏ°ÉÏ³ËÎä¹¦¡£ÓñÅ®ÐÄ¾­ÐÞÁ¶ÄÑ¶ÈºÜ´ó£¬Ñ§Ï°ÕßÒª²»¼±²»Ôê£¬Ñ­
-Ðò½¥½ø·½ÓÐ³É¹¦Ö®Íû¡£¿ÉÒÔÑ°ÃÙ±¾ÃÅÃØ¼®¡¶ÓñÅ®ÐÄ¾­¡·ÉÏÏÂ²áÑÐ¶Á¡£
+    å¤å¢“å†…åŠŸè®²ç©¶ä¸€ä¸ªâ€œé™â€å­—ï¼Œå”¯æœ‰å¹³å¿ƒé™æ°”ã€æ‘†è„±ä¸–ä¿—ä¹‹æ‰°æ‰
+èƒ½ä¿®ä¹ ä¸Šä¹˜æ­¦åŠŸã€‚çŽ‰å¥³å¿ƒç»ä¿®ç‚¼éš¾åº¦å¾ˆå¤§ï¼Œå­¦ä¹ è€…è¦ä¸æ€¥ä¸èºï¼Œå¾ª
+åºæ¸è¿›æ–¹æœ‰æˆåŠŸä¹‹æœ›ã€‚å¯ä»¥å¯»è§…æœ¬é—¨ç§˜ç±ã€ŠçŽ‰å¥³å¿ƒç»ã€‹ä¸Šä¸‹å†Œç ”è¯»ã€‚
 
-	Ñ§Ï°ÒªÇó£º
-		»ù±¾ÄÚ¹¦10¼¶
-		²»ÄÜ×öÌ«¼à
+	å­¦ä¹ è¦æ±‚ï¼š
+		åŸºæœ¬å†…åŠŸ10çº§
+		ä¸èƒ½åšå¤ªç›‘
 HELP
 	);
 	return 1;

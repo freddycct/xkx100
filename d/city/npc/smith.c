@@ -7,13 +7,13 @@ string ask_blade();
 string ask_sword();
 void create()
 {
-	set_name("Ìú½³", ({ "tiejiang", "smith" }));
-	set("title", "Ìú½³ÆÌÀÏ°å");
+	set_name("é“åŒ ", ({ "tiejiang", "smith" }));
+	set("title", "é“åŒ é“ºè€æ¿");
 	set("shen_type", 1);
 
-	set("gender", "ÄĞĞÔ" );
+	set("gender", "ç”·æ€§" );
 	set("age", 33);
-	set("long", "Ìú½³ÕıÓÃÌúÇ¯¼Ğ×¡Ò»¿éºìÈÈµÄÌú¿é·Å½øÂ¯ÖĞ¡£\n");
+	set("long", "é“åŒ æ­£ç”¨é“é’³å¤¹ä½ä¸€å—çº¢çƒ­çš„é“å—æ”¾è¿›ç‚‰ä¸­ã€‚\n");
 
 	set("combat_exp", 400);
 	set("attitude", "friendly");
@@ -29,8 +29,8 @@ void create()
 	}));
 	
 	set("inquiry", ([
-	    "±¦½£": (: ask_sword :),
-            "±¦µ¶": (: ask_blade :),
+	    "å®å‰‘": (: ask_sword :),
+            "å®åˆ€": (: ask_blade :),
 	]) );
 	setup();
 
@@ -64,7 +64,7 @@ int accept_object(object who, object ob)
 		me->delete_temp("sword_temp");
 		}
 		else return 1;
-		message_vision(HIY"Ìú½³ÌÍ³öÒ»°Ñ½ğ¹âÉÁÉÁµÄ±øÆ÷¸øÄã\n"NOR,who);
+		message_vision(HIY"é“åŒ æå‡ºä¸€æŠŠé‡‘å…‰é—ªé—ªçš„å…µå™¨ç»™ä½ \n"NOR,who);
 		
 	
 	}	
@@ -78,7 +78,7 @@ string ask_blade()
 {
 	object me=this_player();
 	me->set_temp("blade_temp",1);
-	return "±¦µ¶ÊÇÓĞ£¬¾Í¿´Äã³öµÃÆğ¼ÛÇ®Ã´......\n";
+	return "å®åˆ€æ˜¯æœ‰ï¼Œå°±çœ‹ä½ å‡ºå¾—èµ·ä»·é’±ä¹ˆ......\n";
 	
 }
 
@@ -87,7 +87,7 @@ string ask_sword()
 {
 	object me=this_player();
 	me->set_temp("sword_temp",1);
-	return "±¦½£ÊÇÓĞ£¬¾Í¿´Äã³öµÃÆğ¼ÛÇ®Ã´......\n";
+	return "å®å‰‘æ˜¯æœ‰ï¼Œå°±çœ‹ä½ å‡ºå¾—èµ·ä»·é’±ä¹ˆ......\n";
 }
 
 /*
@@ -106,8 +106,8 @@ void compelete_trade(object who, string what)
 	if( what=="changjian" ) ob = new(__DIR__"changjian");
 	ob->move(who);
 	if( what=="hammer" )
-message_vision("$N½»¸ø$nÒ»°ÑÉòµéµéµÄ´òÌúÓÃÌú´¸¡£\n", this_object(), who);
+message_vision("$Näº¤ç»™$nä¸€æŠŠæ²ˆç”¸ç”¸çš„æ‰“é“ç”¨é“é”¤ã€‚\n", this_object(), who);
 	if( what=="changjian" )
-message_vision("$N½»¸ø$nÒ»°ÑÇà¹âÉÁÉÁµÄ³¤½£¡£\n", this_object(), who);
+message_vision("$Näº¤ç»™$nä¸€æŠŠé’å…‰é—ªé—ªçš„é•¿å‰‘ã€‚\n", this_object(), who);
 }
 */

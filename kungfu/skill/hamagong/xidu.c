@@ -1,4 +1,4 @@
-// ¸òó¡¹¦Îü¶¾
+// è›¤èŸ†åŠŸå¸æ¯’
 // Last Modified by winder on Mar. 10 2000
 
 #include <ansi.h>
@@ -14,70 +14,70 @@ int exert(object me,object target)
   !me->query("perform/xidu") &&
   !me->query("can_perform/hamagong/xidu") && 
   !me->query_temp("murong/xingyi"))
-   return notify_fail("ÄãËùÊ¹ÓÃµÄÄÚ¹¦ÖĞÃ»ÓĞÕâÖÖ¹¦ÄÜ¡£");
+   return notify_fail("ä½ æ‰€ä½¿ç”¨çš„å†…åŠŸä¸­æ²¡æœ‰è¿™ç§åŠŸèƒ½ã€‚");
 
 
 	if ( !living(target) || target == me )
-		return notify_fail("ÄãÒªÎªË­Îü¶¾£¿\n");
+		return notify_fail("ä½ è¦ä¸ºè°å¸æ¯’ï¼Ÿ\n");
 		
-	notify_fail("²»ÊÇÄãÒª×¥µÄÈË£¬´ÕÊ²Ã´ÈÈÄÖ£¡\n");
+	notify_fail("ä¸æ˜¯ä½ è¦æŠ“çš„äººï¼Œå‡‘ä»€ä¹ˆçƒ­é—¹ï¼\n");
 	if (!userp(target) && !target->accept_hit(me)) return 0;
 
 	if ( !con1 && !con3 )
-		return notify_fail("¶Ô·½Ã»ÓĞÖĞ¶¾£¡\n");
+		return notify_fail("å¯¹æ–¹æ²¡æœ‰ä¸­æ¯’ï¼\n");
 
         if ( target->is_fighting() )
-		return notify_fail("Õ½¶·ÖĞÎŞ·¨ÔË¹¦Îü¶¾£¡\n");
+		return notify_fail("æˆ˜æ–—ä¸­æ— æ³•è¿åŠŸå¸æ¯’ï¼\n");
 		
 	if( me->is_fighting() )
-		return notify_fail("Õ½¶·ÖĞÔË¹¦Îü¶¾£¿ÕÒËÀÂğ£¿\n");
+		return notify_fail("æˆ˜æ–—ä¸­è¿åŠŸå¸æ¯’ï¼Ÿæ‰¾æ­»å—ï¼Ÿ\n");
 
 	if( (int)me->query("neili") < 100 )
-		return notify_fail("ÄãµÄÕæÆø²»¹»¡£\n");
+		return notify_fail("ä½ çš„çœŸæ°”ä¸å¤Ÿã€‚\n");
 
 	if( (int)me->query("eff_qi") < (int)me->query("max_qi") / 2 )
-		return notify_fail("ÄãÒÑ¾­ÊÜÉË¹ıÖØ£¬Ö»ÅÂÒ»ÔËÕæÆø±ãÓĞÉúÃüÎ£ÏÕ£¡\n");
+		return notify_fail("ä½ å·²ç»å—ä¼¤è¿‡é‡ï¼Œåªæ€•ä¸€è¿çœŸæ°”ä¾¿æœ‰ç”Ÿå‘½å±é™©ï¼\n");
 
 	if ((int)me->query_skill("hamagong", 1) < 50)
-		return notify_fail("ÄãµÄ¸òó¡¹¦ĞŞÎª»¹²»¹»¡£\n");
+		return notify_fail("ä½ çš„è›¤èŸ†åŠŸä¿®ä¸ºè¿˜ä¸å¤Ÿã€‚\n");
 
 	if ((int)me->query_skill("xidu-poison", 1) < 50)
-		return notify_fail("ÄãµÄÎ÷¶¾¶¾¼¼ĞŞÎª»¹²»¹»¡£\n");
+		return notify_fail("ä½ çš„è¥¿æ¯’æ¯’æŠ€ä¿®ä¸ºè¿˜ä¸å¤Ÿã€‚\n");
 
 	if ( con1 > 0 ) {
 		if ( (int)me->query("neili") < 100 )
-			return notify_fail("ÄãµÄÕæÆø²»¹»¡£\n");
+			return notify_fail("ä½ çš„çœŸæ°”ä¸å¤Ÿã€‚\n");
 		con = ( ( me->query_skill("hamagong", 1) / 10 ) >= con1 ? con1 : me->query_skill("hamagong", 1) / 10 );
 		target->apply_condition("snake_poison", con1 - con);
-		message_vision(  HIW "$NÅÌÏ¥×øÏÂ½«ÊÖÕÆÌùÔÚ$n±³ĞÄ£¬ÔË¹¦½«$nÌåÄÚµÄÉß¶¾Îü³ö...\nÆ¬¿Ì¹¦·ò£¬$NµÄÕÆĞÄÒÑÈ«³ÊºÚÉ«¡£\n" NOR , me, target );
+		message_vision(  HIW "$Nç›˜è†åä¸‹å°†æ‰‹æŒè´´åœ¨$nèƒŒå¿ƒï¼Œè¿åŠŸå°†$nä½“å†…çš„è›‡æ¯’å¸å‡º...\nç‰‡åˆ»åŠŸå¤«ï¼Œ$Nçš„æŒå¿ƒå·²å…¨å‘ˆé»‘è‰²ã€‚\n" NOR , me, target );
 //		if ( !con1 )
     if ( (con1 - con)<=0 )
 			{
-				tell_object( target, HIC "Äã»î¶¯ÁËÒ»ÏÂ½î¹Ç£¬·¢¾õÈ«ÉíµÄÂéÄ¾¸ĞÒÑÍêÈ«ÏûÊ§ÁË¡£\n\n" NOR );
+				tell_object( target, HIC "ä½ æ´»åŠ¨äº†ä¸€ä¸‹ç­‹éª¨ï¼Œå‘è§‰å…¨èº«çš„éº»æœ¨æ„Ÿå·²å®Œå…¨æ¶ˆå¤±äº†ã€‚\n\n" NOR );
 		    target->clear_condition("snake_poison");
 		  }
 		else	
-			tell_object( target, HIC "Äã»î¶¯ÁËÒ»ÏÂ½î¹Ç£¬·¢¾õÈ«ÉíµÄÂéÄ¾¸Ğ¼õÇáÁË²»ÉÙ¡£\n\n" NOR );			
+			tell_object( target, HIC "ä½ æ´»åŠ¨äº†ä¸€ä¸‹ç­‹éª¨ï¼Œå‘è§‰å…¨èº«çš„éº»æœ¨æ„Ÿå‡è½»äº†ä¸å°‘ã€‚\n\n" NOR );			
 		me->add("neili", -100);			
 		me->apply_condition("snake_poison", me->query_condition("snake_poison") + con);
 	}			 
 	else if ( con3 > 0 ) {
 		if ( (int)me->query_skill("hamagong", 1) < 70 )
-			return notify_fail("ÄãµÄ¸òó¡¹¦ĞŞÎª²»¹»¡£\n");
+			return notify_fail("ä½ çš„è›¤èŸ†åŠŸä¿®ä¸ºä¸å¤Ÿã€‚\n");
 		if ( (int)me->query("neili") < 150 )
-			return notify_fail("ÄãµÄÕæÆø²»¹»¡£\n");
+			return notify_fail("ä½ çš„çœŸæ°”ä¸å¤Ÿã€‚\n");
 		con = ( ( me->query_skill("hamagong", 1) / 50 ) >= con3 ? con3 : me->query_skill("hamagong", 1) / 50 );
 		target->apply_condition("xx_poison", con3 - con);
-		message_vision(  HIW "$NÅÌÏ¥×øÏÂ½«ÊÖÕÆÌùÔÚ$n±³ĞÄ£¬ÔË¹¦½«$nÌåÄÚµÄĞÇËŞÕÆ¶¾Îü³ö...\n"
-			 "Æ¬¿Ì¹¦·ò£¬$NµÄÕÆĞÄÒÑÈ«³Ê×ÏºÚÉ«¡£\n" NOR , me, target );
+		message_vision(  HIW "$Nç›˜è†åä¸‹å°†æ‰‹æŒè´´åœ¨$nèƒŒå¿ƒï¼Œè¿åŠŸå°†$nä½“å†…çš„æ˜Ÿå®¿æŒæ¯’å¸å‡º...\n"
+			 "ç‰‡åˆ»åŠŸå¤«ï¼Œ$Nçš„æŒå¿ƒå·²å…¨å‘ˆç´«é»‘è‰²ã€‚\n" NOR , me, target );
 //		if ( !con3 )
     if ( (con3 - con)<=0 )
 			{
-				tell_object( target, HIY "ÄãÖ»¾õµÃÒ»¹ÉÅ¯Á÷´Óµ¤ÌïÉıÆğ£¬È«ÉíÈÈºõºõµÄ£¬ĞÇËŞÕÆ¶¾ËÆºõÒÑÈ«³ı¾¡ÁË¡£\n\n" NOR );
+				tell_object( target, HIY "ä½ åªè§‰å¾—ä¸€è‚¡æš–æµä»ä¸¹ç”°å‡èµ·ï¼Œå…¨èº«çƒ­ä¹ä¹çš„ï¼Œæ˜Ÿå®¿æŒæ¯’ä¼¼ä¹å·²å…¨é™¤å°½äº†ã€‚\n\n" NOR );
 		    target->clear_condition("xx_poison");
       }
 		else	
-			tell_object( target, HIY "ÄãÖ»¾õµÃÒ»¹ÉÅ¯Á÷´Óµ¤ÌïÉıÆğ£¬²»ËÆÏÈÇ°ÄÇ°ãº®ÀäÁË¡£\n\n" NOR );			
+			tell_object( target, HIY "ä½ åªè§‰å¾—ä¸€è‚¡æš–æµä»ä¸¹ç”°å‡èµ·ï¼Œä¸ä¼¼å…ˆå‰é‚£èˆ¬å¯’å†·äº†ã€‚\n\n" NOR );			
 		me->add("neili", -150);			
 		me->apply_condition("xx_poison", me->query_condition("xx_poison") + con);
 	}
@@ -87,17 +87,17 @@ int exert(object me,object target)
 }
 int help(object me)
 {
-	write(WHT"\n¸òó¡¹¦Ö®Îü¶¾£º"NOR"\n");
+	write(WHT"\nè›¤èŸ†åŠŸä¹‹å¸æ¯’ï¼š"NOR"\n");
 	write(@HELP
 
-	Ê¹ÓÃ¹¦Ğ§£º
-		ÎªÖĞ¶¾µÄËûÈËÎü³ö¶¾ËØ£¬¶ÔÏÂÁĞ¶¾ÓĞĞ§£º
-		Éß¶¾¡¢ĞÇËŞ¶¾
+	ä½¿ç”¨åŠŸæ•ˆï¼š
+		ä¸ºä¸­æ¯’çš„ä»–äººå¸å‡ºæ¯’ç´ ï¼Œå¯¹ä¸‹åˆ—æ¯’æœ‰æ•ˆï¼š
+		è›‡æ¯’ã€æ˜Ÿå®¿æ¯’
 
-	³öÊÖÒªÇó£º
-		¸òó¡¹¦50¼¶
-		Î÷¶¾¶¾¼¼50¼¶
-		ÄÚÁ¦100
+	å‡ºæ‰‹è¦æ±‚ï¼š
+		è›¤èŸ†åŠŸ50çº§
+		è¥¿æ¯’æ¯’æŠ€50çº§
+		å†…åŠ›100
 HELP
 	);
 	return 1;

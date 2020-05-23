@@ -1,10 +1,10 @@
-// heiyiren.c ÈÕÔÂÉñ½Ì½ÌÍ½
+// heiyiren.c æ—¥æœˆç¥æ•™æ•™å¾’
 #include <ansi.h>
 inherit NPC;
 void create()
 {
-	set_name("ºÚÒÂÈË", ({ "heiyi ren", "ren" }));
-	set("gender", "ÄĞĞÔ");
+	set_name("é»‘è¡£äºº", ({ "heiyi ren", "ren" }));
+	set("gender", "ç”·æ€§");
 	set("age", 25);
 	set_skill("unarmed", 50);
 	set_skill("dodge", 50);	
@@ -13,7 +13,7 @@ void create()
 	set("apply/damage", 25);
 	set("combat_exp", 30000);
 	set("shen_type", -1);
-	set("party/party_name", HIB"ÈÕÔÂÉñ½Ì"NOR);
-	set("party/rank", HIC"·çÀ×ÌÃ½ÌÖÚ"NOR);
+	set("party/party_name", HIB"æ—¥æœˆç¥æ•™"NOR);
+	set("party/rank", HIC"é£é›·å ‚æ•™ä¼—"NOR);
 	setup();
 }	

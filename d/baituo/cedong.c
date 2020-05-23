@@ -5,10 +5,10 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "�ප");
+	set("short", "侧洞");
 	set("long", @LONG
-������һ��СС�Ĳප������������ױ̨���ϱ߰ڷ���һЩŮ�˵�
-��Ʒ��
+这里是一个小小的侧洞，里面有张梳妆台，上边摆放着一些女人的
+用品。
 LONG	);
 	set("exits", ([
 		"east" : __DIR__"dongnei",

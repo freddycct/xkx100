@@ -1,4 +1,4 @@
-// fengasan.c ·ë°¢Èý
+// fengasan.c å†¯é˜¿ä¸‰
 // Midified by Winder June.25 2000
 inherit NPC;
 inherit F_MASTER;
@@ -8,10 +8,10 @@ string ask_me();
 
 void create()
 {
- set_name("·ë°¢Èý", ({ "feng asan", "feng" }));
- set("nickname","¡°º¯¹È°ËÓÑ¡±ÇÉ½³");
- set("long","¾ÝËµËû¾ÍÊÇÂ³°àµÄºóÈË£¬±¾À´ÊÇÄ¾½³³öÉí¡£ËûÔÚ¾«ÓÚÍÁÄ¾¹¤ÒÕÖ®Ñ§£¬µ±´úµÄµÚÒ»ÇÉ½³£¬Éè¼Æ»ú¹ØµÄÄÜÊÖ¡£\n");
- set("gender", "ÄÐÐÔ");
+ set_name("å†¯é˜¿ä¸‰", ({ "feng asan", "feng" }));
+ set("nickname","â€œå‡½è°·å…«å‹â€å·§åŒ ");
+ set("long","æ®è¯´ä»–å°±æ˜¯é²ç­çš„åŽäººï¼Œæœ¬æ¥æ˜¯æœ¨åŒ å‡ºèº«ã€‚ä»–åœ¨ç²¾äºŽåœŸæœ¨å·¥è‰ºä¹‹å­¦ï¼Œå½“ä»£çš„ç¬¬ä¸€å·§åŒ ï¼Œè®¾è®¡æœºå…³çš„èƒ½æ‰‹ã€‚\n");
+ set("gender", "ç”·æ€§");
  set("age", 35);
  set("attitude", "friendly");
  set("class", "alchemist");
@@ -22,7 +22,7 @@ void create()
  set("dex", 28);
 
  set("inquiry", ([
-  "»ú¹Ø":(:ask_me:),
+  "æœºå…³":(:ask_me:),
  ]) );
 
  set("max_qi", 600);
@@ -52,7 +52,7 @@ void create()
  prepare_skill("strike", "liuyang-zhang");
  set("env/wimpy", 60);
 
- create_family("åÐÒ£ÅÉ", 3, "µÜ×Ó");
+ create_family("é€é¥æ´¾", 3, "å¼Ÿå­");
  setup();
  carry_object("/clone/misc/cloth")->wear();
  carry_object("/clone/weapon/gangdao")->wield();
@@ -72,7 +72,7 @@ init()
 }
 void attempt_apprentice(object ob)
 {
- command("say ºÃ°É£¬ÎÒ¾ÍÊÕÏÂÄãÁË£¬ÒÔºóÒª¶àÎªåÐÒ£ÅÉ³öÁ¦°¡¡£");
+ command("say å¥½å§ï¼Œæˆ‘å°±æ”¶ä¸‹ä½ äº†ï¼Œä»¥åŽè¦å¤šä¸ºé€é¥æ´¾å‡ºåŠ›å•Šã€‚");
  command("recruit " + ob->query("id"));
 }
 
@@ -82,16 +82,16 @@ string ask_me()
  ob=this_player(); 
 
  if (random(100)<70)
-  return "ÎÒÔÚÉè¼Æ»ú¹Ø·½ÃæÊÇÓÐµãÌØ³¤£¬ÈÃ´ó¼Ò¼ûÐ¦ÁË¡£";   
+  return "æˆ‘åœ¨è®¾è®¡æœºå…³æ–¹é¢æ˜¯æœ‰ç‚¹ç‰¹é•¿ï¼Œè®©å¤§å®¶è§ç¬‘äº†ã€‚";   
  command("laugh");
- return "±ð³³×ÅÎÒ£¬ÎÒÔÚ¿´ÊéÄØ¡£¹þ¹þ£¬Ö¥Âé¿ªÃÅ¡£¡£¡£¡£ÕâÊéÕæºÃÐ¦£¡\n";
+ return "åˆ«åµç€æˆ‘ï¼Œæˆ‘åœ¨çœ‹ä¹¦å‘¢ã€‚å“ˆå“ˆï¼ŒèŠéº»å¼€é—¨ã€‚ã€‚ã€‚ã€‚è¿™ä¹¦çœŸå¥½ç¬‘ï¼\n";
 }
 int do_qingyun()
 {
  object me=this_player();
  if (member_array(getuid(me),can)>=0)
  {
- 	message("vision",me->query("name")+"Íù±±·½Àë¿ª¡£\n",environment(me),me);
+ 	message("vision",me->query("name")+"å¾€åŒ—æ–¹ç¦»å¼€ã€‚\n",environment(me),me);
   me->move("u/qingyun/home/dating");
   return 1;
  }

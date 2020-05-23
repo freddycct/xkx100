@@ -24,55 +24,55 @@ void setup_char(object ob)
  
 	if( !stringp(race = ob->query("race")) )
 	{
-		race = "ÈËÀà";	
-		ob->set("race", "ÈËÀà");
+		race = "äººç±»";	
+		ob->set("race", "äººç±»");
 	}
 	switch(race)
 	{
-		case "ÈËÀà":
+		case "äººç±»":
 			HUMAN_RACE->setup_human(ob);
 			break;	
-		case "ÑýÄ§":
+		case "å¦–é­”":
 			MONSTER_RACE->setup_monster(ob);
 			break;	
-		case "Ò°ÊÞ":
+		case "é‡Žå…½":
 			BEAST1_RACE->setup_beast(ob);
 			break;	
-		case "×ßÊÞ": /* ÈâÊ³ÓÐ×¦ */
+		case "èµ°å…½": /* è‚‰é£Ÿæœ‰çˆª */
 			BEAST_RACE->setup_beast(ob);
 			break;	
-		case "×ßÐó": /* ²ÝÊ³ÓÃÌã */
+		case "èµ°ç•œ": /* è‰é£Ÿç”¨è¹„ */
 			STOCK_RACE->setup_stock(ob);
 			break;
-		case "·ÉÇÝ":
+		case "é£žç¦½":
 			BIRD_RACE->setup_bird(ob);
 			break;
-		case "ÓÎÓã":
+		case "æ¸¸é±¼":
 			FISH_RACE->setup_fish(ob);
 			break;
-		case "ÅÀÉß":
+		case "çˆ¬è›‡":
 			SNAKE_RACE->setup_snake(ob);
 			break;
-		case "À¥³æ":
+		case "æ˜†è™«":
 			INSECT_RACE->setup_insect(ob);
 			break;
 		default: 
 			error("Chard: undefined race " + race + ".\n");
 	}
-/* ÎªÍ¨ÓÃÊÞÀà±£Áô */
-	if (race != "ÈËÀà" && ! ob->query("dead_message"))
+/* ä¸ºé€šç”¨å…½ç±»ä¿ç•™ */
+	if (race != "äººç±»" && ! ob->query("dead_message"))
 	{
-		ob->set("dead_message", "\n$NÑöÌì²Òº¿ÁËÒ»Éù£¬Å¿ÔÚµØÉÏ²»¶¯ÁË¡£\n\n");
-		ob->set("unconcious_message", "\n$NµÍµÍµØºðÁËÒ»Éù£¬¹öµ¹ÔÚµØÁË¹ýÈ¥¡£\n\n");
-		ob->set("revive_message", "\n$NËÄÖ«ÂýÂý¶¯µ¯ÁËÒ»ÏÂ£¬Õö¿ªÑÛÐÑÁË¹ýÀ´¡£\n\n");
-		ob->set("comeout_message", "Íù$d±¼ÁË¹ýÈ¥¡£\n");
-		ob->set("comein_message", "ºôµØ´ÜÁË³öÀ´£¬¾¯ÌèµØËÄÖÜÕÅÍû×Å¡£\n");
-		ob->set("fleeout_message", "²Ò½ÐÒ»Éù£¬Íù$dÂä»Ä¶øÌÓ¡£\n");
-		ob->set("fleein_message", "Ò¡Ò¡°Ú°ÚµØÅÜÁË¹ýÀ´£¬Éì³öÉàÍ·ºôºôµØ´­×Å´ÖÆø¡£\n");
+		ob->set("dead_message", "\n$Nä»°å¤©æƒ¨åšŽäº†ä¸€å£°ï¼Œè¶´åœ¨åœ°ä¸Šä¸åŠ¨äº†ã€‚\n\n");
+		ob->set("unconcious_message", "\n$Nä½Žä½Žåœ°å¼äº†ä¸€å£°ï¼Œæ»šå€’åœ¨åœ°äº†è¿‡åŽ»ã€‚\n\n");
+		ob->set("revive_message", "\n$Nå››è‚¢æ…¢æ…¢åŠ¨å¼¹äº†ä¸€ä¸‹ï¼Œçå¼€çœ¼é†’äº†è¿‡æ¥ã€‚\n\n");
+		ob->set("comeout_message", "å¾€$då¥”äº†è¿‡åŽ»ã€‚\n");
+		ob->set("comein_message", "å‘¼åœ°çªœäº†å‡ºæ¥ï¼Œè­¦æƒ•åœ°å››å‘¨å¼ æœ›ç€ã€‚\n");
+		ob->set("fleeout_message", "æƒ¨å«ä¸€å£°ï¼Œå¾€$dè½è’è€Œé€ƒã€‚\n");
+		ob->set("fleein_message", "æ‘‡æ‘‡æ‘†æ‘†åœ°è·‘äº†è¿‡æ¥ï¼Œä¼¸å‡ºèˆŒå¤´å‘¼å‘¼åœ°å–˜ç€ç²—æ°”ã€‚\n");
 	} 
 	my = ob->query_entire_dbase();
 	if( undefinedp(my["pighead"]) ) my["pighead"] = 0;
-// Íæ¼ÒµÄÕâ¸öÅÐ¶Ï¸ÄÔÚupdated.cÖÐ×ö¡£ÕâÀï²»±Ø×ö 
+// çŽ©å®¶çš„è¿™ä¸ªåˆ¤æ–­æ”¹åœ¨updated.cä¸­åšã€‚è¿™é‡Œä¸å¿…åš 
 	if( !userp(ob) )
 	{
 		if( undefinedp(my["jing"]) ) my["jing"] = my["max_jing"];
@@ -100,7 +100,7 @@ void setup_char(object ob)
 			if (my["neili"] > my["max_neili"])
 				my["neili"] = my["max_neili"]; 
 		}
-		else // ÄÚÁ¦ºÍ¾«Á¦
+		else // å†…åŠ›å’Œç²¾åŠ›
 		{
 			if (my["max_neili"] > ((int)ob->query_skill("force")*10 + (int)ob->query("gift/max_neili")))
 				my["max_neili"] = ob->query_skill("force")*10+(int)ob->query("gift/max_neili");
@@ -119,7 +119,7 @@ void setup_char(object ob)
     if( my["shen"]<-1000000) 	my["shen"]	=	-1000000;
     if( my["score"]>100000) 	my["score"]	=	 100000;
 	}
-	else my["bt_tufei"] = random(30) + 1; /* Ñ²²¶ÈÎÎñÖ®NPCÉè¶¨ */
+	else my["bt_tufei"] = random(30) + 1; /* å·¡æ•ä»»åŠ¡ä¹‹NPCè®¾å®š */
 
 	if( undefinedp(my["shen_type"]) ) my["shen_type"] = 0;
  
@@ -156,10 +156,10 @@ varargs object make_corpse(object victim, object killer)
 	}
  
 	corpse = new(CORPSE_OB);      
-	corpse->set_name( victim->name(1) + "µÄÊ¬Ìå", ({ "corpse" }) );
+	corpse->set_name( victim->name(1) + "çš„å°¸ä½“", ({ "corpse" }) );
 	corpse->set("long", victim->long() 
-		+ "È»¶ø£¬" + gender_pronoun(victim->query("gender"))
-		+ "ÒÑ¾­ËÀÁË£¬Ö»Ê£ÏÂÒ»¾ßÊ¬Ìå¾²¾²µØÌÉÔÚÕâÀï¡£\n");
+		+ "ç„¶è€Œï¼Œ" + gender_pronoun(victim->query("gender"))
+		+ "å·²ç»æ­»äº†ï¼Œåªå‰©ä¸‹ä¸€å…·å°¸ä½“é™é™åœ°èººåœ¨è¿™é‡Œã€‚\n");
 	corpse->set("age", victim->query("age")); 
 	corpse->set("gender", victim->query("gender"));
 	corpse->set("victim_name", victim->name(1));
@@ -183,7 +183,7 @@ varargs object make_corpse(object victim, object killer)
 		inv -= ({ 0 });       
 		i = sizeof(inv);      
 		while(i--) {
-			if( strsrch(inv[i]->query("name"), "ËéÆ¬") >= 0)
+			if( strsrch(inv[i]->query("name"), "ç¢Žç‰‡") >= 0)
 				inv[i]->move(environment(victim));
 			else
 			if( (string)inv[i]->query("equipped")=="worn" ) { 
@@ -201,14 +201,14 @@ int break_relation(object player)
 	object ob, room;
 	string std_id = player->query("id");
 
-	if (player->query("family/family_name") == "»ªÉ½ÅÉ" )
+	if (player->query("family/family_name") == "åŽå±±æ´¾" )
 	{
 		if(!( room = find_object("/d/huashan/xiaofang")) )
 			room = load_object("/d/huashan/xiaofang");
 		ob = present("feng qingyang", room);
 		player->delete("family");
-		player->set("title","ÆÕÍ¨°ÙÐÕ");
-		tell_object(player, RED "\nÄãÒÑ·Ç·çÇåÑïµÄµÜ×ÓÁË£¬ºÃ×ÔÎªÖ®°É£¡\n\n" NOR);
+		player->set("title","æ™®é€šç™¾å§“");
+		tell_object(player, RED "\nä½ å·²éžé£Žæ¸…æ‰¬çš„å¼Ÿå­äº†ï¼Œå¥½è‡ªä¸ºä¹‹å§ï¼\n\n" NOR);
 		ob->delete( "students/"+std_id );
 		ob->set( "pending", std_id );
 		ob->save();

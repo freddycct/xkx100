@@ -1,13 +1,13 @@
 // look.c
 
 // Modified by zeratul,2000.1.29
-// ĞŞ¸ÄÁË·¿¼äÀïÏàÍ¬ÎïÆ·µÄÃèÊö£¬/inherit/item/combined.cºÍ /cmds/std/get.c Ò²×÷ÁËÏàÓ¦µÄĞŞ¸Ä¡£
+// ä¿®æ”¹äº†æˆ¿é—´é‡Œç›¸åŒç‰©å“çš„æè¿°ï¼Œ/inherit/item/combined.cå’Œ /cmds/std/get.c ä¹Ÿä½œäº†ç›¸åº”çš„ä¿®æ”¹ã€‚
 // Modified by fandog,2000.12.23
-// Ôö¼ÓÁË¶Ô·¿¼ä×ù±êµÄÏÔÊ¾¡£
+// å¢åŠ äº†å¯¹æˆ¿é—´åº§æ ‡çš„æ˜¾ç¤ºã€‚
 // Modified by Winder 2001.5.22
-// Ôö¼ÓĞ¡µØÍ¼ÏÔÊ¾¡£²¢Ôö¼Ó»·¾³²ÎÊı¿ª¹ØĞ¡µØÍ¼¡£Í¬Ê±ĞŞ¸ÄÁËset.cºÍunset.c¡£
+// å¢åŠ å°åœ°å›¾æ˜¾ç¤ºã€‚å¹¶å¢åŠ ç¯å¢ƒå‚æ•°å¼€å…³å°åœ°å›¾ã€‚åŒæ—¶ä¿®æ”¹äº†set.cå’Œunset.cã€‚
 // Modified by ahda 2002.6.25
-// Ôö¼ÓÁËÈÃÎ×Ê¦¿ÉÒÔ¿´³öÍæ¼Ò¡¢npcÎä¹¦µÈ¼¶µÄ¹¦ÄÜ line 394£¬ÔİÊ±ÏÈÕâÑù£¬µÈÒÔºó×îºÃÖØĞÂ¿ªÁĞ×¨ÃÅµÄÎ×Ê¦lookÃüÁî
+// å¢åŠ äº†è®©å·«å¸ˆå¯ä»¥çœ‹å‡ºç©å®¶ã€npcæ­¦åŠŸç­‰çº§çš„åŠŸèƒ½ line 394ï¼Œæš‚æ—¶å…ˆè¿™æ ·ï¼Œç­‰ä»¥åæœ€å¥½é‡æ–°å¼€åˆ—ä¸“é—¨çš„å·«å¸ˆlookå‘½ä»¤
 inherit F_CLEAN_UP;
 
 
@@ -33,64 +33,64 @@ string clean_color(string arg);
 object i_have(object env,string name);
 string adjust_short(string arg);
 string *tough_level_desc = ({
-	BLU "²»¿°Ò»»÷" NOR,
-	BLU "ºÁ²»×ãÂÇ" NOR,
-	BLU "²»×ã¹Ò³İ" NOR,
-	BLU "³õÑ§Õ§Á·" NOR,
-	BLU "ÃãÃãÇ¿Ç¿" NOR,
-	HIB "³õ¿úÃÅ¾¶" NOR,
-	HIB "³õ³öÃ©Â®" NOR,
-	HIB "ÂÔÖªÒ»¶ş" NOR,
-	HIB "ÆÕÆÕÍ¨Í¨" NOR,
-	HIB "Æ½Æ½µ­µ­" NOR,
-	CYN "Æ½µ­ÎŞÆæ" NOR,
-	CYN "´ÖÍ¨Æ¤Ã«" NOR,
-	CYN "°ëÉú²»Êì" NOR,
-	CYN "ÂíÂí»¢»¢" NOR,
-	CYN "ÂÔÓĞĞ¡³É" NOR,
-	HIC "ÒÑÓĞĞ¡³É" NOR,
-	HIC "º×Á¢¼¦Èº" NOR,
-	HIC "¼İÇá¾ÍÊì" NOR,
-	HIC "Çà³öÓÚÀ¶" NOR,
-	HIC "ÈÚ»á¹áÍ¨" NOR,
-	HIG "ĞÄÁìÉñ»á" NOR,
-	HIG "Â¯»ğ´¿Çà" NOR,
-	HIG "ÁËÈ»ÓÚĞØ" NOR,
-	HIG "ÂÔÓĞ´ó³É" NOR,
-	HIG "ÒÑÓĞ´ó³É" NOR,
-	YEL "»íÈ»¹áÍ¨" NOR,
-	YEL "³öÀà°ÎİÍ" NOR,
-	YEL "ÎŞ¿ÉÆ¥µĞ" NOR,
-	YEL "¼¼¹ÚÈºĞÛ" NOR,
-	YEL "ÉñºõÆä¼¼" NOR,
-	HIY "³öÉñÈë»¯" NOR,
-	HIY "·ÇÍ¬·²Ïì" NOR,
-	HIY "°ÁÊÓÈºĞÛ" NOR,
-	HIY "µÇ·åÔì¼«" NOR,
-	HIY "ÎŞÓëÂ×±È" NOR,
-	RED "ËùÏòÅûÃÒ" NOR,
-	RED "Ò»´ú×ÚÊ¦" NOR,
-	RED "¾«Éî°ÂÃî" NOR,
-	RED "Éñ¹¦¸ÇÊÀ" NOR,
-	RED "¾ÙÊÀÎŞË«" NOR,
-	WHT "¾ªÊÀº§Ë×" NOR,
-	WHT "º³Ìì¶¯µØ" NOR,
-	WHT "Õğ¹Åîå½ñ" NOR,
-	WHT "³¬·²ÈëÊ¥" NOR,
-	WHT "ÍşÕòå¾Óî" NOR,
-	HIW "¿ÕÇ°¾øºó" NOR,
-	HIW "ÌìÈËºÏÒ»" NOR,
-	MAG "Éî²Ø²»Â¶" NOR,
-	HIM "Éî²»¿É²â" NOR,
-	HIR "·µè±¹éÕæ" NOR 
+	BLU "ä¸å ªä¸€å‡»" NOR,
+	BLU "æ¯«ä¸è¶³è™‘" NOR,
+	BLU "ä¸è¶³æŒ‚é½¿" NOR,
+	BLU "åˆå­¦ä¹ç»ƒ" NOR,
+	BLU "å‹‰å‹‰å¼ºå¼º" NOR,
+	HIB "åˆçª¥é—¨å¾„" NOR,
+	HIB "åˆå‡ºèŒ…åº" NOR,
+	HIB "ç•¥çŸ¥ä¸€äºŒ" NOR,
+	HIB "æ™®æ™®é€šé€š" NOR,
+	HIB "å¹³å¹³æ·¡æ·¡" NOR,
+	CYN "å¹³æ·¡æ— å¥‡" NOR,
+	CYN "ç²—é€šçš®æ¯›" NOR,
+	CYN "åŠç”Ÿä¸ç†Ÿ" NOR,
+	CYN "é©¬é©¬è™è™" NOR,
+	CYN "ç•¥æœ‰å°æˆ" NOR,
+	HIC "å·²æœ‰å°æˆ" NOR,
+	HIC "é¹¤ç«‹é¸¡ç¾¤" NOR,
+	HIC "é©¾è½»å°±ç†Ÿ" NOR,
+	HIC "é’å‡ºäºè“" NOR,
+	HIC "èä¼šè´¯é€š" NOR,
+	HIG "å¿ƒé¢†ç¥ä¼š" NOR,
+	HIG "ç‚‰ç«çº¯é’" NOR,
+	HIG "äº†ç„¶äºèƒ¸" NOR,
+	HIG "ç•¥æœ‰å¤§æˆ" NOR,
+	HIG "å·²æœ‰å¤§æˆ" NOR,
+	YEL "è±ç„¶è´¯é€š" NOR,
+	YEL "å‡ºç±»æ‹”èƒ" NOR,
+	YEL "æ— å¯åŒ¹æ•Œ" NOR,
+	YEL "æŠ€å† ç¾¤é›„" NOR,
+	YEL "ç¥ä¹å…¶æŠ€" NOR,
+	HIY "å‡ºç¥å…¥åŒ–" NOR,
+	HIY "éåŒå‡¡å“" NOR,
+	HIY "å‚²è§†ç¾¤é›„" NOR,
+	HIY "ç™»å³°é€ æ" NOR,
+	HIY "æ— ä¸ä¼¦æ¯”" NOR,
+	RED "æ‰€å‘æŠ«é¡" NOR,
+	RED "ä¸€ä»£å®—å¸ˆ" NOR,
+	RED "ç²¾æ·±å¥¥å¦™" NOR,
+	RED "ç¥åŠŸç›–ä¸–" NOR,
+	RED "ä¸¾ä¸–æ— åŒ" NOR,
+	WHT "æƒŠä¸–éª‡ä¿—" NOR,
+	WHT "æ’¼å¤©åŠ¨åœ°" NOR,
+	WHT "éœ‡å¤é“„ä»Š" NOR,
+	WHT "è¶…å‡¡å…¥åœ£" NOR,
+	WHT "å¨é•‡å¯°å®‡" NOR,
+	HIW "ç©ºå‰ç»å" NOR,
+	HIW "å¤©äººåˆä¸€" NOR,
+	MAG "æ·±è—ä¸éœ²" NOR,
+	HIM "æ·±ä¸å¯æµ‹" NOR,
+	HIR "è¿”ç’å½’çœŸ" NOR 
 });
 string *heavy_level_desc= ({
-	"¼«Çá",
-	"ºÜÇá",
-	"²»ÖØ",
-	"²»Çá",
-	"ºÜÖØ",
-	"¼«ÖØ"	
+	"æè½»",
+	"å¾ˆè½»",
+	"ä¸é‡",
+	"ä¸è½»",
+	"å¾ˆé‡",
+	"æé‡"	
 });
 void create() { seteuid(getuid()); }
 
@@ -137,14 +137,14 @@ int look_room(object me, object env)
 
 	if( !env )
 	{
-		write("ÄãµÄËÄÖÜ»ÒÃÉÃÉµØÒ»Æ¬£¬Ê²Ã´Ò²Ã»ÓĞ¡£\n");
+		write("ä½ çš„å››å‘¨ç°è’™è’™åœ°ä¸€ç‰‡ï¼Œä»€ä¹ˆä¹Ÿæ²¡æœ‰ã€‚\n");
 		return 1;
 	}
-// ·¿¼äÃèÊö
+// æˆ¿é—´æè¿°
 	str = sprintf(HIC+"%s"+NOR+" - %s\n    %s"NOR, env->query("short"), wizardp(me)? file_name(env)+sprintf(" - (%d,%d,%d)",env->query("coor/x"),env->query("coor/y"),env->query("coor/z")): "", env->query("long") );
-// ÌìÆøÃèÊö
+// å¤©æ°”æè¿°
 	str += sprintf("%s", env->query("outdoors") ? NATURE_D->outdoor_room_description():"");
-// Â·¾¶Ö¸Ê¾
+// è·¯å¾„æŒ‡ç¤º
 	if( mapp(exits = env->query("exits")) )
 	{
 		dirs = keys(exits);
@@ -155,24 +155,24 @@ int look_room(object me, object env)
 		if ( env->query("outdoors") &&
 			!present("fire", this_player()) &&
 			!wizardp(this_player()) &&
-			((strsrch(time, "º¥Ê±") >= 0) ||
-			 (strsrch(time, "×ÓÊ±") >= 0) ||
-			 (strsrch(time, "³óÊ±") >= 0) ||
-			 (strsrch(time, "ÒúÊ±") >= 0) ))
-			str += "    ÌìÉ«Ì«ºÚÁË£¬Äã¿´²»ÇåÃ÷ÏÔµÄ³öÂ·¡£\n";
+			((strsrch(time, "äº¥æ—¶") >= 0) ||
+			 (strsrch(time, "å­æ—¶") >= 0) ||
+			 (strsrch(time, "ä¸‘æ—¶") >= 0) ||
+			 (strsrch(time, "å¯…æ—¶") >= 0) ))
+			str += "    å¤©è‰²å¤ªé»‘äº†ï¼Œä½ çœ‹ä¸æ¸…æ˜æ˜¾çš„å‡ºè·¯ã€‚\n";
 		else if( sizeof(dirs)==0 )
-			str += "    ÕâÀïÃ»ÓĞÈÎºÎÃ÷ÏÔµÄ³öÂ·¡£\n";
+			str += "    è¿™é‡Œæ²¡æœ‰ä»»ä½•æ˜æ˜¾çš„å‡ºè·¯ã€‚\n";
 		else if( sizeof(dirs)==1 )
-			str += "    ÕâÀïÎ¨Ò»µÄ³ö¿ÚÊÇ "+BOLD+dirs[0]+NOR+"¡£\n";
+			str += "    è¿™é‡Œå”¯ä¸€çš„å‡ºå£æ˜¯ "+BOLD+dirs[0]+NOR+"ã€‚\n";
 		else
-			str += sprintf("    ÕâÀïÃ÷ÏÔµÄ³ö¿ÚÊÇ "+BOLD"%s"NOR+" ºÍ "+BOLD+"%s"+NOR+"¡£\n", implode(dirs[0..sizeof(dirs)-2], "¡¢"), dirs[sizeof(dirs)-1]);
+			str += sprintf("    è¿™é‡Œæ˜æ˜¾çš„å‡ºå£æ˜¯ "+BOLD"%s"NOR+" å’Œ "+BOLD+"%s"+NOR+"ã€‚\n", implode(dirs[0..sizeof(dirs)-2], "ã€"), dirs[sizeof(dirs)-1]);
 	}
 //	str += env->door_description();
 
 	inv = all_inventory(env);
 	str += combined(inv);
 	write(str);
-// Ğ¡µØÍ¼ÃèÊö
+// å°åœ°å›¾æè¿°
 /*	if (!this_player()->query("env/no_map"))
 	{
 		if( mapp(exits =env->query("exits")) )
@@ -197,13 +197,13 @@ int look_room(object me, object env)
 					switch(dirs[i])
 					{
 						case "north":
-						write(SETDISPLAY(3,60)+HIY"£ü"NOR);
+						write(SETDISPLAY(3,60)+HIY"ï½œ"NOR);
 						room=load_object(exits["north"]);
 						write(SETDISPLAY(2,56)+clean_color(room->query("short")));
 						break;
 
 						case "south":
-						write(SETDISPLAY(5,60)+HIY"£ü"NOR);
+						write(SETDISPLAY(5,60)+HIY"ï½œ"NOR);
 						room=load_object(exits["south"]);
 						write(SETDISPLAY(6,56)+clean_color(room->query("short")));
 						break;
@@ -211,47 +211,47 @@ int look_room(object me, object env)
 						case "east":
 						room=load_object(exits["east"]);
 						write(SETDISPLAY(4,68)+clean_color(room->query("short")));
-						write(SETDISPLAY(4,66)+HIY"¡ª"NOR);
+						write(SETDISPLAY(4,66)+HIY"â€”"NOR);
 						break;
 
 						case "west":
 						room=load_object(exits["west"]);
 						write(SETDISPLAY(4,44)+clean_color(room->query("short")));
-						write(SETDISPLAY(4,54)+HIY"¡ª"NOR);
+						write(SETDISPLAY(4,54)+HIY"â€”"NOR);
 						break;
 
 						case "westup":
 						room=load_object(exits["westup"]);
 						write(SETDISPLAY(4,44)+clean_color(room->query("short")));
-						write(SETDISPLAY(4,54)+HIY"¡û"NOR);
+						write(SETDISPLAY(4,54)+HIY"â†"NOR);
 						break;
 
 						case "eastup":
 						room=load_object(exits["eastup"]);
 						write(SETDISPLAY(4,68)+clean_color(room->query("short")));
-						write(SETDISPLAY(4,66)+HIY"¡ú"NOR);
+						write(SETDISPLAY(4,66)+HIY"â†’"NOR);
 						break;
 
 						case "northup":
-						write(SETDISPLAY(3,60)+HIY"¡ü"NOR);
+						write(SETDISPLAY(3,60)+HIY"â†‘"NOR);
 						room=load_object(exits["northup"]);
 						write(SETDISPLAY(2,56)+clean_color(room->query("short")));
 						break;
 
 						case "southup":
-						write(SETDISPLAY(5,60)+HIY"¡ı"NOR);
+						write(SETDISPLAY(5,60)+HIY"â†“"NOR);
 						room=load_object(exits["southup"]);
 						write(SETDISPLAY(6,56)+clean_color(room->query("short")));
 						break;
 
 						case "southdown":
-						write(SETDISPLAY(5,60)+HIY"¡ü"NOR);
+						write(SETDISPLAY(5,60)+HIY"â†‘"NOR);
 						room=load_object(exits["southdown"]);
 						write(SETDISPLAY(6,56)+clean_color(room->query("short")));
 						break;
 
 						case "northdown":
-						write(SETDISPLAY(3,60)+HIY"¡ı"NOR);
+						write(SETDISPLAY(3,60)+HIY"â†“"NOR);
 						room=load_object(exits["northdown"]);
 						write(SETDISPLAY(2,56)+clean_color(room->query("short")));
 						break;
@@ -259,52 +259,52 @@ int look_room(object me, object env)
 						case "eastdown":
 						room=load_object(exits["eastdown"]);
 						write(SETDISPLAY(4,68)+clean_color(room->query("short")));
-						write(SETDISPLAY(4,66)+HIY"¡û"NOR);
+						write(SETDISPLAY(4,66)+HIY"â†"NOR);
 						break;
 
 						case "westdown":
 						room=load_object(exits["westdown"]);
 						write(SETDISPLAY(4,44)+clean_color(room->query("short")));
-						write(SETDISPLAY(4,54)+HIY"¡ú"NOR);
+						write(SETDISPLAY(4,54)+HIY"â†’"NOR);
 						break;
 
 						case "northwest":
-						write(SETDISPLAY(3,54)+HIY"£Ü"NOR);
+						write(SETDISPLAY(3,54)+HIY"ï¼¼"NOR);
 						room=load_object(exits["northwest"]);
 						write(SETDISPLAY(2,44)+clean_color(room->query("short")));
 						break;
 
 						case "southwest":
-						write(SETDISPLAY(5,54)+HIY"£¯"NOR);
+						write(SETDISPLAY(5,54)+HIY"ï¼"NOR);
 						room=load_object(exits["southwest"]);
 						write(SETDISPLAY(6,44)+clean_color(room->query("short")));
 						break;
 
 						case "northeast":
-						write(SETDISPLAY(3,66)+HIY"£¯"NOR);
+						write(SETDISPLAY(3,66)+HIY"ï¼"NOR);
 						room=load_object(exits["northeast"]);
 						write(SETDISPLAY(2,68)+clean_color(room->query("short")));
 						break;
 
 						case "southeast":
-						write(SETDISPLAY(5,66)+HIY"£Ü"NOR);
+						write(SETDISPLAY(5,66)+HIY"ï¼¼"NOR);
 						room=load_object(exits["southeast"]);
 						write(SETDISPLAY(6,68)+clean_color(room->query("short")));
 						break;
 					}
 
-				write(SETDISPLAY(1,42)+"©³©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©·");
-				write(SETDISPLAY(2,42)+"©§");
-				write(SETDISPLAY(3,42)+"©§");
-				write(SETDISPLAY(4,42)+"©§");
-				write(SETDISPLAY(5,42)+"©§");
-				write(SETDISPLAY(6,42)+"©§");
-				write(SETDISPLAY(7,42)+"©»©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¿");
-				write(SETDISPLAY(2,78)+"©§");
-				write(SETDISPLAY(3,78)+"©§");
-				write(SETDISPLAY(4,78)+"©§");
-				write(SETDISPLAY(5,78)+"©§");
-				write(SETDISPLAY(6,78)+"©§");
+				write(SETDISPLAY(1,42)+"â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”“");
+				write(SETDISPLAY(2,42)+"â”ƒ");
+				write(SETDISPLAY(3,42)+"â”ƒ");
+				write(SETDISPLAY(4,42)+"â”ƒ");
+				write(SETDISPLAY(5,42)+"â”ƒ");
+				write(SETDISPLAY(6,42)+"â”ƒ");
+				write(SETDISPLAY(7,42)+"â”—â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”›");
+				write(SETDISPLAY(2,78)+"â”ƒ");
+				write(SETDISPLAY(3,78)+"â”ƒ");
+				write(SETDISPLAY(4,78)+"â”ƒ");
+				write(SETDISPLAY(5,78)+"â”ƒ");
+				write(SETDISPLAY(6,78)+"â”ƒ");
 
 				write(REST);
 			}
@@ -312,7 +312,7 @@ int look_room(object me, object env)
 	}	*/
 	return 1;
 }
-// Çå³ıÑÕÉ«£¬Æ¥ÅäĞ¡µØÍ¼
+// æ¸…é™¤é¢œè‰²ï¼ŒåŒ¹é…å°åœ°å›¾
 /*string clean_color(string arg)
 {
 	if(!arg) return "";
@@ -336,7 +336,7 @@ int look_room(object me, object env)
 	arg = adjust_short(arg);
 	return BBLU+arg+NOR;
 }*/
-// Ğ¡µØÍ¼·¿¼ä¶ÌÃèÊöÍ³Ò»³ÉÎå¸öºº×Ö
+// å°åœ°å›¾æˆ¿é—´çŸ­æè¿°ç»Ÿä¸€æˆäº”ä¸ªæ±‰å­—
 /*string adjust_short(string arg)
 {
 	switch (strlen(arg))
@@ -358,7 +358,7 @@ int look_item(object me, object obj)
 	write(obj->long());
 	inv = all_inventory(obj);
 	if( sizeof(inv) ) 
-		message("vision",sprintf("ÀïÃæÓĞ£º\n%s\n",combined(inv)),me);
+		message("vision",sprintf("é‡Œé¢æœ‰ï¼š\n%s\n",combined(inv)),me);
 	return 1;
 }
 string gettof(object me, object ob)
@@ -405,7 +405,7 @@ varargs mixed look_living(object me, object obj, int getstr)
 	age = obj->query("age");
 
 	if( me!=obj && !getstr)
-		message("vision",me->name()+"Õı¶¢×ÅÄã¿´£¬²»ÖªµÀ´òĞ©Ê²Ã´Ö÷Òâ¡£\n",obj);
+		message("vision",me->name()+"æ­£ç›¯ç€ä½ çœ‹ï¼Œä¸çŸ¥é“æ‰“äº›ä»€ä¹ˆä¸»æ„ã€‚\n",obj);
 	str = obj->long();
 	if (obj->query_temp("pretend")) 
 	{
@@ -415,37 +415,37 @@ varargs mixed look_living(object me, object obj, int getstr)
 	pro = (obj==me) ? gender_self(obj->query("gender")) : gender_pronoun(obj->query("gender"));
 	if (obj->query_temp("is_riding") && obj != me)
 	 if (stringp(obj->query_temp("is_riding")))
-		str += sprintf("%sÕıÆïÔÚ%sÉÏ£¬µÍÍ·¿´×ÅÄã¡£\n", pro, obj->query_temp("is_riding"));
+		str += sprintf("%sæ­£éª‘åœ¨%sä¸Šï¼Œä½å¤´çœ‹ç€ä½ ã€‚\n", pro, obj->query_temp("is_riding"));
    if (objectp(obj->query_temp("is_riding")))
-		str += sprintf("%sÕıÆïÔÚ%sÉÏ£¬µÍÍ·¿´×ÅÄã¡£\n", pro, (obj->query_temp("is_riding"))->name());
+		str += sprintf("%sæ­£éª‘åœ¨%sä¸Šï¼Œä½å¤´çœ‹ç€ä½ ã€‚\n", pro, (obj->query_temp("is_riding"))->name());
     
 
 	if(wizardp(obj) && !obj->query("no_look_wiz"))
-		str+=sprintf(HIY"%sÈ«ÉíÉ¢·¢×ÅÒ«ÑÛµÄ½ğ¹â£¬¿´À´ÊÇÍòÎïÖ®×ğµÄÉñÀà¡£\n"NOR, pro);
+		str+=sprintf(HIY"%så…¨èº«æ•£å‘ç€è€€çœ¼çš„é‡‘å…‰ï¼Œçœ‹æ¥æ˜¯ä¸‡ç‰©ä¹‹å°Šçš„ç¥ç±»ã€‚\n"NOR, pro);
 
-	if( (string)obj->query("race")=="ÈËÀà" && intp(obj->query("age")) )
+	if( (string)obj->query("race")=="äººç±»" && intp(obj->query("age")) )
 	{
 		if(obj->query("age")>10)      
-        	str += sprintf("%s¿´ÆğÀ´Ô¼%s¶àËê¡£\n", pro, chinese_number(obj->query("age") / 10 * 10));
+        	str += sprintf("%sçœ‹èµ·æ¥çº¦%så¤šå²ã€‚\n", pro, chinese_number(obj->query("age") / 10 * 10));
 		else
-		str += sprintf("%s¿´ÆğÀ´Ïàµ±Ğ¡¡£\n",pro);
+		str += sprintf("%sçœ‹èµ·æ¥ç›¸å½“å°ã€‚\n",pro);
 	     if ( (obj == me || wizardp(me) ) && !getstr)
 //		if(obj == me)
 		{
-			str += sprintf("%sµÄÎä¹¦¿´À´", pro);
+			str += sprintf("%sçš„æ­¦åŠŸçœ‹æ¥", pro);
 			str += gettof(me,obj);
-			str += sprintf("£¬");
-			str += sprintf("³öÊÖËÆºõ");
+			str += sprintf("ï¼Œ");
+			str += sprintf("å‡ºæ‰‹ä¼¼ä¹");
 			str += getdam(me,obj);
-			str += sprintf("¡£\n");
+			str += sprintf("ã€‚\n");
 		}
 	}
 	if(age > 70 ) per = per/4;
 	if(age > 60 ) per = per/3;
 	if(age > 50 ) per = per/2;
-	if( (string)obj->query("race")=="ÈËÀà")
+	if( (string)obj->query("race")=="äººç±»")
 	{
-		if(age<16 ) str += pro+ "ÉíÁ¿²»×ã£¬ĞÎÈİÉĞĞ¡¡£\n";
+		if(age<16 ) str += pro+ "èº«é‡ä¸è¶³ï¼Œå½¢å®¹å°šå°ã€‚\n";
 		else
 		str += pro + PERSONAL_D->query_personal( obj->query("gender") , per );
 	}
@@ -454,9 +454,9 @@ varargs mixed look_living(object me, object obj, int getstr)
 		if (living(obj))
 		{
 			if (!obj->query_temp("owner"))
-				str += pro+"ÊÇÒ»Ö»Î´±»Ñ±·şµÄĞóÉú£¬ÑÛ¹âÀïÂúÊÇ½äĞÄºÍµĞÒâ¡£\n";
+				str += pro+"æ˜¯ä¸€åªæœªè¢«é©¯æœçš„ç•œç”Ÿï¼Œçœ¼å…‰é‡Œæ»¡æ˜¯æˆ’å¿ƒå’Œæ•Œæ„ã€‚\n";
 			else
-				str += pro+"ÊÇÒ»Ö»±»"+obj->query_temp("ownername")+"Ñ±·şµÄĞóÉú£¬Ò»¸±ºÜÎÂÑ±µÄÑù×Ó¡£\n";
+				str += pro+"æ˜¯ä¸€åªè¢«"+obj->query_temp("ownername")+"é©¯æœçš„ç•œç”Ÿï¼Œä¸€å‰¯å¾ˆæ¸©é©¯çš„æ ·å­ã€‚\n";
 		}
 	}
 	wearornot = 0;
@@ -474,36 +474,36 @@ varargs mixed look_living(object me, object obj, int getstr)
 	//check about wife and husband
 	if((obj->parse_command_id_list())[0]==me->query("couple/couple_id") )
 	{
-		if( (string)me->query("gender")=="Å®ĞÔ" )
+		if( (string)me->query("gender")=="å¥³æ€§" )
 		{
-			str += sprintf("%sÊÇÄãµÄÕÉ·ò¡£\n", pro);
+			str += sprintf("%sæ˜¯ä½ çš„ä¸ˆå¤«ã€‚\n", pro);
 		}
 		else{
-			str += sprintf("%sÊÇÄãµÄÆŞ×Ó¡£\n", pro);
+			str += sprintf("%sæ˜¯ä½ çš„å¦»å­ã€‚\n", pro);
 		}
 	}
 	if (me->query("jiebai"))
 		if (strsrch(me->query("jiebai"), obj->query("id")+">") >= 0)
 		{
-			if( obj->query("gender")=="Å®ĞÔ" )
+			if( obj->query("gender")=="å¥³æ€§" )
 			{
 				if (obj->query("mud_age") > me->query("mud_age"))
-				str += sprintf("%sÊÇÄãµÄÒå½ã¡£\n", pro);
-				else str += sprintf("%sÊÇÄãµÄ½áÒåÃÃ×Ó¡£\n", pro);
+				str += sprintf("%sæ˜¯ä½ çš„ä¹‰å§ã€‚\n", pro);
+				else str += sprintf("%sæ˜¯ä½ çš„ç»“ä¹‰å¦¹å­ã€‚\n", pro);
 			}
 			else
 			{
 				if (obj->query("mud_age") > me->query("mud_age"))
-				str += sprintf("%sÊÇÄãµÄ½áÒåĞÖ³¤¡£\n", pro);
-				else str += sprintf("%sÊÇÄãµÄÒåµÜ¡£\n", pro);
+				str += sprintf("%sæ˜¯ä½ çš„ç»“ä¹‰å…„é•¿ã€‚\n", pro);
+				else str += sprintf("%sæ˜¯ä½ çš„ä¹‰å¼Ÿã€‚\n", pro);
 			}
 		}
 	if(obj!=me && me->query("born") && me->query("born/hometown")==obj->query("born/hometown") )
 	{
-		str += sprintf("%sÊÇÄãµÄÀÏÏç¡£\n", pro);
+		str += sprintf("%sæ˜¯ä½ çš„è€ä¹¡ã€‚\n", pro);
 	}
 	if((wearornot == 0 ) && userp(obj) && !wizardp(obj) )
-		str += pro+"ÉíÉÏ¾ÓÈ»Ê²Ã´¶¼Ã»´©Ò®£¡\n";
+		str += pro+"èº«ä¸Šå±…ç„¶ä»€ä¹ˆéƒ½æ²¡ç©¿è€¶ï¼\n";
 	// If we both has family, check if we have any relations.
 	if( obj!=me && mapp(fam = obj->query("family"))
 	&& mapp(my_fam = me->query("family"))
@@ -511,45 +511,45 @@ varargs mixed look_living(object me, object obj, int getstr)
 	{
 		if( fam["generation"]==my_fam["generation"] )
 		{
-			if( (string)obj->query("gender") == "ÄĞĞÔ" ||
-				(string)obj->query("gender") == "ÎŞĞÔ")
-				str += sprintf( pro + "ÊÇÄãµÄ%s%s¡£\n",
-					my_fam["master_id"] == fam["master_id"]? "": "Í¬ÃÅ",
-					my_fam["enter_time"] > fam["enter_time"] ? "Ê¦ĞÖ": "Ê¦µÜ");
+			if( (string)obj->query("gender") == "ç”·æ€§" ||
+				(string)obj->query("gender") == "æ— æ€§")
+				str += sprintf( pro + "æ˜¯ä½ çš„%s%sã€‚\n",
+					my_fam["master_id"] == fam["master_id"]? "": "åŒé—¨",
+					my_fam["enter_time"] > fam["enter_time"] ? "å¸ˆå…„": "å¸ˆå¼Ÿ");
 			else
-				str += sprintf( pro + "ÊÇÄãµÄ%s%s¡£\n",
-					my_fam["master_id"] == fam["master_id"]? "": "Í¬ÃÅ",
-					my_fam["enter_time"] > fam["enter_time"] ? "Ê¦½ã": "Ê¦ÃÃ");
+				str += sprintf( pro + "æ˜¯ä½ çš„%s%sã€‚\n",
+					my_fam["master_id"] == fam["master_id"]? "": "åŒé—¨",
+					my_fam["enter_time"] > fam["enter_time"] ? "å¸ˆå§": "å¸ˆå¦¹");
 		} else if( fam["generation"] < my_fam["generation"] ) {
 			if( my_fam["master_id"] == obj->query("id") )
-				str += pro + "ÊÇÄãµÄÊ¦¸¸¡£\n";
+				str += pro + "æ˜¯ä½ çš„å¸ˆçˆ¶ã€‚\n";
 			else if( my_fam["generation"] - fam["generation"] > 1 )
-				str += pro + "ÊÇÄãµÄÍ¬ÃÅ³¤±²¡£\n";
+				str += pro + "æ˜¯ä½ çš„åŒé—¨é•¿è¾ˆã€‚\n";
 			else if( fam["enter_time"] < my_fam["enter_time"] )
-				str += pro + "ÊÇÄãµÄÊ¦²®¡£\n";
+				str += pro + "æ˜¯ä½ çš„å¸ˆä¼¯ã€‚\n";
 			else
-				str += pro + "ÊÇÄãµÄÊ¦Êå¡£\n";
+				str += pro + "æ˜¯ä½ çš„å¸ˆå”ã€‚\n";
 		} else {
 			if( fam["generation"] - my_fam["generation"] > 1 )
-				str += pro + "ÊÇÄãµÄÍ¬ÃÅÍí±²¡£\n";
+				str += pro + "æ˜¯ä½ çš„åŒé—¨æ™šè¾ˆã€‚\n";
 			else if( fam["master_id"] == me->query("id") )
-				str += pro + "ÊÇÄãµÄµÜ×Ó¡£\n";
+				str += pro + "æ˜¯ä½ çš„å¼Ÿå­ã€‚\n";
 			else
-				str += pro + "ÊÇÄãµÄÊ¦Ö¶¡£\n";
+				str += pro + "æ˜¯ä½ çš„å¸ˆä¾„ã€‚\n";
 		}
 	}
 
 	if( obj->query("max_qi") )
 		str += pro + COMBAT_D->eff_status_msg((int)obj->query("eff_qi")* 100 / (int)obj->query("max_qi")) + "\n";
 
-	if(obj->is_corpse() && obj->query("kantou") == 1) str += sprintf("%sÁ¬Í·¶¼±»¸î×ßÁË¡£\n", pro);
+	if(obj->is_corpse() && obj->query("kantou") == 1) str += sprintf("%sè¿å¤´éƒ½è¢«å‰²èµ°äº†ã€‚\n", pro);
 
 	inv = all_inventory(obj);
 	if( sizeof(inv) ) {		
 		inv = map_array(inv, "inventory_look", this_object(), obj->is_corpse()? 0 : 1 );
 		inv -= ({ 0 });
 		if( sizeof(inv) )
-			str += sprintf( obj->is_corpse() ? "%sµÄÒÅÎïÓĞ£º\n%s\n": "%sÉíÉÏ´ø×Å£º\n%s\n",
+			str += sprintf( obj->is_corpse() ? "%sçš„é—ç‰©æœ‰ï¼š\n%s\n": "%sèº«ä¸Šå¸¦ç€ï¼š\n%s\n",
 				pro, implode(inv, "\n") );
 	}
 	if (intp(getstr) && getstr==1) return str;
@@ -561,7 +561,7 @@ varargs mixed look_living(object me, object obj, int getstr)
 		(((me_shen - obj_shen) > ((int)obj->query("neili") * 20)) ||
 		((obj_shen - me_shen) > ((int)obj->query("neili") * 20))))
 	{
-		write( obj->name() + "Í»È»×ª¹ıÍ·À´µÉÄãÒ»ÑÛ¡£\n");
+		write( obj->name() + "çªç„¶è½¬è¿‡å¤´æ¥çªä½ ä¸€çœ¼ã€‚\n");
 		if(obj->query("age") > 15 && me->query("age") > 15)
 			if(!wizardp(obj) && !wizardp(me) &&
 				obj->query_temp("guardfor")!=me)
@@ -576,7 +576,7 @@ string inventory_look(object obj, int flag)
 
 	str = obj->short();
 	if( obj->query("equipped") )
-		str = HIC "  ¡õ" NOR + str;
+		str = HIC "  â–¡" NOR + str;
 	else if( !flag )
 		str = "    " + str;
 	else
@@ -591,7 +591,7 @@ int look_room_item(object me, string arg)
 	mapping item, exits;
 
 	if( !objectp(env = environment(me)) )
-		return notify_fail("ÕâÀïÖ»ÓĞ»ÒÃÉÃÉµØÒ»Æ¬£¬Ê²Ã´Ò²Ã»ÓĞ¡£\n");
+		return notify_fail("è¿™é‡Œåªæœ‰ç°è’™è’™åœ°ä¸€ç‰‡ï¼Œä»€ä¹ˆä¹Ÿæ²¡æœ‰ã€‚\n");
 	if( mapp(item = env->query("item_desc")) && !undefinedp(item[arg]) ) {
 		if( stringp(item[arg]) )
 			write(item[arg]);
@@ -609,7 +609,7 @@ int look_room_item(object me, string arg)
 		}
 		return 1;
 	}
-	return notify_fail("ÄãÒª¿´Ê²Ã´£¿\n");
+	return notify_fail("ä½ è¦çœ‹ä»€ä¹ˆï¼Ÿ\n");
 }
 string tough_level(int power)
 {
@@ -723,11 +723,11 @@ string filter_color(string arg)
 int help (object me)
 {
 	write(@HELP
-Ö¸Áî¸ñÊ½: look [<ÎïÆ·>|<ÉúÎï>|<·½Ïò>]
+æŒ‡ä»¤æ ¼å¼: look [<ç‰©å“>|<ç”Ÿç‰©>|<æ–¹å‘>]
 
-    Õâ¸öÖ¸ÁîÈÃÄã²é¿´ÄãËùÔÚµÄ»·¾³¡¢Ä³¼şÎïÆ·¡¢ÉúÎï¡¢»òÊÇ·½Ïò¡£
-¿ÉÒÔ¿´×Ô¼º¡££¨ÇĞ¼Ç£º£ì£ï£ï£ëµÄÖ¸Áî×÷ÓÃ±ÈÒ»°ãÈËÏëÏóµÄÒª´óµÃ¶à£¬
-ÓÈÆäÊÇÔÚÃÔ¹¬ÖĞ¡££©
+    è¿™ä¸ªæŒ‡ä»¤è®©ä½ æŸ¥çœ‹ä½ æ‰€åœ¨çš„ç¯å¢ƒã€æŸä»¶ç‰©å“ã€ç”Ÿç‰©ã€æˆ–æ˜¯æ–¹å‘ã€‚
+å¯ä»¥çœ‹è‡ªå·±ã€‚ï¼ˆåˆ‡è®°ï¼šï½Œï½ï½ï½‹çš„æŒ‡ä»¤ä½œç”¨æ¯”ä¸€èˆ¬äººæƒ³è±¡çš„è¦å¤§å¾—å¤šï¼Œ
+å°¤å…¶æ˜¯åœ¨è¿·å®«ä¸­ã€‚ï¼‰
 
 HELP
 );

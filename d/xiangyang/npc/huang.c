@@ -5,10 +5,10 @@ string ask_me();
 
 void create()
 {
-	set_name("»ÆÈØ", ({"huang rong", "huang", "rong"}));
-	set("gender", "Å®ÐÔ");
+	set_name("é»„è“‰", ({"huang rong", "huang", "rong"}));
+	set("gender", "å¥³æ€§");
 	set("age", 36);
-	set("long", "ËýÊÇ±±ÏÀ¹ù¾¸µÄ·òÈË£¬¶«Ð°»ÆÒ©Ê¦µÄ°®Å®£¬Ç°ÈÎØ¤°ï°ïÖ÷¡£\n");
+	set("long", "å¥¹æ˜¯åŒ—ä¾ éƒ­é–çš„å¤«äººï¼Œä¸œé‚ªé»„è¯å¸ˆçš„çˆ±å¥³ï¼Œå‰ä»»ä¸å¸®å¸®ä¸»ã€‚\n");
 
 	set("attitude", "peaceful");
 	   
@@ -47,11 +47,11 @@ void create()
 	map_skill("sword"  , "luoying-shenjian") ;
 
 	set("inquiry",([
-		"ÃØ¼®"     : (: ask_me :),
-		"Åëâ¿ÈëÃÅ" : (: ask_me :),
+		"ç§˜ç±"     : (: ask_me :),
+		"çƒ¹é¥ªå…¥é—¨" : (: ask_me :),
 	]));	
 	set("book_count", 1);	   
-	create_family("ÌÒ»¨µº", 2, "µÜ×Ó");
+	create_family("æ¡ƒèŠ±å²›", 2, "å¼Ÿå­");
 	setup();
 	carry_object("/kungfu/class/taohua/obj/ruanwei")->wear();
 	carry_object("/kungfu/class/taohua/obj/shudai")->wear();
@@ -60,20 +60,20 @@ void create()
 
 int recognize_apprentice(object ob)
 {
-	if (!(int)ob->query_temp("mark/ÈØ")) return 0;
-	ob->add_temp("mark/ÈØ", -1);
+	if (!(int)ob->query_temp("mark/è“‰")) return 0;
+	ob->add_temp("mark/è“‰", -1);
 	return 1;
 }
 
 int accept_object(object who, object ob)
 {
 	object me = this_player();
-	if (!(int)who->query_temp("mark/ÈØ"))
-		who->set_temp("mark/ÈØ", 0);
+	if (!(int)who->query_temp("mark/è“‰"))
+		who->set_temp("mark/è“‰", 0);
 	if (ob->query("money_id") && ob->value() >= 1000)
 	{
-		message_vision("»ÆÈØÍ¬ÒâÖ¸µã$NÒ»Ð©Åëâ¿ÊÖÒÕµÄÎÊÌâ¡£\n", who);
-		who->add_temp("mark/ÈØ", ob->value() / 500);
+		message_vision("é»„è“‰åŒæ„æŒ‡ç‚¹$Nä¸€äº›çƒ¹é¥ªæ‰‹è‰ºçš„é—®é¢˜ã€‚\n", who);
+		who->add_temp("mark/è“‰", ob->value() / 500);
 		return 1;
 	}
 	return 0;
@@ -84,12 +84,12 @@ string ask_me()
 	object ob,me;
 
 	if (this_player()->query_skill("cookery",1)<60)
-                return "ÄãµÄÅëâ¿Ö®ÊõÉÐÇ·»ðºò£¬ÏÂ»ØÔÙÀ´°É¡£";
+                return "ä½ çš„çƒ¹é¥ªä¹‹æœ¯å°šæ¬ ç«å€™ï¼Œä¸‹å›žå†æ¥å§ã€‚";
 	if (query("book_count") < 1)
-		return "ÄãÀ´ÍíÁË£¬¡¸Åëâ¿ÈëÃÅ¡¹²»ÔÚ´Ë´¦¡£";
+		return "ä½ æ¥æ™šäº†ï¼Œã€Œçƒ¹é¥ªå…¥é—¨ã€ä¸åœ¨æ­¤å¤„ã€‚";
 	add("book_count", -1);
 	ob = new("/clone/book/cookery_book.c");
 	ob->move(this_player());
-	command("rumor "+this_player()->query("name")+"ÄÃµ½Åëâ¿ÈëÃÅÀ²¡£\n");
-	return "ºÃ°É£¬Õâ±¾¡¸Åëâ¿ÈëÃÅ¡¹ÄãÄÃ»ØÈ¥ºÃºÃ×êÑÐ¡£";
+	command("rumor "+this_player()->query("name")+"æ‹¿åˆ°çƒ¹é¥ªå…¥é—¨å•¦ã€‚\n");
+	return "å¥½å§ï¼Œè¿™æœ¬ã€Œçƒ¹é¥ªå…¥é—¨ã€ä½ æ‹¿å›žåŽ»å¥½å¥½é’»ç ”ã€‚";
 }

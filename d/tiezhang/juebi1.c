@@ -6,11 +6,11 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "¾ø±Ú");
+	set("short", "ç»å£");
 	set("long", @LONG
-Äã×ßµ½ÕâÀï£¬·¢ÏÖÇ°ÃæÒÑ¾­Ã»ÓĞÂ·ÁË¡£ÄãÃæÇ°ÊÇÒ»×ùÁ¢¶¸µÄÉ½·å£¬
-¸ßËÊÈëÔÆ£¬¿´²»µ½¾¡Í·¡£Ê¯±ÚÉÏÉú³¤×ÅºÜ¶àËÉÊ÷£¬¼²·ç´µÀ´£¬É³É³×÷Ïì¡£
-¿´À´ÏëÉÏ·å¶¥£¬Ö»ÄÜÅÀÉÏÈ¥ÁË¡£
+ä½ èµ°åˆ°è¿™é‡Œï¼Œå‘ç°å‰é¢å·²ç»æ²¡æœ‰è·¯äº†ã€‚ä½ é¢å‰æ˜¯ä¸€åº§ç«‹é™¡çš„å±±å³°ï¼Œ
+é«˜è€¸å…¥äº‘ï¼Œçœ‹ä¸åˆ°å°½å¤´ã€‚çŸ³å£ä¸Šç”Ÿé•¿ç€å¾ˆå¤šæ¾æ ‘ï¼Œç–¾é£å¹æ¥ï¼Œæ²™æ²™ä½œå“ã€‚
+çœ‹æ¥æƒ³ä¸Šå³°é¡¶ï¼Œåªèƒ½çˆ¬ä¸Šå»äº†ã€‚
 LONG	);
 	set("exits", ([ /* sizeof() == 1 */
 		"southwest" : __DIR__"shangu2",
@@ -34,13 +34,13 @@ int do_zhua(string arg)
 	object me;
 	me=this_player();
     
-	if (arg =="ËÉÊ÷")
+	if (arg =="æ¾æ ‘")
 	{
-		write("ÄãÀÎÀÎµÄ×¥×¡Ê¯±ÚÉÏµÄËÉÊ÷¡£\n");
-		this_player()->set_temp("marks/×¥1", 1);
+		write("ä½ ç‰¢ç‰¢çš„æŠ“ä½çŸ³å£ä¸Šçš„æ¾æ ‘ã€‚\n");
+		this_player()->set_temp("marks/æŠ“1", 1);
 		return 1;
 	}
-	return notify_fail("ÄãÒª×¥Ê²Ã´£¿\n");
+	return notify_fail("ä½ è¦æŠ“ä»€ä¹ˆï¼Ÿ\n");
 }
 
 int do_climb(string arg)
@@ -50,23 +50,23 @@ int do_climb(string arg)
 	me=this_player();
 
 	if ( (int)me->query_skill("dodge", 1) < 30)
-		return notify_fail("ÄãµÄÇá¹¦²»¹»£¬ÎŞ·¨ÅÀÉÏÈ¥¡£\n");
+		return notify_fail("ä½ çš„è½»åŠŸä¸å¤Ÿï¼Œæ— æ³•çˆ¬ä¸Šå»ã€‚\n");
 
 	if (!(fam = this_player()->query("family")) ||
-		fam["family_name"] != "ÌúÕÆ°ï")
-		return notify_fail("Äã·Ç±¾°ïµÜ×Ó£¬²»ÄÜÉÏ·å£¡\n");
+		fam["family_name"] != "é“æŒå¸®")
+		return notify_fail("ä½ éæœ¬å¸®å¼Ÿå­ï¼Œä¸èƒ½ä¸Šå³°ï¼\n");
 
-	if (!me->query_temp("marks/×¥1") )
-		return notify_fail("ÎŞ´¦ÅÊÔµ£¬ºÃÏóÅÀ²»ÉÏÈ¥¡£\n");
+	if (!me->query_temp("marks/æŠ“1") )
+		return notify_fail("æ— å¤„æ”€ç¼˜ï¼Œå¥½è±¡çˆ¬ä¸ä¸Šå»ã€‚\n");
 	if (arg =="up")
 	{
-		write("ÄãÎüÁË¿ÚÆø£¬Ğ¡ĞÄµÄÏòÉÏÅÀÈ¥¡£\n");
-		message("vision",me->name() + "ÏòÉÏÒ»×İÍ»È»²»¼ûÁË¡£\n", environment(me), ({me}) );
+		write("ä½ å¸äº†å£æ°”ï¼Œå°å¿ƒçš„å‘ä¸Šçˆ¬å»ã€‚\n");
+		message("vision",me->name() + "å‘ä¸Šä¸€çºµçªç„¶ä¸è§äº†ã€‚\n", environment(me), ({me}) );
 		me->move(__DIR__"juebi2");
-		message("vision", me->name() + "ÅÀÁËÉÏÀ´¡£\n", environment(me), ({me}) );
-		me->delete_temp("marks/×¥1");
+		message("vision", me->name() + "çˆ¬äº†ä¸Šæ¥ã€‚\n", environment(me), ({me}) );
+		me->delete_temp("marks/æŠ“1");
 		if ((int)me->query_skill("dodge",1)>100)
-			write("Äã¾õµÃºÜÄÑ´ÓÖĞÁìÎòµ½Çá¹¦Éí·¨¡£\n");
+			write("ä½ è§‰å¾—å¾ˆéš¾ä»ä¸­é¢†æ‚Ÿåˆ°è½»åŠŸèº«æ³•ã€‚\n");
 		else
 		{
 			me->receive_damage("qi", 40);
@@ -74,5 +74,5 @@ int do_climb(string arg)
 		}
 		return 1;
 	}
-	return notify_fail("ÄãÒªÍùÄÄ¶ùÅÀ£¿\n");
+	return notify_fail("ä½ è¦å¾€å“ªå„¿çˆ¬ï¼Ÿ\n");
 }

@@ -2,9 +2,9 @@
 inherit ROOM;
 void create()
 {
-	set("short", "±Õ¹ØÊÒ´óÃÅ");
+	set("short", "é—­å…³å®¤å¤§é—¨");
 	set("long",
-"ÕâÊÇ±Õ¹ØÊÒÄÏ±ß£¬±±ÃæÓĞÒ»ÉÈ´óÃÅ¡£\n"
+"è¿™æ˜¯é—­å…³å®¤å—è¾¹ï¼ŒåŒ—é¢æœ‰ä¸€æ‰‡å¤§é—¨ã€‚\n"
 );
 	set("exits", ([
 		"north" : __DIR__"biguan",
@@ -22,9 +22,9 @@ void create()
 int valid_leave(object me, string dir)
 {
 	if ( (dir == "north") &&
-		((string)me->query("family/family_name") != "åĞÒ£ÅÉ") &&
-		((string)me->query("family/family_name") != "ÁéğÕ¹¬") &&
+		((string)me->query("family/family_name") != "é€é¥æ´¾") &&
+		((string)me->query("family/family_name") != "çµé¹«å®«") &&
 		objectp(present("shi sao", environment(me))) )
-		return notify_fail("Ê¯É©ÉìÊÖÀ¹×¡Äã£¬ËµµÀ£º¡°¶Ô²»Æğ£¬±¾ÃÅÖØµØ£¬Çë»Ø£¡¡±\n");
+		return notify_fail("çŸ³å«‚ä¼¸æ‰‹æ‹¦ä½ä½ ï¼Œè¯´é“ï¼šâ€œå¯¹ä¸èµ·ï¼Œæœ¬é—¨é‡åœ°ï¼Œè¯·å›ï¼â€\n");
 	return ::valid_leave(me, dir);
 }

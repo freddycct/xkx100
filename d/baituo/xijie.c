@@ -5,10 +5,10 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "����");
+	set("short", "西街");
 	set("long", @LONG
-������С������֡������и��Ƶ꣬��ǰ�����Ÿ߸ߵ���ˣ�һ��
-�಼����ӭ��Ʈ�����ӡ�����ɫ�Ĵ��֡��ơ���
+这里是小镇的西街。北边有个酒店，门前树立着高高的旗杆，一块
+青布幌子迎风飘扬，上面印着朱红色的大字‘酒’。
 LONG	);
 	set("outdoors", "baituo");
 	set("exits", ([

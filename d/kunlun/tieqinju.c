@@ -1,4 +1,4 @@
-// Room: /d/kunlun/tieqinju.c ÌúÇÙ¾Ó
+// Room: /d/kunlun/tieqinju.c é“ç´å±…
 // Last Modified by Winder on Nov. 15 2000
 
 #include <ansi.h>
@@ -7,11 +7,11 @@ inherit ROOM;
 
 void create()
 {
-	set("short","ÌúÇÙ¾Ó");
+	set("short","é“ç´å±…");
         set("long",@long
-Õâ¶ù±ãÊÇ¡°ÌúÇÙÏÈÉú¡±ºÎÌ«³åµÄ¾Ó´¦¡£·¿¼ä³ÂÉèÆÄÎª¾«ÇÉ£¬ÎïÆ·Óë
-ÖĞÍÁËù¼û±ğÊÇ²»Í¬¡£¼¸¸öÀ¥ÂØÅÉµÜ×ÓÊØÔÚÕâÀï£¬¸ö¸öÉîÓĞÓÇÉ«¡£¶«±ßÍ¨
-ÍùÎÔÊÒ¡£
+è¿™å„¿ä¾¿æ˜¯â€œé“ç´å…ˆç”Ÿâ€ä½•å¤ªå†²çš„å±…å¤„ã€‚æˆ¿é—´é™ˆè®¾é¢‡ä¸ºç²¾å·§ï¼Œç‰©å“ä¸
+ä¸­åœŸæ‰€è§åˆ«æ˜¯ä¸åŒã€‚å‡ ä¸ªæ˜†ä»‘æ´¾å¼Ÿå­å®ˆåœ¨è¿™é‡Œï¼Œä¸ªä¸ªæ·±æœ‰å¿§è‰²ã€‚ä¸œè¾¹é€š
+å¾€å§å®¤ã€‚
 long );
 	set("objects",([
 		CLASS_D("kunlun")+"/hetaichong" : 1,
@@ -22,7 +22,7 @@ long );
 		"south" : __DIR__"huapu",
 		"east"  : __DIR__"sleeproom",
 	]));
-	create_door("east", "Ğ¡ÃÅ", "west", DOOR_CLOSED);
+	create_door("east", "å°é—¨", "west", DOOR_CLOSED);
 	set("coor/x", -119980);
 	set("coor/y", 40140);
 	set("coor/z", 90);
@@ -37,9 +37,9 @@ int valid_leave(object me, string dir)
 
 	if (dir == "east" &&
 		objectp(present("he taichong", environment(me))) &&
-		(!fam || fam["family_name"] != "À¥ÂØÅÉ") &&
+		(!fam || fam["family_name"] != "æ˜†ä»‘æ´¾") &&
 		!me->query_temp("kl_pass"))
-		return notify_fail("ºÎÌ«³åÀ¹×¡Äã£¬ËµµÀ£ºÀï²àÎªÄÚ¾ì¾Ó×¡£¬»¹ÊÇÇëÎğ´òÈÅÎªÊÇ¡£\n");
+		return notify_fail("ä½•å¤ªå†²æ‹¦ä½ä½ ï¼Œè¯´é“ï¼šé‡Œä¾§ä¸ºå†…çœ·å±…ä½ï¼Œè¿˜æ˜¯è¯·å‹¿æ‰“æ‰°ä¸ºæ˜¯ã€‚\n");
 
 	return ::valid_leave(me, dir);
 }

@@ -1,4 +1,4 @@
-// touxi.c ÍµÏ®
+// touxi.c å·è¢­
 // by King 97.05
 
 #include <ansi.h>
@@ -9,34 +9,34 @@ int main(object me, string arg)
 	int skill, count;
 
 	if( environment(me)->query("no_fight") )
-		return notify_fail("ÕâÀï½ûÖ¹Õ½¶·¡£\n");
+		return notify_fail("è¿™é‡Œç¦æ­¢æˆ˜æ–—ã€‚\n");
 	if(!arg || !objectp(obj = present(arg, environment(me))))
-		return notify_fail("ÄãÏëÍµÏ®Ë­£¿\n");
+		return notify_fail("ä½ æƒ³å·è¢­è°ï¼Ÿ\n");
 	if( !obj->is_character() || obj->is_corpse())
-		return notify_fail("¿´Çå³şÒ»µã£¬ÄÇ²¢²»ÊÇÉúÎï¡£\n");
+		return notify_fail("çœ‹æ¸…æ¥šä¸€ç‚¹ï¼Œé‚£å¹¶ä¸æ˜¯ç”Ÿç‰©ã€‚\n");
 	if(me->query("id") != obj->query_temp("bt_ownname") && me->query_temp("bt/working"))
-		return notify_fail("ÄãÉíÎª²¶¿ì£¬Ö´ĞĞ¹«Îñ£¬¿É²»ÄÜÉ±Á¼Ã°¹¦£¡\n");
+		return notify_fail("ä½ èº«ä¸ºæ•å¿«ï¼Œæ‰§è¡Œå…¬åŠ¡ï¼Œå¯ä¸èƒ½æ€è‰¯å†’åŠŸï¼\n");
 	if( obj->is_fighting(me) )
-		return notify_fail("ÄãÒÑ¾­ÔÚÕ½¶·ÖĞÁË£¬»¹ÏëÍµÏ®£¿\n");
+		return notify_fail("ä½ å·²ç»åœ¨æˆ˜æ–—ä¸­äº†ï¼Œè¿˜æƒ³å·è¢­ï¼Ÿ\n");
 	if( !living(obj) || obj->query_temp("noliving") )
-		return notify_fail(obj->name() + "¶¼ÒÑ¾­ÔÎ²ËÁË£¬Äã»¹ÓÃµÃ×ÅÍµÏ®Âğ£¿\n"); 
+		return notify_fail(obj->name() + "éƒ½å·²ç»æ™•èœäº†ï¼Œä½ è¿˜ç”¨å¾—ç€å·è¢­å—ï¼Ÿ\n"); 
 
 	if((int)obj->query("age") <= 15 && userp(obj))
-		return notify_fail("ÎªÁËÊÀ½ç¸üÃÀºÃ£¬·Å¹ıĞ¡º¢×Ó°É¡£\n");
+		return notify_fail("ä¸ºäº†ä¸–ç•Œæ›´ç¾å¥½ï¼Œæ”¾è¿‡å°å­©å­å§ã€‚\n");
 	if (userp(me) && obj->query("owner") && me->query("id") != obj->query("owner"))
-			return notify_fail("²»ÊÇÄãÒª×¥µÄÈË£¬´ÕÊ²Ã´ÈÈÄÖ£¡\n");
+			return notify_fail("ä¸æ˜¯ä½ è¦æŠ“çš„äººï¼Œå‡‘ä»€ä¹ˆçƒ­é—¹ï¼\n");
 
-	if(obj==me) return notify_fail("ÍµÏ®×Ô¼º£¿±ğÕâÃ´Ïë²»¿ª¡£\n");
+	if(obj==me) return notify_fail("å·è¢­è‡ªå·±ï¼Ÿåˆ«è¿™ä¹ˆæƒ³ä¸å¼€ã€‚\n");
 	if( me->is_busy() )
-		return notify_fail("ÄãµÄ¶¯×÷»¹Ã»ÓĞÍê³É£¬²»ÄÜÍµÏ®¡£\n");
-	notify_fail("´ËÈËÀ´Í·²»Ğ¡£¬»¹ÊÇÉÙÈÇÎªÃî¡£\n");
+		return notify_fail("ä½ çš„åŠ¨ä½œè¿˜æ²¡æœ‰å®Œæˆï¼Œä¸èƒ½å·è¢­ã€‚\n");
+	notify_fail("æ­¤äººæ¥å¤´ä¸å°ï¼Œè¿˜æ˜¯å°‘æƒ¹ä¸ºå¦™ã€‚\n");
 	if (!userp(obj) && !obj->accept_touxi(me) )	return 0;
 	me->delete("env/combatd");
 	obj->delete("env/combatd");
 
-	tell_object(me, "Äã·ÉÉí×İÆğ£¬ÆËÏò" + obj->name() +"£¡\n");
-	tell_object(obj, CYN"\n" + me->name() + "ºöÈ»ÏòÄãÆËÀ´£¡\n\n"NOR);
-	message("vision", CYN"\n" + me->name() + "ºöÈ»Ïò" + obj->name() +"ÆËÈ¥£¡\n\n"NOR, environment(me), ({me, obj}) );
+	tell_object(me, "ä½ é£èº«çºµèµ·ï¼Œæ‰‘å‘" + obj->name() +"ï¼\n");
+	tell_object(obj, CYN"\n" + me->name() + "å¿½ç„¶å‘ä½ æ‰‘æ¥ï¼\n\n"NOR);
+	message("vision", CYN"\n" + me->name() + "å¿½ç„¶å‘" + obj->name() +"æ‰‘å»ï¼\n\n"NOR, environment(me), ({me, obj}) );
 
 	count = me->query_str();
 
@@ -62,12 +62,12 @@ int main(object me, string arg)
 int help(object me)
 {
 	write(@HELP
-Ö¸Áî¸ñÊ½ : touxi <ÈËÎï>
+æŒ‡ä»¤æ ¼å¼ : touxi <äººç‰©>
  
-    Õâ¸öÖ¸ÁîÓÃÀ´ÏòµĞÈËÍµÏ®¡£ÍµÏ®²»³ÉÊ±£¬Ôò»áÕĞÖÁ·´»÷¡£
-    ÌØ±ğÊÊºÏÓÚ¾­ÑéµÍµÄÍæ¼ÒÏò¾­Ñé¸ßµÄÍæ¼ÒŞÕÃü¡£:)
+    è¿™ä¸ªæŒ‡ä»¤ç”¨æ¥å‘æ•Œäººå·è¢­ã€‚å·è¢­ä¸æˆæ—¶ï¼Œåˆ™ä¼šæ‹›è‡³åå‡»ã€‚
+    ç‰¹åˆ«é€‚åˆäºç»éªŒä½çš„ç©å®¶å‘ç»éªŒé«˜çš„ç©å®¶æ‹šå‘½ã€‚:)
 
-ÆäËûÏà¹ØÖ¸Áî: fight, kill, hit
+å…¶ä»–ç›¸å…³æŒ‡ä»¤: fight, kill, hit
 HELP
 	);
 	return 1;

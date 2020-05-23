@@ -1,4 +1,4 @@
-// murong-blade.c Ä½Èİµ¶·¨
+// murong-blade.c æ…•å®¹åˆ€æ³•
 // Last Modified by winder on Mar. 10 2000
 
 #include <ansi.h>
@@ -7,26 +7,26 @@ string type() { return "martial"; }
 string martialtype() { return "skill"; }
 
 mapping *action = ({
-([	"action" : "$NÁè¿ÕÔ¾Æğ£¬Ë«ÊÖÎÕÆğ$w£¬¸ß¾Ù¹ıÍ·£¬Ò»ÕĞ"HIM"¡¸ÅüÌì¸ÇµØÂú×³Ö¾¡¹"NOR"£¬ÊÆ
-Èç±¼À××¹µØ£¬¾íÆğÂşÌì·ç³¾£¬Ò»µ¶Ïò$nµÄ$lÅüÁËÏÂÀ´",
+([	"action" : "$Nå‡Œç©ºè·ƒèµ·ï¼ŒåŒæ‰‹æ¡èµ·$wï¼Œé«˜ä¸¾è¿‡å¤´ï¼Œä¸€æ‹›"HIM"ã€ŒåŠˆå¤©ç›–åœ°æ»¡å£®å¿—ã€"NOR"ï¼ŒåŠ¿
+å¦‚å¥”é›·å åœ°ï¼Œå·èµ·æ¼«å¤©é£å°˜ï¼Œä¸€åˆ€å‘$nçš„$låŠˆäº†ä¸‹æ¥",
 	"lvl"    : 0,
-	"skill_name" : "ÅüÌì¸ÇµØÂú×³Ö¾",
+	"skill_name" : "åŠˆå¤©ç›–åœ°æ»¡å£®å¿—",
 ]),
-([	"action" : "$N×óÍÈĞ±¿çÒ»²½£¬ÓÒÊÖÎÕ×Å$w£¬ºá¼ÜÇ°ĞØ£¬ÃÍµØ²àÉíĞı×ª£¬ÒÔÑü´ø
-±Û£¬ÒÔ±Û¿¸µ¶£¬Ò»ÕĞ"HIR"¡¸Íäµ¶Äæ×ªµ¹Ç¬À¤¡¹"NOR"£¬Æ½ÈĞ»ÓÏò$nµÄ$l",
+([	"action" : "$Nå·¦è…¿æ–œè·¨ä¸€æ­¥ï¼Œå³æ‰‹æ¡ç€$wï¼Œæ¨ªæ¶å‰èƒ¸ï¼ŒçŒ›åœ°ä¾§èº«æ—‹è½¬ï¼Œä»¥è…°å¸¦
+è‡‚ï¼Œä»¥è‡‚æ‰›åˆ€ï¼Œä¸€æ‹›"HIR"ã€Œå¼¯åˆ€é€†è½¬å€’ä¹¾å¤ã€"NOR"ï¼Œå¹³åˆƒæŒ¥å‘$nçš„$l",
 	"lvl"    : 20,
-	"skill_name" : "Íäµ¶Äæ×ªµ¹Ç¬À¤",
+	"skill_name" : "å¼¯åˆ€é€†è½¬å€’ä¹¾å¤",
 ]),
-([	"action" : "$NÊÖÎÕ$w£¬Õ¹¿ªÉíĞÎ£¬Ê¹¶¯"HIW"¡¸Ò£¿´Íò½®Ç§ÀïÑ©¡¹"NOR"£¬Í»È»Ö®¼ä£¬ËÄÖÜÖĞ
-°×¹âÉÁ¶¯£¬ÕÉÓàÈ¦×ÓÖ®ÄÚ£¬È«ÊÇµ¶Ó°",
+([	"action" : "$Næ‰‹æ¡$wï¼Œå±•å¼€èº«å½¢ï¼Œä½¿åŠ¨"HIW"ã€Œé¥çœ‹ä¸‡ç–†åƒé‡Œé›ªã€"NOR"ï¼Œçªç„¶ä¹‹é—´ï¼Œå››å‘¨ä¸­
+ç™½å…‰é—ªåŠ¨ï¼Œä¸ˆä½™åœˆå­ä¹‹å†…ï¼Œå…¨æ˜¯åˆ€å½±",
 	"lvl"    : 40,
-	"skill_name" : "Ò£¿´Íò½®Ç§ÀïÑ©",
+	"skill_name" : "é¥çœ‹ä¸‡ç–†åƒé‡Œé›ª",
 ]),
-([	"action" : "$NÒ»ÕĞ"HIG"¡¸×³Ö¾ºÀÆøÂú½­ºş¡¹"NOR"£¬$wÉùÊÆ´ó±ä£¬¶«¿³Ò»µ¶ÉÙÁÖËÂµÄ½µÄ§µ¶
-·¨£¬Î÷ÅüÒ»µ¶¹ãÎ÷ÀèÉ½¶´ÀèÀÏººµÄ²ñµ¶Ê®°ËÂ·£¬»Ø×ªÓÖÊÇÒ»µ¶½­ÄÏÊ·¼ÒµÄ
-»Ø·ç·÷Áøµ¶£¬µ¶µ¶²»Àë$n×óÓÒ",
+([	"action" : "$Nä¸€æ‹›"HIG"ã€Œå£®å¿—è±ªæ°”æ»¡æ±Ÿæ¹–ã€"NOR"ï¼Œ$wå£°åŠ¿å¤§å˜ï¼Œä¸œç ä¸€åˆ€å°‘æ—å¯ºçš„é™é­”åˆ€
+æ³•ï¼Œè¥¿åŠˆä¸€åˆ€å¹¿è¥¿é»å±±æ´é»è€æ±‰çš„æŸ´åˆ€åå…«è·¯ï¼Œå›è½¬åˆæ˜¯ä¸€åˆ€æ±Ÿå—å²å®¶çš„
+å›é£æ‹‚æŸ³åˆ€ï¼Œåˆ€åˆ€ä¸ç¦»$nå·¦å³",
 	"lvl"    : 60,
-	"skill_name" : "×³Ö¾ºÀÆøÂú½­ºş",
+	"skill_name" : "å£®å¿—è±ªæ°”æ»¡æ±Ÿæ¹–",
 ]),
 });
 
@@ -34,9 +34,9 @@ int valid_enable(string usage) { return (usage=="blade") || (usage=="parry"); }
 int valid_learn(object me)
 {
 	if ((int)me->query("max_neili") < 50)
-		return notify_fail("ÄãµÄÄÚÁ¦²»¹»¡£\n");
+		return notify_fail("ä½ çš„å†…åŠ›ä¸å¤Ÿã€‚\n");
 	if ((int)me->query_skill("shenyuan-gong", 1) < 10)
-		return notify_fail("ÄãµÄÉñÔª¹¦»ğºòÌ«Ç³¡£\n");
+		return notify_fail("ä½ çš„ç¥å…ƒåŠŸç«å€™å¤ªæµ…ã€‚\n");
 	return 1;
 }
 int practice_skill(object me)
@@ -45,9 +45,9 @@ int practice_skill(object me)
 
 	if (!objectp(weapon = me->query_temp("weapon"))
 		|| (string)weapon->query("skill_type") != "blade")
-		return notify_fail("ÄãÊ¹ÓÃµÄÎäÆ÷²»¶Ô¡£\n");
+		return notify_fail("ä½ ä½¿ç”¨çš„æ­¦å™¨ä¸å¯¹ã€‚\n");
 	if ((int)me->query("qi") < 50)
-		return notify_fail("ÄãµÄÌåÁ¦²»¹»Á·Ä½Èİµ¶·¨¡£\n");
+		return notify_fail("ä½ çš„ä½“åŠ›ä¸å¤Ÿç»ƒæ…•å®¹åˆ€æ³•ã€‚\n");
 	me->receive_damage("qi", 30);
 	return 1;
 }
@@ -75,17 +75,17 @@ mapping query_action(object me, object weapon)
 	for(i = ttl; i > 0; i--)
 		if(lvl > action[i-1]["lvl"])
 		{
-			seq = i; /* »ñµÃÕĞÊıĞòºÅÉÏÏŞ */
+			seq = i; /* è·å¾—æ‹›æ•°åºå·ä¸Šé™ */
 			break;
 		}
-	seq = random(seq);       /* Ñ¡Ôñ³öÊÖÕĞÊıĞòºÅ */
+	seq = random(seq);       /* é€‰æ‹©å‡ºæ‰‹æ‹›æ•°åºå· */
 	return ([
 		"action"      : action[seq]["action"],
 		"dodge"       : d_e1 + (d_e2 - d_e1) * seq / ttl,
 		"parry"       : p_e1 + (p_e2 - p_e1) * seq / ttl,
 		"force"       : f_e1 + (f_e2 - f_e1) * seq / ttl,
 		"damage"      : m_e1 + (m_e2 - m_e1) * seq / ttl,
-		"damage_type" : "¸îÉË",
+		"damage_type" : "å‰²ä¼¤",
 	]);
 }
 int learn_bonus() { return 15; }
@@ -100,15 +100,15 @@ string perform_action_file(string action)
 
 int help(object me)
 {
-	write(HIC"\nÄ½Èİµ¶·¨£º"NOR"\n");
+	write(HIC"\næ…•å®¹åˆ€æ³•ï¼š"NOR"\n");
 	write(@HELP
 
-    Ä½Èİµ¶·¨Îª½­ÄÏ¹ÃËÕÄ½Èİ×æ´«µ¶·¨¡£ÒÔĞÛ»ë³Áºñ¡¢ÆøÊÆÄıÖØÖø
-³Æ¡£
+    æ…•å®¹åˆ€æ³•ä¸ºæ±Ÿå—å§‘è‹æ…•å®¹ç¥–ä¼ åˆ€æ³•ã€‚ä»¥é›„æµ‘æ²‰åšã€æ°”åŠ¿å‡é‡è‘—
+ç§°ã€‚
 
-	Ñ§Ï°ÒªÇó£º
-		ÉñÔª¹¦10¼¶
-		ÄÚÁ¦50
+	å­¦ä¹ è¦æ±‚ï¼š
+		ç¥å…ƒåŠŸ10çº§
+		å†…åŠ›50
 HELP
 	);
 	return 1;

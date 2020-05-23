@@ -1,15 +1,15 @@
-// laofu.c ÀÏ»¢
+// laofu.c è€è™
 // Date: Sep.22 1997
 #include <ansi.h>
 inherit NPC;
 
 void create()
 {
-        set_name("ÀÏ»¢", ({ "laohu", "tiger","hu" }) );
-	set("race", "×ßÊŞ");
+        set_name("è€è™", ({ "laohu", "tiger","hu" }) );
+	set("race", "èµ°å…½");
         set("age", 20);
         set("long", @LONG
-Ò»Ö»°ßìµÃÍ»¢£¬ĞÛÎ°¼«ÁË¡£
+ä¸€åªæ–‘æ–“çŒ›è™ï¼Œé›„ä¼Ÿæäº†ã€‚
 
          _.-'"''--..__.("\-''-'")
  ('.__.-' (  *  ) .-'    ( @ _@'
@@ -37,15 +37,15 @@ LONG);
 
         set("chat_chance", 10);
         set("chat_msg", ({
-                "ÀÏ»¢ÔÚ¿£Ñ²£¬ÏÅµÃÄã´óÆø¶¼²»¸Ò³ö¡£\n",
-                "ÀÏ»¢ÑöÌì³¤Ğ¥£¬ÉùÕğÉ½¹È£¬»ÆÒ¶·××¹¡£\n",
+                "è€è™åœ¨æµšå·¡ï¼Œå“å¾—ä½ å¤§æ°”éƒ½ä¸æ•¢å‡ºã€‚\n",
+                "è€è™ä»°å¤©é•¿å•¸ï¼Œå£°éœ‡å±±è°·ï¼Œé»„å¶çº·å ã€‚\n",
         }) );
 }
 
 void die()
 {
 	object ob, corpse;
-	message_vision("$N·¢³öÕğÌì¶¯µØµÄÒ»Éù³¤Ğ¥£¬ºäµØµ¹ÔÚµØÉÏ£¬ËÀÁË£¡\n", this_object());
+	message_vision("$Nå‘å‡ºéœ‡å¤©åŠ¨åœ°çš„ä¸€å£°é•¿å•¸ï¼Œè½°åœ°å€’åœ¨åœ°ä¸Šï¼Œæ­»äº†ï¼\n", this_object());
 	if( objectp(corpse = CHAR_D->make_corpse(this_object())) )
 	ob = new("/clone/medicine/vegetable/hugu");
 	ob->move(corpse);

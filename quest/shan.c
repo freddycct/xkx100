@@ -1,5 +1,5 @@
 // /quest/shan.c
-//last modified by sega 4/13/2000,È¡ÏûÇ®µÄ¹¦ÓÃ
+//last modified by sega 4/13/2000,å–æ¶ˆé’±çš„åŠŸç”¨
 // Modified by Zeratul Jan 5 2001
 
 
@@ -11,16 +11,16 @@ inherit NPC;
 int time_period(int timep,object me);
 void create()
 {
-	set_name("µ¥Õı", ({ "shan zheng", "shan", "zheng" }));
-	set("nickname", HIB"ÌúÃæÅĞ¹Ù"NOR);
+	set_name("å•æ­£", ({ "shan zheng", "shan", "zheng" }));
+	set("nickname", HIB"é“é¢åˆ¤å®˜"NOR);
 	set("age", 63);
 	set("str", 25);
 	set("dex", 16);
 	set("per", 22);
 	set("long", 
-"ËûÉúÆ½¼µ¶ñÈç³ğ£¬Ö»ÒªÖªµÀ½­ºşÉÏÓĞÊ²Ã´²»¹«µÀÖ®ÊÂ£¬¶¨È»ÉìÊÖ
-Òª¹Ü¡£ËûÂúÁ³ºì¹â£¬µ±µÃÆğ¡°Í¯ÑÕº×·¢¡±ËÄ×Ö£¬ÉñÇéÈ´ÉõÇ«ºÍ£¬
-²»ËÆ½­ºşÉÏ´«ËµµÄ³öÊÖÎŞÇé¡£\n");
+"ä»–ç”Ÿå¹³å«‰æ¶å¦‚ä»‡ï¼Œåªè¦çŸ¥é“æ±Ÿæ¹–ä¸Šæœ‰ä»€ä¹ˆä¸å…¬é“ä¹‹äº‹ï¼Œå®šç„¶ä¼¸æ‰‹
+è¦ç®¡ã€‚ä»–æ»¡è„¸çº¢å…‰ï¼Œå½“å¾—èµ·â€œç«¥é¢œé¹¤å‘â€å››å­—ï¼Œç¥æƒ…å´ç”šè°¦å’Œï¼Œ
+ä¸ä¼¼æ±Ÿæ¹–ä¸Šä¼ è¯´çš„å‡ºæ‰‹æ— æƒ…ã€‚\n");
 	set("combat_exp", 300000);
 	set("shen_type", 1);
 	set("attitude", "peaceful");
@@ -53,22 +53,22 @@ int cancel_quest()
 	object me = this_player();
 	
 	if ( !me->query( "quest/shan" ) || me->query( "quest/shan/finished" ) )
-		return notify_fail( "Ê²Ã´£¿\n" );
+		return notify_fail( "ä»€ä¹ˆï¼Ÿ\n" );
 	if ( me->query( "quest/shan/lock" ) )
-		return notify_fail( "ÄãÒÑ¾­È¡ÏûÈÎÎñÁË£¡\n" );
+		return notify_fail( "ä½ å·²ç»å–æ¶ˆä»»åŠ¡äº†ï¼\n" );
 	switch ( random(3) )
 	{
 		case 0 :
 			lock_quest( me, "shan", "wei" ); 
-			tell_object( me, "µ¥ÕıËµµÀ£ºÒ²ºÃ£¬Äã¾ÍÏÈÈ¥·şÊÌÎ¤¾ôÒ¯°É¡£\n" );
+			tell_object( me, "å•æ­£è¯´é“ï¼šä¹Ÿå¥½ï¼Œä½ å°±å…ˆå»æœä¾éŸ¦çˆµçˆ·å§ã€‚\n" );
 			break;
 		case 1 :
 			lock_quest( me, "shan", "book" );
-			tell_object( me, "µ¥ÕıËµµÀ£º¼ÈÈ»Äã²»Ô¸ÎªÀÏ·òĞ§Á¦£¬¾Í»ØÈ¥°ï¹óÅÉÕÆÃÅÑ°ÕÒÃØ¼®°É¡£\n" );
+			tell_object( me, "å•æ­£è¯´é“ï¼šæ—¢ç„¶ä½ ä¸æ„¿ä¸ºè€å¤«æ•ˆåŠ›ï¼Œå°±å›å»å¸®è´µæ´¾æŒé—¨å¯»æ‰¾ç§˜ç±å§ã€‚\n" );
 			break;
 		case 2 :
 			lock_quest( me, "shan", "betrayer" );		
-			tell_object( me, "µ¥ÕıËµµÀ£º¹óÅÉÕÆÃÅÉÓÀ´¿ÚĞÅ£¬ÒªÄãËÙ»Ø±¾ÃÅÇå³ıÅÑÍ½£¬ÀÏ·òÒà²»¸ÒÁôÄãÁË¡£\n" );
+			tell_object( me, "å•æ­£è¯´é“ï¼šè´µæ´¾æŒé—¨ææ¥å£ä¿¡ï¼Œè¦ä½ é€Ÿå›æœ¬é—¨æ¸…é™¤å›å¾’ï¼Œè€å¤«äº¦ä¸æ•¢ç•™ä½ äº†ã€‚\n" );
 			break;
 	}
 	return 1;
@@ -162,12 +162,12 @@ int give_quest()
 	//Modified by zeratul 2000-12-24
 	if( combatexp<10000 )
 	{
-		tell_object(me,"µ¥Õı¶ÔÄãºßÁËÒ»ÉùµÀ£º¡°ÕâÖÖĞ¡½ÇÉ«»¹Ïë³ı±©°²Á¼£¿¡±\n");
+		tell_object(me,"å•æ­£å¯¹ä½ å“¼äº†ä¸€å£°é“ï¼šâ€œè¿™ç§å°è§’è‰²è¿˜æƒ³é™¤æš´å®‰è‰¯ï¼Ÿâ€\n");
 		return 1;
 	}
 /*	if(combatexp>10000000)
 	{
-		tell_object(me,"µ¥Õı¹ªÉíµÀ£º¡°ÕâÖÖĞ¡ÊÂÔõ¸ÒÀÍ·³Äú¡£¡±\n");
+		tell_object(me,"å•æ­£èº¬èº«é“ï¼šâ€œè¿™ç§å°äº‹æ€æ•¢åŠ³çƒ¦æ‚¨ã€‚â€\n");
 		return 1;
 	} */
 /*
@@ -179,27 +179,27 @@ int give_quest()
 		if( ((int) me->query("quest/shan/time")) > time() )
 //		if( ((int) me->query("last_quest_time")+30) > time() )
 		{
-//			tell_object(me,"µ¥Õı¶ÔÄãÀäÀäÒ»Ğ¦µÀ£ºÈÃÄã°ìµÄÊÂÈçºÎÁË£¿\n");
-			tell_object(me,"µ¥Õıî©ÁËÄãÒ»ÑÛËµµÀ£ºÄãÒªÊÇÃ»±¾ÊÂ£¬¾ÍÄÃµã¶ù·ÑÓÃ³öÀ´ÎÒÈÃ±ğµÄÈËÈ¥ÉêÕÅÕıÒå¡£\n");
+//			tell_object(me,"å•æ­£å¯¹ä½ å†·å†·ä¸€ç¬‘é“ï¼šè®©ä½ åŠçš„äº‹å¦‚ä½•äº†ï¼Ÿ\n");
+			tell_object(me,"å•æ­£çŸäº†ä½ ä¸€çœ¼è¯´é“ï¼šä½ è¦æ˜¯æ²¡æœ¬äº‹ï¼Œå°±æ‹¿ç‚¹å„¿è´¹ç”¨å‡ºæ¥æˆ‘è®©åˆ«çš„äººå»ç”³å¼ æ­£ä¹‰ã€‚\n");
 			return 1;
 		}
 		else
 		{
-			tell_object(me,"µ¥Õı¶Ô×ÅÄãÌ¾ÁËÒ»¿ÚÆø£º°¥£¬ÎÒ¾ÍÔÙ¸øÄãÒ»´Î»ú»á°É¡£\n");
+			tell_object(me,"å•æ­£å¯¹ç€ä½ å¹äº†ä¸€å£æ°”ï¼šå“ï¼Œæˆ‘å°±å†ç»™ä½ ä¸€æ¬¡æœºä¼šå§ã€‚\n");
 			quest_failed( me, "shan" );
 /*			switch ( random(3) )
 			{
 				case 0 :
 					lock_quest( me, "shan", "wei" ); 
-					tell_object( me, "µ¥ÕıËµµÀ£ºÎÒÕâÀïÈËÊÖÒÑ¹»£¬ÄãÈ¥Î¤¾ôÒ¯ÄÇÀï¿´¿´°É¡£\n" );
+					tell_object( me, "å•æ­£è¯´é“ï¼šæˆ‘è¿™é‡Œäººæ‰‹å·²å¤Ÿï¼Œä½ å»éŸ¦çˆµçˆ·é‚£é‡Œçœ‹çœ‹å§ã€‚\n" );
 					break;
 				case 1 :
 					lock_quest( me, "shan", "book" );
-					tell_object( me, "µ¥ÕıËµµÀ£ºÄã»¹ÊÇÏÈÕÒÃØ¼®ÊìÏ¤Ò»ÏÂµØĞÎÔÙËµ°É¡£\n" );
+					tell_object( me, "å•æ­£è¯´é“ï¼šä½ è¿˜æ˜¯å…ˆæ‰¾ç§˜ç±ç†Ÿæ‚‰ä¸€ä¸‹åœ°å½¢å†è¯´å§ã€‚\n" );
 					break;
 				case 2 :
 					lock_quest( me, "shan", "betrayer" );		
-					tell_object( me, "µ¥ÕıËµµÀ£º²ù³ıÅÑÍ½µÄ»î¶ù±ÈÀÏ·òÕâÀï¸üÊÊºÏÄã¡£\n" );
+					tell_object( me, "å•æ­£è¯´é“ï¼šé“²é™¤å›å¾’çš„æ´»å„¿æ¯”è€å¤«è¿™é‡Œæ›´é€‚åˆä½ ã€‚\n" );
 					break;
 			}*/
 
@@ -216,7 +216,7 @@ int give_quest()
 	while (1 == 1)
 	{
 		quest = __DIR__"qslist"->query_quest();
-		quest["quest_type"] = "É±";
+		quest["quest_type"] = "æ€";
 		quest["exp_bonus"] = expright[j];
 		quest["pot_bonus"] = potright[j];
 		quest["score"] =  100 + random(50);
@@ -229,7 +229,7 @@ int give_quest()
 	timep = random(60) * 10 + 600;
 
 	time_period(timep, me);
-	tell_object(me,"ÏÈÌæÎÒ°Ñ¡º"+quest["quest"]+"¡»¸øÎÒÉ±ÁË£¬ÒÔÕÅÎäÁÖÕıÒå¡£\n" NOR);
+	tell_object(me,"å…ˆæ›¿æˆ‘æŠŠã€"+quest["quest"]+"ã€ç»™æˆ‘æ€äº†ï¼Œä»¥å¼ æ­¦æ—æ­£ä¹‰ã€‚\n" NOR);
 
 	me->set("quest/shan/time", (int)time()+timep);
 	me->set("quest/shan/factor",factor);
@@ -254,14 +254,14 @@ int time_period(int timep, object me)
 	h = t % 24; t /= 24;
 	d = t;
 
-	if(d) time = chinese_number(d) + "Ìì";
+	if(d) time = chinese_number(d) + "å¤©";
 	else time = "";
 
-	if(h) time += chinese_number(h) + "Ğ¡Ê±";
-	if(m) time += chinese_number(m) + "·Ö";
-	time += chinese_number(s) + "Ãë";
+	if(h) time += chinese_number(h) + "å°æ—¶";
+	if(m) time += chinese_number(m) + "åˆ†";
+	time += chinese_number(s) + "ç§’";
 
-	tell_object(me,HIW "µ¥Õı·Ô¸ÀµÀ£º¸øÄãÔÚ" + time + "ÄÚ");
+	tell_object(me,HIW "å•æ­£å©å’é“ï¼šç»™ä½ åœ¨" + time + "å†…");
 	return 1;
 }
 
@@ -274,7 +274,7 @@ int accept_object(object who, object ob)
 	if ( !ob->query("money_id") ) return 0;
 	if ( !who->query("quest/shan") ||
                 who->query("quest/shan/finished") || ob->value() < 10000 )
-		tell_object(who,"µ¥ÕıĞ¦µÀ£ºÄÇÎÒ¿É¾Í²»¿ÍÆøÁË¡£\n");
+		tell_object(who,"å•æ­£ç¬‘é“ï¼šé‚£æˆ‘å¯å°±ä¸å®¢æ°”äº†ã€‚\n");
         else
 	{
 		require = who->query("quests/require");
@@ -292,22 +292,22 @@ int accept_object(object who, object ob)
 		who->set("quests/num",num);
 		if(num==2 && ob->value() < 1000000)
 		{
-			tell_object(who, "µ¥ÕıÒ»Ë«¼âÕë°ãµÄÑÛ¾¦Ö±¶¢×ÅÄã£ºÎÒÊµÔÚ²»Ïë¸øÄãÈÎÎñ£¡Ê®ÏîÍê³É²»ÁËÒ»Ïî¡£Èç¹ûÄã²»ÏëÍê³ÉÕâ´ÎµÄÈÎÎñ£¬ÄÃÒ»°ÙÁ½Î¥Ô¼½ğÀ´£¡\n");
+			tell_object(who, "å•æ­£ä¸€åŒå°–é’ˆèˆ¬çš„çœ¼ç›ç›´ç›¯ç€ä½ ï¼šæˆ‘å®åœ¨ä¸æƒ³ç»™ä½ ä»»åŠ¡ï¼åé¡¹å®Œæˆä¸äº†ä¸€é¡¹ã€‚å¦‚æœä½ ä¸æƒ³å®Œæˆè¿™æ¬¡çš„ä»»åŠ¡ï¼Œæ‹¿ä¸€ç™¾ä¸¤è¿çº¦é‡‘æ¥ï¼\n");
 			return 1;
 		}
 		if(num==1 && ob->value() < 100000)
 		{
-			tell_object(who, "µ¥ÕıÒ»Ë«¼âÕë°ãµÄÑÛ¾¦Ö±¶¢×ÅÄã£ºÄãµÄÈÎÎñ×ÊĞÅÌ«²î£¬ÒªĞÂÈÎÎñ£¬ÏÈÄÃÊ®Á½»Æ½ğÀ´£¡\n");
+			tell_object(who, "å•æ­£ä¸€åŒå°–é’ˆèˆ¬çš„çœ¼ç›ç›´ç›¯ç€ä½ ï¼šä½ çš„ä»»åŠ¡èµ„ä¿¡å¤ªå·®ï¼Œè¦æ–°ä»»åŠ¡ï¼Œå…ˆæ‹¿åä¸¤é»„é‡‘æ¥ï¼\n");
 			return 1;
 		}
 		if( ob->value() < 10000)
 		{
-			tell_object(who, "µ¥ÕıÒ»Ë«¼âÕë°ãµÄÑÛ¾¦Ö±¶¢×ÅÄã£ºÕâµãÇ®¿É²»¹»ÎÒÃÇµÄ¿ªÏú£¡\n");
+			tell_object(who, "å•æ­£ä¸€åŒå°–é’ˆèˆ¬çš„çœ¼ç›ç›´ç›¯ç€ä½ ï¼šè¿™ç‚¹é’±å¯ä¸å¤Ÿæˆ‘ä»¬çš„å¼€é”€ï¼\n");
 			return 1;
 		}
 		else
 		{
-			tell_object(who, "µ¥ÕıĞ¦µÀ£ºÄÇºÃ£¬ÔÛÃÇÂòÂô²»³ÉÈÊÒåÔÚ¡£ÏëÌÖ²îÊ¹ÔÙÕÒÎÒ°É£¡\n");
+			tell_object(who, "å•æ­£ç¬‘é“ï¼šé‚£å¥½ï¼Œå’±ä»¬ä¹°å–ä¸æˆä»ä¹‰åœ¨ã€‚æƒ³è®¨å·®ä½¿å†æ‰¾æˆ‘å§ï¼\n");
 			who->set( "quest/shan/finished", 1 );
                         who->delete( "quest/shan/last_time" );
                         who->add("quests/abandon", 1);
@@ -317,26 +317,26 @@ int accept_object(object who, object ob)
 /*
 	if(!(quest = who->query("quest/shan")))
 	{
-		tell_object(who,"µ¥ÕıËµµÀ£ºÕâ²»ÊÇÎÒÏëÒªµÄ¡£\n");
+		tell_object(who,"å•æ­£è¯´é“ï¼šè¿™ä¸æ˜¯æˆ‘æƒ³è¦çš„ã€‚\n");
 		return 0;
 	}
 
 	write( ob->query("name") );
 	if( ob->query("name") != quest["quest"])
 	{
-		tell_object(who, "µ¥ÕıËµµÀ£ºÕâÊÇÊ²Ã´¶«Î÷£¿ÎÒ½ĞÄã°ìµÄ²îÊ¹Äã¾ÍÕâÑùºıÅª£¿£¡\n");
+		tell_object(who, "å•æ­£è¯´é“ï¼šè¿™æ˜¯ä»€ä¹ˆä¸œè¥¿ï¼Ÿæˆ‘å«ä½ åŠçš„å·®ä½¿ä½ å°±è¿™æ ·ç³Šå¼„ï¼Ÿï¼\n");
 		return 0;
 	}
 
 	if ((int) who->query("quest/shan/time") < time() )
 	{
-		tell_object(who, "µ¥ÕıËµµÀ£ºÕæÊÇ·ÏÎï£¡ÄãÃ»ÓĞÔÚÖ¸¶¨µÄÊ±¼äÄÚ»ØÀ´£¡\n");
+		tell_object(who, "å•æ­£è¯´é“ï¼šçœŸæ˜¯åºŸç‰©ï¼ä½ æ²¡æœ‰åœ¨æŒ‡å®šçš„æ—¶é—´å†…å›æ¥ï¼\n");
 		destruct(ob);
 		return 0;
 	}
 	else
 	{
-		tell_object(who,"µ¥ÕıÔŞĞíµØµãÍ·ËµµÀ£º²»´í£¡²îÊ¹°ìµÃ»¹²»´í£¡\n");
+		tell_object(who,"å•æ­£èµè®¸åœ°ç‚¹å¤´è¯´é“ï¼šä¸é”™ï¼å·®ä½¿åŠå¾—è¿˜ä¸é”™ï¼\n");
 		exp = quest["exp_bonus"]/2 + random(quest["exp_bonus"]/2);
 		pot = quest["pot_bonus"]/2 + random(quest["pot_bonus"]/2);
 		score = quest["score"]/2 + random(quest["score"]/2);
@@ -361,11 +361,11 @@ int accept_object(object who, object ob)
 		bonus = (int) who->query("score");
 		bonus += score;
 		who->set("score", bonus);
-		tell_object(who,HIW"Äã±»½±ÀøÁË£º" + chinese_number(exp)
-			+ "µãÊµÕ½¾­Ñé£¬"+ chinese_number(pot) + "µãÇ±ÄÜ£¬"
-			+ chinese_number(score)+"µã½­ºşÔÄÀú¡£\n"NOR);
+		tell_object(who,HIW"ä½ è¢«å¥–åŠ±äº†ï¼š" + chinese_number(exp)
+			+ "ç‚¹å®æˆ˜ç»éªŒï¼Œ"+ chinese_number(pot) + "ç‚¹æ½œèƒ½ï¼Œ"
+			+ chinese_number(score)+"ç‚¹æ±Ÿæ¹–é˜…å†ã€‚\n"NOR);
 		who->set("quest/shan", 0 );
-		tell_object(who,HIW"¹§Ï²ÄãÍê³ÉÒ»¸ö²îÊ¹£¡\n"NOR);
+		tell_object(who,HIW"æ­å–œä½ å®Œæˆä¸€ä¸ªå·®ä½¿ï¼\n"NOR);
 		return 0;
 	}
 */

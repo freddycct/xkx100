@@ -6,11 +6,11 @@ inherit ROOM;
 
 void create()
 {
-	set("short", HIG"Ê÷ÉÏ"NOR);
+	set("short", HIG"æ ‘ä¸Š"NOR);
 	set("long", @LONG 
-ÕâÀïÊÇÊ÷ÉÏ£¬ÄãÍ»È»·¢ÏÖÊ÷Ò¶ÖÐÓÐÐ©¶¯¾²£¬ÍÛ¡£¡£¡£¡£¡£¡££¡£¡£¡
-Ã«¹Çã¤È»£¡Ò»ÌõÍë¿Ú´ÖÏ¸µÄ¾Þòþµ¹ÐüÔÚÊ÷¸ÉÉÏ£¬ÕÅ¿ª´ó¿Ú£¬ÕýÒªÏòÄãÆË
-À´£¡
+è¿™é‡Œæ˜¯æ ‘ä¸Šï¼Œä½ çªç„¶å‘çŽ°æ ‘å¶ä¸­æœ‰äº›åŠ¨é™ï¼Œå“‡ã€‚ã€‚ã€‚ã€‚ã€‚ã€‚ï¼ï¼ï¼
+æ¯›éª¨æ‚šç„¶ï¼ä¸€æ¡ç¢—å£ç²—ç»†çš„å·¨èŸ’å€’æ‚¬åœ¨æ ‘å¹²ä¸Šï¼Œå¼ å¼€å¤§å£ï¼Œæ­£è¦å‘ä½ æ‰‘
+æ¥ï¼
 LONG	);
 	set("outdoors", "gumu");
 	set("objects",([

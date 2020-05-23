@@ -5,10 +5,10 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "�ƴ�����");
+	set("short", "破床底下");
 	set("long", @LONG
-���ǳɶ���һ��ƫƧ��Ժ���ƴ��¡����ܶ����˸����������ؤ
-������ռ�����ͭ�����ȡ�������ͨ��ؤ�������ͨ����
+这是成都城一个偏僻大院的破床下。四周丢满了各种杂物，还有丐
+帮弟子收集的破铜烂铁等。从这里通往丐帮的秘密通道。
 LONG );
 	set("exits", ([
 		"out"       : "/d/chengdu/ruin2",

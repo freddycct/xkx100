@@ -11,7 +11,7 @@ int main(object me, string str)
     ob_list = users();
     ob_list = sort_array(users(), "sort_user", this_object());
     size = (int)sizeof(ob_list)/20;
-    str = HIG"\n Íæ¼Ò     ÎòĞÔ   ¸ù¹Ç   Éí·¨   ëöÁ¦   ÄÍÁ¦   ÁéĞÔ   ÈİÃ²   ¸£Ôµ ¶¨Á¦ µ¨Ê¶\n"NOR;
+    str = HIG"\n ç©å®¶     æ‚Ÿæ€§   æ ¹éª¨   èº«æ³•   è†‚åŠ›   è€åŠ›   çµæ€§   å®¹è²Œ   ç¦ç¼˜ å®šåŠ› èƒ†è¯†\n"NOR;
     str +=     "---------------------------------------------------------------------";
     message("vision", str, me);
     for(t=0; t<=size; t++)
@@ -65,7 +65,7 @@ int main(object me, string str)
 	me->start_more(str);
     }
     str = "------------------------------------------------------------------------------\n";
-    str += sprintf("¹²ÓĞ %d Î»Ê¹ÓÃÕßÁ¬ÏßÖĞ¡£\n", sizeof(ob_list));
+    str += sprintf("å…±æœ‰ %d ä½ä½¿ç”¨è€…è¿çº¿ä¸­ã€‚\n", sizeof(ob_list));
     message("vision", str, me);
     return 1;
 }
@@ -82,9 +82,9 @@ int sort_user(object ob1, object ob2)
 int help(object me)
 {
         write(@HELP
-Ö¸Áî¸ñÊ½£ºwho3
+æŒ‡ä»¤æ ¼å¼ï¼šwho3
 
-Íæ¼ÒĞÅÏ¢²éÑ¯¡£
+ç©å®¶ä¿¡æ¯æŸ¥è¯¢ã€‚
 HELP
         );
         return 1;

@@ -1,4 +1,4 @@
-// Npc: /d/kunlun/npc/zhu1.c Öì¾ÅÕæ
+// Npc: /d/kunlun/npc/zhu1.c æœ±ä¹çœŸ
 // Last Modified by winder on Jun. 29 2001
 
 #include <ansi.h>
@@ -6,10 +6,10 @@ inherit NPC;
 
 void create()
 {
-	set_name("Öì¾ÅÕæ", ({ "zhu jiuzhen", "zhu"}));
-	set("long", "Ëı³¤µÃ¼«ÃÀ£¬ÈİÃ²½¿ÃÄ£¬ÓÖ°×ÓÖÄå¡£\n");
-	set("nickname", HIW"Ñ©ÁëË«æ­"NOR);
-	set("gender", "Å®ĞÔ");
+	set_name("æœ±ä¹çœŸ", ({ "zhu jiuzhen", "zhu"}));
+	set("long", "å¥¹é•¿å¾—æç¾ï¼Œå®¹è²Œå¨‡åªšï¼Œåˆç™½åˆè…»ã€‚\n");
+	set("nickname", HIW"é›ªå²­åŒå§"NOR);
+	set("gender", "å¥³æ€§");
 	set("per", 30);
 	set("age", 17);
 

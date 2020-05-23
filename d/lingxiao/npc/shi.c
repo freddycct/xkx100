@@ -6,10 +6,10 @@ inherit NPC;
 
 void create()
 {
-	set_name("Ê±ÍòÄê",({"shi wannian","shi",}));
-	set("gender", "ÄĞĞÔ");
+	set_name("æ—¶ä¸‡å¹´",({"shi wannian","shi",}));
+	set("gender", "ç”·æ€§");
 	set("age", 20);
-	set("long", "ËûÊÇÁèÏö³ÇµÚÁù´úµÜ×ÓÊ±ÍòÄê£¬ÔÚ´ËÊØÎÀ¼àÓü¡£\n");
+	set("long", "ä»–æ˜¯å‡Œéœ„åŸç¬¬å…­ä»£å¼Ÿå­æ—¶ä¸‡å¹´ï¼Œåœ¨æ­¤å®ˆå«ç›‘ç‹±ã€‚\n");
 	set("attitude", "peaceful");
 
 	set("no_get", 1);
@@ -35,8 +35,8 @@ void create()
 	}) );
 	set("chat_chance", 5);
 	set("chat_msg", ({
-	"Ê±ÍòÄêºŞºŞËµµÀ£ºÀÏ·è×Ó²»ÖªµÀÓÖÔõÃ´ÁË£¬°Ñ×Ô¼º¹ØÔÚÀïÃæÅªËÀ²»¿Ï³öÀ´¡£\n", 
-	"Ê±ÍòÄê°Ñ½£Ò»µ¯£¬°ÁÈ»µÀ£ºÓĞÎÒÊØÔÚÕâ£¬Ë­¶¼±ğÏë°ÑÀÏ·è×Ó·Å³öÀ´¡£\n", 
+	"æ—¶ä¸‡å¹´æ¨æ¨è¯´é“ï¼šè€ç–¯å­ä¸çŸ¥é“åˆæ€ä¹ˆäº†ï¼ŒæŠŠè‡ªå·±å…³åœ¨é‡Œé¢å¼„æ­»ä¸è‚¯å‡ºæ¥ã€‚\n", 
+	"æ—¶ä¸‡å¹´æŠŠå‰‘ä¸€å¼¹ï¼Œå‚²ç„¶é“ï¼šæœ‰æˆ‘å®ˆåœ¨è¿™ï¼Œè°éƒ½åˆ«æƒ³æŠŠè€ç–¯å­æ”¾å‡ºæ¥ã€‚\n", 
 	}) );
 	set_skill("strike", 120);
 	set_skill("sword", 150);
@@ -57,7 +57,7 @@ void create()
 	map_skill("dodge", "snowstep");
 	prepare_skill("strike", "snow-strike");
 
-	create_family("ÁèÏö³Ç", 6, "µÜ×Ó");
+	create_family("å‡Œéœ„åŸ", 6, "å¼Ÿå­");
 	setup();
 	
 	carry_object("/clone/weapon/changjian")->wield();
@@ -69,22 +69,22 @@ void init()
 	::init();
 
 	ob = this_player();
-	if(ob->query("family/family_name") !="ÁèÏö³Ç")
+	if(ob->query("family/family_name") !="å‡Œéœ„åŸ")
 	{
 		command("heng");
-		command("say Äã¾ÓÈ»¸Ò´³Èë±¾ÅÉ½ûµØ£¬ÊÜËÀ°É£¡\n");
+		command("say ä½ å±…ç„¶æ•¢é—¯å…¥æœ¬æ´¾ç¦åœ°ï¼Œå—æ­»å§ï¼\n");
 		remove_call_out("kill_ob");
 		call_out("kill_ob", 1, ob); 
 	}
 	else
 		if(ob->query("family/master_id")=="bai zizai")
 		{
-			command( "say Ê¦ĞÖ»ØÀ´ÁË£¬¿ìÈ¥¼ûÕÆÃÅÈË°É£¬²»¹ıĞ¡ĞÄµã¡­¡­Ã»×¼ËûÓÖ·¸²¡ÁË¡£");
+			command( "say å¸ˆå…„å›æ¥äº†ï¼Œå¿«å»è§æŒé—¨äººå§ï¼Œä¸è¿‡å°å¿ƒç‚¹â€¦â€¦æ²¡å‡†ä»–åˆçŠ¯ç—…äº†ã€‚");
 		} 
 		else
 			if(ob->query("family/master_id")=="bai wanjian")
 			{
-				command( "say ÄãÊÇ°×Ê¦¸çµÄµÜ×Ó°É£¬¿ì½øÈ¥¼û¼ûÀÏÒ¯×Ó°É£¬ËûµÄ²¡Ô½À´Ô½²»µÃÁËÀ²¡£");
+				command( "say ä½ æ˜¯ç™½å¸ˆå“¥çš„å¼Ÿå­å§ï¼Œå¿«è¿›å»è§è§è€çˆ·å­å§ï¼Œä»–çš„ç—…è¶Šæ¥è¶Šä¸å¾—äº†å•¦ã€‚");
 			}
 }
 

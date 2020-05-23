@@ -6,12 +6,12 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "Ò©ÆÌÄÚÊÒ");
+	set("short", "è¯é“ºå†…å®¤");
 	set("long", @LONG
-ÕâÊÇÒ©ÆÌµÄÄÚÊÒ£¬ËÄ±Ú¶¼ÊÇÒ©¹ñ×Ó£¬ÓÐ¿ªÓÐ¹Ø£¬°ë¿ªµÄ¹ñ×ÓÀï¿ÉÒÔ
-¿´µ½°ëÂ¶µÄÒ©²Ä¡£µØÉÏ¡¢°åµÊÉÏÒ²·ÅÖÃÁËÒ»Ð©ÁãËéÒ©²Ä£¬»¹ÓÐÒ»Ð©Ò©¹Þ¡¢
-Ò©¾ÊµÈÅäÒ©Æ÷¾ß¡£Äã¿ÉÒÔÓÃ·ÖÒ©(fenyao)ÃüÁî£¬°ïÖúÒ©ÆÌÀÏ°å·ÖÅäÕâÐ©
-ÖÐÒ©¡£
+è¿™æ˜¯è¯é“ºçš„å†…å®¤ï¼Œå››å£éƒ½æ˜¯è¯æŸœå­ï¼Œæœ‰å¼€æœ‰å…³ï¼ŒåŠå¼€çš„æŸœå­é‡Œå¯ä»¥
+çœ‹åˆ°åŠéœ²çš„è¯æã€‚åœ°ä¸Šã€æ¿å‡³ä¸Šä¹Ÿæ”¾ç½®äº†ä¸€äº›é›¶ç¢Žè¯æï¼Œè¿˜æœ‰ä¸€äº›è¯ç½ã€
+è¯è‡¼ç­‰é…è¯å™¨å…·ã€‚ä½ å¯ä»¥ç”¨åˆ†è¯(fenyao)å‘½ä»¤ï¼Œå¸®åŠ©è¯é“ºè€æ¿åˆ†é…è¿™äº›
+ä¸­è¯ã€‚
 LONG
 	);
 	set("no_fight",1);
@@ -38,7 +38,7 @@ void init()
 }
 int do_ban()
 {
-	write ("Äã¸ÉÊ²Ã´ÕâÊÇ±ðÈËµÄÄÚÊÒÑ½£¬²»ÒªÓ°Ïì±ðÈË¹¤×÷¡£\n");
+	write ("ä½ å¹²ä»€ä¹ˆè¿™æ˜¯åˆ«äººçš„å†…å®¤å‘€ï¼Œä¸è¦å½±å“åˆ«äººå·¥ä½œã€‚\n");
 	return 1;
 }
 int do_fenyao()
@@ -47,12 +47,12 @@ int do_fenyao()
 	int bonus,exp,pot;
 
 	if((int)me->query_temp("fengyaoover"))
-		return notify_fail("ÄãµÄÒ©ÒÑ¾­·ÖÍêÁË£¬¿ìÈ¥ÕÒÀÏ°åÒª±¨³ê°É¡£\n");	
+		return notify_fail("ä½ çš„è¯å·²ç»åˆ†å®Œäº†ï¼Œå¿«åŽ»æ‰¾è€æ¿è¦æŠ¥é…¬å§ã€‚\n");	
 	if( (int)me->query_temp("fengyao") ) 
-		return notify_fail("ÄãÒÑ¾­ÔÚ¹¤×÷ÁË¡£\n");
+		return notify_fail("ä½ å·²ç»åœ¨å·¥ä½œäº†ã€‚\n");
 	if (!(int)(me->query_temp("fengyaobegin")))
-		return notify_fail("Íâ¼äÓÐÈËÔÚº°£ºÀïÃæµÄÈËÔÚ×öÊ²Ã´£¿¿ì×ß¿ì×ß¡£\n");
-	message_vision("$N½«Ðä×ÓÒ»Ãå£¬×ö³öÒ»¸±Òª´ó¸ÉÒ»³¡µÄÑù×Ó£¬°¦£¬·Ö¸öÒ©Ò²ÒªÕâÃ´ÑùÂð£¿\n\n",me);
+		return notify_fail("å¤–é—´æœ‰äººåœ¨å–Šï¼šé‡Œé¢çš„äººåœ¨åšä»€ä¹ˆï¼Ÿå¿«èµ°å¿«èµ°ã€‚\n");
+	message_vision("$Nå°†è¢–å­ä¸€ç¼…ï¼Œåšå‡ºä¸€å‰¯è¦å¤§å¹²ä¸€åœºçš„æ ·å­ï¼Œå”‰ï¼Œåˆ†ä¸ªè¯ä¹Ÿè¦è¿™ä¹ˆæ ·å—ï¼Ÿ\n\n",me);
 	me->set_temp("fengyao",1);
 	me->add("qi",-5);
 	me->delete_temp("fengyaobegin");
@@ -70,7 +70,7 @@ void del_fengyao(object me, object mon, int bonus, int exp, int pot)
 	{
 		if (random (8) <1)
 		{
-			message_vision( HIY"°¥Ñ½£¬$NÀÛµÄÂúÍ·´óº¹£¬Ò»²»Ð¡ÐÄ·Ö´íÁËÒ©¡£\n"NOR,me);
+			message_vision( HIY"å“Žå‘€ï¼Œ$Nç´¯çš„æ»¡å¤´å¤§æ±—ï¼Œä¸€ä¸å°å¿ƒåˆ†é”™äº†è¯ã€‚\n"NOR,me);
 			me->add("qi",-5);
 			me->start_busy(1);
 			me->set_temp("fengyaow",1);
@@ -80,15 +80,15 @@ void del_fengyao(object me, object mon, int bonus, int exp, int pot)
 			switch(random(5))
 			{
 				case 0: 
-					message_vision("Ö»¼û$NËæÊÖÒ»ÈÓ£¬Ò©¾ÓÈ»¸ÕºÃÈÓ½øÒ©Ïä£¬ºÃÔËÆøÑ½¡£\n",me); 
+					message_vision("åªè§$Néšæ‰‹ä¸€æ‰”ï¼Œè¯å±…ç„¶åˆšå¥½æ‰”è¿›è¯ç®±ï¼Œå¥½è¿æ°”å‘€ã€‚\n",me); 
 					me->add("qi",-1);
 					break;
 				case 1: 
-					message_vision("$N·ÖµÄºÃ×ÐÏ¸Ñ½£¬»¹Òª¼ì²éÒ»´Î¡£\n",me);
+					message_vision("$Nåˆ†çš„å¥½ä»”ç»†å‘€ï¼Œè¿˜è¦æ£€æŸ¥ä¸€æ¬¡ã€‚\n",me);
 					me->add("qi",-3);
 					break;
 				default:
-					message_vision("$N¿´×ÅÊÖÉÏµÄÒ©²Ä£¬ÏëÁË°ëÌìÖÕÓÚ»¹ÊÇÃ»ÓÐÕÒµ½¸Ã·ÅµÄµØ·½¡£\n",me); 
+					message_vision("$Nçœ‹ç€æ‰‹ä¸Šçš„è¯æï¼Œæƒ³äº†åŠå¤©ç»ˆäºŽè¿˜æ˜¯æ²¡æœ‰æ‰¾åˆ°è¯¥æ”¾çš„åœ°æ–¹ã€‚\n",me); 
 					me->add("qi",-4);
 					break;
 			}
@@ -96,7 +96,7 @@ void del_fengyao(object me, object mon, int bonus, int exp, int pot)
 		}
 		xunhuan--;
 	} 
-	write(HIW"\n ÖÕÓÚÍê³ÉÁË£¬ÀÛËÀÈËÁË£¬ºÃÁËÖÕÓÚ¿ÉÒÔÈ¥ÐÝÏ¢Ò»ÏÂÁË.\n¶ÔÁËÎÒ»¹ÒªÈ¥ÄÃ±¨³êÄØ£¬¿É²»ÄÜ°×¸É¡£\n"NOR);
+	write(HIW"\n ç»ˆäºŽå®Œæˆäº†ï¼Œç´¯æ­»äººäº†ï¼Œå¥½äº†ç»ˆäºŽå¯ä»¥åŽ»ä¼‘æ¯ä¸€ä¸‹äº†.\nå¯¹äº†æˆ‘è¿˜è¦åŽ»æ‹¿æŠ¥é…¬å‘¢ï¼Œå¯ä¸èƒ½ç™½å¹²ã€‚\n"NOR);
 	me->set_temp("fengyaoover", 1);
 	me->start_busy(3);
 	return ;

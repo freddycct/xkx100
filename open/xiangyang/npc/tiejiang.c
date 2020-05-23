@@ -5,13 +5,13 @@ inherit F_DEALER;
 
 void create()
 {
-	set_name("Ìú½³", ({ "tiejiang", "smith" }));
-	set("title", "Ìú½³ÆÌÀÏ°å");
+	set_name("é“åŒ ", ({ "tiejiang", "smith" }));
+	set("title", "é“åŒ é“ºè€æ¿");
 	set("shen_type", 1);
 
-	set("gender", "ÄĞĞÔ" );
+	set("gender", "ç”·æ€§" );
 	set("age", 33);
-	set("long","ÕâÎ»Ìú½³ÕıÔÚ¶£¶£µ±µ±µØ´ò×ÅÌú£¬·¢ÏÖÄãÔÚ×¢ÊÓ×ÅËû£¬¾ÍÌ§ÆğÍ·À´Î¢Ğ¦ÁËÒ»ÏÂ¡£\n");
+	set("long","è¿™ä½é“åŒ æ­£åœ¨å®å®å½“å½“åœ°æ‰“ç€é“ï¼Œå‘ç°ä½ åœ¨æ³¨è§†ç€ä»–ï¼Œå°±æŠ¬èµ·å¤´æ¥å¾®ç¬‘äº†ä¸€ä¸‹ã€‚\n");
 
 	set("combat_exp", 400);
 	set("attitude", "friendly");

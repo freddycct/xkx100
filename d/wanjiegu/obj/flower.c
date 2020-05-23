@@ -4,14 +4,14 @@ inherit ITEM;
 
 void create()
 {
-	set_name("¾øÇé»¨", ({ "flower" }) );
+	set_name("ç»æƒ…èŠ±", ({ "flower" }) );
 	set_weight(80);
 	if( clonep() )
 		set_default_object(__FILE__);
 	else {
-		set("long", "Ò»¶äÉ¢·¢×Å´Ì±ÇÎ¶µÄÒ°»¨¡£\n");
-		set("unit", "Êø");
-		set("base_unit", "¶ä");
+		set("long", "ä¸€æœµæ•£å‘ç€åˆºé¼»å‘³çš„é‡èŠ±ã€‚\n");
+		set("unit", "æŸ");
+		set("base_unit", "æœµ");
 		set("value", 0);
 	}
 }

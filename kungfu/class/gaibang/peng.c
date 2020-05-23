@@ -6,12 +6,12 @@ inherit F_MASTER;
 
 void create()
 {
-	set_name("ÅíÓĞ¾´", ({"peng youjing", "peng", "youjing"}));
-	set("gender", "ÄĞĞÔ");
+	set_name("å½­æœ‰æ•¬", ({"peng youjing", "peng", "youjing"}));
+	set("gender", "ç”·æ€§");
 	set("age", 50);
 	set("long", 
-		"ÅíÓĞ¾´ÊÇØ¤°ïÖĞ¾»ÒÂÅÉµÄÊ×Áì£¬ÒÂ×Å¸É¾»»ªÀö£¬²»Ïó½Ğ»¯×Ó¡£\n"
-		"ËûÁ³ÉÏ¹Ò×Å´ÈÏéµÄĞ¦Èİ£¬Ò»Ë«ÑÛ¾¦ÓĞÉãÈËĞÄÆÇµÄÁ¦Á¿¡£\n");
+		"å½­æœ‰æ•¬æ˜¯ä¸å¸®ä¸­å‡€è¡£æ´¾çš„é¦–é¢†ï¼Œè¡£ç€å¹²å‡€åä¸½ï¼Œä¸è±¡å«åŒ–å­ã€‚\n"
+		"ä»–è„¸ä¸ŠæŒ‚ç€æ…ˆç¥¥çš„ç¬‘å®¹ï¼Œä¸€åŒçœ¼ç›æœ‰æ‘„äººå¿ƒé­„çš„åŠ›é‡ã€‚\n");
 
 	set("attitude", "peaceful");
 	set("class", "beggar");
@@ -33,17 +33,17 @@ void create()
 	set("combat_exp", 100000);
 	set("score", 20000);
 	
-	set_skill("force", 90); // »ù±¾ÄÚ¹¦
-	set_skill("huntian-qigong", 90); // »ìÌìÆø¹¦
-	set_skill("blade", 85); // »ù±¾µ¶·¨
-	set_skill("liuhe-blade", 80); // ËÄÏóÁùºÏµ¶
-	set_skill("hand", 85); // »ù±¾ÊÖ·¨
-	set_skill("suohou-hand", 80); // ËøºíÇÜÄÃÊÖ
-	set_skill("dodge", 95); // »ù±¾¶ãÉÁ
-	set_skill("xiaoyaoyou", 85); // åĞÒ£ÓÎ
-	set_skill("parry", 90); // »ù±¾ÕĞ¼Ü
-	set_skill("strike",85);  // »ù±¾ÕÆ·¨
-	set_skill("lianhua-zhang",85); // Á«»¨ÕÆ
+	set_skill("force", 90); // åŸºæœ¬å†…åŠŸ
+	set_skill("huntian-qigong", 90); // æ··å¤©æ°”åŠŸ
+	set_skill("blade", 85); // åŸºæœ¬åˆ€æ³•
+	set_skill("liuhe-blade", 80); // å››è±¡å…­åˆåˆ€
+	set_skill("hand", 85); // åŸºæœ¬æ‰‹æ³•
+	set_skill("suohou-hand", 80); // é”å–‰æ“’æ‹¿æ‰‹
+	set_skill("dodge", 95); // åŸºæœ¬èº²é—ª
+	set_skill("xiaoyaoyou", 85); // é€é¥æ¸¸
+	set_skill("parry", 90); // åŸºæœ¬æ‹›æ¶
+	set_skill("strike",85);  // åŸºæœ¬æŒæ³•
+	set_skill("lianhua-zhang",85); // è²èŠ±æŒ
 	set_skill("xianglong-zhang",85);
 
 	map_skill("strike","lianhua-zhang");
@@ -55,10 +55,10 @@ void create()
 	map_skill("dodge", "xiaoyaoyou");
 	prepare_skill("hand", "suohou-hand");
 
-	set("party/party_name", HIC"Ø¤°ï"NOR);
-	set("party/rank", RED"¾Å´ü³¤ÀÏ"NOR);
+	set("party/party_name", HIC"ä¸å¸®"NOR);
+	set("party/rank", RED"ä¹è¢‹é•¿è€"NOR);
 	set("party/level", 9);
-	create_family("Ø¤°ï", 18, "ÕÆ²§ÁúÍ·");
+	create_family("ä¸å¸®", 18, "æŒé’µé¾™å¤´");
 
 	setup();
 
@@ -68,6 +68,6 @@ void create()
 
 void attempt_apprentice(object ob)
 {
-	command("say ÀÏ·ò²»ÊÕÍ½µÜ£¬" + RANK_D->query_respect(ob) + "»¹ÊÇÇë»Ø°É¡£");
+	command("say è€å¤«ä¸æ”¶å¾’å¼Ÿï¼Œ" + RANK_D->query_respect(ob) + "è¿˜æ˜¯è¯·å›å§ã€‚");
 }
 #include "/kungfu/class/gaibang/gaibang.h"

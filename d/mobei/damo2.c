@@ -5,10 +5,10 @@ inherit ROOM;
 
 void create()
 {
-	set ("short", "��Į");
+	set ("short", "大漠");
 	set ("long", @LONG
-������һ���޼ʵ�ɳĮ�������յ������£��㼸��Ҫ�����ˡ�����
-ͨ���ɹŲ�ԭ���ϱ����Ǿ��Ƿ���
+四周是一望无际的沙漠，在烈日的照射下，你几乎要虚脱了。西北
+通向蒙古草原，南边则是京城方向。
 LONG);
 	set("outdoors","mobei");
 	set("no_clean_up", 0);

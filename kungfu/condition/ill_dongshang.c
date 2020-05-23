@@ -10,15 +10,15 @@ int update_condition(object me, int duration)
 	if (me->is_ghost()) return 1;
 	if( !living(me) || me->query_temp("noliving") )
 	{
-		message("vision", me->name() + "Ö«Ìå½©Ö±£¬¿´À´±»¶³ÉËÁË¡£\n", environment(me), me);
+		message("vision", me->name() + "è‚¢ä½“åƒµç›´ï¼Œçœ‹æ¥è¢«å†»ä¼¤äº†ã€‚\n", environment(me), me);
 	}
 	else
 	{
-		tell_object(me, HIB"Äã¾õµÃÖ«ÌåÄ©¶ËÒ»Õó½©Ö±£¬¿´À´ÊÇ±»¶³ÉËÁË£¡\n" NOR );
-		message("vision", me->name() + "µÄÖ«Ìå½©Ö±ÇàÖ×£¬¿´À´±»¶³ÉËÁË¡£\n", environment(me), me);
+		tell_object(me, HIB"ä½ è§‰å¾—è‚¢ä½“æœ«ç«¯ä¸€é˜µåƒµç›´ï¼Œçœ‹æ¥æ˜¯è¢«å†»ä¼¤äº†ï¼\n" NOR );
+		message("vision", me->name() + "çš„è‚¢ä½“åƒµç›´é’è‚¿ï¼Œçœ‹æ¥è¢«å†»ä¼¤äº†ã€‚\n", environment(me), me);
 	}
-	me->receive_wound("qi", 1,"¼¢º®½»ÆÈ¶³ËÀÔÚ"+environment(me)->query("short")+"ÁË¡£");
-	me->receive_damage("qi", 1,"¼¢º®½»ÆÈ¶³ËÀÔÚ"+environment(me)->query("short")+"ÁË¡£");
+	me->receive_wound("qi", 1,"é¥¥å¯’äº¤è¿«å†»æ­»åœ¨"+environment(me)->query("short")+"äº†ã€‚");
+	me->receive_damage("qi", 1,"é¥¥å¯’äº¤è¿«å†»æ­»åœ¨"+environment(me)->query("short")+"äº†ã€‚");
 	if ((int)me->query("eff_jing")<0 || (int)me->query("eff_qi")<0) return 0;
 	me->apply_condition("ill_dongshang", duration - 1);
 

@@ -1,11 +1,11 @@
-// pili.c Åùö¨ÎŞĞÎ
+// pili.c éœ¹é›³æ— å½¢
 // Last Modified by winder on May. 15 2001
 
 #include <ansi.h>
 #include <skill.h>
 #include <weapon.h>
 #include <combat.h>
-#define PNAME "¡¸Åùö¨ÎŞĞÎ¡¹"
+#define PNAME "ã€Œéœ¹é›³æ— å½¢ã€"
 inherit F_SSERVER;
  
 int perform(object me, object target)
@@ -23,17 +23,17 @@ int perform(object me, object target)
    !me->query("can_perform/"+sskill+"/"+pfname) &&
    !me->query_temp("murong/xingyi") &&
    !SCBORN_D->valid_perform(me,sskill,pfname) )
-   return notify_fail("ÄãËùÊ¹ÓÃµÄÍâ¹¦ÖĞÃ»ÓĞÕâÖÖ¹¦ÄÜ¡£\n");
+   return notify_fail("ä½ æ‰€ä½¿ç”¨çš„å¤–åŠŸä¸­æ²¡æœ‰è¿™ç§åŠŸèƒ½ã€‚\n");
 
 	if( !objectp(target) ) {flag =1;target = offensive_target(me);}
 	
 	if( !target || !target->is_character() || target == me ||	
 	  	!me->is_fighting(target) ||
   	!living(target) || target->query_temp("noliving") )
-		return notify_fail(PNAME"Ö»ÄÜ¶ÔÕ½¶·ÖĞµÄ¶ÔÊÖÊ¹ÓÃ¡£\n");
+		return notify_fail(PNAME"åªèƒ½å¯¹æˆ˜æ–—ä¸­çš„å¯¹æ‰‹ä½¿ç”¨ã€‚\n");
 
 	if (me->query_temp("weapon") || me->query_temp("secondary_weapon"))
-		return notify_fail(PNAME"Ö»ÄÜ¿ÕÊÖÊ¹ÓÃ¡£\n");		
+		return notify_fail(PNAME"åªèƒ½ç©ºæ‰‹ä½¿ç”¨ã€‚\n");		
 		
 	fskill = "hamagong";
 	bskill = "cuff";
@@ -46,18 +46,18 @@ int perform(object me, object target)
 		bskill = "parry";
 	}
 	if( (int)me->query_skill(fskill, 1) < 50 )
-		return notify_fail("ÄãµÄ"+to_chinese(fskill)+"ĞŞÎª²»¹»£¬ÎŞ·¨Ê¹ÓÃ"+PNAME+"¡£\n");
+		return notify_fail("ä½ çš„"+to_chinese(fskill)+"ä¿®ä¸ºä¸å¤Ÿï¼Œæ— æ³•ä½¿ç”¨"+PNAME+"ã€‚\n");
 	if( (int)me->query_skill(sskill, 1) < 20 )
-		return notify_fail("ÄãµÄ"+to_chinese(sskill)+"»ğºò²»¹»£¬ÎŞ·¨Ê¹ÓÃ"+PNAME+"¡£\n");
+		return notify_fail("ä½ çš„"+to_chinese(sskill)+"ç«å€™ä¸å¤Ÿï¼Œæ— æ³•ä½¿ç”¨"+PNAME+"ã€‚\n");
 	if( (int)me->query("neili") < 100 )
-		return notify_fail("ÄãµÄÕæÆø²»¹»£¡\n");
+		return notify_fail("ä½ çš„çœŸæ°”ä¸å¤Ÿï¼\n");
 		
 	extra = me->query_skill(bskill, 1);
 	me->add_temp("apply/attack",extra/2);
 	me->add_temp("apply/damage",extra/2);
 	weapon = me->query_temp("weapon");
 
-	msg = BLU"$N"BLU"½Å²È¸òó¡²½£¬ÂäÉíÓÚÕÉ³ßÍâ£¬ÉÔ×÷Í£¶Ù£¬Í»È»ÎÕÈ­ÆËÏò$n"BLU"£¬ÓÌÈç²ÔÌìÅùö¨À×öªÖ®Ê½£¡" NOR;
+	msg = BLU"$N"BLU"è„šè¸©è›¤èŸ†æ­¥ï¼Œè½èº«äºä¸ˆå°ºå¤–ï¼Œç¨ä½œåœé¡¿ï¼Œçªç„¶æ¡æ‹³æ‰‘å‘$n"BLU"ï¼ŒçŠ¹å¦‚è‹å¤©éœ¹é›³é›·éœ†ä¹‹å¼ï¼" NOR;
 	message_combatd(msg, me, target);
 	COMBAT_D->do_attack(me,target, me->query_temp("weapon"),TYPE_REGULAR,msg);
 	me->add_temp("apply/attack",-extra/2);
@@ -66,20 +66,20 @@ int perform(object me, object target)
 	me->start_busy(1);
 	return 1;
 }
-string name() {return replace_string(replace_string(PNAME,"¡¸",""),"¡¹","");}
+string name() {return replace_string(replace_string(PNAME,"ã€Œ",""),"ã€","");}
 
 int help(object me)
 {
-	write(WHT"\n"+to_chinese(explode(__FILE__,"/")[<2])+"Ö®"+name()+WHT"£º"NOR"\n");
+	write(WHT"\n"+to_chinese(explode(__FILE__,"/")[<2])+"ä¹‹"+name()+WHT"ï¼š"NOR"\n");
 	write(@HELP
 
-	Ê¹ÓÃ¹¦Ğ§£º
-		´óÁ¦³öÈ­
+	ä½¿ç”¨åŠŸæ•ˆï¼š
+		å¤§åŠ›å‡ºæ‹³
 
-	³öÊÖÒªÇó£º
-		¸òó¡¹¦50¼¶
-		¸òó¡È­20¼¶
-		ÄÚÁ¦100
+	å‡ºæ‰‹è¦æ±‚ï¼š
+		è›¤èŸ†åŠŸ50çº§
+		è›¤èŸ†æ‹³20çº§
+		å†…åŠ›100
 HELP
 	);
 	return 1;

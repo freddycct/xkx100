@@ -5,11 +5,11 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "Ӫ�ʼ�");
+	set("short", "营帐间");
 	set("long", @LONG
-��Ŀ�������Ƕ������������Ӫ�ʣ�һ������һ�����ɹŲ�������
-Ϊ����ƽʱ��ס�����ɹŰ�����ⷽ�㡣�����е�ͨ�򼸸���Ļ���ֱ�
-�������ʹ��ǵ�ס����������ԯ�ţ��������ӭ����չ��
+举目所见，那都是密密麻麻的营帐，一个连着一个，蒙古部落游牧
+为生，平时所住就是蒙古包，拆解方便。两边有道通向几个帐幕，分别
+是亲卫和大将们的住所，南面是辕门，几面旌旗迎风招展。
 LONG);
 	set("outdoors","mobei");
 	set("objects", ([ /* sizeof() == 1 */

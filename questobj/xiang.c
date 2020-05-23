@@ -7,10 +7,10 @@ void setup()
 
 void create()
 {
-	set_name(HIC"ÁúÏÑÏã"NOR, ({"longxian xiang","xiang" }));
-	set("unit","¿é");
+	set_name(HIC"é¾™æ¶é¦™"NOR, ({"longxian xiang","xiang" }));
+	set("unit","å—");
 	set("taskobj", 1);
-	set("long","ÕâÊÇÒ»¿éºÚºìÉ«µÄ¶«Î÷£¬É¢·¢³öÆæÒìÏãÆø,¾İËµ¿ÉÒÔÎüÒı¶¾³æ¡£\n");
+	set("long","è¿™æ˜¯ä¸€å—é»‘çº¢è‰²çš„ä¸œè¥¿ï¼Œæ•£å‘å‡ºå¥‡å¼‚é¦™æ°”,æ®è¯´å¯ä»¥å¸å¼•æ¯’è™«ã€‚\n");
 	set("value", 0);
 	set_weight(50);
 	setup();

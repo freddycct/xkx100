@@ -13,22 +13,22 @@ int main(object me, string arg)
 
 	seteuid(getuid());
 	if( me->is_fighting() )
-		return notify_fail("ÄãÒÑ¾­ÔÚÕ½¶·ÖĞÁË£¬Ñ§Ò»µãÊµÕ½¾­Ñé°É¡£\n");
+		return notify_fail("ä½ å·²ç»åœ¨æˆ˜æ–—ä¸­äº†ï¼Œå­¦ä¸€ç‚¹å®æˆ˜ç»éªŒå§ã€‚\n");
 	if( !arg ) return (__DIR__"enable")->main(me, arg);
 	if( !stringp(skillname = me->query_skill_mapped(arg)) )
-		return notify_fail("ÄãÖ»ÄÜÁ·Ï°ÓÃ enable Ö¸¶¨µÄÌØÊâ¼¼ÄÜ¡£\n");
+		return notify_fail("ä½ åªèƒ½ç»ƒä¹ ç”¨ enable æŒ‡å®šçš„ç‰¹æ®ŠæŠ€èƒ½ã€‚\n");
 	skill_basic = me->query_skill_eff_lvl(arg) * 1 + 1;
 	skill = me->query_skill_eff_lvl(skillname) + 1;
 	if(check_valid_create(skillname)==0)
-		return notify_fail("Õâ²»ÊÇÄã´´½¨µÄ¹¦·òÑ½£¿\n");
+		return notify_fail("è¿™ä¸æ˜¯ä½ åˆ›å»ºçš„åŠŸå¤«å‘€ï¼Ÿ\n");
 	if( skill < 1 )
-		return notify_fail("ÄãºÃÏñ»¹Ã»¡¸Ñ§»á¡¹ÕâÏî¼¼ÄÜ°É£¿×îºÃÏÈÈ¥Çë½Ì±ğÈË¡£\n");
+		return notify_fail("ä½ å¥½åƒè¿˜æ²¡ã€Œå­¦ä¼šã€è¿™é¡¹æŠ€èƒ½å§ï¼Ÿæœ€å¥½å…ˆå»è¯·æ•™åˆ«äººã€‚\n");
 	if( skill_basic < 1 )
-		return notify_fail("Äã¶ÔÕâ·½ÃæµÄ¼¼ÄÜ»¹ÊÇÒ»ÇÏ²»Í¨£¬×îºÃ´ÓÏÈ´Ó»ù±¾Ñ§Æğ¡£\n");
+		return notify_fail("ä½ å¯¹è¿™æ–¹é¢çš„æŠ€èƒ½è¿˜æ˜¯ä¸€çªä¸é€šï¼Œæœ€å¥½ä»å…ˆä»åŸºæœ¬å­¦èµ·ã€‚\n");
 
-	notify_fail("ÄãÏÖÔÚ²»ÄÜÁ·Ï°ÕâÏî¼¼ÄÜ¡£\n");
+	notify_fail("ä½ ç°åœ¨ä¸èƒ½ç»ƒä¹ è¿™é¡¹æŠ€èƒ½ã€‚\n");
 	if( !SKILL_D(skillname)->valid_learn(me) ) return 0;
-	notify_fail("ÄãÊÔÖøÁ·Ï°" + to_chinese(skillname) + "£¬µ«ÊÇ²¢Ã»ÓĞÈÎºÎ½ø²½¡£\n");
+	notify_fail("ä½ è¯•è‘—ç»ƒä¹ " + to_chinese(skillname) + "ï¼Œä½†æ˜¯å¹¶æ²¡æœ‰ä»»ä½•è¿›æ­¥ã€‚\n");
 	if( SKILL_D(skillname)->practice_skill(me) )
 	{
 		amount = (skill-75)*SKILL_D(skillname)->black_white_ness()/100;
@@ -36,7 +36,7 @@ int main(object me, string arg)
 		amount += SKILL_D(skillname)->practice_bonus()+skill_basic/5+1;
 		if( amount < 1) amount = 1;
 		me->improve_skill(skillname, amount, skill_basic > skill? 0:1);
-		write( HIY "ÄãµÄ" + to_chinese(skillname) + "½ø²½ÁË£¡\n" NOR);
+		write( HIY "ä½ çš„" + to_chinese(skillname) + "è¿›æ­¥äº†ï¼\n" NOR);
 		return 1;
 	}
 	else return 0;
@@ -52,7 +52,7 @@ int check_valid_create(string skillname)
 	playername=geteuid(me);
 
 	if(list[1]!="// "+playername) return 0;
-	if(list[0]!="// ÕâÊÇÍæ¼Ò×Ô´´Îä¹¦³ÌĞò¡£") return 0;
+	if(list[0]!="// è¿™æ˜¯ç©å®¶è‡ªåˆ›æ­¦åŠŸç¨‹åºã€‚") return 0;
 
 	return 1;
 }
@@ -60,14 +60,14 @@ int check_valid_create(string skillname)
 int help(object me)
 {
 	write(@TEXT
-Ö¸Áî¸ñÊ½£ºmylian <¼¼ÄÜÖÖÀà>
+æŒ‡ä»¤æ ¼å¼ï¼šmylian <æŠ€èƒ½ç§ç±»>
 
-Õâ¸öÖ¸ÁîÈÃÄãÁ·Ï°Ä³¸ö×Ô¼º´´½¨µÄ¼¼ÄÜ£¬Õâ¸ö¼¼ÄÜ±ØĞëÊÇ¾­¹ı enable µÄ×¨Òµ¼¼ÄÜ¡£
+è¿™ä¸ªæŒ‡ä»¤è®©ä½ ç»ƒä¹ æŸä¸ªè‡ªå·±åˆ›å»ºçš„æŠ€èƒ½ï¼Œè¿™ä¸ªæŠ€èƒ½å¿…é¡»æ˜¯ç»è¿‡ enable çš„ä¸“ä¸šæŠ€èƒ½ã€‚
 
-Èç¹ûÄã¶ÔÕâ·½ÃæµÄ»ù±¾¼¼ÄÜ¹»¸ß£¬¿ÉÒÔ¾­ÓÉÁ·Ï°Ö±½ÓÉı¼¶£¬¶øÇÒÉı¼¶µÄÉÏÏŞÖ»¸ú
-Äã»ù±¾¼¼ÄÜµÄµÈ¼¶ÓĞ¹Ø£¬»»¾ä»°Ëµ£¬ÇÚ¼ÓÁ·Ï°ÊÇÊ¹ÄãµÄËùÑ§¡¸Çà³öÓÚÀ¶Ê¤ÓÚÀ¶¡¹
-µÄÎ¨Ò»Í¾¾¶£¬µ±È»£¬ÔÚÕâÖ®Ç°Äã±ØĞë´ÓÊµ¼ÊÔËÓÃÖĞ»ñµÃ×ã¹»µÄ¾­ÑéÒÔÌáÉıÄãµÄ»ù
-±¾¼¼ÄÜ¡£
+å¦‚æœä½ å¯¹è¿™æ–¹é¢çš„åŸºæœ¬æŠ€èƒ½å¤Ÿé«˜ï¼Œå¯ä»¥ç»ç”±ç»ƒä¹ ç›´æ¥å‡çº§ï¼Œè€Œä¸”å‡çº§çš„ä¸Šé™åªè·Ÿ
+ä½ åŸºæœ¬æŠ€èƒ½çš„ç­‰çº§æœ‰å…³ï¼Œæ¢å¥è¯è¯´ï¼Œå‹¤åŠ ç»ƒä¹ æ˜¯ä½¿ä½ çš„æ‰€å­¦ã€Œé’å‡ºäºè“èƒœäºè“ã€
+çš„å”¯ä¸€é€”å¾„ï¼Œå½“ç„¶ï¼Œåœ¨è¿™ä¹‹å‰ä½ å¿…é¡»ä»å®é™…è¿ç”¨ä¸­è·å¾—è¶³å¤Ÿçš„ç»éªŒä»¥æå‡ä½ çš„åŸº
+æœ¬æŠ€èƒ½ã€‚
 TEXT
 	);
 	return 1;

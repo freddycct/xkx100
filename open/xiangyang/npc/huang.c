@@ -4,10 +4,10 @@ inherit F_MASTER;
 
 void create()
 {
-	set_name("»ÆÈØ", ({"huang rong", "huang", "rong"}));
-	set("gender", "Å®ĞÔ");
+	set_name("é»„è“‰", ({"huang rong", "huang", "rong"}));
+	set("gender", "å¥³æ€§");
 	set("age", 36);
-	set("long", "ËıÊÇ±±ÏÀ¹ù¾¸µÄ·òÈË£¬¶«Ğ°»ÆÒ©Ê¦µÄ°®Å®£¬Ç°ÈÎØ¤°ï°ïÖ÷¡£\n");
+	set("long", "å¥¹æ˜¯åŒ—ä¾ éƒ­é–çš„å¤«äººï¼Œä¸œé‚ªé»„è¯å¸ˆçš„çˆ±å¥³ï¼Œå‰ä»»ä¸å¸®å¸®ä¸»ã€‚\n");
 
 	set("attitude", "peaceful");
 	   
@@ -45,7 +45,7 @@ void create()
 	map_skill("dodge"  , "anying-fuxiang");
 	map_skill("sword"  , "luoying-shenjian") ;
 	   
-	create_family("ÌÒ»¨µº", 2, "µÜ×Ó");
+	create_family("æ¡ƒèŠ±å²›", 2, "å¼Ÿå­");
 	setup();
 	carry_object("/kungfu/class/taohua/obj/ruanwei")->wear();
 	carry_object("/kungfu/class/taohua/obj/shudai")->wear();
@@ -54,20 +54,20 @@ void create()
 
 int recognize_apprentice(object ob)
 {
-	if (!(int)ob->query_temp("mark/ÈØ")) return 0;
-	ob->add_temp("mark/ÈØ", -1);
+	if (!(int)ob->query_temp("mark/è“‰")) return 0;
+	ob->add_temp("mark/è“‰", -1);
 	return 1;
 }
 
 int accept_object(object who, object ob)
 {
 	object me = this_player();
-	if (!(int)who->query_temp("mark/ÈØ"))
-		who->set_temp("mark/ÈØ", 0);
+	if (!(int)who->query_temp("mark/è“‰"))
+		who->set_temp("mark/è“‰", 0);
 	if (ob->query("money_id") && ob->value() >= 1000)
 	{
-		message_vision("»ÆÈØÍ¬ÒâÖ¸µã$NÒ»Ğ©Åëâ¿ÊÖÒÕµÄÎÊÌâ¡£\n", who);
-		who->add_temp("mark/ÈØ", ob->value() / 500);
+		message_vision("é»„è“‰åŒæ„æŒ‡ç‚¹$Nä¸€äº›çƒ¹é¥ªæ‰‹è‰ºçš„é—®é¢˜ã€‚\n", who);
+		who->add_temp("mark/è“‰", ob->value() / 500);
 		return 1;
 	}
 	return 0;

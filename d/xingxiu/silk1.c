@@ -5,11 +5,11 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "˿��֮·");
+	set("short", "丝绸之路");
 	set("long", @LONG
-����һ����ԭ������֮����̵���ӭ���������һ����ɳ��������
-�岼춻�ԭ֮�ϡ�һ���ɳ�������󵶸�һ��˺�����������������һ
-����ΰ�Ĺذ���������ͨ������
+这是一条中原和西域之间的商道。迎面而来的是一个个沙包，星罗
+棋布於荒原之上。一阵风沙吹过，象刀割一样撕裂着你的脸。东边有一
+座雄伟的关隘，西面则通往西域。
 LONG );
 	set("outdoors", "silu");
 	set("exits", ([

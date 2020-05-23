@@ -3,10 +3,10 @@
 inherit ROOM;
 void create()
 {
-       set("short","Î÷Óò´ó¸ê±Ú");
+       set("short","è¥¿åŸŸå¤§æˆˆå£");
        set("long", @LONG
-ÕâÊÇÎ÷ÓòµÄ´ó¸ê±Ú£¬Òª×ß³öÕâÀï²¢·ÇÒ×ÊÂ¡£²»Ô¶´¦³¾ÍÁÉ³Á£ÆÌÌì¸Ç
-µØ°ã´µÀ´£¬¿´À´ÒªÆð·ç±©ÁË¡£
+è¿™æ˜¯è¥¿åŸŸçš„å¤§æˆˆå£ï¼Œè¦èµ°å‡ºè¿™é‡Œå¹¶éžæ˜“äº‹ã€‚ä¸è¿œå¤„å°˜åœŸæ²™ç²’é“ºå¤©ç›–
+åœ°èˆ¬å¹æ¥ï¼Œçœ‹æ¥è¦èµ·é£Žæš´äº†ã€‚
 LONG);
         set("exits", ([
                 "north" : __DIR__"gebi2",
@@ -24,13 +24,13 @@ void init()
        object me = this_player();
        switch(random(4)) {
        case 0 : me->set_temp("gc_n",1); 
-       tell_object(me,"Ö±¾õ¸æËßÄã£ºÍù±±×ßÓÐÒ»Æ¬ÂÌÖÞ¡£\n");break;
+       tell_object(me,"ç›´è§‰å‘Šè¯‰ä½ ï¼šå¾€åŒ—èµ°æœ‰ä¸€ç‰‡ç»¿æ´²ã€‚\n");break;
        case 1 : me->set_temp("gc_s",1); 
-       tell_object(me,"Ö±¾õ¸æËßÄã£ºÍùÄÏ×ßÓÐÒ»Æ¬ÂÌÖÞ¡£\n");break;
+       tell_object(me,"ç›´è§‰å‘Šè¯‰ä½ ï¼šå¾€å—èµ°æœ‰ä¸€ç‰‡ç»¿æ´²ã€‚\n");break;
        case 2 : me->set_temp("gc_e",1); 
-       tell_object(me,"Ö±¾õ¸æËßÄã£ºÍù¶«×ßÓÐÒ»Æ¬ÂÌÖÞ¡£\n");break;
+       tell_object(me,"ç›´è§‰å‘Šè¯‰ä½ ï¼šå¾€ä¸œèµ°æœ‰ä¸€ç‰‡ç»¿æ´²ã€‚\n");break;
        case 3 : me->set_temp("gc_w",1); 
-       tell_object(me,"Ö±¾õ¸æËßÄã£ºÍùÎ÷×ßÓÐÒ»Æ¬ÂÌÖÞ¡£\n");break;
+       tell_object(me,"ç›´è§‰å‘Šè¯‰ä½ ï¼šå¾€è¥¿èµ°æœ‰ä¸€ç‰‡ç»¿æ´²ã€‚\n");break;
        }       
        if(me->query_skill("dodge", 1) <= 150) 
             me->add("jing", -15);

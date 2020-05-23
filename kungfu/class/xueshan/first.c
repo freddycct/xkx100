@@ -13,7 +13,7 @@ string zm_apply()
 	object ob = this_player();
 	if (ob->query("class") != "lama")
 	{
-		return "你非我雪山僧众，岂能出任掌门弟子一职！";
+		return "浣犻潪鎴戦洩灞卞儳浼楋紝宀傝兘鍑轰换鎺岄棬寮熷瓙涓�鑱岋紒";
 	}
 	return ::zm_apply();
 }

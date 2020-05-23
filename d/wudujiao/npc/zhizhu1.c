@@ -2,8 +2,8 @@
 inherit NPC;
 #include <ansi.h>
 
-string *first_name = ({"¶¾", "³¤ÍÈ", "´ó¶Ç", "»¨°ß"});
-string *name_words = ({ "Ö©Öë"});
+string *first_name = ({"æ¯’", "é•¿è…¿", "å¤§è‚š", "èŠ±æ–‘"});
+string *name_words = ({ "èœ˜è››"});
 
 void create()
 {
@@ -12,9 +12,9 @@ void create()
         name += name_words[random(sizeof(name_words))];
 
         set_name(name,({"zhi zhu"}));
-	set("race", "À¥³æ");
-	set("subrace", "ÅÀ³æ");
-        set("long", "Ò»Ö»¼¦µ°´óÐ¡£¬¹íÍ·¹íÄÔµÄÐ¡Ö©Öë¡£\n");
+	set("race", "æ˜†è™«");
+	set("subrace", "çˆ¬è™«");
+        set("long", "ä¸€åªé¸¡è›‹å¤§å°ï¼Œé¬¼å¤´é¬¼è„‘çš„å°èœ˜è››ã€‚\n");
         set("age", 100);
         set("attitude", "peaceful");
 
@@ -58,16 +58,16 @@ int init()
 
 int hit_ob(object me, object ob, int damage)
 {
-        if ((string)ob->query("family/family_name") != "Îå¶¾½Ì") {
+        if ((string)ob->query("family/family_name") != "äº”æ¯’æ•™") {
                 ob->apply_condition("zhizhu_poison", 20
               +(int)ob->query_condition("zhizhu_poison") );
-              tell_object(ob, HIG "Äã¾õµÃ±»Ò§ÖÐµÄµØ·½Ò»ÕóÂéÄ¾£¡\n" NOR );
+              tell_object(ob, HIG "ä½ è§‰å¾—è¢«å’¬ä¸­çš„åœ°æ–¹ä¸€é˜µéº»æœ¨ï¼\n" NOR );
         }
 }
 void die()
 {
         object ob;
-        message_vision("$Nµ¹ÔÚµØÉÏ£¬ËÀÁË£¡\n", this_object());
+        message_vision("$Nå€’åœ¨åœ°ä¸Šï¼Œæ­»äº†ï¼\n", this_object());
         ob=new(__DIR__"obj/zhizhudu.c");
         ob->move(environment(this_object()));
         destruct(this_object());

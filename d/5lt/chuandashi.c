@@ -4,10 +4,10 @@ inherit  ROOM;
 
 void  create  ()
 {
-	set  ("short",  "������");
+	set  ("short",  "传达室");
 	set  ("long",  @LONG
-�����Ǵ�֧���Ĵ����ҡ�����ͷ�ӿ�Ų��մ��ſ��߹���ȴƳ����
-���ҵĴ�ү�������㣬Ŀ�⾼����ʮ�־��衣
+这里是村支部的传达室。你埋头加快脚步刚从门口走过，却瞥见传
+达室的大爷正望着你，目光炯炯，十分警惕。
 LONG);
 	set("exits",  ([  //sizeof()  ==  3
 		"north"  :  __DIR__"yuelanshi",

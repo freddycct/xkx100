@@ -7,14 +7,14 @@ inherit F_MASTER;
 void create()
 {
 	object ob;
-	set_name("ºÎ×ãµÀ", ({ "he zudao", "he" }));
-	set("title", "À¥ÂØÅÉ¿ªÉ½×æÊ¦");
-	set("nickname", "À¥ÂØÈıÊ¥");
+	set_name("ä½•è¶³é“", ({ "he zudao", "he" }));
+	set("title", "æ˜†ä»‘æ´¾å¼€å±±ç¥–å¸ˆ");
+	set("nickname", "æ˜†ä»‘ä¸‰åœ£");
 	set("class", "taoist");
 	set("long",
-		"Ëû¾ÍÊÇÀ¥ÂØÅÉ¿ªÉ½×æÊ¦£¬ºÅ³ÆÇÙ½£ÆåÈı¾øµÄ¡°À¥ÂØÈıÊ¥¡±¡£\n"
-		"³¤Á³ÉîÄ¿£¬Êİ¹ÇÀâÀâ£¬Ô¼ÄªÈıÊ®Ëê×óÓÒÄê¼Í¡£\n");
-	set("gender", "ÄĞĞÔ");
+		"ä»–å°±æ˜¯æ˜†ä»‘æ´¾å¼€å±±ç¥–å¸ˆï¼Œå·ç§°ç´å‰‘æ£‹ä¸‰ç»çš„â€œæ˜†ä»‘ä¸‰åœ£â€ã€‚\n"
+		"é•¿è„¸æ·±ç›®ï¼Œç˜¦éª¨æ£±æ£±ï¼Œçº¦è«ä¸‰åå²å·¦å³å¹´çºªã€‚\n");
+	set("gender", "ç”·æ€§");
 	set("age", 35);
 	set("per", 20);
 	set("attitude", "friendly");
@@ -71,7 +71,7 @@ void create()
 	map_skill("throwing", "mantian-huayu");
 	prepare_skill("strike", "kunlun-strike");
 
-	create_family("À¥ÂØÅÉ", 1, "¿ªÉ½×æÊ¦");
+	create_family("æ˜†ä»‘æ´¾", 1, "å¼€å±±ç¥–å¸ˆ");
 	setup();
 	if (clonep())
 	{
@@ -92,23 +92,23 @@ void attempt_apprentice(object ob)
 
 	if(ob->query_int() < 32 )
 	{
-		command("say µ¯ÇÙÏÂÆåĞèÒªÁéĞÔ¼«¸ßµÄÈË²Å¿ÉÒÔÁìÎòÆäÕæÚĞ£¬²»ÖÂÓëÎä¹¦±³µÀ¶ø³Û¡£");
-		command("say "+RANK_D->query_respect(ob)+"»¹ÊÇÏÈ»ØÈ¥¶à¶ÁµãÊé°É¡£");
+		command("say å¼¹ç´ä¸‹æ£‹éœ€è¦çµæ€§æé«˜çš„äººæ‰å¯ä»¥é¢†æ‚Ÿå…¶çœŸè°›ï¼Œä¸è‡´ä¸æ­¦åŠŸèƒŒé“è€Œé©°ã€‚");
+		command("say "+RANK_D->query_respect(ob)+"è¿˜æ˜¯å…ˆå›å»å¤šè¯»ç‚¹ä¹¦å§ã€‚");
 		return;
 	}
 	if ((int)ob->query_skill("xuantian-wuji", 1) < 85)
 	{
-		command("say ÇÙÆåÊé»­ËäÎªĞ¡¼¼£¬µ«Ò²ĞèÄÚÁ¦ÈÚÈëÆäÖĞ¡£");
+		command("say ç´æ£‹ä¹¦ç”»è™½ä¸ºå°æŠ€ï¼Œä½†ä¹Ÿéœ€å†…åŠ›èå…¥å…¶ä¸­ã€‚");
 		command("say " + RANK_D->query_respect(ob) +
-			"ÊÇ·ñ»¹Ó¦¸ÃÏÈÔÚĞşÌìÎŞ¼«¹¦ÉÏ¶àÏÂµã¹¦·ò£¿");
+			"æ˜¯å¦è¿˜åº”è¯¥å…ˆåœ¨ç„å¤©æ— æåŠŸä¸Šå¤šä¸‹ç‚¹åŠŸå¤«ï¼Ÿ");
 		return;
 	}
 
 	if ((int)ob->query("max_neili", 1) < 500)
 	{
-		command("say ÄÚÁ¦²»¹»£¬Ò»ĞÄ¶şÓÃÔò¼«ÈİÒ××ß»ğÈëÄ§¡£");
+		command("say å†…åŠ›ä¸å¤Ÿï¼Œä¸€å¿ƒäºŒç”¨åˆ™æå®¹æ˜“èµ°ç«å…¥é­”ã€‚");
 		command("say " + RANK_D->query_respect(ob) +
-			"ÊÇ·ñ»¹Ó¦¸ÃÏÈºÃºÃĞŞÁ¶ÄÚÁ¦£¿");
+			"æ˜¯å¦è¿˜åº”è¯¥å…ˆå¥½å¥½ä¿®ç‚¼å†…åŠ›ï¼Ÿ");
 		return;
 	}
 
@@ -120,8 +120,8 @@ void attempt_apprentice(object ob)
                 if (skill[skl[i]] < 80)
 		{
 			command("say " + RANK_D->query_respect(ob) + 
-			"ÊÇ·ñÔÚ" + CHINESE_D->chinese(skl[i]) + 
-			"ÉÏ¶àÏÂĞ©¹¦·ò£¿");
+			"æ˜¯å¦åœ¨" + CHINESE_D->chinese(skl[i]) + 
+			"ä¸Šå¤šä¸‹äº›åŠŸå¤«ï¼Ÿ");
 			return;
 		}
 	}
@@ -133,7 +133,7 @@ void attempt_apprentice(object ob)
 	{
 		ob->set("appren_hezudao", 1);
 //	ob->add("int", 1);
-  	command("say ¿´À´ÄãÒ²ÊÇĞÔÇéÖĞÈË£¬ÎÒ¾Í½ÌÄãÒ»Ğ©ÇÙ½£ÆåµÄÖªÊ¶°É¡£");
+  	command("say çœ‹æ¥ä½ ä¹Ÿæ˜¯æ€§æƒ…ä¸­äººï¼Œæˆ‘å°±æ•™ä½ ä¸€äº›ç´å‰‘æ£‹çš„çŸ¥è¯†å§ã€‚");
 	  ob->set_skill("luteplaying", ob->query_skill("xuantian-wuji", 1));
 	  ob->set_skill("goplaying", ob->query_skill("xuantian-wuji", 1));
 //	ob->set_skill("literate", 10 + ob->query_skill("literate", 1));

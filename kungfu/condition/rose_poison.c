@@ -5,10 +5,10 @@
 int update_condition(object me, int duration)
 {
   if (me->is_ghost()) return 1;
-	me->receive_wound("qi", 20,"»ðÃµ¹å¶¾·¢×÷");
-	me->receive_damage("qi", 10,"»ðÃµ¹å¶¾·¢×÷");
+	me->receive_wound("qi", 20,"ç«çŽ«ç‘°æ¯’å‘ä½œ");
+	me->receive_damage("qi", 10,"ç«çŽ«ç‘°æ¯’å‘ä½œ");
 	me->apply_condition("rose_poison", duration - 1);
-	tell_object(me, HIG "ÄãÖÐµÄ" HIR "»ðÃµ¹å¶¾" HIG "·¢×÷ÁË£¡\n" NOR );
+	tell_object(me, HIG "ä½ ä¸­çš„" HIR "ç«çŽ«ç‘°æ¯’" HIG "å‘ä½œäº†ï¼\n" NOR );
 	if ((int)me->query("eff_jing")<0 || (int)me->query("eff_qi")<0) return 0;
 	if( duration < 1 ) return 0;
 	return 1;

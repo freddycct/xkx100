@@ -3,7 +3,7 @@
 
 #include <ansi.h>
 inherit F_SSERVER;
-#define PNAME "Å²ÒÆ"
+#define PNAME "æŒªç§»"
 int perform(object me, string arg)
 {
         string who1, who2;
@@ -19,14 +19,14 @@ int perform(object me, string arg)
   !me->query("perform/nuoyi") &&
   !me->query("can_perform/qiankun-danuoyi/nuoyi") && 
   !me->query_temp("murong/xingyi"))
-   return notify_fail("ÄãËùÊ¹ÓÃµÄÍâ¹¦ÖĞÃ»ÓĞÕâÖÖ¹¦ÄÜ¡£");
+   return notify_fail("ä½ æ‰€ä½¿ç”¨çš„å¤–åŠŸä¸­æ²¡æœ‰è¿™ç§åŠŸèƒ½ã€‚");
 	 
 	 if (!me->is_fighting())
-   return notify_fail("¡¸Ç¬À¤´óÅ²ÒÆ¡¹Ö»ÄÜÔÚÕ½¶·ÖĞÊ¹ÓÃ¡£\n");
+   return notify_fail("ã€Œä¹¾å¤å¤§æŒªç§»ã€åªèƒ½åœ¨æˆ˜æ–—ä¸­ä½¿ç”¨ã€‚\n");
         if( (int)me->query("max_neili", 1) < 1500 )
-		return notify_fail("ÄãµÄÄÚÁ¦ĞŞÎª²»×ãÒÔÊ¹ÓÃÇ¬À¤Å²ÒÆ´ó·¨¡£\n");
+		return notify_fail("ä½ çš„å†…åŠ›ä¿®ä¸ºä¸è¶³ä»¥ä½¿ç”¨ä¹¾å¤æŒªç§»å¤§æ³•ã€‚\n");
         if( (int)me->query("neili", 1) < 1000 )
-		return notify_fail("ÄãÏÖÔÚÄÚÁ¦Ì«Èõ£¬²»ÄÜÊ¹ÓÃÇ¬À¤Å²ÒÆ´ó·¨¡£\n");
+		return notify_fail("ä½ ç°åœ¨å†…åŠ›å¤ªå¼±ï¼Œä¸èƒ½ä½¿ç”¨ä¹¾å¤æŒªç§»å¤§æ³•ã€‚\n");
 
 
 	fskill = "jiuyang-shengong";
@@ -41,10 +41,10 @@ int perform(object me, string arg)
 	}
 
 	if( (int)me->query_skill(fskill, 1) < 50 )
-		return notify_fail("ÄãµÄ"+to_chinese(fskill)+"Î´µ½»ğºò£¬ÎŞ·¨Ê©Õ¹"+PNAME+"¡£\n");
+		return notify_fail("ä½ çš„"+to_chinese(fskill)+"æœªåˆ°ç«å€™ï¼Œæ— æ³•æ–½å±•"+PNAME+"ã€‚\n");
 
 	if( (int)me->query_skill(sskill, 1) < 50 )
-		return notify_fail("ÄãµÄ"+to_chinese(sskill)+"ĞŞÎª²»¹»£¬Ğ¡ĞÄ×ß»ğÈëÄ§£¡\n");
+		return notify_fail("ä½ çš„"+to_chinese(sskill)+"ä¿®ä¸ºä¸å¤Ÿï¼Œå°å¿ƒèµ°ç«å…¥é­”ï¼\n");
 
 	if( !arg )
 	{
@@ -52,7 +52,7 @@ int perform(object me, string arg)
   	if( !target || !target->is_character() || target == me ||	
 	  	!me->is_fighting(target) ||
   	  !living(target) || target->query_temp("noliving") )
-			return notify_fail("Ç¬À¤´óÅ²ÒÆ´ó·¨Ö»ÄÜ¶ÔÕ½¶·ÖĞµÄ¶ÔÊÖÊ¹ÓÃ¡£\n");
+			return notify_fail("ä¹¾å¤å¤§æŒªç§»å¤§æ³•åªèƒ½å¯¹æˆ˜æ–—ä¸­çš„å¯¹æ‰‹ä½¿ç”¨ã€‚\n");
 		form = 1;
 	}
 	
@@ -62,13 +62,13 @@ int perform(object me, string arg)
 	if( !target || !target->is_character() || target == me ||	
 	  	!me->is_fighting(target) ||
   	!living(target) || target->query_temp("noliving") )
-			return notify_fail("Ç¬À¤´óÅ²ÒÆÖ»¶ÔÕ½¶·ÖĞ¶ÔÊÖÊ¹ÓÃ¡£\n");
+			return notify_fail("ä¹¾å¤å¤§æŒªç§»åªå¯¹æˆ˜æ–—ä¸­å¯¹æ‰‹ä½¿ç”¨ã€‚\n");
 		victim = present(arg, environment(me));
 		if( !victim || !victim->is_character() || victim==me) 
-			return notify_fail("ÄãÏëÅ²ÒÆ¹¥»÷µÄ¶ÔÏó²»ÔÚÕâÀï¡£\n");
-	   if((victim->name())=="¹«Æ½×Ó")
-	    	return notify_fail("Äã²»¿ÉÒÔ¶Ô¹«Æ½×ÓÊ¹ÓÃÇ¬À¤´óÅ²ÒÆ¡£\n");
-  	notify_fail("Äã²»ÄÜ¹¥»÷Õâ¸öÈË¡£\n");
+			return notify_fail("ä½ æƒ³æŒªç§»æ”»å‡»çš„å¯¹è±¡ä¸åœ¨è¿™é‡Œã€‚\n");
+	   if((victim->name())=="å…¬å¹³å­")
+	    	return notify_fail("ä½ ä¸å¯ä»¥å¯¹å…¬å¹³å­ä½¿ç”¨ä¹¾å¤å¤§æŒªç§»ã€‚\n");
+  	notify_fail("ä½ ä¸èƒ½æ”»å‡»è¿™ä¸ªäººã€‚\n");
 		if (!userp(victim) && !victim->accept_hit(me)) return 0;
 		form = 2;
 	}
@@ -76,9 +76,9 @@ int perform(object me, string arg)
 	skill = (int)me->query_skill("dodge", 1);
 	lvl = random((int)(skill/30));
 
-	if( form == 1 ) /* ·´»÷¶ÔÊÖ */
+	if( form == 1 ) /* åå‡»å¯¹æ‰‹ */
 	{
-		msg = CYN "$NÄ¬ÔËÉñ¹¦£¬Ê¹³öÇ¬À¤´óÅ²ÒÆ´ó·¨¡£\n"NOR;
+		msg = CYN "$Né»˜è¿ç¥åŠŸï¼Œä½¿å‡ºä¹¾å¤å¤§æŒªç§»å¤§æ³•ã€‚\n"NOR;
 		me->start_busy(3);
 		if(random(me->query("neili")) > target->query("neili")/3 )
 		{
@@ -87,19 +87,19 @@ int perform(object me, string arg)
 			target->receive_damage("qi", damage,me);
 			target->receive_wound("qi", damage/3,me);
 			me->add("neili", -damage);
-			msg += CYN "½«$n"CYN"µÄÄÚÁ¦È«Êı·´»÷»ØÈ¥£¡\n" NOR;
+			msg += CYN "å°†$n"CYN"çš„å†…åŠ›å…¨æ•°åå‡»å›å»ï¼\n" NOR;
 			if( damage < 20 )
-				msg += HIY "½á¹û$n"HIY"ÊÜµ½$N"HIY"µÄÄÚÁ¦·´Õğ£¬ÃÆºßÒ»Éù¡£\n"NOR;
+				msg += HIY "ç»“æœ$n"HIY"å—åˆ°$N"HIY"çš„å†…åŠ›åéœ‡ï¼Œé—·å“¼ä¸€å£°ã€‚\n"NOR;
 			else if( damage < 40 )
-				msg += HIY "½á¹û$n"HIY"±»$N"HIY"ÒÔÄÚÁ¦·´Õğ£¬¡¸ºÙ¡¹µØÒ»ÉùÍËÁËÁ½²½¡£\n"NOR;
+				msg += HIY "ç»“æœ$n"HIY"è¢«$N"HIY"ä»¥å†…åŠ›åéœ‡ï¼Œã€Œå˜¿ã€åœ°ä¸€å£°é€€äº†ä¸¤æ­¥ã€‚\n"NOR;
 			else if( damage < 80 )
-				msg += RED "½á¹û$n"RED"±»$N"RED"ÒÔÄÚÁ¦Ò»Õğ£¬ĞØ¿ÚÓĞÈçÊÜµ½Ò»¼ÇÖØ´¸£¬Á¬ÍËÁËÎåÁù²½£¡\n"NOR;
+				msg += RED "ç»“æœ$n"RED"è¢«$N"RED"ä»¥å†…åŠ›ä¸€éœ‡ï¼Œèƒ¸å£æœ‰å¦‚å—åˆ°ä¸€è®°é‡é”¤ï¼Œè¿é€€äº†äº”å…­æ­¥ï¼\n"NOR;
 			else
-				msg += HIR "½á¹û$n"HIR"±»$N"HIR"µÄÄÚÁ¦Ò»Õğ£¬ÑÛÇ°Ò»ºÚ£¬ÏóÒ»À¦µ¾²İÒ»Ñù·É³öÈ¥ºÃ¼¸ÕÉÔ¶£¡\n"NOR;
+				msg += HIR "ç»“æœ$n"HIR"è¢«$N"HIR"çš„å†…åŠ›ä¸€éœ‡ï¼Œçœ¼å‰ä¸€é»‘ï¼Œè±¡ä¸€æ†ç¨»è‰ä¸€æ ·é£å‡ºå»å¥½å‡ ä¸ˆè¿œï¼\n"NOR;
 		}
 		else 
 		{
-			msg += CYN"¿ÉÊÇ$n"CYN"ÄÚÁ¦Éîºñ£¬Ë¿ºÁ²»ÎªËù¶¯¡£\n"NOR;
+			msg += CYN"å¯æ˜¯$n"CYN"å†…åŠ›æ·±åšï¼Œä¸æ¯«ä¸ä¸ºæ‰€åŠ¨ã€‚\n"NOR;
 			me->add("neili", -100);
 		}
 		message_combatd(msg, me, target);
@@ -107,24 +107,24 @@ int perform(object me, string arg)
 	}
 	else
 	{
-		write( CYN "ÄãÄ¬ÔËÉñ¹¦£¬Ê¹³öÇ¬À¤´óÅ²ÒÆ´ó·¨£¬ÊÔÍ¼½«" + target->name() + CYN+"µÄ¹¥»÷Å²ÒÆµ½" + victim->name() + CYN+"ÉíÉÏ¡£\n"NOR);
-		tell_object(victim, CYN"ºöÈ»£¬Äã·¢ÏÖÓĞÒ»¹ÉÆæ¹ÖµÄÁ¦Á¿ÏòÄãÏ®À´£¡\n"NOR);
+		write( CYN "ä½ é»˜è¿ç¥åŠŸï¼Œä½¿å‡ºä¹¾å¤å¤§æŒªç§»å¤§æ³•ï¼Œè¯•å›¾å°†" + target->name() + CYN+"çš„æ”»å‡»æŒªç§»åˆ°" + victim->name() + CYN+"èº«ä¸Šã€‚\n"NOR);
+		tell_object(victim, CYN"å¿½ç„¶ï¼Œä½ å‘ç°æœ‰ä¸€è‚¡å¥‡æ€ªçš„åŠ›é‡å‘ä½ è¢­æ¥ï¼\n"NOR);
 		me->start_busy(3);
 		if(random(me->query("neili")) > target->query("neili")/2)
 		{
-			write( CYN"¹ş¹ş£¬³É¹¦ÁË£¡\n"NOR);
+			write( CYN"å“ˆå“ˆï¼ŒæˆåŠŸäº†ï¼\n"NOR);
 			if( target == victim)
 			{
-				tell_object(target, CYN"ÄãÉí²»ÓÉ¼º£¬Ò»ÕĞ»÷Ïò×Ô¼º£¡\n"NOR);
-				message("combatd",CYN+target->name()+"ºöÈ»ÈçÖĞÄ§Ò»°ã£¬ÕĞÕĞ»÷Ïò×Ô¼º£¡\n\n"NOR, environment(me), target);
+				tell_object(target, CYN"ä½ èº«ä¸ç”±å·±ï¼Œä¸€æ‹›å‡»å‘è‡ªå·±ï¼\n"NOR);
+				message("combatd",CYN+target->name()+"å¿½ç„¶å¦‚ä¸­é­”ä¸€èˆ¬ï¼Œæ‹›æ‹›å‡»å‘è‡ªå·±ï¼\n\n"NOR, environment(me), target);
 				for(i = 0; i < lvl; i++)
 					COMBAT_D->do_attack(target, victim, target->query_temp("weapon") );
 			}
 			else
 			{
-				tell_object(target, CYN"ÄãÉí²»ÓÉ¼¸£¬Ïò" + victim->name() + CYN+"ÆËÈ¥£¡\n"NOR);
-				message("vision", CYN"\n" + target->name() + CYN+"ºöÈ»Ïò" + victim->name() +CYN+"ÆËÈ¥£¡\n\n"NOR, environment(me), ({target, victim}) );
-					tell_object(victim, CYN"\n" + target->name() + "ºöÈ»ÏòÄãÆËÀ´£¡\n\n"NOR);
+				tell_object(target, CYN"ä½ èº«ä¸ç”±å‡ ï¼Œå‘" + victim->name() + CYN+"æ‰‘å»ï¼\n"NOR);
+				message("vision", CYN"\n" + target->name() + CYN+"å¿½ç„¶å‘" + victim->name() +CYN+"æ‰‘å»ï¼\n\n"NOR, environment(me), ({target, victim}) );
+					tell_object(victim, CYN"\n" + target->name() + "å¿½ç„¶å‘ä½ æ‰‘æ¥ï¼\n\n"NOR);
 				COMBAT_D->do_attack(target,victim,target->query_temp("weapon"));
 				if(random(me->query("combat_exp")) >
 					(int)victim->query("combat_exp")/2 )
@@ -136,9 +136,9 @@ int perform(object me, string arg)
 				}
 				else
 				{
-					tell_object(victim, CYN"ÄãÒ»¶¨Éñ£¬Ô­À´ÊÇ" + me->name() + CYN+"ÔÚµ·¹í£¡\n"NOR);
-					tell_object(target, CYN"»¹ºÃ£¬ĞÒ¿÷"+victim->name()+CYN+"¾­ÑéÀÏµ½£¬Ã»ÓĞÉÏµ±¡£\n"NOR);
-					write( CYN "²»ºÃ£¬±»" + victim->name() + CYN+"·¢¾õÁË£¡\n"NOR);
+					tell_object(victim, CYN"ä½ ä¸€å®šç¥ï¼ŒåŸæ¥æ˜¯" + me->name() + CYN+"åœ¨æ£é¬¼ï¼\n"NOR);
+					tell_object(target, CYN"è¿˜å¥½ï¼Œå¹¸äº"+victim->name()+CYN+"ç»éªŒè€åˆ°ï¼Œæ²¡æœ‰ä¸Šå½“ã€‚\n"NOR);
+					write( CYN "ä¸å¥½ï¼Œè¢«" + victim->name() + CYN+"å‘è§‰äº†ï¼\n"NOR);
 					if(!victim->is_killing(me))
 						victim->kill_ob(me);
 				}
@@ -148,8 +148,8 @@ int perform(object me, string arg)
 		}
 		else
 		{
-			write( CYN"¿ÉÏ§Ã»³É¹¦¡£\n"NOR);
-			tell_object(target, CYN"ÄãÇ¿ÓÃĞÄÉñ£¬ÖÕÓÚ¿ØÖÆ×¡×Ô¼º¡£\n"NOR);
+			write( CYN"å¯æƒœæ²¡æˆåŠŸã€‚\n"NOR);
+			tell_object(target, CYN"ä½ å¼ºç”¨å¿ƒç¥ï¼Œç»ˆäºæ§åˆ¶ä½è‡ªå·±ã€‚\n"NOR);
 			me->add("neili", -100);
 		}
 		return 1;
@@ -158,18 +158,18 @@ int perform(object me, string arg)
 
 int help(object me)
 {
-	write(WHT"\nÇ¬À¤´óÅ²ÒÆÖ®Å²ÒÆ"NOR"\n");
+	write(WHT"\nä¹¾å¤å¤§æŒªç§»ä¹‹æŒªç§»"NOR"\n");
 	write(@HELP
 
-	Ê¹ÓÃ¹¦Ğ§£º
-		nuoyi :  ÓÃÀ´·´»÷µĞÊÖµÄ¹¥»÷¡£
-		nuoyi <ËûÈË> :  ÓÃÀ´½«µ±Ç°³öÊÖÈËÎïµÄ¹¥»÷Å²ÒÆµ½ËûÈËÉíÉÏ¡£
-				¿ÉÒÔ°ÑµĞÊÖµÄ¹¥»÷Å²ÒÆ¸øËû×ÔÉí¡£
-	³öÊÖÒªÇó£º
-		¾ÅÑôÉñ¹¦50¼¶
-		Ç¬À¤´óÅ²ÒÆ50¼¶
-		ÄÚÁ¦ĞŞÎª1500
-		ÄÚÁ¦1000
+	ä½¿ç”¨åŠŸæ•ˆï¼š
+		nuoyi :  ç”¨æ¥åå‡»æ•Œæ‰‹çš„æ”»å‡»ã€‚
+		nuoyi <ä»–äºº> :  ç”¨æ¥å°†å½“å‰å‡ºæ‰‹äººç‰©çš„æ”»å‡»æŒªç§»åˆ°ä»–äººèº«ä¸Šã€‚
+				å¯ä»¥æŠŠæ•Œæ‰‹çš„æ”»å‡»æŒªç§»ç»™ä»–è‡ªèº«ã€‚
+	å‡ºæ‰‹è¦æ±‚ï¼š
+		ä¹é˜³ç¥åŠŸ50çº§
+		ä¹¾å¤å¤§æŒªç§»50çº§
+		å†…åŠ›ä¿®ä¸º1500
+		å†…åŠ›1000
 HELP
 	);
 	return 1;

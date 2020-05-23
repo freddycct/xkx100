@@ -6,11 +6,11 @@ int inquiry_tanqin();
 
 void create()
 {
-	set_name("����", ({ "a zhu", "zhu" }));
+	set_name("阿朱", ({ "a zhu", "zhu" }));
 	set("long",
-		"���Ǹ��������µ�Ů�ɣ���Լʮ�߰��꣬һ��������Ƥ��������\n"
-		"һ�Ŷ쵰���������鶯������һ�����˷��ϡ�\n");
-	set("gender", "Ů��");
+		"这是个身穿红衣的女郎，大约十七八岁，一脸精灵顽皮的神气。\n"
+		"一张鹅蛋脸，眼珠灵动，别有一番动人风韵。\n");
+	set("gender", "女性");
 	set("class", "scholar");
 	set("age", 17);
 	set("per", 29);
@@ -46,19 +46,19 @@ void create()
 
 	set("combat_exp", 10000);
 	set("inquiry",([
-		"����ɽׯ" : "�ҲŲ���ȥ����ɽׯ��������̫�Ե��ˣ�\n",
-		"������" : "����ֻ��������������ǹ��ӣ�Ҳ��֪�����������ˣ�\n",
-		"����" : "��СѾͷҲ��ֻ���Ķ�ȥ�ˡ�\n",
-		"����" : ( : inquiry_tanqin : ),
-		"��Ľ��" : "�Ҽҹ��Ӻ�ؤ���ǰ����������ϳơ���Ľ�ݱ��Ƿ塱��\n",
-		"Ľ�ݸ�"   : "��������Ҳ�������������Ҽҹ��ӣ�\n",
-		"������"   : "���ǹ���ү�ľ��裬����ɽׯ��ׯ����\n",
-		"�˰ٴ�"   : "���ʵ˴�簡�����������ׯ���ء�\n",
-		"��ұǬ"   : "��ұ������Ÿ봫��һ���룬��û�����˶��ö��ˡ�\n",
-		"����ͬ"   : "�������̧���ˣ�����������Ǳ���ĺá�\n",
-		"�粨��"   : "���ĸ����Ǻ�ˬ�ˣ����Ӳ����˼ƽ�ʲô��\n",
+		"曼陀山庄" : "我才不敢去曼陀山庄，王夫人太霸道了！\n",
+		"王语嫣" : "哎，只有她才配得上我们公子，也不知她现在怎样了！\n",
+		"阿碧" : "那小丫头也不只跑哪儿去了。\n",
+		"弹琴" : ( : inquiry_tanqin : ),
+		"南慕容" : "我家公子和丐帮乔帮主齐名，合称“南慕容北乔峰”！\n",
+		"慕容复"   : "哎，这你也不懂，他就是我家公子！\n",
+		"王夫人"   : "就是公子爷的舅妈，曼陀山庄的庄主！\n",
+		"邓百川"   : "你问邓大哥啊？他在他青风庄上呢。\n",
+		"公冶乾"   : "公冶二哥把信鸽传书一编码，就没几个人读得懂了。\n",
+		"包不同"   : "包三哥最爱抬杠了，你见了他还是闭嘴的好。\n",
+		"风波恶"   : "风四哥最是豪爽了，他从不与人计较什么。\n",
 	]) );
-	create_family("����Ľ��", 33, "����");
+	create_family("姑苏慕容", 33, "弟子");
 	setup();
 	carry_object("/d/yanziwu/npc/obj/goldring")->wear();
 	carry_object("/d/yanziwu/npc/obj/necklace")->wear();
@@ -71,19 +71,19 @@ void create()
 int inquiry_tanqin()
 {
 	object me=this_player();
-message_vision("����˵������λ"+ RANK_D->query_respect(me)+"��ô�����ˣ����Ҿ�Ϊ�㵯��һ��?\nֻ�����������������㲻�ɵĳ��ˡ�\n", me );
-//	ϸϸƷ�������������ܵ�<<���糱ˮ>>!!!\n 
-	message_vision("����һ�����ˣ������򸣣�˵�����ֳ��ˡ�\n", me );
+message_vision("阿朱说道：这位"+ RANK_D->query_respect(me)+"这么有雅兴，那我就为你弹奏一曲?\n只听琴声繁复清亮，你不由的痴了。\n", me );
+//	细细品来，竟是张信哲的<<爱如潮水>>!!!\n 
+	message_vision("阿朱一曲终了，道个万福，说道：现丑了。\n", me );
 	return 1;
 }
 void attempt_apprentice(object ob)
 {
 	if ((int)ob->query("betrayer") > 0)
 	{
-		command("say ��λ" + RANK_D->query_respect(ob) +
-			"����Ľ�ݼҸ�������ΪҪ�£�����־���ᣬ��Ե���š�");
+		command("say 这位" + RANK_D->query_respect(ob) +
+			"，我慕容家复国乃至为要事，你心志不坚，无缘我门。");
 		return;
 	}
-	command("say �ð��Ҿ�����Ϊͽ�ɡ�");
+	command("say 好吧我就收你为徒吧。");
 	command("recruit " + ob->query("id"));
 }

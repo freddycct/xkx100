@@ -1,13 +1,13 @@
-//Room: bgschanfang.c ìø·¿
+//Room: bgschanfang.c ç¦…æˆ¿
 //Date: Oct. 2 1997 by That
 
 inherit ROOM;
 
 void create()
 {
-      set("short","ìø·¿");
+      set("short","ç¦…æˆ¿");
       set("long",@LONG
-Õâ¶ùÊÇ±¨¹úËÂÄÚµÄÒ»¼äìø·¿£¬²¼¾Ö¼òµ¥£¬¹©ËÂÄÚºÍÉĞËĞ¾­ĞŞĞĞÖ®ÓÃ¡£
+è¿™å„¿æ˜¯æŠ¥å›½å¯ºå†…çš„ä¸€é—´ç¦…æˆ¿ï¼Œå¸ƒå±€ç®€å•ï¼Œä¾›å¯ºå†…å’Œå°šè¯µç»ä¿®è¡Œä¹‹ç”¨ã€‚
 LONG);
       set("exits",([ /* sizeof() == 1 */
           "east"    : __DIR__"dxdian",

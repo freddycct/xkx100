@@ -6,10 +6,10 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "¶Ï³¦ÑÂ");
+	set("short", "æ–­è‚ å´–");
 	set("long", @LONG
-ÕâÀïÊÇ¾øÇé¹ÈºóÉ½·å¶¥£¬ÈË¼£ÏÊÖÁ£¬Õ¾µ½ÑÂÇ°£¬¸©ÊÓÉî¹È£¬µ«¼û»Ò
-ÎíÃ£Ã£¡£
+è¿™é‡Œæ˜¯ç»æƒ…è°·åŽå±±å³°é¡¶ï¼Œäººè¿¹é²œè‡³ï¼Œç«™åˆ°å´–å‰ï¼Œä¿¯è§†æ·±è°·ï¼Œä½†è§ç°
+é›¾èŒ«èŒ«ã€‚
 LONG
 	);
 	set("exits", ([
@@ -30,8 +30,8 @@ void init()
 }
 int do_look(string arg)
 {
-	if( !arg || arg == "" || (arg !=  "ya" && arg!="ÑÂ")) return 0;
-	write("Äã×ÐÏ¸´òÁ¿ËÄÖÜ¡£·¢ÏÖÔÚ²»Ô¶´¦ÓÐÒ»¿éÍ»³öÀ´µÄÇÍ±Ú£¬¿ÉÒÔÃãÇ¿ÈÝÉí¡£\n");
+	if( !arg || arg == "" || (arg !=  "ya" && arg!="å´–")) return 0;
+	write("ä½ ä»”ç»†æ‰“é‡å››å‘¨ã€‚å‘çŽ°åœ¨ä¸è¿œå¤„æœ‰ä¸€å—çªå‡ºæ¥çš„å³­å£ï¼Œå¯ä»¥å‹‰å¼ºå®¹èº«ã€‚\n");
 	this_player()->set_temp("jqg_look1", 1);
 	return 1;
 	
@@ -40,20 +40,20 @@ int do_jump(string arg)
 {
 	object me;
 	me = this_player(); 
-	if (arg != "qiaobi" && arg != "ÇÍ±Ú" ) return 0;
+	if (arg != "qiaobi" && arg != "å³­å£" ) return 0;
 	if (!arg ) return 0;
 	if (!me->query_temp("jqg_look1"))
-		return notify_fail("ÄãÒªÍùÄÇÀïÌø£¿\n");
+		return notify_fail("ä½ è¦å¾€é‚£é‡Œè·³ï¼Ÿ\n");
 	
 	if (!living(me)) return 0;
 	if ((int)(me->query_encumbrance()*100/me->query_max_encumbrance())>=50)
-		return notify_fail("ÄãÉíÉÏ¸ºÖØÌ«¶à£¬ÎÞ·¨Ìø¹ýÈ¥¡£\n");
+		return notify_fail("ä½ èº«ä¸Šè´Ÿé‡å¤ªå¤šï¼Œæ— æ³•è·³è¿‡åŽ»ã€‚\n");
  
 	if((int)me->query_skill("dodge",1) < 100 )  
-		return notify_fail("ÒÔÄãÄ¿Ç°µÄÇá¹¦ÐÞÎª£¬ÎÞ·¨Ìø¹ýÈ¥¡£\n"); 
-	message_vision("$N×ÝÉíÏòÇ°ÃæµÄÇÍ±ÚÌøÁË¹ýÈ¥¡£\n", me);
+		return notify_fail("ä»¥ä½ ç›®å‰çš„è½»åŠŸä¿®ä¸ºï¼Œæ— æ³•è·³è¿‡åŽ»ã€‚\n"); 
+	message_vision("$Nçºµèº«å‘å‰é¢çš„å³­å£è·³äº†è¿‡åŽ»ã€‚\n", me);
 	me->move(__DIR__"qiaobi");
-	tell_room(environment(me), me->name()+"´Ó¶Ï³¦ÑÂÌøÁË¹ýÀ´¡£\n", ({ me }));
+	tell_room(environment(me), me->name()+"ä»Žæ–­è‚ å´–è·³äº†è¿‡æ¥ã€‚\n", ({ me }));
 	me->delete_temp("jqg_look1");
 	return 1;
 }

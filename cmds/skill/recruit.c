@@ -1,5 +1,5 @@
 //recruit.c
-// Ôö¼ÓÉı¹ı´üµÄØ¤°ïµÜ×Ó²»ÄÜÍ¶±ğÅÉ¡£
+// å¢åŠ å‡è¿‡è¢‹çš„ä¸å¸®å¼Ÿå­ä¸èƒ½æŠ•åˆ«æ´¾ã€‚
 inherit F_CLEAN_UP;
 
 #include <ansi.h>
@@ -17,43 +17,43 @@ int main(object me, string arg)
 	int flag;
 
 	if (!arg)
-		return notify_fail("Ö¸Áî¸ñÊ½£ºrecruit|shou [cancel]|<¶ÔÏó>\n");
+		return notify_fail("æŒ‡ä»¤æ ¼å¼ï¼šrecruit|shou [cancel]|<å¯¹è±¡>\n");
 	if (arg=="cancel")
 	{
 		old_rec = me->query_temp("pending/recruit");
 		if( !objectp(old_rec) )
-			return notify_fail("ÄãÏÖÔÚ²¢Ã»ÓĞÊÕÂ¼ÈÎºÎÈËÎªµÜ×ÓµÄÒâË¼¡£\n");
-		write("Äã¸Ä±äÖ÷Òâ²»ÏëÊÕ" + old_rec->name() + "ÎªµÜ×ÓÁË¡£\n");
-		tell_object(old_rec, me->name()+"¸Ä±äÖ÷Òâ²»ÏëÊÕÄãÎªµÜ×ÓÁË¡£\n");
+			return notify_fail("ä½ ç°åœ¨å¹¶æ²¡æœ‰æ”¶å½•ä»»ä½•äººä¸ºå¼Ÿå­çš„æ„æ€ã€‚\n");
+		write("ä½ æ”¹å˜ä¸»æ„ä¸æƒ³æ”¶" + old_rec->name() + "ä¸ºå¼Ÿå­äº†ã€‚\n");
+		tell_object(old_rec, me->name()+"æ”¹å˜ä¸»æ„ä¸æƒ³æ”¶ä½ ä¸ºå¼Ÿå­äº†ã€‚\n");
 		me->delete_temp("pending/recruit");
 		return 1;
 	}
           if(arg=="corpse"||arg=="skeleton")
-           	return notify_fail("¿´Çå³şÒ»µã£¬ÄÇ²¢²»ÊÇÉúÎï¡£\n");
+           	return notify_fail("çœ‹æ¸…æ¥šä¸€ç‚¹ï¼Œé‚£å¹¶ä¸æ˜¯ç”Ÿç‰©ã€‚\n");
 //        if(!living(ob)||ob->query_temp("noliving"))
-//              return notify_fail("¿´Çå³şÒ»µã£¬ÄÇ²»ÊÇÈË¡£\n");
+//              return notify_fail("çœ‹æ¸…æ¥šä¸€ç‚¹ï¼Œé‚£ä¸æ˜¯äººã€‚\n");
 
 	if (!(ob=present(arg,environment(me))))
-		return notify_fail("ÄãÏëÊÕË­×÷µÜ×Ó£¿\n");
+		return notify_fail("ä½ æƒ³æ”¶è°ä½œå¼Ÿå­ï¼Ÿ\n");
 	if (ob==me)
-		return notify_fail("ÊÕ×Ô¼ºÎªµÜ×Ó£¿ºÃÖ÷Òâ....²»¹ıÃ»ÓĞÓÃ¡£\n");
+		return notify_fail("æ”¶è‡ªå·±ä¸ºå¼Ÿå­ï¼Ÿå¥½ä¸»æ„....ä¸è¿‡æ²¡æœ‰ç”¨ã€‚\n");
 	if (ob->is_apprentice_of(me))
 	{
-		message_vision("$NÅÄÅÄ$nµÄÍ·£¬ËµµÀ£º¡¸ºÃÍ½¶ù£¡¡¹\n", me, ob);
+		message_vision("$Næ‹æ‹$nçš„å¤´ï¼Œè¯´é“ï¼šã€Œå¥½å¾’å„¿ï¼ã€\n", me, ob);
 		return 1;
 	}
 	if (!me->query("family"))
-		return notify_fail("Äã²¢²»ÊôÓÚÈÎºÎÃÅÅÉ£¬Äã±ØĞëÏÈ¼ÓÈëÒ»¸öÃÅÅÉ£¬»ò×Ô¼º´´Ò»¸ö²ÅÄÜÊÕÍ½¡£\n");
+		return notify_fail("ä½ å¹¶ä¸å±äºä»»ä½•é—¨æ´¾ï¼Œä½ å¿…é¡»å…ˆåŠ å…¥ä¸€ä¸ªé—¨æ´¾ï¼Œæˆ–è‡ªå·±åˆ›ä¸€ä¸ªæ‰èƒ½æ”¶å¾’ã€‚\n");
 	if( ob->query("party") &&
-		ob->query("party/party_name") == HIC"Ø¤°ï"NOR &&
-		me->query("family/family_name") != "Ø¤°ï")
+		ob->query("party/party_name") == HIC"ä¸å¸®"NOR &&
+		me->query("family/family_name") != "ä¸å¸®")
 	{
-		message_vision("$N¿´ÁË¿´$n£¬Ò¡ÁËÒ¡Í·µÀ£º¡¸ÄãÊÇØ¤°ïÓĞ´üµÜ×Ó£¬»¹ÊÇ»ØØ¤°ïÈ¥°É¡£¡¹\n", me, ob);
+		message_vision("$Nçœ‹äº†çœ‹$nï¼Œæ‘‡äº†æ‘‡å¤´é“ï¼šã€Œä½ æ˜¯ä¸å¸®æœ‰è¢‹å¼Ÿå­ï¼Œè¿˜æ˜¯å›ä¸å¸®å»å§ã€‚ã€\n", me, ob);
 		return 1;
 	}
 	if (me->accept_betrayer(ob))
 	{
-		message_vision("$N¿´ÁË¿´$n£¬ºöÈ»ÓÖÒ¡ÁËÒ¡Í·µÀ£º¡¸ÄãÉúĞÔ·´¸´£¬ÎŞÔµ³Ğ½Ó±¾ÃÅÒÂ²§£¬ºÃ×ÔÎªÖ®°É¡£¡¹\n", me, ob);
+		message_vision("$Nçœ‹äº†çœ‹$nï¼Œå¿½ç„¶åˆæ‘‡äº†æ‘‡å¤´é“ï¼šã€Œä½ ç”Ÿæ€§åå¤ï¼Œæ— ç¼˜æ‰¿æ¥æœ¬é—¨è¡£é’µï¼Œå¥½è‡ªä¸ºä¹‹å§ã€‚ã€\n", me, ob);
 		return 1;
 	}
 // If the target is willing to apprentice us already, we do it.
@@ -61,12 +61,12 @@ int main(object me, string arg)
 	{
   	if (ob->query("detach/"+me->query("family/family_name"))>0)
   	{
-		message_vision("$N¿´ÁË¿´$n£¬Ò¡ÁËÒ¡Í·µÀ£º¡¸Äãµ±Äê¼ÈÈ»Àë¿ªÁË"+me->query("family/family_name")+"£¬½ñÌìÓÖºÎ±Ø»ØÀ´£¿¡¹\n", me, ob);
+		message_vision("$Nçœ‹äº†çœ‹$nï¼Œæ‘‡äº†æ‘‡å¤´é“ï¼šã€Œä½ å½“å¹´æ—¢ç„¶ç¦»å¼€äº†"+me->query("family/family_name")+"ï¼Œä»Šå¤©åˆä½•å¿…å›æ¥ï¼Ÿã€\n", me, ob);
 		return 1;
 		}
 		if (!living(ob) || ob->query_temp("noliving") )
 		{
-			message_vision("$N¾ö¶¨ÊÕ$nÎªµÜ×Ó¡£\n\n²»¹ı¿´Ñù×Ó$nÏÔÈ»Ã»ÓĞ°ì·¨ĞĞ°İÊ¦Ö®Àñ¡£\n\n",me, ob);
+			message_vision("$Nå†³å®šæ”¶$nä¸ºå¼Ÿå­ã€‚\n\nä¸è¿‡çœ‹æ ·å­$næ˜¾ç„¶æ²¡æœ‰åŠæ³•è¡Œæ‹œå¸ˆä¹‹ç¤¼ã€‚\n\n",me, ob);
 			return 1;
 		}
 // follow modified by elon 09-10-95 to fix a bug in 1st time recruit
@@ -75,10 +75,10 @@ int main(object me, string arg)
 			(string)ob->query("family/family_name") ) )
 		{
 // Modified by That Oct.17 1997
-			if (ob->query("title")=="ÒşÊ¿" ||ob->query("combat_exp")<100000) 
+			if (ob->query("title")=="éšå£«" ||ob->query("combat_exp")<100000) 
 			{
    	    ob->add("detach/"+ob->query("family/family_name"),1);
-				message_vision("$N¾ö¶¨Çü×ğÍ¶Èë$nÃÅÏÂ£¡£¡\n\n$N¹òÁËÏÂÀ´Ïò$n¹§¹§¾´¾´µØ¿ÄÁËËÄ¸öÏìÍ·£¬½ĞµÀ£º¡¸Ê¦¸¸£¡¡¹\n\n$NĞÄÀïÈ´´ó½ĞÀ±¿éÂèÂè£¡\n\n", ob, me);
+				message_vision("$Nå†³å®šå±ˆå°ŠæŠ•å…¥$né—¨ä¸‹ï¼ï¼\n\n$Nè·ªäº†ä¸‹æ¥å‘$næ­æ­æ•¬æ•¬åœ°ç£•äº†å››ä¸ªå“å¤´ï¼Œå«é“ï¼šã€Œå¸ˆçˆ¶ï¼ã€\n\n$Nå¿ƒé‡Œå´å¤§å«è¾£å—å¦ˆå¦ˆï¼\n\n", ob, me);
 				ob->set_temp("fealty_temp",0);
 				ob->set("score", 0);
 				ob->add("betrayer", 1);
@@ -86,13 +86,13 @@ int main(object me, string arg)
 			}
 			else
 			{
-				message_vision("$NÅÄÁËÅÄ$nµÄÄÔÃÅ£º¹Ö£¡¾­ÑéÕâÃ´¸ß£¡ºÙºÙ£¬ÎÒ¿É²»¸ÒÊÕÄãÁË¡£\n", me, ob);
+				message_vision("$Næ‹äº†æ‹$nçš„è„‘é—¨ï¼šæ€ªï¼ç»éªŒè¿™ä¹ˆé«˜ï¼å˜¿å˜¿ï¼Œæˆ‘å¯ä¸æ•¢æ”¶ä½ äº†ã€‚\n", me, ob);
 				return 1;
 			}
 		}
 		else
 		{
-			message_vision("$N¾ö¶¨ÊÕ$nÎªµÜ×Ó¡£\n\n$n¹òÁËÏÂÀ´Ïò$N¹§¹§¾´¾´µØ¿ÄÁËËÄ¸öÏìÍ·£¬½ĞµÀ£º¡¸Ê¦¸¸£¡¡¹\n", me, ob);
+			message_vision("$Nå†³å®šæ”¶$nä¸ºå¼Ÿå­ã€‚\n\n$nè·ªäº†ä¸‹æ¥å‘$Næ­æ­æ•¬æ•¬åœ°ç£•äº†å››ä¸ªå“å¤´ï¼Œå«é“ï¼šã€Œå¸ˆçˆ¶ï¼ã€\n", me, ob);
  		}
 		if ((string)ob->query("family/master_id")=="feng qingyang")
 		{
@@ -125,24 +125,24 @@ int main(object me, string arg)
 			(me->query("class")!="eunach"))
 			ob->set("class",me->query("class"));
 	
-		write("¹§Ï²ÄãĞÂÊÕÁËÒ»ÃûµÜ×Ó£¡\n");
+		write("æ­å–œä½ æ–°æ”¶äº†ä¸€åå¼Ÿå­ï¼\n");
 		family = ob->query("family");
-		tell_object( ob, sprintf("¹§Ï²Äú³ÉÎª%sµÄµÚ%s´úµÜ×Ó¡£\n", family["family_name"], chinese_number(family["generation"]) ));
+		tell_object( ob, sprintf("æ­å–œæ‚¨æˆä¸º%sçš„ç¬¬%sä»£å¼Ÿå­ã€‚\n", family["family_name"], chinese_number(family["generation"]) ));
 		return 1;
 	}
 	else
 	{
 		old_rec = me->query_temp("pending/recruit");
 		if( ob==old_rec )
-		return notify_fail("ÄãÏëÊÕ" + ob->name() + "ÎªµÜ×Ó£¬µ«ÊÇ¶Ô·½»¹Ã»ÓĞ´ğÓ¦¡£\n");
+		return notify_fail("ä½ æƒ³æ”¶" + ob->name() + "ä¸ºå¼Ÿå­ï¼Œä½†æ˜¯å¯¹æ–¹è¿˜æ²¡æœ‰ç­”åº”ã€‚\n");
 		else if( objectp(old_rec) )
 			{
-				write("Äã¸Ä±äÖ÷Òâ²»ÏëÊÕ"+old_rec->name()+"ÎªµÜ×ÓÁË¡£\n");
-				tell_object(old_rec,me->name()+"¸Ä±äÖ÷Òâ²»ÏëÊÕÄãÎªµÜ×ÓÁË¡£\n");
+				write("ä½ æ”¹å˜ä¸»æ„ä¸æƒ³æ”¶"+old_rec->name()+"ä¸ºå¼Ÿå­äº†ã€‚\n");
+				tell_object(old_rec,me->name()+"æ”¹å˜ä¸»æ„ä¸æƒ³æ”¶ä½ ä¸ºå¼Ÿå­äº†ã€‚\n");
 			}
 		me->set_temp("pending/recruit", ob );
-		message_vision("\n$NÏëÒªÊÕ$nÎªµÜ×Ó¡£\n", me, ob);
-		tell_object(ob, YEL "Èç¹ûÄãÔ¸Òâ°İ" + me->name() + "ÎªÊ¦¸¸£¬ÓÃ apprentice Ö¸Áî¡£\n" NOR);
+		message_vision("\n$Næƒ³è¦æ”¶$nä¸ºå¼Ÿå­ã€‚\n", me, ob);
+		tell_object(ob, YEL "å¦‚æœä½ æ„¿æ„æ‹œ" + me->name() + "ä¸ºå¸ˆçˆ¶ï¼Œç”¨ apprentice æŒ‡ä»¤ã€‚\n" NOR);
 		return 1;
 	}
 }
@@ -151,9 +151,9 @@ int main(object me, string arg)
 int help(object me)
 {
 	write(@HELP
-Ö¸Áî¸ñÊ½ : recruit|shou [cancel]|<¶ÔÏó>
+æŒ‡ä»¤æ ¼å¼ : recruit|shou [cancel]|<å¯¹è±¡>
 
-    Õâ¸öÖ¸ÁîÄÜÈÃÄãÊÕÄ³ÈËÎªµÜ×Ó£¬Èç¹û¶Ô·½Ò²´ğÓ¦Òª°İÄãÎªÊ¦µÄ»°¡£
+    è¿™ä¸ªæŒ‡ä»¤èƒ½è®©ä½ æ”¶æŸäººä¸ºå¼Ÿå­ï¼Œå¦‚æœå¯¹æ–¹ä¹Ÿç­”åº”è¦æ‹œä½ ä¸ºå¸ˆçš„è¯ã€‚
 
 See Also: apprentice
 HELP

@@ -3,11 +3,11 @@ inherit NPC;
 
 void create()
 {
-       set_name("�컨�����", ({ "honghuahui bangzhong", "bangzhong" }) );
-       set("gender", "����" );
+       set_name("红花会帮众", ({ "honghuahui bangzhong", "bangzhong" }) );
+       set("gender", "男性" );
        set("age", 26);
        set("long",
-               "����һ�����Ŀ���ĺ컨����ڡ�\n");
+               "他是一个身材魁梧的红花会帮众。\n");
        set("combat_exp", 12500);
        set("attitude", "friendly");
  
@@ -31,14 +31,14 @@ void greeting(object ob)
 	if (!ob || !present(ob, environment())) return;
 	switch( random(3) ) {
 		case 0:
-			say( "�컨�����˵������λ" + RANK_D->query_respect(ob)
-            + "�����컨���𣬿��Կ�"BRED"(help honghua)"NOR"��\n");
+			say( "红花会帮众说道：这位" + RANK_D->query_respect(ob)
+            + "想加入红花会吗，可以看"BRED"(help honghua)"NOR"。\n");
 			break;
 		case 1:
-			say( "�컨�����˵������ʮ��·׷�������������˫���Ƕ������޳������ĵ����书��\n");
+			say( "红花会帮众说道：七十二路追魂夺命剑天下无双，是二当家无尘道长的得意武功。\n");
 			break;
 		case 2:
-			say( "�컨�����˵�����ܶ����¼���ĳ����������仨ʮ�������𽭺�����С֮���������ҡ�\n");
+			say( "红花会帮众说道：总舵主陈家洛的成名绝技，落花十三剑威震江湖，宵小之辈望风披靡。\n");
 			break;
 	}
 

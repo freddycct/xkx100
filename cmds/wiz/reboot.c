@@ -15,7 +15,7 @@ int main(object me, string arg)
 	
 	wiz_status = SECURITY_D->get_status(me);
 
-	message( "system", "ÓÎÏ·ÖØĞÂÆô¶¯£¬ÇëÉÔºòÒ»·ÖÖÓÔÙ login ¡£\n", users() );
+	message( "system", "æ¸¸æˆé‡æ–°å¯åŠ¨ï¼Œè¯·ç¨å€™ä¸€åˆ†é’Ÿå† login ã€‚\n", users() );
 
 	user = users();
 	for(i=0; i<sizeof(user); i++) {
@@ -33,9 +33,9 @@ int main(object me, string arg)
 int help (object me)
 {
         write(@HELP
-Ö¸Áî¸ñÊ½: shutdown
+æŒ‡ä»¤æ ¼å¼: shutdown
  
-ÂíÉÏÖØĞÂÆğ¶¯ÓÎÏ·¡£
+é©¬ä¸Šé‡æ–°èµ·åŠ¨æ¸¸æˆã€‚
  
 HELP
 );

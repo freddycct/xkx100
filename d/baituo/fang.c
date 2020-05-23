@@ -5,10 +5,10 @@ inherit ROOM;
 
 void create()
 {
-	set("short","Á·¹¦·¿");
+	set("short","ç»ƒåŠŸæˆ¿");
 	set("long", @LONG
-ÕâÀïÊÇ°×ÍÕÉ½µÜ×ÓµÄÁ·¹¦·¿¡£ÀïÃæÓĞ¼¸¸öµ¥¼ä£¬ÊÇÁ·¹¦ÊÒ¡£µÜ×ÓÃÇ
-ÔÚÀï±ßÆö´èÎäÒÕ£¬¾ø¶Ô²»ÔÊĞíÍâÈË´ò½Á¡£
+è¿™é‡Œæ˜¯ç™½é©¼å±±å¼Ÿå­çš„ç»ƒåŠŸæˆ¿ã€‚é‡Œé¢æœ‰å‡ ä¸ªå•é—´ï¼Œæ˜¯ç»ƒåŠŸå®¤ã€‚å¼Ÿå­ä»¬
+åœ¨é‡Œè¾¹ç Œç£‹æ­¦è‰ºï¼Œç»å¯¹ä¸å…è®¸å¤–äººæ‰“æ…ã€‚
 LONG	);
 	set("exits",([
 		"west" : __DIR__"liangong",
@@ -26,8 +26,8 @@ LONG	);
 }
 int valid_leave(object who ,string dir)
 {
-	if((string)who->query("family/family_name")!="°×ÍÕÉ½ÅÉ" &&
+	if((string)who->query("family/family_name")!="ç™½é©¼å±±æ´¾" &&
 		(dir!="west"))
-		return notify_fail("ÄÇÀï½ûÖ¹ÍâÈË½øÈë£¡\n");
+		return notify_fail("é‚£é‡Œç¦æ­¢å¤–äººè¿›å…¥ï¼\n");
 	return 1 ;
 }

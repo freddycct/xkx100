@@ -7,10 +7,10 @@ string ask_jiu();
 
 void create()
 {
-	set_name("ÕÅÍò·ç",({"zhang wanfeng","zhang"}));
-	set("gender", "ÄĞĞÔ");
+	set_name("å¼ ä¸‡é£",({"zhang wanfeng","zhang"}));
+	set("gender", "ç”·æ€§");
 	set("age", 20);
-	set("long", "ËûÊÇÁèÏö³ÇµÚÁù´úµÜ×ÓÕÅÍò·ç£¬ÕıÔÚÕâºÈ¾ÆºÈµÃ¸ßĞË¡£\n");
+	set("long", "ä»–æ˜¯å‡Œéœ„åŸç¬¬å…­ä»£å¼Ÿå­å¼ ä¸‡é£ï¼Œæ­£åœ¨è¿™å–é…’å–å¾—é«˜å…´ã€‚\n");
 	set("attitude", "peaceful");
 
 	set("str", 25);
@@ -25,7 +25,7 @@ void create()
 	set("max_qi", 1200);
 	set("inquiry", ([
 	    "jiu"      : (: ask_jiu :), 
-	    "²ÎÑôÓñ¾Æ" : (: ask_jiu :), 
+	    "å‚é˜³ç‰é…’" : (: ask_jiu :), 
 	]) ); 
 	set("jiu_count", 2);
 
@@ -58,7 +58,7 @@ void create()
 	map_skill("dodge", "snowstep");
 	prepare_skill("strike", "snow-strike");
 
-	create_family("ÁèÏö³Ç", 6, "µÜ×Ó");
+	create_family("å‡Œéœ„åŸ", 6, "å¼Ÿå­");
 	setup();
 	carry_object("/clone/weapon/changjian");
 	carry_object(CLOTH_DIR+"bai")->wear();
@@ -69,24 +69,24 @@ string ask_jiu()
 	object ob;
 
 	if (this_player()->query_skill("force", 1) < 50)
-		return "¸óÏÂ¿´À´¾Í²»ÊÇ¸öÒû¾ÆÖ®ÈË£¬Õâ¾ÆÁÒ°¡";
-//	if (this_player()->query("family/family_name") != "ÁèÏö³Ç")
-//		return RANK_D->query_respect(this_player()) +"¸óÏÂ·ÇÎÒÁèÏöµÜ×Ó£¬ÎÒÎªÊ²Ã´Òª¸øÄã²ÎÑôÓñ¾Æ£¿";
+		return "é˜ä¸‹çœ‹æ¥å°±ä¸æ˜¯ä¸ªé¥®é…’ä¹‹äººï¼Œè¿™é…’çƒˆå•Š";
+//	if (this_player()->query("family/family_name") != "å‡Œéœ„åŸ")
+//		return RANK_D->query_respect(this_player()) +"é˜ä¸‹éæˆ‘å‡Œéœ„å¼Ÿå­ï¼Œæˆ‘ä¸ºä»€ä¹ˆè¦ç»™ä½ å‚é˜³ç‰é…’ï¼Ÿ";
 	if ( present("shenyang yujiu", this_player()) )
-		return RANK_D->query_respect(this_player()) +"ÄãÉíÉÏ¾ÍÓĞÒ»ºø£¬»¹ÏëÒª£¬±ğÄÇÃ´Ì°ĞÄ£¡"; 
+		return RANK_D->query_respect(this_player()) +"ä½ èº«ä¸Šå°±æœ‰ä¸€å£¶ï¼Œè¿˜æƒ³è¦ï¼Œåˆ«é‚£ä¹ˆè´ªå¿ƒï¼"; 
 	if (query("jiu_count") < 1)
-		return "°¥Ñ½Ñ½£¡×î½üºÃ¾ÆµÄÈË»¹Õæ²»ÉÙ£¡¶Ô²»Æğ£¬²ÎÑôÓñ¾ÆÒÑ¾­·¢ÍêÁË¡£";
+		return "å“å‘€å‘€ï¼æœ€è¿‘å¥½é…’çš„äººè¿˜çœŸä¸å°‘ï¼å¯¹ä¸èµ·ï¼Œå‚é˜³ç‰é…’å·²ç»å‘å®Œäº†ã€‚";
 	if (random(5) != 0)
 	{
 		add("jiu_count", -1);
 		command("wield sword");
 		command("unwield sword");
-		return "×òÌìÊ¦¸¸»¹ÔÚÎÊ£¬×î½üÔõÃ´½ÑÀïµÄ¾ÆÉÙÁË¡£ÄãÉÙÀ´·³ÎÒ¡£";
+		return "æ˜¨å¤©å¸ˆçˆ¶è¿˜åœ¨é—®ï¼Œæœ€è¿‘æ€ä¹ˆçª–é‡Œçš„é…’å°‘äº†ã€‚ä½ å°‘æ¥çƒ¦æˆ‘ã€‚";
 	}
 	ob = new(NOSTRUM_DIR"shenyangjiu");
 	ob->move(this_player());
 	add("jiu_count", -1);
-	message_vision("$N½Ó¹ıÒ»ºø²ÎÑôÓñ¾Æ¡£\n",this_player());
-	return "ÄÃÈ¥°É£¬²»Òªµ±¾ÆºÈÑ½¡£";
+	message_vision("$Næ¥è¿‡ä¸€å£¶å‚é˜³ç‰é…’ã€‚\n",this_player());
+	return "æ‹¿å»å§ï¼Œä¸è¦å½“é…’å–å‘€ã€‚";
 }
 

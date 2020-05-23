@@ -10,24 +10,24 @@ int main(object me, string str)
 	if (!str) return notify_fail("<Syntax>: spcome <object id>\n");
 	ob = LOGIN_D->find_body(str);
 	if (!ob) ob = find_object(str);
-	if (!ob) return notify_fail("Ã»ÓĞÕâ¸ö¶«Î÷¡£\n");
+	if (!ob) return notify_fail("æ²¡æœ‰è¿™ä¸ªä¸œè¥¿ã€‚\n");
 	// moving
-	if (!clonep(ob)) return notify_fail("²»ÄÜÒÆ¶¯¸´ÖÆÔ´Îï¼ş¡£\n");
+	if (!clonep(ob)) return notify_fail("ä¸èƒ½ç§»åŠ¨å¤åˆ¶æºç‰©ä»¶ã€‚\n");
 	if (ob->move(environment(me)))
   {
-  	tell_object(me, "Äã°Ñ"+(string)ob->query("name")+"×¥µ½ÄãµÄÃæÇ°¡£\n");
+  	tell_object(me, "ä½ æŠŠ"+(string)ob->query("name")+"æŠ“åˆ°ä½ çš„é¢å‰ã€‚\n");
 	  return 1;
 	}
 	else
-	return notify_fail("ÎŞ·¨ÒÆ¶¯µÄÎï¼ş"+str+"¡£\n");
+	return notify_fail("æ— æ³•ç§»åŠ¨çš„ç‰©ä»¶"+str+"ã€‚\n");
 }
 
 int help(object me)
 {
 write(@HELP
-Ö¸Áî¸ñÊ½ : comehere <Ä³ÈË>
+æŒ‡ä»¤æ ¼å¼ : comehere <æŸäºº>
 
-´ËÖ¸Áî¿ÉÈÃÄã½«Ä³ÈË(Îï)×¥µ½ÄãÃæÇ°¡£
+æ­¤æŒ‡ä»¤å¯è®©ä½ å°†æŸäºº(ç‰©)æŠ“åˆ°ä½ é¢å‰ã€‚
 HELP
 );
     return 1;

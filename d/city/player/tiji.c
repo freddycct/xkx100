@@ -3,11 +3,11 @@
 inherit NPC;
 void create()
 {
-	set_name("Ìì½¾", ({ "tiji"}));
-	set("gender", "ÄĞĞÔ");
+	set_name("å¤©éª„", ({ "tiji"}));
+	set("gender", "ç”·æ€§");
 	set("class", "bonze");
-	set("title", HIR"Ñ§Ê¿"HIG"Ã÷½Ì"HIC"·ç×ÖÃÅ½ÌÖÚ"NOR"ÌìÏÂÃûÏÀÖ®Ò»´úÌì½¾ÉÙÁÖÅÉÕÆÃÅ´óÊ¦ĞÖ"NOR);
-	set("nickname", HIY"ÇåµÆ·ğÓ°Ó¡ÆĞÌá"NOR);
+	set("title", HIR"å­¦å£«"HIG"æ˜æ•™"HIC"é£å­—é—¨æ•™ä¼—"NOR"å¤©ä¸‹åä¾ ä¹‹ä¸€ä»£å¤©éª„å°‘æ—æ´¾æŒé—¨å¤§å¸ˆå…„"NOR);
+	set("nickname", HIY"æ¸…ç¯ä½›å½±å°è©æ"NOR);
 	set("age", 56);
 	set("attitude", "friendly");
 
@@ -18,7 +18,7 @@ void create()
 	set("con", 24);
 	set("str", 26);
 	set("weiwang", 80);
-	create_family("ÉÙÁÖÅÉ" ,37, "µÜ×Ó");
+	create_family("å°‘æ—æ´¾" ,37, "å¼Ÿå­");
 	setup();
 	carry_object(CLOTH_DIR"male-cloth")->wear();
         carry_object(CLOTH_DIR"male-shoe")->wear();

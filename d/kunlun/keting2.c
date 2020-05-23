@@ -7,10 +7,10 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "������");
+	set("short", "客卧厅");
 	set("long",@long
-�����Ǵ�����Ϣ��������򵥣�ֻ�м��Ŵ�����ƣ���Ŀ���ЪϢ��
-�����￾�Ż�ů���ġ�
+这里是待客休息厅，里面简单，只有几张床，供疲惫的客人歇息，
+屋子里烤着火，暖烘烘的。
 long);
 	set("exits",([
 		"east" : __DIR__"wlang02",

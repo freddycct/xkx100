@@ -10,11 +10,11 @@ int do_zhua(string arg);
 
 void create()
 {
-	set("short", "±±Á·Îä³¡");
+	set("short", "åŒ—ç»ƒæ­¦åœº");
 	set("long", @LONG
-ÕâÊÇ¼ä´ó´óµÄ·¿×Ó£¬Ê®·Ö¿íÀ«£¬²»ÉÙÈËÔÚÕâÀïº¹Á÷ä¤±³µÄ¿àÁ·×Å¹¦
-·ò£¬µØÉÏÓĞÒ»Ğ©Á·ÎäÓÃµÄ¹¤¾ß£¬Ç½½Ç¹Ò×ÅÒ»ÅÅ´ó´óµÄÉ³´ü(shadai)£¬Ò»
-Ğ©ÈËÕıÔÚÓÃÉ³´üÁ·¹¦¡£
+è¿™æ˜¯é—´å¤§å¤§çš„æˆ¿å­ï¼Œååˆ†å®½é˜”ï¼Œä¸å°‘äººåœ¨è¿™é‡Œæ±—æµæµƒèƒŒçš„è‹¦ç»ƒç€åŠŸ
+å¤«ï¼Œåœ°ä¸Šæœ‰ä¸€äº›ç»ƒæ­¦ç”¨çš„å·¥å…·ï¼Œå¢™è§’æŒ‚ç€ä¸€æ’å¤§å¤§çš„æ²™è¢‹(shadai)ï¼Œä¸€
+äº›äººæ­£åœ¨ç”¨æ²™è¢‹ç»ƒåŠŸã€‚
 LONG);
 	set("outdoors", "wuguan");
 	set("exits", ([
@@ -22,7 +22,7 @@ LONG);
 		"east" : __DIR__"wg_lang3",
 	]));
 	set("item_desc", ([
-		"shadai" : "Ò»¸ö´óÉ³´ü£¬¹ÒÔÚÖù×ÓÉÏ£¬ºÃÏóÓĞºÜ¶àÓÃÍ¾£¬¼¸¸öÈËÔÚÄÇÀïÅÄ´ò(da)¡£\n",
+		"shadai" : "ä¸€ä¸ªå¤§æ²™è¢‹ï¼ŒæŒ‚åœ¨æŸ±å­ä¸Šï¼Œå¥½è±¡æœ‰å¾ˆå¤šç”¨é€”ï¼Œå‡ ä¸ªäººåœ¨é‚£é‡Œæ‹æ‰“(da)ã€‚\n",
 	]));
 	set("objects", ([
 		__DIR__"npc/wg_nvdizi" : 1,
@@ -40,15 +40,15 @@ int do_da(string arg)
 	int costj, costq,c_exp,c_skill,skill_num;
 
 	me = this_player();
-	if (me->is_busy()) return notify_fail("ÄãÏÖÔÚÕıÃ¦×ÅÄØ£¡\n");
+	if (me->is_busy()) return notify_fail("ä½ ç°åœ¨æ­£å¿™ç€å‘¢ï¼\n");
 	if (me->is_fighting())
-		return notify_fail("ÄãÕıÔÚÕ½¶·ÖĞ£¬ÎŞ·¨×¨ĞÄÁ·¹¦£¡\n");
-	if ( !living(me)) return notify_fail("Äã·¢·èÁË£¿\n");
+		return notify_fail("ä½ æ­£åœ¨æˆ˜æ–—ä¸­ï¼Œæ— æ³•ä¸“å¿ƒç»ƒåŠŸï¼\n");
+	if ( !living(me)) return notify_fail("ä½ å‘ç–¯äº†ï¼Ÿ\n");
 	if( objectp( me->query_temp("weapon")) )
-		return notify_fail("Ö»ÓĞ¿ÕÊÖ²ÅÄÜ´òÉ³´ü¡£\n");
+		return notify_fail("åªæœ‰ç©ºæ‰‹æ‰èƒ½æ‰“æ²™è¢‹ã€‚\n");
 	if ( !arg || arg != "shadai" )
 	{
-		message_vision("$NÉì³öÊÖÖ¸ÔÚ¿ÕÖĞÂÒ´ÁÂÒ±ÈÒ»Í¨£¬ºÃÏóÔÚ¹í»­·û£¡\n",me);
+		message_vision("$Nä¼¸å‡ºæ‰‹æŒ‡åœ¨ç©ºä¸­ä¹±æˆ³ä¹±æ¯”ä¸€é€šï¼Œå¥½è±¡åœ¨é¬¼ç”»ç¬¦ï¼\n",me);
 		return 1;
 	}
 	costj = random((int)me->query("con"))+1;
@@ -56,13 +56,13 @@ int do_da(string arg)
 
 	if ((int)me->query("jing") < costj || (int)me->query("qi") < costq)
 	{
-		message_vision("$NÓÃÁ¦¹ıÃÍ£¬Ò»¸ö²»Ğ¡ĞÄ£¬Í·Åöµ½ÁËÇ½ÉÏ£¡\n",me);
+		message_vision("$Nç”¨åŠ›è¿‡çŒ›ï¼Œä¸€ä¸ªä¸å°å¿ƒï¼Œå¤´ç¢°åˆ°äº†å¢™ä¸Šï¼\n",me);
 		me->unconcious();
 		return 1;
 	}
 	me->receive_damage("jing", costj);
 	me->receive_damage("qi", costq);       
-	message_vision("$N°ÚÁË¸öÂí²½£¬ÔËÔËÆø£¬È»ºóÒ»ÕĞÏòÉ³´ü´òÈ¥¡£\n", me);
+	message_vision("$Næ‘†äº†ä¸ªé©¬æ­¥ï¼Œè¿è¿æ°”ï¼Œç„¶åä¸€æ‹›å‘æ²™è¢‹æ‰“å»ã€‚\n", me);
 	c_exp=me->query("combat_exp");
 	if ( (int)me->query("combat_exp") < 50000)
 	{
@@ -76,7 +76,7 @@ int do_da(string arg)
 							(int)me->query_skill("finger", 1) < 30 )
 						{    
 							me->improve_skill("finger", (int)(me->query("int") / 10));
-							write(HIM"É³´ü×óÓÒÒ¡»Î£¬Äã²»Öª²»¾õÖĞÁìÎòÁËĞ©»ù±¾Ö¸·¨£¡\n"NOR);
+							write(HIM"æ²™è¢‹å·¦å³æ‘‡æ™ƒï¼Œä½ ä¸çŸ¥ä¸è§‰ä¸­é¢†æ‚Ÿäº†äº›åŸºæœ¬æŒ‡æ³•ï¼\n"NOR);
 						}
 						else skill_num=1;
 				case 1: c_skill=me->query_skill("leg",1);
@@ -84,7 +84,7 @@ int do_da(string arg)
 							(int)me->query_skill("leg", 1) < 30 )
 						{    
 							me->improve_skill("leg", (int)(me->query("int") / 10));
-							write(HIM"É³´ü×óÓÒÒ¡»Î£¬Äã²»Öª²»¾õÖĞÁìÎòÁËĞ©»ù±¾ÍÈ·¨£¡\n"NOR);
+							write(HIM"æ²™è¢‹å·¦å³æ‘‡æ™ƒï¼Œä½ ä¸çŸ¥ä¸è§‰ä¸­é¢†æ‚Ÿäº†äº›åŸºæœ¬è…¿æ³•ï¼\n"NOR);
 						}
 						else skill_num=2;
 				case 2: c_skill=me->query_skill("claw",1);
@@ -92,7 +92,7 @@ int do_da(string arg)
 							(int)me->query_skill("claw", 1) < 30 )
 						{    
 							me->improve_skill("claw", (int)(me->query("int") / 10));
-							write(HIM"É³´ü×óÓÒÒ¡»Î£¬Äã²»Öª²»¾õÖĞÁìÎòÁËĞ©»ù±¾×¦·¨£¡\n"NOR);
+							write(HIM"æ²™è¢‹å·¦å³æ‘‡æ™ƒï¼Œä½ ä¸çŸ¥ä¸è§‰ä¸­é¢†æ‚Ÿäº†äº›åŸºæœ¬çˆªæ³•ï¼\n"NOR);
 						}
 						else skill_num=3;
 				case 3: c_skill=me->query_skill("strike",1);
@@ -100,9 +100,9 @@ int do_da(string arg)
 							(int)me->query_skill("strike", 1) < 30 )
 						{    
 							me->improve_skill("strike", (int)(me->query("int") / 10));
-							write(HIM"É³´ü×óÓÒÒ¡»Î£¬Äã²»Öª²»¾õÖĞÁìÎòÁËĞ©»ù±¾ÕÆ·¨£¡\n"NOR);
+							write(HIM"æ²™è¢‹å·¦å³æ‘‡æ™ƒï¼Œä½ ä¸çŸ¥ä¸è§‰ä¸­é¢†æ‚Ÿäº†äº›åŸºæœ¬æŒæ³•ï¼\n"NOR);
 						}
-						else write(HIM"É³´üÔÚÄãµÄ¿ØÖÆÏÂ×óÓÒÒ¡»Î£¬¿´À´ÄãÒÑ¾­ÄÜÊìÁ·Ó¦ÓÃÁË£¡\n"NOR);					       
+						else write(HIM"æ²™è¢‹åœ¨ä½ çš„æ§åˆ¶ä¸‹å·¦å³æ‘‡æ™ƒï¼Œçœ‹æ¥ä½ å·²ç»èƒ½ç†Ÿç»ƒåº”ç”¨äº†ï¼\n"NOR);					       
 			}
 		}
 	

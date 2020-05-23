@@ -2,12 +2,12 @@
 inherit ROOM;
 void create()
 {
-	set("short","ÇÍ±Ú");
+	set("short","å³­å£");
 	set("long",@LONG
-Õâ¸öÇÍ±ÚÓÐÈçÒ»×ù¼«´óµÄÆÁ·ç£¬³åÌì¶øÆð£¬ÇÍ±ÚÖÐÑëÀë
-µØÔ¼¶þÊ®ÓàÕÉ´¦£¬Éú×ÅÒ»¿éÈýËÄÕÉ¼û·½µÄ´óÊ¯£¬±ãËÆÒ»¸öÆ½
-Ì¨£¬Ê¯ÉÏÒþÒþ¿ÌµÃÓÐ×Ö¡£¼«Ä¿ÍûÈ¥£¬ÊÇ¡¸½£Ú£¡¹¶þ×Ö¡£ÇÍ±Ú
-ÉÏÃ¿¸ôÊý³ß¾ÍÉú×ÅÒ»´ÔÇàÌ¦£¬²»ÖªµÀÈçºÎÐÎ³ÉµÄ¡£
+è¿™ä¸ªå³­å£æœ‰å¦‚ä¸€åº§æžå¤§çš„å±é£Žï¼Œå†²å¤©è€Œèµ·ï¼Œå³­å£ä¸­å¤®ç¦»
+åœ°çº¦äºŒåä½™ä¸ˆå¤„ï¼Œç”Ÿç€ä¸€å—ä¸‰å››ä¸ˆè§æ–¹çš„å¤§çŸ³ï¼Œä¾¿ä¼¼ä¸€ä¸ªå¹³
+å°ï¼ŒçŸ³ä¸Šéšéšåˆ»å¾—æœ‰å­—ã€‚æžç›®æœ›åŽ»ï¼Œæ˜¯ã€Œå‰‘å†¢ã€äºŒå­—ã€‚å³­å£
+ä¸Šæ¯éš”æ•°å°ºå°±ç”Ÿç€ä¸€ä¸›é’è‹”ï¼Œä¸çŸ¥é“å¦‚ä½•å½¢æˆçš„ã€‚
 LONG
 	);
 	set("exits",([
@@ -25,18 +25,18 @@ void init()
 {
 	add_action("do_climb","climb");
 	add_action("do_wa","wa");
-	add_action("do_wa","ÍÚ");
+	add_action("do_wa","æŒ–");
 	add_action("do_wa","dig");
 }
 
 int do_climb(string arg)
 {
 	object me=this_player();
-	if((arg=="ÇàÌ¦")||(arg=="qingtai")) return notify_fail("ÇàÌ¦ÕâÃ´»¬£¬ÈçºÎÄÜÅÀ£¿\n");
-	if((arg!="ÇÍ±Ú")&&(arg!="bi")&&(arg!="qiaobi")) return notify_fail("ÄãÒªÅÀÊ²Ã´£¿\n");
+	if((arg=="é’è‹”")||(arg=="qingtai")) return notify_fail("é’è‹”è¿™ä¹ˆæ»‘ï¼Œå¦‚ä½•èƒ½çˆ¬ï¼Ÿ\n");
+	if((arg!="å³­å£")&&(arg!="bi")&&(arg!="qiaobi")) return notify_fail("ä½ è¦çˆ¬ä»€ä¹ˆï¼Ÿ\n");
 	if(!this_object()->query("dig_qingtai") || (this_object()->query("dig_qingtai")==0))
-		return notify_fail("ÇÍ±ÚÉÏ³¤ÂúÇàÌ¦£¬²»ÏÈÍÚÈ¥£¬ÈçºÎÄÜÅÀ£¿\n");
-	message_vision("$NË³×ÅÍÚ³öµÄ¶þÊ®À´¸öÐ¡¿Ó£¬³¢ÊÔ×ÅÏòÇÍ±ÚÉÏÅÀÈ¥¡£\n",me);
+		return notify_fail("å³­å£ä¸Šé•¿æ»¡é’è‹”ï¼Œä¸å…ˆæŒ–åŽ»ï¼Œå¦‚ä½•èƒ½çˆ¬ï¼Ÿ\n");
+	message_vision("$Né¡ºç€æŒ–å‡ºçš„äºŒåæ¥ä¸ªå°å‘ï¼Œå°è¯•ç€å‘å³­å£ä¸Šçˆ¬åŽ»ã€‚\n",me);
 	me->start_busy(1);
 	call_out("check_trigger",1,me);
 	return 1;
@@ -50,11 +50,11 @@ void check_trigger(object me)
 	{
 		if(room->query("climb_trigger")==0)
 		{
-			message_vision("$NÔÚÇÍ±ÚÉÏÔ½ÅÀÔ½¸ß¡­¡­\n",me);
+			message_vision("$Nåœ¨å³­å£ä¸Šè¶Šçˆ¬è¶Šé«˜â€¦â€¦\n",me);
 			room->set("climb_trigger",1);
 			me->move(room);
 			call_out("check_dodge",0,me,room);
-		}	else	write("ÇÍ±ÚÉÏÓÐÈËÕýÔÚÅÊµÇ¡£\n");
+		}	else	write("å³­å£ä¸Šæœ‰äººæ­£åœ¨æ”€ç™»ã€‚\n");
 	
 	}
 }
@@ -62,49 +62,49 @@ void check_dodge(object me,object room)
 {
 	if(((int)me->query("combat_exp")<50000)||(me->query_dex()<30))
 	{
-		message_vision(HIR"Ò»Õó´ó·ç´µÀ´£¬$NÃ»ÓÐ×¥ÀÎ£¬Ò»ÏÂ×Ó´ÓÇÍ±ÚÉÏË¤ÁËÏÂÀ´¡­¡­\n"NOR,me);
+		message_vision(HIR"ä¸€é˜µå¤§é£Žå¹æ¥ï¼Œ$Næ²¡æœ‰æŠ“ç‰¢ï¼Œä¸€ä¸‹å­ä»Žå³­å£ä¸Šæ‘”äº†ä¸‹æ¥â€¦â€¦\n"NOR,me);
 		me->move(__DIR__"qiaobi");
 		room->set("climb_trigger",0);
-		message("vision",me->query("name")+"Í»È»´ÓÇÍ±ÚÉÏË¤ÁËÏÂÀ´¡£\n",environment(me),me);
+		message("vision",me->query("name")+"çªç„¶ä»Žå³­å£ä¸Šæ‘”äº†ä¸‹æ¥ã€‚\n",environment(me),me);
 		if( (int)me->query_skill("dodge",1) > 50 )
 			me->unconcious();
 		else 
 		{
-			me->set_temp("last_damage_from", "´ÓÐüÑÂË¤ÏÂÀ´");
+			me->set_temp("last_damage_from", "ä»Žæ‚¬å´–æ‘”ä¸‹æ¥");
 			me->die();
 		}
 	} else
 	if(((int)me->query("combat_exp")<100000)||(me->query_dex()<32))
 	{
-		message_vision(HIY"Ò»Õó´ó·ç´µÀ´£¬$NÖ»¾õµÃ×Ô¼ºÍ·»èÑÛ»¨£¬Ò¡Ò¡Óû×¹£¬Ö»ºÃÔ­Â·ÅÀ»Ø¡£\n"NOR,me);
+		message_vision(HIY"ä¸€é˜µå¤§é£Žå¹æ¥ï¼Œ$Nåªè§‰å¾—è‡ªå·±å¤´æ˜çœ¼èŠ±ï¼Œæ‘‡æ‘‡æ¬²å ï¼Œåªå¥½åŽŸè·¯çˆ¬å›žã€‚\n"NOR,me);
 		me->move(__DIR__"qiaobi");
 		room->set("climb_trigger",0);
-		message("vision",me->query("name")+"´¹Í·É¥Æø´ÓÇÍ±ÚÉÏÅÀÁËÏÂÀ´¡£\n",environment(me),me);
+		message("vision",me->query("name")+"åž‚å¤´ä¸§æ°”ä»Žå³­å£ä¸Šçˆ¬äº†ä¸‹æ¥ã€‚\n",environment(me),me);
 		me->receive_damage("qi",80);
 		me->receive_damage("jing",50);
 	} else 
 	{
-		message_vision(HIC"Ò»Õó´ó·ç´µÀ´£¬°Ñ$NµÄÒÂ½Ç´µµÃ¡¸ßÖßÖ¡¹Ö±Ïì£¬¿É$NÔÚÇÍ±ÚÉÏÎÆË¿²»¶¯¡£\n"NOR,me);
+		message_vision(HIC"ä¸€é˜µå¤§é£Žå¹æ¥ï¼ŒæŠŠ$Nçš„è¡£è§’å¹å¾—ã€Œå’§å’§ã€ç›´å“ï¼Œå¯$Nåœ¨å³­å£ä¸Šçº¹ä¸ä¸åŠ¨ã€‚\n"NOR,me);
 		me->start_busy(1);
 		call_out("climb_finish",1,me,room);
 	}
 }
 void climb_finish(object me,object room)
 {
-	message_vision("$NÉÔÎüÁË¿ÚÆø£¬ÓÖ¼ÌÐøÏòÉÏÅÀ£¬Ò»±ßÅÀÒ»±ßÍÚÈ¥ÉÏÃæÐ¡¿ÓÖÐµÄÇàÌ¦¡£\n",me);
+	message_vision("$Nç¨å¸äº†å£æ°”ï¼Œåˆç»§ç»­å‘ä¸Šçˆ¬ï¼Œä¸€è¾¹çˆ¬ä¸€è¾¹æŒ–åŽ»ä¸Šé¢å°å‘ä¸­çš„é’è‹”ã€‚\n",me);
 	me->move(__DIR__"jianzhong");
 	room->set("climb_trigger",0);
-	message("vision","ÄãÖÕÓÚÅÀÉÏÁËÇÍ±ÚÉÏµÄ¡¸½£Ú£¡¹¡£\n",me);
-	message("vision",me->query("name")+"´ÓÇÍ±ÚÏÂÅÀÁËÉÏÀ´¡£\n",environment(me),me);
+	message("vision","ä½ ç»ˆäºŽçˆ¬ä¸Šäº†å³­å£ä¸Šçš„ã€Œå‰‘å†¢ã€ã€‚\n",me);
+	message("vision",me->query("name")+"ä»Žå³­å£ä¸‹çˆ¬äº†ä¸Šæ¥ã€‚\n",environment(me),me);
 }
 int do_wa(string arg)
 {
-	if((arg!="qingtai")&&(arg!="ÇàÌ¦"))
-		return notify_fail("ÄãÒªÍÚÊ²Ã´£¿\n");
+	if((arg!="qingtai")&&(arg!="é’è‹”"))
+		return notify_fail("ä½ è¦æŒ–ä»€ä¹ˆï¼Ÿ\n");
 	if(this_object()->query("dig_qingtai")>0)
-		return notify_fail("ÓÐÈËÒÑ¾­ÍÚ¹ýÁË¡£\n");
-	message("vison","Äã°ÑÇÍ±ÚÉÏ½ÏµÍµÄÇàÌ¦¶¼ÓÃÊÖÍÚÈ¥ÁË¡£\n",this_player());
-	message("vison",this_player()->query("name")+"°ÑÇÍ±ÚÉÏ½ÏµÍµÄÇàÌ¦¶¼ÓÃÊÖÍÚÈ¥ÁË¡£\n",environment(this_player()),this_player());
+		return notify_fail("æœ‰äººå·²ç»æŒ–è¿‡äº†ã€‚\n");
+	message("vison","ä½ æŠŠå³­å£ä¸Šè¾ƒä½Žçš„é’è‹”éƒ½ç”¨æ‰‹æŒ–åŽ»äº†ã€‚\n",this_player());
+	message("vison",this_player()->query("name")+"æŠŠå³­å£ä¸Šè¾ƒä½Žçš„é’è‹”éƒ½ç”¨æ‰‹æŒ–åŽ»äº†ã€‚\n",environment(this_player()),this_player());
 	this_object()->set("dig_qingtai",1);
 	return 1;
 }

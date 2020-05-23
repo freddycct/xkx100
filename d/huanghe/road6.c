@@ -3,11 +3,11 @@
 inherit ROOM;
 void create()
 {
-	set("short", "����·");
+	set("short", "黄土路");
 	set("long", @LONG
-������һ������·�ϡ������ĵ��棬���ǿ������Ļ��������Ϸ���
-ȥ��ԶԶ�и�ɽ���ƣ����������и�СС���䡣��������Ȯ�ͼ��䣬��
-�㳤;�ı�������һ˿������
+你走在一条黄土路上。陕西的地面，就是看不尽的黄土。向南方望
+去，远远有高山插云，近处好象有个小小村落。隐隐传来犬吠鸡啼，给
+你长途的奔波带来一丝生气。
 LONG );
 	set("outdoors", "heimuya");
 	set("exits", ([

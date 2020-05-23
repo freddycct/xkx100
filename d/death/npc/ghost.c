@@ -1,4 +1,4 @@
-// ghost.c ¹í»ê
+// ghost.c é¬¼é­‚
 
 #include <ansi.h>
 
@@ -6,14 +6,14 @@ inherit NPC;
 
 void create()
 {
-	set_name(HIW "¹í»ê" NOR, ({BLK "ghost" NOR,"ghost" }) );
+	set_name(HIW "é¬¼é­‚" NOR, ({BLK "ghost" NOR,"ghost" }) );
 	set("long",
-		BLU "Ò»¸ö¹ÂÁæÁæµÄ¹í»ê£¬ÕıÔÚ»ÆÈª´óµÀÉÏ²üÎ¡Î¡µÄĞĞ×ß¡£\n" NOR);
+		BLU "ä¸€ä¸ªå­¤ä¼¶ä¼¶çš„é¬¼é­‚ï¼Œæ­£åœ¨é»„æ³‰å¤§é“ä¸Šé¢¤å·å·çš„è¡Œèµ°ã€‚\n" NOR);
 	set("chat_chance", 15);
 	set("chat_msg", ({
-		BLU "¹í»êÌ¾ÁËÒ»¿ÚÆø......\n" NOR,
-		HIY "¹í»ê¶ÔÄãËµ£º¡°Ïë²»µ½¡£¡£¡£¡£¡£¡£°¦.....!¡±\n" NOR,
-                GRN "¹í»ê¿ŞÁËÆğÀ´.........\n" NOR,
+		BLU "é¬¼é­‚å¹äº†ä¸€å£æ°”......\n" NOR,
+		HIY "é¬¼é­‚å¯¹ä½ è¯´ï¼šâ€œæƒ³ä¸åˆ°ã€‚ã€‚ã€‚ã€‚ã€‚ã€‚å”‰.....!â€\n" NOR,
+                GRN "é¬¼é­‚å“­äº†èµ·æ¥.........\n" NOR,
 	}) );
         set("age",30+random(40));
 	set("combat_exp", random(10)*100000+random(10000));
@@ -26,7 +26,7 @@ void create()
 
 void init()
 {
-	command("tell " +this_player()->query("id")+" Äã´ÓÄÄ¶ùÀ´Ñ½?......\n\n");
+	command("tell " +this_player()->query("id")+" ä½ ä»å“ªå„¿æ¥å‘€?......\n\n");
 }
 int is_ghost()
 {  
@@ -35,6 +35,6 @@ int is_ghost()
 int accept_fight(object me)
 {    
 	command("sigh " +(string)me->query("id"));
-	command("say ¶¼µ½Õâ²½ÌïµØÁË£¬Äã»¹Ïë´òÑ½£¿");
+	command("say éƒ½åˆ°è¿™æ­¥ç”°åœ°äº†ï¼Œä½ è¿˜æƒ³æ‰“å‘€ï¼Ÿ");
 	return 0;
 }

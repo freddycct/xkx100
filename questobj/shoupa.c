@@ -3,14 +3,14 @@
 inherit ITEM;
 void create()
 {
-	set_name( MAG"ÊÖÅÁ"NOR, ({ "shou pa", "shoupa"}));
+	set_name( MAG"æ‰‹å¸•"NOR, ({ "shou pa", "shoupa"}));
 	set_weight(300);
 	set("taskobj", 1);
 	if( clonep() )
 		set_default_object(__FILE__);
 	else {
-		set("unit", "ÕÅ");
+		set("unit", "å¼ ");
 		set("value",0);
-		set("long","ÕâÊÇÒ»ÕÅĞå»¨ÊÖÅÁ¡£\n");
+		set("long","è¿™æ˜¯ä¸€å¼ ç»£èŠ±æ‰‹å¸•ã€‚\n");
 	}
 }

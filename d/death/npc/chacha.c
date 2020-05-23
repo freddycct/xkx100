@@ -7,23 +7,23 @@
 inherit NPC;
 
 string *death_msg = ({
-	HIW "�й���������۹ⶢ���㣬����Ҫ�������һ���Ƶġ�\n\n" NOR,
-	HIW "�йٶ���˵����ι�������ˣ�\n\n" NOR,
-	HIW "�й١��ߡ���һ�����������ͳ�һ�����ʲ�Ķ�����������\n\n" NOR,
-	HIW "�йٺ��ϲ��ӣ�˵�����ţ�������δ������ô�ܵ��������ˣ�\n\n" NOR,
-	HIW "�й�ɦ��ɦͷ��̾�������˰��ˣ��㻹�ǻ�����ɡ�\n\n"
-		"һ�������Ũ��ͻȻ���֣��ܿ�ذ�Χ���㡣\n\n" NOR,
+	HIW "判官用奇异的眼光盯着你，好像要看穿你的一切似的。\n\n" NOR,
+	HIW "判官对你说道：喂！该你了！\n\n" NOR,
+	HIW "判官「哼」的一声，从袖中掏出一本像帐册的东西翻看著。\n\n" NOR,
+	HIW "判官合上册子，说道：嗯，你阳寿未尽，怎么跑到这里来了？\n\n" NOR,
+	HIW "判官搔了搔头，叹道：罢了罢了，你还是回阳间吧。\n\n"
+		"一股阴冷的浓雾突然出现，很快地包围了你。\n\n" NOR,
 });
 
 void create()
 {
-	set_name(YEL "�й�" NOR, ({ "pan guan","guan" }) );
+	set_name(YEL "判官" NOR, ({ "pan guan","guan" }) );
 	set("long", @LONG
-������˾��ִ�ƹܴ��ڹ�����ʩ����֮�٣��������ż�������������������
+地狱阴司中执掌管带众鬼，以施奖惩之官，手中拿着记载人寿命的生死簿。
 LONG);
-	set("gender","����");
+	set("gender","男性");
 	set("str",1000);
-	set("title",HIW "���˾" NOR);			
+	set("title",HIW "查察司" NOR);			
 	set("attitude", "peaceful");
 	set("age", 1000);
 	set("combat_exp", 100000000);
@@ -44,7 +44,7 @@ void init()
 		return;
 	if(!ob->is_ghost() && !wizardp(ob)) 
 	{
-		command("say ι��������������ʲ�᣿");
+		command("say 喂！阳人来阴间做什麽？");
 		kill_ob(ob);
 		ob->fight_ob(this_object());
 		return;
@@ -78,7 +78,7 @@ void death_stage(object ob, int stage)
 		if(sizeof(obs))
 		{
 			command("hmm");
-			tell_object(ob,HIW"�й�˵��������������Ķ����ǲ��ܴ�������ģ�����Ҫ�������ϵĶ�������������\n"NOR);
+			tell_object(ob,HIW"判官说道：“不过阴间的东西是不能带到阳间的，你先要把你身上的东西放下来。”\n"NOR);
 			return;
 		}
 		else
@@ -100,7 +100,7 @@ void death_stage(object ob, int stage)
    else
       ob->move(REVIVE_ROOM);
 	message("vision",
-		"���Ȼ����ǰ�����һ����Ӱ����������Ӱ�ֺ����Ѿ�������\n"
-		"�ܾ��ˣ�ֻ����һֱû������\n", environment(ob), ob);
+		"你忽然发现前面多了一个人影，不过那人影又好像已经在那里\n"
+		"很久了，只是你一直没发觉。\n", environment(ob), ob);
 }
 

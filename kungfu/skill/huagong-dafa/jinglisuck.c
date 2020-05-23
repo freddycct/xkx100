@@ -13,12 +13,12 @@ int exert(object me, object target)
   !me->query("perform/jinglisuck") &&
   !me->query("can_perform/huagong-dafa/jinglisuck") && 
   !me->query_temp("murong/xingyi"))
-   return notify_fail("ÄãËùÊ¹ÓÃµÄÄÚ¹¦ÖĞÃ»ÓĞÕâÖÖ¹¦ÄÜ¡£");
+   return notify_fail("ä½ æ‰€ä½¿ç”¨çš„å†…åŠŸä¸­æ²¡æœ‰è¿™ç§åŠŸèƒ½ã€‚");
 	if ( target == me ) target = offensive_target(me);
 
 
 	if( environment(me)->query("no_fight") )
-		return notify_fail("ÔÚÕâÀï²»ÄÜ¹¥»÷ËûÈË¡£\n");
+		return notify_fail("åœ¨è¿™é‡Œä¸èƒ½æ”»å‡»ä»–äººã€‚\n");
 
 	if( !objectp(target) ||
 		target->query("id") == "gongping zi" ||
@@ -29,40 +29,40 @@ int exert(object me, object target)
 		target->query("id") == "xiangpi ren" ||
 		target->query("id") == "jin ren" ||
 		target->query("id") == "du jiangshi")
-		return notify_fail("ÄãÒªÎüÈ¡Ë­µÄ¾«Á¦£¿\n");
-	notify_fail("²»ÊÇÄãÒª×¥µÄÈË£¬´ÕÊ²Ã´ÈÈÄÖ£¡\n");
+		return notify_fail("ä½ è¦å¸å–è°çš„ç²¾åŠ›ï¼Ÿ\n");
+	notify_fail("ä¸æ˜¯ä½ è¦æŠ“çš„äººï¼Œå‡‘ä»€ä¹ˆçƒ­é—¹ï¼\n");
 	if (!userp(target) && !target->accept_hit(me)) return 0;
 	
-	if (target->query("race") != "ÈËÀà")
-		return notify_fail("¸ã´íÁË£¡Ö»ÓĞÈË²ÅÄÜÓĞ¾«Á¦£¡\n");
+	if (target->query("race") != "äººç±»")
+		return notify_fail("æé”™äº†ï¼åªæœ‰äººæ‰èƒ½æœ‰ç²¾åŠ›ï¼\n");
 
 	my_max = me->query("max_jingli");
 	tg_max = target->query("max_jingli");
 
 	if ( me->query_temp("sucked") )
-		return notify_fail("Äã¸Õ¸ÕÎüÈ¡¹ı¾«Á¦£¡\n");
+		return notify_fail("ä½ åˆšåˆšå¸å–è¿‡ç²¾åŠ›ï¼\n");
 
 	if( objectp(me->query_temp("weapon")) )
-		return notify_fail("Äã±ØĞë¿ÕÊÖ²ÅÄÜÊ©ÓÃ»¯¹¦´ó·¨ÎüÈË¾«Á¦£¡\n");
+		return notify_fail("ä½ å¿…é¡»ç©ºæ‰‹æ‰èƒ½æ–½ç”¨åŒ–åŠŸå¤§æ³•å¸äººç²¾åŠ›ï¼\n");
 
 //	if( !me->is_fighting() || !target->is_fighting())
 
 	if( (int)me->query_skill("huagong-dafa",1) < 100 )
-		return notify_fail("ÄãµÄ»¯¹¦´ó·¨¹¦Á¦²»¹»£¬²»ÄÜÎüÈ¡¶Ô·½µÄ¾«Á¦£¡\n");
+		return notify_fail("ä½ çš„åŒ–åŠŸå¤§æ³•åŠŸåŠ›ä¸å¤Ÿï¼Œä¸èƒ½å¸å–å¯¹æ–¹çš„ç²¾åŠ›ï¼\n");
 
 	if( (int)me->query("neili",1) < 20 )
-		return notify_fail("ÄãµÄÄÚÁ¦²»¹»£¬²»ÄÜÊ¹ÓÃ»¯¹¦´ó·¨¡£\n");
+		return notify_fail("ä½ çš„å†…åŠ›ä¸å¤Ÿï¼Œä¸èƒ½ä½¿ç”¨åŒ–åŠŸå¤§æ³•ã€‚\n");
 
 	if( (int)target->query("max_jingli") < 10 )
 		return notify_fail( target->name() +
-			"¾«Á¦»ÁÉ¢£¬¹¦Á¦Î´¾Û£¬ÄãÎŞ·¨´ÓËûÌåÄÚÎüÈ¡ÈÎºÎ¶«Î÷£¡\n");
+			"ç²¾åŠ›æ¶£æ•£ï¼ŒåŠŸåŠ›æœªèšï¼Œä½ æ— æ³•ä»ä»–ä½“å†…å¸å–ä»»ä½•ä¸œè¥¿ï¼\n");
 
 	if( (int)target->query("max_jingli") < (int)me->query("max_jingli")/10 )
 		return notify_fail( target->name() +
-			"µÄÄÚ¹¦ĞŞÎªÔ¶²»ÈçÄã£¬ÄãÎŞ·¨´ÓËûÌåÄÚÎüÈ¡¾«Á¦£¡\n");
+			"çš„å†…åŠŸä¿®ä¸ºè¿œä¸å¦‚ä½ ï¼Œä½ æ— æ³•ä»ä»–ä½“å†…å¸å–ç²¾åŠ›ï¼\n");
 
 	message_combatd(
-		HIR "$NÈ«Éí¹Ç½Ú±¬Ïì£¬Ë«±Û±©³¤Êı³ß£¬ÕÆÔµÃÍµØÏò$nµÄÌìÁéÅÄÁËÏÂÈ¥£¡\n\n" NOR,
+		HIR "$Nå…¨èº«éª¨èŠ‚çˆ†å“ï¼ŒåŒè‡‚æš´é•¿æ•°å°ºï¼ŒæŒç¼˜çŒ›åœ°å‘$nçš„å¤©çµæ‹äº†ä¸‹å»ï¼\n\n" NOR,
 		me, target );
 
         if ( living(target) && !target->query_temp("noliving") )
@@ -78,8 +78,8 @@ int exert(object me, object target)
 	if (( random(sp) > random(dp) ) ||
 		!living(target) || target->query_temp("noliving") )
 	{
-		tell_object(target, HIR"ÄãÖ»¾õÌì¶¥¹ÇÁÑ£¬È«Éí¹¦Á¦¹áÄÔ¶ø³ö£¬ÈçÈÚÑ©°ãÏûÊ§µÃÎŞÓ°ÎŞ×Ù£¡\n" NOR);
-		tell_object(me, HIG"Äã¾õµÃ" + target->name() + "µÄ¾«Á¦×ÔÊÖÕÆÔ´Ô´²»¾øµØÁ÷ÁË½øÀ´¡£\n" NOR);
+		tell_object(target, HIR"ä½ åªè§‰å¤©é¡¶éª¨è£‚ï¼Œå…¨èº«åŠŸåŠ›è´¯è„‘è€Œå‡ºï¼Œå¦‚èé›ªèˆ¬æ¶ˆå¤±å¾—æ— å½±æ— è¸ªï¼\n" NOR);
+		tell_object(me, HIG"ä½ è§‰å¾—" + target->name() + "çš„ç²¾åŠ›è‡ªæ‰‹æŒæºæºä¸ç»åœ°æµäº†è¿›æ¥ã€‚\n" NOR);
 
 		target->add("max_jingli", -1*(1+(me->query_skill("huagong-dafa", 1)-100)/5) );
 		if ((int)me->query("max_jingli") <
@@ -102,7 +102,7 @@ int exert(object me, object target)
 	}
 	else
 	{	
-		message_combatd(HIY "¿ÉÊÇ$p¿´ÆÆÁË$PµÄÆóÍ¼£¬ÄÚÁ¦ÃÍµØÒ»Õğ£¬½èÊÆÁïÁË¿ªÈ¥¡£\n" NOR, me, target);
+		message_combatd(HIY "å¯æ˜¯$pçœ‹ç ´äº†$Pçš„ä¼å›¾ï¼Œå†…åŠ›çŒ›åœ°ä¸€éœ‡ï¼Œå€ŸåŠ¿æºœäº†å¼€å»ã€‚\n" NOR, me, target);
 		me->start_busy(7);
 		call_out("del_sucked", 20, me);
 	}
@@ -118,16 +118,16 @@ void del_sucked(object me)
 
 int help(object me)
 {
-	write(WHT"\n»¯¹¦´ó·¨Ö®ÎüÈ¡¾«Á¦£º"NOR"\n");
+	write(WHT"\nåŒ–åŠŸå¤§æ³•ä¹‹å¸å–ç²¾åŠ›ï¼š"NOR"\n");
 	write(@HELP
 
-	Ê¹ÓÃ¹¦Ğ§£º
-		ÎüÈ¡¶Ô·½¾«Á¦
-		ÔöÇ¿×Ô¼º¾«Á¦
+	ä½¿ç”¨åŠŸæ•ˆï¼š
+		å¸å–å¯¹æ–¹ç²¾åŠ›
+		å¢å¼ºè‡ªå·±ç²¾åŠ›
 
-	³öÊÖÒªÇó£º
-		»¯¹¦´ó·¨100¼¶
-		ÄÚÁ¦20
+	å‡ºæ‰‹è¦æ±‚ï¼š
+		åŒ–åŠŸå¤§æ³•100çº§
+		å†…åŠ›20
 HELP
 	);
 	return 1;

@@ -4,10 +4,10 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "���̲");
+	set("short", "戈壁滩");
 	set("long", @LONG
-��ǰ��һ���޼ʵĸ��̲��û��·�꣬Ҳû��һ�����ˣ����Եú�
-�ߣ�Զɽ��ѩ����ӥ���裬������ãã���֮�ϣ����ƺ���·�ˡ�
+眼前是一望无际的戈壁滩，没有路标，也没有一个行人，天显得很
+高，远山披雪，苍鹰翱翔，走在这茫茫戈壁之上，你似乎迷路了。
 LONG );
 	set("outdoors", "mingjiao");
  	set("exits",([

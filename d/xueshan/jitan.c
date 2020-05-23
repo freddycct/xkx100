@@ -1,14 +1,14 @@
-//  jitan.c ��̳
+//  jitan.c 祭坛
 
 inherit ROOM;
 
 void create()
 {
-        set("short","ѩɽ��̳");
+        set("short","雪山祭坛");
         set("long",@LONG
-������ѩɽ��ѩɽ��̳���м�һ����̨����ʯ���͡���Χ������ľ
-������ͣ��Ա�һ��ʢˮ��­������һֻ���塣һЩʹ��Ϳ���������
-�����������ó��ȡ�
+这里是雪山寺雪山祭坛，中间一个高台，青石砌就。周围摆满了木
+柴和酥油，旁边一个盛水的颅钵搁着一只法铃。一些痛苦和可怜的亡灵
+可以在这里获得超度。
 LONG );
         set("outdoors","xueshansi");
         set("no_fight","1");

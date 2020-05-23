@@ -5,10 +5,10 @@ inherit ROOM;
 
 void  create()
 {
-	set("short","���С·");
+	set("short","田间小路");
 	set("long", @LONG
-������С·�ľ�ͷ��������Զ���м�ũ�ᣬ��Լ�ɼ������Ĵ�����
-��������ȥ��һ��С·��һ������������Ѷ�Զȥ��
+这里是小路的尽头，北方不远处有间农舍，隐约可见袅袅的炊烟升
+起。南面望去，一条小路从一畦畦菜田中蜿蜒而远去。
 LONG
 );
 	set("exits", ([

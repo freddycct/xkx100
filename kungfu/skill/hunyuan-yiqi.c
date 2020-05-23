@@ -1,4 +1,4 @@
-// hunyuan-yiqi.c ÉÙÁÖ »ìÔªÒ»Æø¹¦
+// hunyuan-yiqi.c å°‘æ— æ··å…ƒä¸€æ°”åŠŸ
 // Last Modified by winder on Mar. 10 2000
 
 #include <ansi.h>
@@ -24,32 +24,32 @@ int valid_learn(object me)
 	ns = (int)me->query("guilty");
 
 	if ((int)me->query_skill("force", 1) < 10)
-		return notify_fail("ÄãµÄ»ù±¾ÄÚ¹¦»ğºò»¹²»¹»¡£\n");
+		return notify_fail("ä½ çš„åŸºæœ¬å†…åŠŸç«å€™è¿˜ä¸å¤Ÿã€‚\n");
 
 	if ( me->query("couple/have_couple") )
-		return notify_fail("Äã³¾ÔµÎ´ÁË£¬ÎŞ·¨ÔÙÑ§Ï°»ìÔªÒ»Æø¹¦£¡\n");
+		return notify_fail("ä½ å°˜ç¼˜æœªäº†ï¼Œæ— æ³•å†å­¦ä¹ æ··å…ƒä¸€æ°”åŠŸï¼\n");
 
 	if ( me->query("sex/number") )
-		return notify_fail("ÄãÒÑ¾­ÆÆÁËÉ«½ä£¬ÎŞ·¨ÔÙÑ§Ï°»ìÔªÒ»Æø¹¦£¡\n");
+		return notify_fail("ä½ å·²ç»ç ´äº†è‰²æˆ’ï¼Œæ— æ³•å†å­¦ä¹ æ··å…ƒä¸€æ°”åŠŸï¼\n");
 
-	if ( me->query("gender") != "ÄĞĞÔ" )
-		return notify_fail("Äã·ÇÍ¯ÄĞÖ®Ìå£¬²»ÄÜÁ·Ï°»ìÔªÒ»Æø¹¦¡£\n");
+	if ( me->query("gender") != "ç”·æ€§" )
+		return notify_fail("ä½ éç«¥ç”·ä¹‹ä½“ï¼Œä¸èƒ½ç»ƒä¹ æ··å…ƒä¸€æ°”åŠŸã€‚\n");
 
 	if ( nb < 100 && nb <= nh )
-		return notify_fail("ÄãµÄìø×ÚĞÄ·¨ĞŞÎª²»¹»£¬ÎŞ·¨Áì»á¸ü¸ßÉîµÄ»ìÔªÒ»Æø¹¦¡£\n");
+		return notify_fail("ä½ çš„ç¦…å®—å¿ƒæ³•ä¿®ä¸ºä¸å¤Ÿï¼Œæ— æ³•é¢†ä¼šæ›´é«˜æ·±çš„æ··å…ƒä¸€æ°”åŠŸã€‚\n");
 
 	if ( nf < 10)
-		return notify_fail("ÄãµÄ»ù±¾ÄÚ¹¦»ğºò»¹²»¹»£¬ÎŞ·¨Áì»á»ìÔªÒ»Æø¹¦¡£\n");
+		return notify_fail("ä½ çš„åŸºæœ¬å†…åŠŸç«å€™è¿˜ä¸å¤Ÿï¼Œæ— æ³•é¢†ä¼šæ··å…ƒä¸€æ°”åŠŸã€‚\n");
 
 	if ( ns > 0 ) 
-		return notify_fail("ÄãÂÅ·¸É®¼ÒÊı½ä£¬ÎŞ·¨Áì»á¸ü¸ßÉîµÄ»ìÔªÒ»Æø¹¦¡£\n");
+		return notify_fail("ä½ å±¡çŠ¯åƒ§å®¶æ•°æˆ’ï¼Œæ— æ³•é¢†ä¼šæ›´é«˜æ·±çš„æ··å…ƒä¸€æ°”åŠŸã€‚\n");
 
 	return valid_public(me,"yijinjing");
 }
 
 int practice_skill(object me)
 {
-	return notify_fail("»ìÔªÒ»Æø¹¦Ö»ÄÜÓÃÑ§(learn)µÄÀ´Ôö¼ÓÊìÁ·¶È¡£\n");
+	return notify_fail("æ··å…ƒä¸€æ°”åŠŸåªèƒ½ç”¨å­¦(learn)çš„æ¥å¢åŠ ç†Ÿç»ƒåº¦ã€‚\n");
 }
 
 string exert_function_file(string func)
@@ -58,16 +58,16 @@ string exert_function_file(string func)
 }
 int help(object me)
 {
-	write(HIC"\n»ìÔªÒ»Æø¹¦£º"NOR"\n");
+	write(HIC"\næ··å…ƒä¸€æ°”åŠŸï¼š"NOR"\n");
 	write(@HELP
 
-    »ìÔªÒ»Æø¹¦ÎªÉÙÁÖÅÉ±¾ÃÅÄÚ¹¦¡£
+    æ··å…ƒä¸€æ°”åŠŸä¸ºå°‘æ—æ´¾æœ¬é—¨å†…åŠŸã€‚
 
-	Ñ§Ï°ÒªÇó£º
-		»ù±¾ÄÚ¹¦10¼¶
-		²»ÄÜÆÆÉ«½äµÄÍ¯ÄĞÖ®Éí
-		ìø×ÚĞÄ·¨ĞŞÎª²»µÍÓÚ»ìÔªÒ»Æø¹¦
-		²»·¸ÆäËü½äÂÉ
+	å­¦ä¹ è¦æ±‚ï¼š
+		åŸºæœ¬å†…åŠŸ10çº§
+		ä¸èƒ½ç ´è‰²æˆ’çš„ç«¥ç”·ä¹‹èº«
+		ç¦…å®—å¿ƒæ³•ä¿®ä¸ºä¸ä½äºæ··å…ƒä¸€æ°”åŠŸ
+		ä¸çŠ¯å…¶å®ƒæˆ’å¾‹
 HELP
 	);
 	return 1;

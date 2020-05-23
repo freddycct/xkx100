@@ -4,10 +4,10 @@
 inherit NPC;
 void create()
 {
-	set_name("怪蛇", ({ "guai she", "snake", "she" }) );
-	set("race", "爬蛇");
+	set_name("鎬泧", ({ "guai she", "snake", "she" }) );
+	set("race", "鐖泧");
 	set("age", 30);
-	set("long", "一条三尺来长的眼镜王蛇。\n");
+	set("long", "涓�鏉′笁灏烘潵闀跨殑鐪奸暅鐜嬭泧銆俓n");
 	set("attitude", "aggressive");
 	set("combat_exp", 5500);
 	set_temp("apply/attack", 250);

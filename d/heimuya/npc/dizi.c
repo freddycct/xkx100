@@ -1,12 +1,12 @@
-// jiaotu.c ÈÕÔÂÉñ½Ì½ÌÍ½
+// jiaotu.c æ—¥æœˆç¥æ•™æ•™å¾’
 #include <ansi.h>
 inherit NPC;
 void create()
 {
 	int age;
 	age = 20 + random(10);	
-	set_name("³ÉµÂµîµîÏÂµÜ×Ó", ({ "dizi" }));
-	set("gender", "ÄĞĞÔ");
+	set_name("æˆå¾·æ®¿æ®¿ä¸‹å¼Ÿå­", ({ "dizi" }));
+	set("gender", "ç”·æ€§");
 	set("age", age);
 	set_skill("unarmed", 40);
 	set_skill("dodge", 40);	
@@ -15,8 +15,8 @@ void create()
 	set("apply/damage", 35);
 	set("combat_exp", 5000+age*40);
 	set("shen_type", -1);
-	set("party/party_name", HIB"ÈÕÔÂÉñ½Ì"NOR);
-	set("party/rank", HIW"½ÌÖÚ"NOR);
+	set("party/party_name", HIB"æ—¥æœˆç¥æ•™"NOR);
+	set("party/rank", HIW"æ•™ä¼—"NOR);
 	setup();
 	add_money("silver", 10+age/10);
 }	
@@ -35,7 +35,7 @@ void greeting(object ob)
         if( !ob || environment(ob) != environment() ) return;
         switch( random(1) ) {
                 case 0:
-                        say( "ÈÕÔÂÉñ½Ì£¬ÈÕ³ö¶«·½£¬Î¨ÎÒ²»°Ü¡£\n");
+                        say( "æ—¥æœˆç¥æ•™ï¼Œæ—¥å‡ºä¸œæ–¹ï¼Œå”¯æˆ‘ä¸è´¥ã€‚\n");
                         break;
                 
         }

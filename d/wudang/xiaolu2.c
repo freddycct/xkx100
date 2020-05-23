@@ -1,4 +1,4 @@
-// xiaolu2.c ÁÖ¼äĞ¡¾¶
+// xiaolu2.c æ—é—´å°å¾„
 // by Xiang
 
 #include <room.h>
@@ -6,10 +6,10 @@ inherit ROOM;
 
 void create()
 {
-        set("short", "ÁÖ¼äĞ¡¾¶");
+        set("short", "æ—é—´å°å¾„");
         set("long", @LONG
-Äã×ßÔÚÒ»ÌõĞ¡¾¶ÉÏ£¬Á½ÅÔÖÖÂúÁËÖñ×Ó£¬ĞŞóòÉ­É­£¬ÂÌÒñÂúµØ£¬³ıÁË
-ÖñÒ¶ÉùºÍÄñÃùÉù£¬Ìı²»µ½±ğµÄ¶¯¾²¡£ÄÏÃæËÆºõÓĞÒ»×ù¼òÂªµÄĞ¡Ôº¡£
+ä½ èµ°åœ¨ä¸€æ¡å°å¾„ä¸Šï¼Œä¸¤æ—ç§æ»¡äº†ç«¹å­ï¼Œä¿®ç¯æ£®æ£®ï¼Œç»¿è«æ»¡åœ°ï¼Œé™¤äº†
+ç«¹å¶å£°å’Œé¸Ÿé¸£å£°ï¼Œå¬ä¸åˆ°åˆ«çš„åŠ¨é™ã€‚å—é¢ä¼¼ä¹æœ‰ä¸€åº§ç®€é™‹çš„å°é™¢ã€‚
 LONG );
         set("exits", ([
                 "south" : __DIR__"xiaoyuan",
@@ -18,7 +18,7 @@ LONG );
         set("objects", ([
                 CLASS_D("wudang")+"/mingyue": 1,
         ]));
-        create_door("south", "ÖñÃÅ", "north", DOOR_CLOSED);
+        create_door("south", "ç«¹é—¨", "north", DOOR_CLOSED);
         set("outdoors", "wudang");
 	set("coor/x", -2050);
 	set("coor/y", -950);

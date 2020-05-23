@@ -4,11 +4,11 @@
 inherit ROOM;
 void create()
 {
-	set("short","Íõ¸®´óÃÅ");
+	set("short","ç‹åºœå¤§é—¨");
 	set("long",@LONG
-ÄãÕıÕ¾ÔÚÒ»×ùºÀ»ªµÄ¸®ÃÅÇ°£¬ÃÅÇ°ÓĞÁ½Ö»¼«´óµÄÊ¯Ê¨×Ó£¬ÃÅÉÏ¸ß
-ĞüÒ»¿éºáØÒ£¬ÉÏÊé¡¸ÕòÄÏÍõ¸®¡¹ËÄ¸ö½ğ×Ö¡£ÃÅ¿ÚÕ¾×ÅÁ½ÅÅÊÌÎÀ£¬Éí×Å
-½õÒÂ£¬ÊÖÖ´¸Öµ¶£¬ÆøÓîĞù°º¡£
+ä½ æ­£ç«™åœ¨ä¸€åº§è±ªåçš„åºœé—¨å‰ï¼Œé—¨å‰æœ‰ä¸¤åªæå¤§çš„çŸ³ç‹®å­ï¼Œé—¨ä¸Šé«˜
+æ‚¬ä¸€å—æ¨ªåŒ¾ï¼Œä¸Šä¹¦ã€Œé•‡å—ç‹åºœã€å››ä¸ªé‡‘å­—ã€‚é—¨å£ç«™ç€ä¸¤æ’ä¾å«ï¼Œèº«ç€
+é”¦è¡£ï¼Œæ‰‹æ‰§é’¢åˆ€ï¼Œæ°”å®‡è½©æ˜‚ã€‚
 LONG);
 	set("objects", ([
 	   CLASS_D("dali")+"/zhuwanli": 1,
@@ -34,9 +34,9 @@ int valid_leave(object me, string dir)
         mapping myfam;
         myfam = (mapping)me->query("family");
 
-        if ((!myfam || myfam["family_name"] != "´óÀí¶Î¼Ò") && dir == "enter" &&
+        if ((!myfam || myfam["family_name"] != "å¤§ç†æ®µå®¶") && dir == "enter" &&
                 objectp(present("zhu wanli", environment(me))))
-           return notify_fail("ñÒÍòÀïÀ¹×¡ÄãËµ£ºÏĞÔÓÈËµÈ£¬±ğµ½´¦ÂÒ´Ü¡£\n");
+           return notify_fail("è¤šä¸‡é‡Œæ‹¦ä½ä½ è¯´ï¼šé—²æ‚äººç­‰ï¼Œåˆ«åˆ°å¤„ä¹±çªœã€‚\n");
 
         return ::valid_leave(me, dir);
 }

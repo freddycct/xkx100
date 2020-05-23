@@ -8,10 +8,10 @@ inherit RIVER;
 void create()
 {
 	::create();
-  set("short", "ÖÐÖÞÂëÍ·");
+  set("short", "ä¸­æ´²ç å¤´");
   set("long", @LONG
-ÕâÀïÊÇ¸£ÖÝÖÐÖÞÂëÍ·£¬ÑÛÇ°Ãö½­Ë®(river) ²¨ÌÎ·­¹ö£¬´¬Ö»´©ËóÀ´
-Íù²»¶Ï¡£ÕâÀïÓÐÍ¨ÍùÉÏÓÎÑÓÆ½¸®µÄ¿Í´¬¡£
+è¿™é‡Œæ˜¯ç¦å·žä¸­æ´²ç å¤´ï¼Œçœ¼å‰é—½æ±Ÿæ°´(river) æ³¢æ¶›ç¿»æ»šï¼Œèˆ¹åªç©¿æ¢­æ¥
+å¾€ä¸æ–­ã€‚è¿™é‡Œæœ‰é€šå¾€ä¸Šæ¸¸å»¶å¹³åºœçš„å®¢èˆ¹ã€‚
 LONG );
   set("exits", ([
     "east" : __DIR__"zhongzhou",
@@ -21,25 +21,25 @@ LONG );
   set("coor/x", 1830);
   set("coor/y", -6340);
   set("coor/z", 0);
-  set("yell_about", "´¬¼Ò");             // yell ´¬¼Ò
-  set("river_type", "½­");               // ½­ÃæÉÏ´«À´»ØÏì
-  set("need_dodge",300);                 // ÐèÒª¶àÉÙÇá¹¦
-  set("busy_msg",       "Ö»ÌýµÃ½­ÃæÉÏÒþÒþ´«À´£º¡°±ð¼±Âï£¬Õâ¶ùÕýÃ¦×ÅÄÅ¡­¡­¡±\n");
-  set("come_msg_out",   "Ò»ËÒ¿Í´¬»º»ºµØÊ»ÁË¹ýÀ´£¬ô¹¹«½«Ò»¿éÌ¤½Å°å´îÉÏµÌ°¶£¬ÒÔ±ã³Ë¿ÍÉÏÏÂ¡£\n");
-  set("come_msg_in",    "ô¹¹«Ëµ¡°µ½À²£¬ÉÏ°¶°É¡±£¬Ëæ¼´°ÑÒ»¿éÌ¤½Å°å´îÉÏµÌ°¶¡£\n");
-  set("wait_msg",       "°¶±ßÒ»ËÒ¿Í´¬ÉÏµÄÀÏô¹¹«ËµµÀ£ºÕýµÈ×ÅÄãÄØ£¬ÉÏÀ´°É¡£\n");
-  set("leave_msg_out",  "ô¹¹«°ÑÌ¤½Å°åÊÕÁËÆðÀ´£¬Ò¡ÆðéÖÀ´£¬¿Í´¬ÏòÉÏÓÎÊ»È¥¡£\n");
-  set("leave_msg_in",   "ô¹¹«°ÑÌ¤½Å°åÊÕÆðÀ´£¬ËµÁËÒ»Éù¡°×øÎÈà¶¡±£¬Ò¡ÆðéÖÀ´£¬¿Í´¬ÏòÉÏÓÎÊ»È¥¡£\n");
-  set("item_desc/river", HIC "\nÖ»¼û½ü°¶´¦ÓÐÒ»ËÒ¿Í´¬£¬Ò²Ðí´óÉùº°("
-                         HIY "yell" HIC ")Ò»Éù´¬¼Ò(" HIY "boat" HIC
-                        ")¾Í\nÄÜÌý¼û¡£ÌÈÈôÄã×Ô¸ºÇá¹¦¾ø¼Ñ,Ò²¿ÉÖ±½Ó"
-                        "¶ÉË®(" HIY "cross" HIC ")Ì¤½­¶ø¹ý¡£\n" NOR);
-  set("boat_short", "¿Í´¬");    
+  set("yell_about", "èˆ¹å®¶");             // yell èˆ¹å®¶
+  set("river_type", "æ±Ÿ");               // æ±Ÿé¢ä¸Šä¼ æ¥å›žå“
+  set("need_dodge",300);                 // éœ€è¦å¤šå°‘è½»åŠŸ
+  set("busy_msg",       "åªå¬å¾—æ±Ÿé¢ä¸Šéšéšä¼ æ¥ï¼šâ€œåˆ«æ€¥å˜›ï¼Œè¿™å„¿æ­£å¿™ç€å‘â€¦â€¦â€\n");
+  set("come_msg_out",   "ä¸€è‰˜å®¢èˆ¹ç¼“ç¼“åœ°é©¶äº†è¿‡æ¥ï¼Œè‰„å…¬å°†ä¸€å—è¸è„šæ¿æ­ä¸Šå ¤å²¸ï¼Œä»¥ä¾¿ä¹˜å®¢ä¸Šä¸‹ã€‚\n");
+  set("come_msg_in",    "è‰„å…¬è¯´â€œåˆ°å•¦ï¼Œä¸Šå²¸å§â€ï¼Œéšå³æŠŠä¸€å—è¸è„šæ¿æ­ä¸Šå ¤å²¸ã€‚\n");
+  set("wait_msg",       "å²¸è¾¹ä¸€è‰˜å®¢èˆ¹ä¸Šçš„è€è‰„å…¬è¯´é“ï¼šæ­£ç­‰ç€ä½ å‘¢ï¼Œä¸Šæ¥å§ã€‚\n");
+  set("leave_msg_out",  "è‰„å…¬æŠŠè¸è„šæ¿æ”¶äº†èµ·æ¥ï¼Œæ‘‡èµ·æ©¹æ¥ï¼Œå®¢èˆ¹å‘ä¸Šæ¸¸é©¶åŽ»ã€‚\n");
+  set("leave_msg_in",   "è‰„å…¬æŠŠè¸è„šæ¿æ”¶èµ·æ¥ï¼Œè¯´äº†ä¸€å£°â€œåç¨³å–½â€ï¼Œæ‘‡èµ·æ©¹æ¥ï¼Œå®¢èˆ¹å‘ä¸Šæ¸¸é©¶åŽ»ã€‚\n");
+  set("item_desc/river", HIC "\nåªè§è¿‘å²¸å¤„æœ‰ä¸€è‰˜å®¢èˆ¹ï¼Œä¹Ÿè®¸å¤§å£°å–Š("
+                         HIY "yell" HIC ")ä¸€å£°èˆ¹å®¶(" HIY "boat" HIC
+                        ")å°±\nèƒ½å¬è§ã€‚å€˜è‹¥ä½ è‡ªè´Ÿè½»åŠŸç»ä½³,ä¹Ÿå¯ç›´æŽ¥"
+                        "æ¸¡æ°´(" HIY "cross" HIC ")è¸æ±Ÿè€Œè¿‡ã€‚\n" NOR);
+  set("boat_short", "å®¢èˆ¹");    
   set("boat_desc",  @LONG
-ÕâÊÇÒ»ËÒÔÚÃö½­ÉÏº½ÐÐµÄ´ó¿Í´¬£¬´ó¸ÅÄÜÔØÉÏÄÇÃ´°Ù°Ñ¸öÈË¡£Á½±ß
-Ê®¼¸¸öË®ÊÖÎÕ×Å³¤³¤µÄ½°£¬´¬Î²Ò»ÃûÁùÊ®¶àËêµÄÀÏô¹¹«°Ñ×ÅéÖ¡£½­ÃæµÄ
-Ë®·Ç³£Çå³º£¬Á½±ßµÄÉ½·åÏÕ¾þ£¬²Ô´äµÄÉ­ÁÖÖÐÊ±¶ø´«À´Ò°ÊÞµÄË»º¿¡£
+è¿™æ˜¯ä¸€è‰˜åœ¨é—½æ±Ÿä¸Šèˆªè¡Œçš„å¤§å®¢èˆ¹ï¼Œå¤§æ¦‚èƒ½è½½ä¸Šé‚£ä¹ˆç™¾æŠŠä¸ªäººã€‚ä¸¤è¾¹
+åå‡ ä¸ªæ°´æ‰‹æ¡ç€é•¿é•¿çš„æ¡¨ï¼Œèˆ¹å°¾ä¸€åå…­åå¤šå²çš„è€è‰„å…¬æŠŠç€æ©¹ã€‚æ±Ÿé¢çš„
+æ°´éžå¸¸æ¸…æ¾ˆï¼Œä¸¤è¾¹çš„å±±å³°é™©å³»ï¼Œè‹ç¿ çš„æ£®æž—ä¸­æ—¶è€Œä¼ æ¥é‡Žå…½çš„å˜¶åšŽã€‚
 LONG );
-  set("to",         "/d/yanping/longjindu");  // ´¬µÄÖÕµã /*   ±ØÑ¡   */
+  set("to",         "/d/yanping/longjindu");  // èˆ¹çš„ç»ˆç‚¹ /*   å¿…é€‰   */
   setup();
 }

@@ -10,15 +10,15 @@ int update_condition(object me, int duration)
 	if (me->is_ghost()) return 1;
 	if( !living(me) || me->query_temp("noliving") )
 	{
-		message("vision", me->name() + "Í·ÖØ½ÅÇá£¬ÄÔÃÅ·¢ÈÈ£¬¿´À´ÊÇÖÐÊîÁË¡£\n", environment(me), me);
+		message("vision", me->name() + "å¤´é‡è„šè½»ï¼Œè„‘é—¨å‘çƒ­ï¼Œçœ‹æ¥æ˜¯ä¸­æš‘äº†ã€‚\n", environment(me), me);
 	}
 	else
 	{
-		tell_object(me, HIB"Äã¾õµÃÍ·ÖØ½ÅÇá£¬ÄÔÃÅ·¢ÈÈ£¬¿´À´ÊÇÖÐÊîÁË¡£\n"NOR );
-		message("vision", me->name() + "Ö»¾õµÃÐØÒÜÖ®¼äÒ»Õó·­ÌÚ£¬Í·ÖØ½ÅÇá£¬Ì§²»ÆðÍ·À´£¬ÄÔÃÅ·¢ÈÈ£¬¿´À´ÊÇÖÐÊîÁË¡£\n", environment(me), me);
+		tell_object(me, HIB"ä½ è§‰å¾—å¤´é‡è„šè½»ï¼Œè„‘é—¨å‘çƒ­ï¼Œçœ‹æ¥æ˜¯ä¸­æš‘äº†ã€‚\n"NOR );
+		message("vision", me->name() + "åªè§‰å¾—èƒ¸è‡†ä¹‹é—´ä¸€é˜µç¿»è…¾ï¼Œå¤´é‡è„šè½»ï¼ŒæŠ¬ä¸èµ·å¤´æ¥ï¼Œè„‘é—¨å‘çƒ­ï¼Œçœ‹æ¥æ˜¯ä¸­æš‘äº†ã€‚\n", environment(me), me);
 	}
-	me->receive_wound("qi", 1,"»ýÀÍ³É¼²ÀÛËÀÁË");
-	me->receive_damage("qi", 1,"»ýÀÍ³É¼²ÀÛËÀÁË");
+	me->receive_wound("qi", 1,"ç§¯åŠ³æˆç–¾ç´¯æ­»äº†");
+	me->receive_damage("qi", 1,"ç§¯åŠ³æˆç–¾ç´¯æ­»äº†");
 	me->apply_condition("ill_zhongshu", duration - 1);
 	if ((int)me->query("eff_jing")<0 || (int)me->query("eff_qi")<0) return 0;
 	if( duration < 1 ) return 0;

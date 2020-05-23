@@ -1,14 +1,14 @@
-//      xiaoyuan.c СԺ
+//      xiaoyuan.c 小院
 
 inherit ROOM;
 
 void create()
 {
-        set("short","СԺ");
+        set("short","小院");
         set("long",@LONG
-������ѩɽ���ڵ�СԺ����ʰ���൱�ɾ�������������������ͺ�
-���һ���ڰ�ʾ��ѩɽ�����֮ʢ��һ��Ҳ�����ڱ�ʾ����Ŀڸ�Ҳ
-�治������Ϊ���߾��Ǹ�������
+这里是雪山寺内的小院，收拾的相当干净利索。来来往往的香客和
+喇嘛，一边在暗示着雪山寺香火之盛，一边也好象在表示喇嘛的口福也
+真不坏。因为北边就是个厨房。
 LONG );
         set("outdoors","xueshansi");
         set("exits",([

@@ -6,11 +6,11 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "±øÆ÷ÊÒ");
+	set("short", "å…µå™¨å®¤");
 	set("long", @LONG
-ÕâÀïÊÇ±øÆ÷¿â£¬µ½´¦Òø¹âÉÁÉÁ£¬ÈÃÈËÑÛ»¨çÔÂÒ¡£±¦µ¶¡¢±¦½£¡¢½ð¹¿
-°ô£¬´óµ¶¡¢³¤½£¡¢ÉÚ°ô£¬¶Ìµ¶¡¢¶Ì½£¡¢¶Ì¹÷£¬¸÷É«¸÷ÑùµÄ±øÆ÷Ó¦ÓÐ¾¡ÓÐ£¬
-ÄãÒ»Ê±²»ÖªµÀÌôÊ²Ã´ºÃ¡£
+è¿™é‡Œæ˜¯å…µå™¨åº“ï¼Œåˆ°å¤„é“¶å…‰é—ªé—ªï¼Œè®©äººçœ¼èŠ±ç¼­ä¹±ã€‚å®åˆ€ã€å®å‰‘ã€é‡‘ç®
+æ£’ï¼Œå¤§åˆ€ã€é•¿å‰‘ã€å“¨æ£’ï¼ŒçŸ­åˆ€ã€çŸ­å‰‘ã€çŸ­æ£ï¼Œå„è‰²å„æ ·çš„å…µå™¨åº”æœ‰å°½æœ‰ï¼Œ
+ä½ ä¸€æ—¶ä¸çŸ¥é“æŒ‘ä»€ä¹ˆå¥½ã€‚
 LONG );
 	set("exits", ([
 		"north" : __DIR__"bingyin",
@@ -21,7 +21,7 @@ LONG );
 	]) );
 //	set("no_clean_up", 0);
         
-        create_door("north", "ÌúÃÅ", "south", DOOR_CLOSED);
+        create_door("north", "é“é—¨", "south", DOOR_CLOSED);
 	set("coor/x", 20);
 	set("coor/y", -62);
 	set("coor/z", 0);
@@ -38,6 +38,6 @@ int valid_leave(object me, string dir)
 		if (inv[i]->query("id") == "sword") j++;
 	}
 	if (j > 1)
-                return notify_fail("ÕâÎ»" + RANK_D->query_respect(me) + "±ðÄÇ÷áÌ°ÐÄ£¬´ø×ßÒ»°Ñ¸Ö½£¾Í¹»À²¡£\n");
+                return notify_fail("è¿™ä½" + RANK_D->query_respect(me) + "åˆ«é‚£éº½è´ªå¿ƒï¼Œå¸¦èµ°ä¸€æŠŠé’¢å‰‘å°±å¤Ÿå•¦ã€‚\n");
         return ::valid_leave(me, dir);
 }

@@ -1,13 +1,13 @@
-//      tulu3.c ÍÁÂ·
+//      tulu3.c åœŸè·¯
 
 inherit ROOM;
 
 void create()
 {
-        set("short","ÍÁÂ·");
+        set("short","åœŸè·¯");
         set("long",@LONG
-ÕâÊÇÒ»Ìõ²»ÆðÑÛµÄÍÁÂ·¡£³¾°£·ºÆðµÄÔ¶·½£¬±±±ß²¨¹âäòäÙµÄÒ»´óÆ¬
-ÓÄÀ¶Ë®¹â´¦£¬¾ÍÊÇÖøÃûµÄÊ¥ºþ¡£
+è¿™æ˜¯ä¸€æ¡ä¸èµ·çœ¼çš„åœŸè·¯ã€‚å°˜åŸƒæ³›èµ·çš„è¿œæ–¹ï¼ŒåŒ—è¾¹æ³¢å…‰æ½‹æ»Ÿçš„ä¸€å¤§ç‰‡
+å¹½è“æ°´å…‰å¤„ï¼Œå°±æ˜¯è‘—åçš„åœ£æ¹–ã€‚
 LONG );
         set("outdoors","xueshan");
         set("exits",([

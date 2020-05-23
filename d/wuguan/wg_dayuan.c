@@ -5,10 +5,10 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "��ݴ�Ժ");
+	set("short", "武馆大院");
 	set("long", @LONG
-���Ǹ���Ժ�ӣ��������߶������䳡��������������ϰ��ǿ������
-��ܳ����Һ��ģ��㿴����ʱ�п��Ŷ����ģ�����ˮ�ĴҴҶ�����
+这是个大院子，南西两边都是练武场，不少人在这里习武强身，这
+里很吵，乱哄哄的，你看见不时有扛着东西的，挑着水的匆匆而过。
 LONG);
 	set("exits", ([
 		"out"  : __DIR__"wg_guanmen",

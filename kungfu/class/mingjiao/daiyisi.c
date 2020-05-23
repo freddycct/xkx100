@@ -8,15 +8,15 @@ inherit F_UNIQUE;
 string ask_fan();
 void create()
 {
-	set_name("÷ìç²Ë¿", ({"dai yisi", "dai", "yisi", }));
+	set_name("é»›ç»®ä¸", ({"dai yisi", "dai", "yisi", }));
 	set("long",
-"÷ìç²Ë¿Õ¾ÔÚ´°Ç°ÑÛÍû´óº££¬Ìıµ½Äã½øÀ´È´²»»ØÍ·¡£Ö»¼ûËı±³Ó°Âü
-Ãî£¬Ğã·¢Æ®·÷£¬ºó¼Õ·ôÈô°×Óñ£¬ÈÙ¹âÕÕÈË£¬¶ËÀöÄÑÑÔ¡£Ğ»Ñ·ËµËı
-µ±ÄêÄËÎäÁÖÖĞµÚÒ»ÃÀÈË£¬´ËÑÔµ±Õæ²»Ğé£¬Ò£Ïë¹âÃ÷¶¥ÉÏ£¬±ÌË®Ì¶
-±ß£¬×ÏÒÂÈç»¨£¬³¤½£Ê¤Ñ©£¬²»ÖªÇãµ¹ÁË¶àÉÙÓ¢ĞÛºÀ½Ü¡£\n");
+"é»›ç»®ä¸ç«™åœ¨çª—å‰çœ¼æœ›å¤§æµ·ï¼Œå¬åˆ°ä½ è¿›æ¥å´ä¸å›å¤´ã€‚åªè§å¥¹èƒŒå½±æ›¼
+å¦™ï¼Œç§€å‘é£˜æ‹‚ï¼Œåé¢Šè‚¤è‹¥ç™½ç‰ï¼Œè£å…‰ç…§äººï¼Œç«¯ä¸½éš¾è¨€ã€‚è°¢é€Šè¯´å¥¹
+å½“å¹´ä¹ƒæ­¦æ—ä¸­ç¬¬ä¸€ç¾äººï¼Œæ­¤è¨€å½“çœŸä¸è™šï¼Œé¥æƒ³å…‰æ˜é¡¶ä¸Šï¼Œç¢§æ°´æ½­
+è¾¹ï¼Œç´«è¡£å¦‚èŠ±ï¼Œé•¿å‰‘èƒœé›ªï¼Œä¸çŸ¥å€¾å€’äº†å¤šå°‘è‹±é›„è±ªæ°ã€‚\n");
 
-	set("nickname", HIM "×ÏÉÀÁúÍõ" NOR);
-	set("gender", "Å®ĞÔ");
+	set("nickname", HIM "ç´«è¡«é¾™ç‹" NOR);
+	set("gender", "å¥³æ€§");
 	set("attitude", "peaceful");
 
 	set("age", 33);
@@ -62,17 +62,17 @@ void create()
 	prepare_skill("hand", "sanshou");
 
 	set("inquiry", ([
-		"Ğ»Ñ·"   : (: ask_fan :),
-		"ÍÀÁúµ¶" : (: ask_fan :),
-		"±ù»ğµº" : (: ask_fan :),
+		"è°¢é€Š"   : (: ask_fan :),
+		"å± é¾™åˆ€" : (: ask_fan :),
+		"å†°ç«å²›" : (: ask_fan :),
 	]) );
 	set("chat_chance_combat", 200);
 	set("chat_msg_combat", ({
 		(: command("perform duo") :),
 	}) );
-	set("party/party_name",HIG"Ã÷½Ì"NOR);
-	set("party/rank",HIW"»¤½Ì·¨Íõ"NOR);
-	create_family("Ã÷½Ì", 34, "µÜ×Ó");
+	set("party/party_name",HIG"æ˜æ•™"NOR);
+	set("party/rank",HIW"æŠ¤æ•™æ³•ç‹"NOR);
+	create_family("æ˜æ•™", 34, "å¼Ÿå­");
 	setup();
 	carry_object("/d/mingjiao/obj/baipao")->wear();
 }
@@ -104,16 +104,16 @@ string ask_fan()
 	string *sname;
 	int i, count, here = 0;
 
-	if (!(fam = me->query("family")) || fam["family_name"] != "Ã÷½Ì")
+	if (!(fam = me->query("family")) || fam["family_name"] != "æ˜æ•™")
 		return RANK_D->query_respect(me) +
-		"Óë±¾ÅÉËØÎŞÀ´Íù£¬²»Öª´Ë»°´ÓºÎÌ¸Æğ£¿";
+		"ä¸æœ¬æ´¾ç´ æ— æ¥å¾€ï¼Œä¸çŸ¥æ­¤è¯ä»ä½•è°ˆèµ·ï¼Ÿ";
 
 	add("fan",-1);
 	ob = new("/d/binghuo/obj/fan");
 	ob->move(me);
-	message_vision("$N»ñµÃÒ»Ãæ·«²¼¡£\n",me);
+	message_vision("$Nè·å¾—ä¸€é¢å¸†å¸ƒã€‚\n",me);
 
-	return "ºÃ°É£¬º£ÉÏ¼èÏÕ£¬¸øÄãÒ»¿é·«²¼£¬Äã×Ô¼ºÈ¥ÕÒĞ»Èı¸ç°É¡£";
+	return "å¥½å§ï¼Œæµ·ä¸Šè‰°é™©ï¼Œç»™ä½ ä¸€å—å¸†å¸ƒï¼Œä½ è‡ªå·±å»æ‰¾è°¢ä¸‰å“¥å§ã€‚";
 
 }
 #include "fawang.h"

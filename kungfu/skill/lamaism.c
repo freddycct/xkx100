@@ -1,4 +1,4 @@
-// lamaism.c ÃÜ×ÚĞÄ·¨
+// lamaism.c å¯†å®—å¿ƒæ³•
 // Last Modified by winder on Mar. 10 2000
 
 #include <ansi.h>
@@ -16,33 +16,33 @@ int valid_learn(object me)
 {
 	if ((me->query_skill("buddhism",1) > 1) ||
 		(me->query_skill("mahayana",1) > 1))
-		return notify_fail("¹ş¹ş£¡"+RANK_D->query_respect(me)+ "¼ÈÈëìøÃÅ£¬ÔõÃ´È´À´Ñ§ÃÜ×ÚĞÄ·¨£¿\n");
+		return notify_fail("å“ˆå“ˆï¼"+RANK_D->query_respect(me)+ "æ—¢å…¥ç¦…é—¨ï¼Œæ€ä¹ˆå´æ¥å­¦å¯†å®—å¿ƒæ³•ï¼Ÿ\n");
 	if( (int)me->query_skill("taoism",1) > 1 )
-		return notify_fail("ÄãÑ§ÁËÅ£±Ç×ÓµÄĞÄ·¨£¬ÎŞ·¨ĞŞÁ¶ÃÜ×ÚĞÄ·¨¡£\n");
+		return notify_fail("ä½ å­¦äº†ç‰›é¼»å­çš„å¿ƒæ³•ï¼Œæ— æ³•ä¿®ç‚¼å¯†å®—å¿ƒæ³•ã€‚\n");
 	if ((me->query_skill("ziyunyin",1) > 1) ||
 		(me->query_skill("zhengqijue",1) > 1))
-		return notify_fail("¹ş¹ş£¡"+RANK_D->query_respect(me)+ "ÒÑ¾­Ñ§ÁËÎ±¾ı×ÓµÄĞÄ·¨£¬ÔõÃ´È´À´Ñ§ÃÜ×ÚĞÄ·¨£¿\n");
+		return notify_fail("å“ˆå“ˆï¼"+RANK_D->query_respect(me)+ "å·²ç»å­¦äº†ä¼ªå›å­çš„å¿ƒæ³•ï¼Œæ€ä¹ˆå´æ¥å­¦å¯†å®—å¿ƒæ³•ï¼Ÿ\n");
 	if ((me->query_skill("poison",1) > 1))
-		return notify_fail("¹ş¹ş£¡"+RANK_D->query_respect(me)+ "ÒÑ¾­Ñ§ÁËĞ°Ä§ÍâµÀµÄ¶¾¼¼£¬ÔõÃ´È´À´Ñ§ÃÜ×ÚĞÄ·¨£¿\n");
+		return notify_fail("å“ˆå“ˆï¼"+RANK_D->query_respect(me)+ "å·²ç»å­¦äº†é‚ªé­”å¤–é“çš„æ¯’æŠ€ï¼Œæ€ä¹ˆå´æ¥å­¦å¯†å®—å¿ƒæ³•ï¼Ÿ\n");
 	if (me->query_skill("lamaism", 1) >= 150)
-		return notify_fail("ÏŞÓÚ×ÊÖÊ£¬Äã¶ÔÃÜ×ÚĞÄ·¨µÄÀí½âÒ²¾Íµ½´ËÎªÖ¹ÁË¡£\n");
+		return notify_fail("é™äºèµ„è´¨ï¼Œä½ å¯¹å¯†å®—å¿ƒæ³•çš„ç†è§£ä¹Ÿå°±åˆ°æ­¤ä¸ºæ­¢äº†ã€‚\n");
 	return 1;
 }
 
 int practice_skill(object me)
 {
-	return notify_fail("ÃÜ×ÚĞÄ·¨Ö»ÄÜ¿¿Ñ§(learn)À´Ìá¸ß¡£\n");
+	return notify_fail("å¯†å®—å¿ƒæ³•åªèƒ½é å­¦(learn)æ¥æé«˜ã€‚\n");
 }
 
 int help(object me)
 {
-	write(HIC"\nÃÜ×ÚĞÄ·¨£º"NOR"\n");
+	write(HIC"\nå¯†å®—å¿ƒæ³•ï¼š"NOR"\n");
 	write(@HELP
 
-    ÃÜ×ÚĞÄ·¨ÊÇÑ©ÓòÃÜ×ÚĞÄ·¨£¬ÓÃÒÔ³¬¶ÉÉúÁé¡£
+    å¯†å®—å¿ƒæ³•æ˜¯é›ªåŸŸå¯†å®—å¿ƒæ³•ï¼Œç”¨ä»¥è¶…æ¸¡ç”Ÿçµã€‚
 
-	Ñ§Ï°ÒªÇó£º
-		²»¿ÉÑ§ìø×Ú¡¢µÀ¼ÒºÍ»ªÉ½µÄĞÄ·¨ÒÔ¼°ĞÇËŞ¶¾¼¼
+	å­¦ä¹ è¦æ±‚ï¼š
+		ä¸å¯å­¦ç¦…å®—ã€é“å®¶å’Œåå±±çš„å¿ƒæ³•ä»¥åŠæ˜Ÿå®¿æ¯’æŠ€
 HELP
 	);
 	return 1;

@@ -3,11 +3,11 @@
 
 inherit NPC;
 void create()
-{       set_name("Õ¹ÕÑ", ({ "wpp"}));
-	set("gender", "ÄĞĞÔ");
+{       set_name("å±•æ˜­", ({ "wpp"}));
+	set("gender", "ç”·æ€§");
 	set("class", "taoist");
-	set("title", HIW"Ê¥ÈË"HIG"Ã÷½Ì·ç×ÖÃÅ½ÌÖÚ"NOR"ÎäÁÖÌ©¶·Îäµ±ÅÉÕÆÃÅ´óÊ¦ĞÖ");
-	set("nickname", HIW"ÓñÃ¨"HIR"ÄÏÏÀ"NOR);
+	set("title", HIW"åœ£äºº"HIG"æ˜æ•™é£å­—é—¨æ•™ä¼—"NOR"æ­¦æ—æ³°æ–—æ­¦å½“æ´¾æŒé—¨å¤§å¸ˆå…„");
+	set("nickname", HIW"ç‰çŒ«"HIR"å—ä¾ "NOR);
 	set("age", 51);
 	set("attitude", "friendly");
 
@@ -18,7 +18,7 @@ void create()
 	set("con", 20);
 	set("str", 25);
 	set("weiwang", 30);
-	create_family("Îäµ±ÅÉ" ,2, "µÜ×Ó");	
+	create_family("æ­¦å½“æ´¾" ,2, "å¼Ÿå­");	
 	setup();
 	carry_object(CLOTH_DIR"dao-cloth")->wear();
         carry_object(CLOTH_DIR"dao-shoe")->wear();

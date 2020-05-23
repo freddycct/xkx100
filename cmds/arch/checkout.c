@@ -10,30 +10,30 @@ inherit F_CLEAN_UP;
 
 
 mapping valid_types = ([
-        "array":        "Õó·¨",
-        "axe":          "¸«·¨",
-        "blade":        "µ¶·¨",
-        "claw":         "×¦·¨",
-        "club" :        "¹÷·¨",
-        "cuff":         "È­·¨",
-        "dagger":       "¶Ì±ø",
-        "dodge":        "Çá¹¦",
-        "finger":       "Ö¸·¨",
-        "force":        "ÄÚ¹¦",
-        "hammer":       "´¸·¨",
-        "hand":         "ÊÖ·¨",
-        "hook":         "¹³·¨",
-        "leg":          "ÍÈ·¨",
-        "magic":        "·¨Êõ",
-        "parry":        "ÕĞ¼Ü",
-        "spear":        "Ç¹·¨",
-        "staff":        "ÕÈ·¨",
-        "stick":        "°ô·¨",
-        "strike":       "ÕÆ·¨",
-        "sword":        "½£·¨",
-        "throwing":     "°µÆ÷",
-        "unarmed":      "È­½Å",
-        "whip":         "±Ş·¨",
+        "array":        "é˜µæ³•",
+        "axe":          "æ–§æ³•",
+        "blade":        "åˆ€æ³•",
+        "claw":         "çˆªæ³•",
+        "club" :        "æ£æ³•",
+        "cuff":         "æ‹³æ³•",
+        "dagger":       "çŸ­å…µ",
+        "dodge":        "è½»åŠŸ",
+        "finger":       "æŒ‡æ³•",
+        "force":        "å†…åŠŸ",
+        "hammer":       "é”¤æ³•",
+        "hand":         "æ‰‹æ³•",
+        "hook":         "é’©æ³•",
+        "leg":          "è…¿æ³•",
+        "magic":        "æ³•æœ¯",
+        "parry":        "æ‹›æ¶",
+        "spear":        "æªæ³•",
+        "staff":        "æ–æ³•",
+        "stick":        "æ£’æ³•",
+        "strike":       "æŒæ³•",
+        "sword":        "å‰‘æ³•",
+        "throwing":     "æš—å™¨",
+        "unarmed":      "æ‹³è„š",
+        "whip":         "é­æ³•",
 ]);
 
 int main(object me, string arg)
@@ -51,13 +51,13 @@ int main(object me, string arg)
 		if ( !player )
 			player = find_living( arg );
 		if ( !player )
-			return notify_fail( "ÄãÏë²é¿´Ë­µÄ×´Ì¬? \n" );	
+			return notify_fail( "ä½ æƒ³æŸ¥çœ‹è°çš„çŠ¶æ€? \n" );	
 		map = player->query_skill_map();
                 if( !mapp(map) || sizeof(map)==0 )
-                        return notify_fail("ËûÏÖÔÚÃ»ÓĞÊ¹ÓÃÈÎºÎÌØÊâ¼¼ÄÜ¡£\n");
+                        return notify_fail("ä»–ç°åœ¨æ²¡æœ‰ä½¿ç”¨ä»»ä½•ç‰¹æ®ŠæŠ€èƒ½ã€‚\n");
 
                 skill = keys(valid_types);
-                write("ÒÔÏÂÊÇËûÄ¿Ç°Ê¹ÓÃÖĞµÄÌØÊâ¼¼ÄÜ¡£\n");
+                write("ä»¥ä¸‹æ˜¯ä»–ç›®å‰ä½¿ç”¨ä¸­çš„ç‰¹æ®ŠæŠ€èƒ½ã€‚\n");
                 for (i=0; i<sizeof(skill); i++) {
                         if( undefinedp(valid_types[skill[i]]) ) {
                                 map_delete(map, skill[i]);
@@ -65,9 +65,9 @@ int main(object me, string arg)
                         }
                         if( !player->query_skill(skill[i]) ) continue;
                         modify = player->query_temp("apply/" + skill[i]);
-                        printf("  %-20s£º %-20s  ÓĞĞ§µÈ¼¶£º%s%3d\n" NOR, 
+                        printf("  %-20sï¼š %-20s  æœ‰æ•ˆç­‰çº§ï¼š%s%3d\n" NOR, 
                                 valid_types[skill[i]] + " (" + skill[i] + ")",
-                                undefinedp(map[skill[i]]) ? "ÎŞ" : 
+                                undefinedp(map[skill[i]]) ? "æ— " : 
 to_chinese(map[skill[i]]),
                                 (modify==0 ? "" : (modify>0 ? HIC : HIR)),
                                 player->query_skill(skill[i]));
@@ -76,6 +76,6 @@ to_chinese(map[skill[i]]),
         }
 	else
 	{
-        	return notify_fail( "ÄãÏë¿´Ë­µÄ×´Ì¬°¡? \n" );
+        	return notify_fail( "ä½ æƒ³çœ‹è°çš„çŠ¶æ€å•Š? \n" );
 	}
 }

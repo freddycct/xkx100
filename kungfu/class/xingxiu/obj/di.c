@@ -7,13 +7,13 @@ inherit F_QUEST;
 
 void create()
 {
-	set_name(WHT"°×Óñ¶ÌµÑ"NOR, ({ "duandi", "di",}));
+	set_name(WHT"ç™½çŽ‰çŸ­ç¬›"NOR, ({ "duandi", "di",}));
 	set("weight", 100);
 	seteuid(getuid());
 	if(clonep()) set_default_object(__FILE__);
 	else{
-		set("unit", "Ö»");
-		set("long", WHT"ÕâÓñµÑ¶ÌµÃ³öÆæ£¬Ö»²»À´Æß´çÀ´³¤¡¢Í¨Ìå½à°×£¬¾§Ó¨¿É°®¡£\n" NOR);
+		set("unit", "åª");
+		set("long", WHT"è¿™çŽ‰ç¬›çŸ­å¾—å‡ºå¥‡ï¼Œåªä¸æ¥ä¸ƒå¯¸æ¥é•¿ã€é€šä½“æ´ç™½ï¼Œæ™¶èŽ¹å¯çˆ±ã€‚\n" NOR);
 		set("value", 50); 
 		set("no_get", 1);
 		set("di_number", 0);
@@ -35,7 +35,7 @@ mapping get_stuffs()
 	mapping quest = stuffs[random(sizeof(stuffs))];
 	quest += (["time" : time()+quest["exp_reward"]*30,
 		"last_id" : quest["id"],
-		"type" : "ÕÒ" ]);
+		"type" : "æ‰¾" ]);
         return quest;
 }
 int set_task(string arg)
@@ -48,27 +48,27 @@ int set_task(string arg)
 	if( !this_object()->id(arg)) return 0;
 
 	if( me->is_busy() || me->is_fighting()) 
-		return notify_fail("ÄãÕýÃ¦×ÅÄØ¡£\n");    
+		return notify_fail("ä½ æ­£å¿™ç€å‘¢ã€‚\n");    
 	if(this_object()->query("xx_user") != getuid(me)) 
-		return notify_fail("ÄÃ×ÅÖ»±ðÈËµÄµÑ×Ó´µ£¿\n");    
+		return notify_fail("æ‹¿ç€åªåˆ«äººçš„ç¬›å­å¹ï¼Ÿ\n");    
 	if(!(where)->query("outdoors")) 
-		return notify_fail("ÄãÔÚÎÝÀï´µµÑ×Ó£¬µÑÉùÔõÃ´¿ÉÄÜ´«µÃÔ¶ÄØ£¿\n");
+		return notify_fail("ä½ åœ¨å±‹é‡Œå¹ç¬›å­ï¼Œç¬›å£°æ€Žä¹ˆå¯èƒ½ä¼ å¾—è¿œå‘¢ï¼Ÿ\n");
 	if(me->query_condition("gb_songxin") )
-		return notify_fail("ÀÏÏÉ×îÌÖÑá³ô½Ð»¯×Ó£¬ÏÈÈÓµôÄãµÄØ¤°ï°ïÎñÔÙËµ£¡\n");
+		return notify_fail("è€ä»™æœ€è®¨åŽŒè‡­å«åŒ–å­ï¼Œå…ˆæ‰”æŽ‰ä½ çš„ä¸å¸®å¸®åŠ¡å†è¯´ï¼\n");
 	if(me->query_temp("xx/id")) 
-		return notify_fail("ÄãÏÖÔÚÕýÔÚÖ´ÐÐÈÎÎñÖÐ¡£\n");  
+		return notify_fail("ä½ çŽ°åœ¨æ­£åœ¨æ‰§è¡Œä»»åŠ¡ä¸­ã€‚\n");  
 	if(me->query_condition("job_busy")) 
-		return notify_fail("Äã¸ÕÒªÍêÈÎÎñ£¬ÏÈµÈµÈ°É¡£\n");           
+		return notify_fail("ä½ åˆšè¦å®Œä»»åŠ¡ï¼Œå…ˆç­‰ç­‰å§ã€‚\n");           
 	if(me->query_condition("wait_xx_task")) 
-		return notify_fail("ÉÏ´Î¸ãÔÒÁË£¬Õâ´ÎÄã¾ÍµÈµÈ°É¡£\n");      
-	tell_room(environment(me), HIY+me->name()+"ÄÃÆðÒ»Ö»"+this_object()->query("name")+HIY"·Åµ½¿Ú±ß£¬ÇáÇáÒ»´µ£¬·¢³öÒ»¹É³¾ÈñµÄÉÚÉù¡£±¾À´µÑÉùÇåÑï¼¤Ô½£¬\nµ«Õâ¸ùÓñµÑÖÐ·¢³öÀ´µÄÉùÒôÈ´Ê®·ÖÆàÀ÷£¬È«·ÇÀÖµ÷¡£\n"NOR, ({ me }));
-	tell_object(me,HIY"ÄãÄÃÆð"+this_object()->query("name")+HIY"·Åµ½¿Ú±ß£¬ÇáÇá´µÁËÆðÀ´¡£\n"NOR);
+		return notify_fail("ä¸Šæ¬¡æžç ¸äº†ï¼Œè¿™æ¬¡ä½ å°±ç­‰ç­‰å§ã€‚\n");      
+	tell_room(environment(me), HIY+me->name()+"æ‹¿èµ·ä¸€åª"+this_object()->query("name")+HIY"æ”¾åˆ°å£è¾¹ï¼Œè½»è½»ä¸€å¹ï¼Œå‘å‡ºä¸€è‚¡å°˜é”çš„å“¨å£°ã€‚æœ¬æ¥ç¬›å£°æ¸…æ‰¬æ¿€è¶Šï¼Œ\nä½†è¿™æ ¹çŽ‰ç¬›ä¸­å‘å‡ºæ¥çš„å£°éŸ³å´ååˆ†å‡„åŽ‰ï¼Œå…¨éžä¹è°ƒã€‚\n"NOR, ({ me }));
+	tell_object(me,HIY"ä½ æ‹¿èµ·"+this_object()->query("name")+HIY"æ”¾åˆ°å£è¾¹ï¼Œè½»è½»å¹äº†èµ·æ¥ã€‚\n"NOR);
 	if((where)->query("outdoors") != "xingxiu" &&
 		(where)->query("outdoors") != "xiyu")
-		return notify_fail("´ËµØºÍÐÇËÞº£ÏàÀëÌ«Ô¶£¬ÐÅ¸ë¿ÖÅÂÌý²»µ½µÑÉù¡£\n"); 
+		return notify_fail("æ­¤åœ°å’Œæ˜Ÿå®¿æµ·ç›¸ç¦»å¤ªè¿œï¼Œä¿¡é¸½ææ€•å¬ä¸åˆ°ç¬›å£°ã€‚\n"); 
 	if(random(2)==1)
 	{
-		if(!mapp(quest = get_quest(me, 0, "É±"))) 
+		if(!mapp(quest = get_quest(me, 0, "æ€"))) 
 		quest = get_stuffs();
 	}
 	else quest = get_stuffs();
@@ -84,18 +84,18 @@ int report(object me)
 	if(!me) return 0;
   
 	if( me->is_busy() || me->is_fighting()) 
-		return notify_fail("ÄãÕýÃ¦×ÅÄØ¡£\n");   
+		return notify_fail("ä½ æ­£å¿™ç€å‘¢ã€‚\n");   
 	if (!me->query_temp("quest/id")) 
-		return notify_fail("ÄãÏÖÔÚ»¹Ã»ÓÐ½ÓÊÕµ½ÈÎºÎÈÎÎñ¡£\n");
+		return notify_fail("ä½ çŽ°åœ¨è¿˜æ²¡æœ‰æŽ¥æ”¶åˆ°ä»»ä½•ä»»åŠ¡ã€‚\n");
    
-	message_vision(HIW"\nÖ»¼ûÌì¿ÕÖÐ·ÉÏÂÒ»Ö»°×É«ÐÅ¸ë£¬½µÔÚ$NµÄ¼çÍ·¡£\n\n"NOR,me);
-	message_vision("$N½«ÊéÐÅ´Ó°×¸ëÉíÉÏ½âÏÂ£¬î©ÁËÒ»ÑÛ¡£\n",me);
-	tell_object(me,"ÐÅÖÐÐ´µÀ£º \nÀÏÏÉ×î½üµÄÒâË¼¿ÉÄÜÊÇÏëÒª");
-	if(me->query_temp("quest/type") == "É±")
-		tell_object(me, "É±µô¡¸ "+me->query_temp("quest/name")+"("+me->query_temp("quest/id")+") ¡¹¡£\n\n");
+	message_vision(HIW"\nåªè§å¤©ç©ºä¸­é£žä¸‹ä¸€åªç™½è‰²ä¿¡é¸½ï¼Œé™åœ¨$Nçš„è‚©å¤´ã€‚\n\n"NOR,me);
+	message_vision("$Nå°†ä¹¦ä¿¡ä»Žç™½é¸½èº«ä¸Šè§£ä¸‹ï¼ŒçžŸäº†ä¸€çœ¼ã€‚\n",me);
+	tell_object(me,"ä¿¡ä¸­å†™é“ï¼š \nè€ä»™æœ€è¿‘çš„æ„æ€å¯èƒ½æ˜¯æƒ³è¦");
+	if(me->query_temp("quest/type") == "æ€")
+		tell_object(me, "æ€æŽ‰ã€Œ "+me->query_temp("quest/name")+"("+me->query_temp("quest/id")+") ã€ã€‚\n\n");
 	else
-		tell_object(me, "µÃµ½¡¸ "+me->query_temp("quest/name")+"("+me->query_temp("quest/id")+") ¡¹¡£\n\n");
-	tell_object(me, "Ä¿Ç°Çé¿ö¿ÉÒÔÍ¨¹ý²é¿´ÈÎÎñ(report)À´ÁË½â¡£\n");
+		tell_object(me, "å¾—åˆ°ã€Œ "+me->query_temp("quest/name")+"("+me->query_temp("quest/id")+") ã€ã€‚\n\n");
+	tell_object(me, "ç›®å‰æƒ…å†µå¯ä»¥é€šè¿‡æŸ¥çœ‹ä»»åŠ¡(report)æ¥äº†è§£ã€‚\n");
 	return 1;       
 }
 int report_task()
@@ -104,15 +104,15 @@ int report_task()
 	object me = this_player();
 	time = me->query_temp("quest/time");
   
-	if (!time) return notify_fail("ÄãÏÖÔÚ»¹Ã»ÓÐ½ÓÊÕµ½ÈÎºÎÈÎÎñ¡£\n");
-	write("ÄãÄ¿Ç°µÄÈÎÎñÄ¿±êÊÇ£º\n\n");
+	if (!time) return notify_fail("ä½ çŽ°åœ¨è¿˜æ²¡æœ‰æŽ¥æ”¶åˆ°ä»»ä½•ä»»åŠ¡ã€‚\n");
+	write("ä½ ç›®å‰çš„ä»»åŠ¡ç›®æ ‡æ˜¯ï¼š\n\n");
    
-	if(me->query_temp("quest/type") == "É±")
-		write("       É±µô¡¸ "+me->query_temp("quest/name")+"("+me->query_temp("quest/id")+") ¡¹¡£\n\n²¢ÔÚÊ¬ÌåÉÏÁôÏÂ(sign corpse)ÎÒÃÇÐÇËÞÅÉµÄ±êÖ¾¡£\n");
+	if(me->query_temp("quest/type") == "æ€")
+		write("       æ€æŽ‰ã€Œ "+me->query_temp("quest/name")+"("+me->query_temp("quest/id")+") ã€ã€‚\n\nå¹¶åœ¨å°¸ä½“ä¸Šç•™ä¸‹(sign corpse)æˆ‘ä»¬æ˜Ÿå®¿æ´¾çš„æ ‡å¿—ã€‚\n");
 	else
-		write("       ÕÒµ½¡¸ "+me->query_temp("quest/name")+"("+me->query_temp("quest/id")+") ¡¹£¬Ï×(xian)¸øÀÏÏÉ¡£\n\n");
+		write("       æ‰¾åˆ°ã€Œ "+me->query_temp("quest/name")+"("+me->query_temp("quest/id")+") ã€ï¼ŒçŒ®(xian)ç»™è€ä»™ã€‚\n\n");
    
-	tell_object(me, "Äã±ØÐëÔÚ"+get_time(time)+"Ö®Ç°Íê³ÉÈÎÎñ£¡\n\n");
+	tell_object(me, "ä½ å¿…é¡»åœ¨"+get_time(time)+"ä¹‹å‰å®Œæˆä»»åŠ¡ï¼\n\n");
 	return 1;
 }
 int mark_success(string arg)
@@ -120,39 +120,39 @@ int mark_success(string arg)
 	object target, me = this_player();
 	string last;
   
-	if(!arg) return notify_fail("ÄãÒª¸ÉÊ²Ã´£¿\n");
+	if(!arg) return notify_fail("ä½ è¦å¹²ä»€ä¹ˆï¼Ÿ\n");
 	if(!objectp(target = present(arg, environment(me))))
-		return notify_fail("ÕÒ²»µ½Õâ¸ö¶«Î÷¡£\n");
+		return notify_fail("æ‰¾ä¸åˆ°è¿™ä¸ªä¸œè¥¿ã€‚\n");
 	if( me->is_busy() || me->is_fighting()) 
-		return notify_fail("ÄãÕýÃ¦×ÅÄØ¡£\n");    
+		return notify_fail("ä½ æ­£å¿™ç€å‘¢ã€‚\n");    
 	switch (is_target(target, me))
 	{
 		case 0:  return 0;
-		case -1: tell_object(me, "Ò®£¿ÓÐÈÃÄãÈ¥É±ÈËÁËÂð£¿\n");
+		case -1: tell_object(me, "è€¶ï¼Ÿæœ‰è®©ä½ åŽ»æ€äººäº†å—ï¼Ÿ\n");
 			return 0;
-		case -2: tell_object(me,"±¿µ°£¬ÄãÉ±´íÈËÁË£¡\n");
+		case -2: tell_object(me,"ç¬¨è›‹ï¼Œä½ æ€é”™äººäº†ï¼\n");
 			return 0;
-		case -3: tell_object(me,"ÔãÁË£¬Ê±¼äÒÑ¾­¹ýÁË£¡\n");
+		case -3: tell_object(me,"ç³Ÿäº†ï¼Œæ—¶é—´å·²ç»è¿‡äº†ï¼\n");
 			last = me->query_temp("quest/last_id");
 			me->delete_temp("quest");
 			me->set_temp("quest/last_id", last);
 			me->apply_condition("wait_xx_task", 40); 
 			return 0;
-		case -4: tell_object(me,"Å¶£¬ÕâÈËºÍNPCÍ¬Ãû£¿ËãËûµ¹Ã¹£¡\n");
+		case -4: tell_object(me,"å“¦ï¼Œè¿™äººå’ŒNPCåŒåï¼Ÿç®—ä»–å€’éœ‰ï¼\n");
 			return 0;
 		default: break;
 	}
-	if(me->query("family/family_name") == "ÐÇËÞÅÉ")
+	if(me->query("family/family_name") == "æ˜Ÿå®¿æ´¾")
 	{
-		message_vision(HIR"\n$N×óÊÖÒ»Ñï£¬ÒÂÐäÖÐ·É³öÒ»µã"BLU"À¶Ó¡Ó¡"HIR"µÄ»ð»¨£¬àÍàÍ×öÏì£¬ÉäÏò$n£¬×ÅÌå±ãÈ¼£¡\n\n"NOR, me, target);
-		target->set("name", HIB"ÉÕ½¹µÄÊ¬Ìå"NOR);
-		target->set("long", HIB"Ò»¾ß±»Á¶ÐÄµ¯ÉÕ½¹µÄÊ¬Ìå£¬½¹³ôËÄÒç£¬Çé×´¿É²À¡£\n"NOR);
+		message_vision(HIR"\n$Nå·¦æ‰‹ä¸€æ‰¬ï¼Œè¡£è¢–ä¸­é£žå‡ºä¸€ç‚¹"BLU"è“å°å°"HIR"çš„ç«èŠ±ï¼Œå—¤å—¤åšå“ï¼Œå°„å‘$nï¼Œç€ä½“ä¾¿ç‡ƒï¼\n\n"NOR, me, target);
+		target->set("name", HIB"çƒ§ç„¦çš„å°¸ä½“"NOR);
+		target->set("long", HIB"ä¸€å…·è¢«ç‚¼å¿ƒå¼¹çƒ§ç„¦çš„å°¸ä½“ï¼Œç„¦è‡­å››æº¢ï¼Œæƒ…çŠ¶å¯æ€–ã€‚\n"NOR);
 		me->add("xx_points", 1);
 	}
 	else
 	{
-		message_vision("$NºßÁËÒ»Éù£¬ÓÃÄ«±ÊÔÚ$nµÄÒÂÐäÉÏÐ´ÏÂÁË¡°ÐÇËÞ¡±¶þ×Ö¡£\n", me, target);
-		target->set("long", target->query("long")+"\nÉÏÃæÓÐÈËÐ´ÁË´ó´óµÄ "HIB"ÐÇËÞ"NOR" ¶þ×Ö¡£\n");
+		message_vision("$Nå“¼äº†ä¸€å£°ï¼Œç”¨å¢¨ç¬”åœ¨$nçš„è¡£è¢–ä¸Šå†™ä¸‹äº†â€œæ˜Ÿå®¿â€äºŒå­—ã€‚\n", me, target);
+		target->set("long", target->query("long")+"\nä¸Šé¢æœ‰äººå†™äº†å¤§å¤§çš„ "HIB"æ˜Ÿå®¿"NOR" äºŒå­—ã€‚\n");
 	}
 	call_out("done", 1, me);   
 	me->start_busy(1);    
@@ -169,15 +169,15 @@ void done(object me)
         if (num<4) times=num;
          else times=4;
         
-        if (!(fam = me->query("family")) || fam["family_name"] != "ÐÇËÞÅÉ")  score = 0;
+        if (!(fam = me->query("family")) || fam["family_name"] != "æ˜Ÿå®¿æ´¾")  score = 0;
          else score=random(10)+ 10 * times;        
 	
 	me->add("combat_exp", quest["exp_reward"]);
 	me->add("potential", quest["pot_reward"]);
 	me->add("family/fealty",score);
 	
-	tell_object(me, "ºÃ£¡ÈÎÎñÍê³É£¬ÄãÂíÉÏ×öÁËÒ»·â·É¸ë´«ÊéËÍ»ØÐÇËÞº£¡£\n");
-	tell_object(me, GRN"Äã»ñµÃ"+chinese_number(quest["exp_reward"])+"µã¾­ÑéºÍ"+chinese_number(quest["pot_reward"])+"µãÇ±ÄÜºÍ"+chinese_number(score)+"µãÖÒ³Ï¶ÈµÄ½±Àø£¡\n"NOR);
+	tell_object(me, "å¥½ï¼ä»»åŠ¡å®Œæˆï¼Œä½ é©¬ä¸Šåšäº†ä¸€å°é£žé¸½ä¼ ä¹¦é€å›žæ˜Ÿå®¿æµ·ã€‚\n");
+	tell_object(me, GRN"ä½ èŽ·å¾—"+chinese_number(quest["exp_reward"])+"ç‚¹ç»éªŒå’Œ"+chinese_number(quest["pot_reward"])+"ç‚¹æ½œèƒ½å’Œ"+chinese_number(score)+"ç‚¹å¿ è¯šåº¦çš„å¥–åŠ±ï¼\n"NOR);
 
 	
 	me->add("shen", -(quest["exp_reward"]*15));

@@ -5,11 +5,11 @@
 inherit ROOM;
 void create()
 {
-	set("short", "·ìÏ¶");
+	set("short", "ç¼éš™");
 	set("long", @LONG
-ÕâÀïÊÇÊ¯¿éÓëÊ¯¿éÖ®¼äµÄ¼Ð·ì£¬¹âÏß»è°µ¡£ÄãÃ÷ÏÔ¸Ð¾õµ½ËÄÖÜµÄÉ³É³
-ÉùÊÇ¸÷ÖÖ¶¾³æÅÀÐÐµÄÉùÒô£¬Ò»¹É¹ÉÐÈÎ¶ÖÐÒ²¼ÐÔÓ×ÅÒ»Ð©´Ì±ÇµÄÆøÏ¢¡£Äã·¢
-ÏÖÇ°ÃæÓÐÒ»Ê¯¿é(shikuai) ÒþÒþ·¢³öµ­µ­µÄ¹âÃ¢¡£
+è¿™é‡Œæ˜¯çŸ³å—ä¸ŽçŸ³å—ä¹‹é—´çš„å¤¹ç¼ï¼Œå…‰çº¿æ˜æš—ã€‚ä½ æ˜Žæ˜¾æ„Ÿè§‰åˆ°å››å‘¨çš„æ²™æ²™
+å£°æ˜¯å„ç§æ¯’è™«çˆ¬è¡Œçš„å£°éŸ³ï¼Œä¸€è‚¡è‚¡è…¥å‘³ä¸­ä¹Ÿå¤¹æ‚ç€ä¸€äº›åˆºé¼»çš„æ°”æ¯ã€‚ä½ å‘
+çŽ°å‰é¢æœ‰ä¸€çŸ³å—(shikuai) éšéšå‘å‡ºæ·¡æ·¡çš„å…‰èŠ’ã€‚
 LONG);
 	set("objects", ([
 		__DIR__"npc/fushe" : 2
@@ -20,7 +20,7 @@ LONG);
 		"out"   : __DIR__"yuanzi3",
 	]));
 	set("item_desc", ([		    
-		"shikuai":RED"\nÕâ¿éÊ¯Í·³Êºì¹¯É«£¬É¢·¢×ÅÕóÕóÈÈÆø£¬Ê¯¿éÉÏ°¼ÏÝ½øÈ¥µÄ²¿·ÖÊÇ¸ö×óÊÖÊÖÕÆÐÎ¡£\n"NOR,
+		"shikuai":RED"\nè¿™å—çŸ³å¤´å‘ˆçº¢æ±žè‰²ï¼Œæ•£å‘ç€é˜µé˜µçƒ­æ°”ï¼ŒçŸ³å—ä¸Šå‡¹é™·è¿›åŽ»çš„éƒ¨åˆ†æ˜¯ä¸ªå·¦æ‰‹æ‰‹æŽŒå½¢ã€‚\n"NOR,
 	]));
 	set("coor/x", -49900);
 	set("coor/y", 20080);
@@ -41,12 +41,12 @@ int do_push(string arg)
 	if( !arg || arg=="" ) return 0;
 	if( !me->query_temp("baituo_stone") ) return 0;
 	if( (int)me->query_temp("baituo_stone1") ) 
-		return notify_fail("ÄãÒÑ¾­ÍÆ¶¯¹ýÁËÊ¯¿é¡£\n");
+		return notify_fail("ä½ å·²ç»æŽ¨åŠ¨è¿‡äº†çŸ³å—ã€‚\n");
 	if (arg == "shikuai" )
 	{
-		message_vision("$NÉîÉîÎüÁË¿ÚÆø£¬Éì³ö×óÊÖ°´×¡Ê¯¿éÉÏµÄÊÖÓ¡£¬»º»ºÏòÏÂÍÆÈ¥¡£\n", me);	    
+		message_vision("$Næ·±æ·±å¸äº†å£æ°”ï¼Œä¼¸å‡ºå·¦æ‰‹æŒ‰ä½çŸ³å—ä¸Šçš„æ‰‹å°ï¼Œç¼“ç¼“å‘ä¸‹æŽ¨åŽ»ã€‚\n", me);	    
 		me->set_temp("baituo_stone1", 1);
-		message_vision("$N½«Ê¯¿é°´ÏÂ´çÐí£¬ÒþÒþÔ¼Ô¼Ìýµ½µØÏÂ´«À´Ò»ÕóºäÂ¡Éù¡£\n", me);
+		message_vision("$Nå°†çŸ³å—æŒ‰ä¸‹å¯¸è®¸ï¼Œéšéšçº¦çº¦å¬åˆ°åœ°ä¸‹ä¼ æ¥ä¸€é˜µè½°éš†å£°ã€‚\n", me);
 		me->start_busy(5);      
 		call_out("poisoned", 5, me);
 		return 1;
@@ -59,8 +59,8 @@ int poisoned()
 	if ((int)me->query_skill("poison", 1) < 80 &&
 		!me->query_skill("hamagong", 1))
 	{
-		tell_object(me, RED"Äã¸Ðµ½Ê¯¿éÉÏµÄÑ×ÈÈÖ®ÆøË³×ÅÊÖ±ÛÂýÂý´«ÁËÉÏÀ´¡£\n\n" NOR );
-		message_vision("$NÍ»È»Éí×ÓÒ»²ü£¬ºÃÏóÊÇÖÐÁËÈÈ¶¾£¡\n", me);
+		tell_object(me, RED"ä½ æ„Ÿåˆ°çŸ³å—ä¸Šçš„ç‚Žçƒ­ä¹‹æ°”é¡ºç€æ‰‹è‡‚æ…¢æ…¢ä¼ äº†ä¸Šæ¥ã€‚\n\n" NOR );
+		message_vision("$Nçªç„¶èº«å­ä¸€é¢¤ï¼Œå¥½è±¡æ˜¯ä¸­äº†çƒ­æ¯’ï¼\n", me);
 		me->apply_condition("hot_poison", 50);
 		me->delete_temp("baituo_stone");
 		return 1;
@@ -68,8 +68,8 @@ int poisoned()
 	if (me->query_skill("hamagong", 1) ||
 		me->query_skill("poison", 1) >= 80)
 	{
-		tell_object(me, RED"ºöÈ»Ò»¹ÉÑ×ÈÈÖ®ÆøË³×ÅÊÖ±Û´ÓÊ¯¿éÉÏÂýÂý´«ÁËÉÏÀ´¡£\n\n" NOR );
-		tell_object(me, HIW"ÄãÁ¬Ã¦ÔË¹¦µ÷Æø£¬½«ÇÖÈëÊÖ±ÛµÄÑ×ÈÈÖ®Æø¾¡Êý±ÆÁË³öÈ¥¡£\n" NOR );
+		tell_object(me, RED"å¿½ç„¶ä¸€è‚¡ç‚Žçƒ­ä¹‹æ°”é¡ºç€æ‰‹è‡‚ä»ŽçŸ³å—ä¸Šæ…¢æ…¢ä¼ äº†ä¸Šæ¥ã€‚\n\n" NOR );
+		tell_object(me, HIW"ä½ è¿žå¿™è¿åŠŸè°ƒæ°”ï¼Œå°†ä¾µå…¥æ‰‹è‡‚çš„ç‚Žçƒ­ä¹‹æ°”å°½æ•°é€¼äº†å‡ºåŽ»ã€‚\n" NOR );
 		me->delete_temp("baituo_stone");
 		return 1;
 	}	       

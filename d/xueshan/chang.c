@@ -1,14 +1,14 @@
-// chang.c ���䳡
+// chang.c 练武场
 
 inherit ROOM;
 
 void create()
 {
-        set("short","���䳡");
+        set("short","练武场");
         set("long",@LONG
-������ѩɽ�����䳡�����źö�ľ׮��ɳ����ɮ�����ճ����ڴ�ϰ
-�䡣�����ǹ㳡�������и�С�ⷿ���ϱ�һ��Ƭ�����أ�����ѩɽ����
-���ڵļ�̳�ˡ�
+这里是雪山寺练武场，树着好多木桩和沙袋，僧人们日常均在此习
+武。东边是广场，西边有个小库房，南边一大片开阔地，就是雪山闻名
+海内的祭坛了。
 LONG );
         set("outdoors","xueshansi");
         set("exits",([

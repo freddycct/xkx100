@@ -6,11 +6,11 @@ string do_quit(string arg);
 
 void create()
 {
-	set("short", "ÀŞÌ¨");
+	set("short", "æ“‚å°");
 	set("long", @LONG
-ÕâÊÇÒ»¸öËÄÕÉ¼û·½µÄÀŞÌ¨¡£´Ö×³½áÊµµÄÄ¾Öù³ÅÆğÒ»Æ¬Æ½Ì¨£¬ËÄ½ÇµÄ
-Ö§ÖùÉÏ¸ß¹Ò×ÅËÄ¸±¶ÔÁª£¬ËÄÃæµÄ¹ÛÖÚ¶¼ÄÜÇå³şµØ¿´µ½Ì¨ÉÏµÄÊÖÆğ½ÅÂä¡£
-ÀŞÌ¨½ÇÉÏÓĞ¸ö±øÆ÷¼Ü(shelf) £¬µ¶½£±Ş°ôÑùÑù¾ãÈ«¡£
+è¿™æ˜¯ä¸€ä¸ªå››ä¸ˆè§æ–¹çš„æ“‚å°ã€‚ç²—å£®ç»“å®çš„æœ¨æŸ±æ’‘èµ·ä¸€ç‰‡å¹³å°ï¼Œå››è§’çš„
+æ”¯æŸ±ä¸Šé«˜æŒ‚ç€å››å‰¯å¯¹è”ï¼Œå››é¢çš„è§‚ä¼—éƒ½èƒ½æ¸…æ¥šåœ°çœ‹åˆ°å°ä¸Šçš„æ‰‹èµ·è„šè½ã€‚
+æ“‚å°è§’ä¸Šæœ‰ä¸ªå…µå™¨æ¶(shelf) ï¼Œåˆ€å‰‘é­æ£’æ ·æ ·ä¿±å…¨ã€‚
 LONG );
         set("outdoors", "yangzhouw");
 	set("item_desc", ([
@@ -40,19 +40,19 @@ string look_shelf()
 {
 	return 
 "\n
-Ò»¸öºÜÓĞÄêÍ·µÄ±øÆ÷¼Ü£¬ºìÆá¶¼°şÂäµÃ²î²»¶àÁË¡£
-¼ÜÉÏ°ÚÂúÁË: 
-                 ¸Öµ¶(blade)    ³¤½£(sword)
-                 ¸ÖÕÈ(staff)    ³¤±Ş(whip)
-                 Ìú´¸(hammer)   ³¤¹÷(club)
-                 Ìú°ô(stick)    °å¸«(axe)
-                 ¸Ö¹³(hook)     ¶Ì±ø(dagger)
-                 °µÆ÷(throwing) ¸Ö¼×(armor)
-                 ³¤Ç¹(spear)
+ä¸€ä¸ªå¾ˆæœ‰å¹´å¤´çš„å…µå™¨æ¶ï¼Œçº¢æ¼†éƒ½å‰¥è½å¾—å·®ä¸å¤šäº†ã€‚
+æ¶ä¸Šæ‘†æ»¡äº†: 
+                 é’¢åˆ€(blade)    é•¿å‰‘(sword)
+                 é’¢æ–(staff)    é•¿é­(whip)
+                 é“é”¤(hammer)   é•¿æ£(club)
+                 é“æ£’(stick)    æ¿æ–§(axe)
+                 é’¢é’©(hook)     çŸ­å…µ(dagger)
+                 æš—å™¨(throwing) é’¢ç”²(armor)
+                 é•¿æª(spear)
                  
-²Î¼Ó±ÈÎäÕß¿ÉÒÔ°´ĞèÒª£¬Ëæ±ãÄÃÈ¡(take)Ê¹ÓÃ¡£
+å‚åŠ æ¯”æ­¦è€…å¯ä»¥æŒ‰éœ€è¦ï¼Œéšä¾¿æ‹¿å–(take)ä½¿ç”¨ã€‚
 
-                                ÏÀ¿ÍĞĞÀŞÌ¨  ¾´Æô
+                                ä¾ å®¢è¡Œæ“‚å°  æ•¬å¯
 \n";
 }
 
@@ -83,7 +83,7 @@ void init()
 int valid_leave(object me, string dir)
 {
         if( dir=="up" && !wizardp(me) )
-                return notify_fail("²ÃÅĞÏ¯Ö»ÓĞ±»ÌØÑû²ÅÄÜ½øÈ¥¡£\n");
+                return notify_fail("è£åˆ¤å¸­åªæœ‰è¢«ç‰¹é‚€æ‰èƒ½è¿›å»ã€‚\n");
 	me->set_temp("view_leitai",1);
 	me->delete("no_get");
         return ::valid_leave(me, dir);
@@ -92,21 +92,21 @@ int do_yun(string arg)
 {
 	if (arg=="roar")
 	{
-        write(this_player()->query("name")+"£¬×¨ĞÄ±ÈÎä°É£¡\n");
+        write(this_player()->query("name")+"ï¼Œä¸“å¿ƒæ¯”æ­¦å§ï¼\n");
 	return 0;
 	}
 	return 1;
 }
 int do_quit(string arg)
 {
-        write(this_player()->query("name")+"£¬×¨ĞÄ±ÈÎä°É£¡\n");
+        write(this_player()->query("name")+"ï¼Œä¸“å¿ƒæ¯”æ­¦å§ï¼\n");
 	return 1;
 }
 int do_open()
 {
 	if(wizardp(this_player()))
 	{
-		message_vision("$N°Ñ±øÆ÷¼ÜÆô·âÁË¡£\n", this_player());
+		message_vision("$NæŠŠå…µå™¨æ¶å¯å°äº†ã€‚\n", this_player());
 		this_object()->delete("no_openshelf");
 		return 1;
 	}
@@ -116,7 +116,7 @@ int do_close()
 {
 	if(wizardp(this_player()))
 	{
-		message_vision("$NÄÃÁËÌõ·âÌõ°Ñ±øÆ÷¼Ü¸ø·âÁË¡£\n", this_player());
+		message_vision("$Næ‹¿äº†æ¡å°æ¡æŠŠå…µå™¨æ¶ç»™å°äº†ã€‚\n", this_player());
 		this_object()->set("no_openshelf", 1);
 		return 1;
 	}
@@ -128,12 +128,12 @@ int do_take(string arg)
 	ob = this_player();
 	if(this_object()->query("no_openshelf"))
 	{
-		message_vision("·Ç´ó±ÈÎäµÄÊ±ºò£¬±øÆ÷¼Ü¸ø·â×¡ÁË¡£\n", ob);
+		message_vision("éå¤§æ¯”æ­¦çš„æ—¶å€™ï¼Œå…µå™¨æ¶ç»™å°ä½äº†ã€‚\n", ob);
 		return 1;
 	}
 	if( !arg || arg=="" )
 	{
-		message_vision("$NÕ¾ÔÚ±øÆ÷¼ÜÇ°£¬»¹Ã»ÏëºÃÒªÊ²Ã´±øÆ÷¡£\n", ob);
+		message_vision("$Nç«™åœ¨å…µå™¨æ¶å‰ï¼Œè¿˜æ²¡æƒ³å¥½è¦ä»€ä¹ˆå…µå™¨ã€‚\n", ob);
 		return 1;
 	}
 	switch (arg)
@@ -141,70 +141,70 @@ int do_take(string arg)
 		case "sword":
 			obj = new("/clone/weapon/changjian1");
 			obj -> move(ob);
-			message_vision("$N´Ó±øÆ÷¼ÜÉÏÈ¡ÏÂÒ»¿Ú³¤½£¡£\n",ob);
+			message_vision("$Nä»å…µå™¨æ¶ä¸Šå–ä¸‹ä¸€å£é•¿å‰‘ã€‚\n",ob);
 			break;
 		case "blade":
 			obj = new("/clone/weapon/gangdao1");
 			obj -> move(ob);
-			message_vision("$N´Ó±øÆ÷¼ÜÉÏÈ¡ÏÂÒ»¿Ú¸Öµ¶¡£\n",ob);
+			message_vision("$Nä»å…µå™¨æ¶ä¸Šå–ä¸‹ä¸€å£é’¢åˆ€ã€‚\n",ob);
 			break;
 		case "staff":
 			obj = new("/clone/weapon/gangzhang1");
 			obj -> move(ob);
-			message_vision("$N´Ó±øÆ÷¼ÜÉÏÈ¡ÏÂÒ»¸Ë¸ÖÕÈ¡£\n",ob);
+			message_vision("$Nä»å…µå™¨æ¶ä¸Šå–ä¸‹ä¸€æ†é’¢æ–ã€‚\n",ob);
 			break;
 		case "whip":
 			obj = new("/clone/weapon/changbian1");
 			obj -> move(ob);
-			message_vision("$N´Ó±øÆ÷¼ÜÉÏÈ¡ÏÂÒ»Ìõ³¤±Ş¡£\n",ob);
+			message_vision("$Nä»å…µå™¨æ¶ä¸Šå–ä¸‹ä¸€æ¡é•¿é­ã€‚\n",ob);
 			break;
 		case "stick":
 			obj = new("/clone/weapon/stick1");
 			obj -> move(ob);
-			message_vision("$N´Ó±øÆ÷¼ÜÉÏÈ¡ÏÂÒ»ÌõÌú°ô¡£\n",ob);
+			message_vision("$Nä»å…µå™¨æ¶ä¸Šå–ä¸‹ä¸€æ¡é“æ£’ã€‚\n",ob);
 			break;
 		case "club":
 			obj = new("/clone/weapon/qimeigun1");
 			obj -> move(ob);
-			message_vision("$N´Ó±øÆ÷¼ÜÉÏÈ¡ÏÂÒ»ÌõÆëÃ¼¹÷¡£\n",ob);
+			message_vision("$Nä»å…µå™¨æ¶ä¸Šå–ä¸‹ä¸€æ¡é½çœ‰æ£ã€‚\n",ob);
 			break;
 		case "hammer":
 			obj = new("/clone/weapon/hammer1");
 			obj -> move(ob);
-			message_vision("$N´Ó±øÆ÷¼ÜÉÏÈ¡ÏÂÒ»°ÑÌú´¸¡£\n",ob);
+			message_vision("$Nä»å…µå™¨æ¶ä¸Šå–ä¸‹ä¸€æŠŠé“é”¤ã€‚\n",ob);
 			break;
 		case "axe":
 			obj = new("/clone/weapon/axe1");
 			obj -> move(ob);
-			message_vision("$N´Ó±øÆ÷¼ÜÉÏÈ¡ÏÂÒ»±ú°å¸«¡£\n",ob);
+			message_vision("$Nä»å…µå™¨æ¶ä¸Šå–ä¸‹ä¸€æŸ„æ¿æ–§ã€‚\n",ob);
 			break;
 		case "throwing":
 			obj = new("/clone/weapon/lianzi1");
 			obj -> move(ob);
-			message_vision("$N´Ó±øÆ÷¼ÜÉÏÈ¡ÏÂÒ»°üÌúÁ«×Ó¡£\n",ob);
+			message_vision("$Nä»å…µå™¨æ¶ä¸Šå–ä¸‹ä¸€åŒ…é“è²å­ã€‚\n",ob);
 			break;
 		case "dagger":
 			obj = new("/clone/weapon/dagger1");
 			obj -> move(ob);
-			message_vision("$N´Ó±øÆ÷¼ÜÉÏÈ¡ÏÂÒ»°ÑØ°Ê×¡£\n",ob);
+			message_vision("$Nä»å…µå™¨æ¶ä¸Šå–ä¸‹ä¸€æŠŠåŒ•é¦–ã€‚\n",ob);
 			break;
 		case "armor":
 			obj = new("/clone/weapon/tiejia");
 			obj -> move(ob);
-			message_vision("$N´Ó±øÆ÷¼ÜÉÏÈ¡ÏÂÒ»¸±Ìú¼×¡£\n",ob);
+			message_vision("$Nä»å…µå™¨æ¶ä¸Šå–ä¸‹ä¸€å‰¯é“ç”²ã€‚\n",ob);
 			break;
 		case "hook":
 			obj = new("/clone/weapon/hook1");
 			obj -> move(ob);
-			message_vision("$N´Ó±øÆ÷¼ÜÉÏÈ¡ÏÂÒ»±ú¸Ö¹³¡£\n",ob);
+			message_vision("$Nä»å…µå™¨æ¶ä¸Šå–ä¸‹ä¸€æŸ„é’¢é’©ã€‚\n",ob);
 			break;
                 case "spear":
 			obj = new("/clone/weapon/changqiang1");
 			obj -> move(ob);
-			message_vision("$N´Ó±øÆ÷¼ÜÉÏÈ¡ÏÂÒ»¸Ë³¤Ç¹¡£\n",ob);
+			message_vision("$Nä»å…µå™¨æ¶ä¸Šå–ä¸‹ä¸€æ†é•¿æªã€‚\n",ob);
 			break;			
         	default:
-			message_vision("$NÕ¾ÔÚ±øÆ÷¼ÜÇ°£¬»¹Ã»ÏëºÃÒªÊ²Ã´±øÆ÷¡£\n", ob);
+			message_vision("$Nç«™åœ¨å…µå™¨æ¶å‰ï¼Œè¿˜æ²¡æƒ³å¥½è¦ä»€ä¹ˆå…µå™¨ã€‚\n", ob);
 	}
 	return 1;
 }

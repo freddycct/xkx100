@@ -9,8 +9,8 @@ string ask_me();
 
 void create()
 {
-	set_name("´óğê´óÊ¦", ({ "dayi dashi", "dayi", "dashi"}));
-	set("gender", "ÄĞĞÔ");
+	set_name("å¤§ç—å¤§å¸ˆ", ({ "dayi dashi", "dayi", "dashi"}));
+	set("gender", "ç”·æ€§");
 	set("attitude", "friendly");
 	set("class", "bonze");
 
@@ -45,7 +45,7 @@ void create()
 	set_skill("nianhua-finger", 220);
 	set_skill("boruo-strike", 220);
 // basic skill end
-// ÕÈºÍ×¦
+// æ–å’Œçˆª
 	set_skill("claw", 150);
 	set_skill("jimie-claw", 220);
 	set_skill("eagleg-claw", 220);
@@ -71,7 +71,7 @@ void create()
 		(: exert_function, "recover" :),
 	}) );
 
-	create_family("ÄÏÉÙÁÖÅÉ", 19, "µÜ×Ó");
+	create_family("å—å°‘æ—æ´¾", 19, "å¼Ÿå­");
 	setup();
 	carry_object(WEAPON_DIR+"staff/chanzhang")->wield();
 	carry_object("/d/shaolin/obj/hui-cloth")->wear();

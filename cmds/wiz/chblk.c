@@ -14,13 +14,13 @@ string *blocks_name = ({
 	"family",
 });
 mapping ch_str = ([
-	"all"	:	"ËùÓĞ",
-	"rumor"	:	"Ò¥ÑÔ",
-	"chat"	:	"ÁÄÌì",
-	"xkx"	:	"ÏÀ¿ÍĞĞ",
-	"sing"	:	"¸è³ª",
-	"party"	:	"°ï»á",
-	"family":	"ÃÅÅÉ",
+	"all"	:	"æ‰€æœ‰",
+	"rumor"	:	"è°£è¨€",
+	"chat"	:	"èŠå¤©",
+	"xkx"	:	"ä¾ å®¢è¡Œ",
+	"sing"	:	"æ­Œå”±",
+	"party"	:	"å¸®ä¼š",
+	"family":	"é—¨æ´¾",
 ]);
 
 int main(object me, string arg)
@@ -31,14 +31,14 @@ int main(object me, string arg)
 	
 	if (!arg)
 	{
-		tell_object(me,"Ä¿Ç°ËùÓĞ¹«¹²ÆµµÀµÄÇé¿öÈçÏÂ£º\n");
+		tell_object(me,"ç›®å‰æ‰€æœ‰å…¬å…±é¢‘é“çš„æƒ…å†µå¦‚ä¸‹ï¼š\n");
 		for (i = 1;i < sizeof(blocks_name);i ++)
 		{
 			str = "  ";
 			str += ch_str[blocks_name[i]];
-			str += "ÆµµÀ£º  ";
-			if (CHANNEL_D->query_block("all")) str += "¹Ø±Õ";
-			else str += CHANNEL_D->query_block(blocks_name[i])?"¹Ø±Õ":"´ò¿ª";
+			str += "é¢‘é“ï¼š  ";
+			if (CHANNEL_D->query_block("all")) str += "å…³é—­";
+			else str += CHANNEL_D->query_block(blocks_name[i])?"å…³é—­":"æ‰“å¼€";
 			str += "\n";
 			tell_object(me,str);
 		}	
@@ -53,28 +53,28 @@ int main(object me, string arg)
 			return notify_fail("<Syntax>: unchblk <player id> <channel name>\n");
 		}
 	}
-	//¹Ø±ÕËùÓĞÍæ¼ÒµÄÆµµÀ
+	//å…³é—­æ‰€æœ‰ç©å®¶çš„é¢‘é“
 	ob = LOGIN_D->find_body(who);
 	if (ch_name == "")
 	{
 		if ( !ob && (member_array(who, blocks_name) == -1))
-			return notify_fail("ÄãÎŞ·¨¹Ø±Õ´ËÆµµÀ»ò´ËÈË²»ÔÚÏß£¡\n");
+			return notify_fail("ä½ æ— æ³•å…³é—­æ­¤é¢‘é“æˆ–æ­¤äººä¸åœ¨çº¿ï¼\n");
 		else if ( !LOGIN_D->find_body(who)) {
 			CHANNEL_D->set_block(who, 1);
-			CHANNEL_D->do_channel(me, "sys", ch_str[who] + "ÆµµÀ¹Ø±ÕÁË¡£\n");
+			CHANNEL_D->do_channel(me, "sys", ch_str[who] + "é¢‘é“å…³é—­äº†ã€‚\n");
 			return 1;
 		}		
 	}
-	if (!ob) return notify_fail("´ËÈË²»ÔÚÏß£¡\n");
-	if (wizardp(ob)) return notify_fail("²»ÄÜ¹Ø±ÕÎ×Ê¦µÄÆµµÀ¡£\n");
+	if (!ob) return notify_fail("æ­¤äººä¸åœ¨çº¿ï¼\n");
+	if (wizardp(ob)) return notify_fail("ä¸èƒ½å…³é—­å·«å¸ˆçš„é¢‘é“ã€‚\n");
 
-	//Èç¹û²»´øÆµµÀÃû£¬Ôò·µ»Ø¸ÃÍæ¼ÒËùÓĞÆµµÀÇé¿ö
+	//å¦‚æœä¸å¸¦é¢‘é“åï¼Œåˆ™è¿”å›è¯¥ç©å®¶æ‰€æœ‰é¢‘é“æƒ…å†µ
 	if (ch_name == "" || ch_name == " ") 
 	{	
 		for (i = 1;i <sizeof(blocks_name);i ++) 
 			if ( ob->query("chblk_on") ||
 				ob->query("chblk_" + blocks_name[i]) )
-				tell_object(me, (string)ob->query("name") + "µÄ" + ch_str[blocks_name[i]] + "ÆµµÀÊÇ¹Ø±ÕµÄ¡£\n");
+				tell_object(me, (string)ob->query("name") + "çš„" + ch_str[blocks_name[i]] + "é¢‘é“æ˜¯å…³é—­çš„ã€‚\n");
 		if (!(ob->query("chblk_on") ||
 			ob->query("chblk_rumor") ||
 			ob->query("chblk_chat") ||
@@ -83,7 +83,7 @@ int main(object me, string arg)
 			ob->query("chblk_family") ||
 			ob->query("chblk_party"))) 
 		{
-			tell_object(me,(string)ob->query("name")+"Ã»ÓĞ±»¹Ø±ÕµÄÆµµÀ¡£\n");
+			tell_object(me,(string)ob->query("name")+"æ²¡æœ‰è¢«å…³é—­çš„é¢‘é“ã€‚\n");
 		} 
 	}
 	else
@@ -92,22 +92,22 @@ int main(object me, string arg)
 			if (ch_name == "all")
 			{
 				if ( ob->query("chblk_on"))
-					tell_object(me, (string)ob->query("name") + "µÄËùÓĞÆµµÀÒÑ¾­ÊÇ¹Ø±ÕµÄ¡£\n");
+					tell_object(me, (string)ob->query("name") + "çš„æ‰€æœ‰é¢‘é“å·²ç»æ˜¯å…³é—­çš„ã€‚\n");
 				else
 				{
 					ob->set("chblk_on",1);
-					tell_object(me, (string)ob->query("name") + "µÄËùÓĞÆµµÀ±»¹Ø±ÕÁË¡£\n");
+					tell_object(me, (string)ob->query("name") + "çš„æ‰€æœ‰é¢‘é“è¢«å…³é—­äº†ã€‚\n");
 				}	
 			}
 			else
 				if ( ob->query("chblk_" + ch_name) )
 				{
-					 tell_object(me, (string)ob->query("name")+"µÄ" + ch_str[ch_name] + "ÆµµÀÒÑ¾­ÊÇ¹Ø±ÕµÄ¡£\n");
+					 tell_object(me, (string)ob->query("name")+"çš„" + ch_str[ch_name] + "é¢‘é“å·²ç»æ˜¯å…³é—­çš„ã€‚\n");
 				}
 				else
 				{
 					ob->set("chblk_" + ch_name, 1);
-					tell_object(me, (string)ob->query("name")+"µÄ" + ch_str[ch_name] + "ÆµµÀ±»¹Ø±ÕÁË¡£\n");
+					tell_object(me, (string)ob->query("name")+"çš„" + ch_str[ch_name] + "é¢‘é“è¢«å…³é—­äº†ã€‚\n");
 				}
 		}
 		else 
@@ -121,22 +121,22 @@ int main(object me, string arg)
 int help(object me)
 {
 write(@HELP
-    Ö¸Áî¸ñÊ½ : chblk <Ä³ÈË> <ÆµµÀÃû>
+    æŒ‡ä»¤æ ¼å¼ : chblk <æŸäºº> <é¢‘é“å>
 
-    ´ËÃüÁî½«¹Ø±ÕÄ³ÈËµÄÄ³¸öÆµµÀ¡£
+    æ­¤å‘½ä»¤å°†å…³é—­æŸäººçš„æŸä¸ªé¢‘é“ã€‚
 
-    Èç¹û²»¼ÓÈÎºÎ²ÎÊı£¬½«ÏÔÊ¾Ä¿Ç°ËùÓĞÆµµÀµÄÇé¿ö¡£
-    <ÆµµÀÃû>£º¿ÉÒÔÊÇrumor¡¢chat¡¢xkx¡¢sing¡¢party¡¢family»òall¡£
-    Èç¹û²»Ìá¹©ÆµµÀÃû£¬ÔòÏÔÊ¾Ä³ÈËµ±Ç°µÄÆµµÀ×´Ì¬¡£ 
+    å¦‚æœä¸åŠ ä»»ä½•å‚æ•°ï¼Œå°†æ˜¾ç¤ºç›®å‰æ‰€æœ‰é¢‘é“çš„æƒ…å†µã€‚
+    <é¢‘é“å>ï¼šå¯ä»¥æ˜¯rumorã€chatã€xkxã€singã€partyã€familyæˆ–allã€‚
+    å¦‚æœä¸æä¾›é¢‘é“åï¼Œåˆ™æ˜¾ç¤ºæŸäººå½“å‰çš„é¢‘é“çŠ¶æ€ã€‚ 
 
-²¢ÇÒ£º
-chblk rumor  ½«¹Ø±ÕËùÓĞÍæ¼ÒµÄÒ¥ÑÔÆµµÀ¡£
-chblk chat   ½«¹Ø±ÕËùÓĞÍæ¼ÒµÄÁÄÌìÆµµÀ¡£
-chblk xkx    ½«¹Ø±ÕËùÓĞÍæ¼ÒµÄÏÀ¿ÍĞĞÆµµÀ¡£
-chblk sing   ½«¹Ø±ÕËùÓĞÍæ¼Ò¸è³ªÆµµÀ¡£
-chblk party  ½«¹Ø±ÕËùÓĞÍæ¼ÒµÄ°ï»áÆµµÀ¡£
-chblk family ½«¹Ø±ÕËùÓĞÍæ¼ÒµÄÃÅÅÉÆµµÀ¡£
-chblk all    ½«¹Ø±ÕËùÓĞÍæ¼ÒµÄËùÓĞÆµµÀ¡£
+å¹¶ä¸”ï¼š
+chblk rumor  å°†å…³é—­æ‰€æœ‰ç©å®¶çš„è°£è¨€é¢‘é“ã€‚
+chblk chat   å°†å…³é—­æ‰€æœ‰ç©å®¶çš„èŠå¤©é¢‘é“ã€‚
+chblk xkx    å°†å…³é—­æ‰€æœ‰ç©å®¶çš„ä¾ å®¢è¡Œé¢‘é“ã€‚
+chblk sing   å°†å…³é—­æ‰€æœ‰ç©å®¶æ­Œå”±é¢‘é“ã€‚
+chblk party  å°†å…³é—­æ‰€æœ‰ç©å®¶çš„å¸®ä¼šé¢‘é“ã€‚
+chblk family å°†å…³é—­æ‰€æœ‰ç©å®¶çš„é—¨æ´¾é¢‘é“ã€‚
+chblk all    å°†å…³é—­æ‰€æœ‰ç©å®¶çš„æ‰€æœ‰é¢‘é“ã€‚
 
 HELP
     );

@@ -13,25 +13,25 @@ int main(object me, string arg)
 {
 	object obj, env;
 
-	if( !arg ) return notify_fail("ÄãÒªÆïÊ²Ã´¶«Î÷£¿\n");
+	if( !arg ) return notify_fail("ä½ è¦éª‘ä»€ä¹ˆä¸œè¥¿ï¼Ÿ\n");
 	if( me->query_temp("is_riding") )
-		return notify_fail("ÄãÒÑ¾­ÓÐ×ùÆïÁË£¡\n");
+		return notify_fail("ä½ å·²ç»æœ‰åº§éª‘äº†ï¼\n");
 	if( me->is_busy() )
-		return notify_fail("ÄãÉÏÒ»¸ö¶¯×÷»¹Ã»ÓÐÍê³É£¡\n");
-	if( me->is_fighting() )	return notify_fail("Äã»¹ÔÚÕ½¶·ÖÐ£¡Ã»¿ÕÆïÉÏÈ¥¡£\n");
+		return notify_fail("ä½ ä¸Šä¸€ä¸ªåŠ¨ä½œè¿˜æ²¡æœ‰å®Œæˆï¼\n");
+	if( me->is_fighting() )	return notify_fail("ä½ è¿˜åœ¨æˆ˜æ–—ä¸­ï¼æ²¡ç©ºéª‘ä¸ŠåŽ»ã€‚\n");
 
 	// Check if a container is specified.
 	env = environment(me);
 
 	if( !objectp(obj = present(arg, env)) || !living(obj) )
-		return notify_fail("ÕâÀïÃ»ÓÐÕâÑù¶«Î÷¿ÉÆï¡£\n");
+		return notify_fail("è¿™é‡Œæ²¡æœ‰è¿™æ ·ä¸œè¥¿å¯éª‘ã€‚\n");
 	if( !obj->query("ridable") &&
 		obj->query_temp("owner") != me->query("id") )
-		return notify_fail("Õâ¸ö¶«Î÷ÄãÒ²ÒªÆï£¿µ±ÐÄÄãµÄÆ¨¹É£¡\n");
+		return notify_fail("è¿™ä¸ªä¸œè¥¿ä½ ä¹Ÿè¦éª‘ï¼Ÿå½“å¿ƒä½ çš„å±è‚¡ï¼\n");
 	if( !living(obj) || obj->query_temp("noliving"))
-		return notify_fail("Õâ¸ö¶«Î÷×Ô¼º¶¼ÔÎµ¹ÁË£¬ÄãÔõÃ´Æï£¿\n");
+		return notify_fail("è¿™ä¸ªä¸œè¥¿è‡ªå·±éƒ½æ™•å€’äº†ï¼Œä½ æ€Žä¹ˆéª‘ï¼Ÿ\n");
 	return do_ride(me, obj);
-	write("ÆïÉÏÈ¥ÁË¡£\n");
+	write("éª‘ä¸ŠåŽ»äº†ã€‚\n");
 }
 	
 int do_ride(object me, object obj)
@@ -44,15 +44,15 @@ int do_ride(object me, object obj)
 	{
 		guard = filter_array(guard, (: objectp($1) && present($1, environment($2)) && living($1) && ($1!=$2) :), me);
 		if( sizeof(guard) )
-			return notify_fail( guard[0]->name() + "ÕýÊØÔÚ" + obj->name() + "Ò»ÅÔ£¬·ÀÖ¹ÈÎºÎÈËÆï×ß¡£\n");
+			return notify_fail( guard[0]->name() + "æ­£å®ˆåœ¨" + obj->name() + "ä¸€æ—ï¼Œé˜²æ­¢ä»»ä½•äººéª‘èµ°ã€‚\n");
 	}
 
 	if( obj->move(me) )
 	{
-		message_vision("$N×ß½ü$n£¬·ÉÉíÆïÁËÉÏÈ¥£¬ÉíÊÖºÜÊÇ½Ã½Ý¡£\n", me, obj );
+		message_vision("$Nèµ°è¿‘$nï¼Œé£žèº«éª‘äº†ä¸ŠåŽ»ï¼Œèº«æ‰‹å¾ˆæ˜¯çŸ«æ·ã€‚\n", me, obj );
 		obj->set_temp("is_rided_by", me);
 		me->set_temp("is_riding", obj);
-//Æï¶¯ÎïÔö¼ÓëöÁ¦ºÍÉí·¨¡£
+//éª‘åŠ¨ç‰©å¢žåŠ è†‚åŠ›å’Œèº«æ³•ã€‚
 /*
 		if(obj->query("dex"))
 			me->set_temp("apply/dexerity", obj->query("dex")/3);
@@ -62,7 +62,7 @@ int do_ride(object me, object obj)
 	}
 	else
 	{
-		message_vision("$NÉíÉÏ´øµÄ¶«Î÷Ì«ÖØÁË£¬ÎÞ·¨Æïµ½$nÉíÉÏÈ¥¡£\n", me, obj );
+		message_vision("$Nèº«ä¸Šå¸¦çš„ä¸œè¥¿å¤ªé‡äº†ï¼Œæ— æ³•éª‘åˆ°$nèº«ä¸ŠåŽ»ã€‚\n", me, obj );
 	}
 	return 1;
 }
@@ -70,24 +70,24 @@ int do_ride(object me, object obj)
 int help(object me)
 {
 	write(@HELP
-Ö¸Áî¸ñÊ½ : ride <ÉúÎïÃû>
+æŒ‡ä»¤æ ¼å¼ : ride <ç”Ÿç‰©å>
  
-    Õâ¸öÖ¸Áî¿ÉÒÔÈÃÄãÆïÉÏ´ú²½µÄÒÑÑ±ÑøµÄ¶¯Îï¡£
+    è¿™ä¸ªæŒ‡ä»¤å¯ä»¥è®©ä½ éª‘ä¸Šä»£æ­¥çš„å·²é©¯å…»çš„åŠ¨ç‰©ã€‚
 
-    ¶ÔÓÚÒÑ¾­Ñ±·þµÄ¶¯Îï£¬¿ÉÒÔ½øÐÐÏÂÊöÖ¸Áî£º
+    å¯¹äºŽå·²ç»é©¯æœçš„åŠ¨ç‰©ï¼Œå¯ä»¥è¿›è¡Œä¸‹è¿°æŒ‡ä»¤ï¼š
 
-»ù±¾Ö¸Áî£º
-        come <¶¯ÎïÃû>:                  ÈÃ¶¯Îï¸úËæÖ÷ÈËÐÐ¶¯¡£
-        stay:                           Í£Ö¹¶¯ÎïµÄ¸úËæ×´Ì¬¡£
-        attack <Ä³Îï>:                  ÈÃ¶¯Îï¹¥»÷µÐÈË¡£
-        stop <¶¯ÎïÃû>:                  ÈÃ¶¯ÎïÍ£Ö¹¶ÔÈËµÄ¹¥»÷¡£
-        release:                        ½áÊøÖ÷Å«×´Ì¬£¬½«¶¯Îï·ÅÀë¡£
+åŸºæœ¬æŒ‡ä»¤ï¼š
+        come <åŠ¨ç‰©å>:                  è®©åŠ¨ç‰©è·Ÿéšä¸»äººè¡ŒåŠ¨ã€‚
+        stay:                           åœæ­¢åŠ¨ç‰©çš„è·ŸéšçŠ¶æ€ã€‚
+        attack <æŸç‰©>:                  è®©åŠ¨ç‰©æ”»å‡»æ•Œäººã€‚
+        stop <åŠ¨ç‰©å>:                  è®©åŠ¨ç‰©åœæ­¢å¯¹äººçš„æ”»å‡»ã€‚
+        release:                        ç»“æŸä¸»å¥´çŠ¶æ€ï¼Œå°†åŠ¨ç‰©æ”¾ç¦»ã€‚
 
-ÌØÊâÖ¸Áî£º£¨Ö»¶ÔÄ³Ð©¶¯ÎïÊÊÓÃ£©
-        ride <¶¯ÎïÃû>:                  Æï£¬ÈçÆïÂí£¬»¢£¬µñ£¬öèµÈ¡£
-        unride <¶¯ÎïÃû>:                ÏÂ£¬Àë¿ª×øÆï¡£
-        feed <ËÇÁÏ> to <¶¯ÎïÃû>:        Ìæ¶¯ÎïÎ¹Ê³¡£
-        imbibe <¶¯ÎïÃû>:                ¸ø¶¯ÎïÒûË®¡£
+ç‰¹æ®ŠæŒ‡ä»¤ï¼šï¼ˆåªå¯¹æŸäº›åŠ¨ç‰©é€‚ç”¨ï¼‰
+        ride <åŠ¨ç‰©å>:                  éª‘ï¼Œå¦‚éª‘é©¬ï¼Œè™Žï¼Œé›•ï¼Œé²¨ç­‰ã€‚
+        unride <åŠ¨ç‰©å>:                ä¸‹ï¼Œç¦»å¼€åéª‘ã€‚
+        feed <é¥²æ–™> to <åŠ¨ç‰©å>:        æ›¿åŠ¨ç‰©å–‚é£Ÿã€‚
+        imbibe <åŠ¨ç‰©å>:                ç»™åŠ¨ç‰©é¥®æ°´ã€‚
 
 HELP
 	);

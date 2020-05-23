@@ -4,10 +4,10 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "��Ӱ��");
+	set("short", "摄影棚");
 	set("long", @LONG
-�����ǵ���̨����Ӱ��ֳ���ͷ�ܶ�����Ʈ���֪����������
-λ���������͵���̨��
+这里是电视台的摄影棚。现场人头攒动彩旗飘扬，不知道今天是哪
+位大明星作客电视台。
 LONG	);
 	set("outdoors", "5lt");
 	set("exits", ([

@@ -21,11 +21,8 @@ int is_keeper(object, object);
 void destroy_ob(object);
 void create()
 {
-	set("short", "´¢²ØÊÒ");
-	set("long", @LONG
-ÕâÀïÔ­À´ÊÇÒ»¸ö³¤ÔÚÉ½±ÚÉÏµÄÌìÈ»ÈÜ¶´£¬ºóÀ´±»ÈË¸ÄÔì³ÉÁËÒ»
-¸ö²Ö¿â¡£
-LONG
+	set("short", "å‚¨è—å®¤");
+	set("long", "@LONG è¿™é‡ŒåŽŸæ¥æ˜¯ä¸€ä¸ªé•¿åœ¨å±±å£ä¸Šçš„å¤©ç„¶æº¶æ´žï¼ŒåŽæ¥è¢«äººæ”¹é€ æˆäº†ä¸€ä¸ªä»“åº“ã€‚LONG"
 	);
 	set("exits", ([
 	]));
@@ -89,7 +86,7 @@ void refresh_stuff()
 						"/cmds/std/wear"->do_wear(keeper, inv[i]); 
 					}
 
-					message("channel:snow",HIM"¡¾Ò¥ÑÔ¡¿Ä³ÈË£º"+sprintf( "ÌýËµ%s"+HIM+"ºÃÏóÂäÔÚ%sµÄ%s"+HIM+"ÊÖÀïÁË£¡"NOR,
+					message("channel:snow",HIM"ã€è°£è¨€ã€‘æŸäººï¼š"+sprintf( "å¬è¯´%s"+HIM+"å¥½è±¡è½åœ¨%sçš„%s"+HIM+"æ‰‹é‡Œäº†ï¼"NOR,
 					inv[i]->name(),
 					to_chinese(explode(base_name(environment(keeper)), "/")[1]),
 					keeper->name())+"\n",users());
@@ -133,7 +130,7 @@ void destroy_ob(object ob)
 		return;
 	}
 
-	message("vision", ob->name() + "¼±¼±Ã¦Ã¦µØÀë¿ªÁË¡£\n", environment(ob), ({ob}));
+	message("vision", ob->name() + "æ€¥æ€¥å¿™å¿™åœ°ç¦»å¼€äº†ã€‚\n", environment(ob), ({ob}));
 
 	destruct(ob);
 }

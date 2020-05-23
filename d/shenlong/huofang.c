@@ -1,4 +1,4 @@
-// /d/shenlong/huofang �﷿
+// /d/shenlong/huofang 伙房
 // Last Modified by winder on Jul. 12 2002
 
 #include <ansi.h>
@@ -6,11 +6,11 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "�﷿");
+	set("short", "伙房");
 	set("long", @LONG
-�����������̵Ļ﷿�����ӵ�һ���Ǹ���¯���Ա���һ����ͷ����
-�������񣬹��ڲ�֪������ʲô������������ζ�Ѿ�������ð��಻ס
-�ˡ�
+这里是神龙教的伙房，房子的一边是个灶炉，旁边有一个老头在往
+灶内添柴，锅内不知煮着是什么东西，不过香味已经让你馋得按捺不住
+了。
 LONG
 	);
 	set("exits", ([

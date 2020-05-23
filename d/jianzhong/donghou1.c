@@ -2,11 +2,11 @@
 inherit ROOM;
 void create()
 {
-	set("short","¹ÈºóÊ÷ÁÖ");
+	set("short","è°·åæ ‘æ—");
 	set("long",@LONG
-Ê÷ÁÖÀïÓôÓô´Ğ´Ğ£¬ÄñÓï»¨Ïã£¬¹âÏß´ÓÊ÷Ò¶µÄ·ìÏ¶ÖĞÈ÷
-Ïò´óµØ£¬Î¢·ç´µÀ´£¬Ê÷Ó°Ò»ÕóÆÅæ¶¡£ËÄÖÜÈ«ÊÇÊ÷£¬Ò»Æ¬ÂÌ
-É«£¬ÔÚ±ÌÂÌµÄº£ÑóÖĞ£¬Äã½¥½¥µØÃÔÊ§ÁË·½Ïò¡£
+æ ‘æ—é‡Œéƒéƒè‘±è‘±ï¼Œé¸Ÿè¯­èŠ±é¦™ï¼Œå…‰çº¿ä»æ ‘å¶çš„ç¼éš™ä¸­æ´’
+å‘å¤§åœ°ï¼Œå¾®é£å¹æ¥ï¼Œæ ‘å½±ä¸€é˜µå©†å¨‘ã€‚å››å‘¨å…¨æ˜¯æ ‘ï¼Œä¸€ç‰‡ç»¿
+è‰²ï¼Œåœ¨ç¢§ç»¿çš„æµ·æ´‹ä¸­ï¼Œä½ æ¸æ¸åœ°è¿·å¤±äº†æ–¹å‘ã€‚
 LONG
 	);
 	set("exits",([
@@ -67,36 +67,36 @@ int valid_leave(object me, string dir)
          	{
      	    		me->move(__DIR__"donghou");
            		me->delete_temp("zhongnan/tree");
-			message("vision",me->query("name")+"Ò»Á³¾ëÈİµØ´ÓÊ÷ÁÖÖĞ×êÁË³öÀ´¡£\n",environment(me),me);
-             		return notify_fail("Äã×ßÁË°ëÌì£¬ÖÕÓÚ×ß³öÁËÕâÆ¬Ê÷ÁÖ¡£\n");
+			message("vision",me->query("name")+"ä¸€è„¸å€¦å®¹åœ°ä»æ ‘æ—ä¸­é’»äº†å‡ºæ¥ã€‚\n",environment(me),me);
+             		return notify_fail("ä½ èµ°äº†åŠå¤©ï¼Œç»ˆäºèµ°å‡ºäº†è¿™ç‰‡æ ‘æ—ã€‚\n");
          	} else
 		if (me->query_temp("zhongnan/tree") < i)
 		{
-			message("vision",me->query("name")+"ºúÂÒµØÔÚÊ÷ÁÖÖĞ×êÀ´×êÈ¥¡£\n",environment(me),me);
-			msg="Äã×ßÁË¼¸²½£¬·¢ÏÖÄã×ß½øÁËÊ÷ÁÖµÄ¸üÉî´¦¡£\n";
+			message("vision",me->query("name")+"èƒ¡ä¹±åœ°åœ¨æ ‘æ—ä¸­é’»æ¥é’»å»ã€‚\n",environment(me),me);
+			msg="ä½ èµ°äº†å‡ æ­¥ï¼Œå‘ç°ä½ èµ°è¿›äº†æ ‘æ—çš„æ›´æ·±å¤„ã€‚\n";
 		} else
 		if (me->query_temp("zhongnan/tree") == i)
 		{
-			message("vision",me->query("name")+"×ê½øÁËÊ÷ÁÖ£¬¿ÉÊÇÒ»»á¶ùÓÖ×ß»ØÁËÔ­µØ¡£\n",environment(me),me);
-			msg="Äã×ê½øÁËÊ÷ÁÖ£¬¿ÉÊÇÒ»»á¶ùÓÖ×ß»ØÁËÔ­µØ¡£\n";
+			message("vision",me->query("name")+"é’»è¿›äº†æ ‘æ—ï¼Œå¯æ˜¯ä¸€ä¼šå„¿åˆèµ°å›äº†åŸåœ°ã€‚\n",environment(me),me);
+			msg="ä½ é’»è¿›äº†æ ‘æ—ï¼Œå¯æ˜¯ä¸€ä¼šå„¿åˆèµ°å›äº†åŸåœ°ã€‚\n";
 		} else
 		{
-			message("vision",me->query("name")+"ËÆºõĞØÓĞ³ÉÖñµØ×ê½øÁËÊ÷ÁÖÀï¡£\n",environment(me),me);
-			msg="Äã×ßÁË¼¸²½£¬·¢ÏÖÕâ¶ùÄãËÆºõÔø¾­×ß¹ı¡£\n";
+			message("vision",me->query("name")+"ä¼¼ä¹èƒ¸æœ‰æˆç«¹åœ°é’»è¿›äº†æ ‘æ—é‡Œã€‚\n",environment(me),me);
+			msg="ä½ èµ°äº†å‡ æ­¥ï¼Œå‘ç°è¿™å„¿ä½ ä¼¼ä¹æ›¾ç»èµ°è¿‡ã€‚\n";
 		}
 		return notify_fail(msg);//::valid_leave(me,dir);
 	}else 
 	if (me->query_temp("dugu_visit")==1)
 	{	if(dir=="north")
 		{
-			message("vision",me->query("name")+"ÏòÊ÷ÁÖÉî´¦×ßÈ¥£¬ÏûÊ§Ê÷ÁÖÖ®ÖĞ¡­¡­\n",environment(me),me);
+			message("vision",me->query("name")+"å‘æ ‘æ—æ·±å¤„èµ°å»ï¼Œæ¶ˆå¤±æ ‘æ—ä¹‹ä¸­â€¦â€¦\n",environment(me),me);
 			me->move(__DIR__"qiaobi");
 			me->delete_temp("dugu_visit");
-			message("vision",me->query("name")+"´ÓÊ÷ÁÖÖĞ×ßÁË¹ıÀ´¡£\n",environment(me),me);
-			return notify_fail("ÄãÍù±±×ßÁËÀïĞí£¬À´µ½ÁËÒ»×ùÇÍ±ÚÖ®Ç°¡£\n");
+			message("vision",me->query("name")+"ä»æ ‘æ—ä¸­èµ°äº†è¿‡æ¥ã€‚\n",environment(me),me);
+			return notify_fail("ä½ å¾€åŒ—èµ°äº†é‡Œè®¸ï¼Œæ¥åˆ°äº†ä¸€åº§å³­å£ä¹‹å‰ã€‚\n");
 		} else
 		{
-			message_vision("$NÔÚÊ÷ÁÖÀïĞÅ²½¶øĞĞ£¬±ß×ß±ßĞÀÉÍ·ç¾°¡£\n",me);
+			message_vision("$Nåœ¨æ ‘æ—é‡Œä¿¡æ­¥è€Œè¡Œï¼Œè¾¹èµ°è¾¹æ¬£èµé£æ™¯ã€‚\n",me);
 			return ::valid_leave(me,dir);
 		}
 	}

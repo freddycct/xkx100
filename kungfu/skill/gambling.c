@@ -1,4 +1,4 @@
-// gambling.c »ù±¾¶Ä¼¼
+// gambling.c åŸºæœ¬èµŒæŠ€
 // Last Modified by winder on Mar. 10 2000
 
 #include <ansi.h>
@@ -16,20 +16,20 @@ void skill_improved(object me)
 int valid_learn(object me)
 {
 	if ( me->query("age") <= 20 )
-		return notify_fail("ÄãÏÖÔÚ»¹Ì«Ð¡£¬²»ÄÜÑ§Ï°»ù±¾¶Ä¼¼¡£\n");
+		return notify_fail("ä½ çŽ°åœ¨è¿˜å¤ªå°ï¼Œä¸èƒ½å­¦ä¹ åŸºæœ¬èµŒæŠ€ã€‚\n");
 	return 1;
 }
 
 int help(object me)
 {
-	write(HIC"\n»ù±¾¶Ä¼¼£º"NOR"\n");
+	write(HIC"\nåŸºæœ¬èµŒæŠ€ï¼š"NOR"\n");
 	write(@HELP
 
-    »ù±¾¶Ä¼¼ÊÇÒ»ÖÖ½­ºþ¼¼ÒÕ¡£Í¨¹ýÔÚ¶Ä³¡ÖÐ¶Ä²©£¬¿ÉÒÔÓÃ½ðÒøºÍ
-¼¼ÄÜÏÂ×¢£¬»ñµÃÀûÒæ¡£
+    åŸºæœ¬èµŒæŠ€æ˜¯ä¸€ç§æ±Ÿæ¹–æŠ€è‰ºã€‚é€šè¿‡åœ¨èµŒåœºä¸­èµŒåšï¼Œå¯ä»¥ç”¨é‡‘é“¶å’Œ
+æŠ€èƒ½ä¸‹æ³¨ï¼ŒèŽ·å¾—åˆ©ç›Šã€‚
 
-	Ñ§Ï°ÒªÇó£º
-		¶Ä²©
+	å­¦ä¹ è¦æ±‚ï¼š
+		èµŒåš
 HELP
 	);
 	return 1;

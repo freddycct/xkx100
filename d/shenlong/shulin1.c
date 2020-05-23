@@ -1,4 +1,4 @@
-// /d/shenlong/shulin1 ����
+// /d/shenlong/shulin1 树林
 // Last Modified by winder on Jul. 12 2002
 
 inherit ROOM;
@@ -6,11 +6,11 @@ inherit ROOM;
 void create()
 {
 	int i;
-	set("short", "����");
+	set("short", "树林");
 	set("long", @LONG
-��������߰�����ֻ������ͷ���ϴ���һЩ�����������ż����ï
-�ܵ�Ҷ��͸����һ�߹������Ҷ�ڷ��衣��ľ���õ���ζ����������
-�����е�����ʹ�˲�����ԥ��ǰ���ĽŲ���
+树林里光线暗淡，只能听见头顶上传来一些鸟儿的啼鸣。偶尔从茂
+密的叶间透过的一线光伴着落叶在飞舞。朽木腐烂的气味和身后传来蛇
+虫爬行的声音使人不觉犹豫了前进的脚步。
 LONG
 	);
 	i = random (3);

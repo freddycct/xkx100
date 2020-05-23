@@ -7,30 +7,30 @@ void sanshi(object me, object target);
 int main(object me, string arg)
 {
 	object target;
-	if( me->is_fighting() ) return notify_fail("Õ½¶·ÖĞ´ß·¢£¿ÕÒËÀÂğ£¿\n");
+	if( me->is_fighting() ) return notify_fail("æˆ˜æ–—ä¸­å‚¬å‘ï¼Ÿæ‰¾æ­»å—ï¼Ÿ\n");
 	if(me->query("family/master_id") != "ren woxing")
-		return notify_fail("Äã²»ÊÇÈÎ½ÌÖ÷µÄµÜ×Ó£¬ÎŞ·¨´ß·¢µ¤Ò©£¡\n");
+		return notify_fail("ä½ ä¸æ˜¯ä»»æ•™ä¸»çš„å¼Ÿå­ï¼Œæ— æ³•å‚¬å‘ä¸¹è¯ï¼\n");
 	if(me->is_busy())
-		return notify_fail("ÄãÕıÃ¦×ÅÄØ£¡\n");
+		return notify_fail("ä½ æ­£å¿™ç€å‘¢ï¼\n");
 	if((int)me->query_skill("xixing-dafa", 1) < 100)
-		return notify_fail("ÄãµÄÎüĞÇ´ó·¨ĞŞÎª»¹²»¹»¡£\n");
+		return notify_fail("ä½ çš„å¸æ˜Ÿå¤§æ³•ä¿®ä¸ºè¿˜ä¸å¤Ÿã€‚\n");
 	if((int)me->query_skill("kuihua-xinfa", 1) < 100)
-		return notify_fail("ÄãµÄ¿û»¨ĞÄ·¨ĞŞÎªÌ«µÍ¡£\n");
+		return notify_fail("ä½ çš„è‘µèŠ±å¿ƒæ³•ä¿®ä¸ºå¤ªä½ã€‚\n");
 	if((int)me->query("qi") < 300) 
-		return notify_fail("ÄãµÄÆø²»¹»¡£\n");
+		return notify_fail("ä½ çš„æ°”ä¸å¤Ÿã€‚\n");
 	if((int)me->query("neili") < 400) 
-		return notify_fail("ÄãµÄÕæÆø²»¹»¡£\n");
+		return notify_fail("ä½ çš„çœŸæ°”ä¸å¤Ÿã€‚\n");
 	if( (int)me->query("eff_qi") < (int)me->query("max_qi") / 2)
-		return notify_fail("ÄãÊÜÉË¹ıÖØ£¬Ö»ÅÂÒ»ÔËÕæÆø±ãÓĞÉúÃüÎ£ÏÕ£¡\n");
-	if ( !arg ) return notify_fail("ÄãÒª´ß·¢Ë­ÉíÉÏµÄµ¤Ò©£¿\n");
+		return notify_fail("ä½ å—ä¼¤è¿‡é‡ï¼Œåªæ€•ä¸€è¿çœŸæ°”ä¾¿æœ‰ç”Ÿå‘½å±é™©ï¼\n");
+	if ( !arg ) return notify_fail("ä½ è¦å‚¬å‘è°èº«ä¸Šçš„ä¸¹è¯ï¼Ÿ\n");
 	if ( present(arg, environment(me)) )
-		return notify_fail("ÄãÒª´ß·¢µÄÈË¾ÍÔÚÄãÉí±ß£¬²»ÅÂ±»¿³£¿\n");
+		return notify_fail("ä½ è¦å‚¬å‘çš„äººå°±åœ¨ä½ èº«è¾¹ï¼Œä¸æ€•è¢«ç ï¼Ÿ\n");
 	target = find_player(arg);
 	if (!target) target = find_living(arg);
-	if (!target || !me->visible(target)) return notify_fail("ÄãÒª´ß·¢µÄÈËÏÖÔÚÃ»ÔÚ°É£¿\n");
+	if (!target || !me->visible(target)) return notify_fail("ä½ è¦å‚¬å‘çš„äººç°åœ¨æ²¡åœ¨å§ï¼Ÿ\n");
 
-	write( HIW "ÄãÅÌÏ¥×øÏÂÀ´¿ªÊ¼´ß·¢ÈıÊ¬ÄÔÉñµ¤¡£\n" NOR);
-	message("vision", HIW + me->name() + "ÔËÆğÎüĞÇ´ó·¨£¬ÅÌÏ¥×øÏÂ£¬¿ªÊ¼´ß·¢ÈıÊ¬ÄÔÉñµ¤¡£\n" NOR, environment(me), me);
+	write( HIW "ä½ ç›˜è†åä¸‹æ¥å¼€å§‹å‚¬å‘ä¸‰å°¸è„‘ç¥ä¸¹ã€‚\n" NOR);
+	message("vision", HIW + me->name() + "è¿èµ·å¸æ˜Ÿå¤§æ³•ï¼Œç›˜è†åä¸‹ï¼Œå¼€å§‹å‚¬å‘ä¸‰å°¸è„‘ç¥ä¸¹ã€‚\n" NOR, environment(me), me);
 	me->add("neili", -300);
 	me->start_busy(5);
 	me->start_call_out( (: call_other,__FILE__,"sanshi",me,target :),5);
@@ -38,35 +38,35 @@ int main(object me, string arg)
 }
 void sanshi(object me, object target)
 {
-	message_vision("$NÅÌÏ¥¶ø×ø£¬×ìÀï²»ÖªµÀÄîß¶×ÅÊ²Ã´¡£\n",me);
+	message_vision("$Nç›˜è†è€Œåï¼Œå˜´é‡Œä¸çŸ¥é“å¿µå¨ç€ä»€ä¹ˆã€‚\n",me);
 	if (!target->query("sanshi") )
 	{
-		tell_object(me, "ÄãºöÈ»¾õµÃ²»¶ÔÍ·£¬"+target->query("name")+"ÌåÄÚÃ»ÓĞ±»ÖÖÊ¬³æ£¡\n");
+		tell_object(me, "ä½ å¿½ç„¶è§‰å¾—ä¸å¯¹å¤´ï¼Œ"+target->query("name")+"ä½“å†…æ²¡æœ‰è¢«ç§å°¸è™«ï¼\n");
 		return;
 	}
 	if (target->query("sanshi") != me->query("id"))
 	{
-		tell_object(me, "ÄãºöÈ»¾õµÃ²»¶ÔÍ·£¬"+target->query("name")+"ÌåÄÚÖÖµÄ²»ÊÇÄãµÄÊ¬³æ£¡\n");
+		tell_object(me, "ä½ å¿½ç„¶è§‰å¾—ä¸å¯¹å¤´ï¼Œ"+target->query("name")+"ä½“å†…ç§çš„ä¸æ˜¯ä½ çš„å°¸è™«ï¼\n");
 		return;
 	}
-	tell_object(target, "ÄãºöÈ»¾õµÃÍ·²»ÖªÊ²Ã´Ô­ÒòÌÛÁËÆğÀ´£¬½¥½¥Í´²»¿ÉÒÖ¡£ÃÍÈ»ÏëÆğÊÇÊ¬³æ·¢×÷£¬Ö»¾õµÃÍ·ÄÔÒ»ºä£¬¾ÍÊ²Ã´Ò²²»ÖªµÀÁË£¡\n");
+	tell_object(target, "ä½ å¿½ç„¶è§‰å¾—å¤´ä¸çŸ¥ä»€ä¹ˆåŸå› ç–¼äº†èµ·æ¥ï¼Œæ¸æ¸ç—›ä¸å¯æŠ‘ã€‚çŒ›ç„¶æƒ³èµ·æ˜¯å°¸è™«å‘ä½œï¼Œåªè§‰å¾—å¤´è„‘ä¸€è½°ï¼Œå°±ä»€ä¹ˆä¹Ÿä¸çŸ¥é“äº†ï¼\n");
 //	target->die();
 	target->delete("sanshi");
-	target->receive_wound("qi", 10000,"ÈıÊ¬ÄÔÉñµ¤Í»·¢¶øÍö¡£ÕæÊÇ¿ÉÏ§¡£");
-	target->receive_damage("qi", 10000,"ÈıÊ¬ÄÔÉñµ¤Í»·¢¶øÍö¡£ÕæÊÇ¿ÉÏ§¡£");
-	target->receive_wound("jing", 10000,"ÈıÊ¬ÄÔÉñµ¤Í»·¢¶øÍö¡£ÕæÊÇ¿ÉÏ§¡£");
-	target->receive_damage("jing", 10000,"ÈıÊ¬ÄÔÉñµ¤Í»·¢¶øÍö¡£ÕæÊÇ¿ÉÏ§¡£");
-//message("channel:rumor", MAG"¡¾Ò¥ÑÔ¡¿Ä³ÈË£º"+target->query("name")+"ÈıÊ¬ÄÔÉñµ¤Í»·¢¶øÍö¡£ÕæÊÇ¿ÉÏ§£¡\n"NOR, users());
+	target->receive_wound("qi", 10000,"ä¸‰å°¸è„‘ç¥ä¸¹çªå‘è€Œäº¡ã€‚çœŸæ˜¯å¯æƒœã€‚");
+	target->receive_damage("qi", 10000,"ä¸‰å°¸è„‘ç¥ä¸¹çªå‘è€Œäº¡ã€‚çœŸæ˜¯å¯æƒœã€‚");
+	target->receive_wound("jing", 10000,"ä¸‰å°¸è„‘ç¥ä¸¹çªå‘è€Œäº¡ã€‚çœŸæ˜¯å¯æƒœã€‚");
+	target->receive_damage("jing", 10000,"ä¸‰å°¸è„‘ç¥ä¸¹çªå‘è€Œäº¡ã€‚çœŸæ˜¯å¯æƒœã€‚");
+//message("channel:rumor", MAG"ã€è°£è¨€ã€‘æŸäººï¼š"+target->query("name")+"ä¸‰å°¸è„‘ç¥ä¸¹çªå‘è€Œäº¡ã€‚çœŸæ˜¯å¯æƒœï¼\n"NOR, users());
 	return;
 }
 
 int help(object me)
 {
 	write(@HELP
-Ö¸Áî¸ñÊ½ : cuifa <ÈËÎï>
+æŒ‡ä»¤æ ¼å¼ : cuifa <äººç‰©>
  
-    Õâ¸öÖ¸ÁîÈÃÄã´ß·¢Ò»¸öÈËÎïÉíÉÏµÄÈıÊ¬ÄÔÉñµ¤¡£µ±È»£¬Ö»ÓĞ³ÔÁË
-ÄãµÄÈıÊ¬ÄÔÉñµ¤µÄÈË²Å»á±»Äã´ß·¢¡£
+    è¿™ä¸ªæŒ‡ä»¤è®©ä½ å‚¬å‘ä¸€ä¸ªäººç‰©èº«ä¸Šçš„ä¸‰å°¸è„‘ç¥ä¸¹ã€‚å½“ç„¶ï¼Œåªæœ‰åƒäº†
+ä½ çš„ä¸‰å°¸è„‘ç¥ä¸¹çš„äººæ‰ä¼šè¢«ä½ å‚¬å‘ã€‚
 
 HELP
 	);

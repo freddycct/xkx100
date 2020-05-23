@@ -1,4 +1,4 @@
-// fanbailing.c ·¶°ÙÁä
+// fanbailing.c èŒƒç™¾é¾„
 // Modified by Winder June.25 2000
 inherit NPC;
 inherit F_MASTER;
@@ -8,10 +8,10 @@ string ask_me();
 
 void create()
 {
-	set_name("·¶°ÙÁä", ({ "fan bailing", "fan" }));
-	set("long", "ËûÊ¦´Ó´Ï±çÏÈÉú£¬Ñ§µÄÊÇÎ§Æå£¬µ±½ñÌìÏÂ£¬ÉÙÓĞµĞÊÖ¡£\n");
-	set("nickname","¡°º¯¹È°ËÓÑ¡±ÆåÄ§");
-	set("gender", "ÄĞĞÔ");
+	set_name("èŒƒç™¾é¾„", ({ "fan bailing", "fan" }));
+	set("long", "ä»–å¸ˆä»èªè¾©å…ˆç”Ÿï¼Œå­¦çš„æ˜¯å›´æ£‹ï¼Œå½“ä»Šå¤©ä¸‹ï¼Œå°‘æœ‰æ•Œæ‰‹ã€‚\n");
+	set("nickname","â€œå‡½è°·å…«å‹â€æ£‹é­”");
+	set("gender", "ç”·æ€§");
 	set("age", 48);
 	set("attitude", "friendly");
 	set("class", "scholar");
@@ -22,7 +22,7 @@ void create()
 	set("dex", 38);
 
 	set("inquiry", ([
-		"ÆåÆ×":(:ask_me:),
+		"æ£‹è°±":(:ask_me:),
 	]) );
 	
 	set("max_qi", 1000);
@@ -61,7 +61,7 @@ void create()
 		(: exert_function, "recover" :),
 	}) );
 
-	create_family("åĞÒ£ÅÉ", 3, "µÜ×Ó");
+	create_family("é€é¥æ´¾", 3, "å¼Ÿå­");
 	setup();
 	carry_object("/clone/misc/cloth")->wear();
 	carry_object("/clone/weapon/gangdao")->wield();
@@ -71,7 +71,7 @@ void create()
 
 void attempt_apprentice(object ob)
 {
-	command("say ºÃ°É£¬ÎÒ¾ÍÊÕÏÂÄãÁË£¬ÒÔºóÒª¶àÎªåĞÒ£ÅÉ³öÁ¦°¡¡£");
+	command("say å¥½å§ï¼Œæˆ‘å°±æ”¶ä¸‹ä½ äº†ï¼Œä»¥åè¦å¤šä¸ºé€é¥æ´¾å‡ºåŠ›å•Šã€‚");
 	command("recruit " + ob->query("id"));
 }
 
@@ -80,12 +80,12 @@ string ask_me()
 	object me,ob;
 	ob=this_player(); 
 	if (query("book_count") < 1)
-		return "ÄãÀ´ÍíÁË£¬ÆåÆ×ÎÒÒÑ¾­ÔùËÍ¸ø±ğÈëÁË¡£";   
+		return "ä½ æ¥æ™šäº†ï¼Œæ£‹è°±æˆ‘å·²ç»èµ é€ç»™åˆ«å…¥äº†ã€‚";   
 
 	add("book_count", -1);                  
-	command("say ºÃ°É£¬ÄÇÎÒ¾Í°ÑËüËÍ¸øÄãÁË¡£\n");
-	message_vision(HIY"·¶°ÙÁäÎ¢Ğ¦×Å´Ó»³ÖĞÄÃ³öÁËÒ»±¾Êé£¬½»ÁË¸ø$N\n\n"NOR,ob);
+	command("say å¥½å§ï¼Œé‚£æˆ‘å°±æŠŠå®ƒé€ç»™ä½ äº†ã€‚\n");
+	message_vision(HIY"èŒƒç™¾é¾„å¾®ç¬‘ç€ä»æ€€ä¸­æ‹¿å‡ºäº†ä¸€æœ¬ä¹¦ï¼Œäº¤äº†ç»™$N\n\n"NOR,ob);
 	me=new("/clone/book/hand_book");
 	me->move(ob);
-	return "Õâ±¾ÆåÆ×¿ÉÇ§Íò²»ÒªËæ±ã¸ø±ğÈË¡£\n";
+	return "è¿™æœ¬æ£‹è°±å¯åƒä¸‡ä¸è¦éšä¾¿ç»™åˆ«äººã€‚\n";
 }

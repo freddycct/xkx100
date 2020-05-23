@@ -1,17 +1,17 @@
-// Room: /d/gumu/obj/bishou.cØ°Ê×
+// Room: /d/gumu/obj/bishou.cåŒ•é¦–
 // Last Modifyed by Winder on Jan. 14 2002
 
 #include <ansi.h>
 inherit ITEM;
 void create()
 {
-	set_name( "Ø°Ê×" , ({ "bi shou", "blade", "bishou" }) );
+	set_name( "åŒ•é¦–" , ({ "bi shou", "blade", "bishou" }) );
 	set_weight(100);
 	if( clonep() )
 		set_default_object(__FILE__);
 	else {
-		set("unit", "°Ñ");
-		set("long", "ÕâÊÇÒ»°Ñ±ßÔµ·æÀûµÄØ°Ê×£¬ºÃÏó¿ÉÒÔÕ¶(zhan)¶«Î÷¡£\n");
+		set("unit", "æŠŠ");
+		set("long", "è¿™æ˜¯ä¸€æŠŠè¾¹ç¼˜é”‹åˆ©çš„åŒ•é¦–ï¼Œå¥½è±¡å¯ä»¥æ–©(zhan)ä¸œè¥¿ã€‚\n");
 		set("value", 0);
 		set("material", "iron");
 	}
@@ -20,7 +20,7 @@ void create()
 
 void init()
 {
-	add_action("mark_success", ({"zhan", "Õ¶"}));
+	add_action("mark_success", ({"zhan", "æ–©"}));
 }
 
 int mark_success(string arg)
@@ -28,29 +28,29 @@ int mark_success(string arg)
 	object target, ob,name1, me = this_player();
 
 	name1 = me->query("id"); 
-	if(!arg) return notify_fail("ÄãÒªÕ¶Ê²Ã´£¿\n");  
+	if(!arg) return notify_fail("ä½ è¦æ–©ä»€ä¹ˆï¼Ÿ\n");  
 	target = present(arg, environment(me));  
 	if(!target)
-		return notify_fail("ÕÒ²»µ½Õâ¸ö¶«Î÷¡£\n");
+		return notify_fail("æ‰¾ä¸åˆ°è¿™ä¸ªä¸œè¥¿ã€‚\n");
 	if(!target->is_corpse())
-		return notify_fail("¿´Çå³şµã£¬ÄÇ²»ÊÇÊ¬Ìå¡£\n");
+		return notify_fail("çœ‹æ¸…æ¥šç‚¹ï¼Œé‚£ä¸æ˜¯å°¸ä½“ã€‚\n");
 	if(target->query("no_head"))
-		return notify_fail("ÄÇ¾ßÊ¬ÌåÒÑ¾­Ã»ÓĞÊ×¼¶ÁË¡£\n");
+		return notify_fail("é‚£å…·å°¸ä½“å·²ç»æ²¡æœ‰é¦–çº§äº†ã€‚\n");
 	if(!target->is_character())
-		return notify_fail("ÄÇ¾ßÊ¬ÌåÒÑ¾­¸¯ÀÃÁË¡£\n");
-	message_vision(HIR"$NÑïÆğØ°Ê× £¬¶Ô×¼$nµÄ²±×Ó´¦ÃÍµØÕ¶ÁËÏÂÈ¥£¡\n"NOR, me, target);
+		return notify_fail("é‚£å…·å°¸ä½“å·²ç»è…çƒ‚äº†ã€‚\n");
+	message_vision(HIR"$Næ‰¬èµ·åŒ•é¦– ï¼Œå¯¹å‡†$nçš„è„–å­å¤„çŒ›åœ°æ–©äº†ä¸‹å»ï¼\n"NOR, me, target);
 	ob=new("/d/gumu/obj/head");
-	ob->set_name(target->query("victim_name")+"µÄÊ×¼¶",({"head"}));
-	ob->set("long", "ÕâÊÇÒ»¿Å"+target->query("victim_name")+"µÄÊ×¼¶¡£\n");    
+	ob->set_name(target->query("victim_name")+"çš„é¦–çº§",({"head"}));
+	ob->set("long", "è¿™æ˜¯ä¸€é¢—"+target->query("victim_name")+"çš„é¦–çº§ã€‚\n");    
 	if(target->query("victim_user")) 
 	ob->set("victim_user", 1);  
 	if(target->query("kill_by")) 
 	ob->set("kill_by", target->query("kill_by"));
 	target->delete("kill_by");
-	message_vision(HIR"$N½«$nÕ¶ÁËÏÂÀ´£¬ÌáÔÚÊÖÖĞ¡£\n"NOR, me, ob);
+	message_vision(HIR"$Nå°†$næ–©äº†ä¸‹æ¥ï¼Œæåœ¨æ‰‹ä¸­ã€‚\n"NOR, me, ob);
 	ob->move(me);
-	target->set("name", "ÎŞÍ·Ê¬Ìå");
+	target->set("name", "æ— å¤´å°¸ä½“");
 	target->set("no_head", 1);
-	target->set("long", "Ò»¾ßÎŞÍ·Ê¬Ìå£¬¸¯³ôËÄÒç£¬Çé×´¿É²À¡£\n");           
+	target->set("long", "ä¸€å…·æ— å¤´å°¸ä½“ï¼Œè…è‡­å››æº¢ï¼Œæƒ…çŠ¶å¯æ€–ã€‚\n");           
 	return 1;
 }

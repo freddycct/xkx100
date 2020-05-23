@@ -1,4 +1,4 @@
-// bobingwu.c -²«±ıÎİ
+// bobingwu.c -æé¥¼å±‹
 // Last Modified by winder on Sep. 22 2002
 inherit ROOM;
 
@@ -34,28 +34,28 @@ void create()
 	minperson=2;
 	allow_leave=1;
 	allow_start=0;
-	Max1=32;//Ò»ĞãµÄ¸öÊı
-	Max2=16;//¶ş¾ÙµÄ¸öÊı
-	Max3=8; //ËÄ½øµÄ¸öÊı
-	Max4=4; //ÈıºìµÄ¸öÊı
-	Max5=2; //¶ÔÌÃµÄ¸öÊı
-	Max6=1; //×´ÔªµÄ¸öÊı
+	Max1=32;//ä¸€ç§€çš„ä¸ªæ•°
+	Max2=16;//äºŒä¸¾çš„ä¸ªæ•°
+	Max3=8; //å››è¿›çš„ä¸ªæ•°
+	Max4=4; //ä¸‰çº¢çš„ä¸ªæ•°
+	Max5=2; //å¯¹å ‚çš„ä¸ªæ•°
+	Max6=1; //çŠ¶å…ƒçš„ä¸ªæ•°
 	Realmode=0;
-	roomname="Î÷¼ä²«±ıÎİ";
+	roomname="è¥¿é—´æé¥¼å±‹";
 	set("no_fight","1");
 	set("no_magic","1");
 	set("no_steal","1");
 	set("no_beg","1");
-	set("short","Î÷²«±ıÎİ");
+	set("short","è¥¿æé¥¼å±‹");
 	set("long", @LONG
-ÕâÊÇÒ»¼ä¹ÅÆÓµäÑÅµÄµÄ²«±ıÎİ¡£·¿¼äµÄ×°ĞŞ³äÂúÁËÊ¢Ã÷Ê±ºòµÄ·çÎ¶£¬
-ÂúÎİ×ÓµÄÁÕÀÅÓñÊ¯³Ä×ÅÈáºÍµÄ¹âÏß£¬ÑóÒç×ÅÎÂÜ°µÄÆø·Õ£¬ÕæÊÇ¸öÎÂÅ¯¶ø
-ÈÈÄÖµÄµØ·½¡£·¿¼äµÄËÄÖÜµã×ÅÒ»ÁïËÉÃ÷×Ó£¬ÖĞ¼äÒ»ÕÅéªÄ¾×À£¬´ó¼Ò¶¼Ï¯
-µØ¶ø×ø (sit)£¬¿´×Å×ÀÃæÉÏÒ»¸ö´óº£Íë£¬ÍëÀïÃæµÎÁïÁï×ª×ÅÁù¿ÅÓñÖÆµÄ
-÷»×Ó£¡ÄÏ±ßµÄÇ½ÉÏÌù×ÅÒ»ÕÅ·¢»ÆµÄ³ÂÖ½(paper)¡£
+è¿™æ˜¯ä¸€é—´å¤æœ´å…¸é›…çš„çš„æé¥¼å±‹ã€‚æˆ¿é—´çš„è£…ä¿®å……æ»¡äº†ç››æ˜æ—¶å€™çš„é£å‘³ï¼Œ
+æ»¡å±‹å­çš„ç³ç…ç‰çŸ³è¡¬ç€æŸ”å’Œçš„å…‰çº¿ï¼Œæ´‹æº¢ç€æ¸©é¦¨çš„æ°”æ°›ï¼ŒçœŸæ˜¯ä¸ªæ¸©æš–è€Œ
+çƒ­é—¹çš„åœ°æ–¹ã€‚æˆ¿é—´çš„å››å‘¨ç‚¹ç€ä¸€æºœæ¾æ˜å­ï¼Œä¸­é—´ä¸€å¼ æ¥ æœ¨æ¡Œï¼Œå¤§å®¶éƒ½å¸­
+åœ°è€Œå (sit)ï¼Œçœ‹ç€æ¡Œé¢ä¸Šä¸€ä¸ªå¤§æµ·ç¢—ï¼Œç¢—é‡Œé¢æ»´æºœæºœè½¬ç€å…­é¢—ç‰åˆ¶çš„
+éª°å­ï¼å—è¾¹çš„å¢™ä¸Šè´´ç€ä¸€å¼ å‘é»„çš„é™ˆçº¸(paper)ã€‚
 LONG);
 	set("item_desc", ([
-		"paper" : "½éÉÜºÍÃüÁîÇë help bobing¡£\n",
+		"paper" : "ä»‹ç»å’Œå‘½ä»¤è¯· help bobingã€‚\n",
 	]));
 	set("objects",([
 		__DIR__"npc/dog":1,
@@ -97,13 +97,13 @@ int fleader(string id)
 				if (member[i]->query("id")==id)
 				{
 					leader=member[i];
-					tell_room(environment(leader), "ÏÖÔÚÂÖµ½"+ leader->query("name")+"ÖÀÁË¡£\n");
+					tell_room(environment(leader), "ç°åœ¨è½®åˆ°"+ leader->query("name")+"æ·äº†ã€‚\n");
 					return 1;
 				}
 			}
-			notify_fail("Õâ¸öÈË²»ÔÚÕâÀï²«±ı¡£\n");
+			notify_fail("è¿™ä¸ªäººä¸åœ¨è¿™é‡Œæé¥¼ã€‚\n");
 		}
-		else notify_fail("Ã»ÈËÔÚÕâ²«±ı¡£\n");
+		else notify_fail("æ²¡äººåœ¨è¿™æé¥¼ã€‚\n");
 	}
 	else return 0;
 }
@@ -118,7 +118,7 @@ int startreal()
 	{
 		Realmode=1;
 		pl=users();
-		message("vision", HIY + ob->query("name") + "Ğû²¼£º" + roomname + "ÕıÊ½¿ª·Å£¬½±Æ·Á¢¼´¶ÒÏÖ£¡\n"NOR, pl);
+		message("vision", HIY + ob->query("name") + "å®£å¸ƒï¼š" + roomname + "æ­£å¼å¼€æ”¾ï¼Œå¥–å“ç«‹å³å…‘ç°ï¼\n"NOR, pl);
 		if (arrayp(member))
 		{
 			for (i=0;i<sizeof(member);i++)
@@ -134,12 +134,12 @@ int startreal()
 				member[i]->set_temp("bobing/maxscore",0);
 			}
 		}
-		Max1=32; //Ò»ĞãµÄ¸öÊı
-		Max2=16; //¶ş¾ÙµÄ¸öÊı
-		Max3=8;  //ËÄ½øµÄ¸öÊı
-		Max4=4;  //ÈıºìµÄ¸öÊı
-		Max5=2;  //¶ÔÌÃµÄ¸öÊı
-		Max6=1;  //×´ÔªµÄ¸öÊı
+		Max1=32; //ä¸€ç§€çš„ä¸ªæ•°
+		Max2=16; //äºŒä¸¾çš„ä¸ªæ•°
+		Max3=8;  //å››è¿›çš„ä¸ªæ•°
+		Max4=4;  //ä¸‰çº¢çš„ä¸ªæ•°
+		Max5=2;  //å¯¹å ‚çš„ä¸ªæ•°
+		Max6=1;  //çŠ¶å…ƒçš„ä¸ªæ•°
 		return 1;
 	}
 	return 0;
@@ -154,16 +154,16 @@ int stopreal()
 	if (wizardp(ob))
 	{
 		pl=users();
-		Max1=32; //Ò»ĞãµÄ¸öÊı
-		Max2=16; //¶ş¾ÙµÄ¸öÊı
-		Max3=8;  //ËÄ½øµÄ¸öÊı
-		Max4=4;  //ÈıºìµÄ¸öÊı
-		Max5=2;  //¶ÔÌÃµÄ¸öÊı
-		Max6=1;  //×´ÔªµÄ¸öÊı
+		Max1=32; //ä¸€ç§€çš„ä¸ªæ•°
+		Max2=16; //äºŒä¸¾çš„ä¸ªæ•°
+		Max3=8;  //å››è¿›çš„ä¸ªæ•°
+		Max4=4;  //ä¸‰çº¢çš„ä¸ªæ•°
+		Max5=2;  //å¯¹å ‚çš„ä¸ªæ•°
+		Max6=1;  //çŠ¶å…ƒçš„ä¸ªæ•°
 		if (Realmode==1)
 		{
-			message("vision", HIY + ob->query("name") + "Ğû²¼£º" + roomname + "¶Ò½±ÒÑ½áÊø£¬ÏÂ´ÎÅ¬Á¦ÁË£¡\n"NOR, pl);
-			givegift();  //·Ö±ı
+			message("vision", HIY + ob->query("name") + "å®£å¸ƒï¼š" + roomname + "å…‘å¥–å·²ç»“æŸï¼Œä¸‹æ¬¡åŠªåŠ›äº†ï¼\n"NOR, pl);
+			givegift();  //åˆ†é¥¼
 			Realmode=0;
 			if (arrayp(member))
 			{
@@ -192,7 +192,7 @@ int givegift()
 	int i, j, num;
 
 	if (!arrayp(member)||sizeof(member)==0)
-		notify_fail("Ã»ÈËÔÚÕâ²«±ı£¬¾Í±ğ·ÖÀ²¡£\n");
+		notify_fail("æ²¡äººåœ¨è¿™æé¥¼ï¼Œå°±åˆ«åˆ†å•¦ã€‚\n");
 	else
 	{
 		for (i=0;i<sizeof(member);i++)
@@ -292,9 +292,9 @@ int pass_token(int index,int passmode)
 		if ((!passok)||(sizeof(member)<minperson))
 		{
 			allow_start=0;
-			tell_room(environment(leader), "ÅãÄãÍæµÄÈË»¹²»¹»£¬µÈÈËÀ´ÁË°É¡£\n");
+			tell_room(environment(leader), "é™ªä½ ç©çš„äººè¿˜ä¸å¤Ÿï¼Œç­‰äººæ¥äº†å§ã€‚\n");
 		}
-		else tell_room(environment(leader), "ÏÖÔÚÂÖµ½" + leader->query("name") + "ÖÀÁË¡£\n");
+		else tell_room(environment(leader), "ç°åœ¨è½®åˆ°" + leader->query("name") + "æ·äº†ã€‚\n");
 	}
 	if (passmode==1)
 	{
@@ -321,11 +321,11 @@ int fyao(string arg)
 				pass_token(i,0);
 				return 1;
 			}
-			else notify_fail(HIC"»¹Ã»ÂÖµ½ÄãÄØ£¬Ï¹ÈÂÈÂ¸öÉ¶¾¢ÄØ£¡\n"NOR);
+			else notify_fail(HIC"è¿˜æ²¡è½®åˆ°ä½ å‘¢ï¼Œçåš·åš·ä¸ªå•¥åŠ²å‘¢ï¼\n"NOR);
 		}
-		else notify_fail(HIC"ÄãÒªÏÈ×øÏÂÀ´²ÅÄÜºÍ´ó¼ÒÒ»Æğ²«±ı¡£\n"NOR);
+		else notify_fail(HIC"ä½ è¦å…ˆåä¸‹æ¥æ‰èƒ½å’Œå¤§å®¶ä¸€èµ·æé¥¼ã€‚\n"NOR);
 	}
-	else notify_fail(HIY"ÏÖÔÚÈË»¹²»¹»£¬ÓÆ×Åµã°É¡£\n"NOR);
+	else notify_fail(HIY"ç°åœ¨äººè¿˜ä¸å¤Ÿï¼Œæ‚ ç€ç‚¹å§ã€‚\n"NOR);
 }
 
 int fview()
@@ -334,14 +334,14 @@ int fview()
 	object ob = this_player();
 
 	if (!arrayp(member) || sizeof(member)==0)
-		notify_fail("Ã»ÈËÔÚÕâ²«±ı¡£\n");
+		notify_fail("æ²¡äººåœ¨è¿™æé¥¼ã€‚\n");
 	else
 	{
-		printf(HIY"  Íæ¼Ò          ×î¸ß½±         "HIC"Ò»Ğã  "HIB"¶ş¾Ù  "HIG"ËÄ½ø  "HIR"Èıºì  "HIY"¶ÔÌÃ  "HIM"×´Ôª\n"NOR);
-	        printf("©°©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©´\n");
+		printf(HIY"  ç©å®¶          æœ€é«˜å¥–         "HIC"ä¸€ç§€  "HIB"äºŒä¸¾  "HIG"å››è¿›  "HIR"ä¸‰çº¢  "HIY"å¯¹å ‚  "HIM"çŠ¶å…ƒ\n"NOR);
+	        printf("â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”\n");
 		for (i=0;i<sizeof(member);i++)
 		{
-			printf("©¦%-14s%-12s%6d%6d%6d%6d%6d%6d  ©¦\n",
+			printf("â”‚%-14s%-12s%6d%6d%6d%6d%6d%6d  â”‚\n",
 				member[i]->query("name"),
 				member[i]->query_temp("bobing/dest"),
 				member[i]->query_temp("bobing/g1"),
@@ -351,12 +351,12 @@ int fview()
 				member[i]->query_temp("bobing/g5"),
 				member[i]->query_temp("bobing/g6"),);
 		}
-		printf("©¸©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¼\n");
-		printf("Ä¿Ç°»¹ÓĞÒ»Ğã±ı%i¿é¡¢¶ş¾Ù±ı%i¿é¡¢ËÄ½ø±ı%i¿é¡¢Èıºì±ı%i¿é¡¢¶ÔÌÃ±ı%i¿é¡£\n", Max1, Max2, Max3, Max4, Max5);
+		printf("â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”˜\n");
+		printf("ç›®å‰è¿˜æœ‰ä¸€ç§€é¥¼%iå—ã€äºŒä¸¾é¥¼%iå—ã€å››è¿›é¥¼%iå—ã€ä¸‰çº¢é¥¼%iå—ã€å¯¹å ‚é¥¼%iå—ã€‚\n", Max1, Max2, Max3, Max4, Max5);
 		if (objectp(winner))
-			printf("ÏÖÔÚµÄ×´ÔªÓÉ%s±£³Ö¡£\n",winner->query("name"));
+			printf("ç°åœ¨çš„çŠ¶å…ƒç”±%sä¿æŒã€‚\n",winner->query("name"));
 		if (objectp(leader))
-			printf("ÏÖÔÚ¸ÃÂÖµ½%sÖÀÁË¡£\n",leader->query("name"));
+			printf("ç°åœ¨è¯¥è½®åˆ°%sæ·äº†ã€‚\n",leader->query("name"));
 		return 1;
 	}
 }
@@ -375,9 +375,9 @@ int fleave(string id)
 				if (member[i]->query("id")==id) ob=member[i];
 			}
 			if (i==sizeof(member))
-				notify_fail("Õâ¸öÈË²»ÔÚÕâÀï²«±ı¡£\n");
+				notify_fail("è¿™ä¸ªäººä¸åœ¨è¿™é‡Œæé¥¼ã€‚\n");
 		}
-		else notify_fail("Ã»ÈËÔÚÕâ²«±ı¡£\n");
+		else notify_fail("æ²¡äººåœ¨è¿™æé¥¼ã€‚\n");
 	}
 	num=query_member(ob);
 	if (num)
@@ -391,8 +391,8 @@ int fleave(string id)
 	}
 	else return 1;
 	if (sizeof(member)>minperson)
-		message_vision(HIG"$NÀë¿ªÁË´ó¼ÒÉÙÁËÒ»¸ö»ï°éÁË£¡\n"NOR,ob);
-	else message_vision(HIG"$NÀë¿ªÁË´ó¼ÒÍæ²»³ÉÁË£¡\n"NOR,ob);
+		message_vision(HIG"$Nç¦»å¼€äº†å¤§å®¶å°‘äº†ä¸€ä¸ªä¼™ä¼´äº†ï¼\n"NOR,ob);
+	else message_vision(HIG"$Nç¦»å¼€äº†å¤§å®¶ç©ä¸æˆäº†ï¼\n"NOR,ob);
 	Maxperson++;
 	if (ob==winner)
 	{
@@ -409,7 +409,7 @@ int fsit()
 
 	if ((int)ob->query("combat_exp") < 100)
 	{
-		tell_object(ob,HIY"±§Ç¸£¬Äã¾ÍÕâµã¾­Ñé£¬¸Ã²»»áÊÇdummy°É£¿\n"NOR);
+		tell_object(ob,HIY"æŠ±æ­‰ï¼Œä½ å°±è¿™ç‚¹ç»éªŒï¼Œè¯¥ä¸ä¼šæ˜¯dummyå§ï¼Ÿ\n"NOR);
 		return 1;
 	}
 
@@ -417,7 +417,7 @@ int fsit()
 	{
 		if (Maxperson>0)
 		{
-			message_vision(HIC"$N×øÏÂÀ´ºÍ´ó¼ÒÒ»Æğ²«±ı¡£\n"NOR,ob);
+			message_vision(HIC"$Nåä¸‹æ¥å’Œå¤§å®¶ä¸€èµ·æé¥¼ã€‚\n"NOR,ob);
 			Maxperson--;
 			add_member(ob);
 			ob->set_temp("bobing/dest","");
@@ -430,7 +430,7 @@ int fsit()
 			ob->set_temp("bobing/maxscore",0);
 			ob->set_temp("bobing/maxaward",0);
 		}
-		else tell_object(ob,HIY"ÕâÒ»×ÀÂúÁË£¬ÄãÈ¥±ğ´¦¿´¿´°É¡£\n"NOR);
+		else tell_object(ob,HIY"è¿™ä¸€æ¡Œæ»¡äº†ï¼Œä½ å»åˆ«å¤„çœ‹çœ‹å§ã€‚\n"NOR);
 	}
 	return 1;
 }
@@ -438,14 +438,14 @@ int fsit()
 int valid_leave(object me, string dir)
 {
 	if (query_member(me))
-		return notify_fail(HIB"ÄãÒªÏÈÀë¿ª²«±ı×À²ÅÄÜÀë¿ªÕâÀï¡£\n"NOR);
+		return notify_fail(HIB"ä½ è¦å…ˆç¦»å¼€æé¥¼æ¡Œæ‰èƒ½ç¦»å¼€è¿™é‡Œã€‚\n"NOR);
 	return 1;
 }
 
 int quitgame(object me)
 {
 	if (query_member(me))
-		return notify_fail(HIB"ÄãÒªÏÈÀë¿ª²«±ı×À²ÅÄÜÍË³öÓÎÏ·¡£\n"NOR);
+		return notify_fail(HIB"ä½ è¦å…ˆç¦»å¼€æé¥¼æ¡Œæ‰èƒ½é€€å‡ºæ¸¸æˆã€‚\n"NOR);
 	return 1;
 }
 
@@ -484,8 +484,8 @@ int add_member(object ob)
 		if (sizeof(member)>=minperson)
 		{
 			allow_start=1;
-			tell_room(environment(leader), "Ì«ºÃÁË£¬ÈË´Õ¹»ÁË£¬¿ÉÒÔ¿ªÊ¼ÍæÁË¡£\n");
-			tell_room(environment(leader), leader->query("name")+"ÏÈÖÀ°É¡£\n");
+			tell_room(environment(leader), "å¤ªå¥½äº†ï¼Œäººå‡‘å¤Ÿäº†ï¼Œå¯ä»¥å¼€å§‹ç©äº†ã€‚\n");
+			tell_room(environment(leader), leader->query("name")+"å…ˆæ·å§ã€‚\n");
 		}
 	}
 	return 1;
@@ -509,17 +509,17 @@ int query_member(object ob)
 void do_yao(string arg)
 {
 	string *sha_msg = ({
-"×¥ÆğÁù¸ö÷»×Ó·ÅÔÚÊÖĞÄÀïÆ´ÃüÒ¡£¬È»ºóÍÅÆğÊÖÀ´ÏòÊÖÖĞ´µÁË¿ÚÆø£¬¿ÚÖĞ»¹ÉñÉñß¶ß¶µØÄîÄîÓĞ´Ê£ºÌìÁéÁé£¬µØÁéÁé¡­¡­À´À´À´£¬¿ªÁË¡­¡­\n",
-"µÉ×ÅÒ»¶ÔºìÑÛ£¬´óºÈÒ»Éù£º×´Ôª£¡ÊÖÖĞµÄÁùÁ£÷»×ÓÍùÍëÖĞÒ»Ë¤£¡\n",
-"ÍùÊÖÉÏ´µÁË¿ÚÆø£¬ÁùÁ£÷»×ÓÇáÇáÒ»Å×£®£®£®\n",
-"¹Ê×÷Õò¾²µØ½«ÁùÁ£÷»×ÓÍùÍëÀïÒ»Å×£¬²»ÁÏÒ»Á£÷»×Ó´ÓÖ¸·ìÖĞÒ»²»Ğ¡ĞÄµô³öÍëÍâ¡£ÍêÁË£¡ÍêÁË£¡°×ÖÀÁËÒ»°Ñ£¡\n",
-"Î¢Î¢Ò»Ğ¦£¬ÁùÁ£÷»×ÓÍùÍëÀïÒ»¹ö£®£®£®\n",
-"Íû¿Õ×÷ÁË¸öÒ¾£ºÆĞÈø±£ÓÓ£¡ÁùÁ£÷»×ÓÕ½Õ½¾¤¾¤µØÍëÖĞÒ»Í¶£®£®£®\n",
-"ÄÃ×ÅÁùÁ£÷»×Ó£¬¶¶×ã¾«Éñ£ºÈ¢ÀÏÆÅÉúº¢×ÓÔÚ´ËÒ»¾Ù£¡\n",
-"ÒÂĞäÒ»¾í£¬´óÉù½ĞµÀ£º¿´ÎÒµÄ£¡\n",
-"Ò§ÑÀÇĞ³İ£¬ÁùÁ£÷»×ÓÍùÍëÖĞÉÏºİºİµØÒ»ÔÒ£®£®£®\n",
-"ÂúÍ·´óº¹£¬×ÔÑÔ×ÔÓïµÀ£ºÎÒ²»Òª±ğµÄ£¬ÓĞ¸ö¶ÔÌÃ¾Í¹»ÁË£®£®\n",
-"äìÈ÷µØ×÷ÁË¸öËÄ·½Ò¾£ºÕâ°Ñ¸ÃÎÒÇÀ×´ÔªÁË£¬¿´ºÃÁË£®£®£®\n",
+"æŠ“èµ·å…­ä¸ªéª°å­æ”¾åœ¨æ‰‹å¿ƒé‡Œæ‹¼å‘½æ‘‡ï¼Œç„¶åå›¢èµ·æ‰‹æ¥å‘æ‰‹ä¸­å¹äº†å£æ°”ï¼Œå£ä¸­è¿˜ç¥ç¥å¨å¨åœ°å¿µå¿µæœ‰è¯ï¼šå¤©çµçµï¼Œåœ°çµçµâ€¦â€¦æ¥æ¥æ¥ï¼Œå¼€äº†â€¦â€¦\n",
+"çªç€ä¸€å¯¹çº¢çœ¼ï¼Œå¤§å–ä¸€å£°ï¼šçŠ¶å…ƒï¼æ‰‹ä¸­çš„å…­ç²’éª°å­å¾€ç¢—ä¸­ä¸€æ‘”ï¼\n",
+"å¾€æ‰‹ä¸Šå¹äº†å£æ°”ï¼Œå…­ç²’éª°å­è½»è½»ä¸€æŠ›ï¼ï¼ï¼\n",
+"æ•…ä½œé•‡é™åœ°å°†å…­ç²’éª°å­å¾€ç¢—é‡Œä¸€æŠ›ï¼Œä¸æ–™ä¸€ç²’éª°å­ä»æŒ‡ç¼ä¸­ä¸€ä¸å°å¿ƒæ‰å‡ºç¢—å¤–ã€‚å®Œäº†ï¼å®Œäº†ï¼ç™½æ·äº†ä¸€æŠŠï¼\n",
+"å¾®å¾®ä¸€ç¬‘ï¼Œå…­ç²’éª°å­å¾€ç¢—é‡Œä¸€æ»šï¼ï¼ï¼\n",
+"æœ›ç©ºä½œäº†ä¸ªæ–ï¼šè©è¨ä¿ä½‘ï¼å…­ç²’éª°å­æˆ˜æˆ˜å…¢å…¢åœ°ç¢—ä¸­ä¸€æŠ•ï¼ï¼ï¼\n",
+"æ‹¿ç€å…­ç²’éª°å­ï¼ŒæŠ–è¶³ç²¾ç¥ï¼šå¨¶è€å©†ç”Ÿå­©å­åœ¨æ­¤ä¸€ä¸¾ï¼\n",
+"è¡£è¢–ä¸€å·ï¼Œå¤§å£°å«é“ï¼šçœ‹æˆ‘çš„ï¼\n",
+"å’¬ç‰™åˆ‡é½¿ï¼Œå…­ç²’éª°å­å¾€ç¢—ä¸­ä¸Šç‹ ç‹ åœ°ä¸€ç ¸ï¼ï¼ï¼\n",
+"æ»¡å¤´å¤§æ±—ï¼Œè‡ªè¨€è‡ªè¯­é“ï¼šæˆ‘ä¸è¦åˆ«çš„ï¼Œæœ‰ä¸ªå¯¹å ‚å°±å¤Ÿäº†ï¼ï¼\n",
+"æ½‡æ´’åœ°ä½œäº†ä¸ªå››æ–¹æ–ï¼šè¿™æŠŠè¯¥æˆ‘æŠ¢çŠ¶å…ƒäº†ï¼Œçœ‹å¥½äº†ï¼ï¼ï¼\n",
 });
 
 	int t1,s1,s2,s3,s4,s5,s6,c1,c2,c3,c4,c5,c6,getaward,getscore,msgno;
@@ -529,7 +529,7 @@ void do_yao(string arg)
 	getscore=0;
 	dest="";
 
-//Î×Ê¦×÷±×
+//å·«å¸ˆä½œå¼Š
 	if (wizardp(ob) && arg &&
 		sscanf(arg, "%d %d %d %d %d %d", s1,s2,s3,s4,s5,s6) == 6 &&
 		s1 > 0 && s1 < 7 &&
@@ -539,19 +539,19 @@ void do_yao(string arg)
 		s5 > 0 && s5 < 7 &&
 		s6 > 0 && s6 < 7)
 	{
-		CHANNEL_D->do_channel(ob, "sys", "²»ºÃÒâË¼£¬¾Í×÷±×Ò»°Ñ°É¡£\n");
+		CHANNEL_D->do_channel(ob, "sys", "ä¸å¥½æ„æ€ï¼Œå°±ä½œå¼Šä¸€æŠŠå§ã€‚\n");
 	}
 	else
 	{
 		t1=random(50)+1;
-// ¼Ó´ó¶ÔÌÃ¸ÅÂÊ
+// åŠ å¤§å¯¹å ‚æ¦‚ç‡
 		if (t1==25)
 		{
 			s1=5; s2=2; s3=6; s4=4; s5=3; s6=1;
 		}
 		else
 		{
-// Õı³£¸ÅÂÊ
+// æ­£å¸¸æ¦‚ç‡
 			s1=random(5)+1;
 			s2=random(5)+1;
 			s3=random(5)+1;
@@ -560,45 +560,45 @@ void do_yao(string arg)
 			s6=random(5)+1;
 		}
 	}
-//°´µãÊıÍ³¼Æ
-	c1=countit(s1,s2,s3,s4,s5,s6,1); //Ò»µÄ¸öÊı
-	c2=countit(s1,s2,s3,s4,s5,s6,2); //¶şµÄ¸öÊı
-	c3=countit(s1,s2,s3,s4,s5,s6,3); //ÈıµÄ¸öÊı
-	c4=countit(s1,s2,s3,s4,s5,s6,4); //ËÄµÄ¸öÊı
-	c5=countit(s1,s2,s3,s4,s5,s6,5); //ÎåµÄ¸öÊı
-	c6=countit(s1,s2,s3,s4,s5,s6,6); //ÁùµÄ¸öÊı
+//æŒ‰ç‚¹æ•°ç»Ÿè®¡
+	c1=countit(s1,s2,s3,s4,s5,s6,1); //ä¸€çš„ä¸ªæ•°
+	c2=countit(s1,s2,s3,s4,s5,s6,2); //äºŒçš„ä¸ªæ•°
+	c3=countit(s1,s2,s3,s4,s5,s6,3); //ä¸‰çš„ä¸ªæ•°
+	c4=countit(s1,s2,s3,s4,s5,s6,4); //å››çš„ä¸ªæ•°
+	c5=countit(s1,s2,s3,s4,s5,s6,5); //äº”çš„ä¸ªæ•°
+	c6=countit(s1,s2,s3,s4,s5,s6,6); //å…­çš„ä¸ªæ•°
 
 	if (c1==6||c2==6||c3==6||c4==6||c5==6||c6==6)
 	{
 		getaward=6;
 		if (c1==6)
 		{
-			dest="Áù  ºÚ(Ò»)";
+			dest="å…­  é»‘(ä¸€)";
 			getscore=1201;
 		}
 		else if (c2==6)
 		{
-			dest="Áù  ºÚ(¶ş)";
+			dest="å…­  é»‘(äºŒ)";
 			getscore=1202;
 		}
 		else if (c3==6)
 		{
-			dest="Áù  ºÚ(Èı)";
+			dest="å…­  é»‘(ä¸‰)";
 			getscore=1203;
 		}
 		else if (c5==6)
 		{
-			dest="Áù  ºÚ(Îå)";
+			dest="å…­  é»‘(äº”)";
 			getscore=1204;
 		}
 		else if (c6==6)
 		{
-			dest="Áù  ºÚ(Áù)";
+			dest="å…­  é»‘(å…­)";
 			getscore=1205;
 		}
 		else if (c4==6)
 		{
-			dest="Áù  ºì(Í¨³Ô)";
+			dest="å…­  çº¢(é€šåƒ)";
 			getscore=1207;
 		}
 	}
@@ -607,27 +607,27 @@ void do_yao(string arg)
 		getaward=6;
 		if (c1==1)
 		{
-			dest="Îåºì´øÒ»";
+			dest="äº”çº¢å¸¦ä¸€";
 			getscore=1102;
 		}
 		else if (c2==1)
 		{
-			dest="Îåºì´ø¶ş";
+			dest="äº”çº¢å¸¦äºŒ";
 			getscore=1103;
 		}
 		else if (c3==1)
 		{
-			dest="Îåºì´øÈı";
+			dest="äº”çº¢å¸¦ä¸‰";
 			getscore=1104;
 		}
 		else if (c5==1)
 		{
-			dest="Îåºì´øÎå";
+			dest="äº”çº¢å¸¦äº”";
 			getscore=1105;
 		}
 		else if (c6==1)
 		{
-			dest="Îåºì´øÁù";
+			dest="äº”çº¢å¸¦å…­";
 			getscore=1106;
 		}
 	}
@@ -636,27 +636,27 @@ void do_yao(string arg)
 		getaward=6;
 		if (c1==1)
 		{
-			dest="ÎåÖ÷(Áù)´øÒ»";
+			dest="äº”ä¸»(å…­)å¸¦ä¸€";
 			getscore=1046;
 		}
 		else if (c2==1)
 		{
-			dest="ÎåÖ÷(Áù)´ø¶ş";
+			dest="äº”ä¸»(å…­)å¸¦äºŒ";
 			getscore=1056;
 		}
 		else if (c3==1)
 		{
-			dest="ÎåÖ÷(Áù)´øÈı";
+			dest="äº”ä¸»(å…­)å¸¦ä¸‰";
 			getscore=1066;
 		}
 		else if (c4==1)
 		{
-			dest="ÎåÖ÷(Áù)´øËÄ";
+			dest="äº”ä¸»(å…­)å¸¦å››";
 			getscore=1076;
 		}
 		else if (c5==1)
 		{
-			dest="ÎåÖ÷(Áù)´øÎå";
+			dest="äº”ä¸»(å…­)å¸¦äº”";
 			getscore=1086;
 		}
 	}
@@ -665,27 +665,27 @@ void do_yao(string arg)
 		getaward=6;
 		if(c1==1)
 		{
-			dest="ÎåÖ÷(Îå)´øÒ»";
+			dest="äº”ä¸»(äº”)å¸¦ä¸€";
 			getscore=1045;
 		}
 		else if(c2==1)
 		{
-			dest="ÎåÖ÷(Îå)´ø¶ş";
+			dest="äº”ä¸»(äº”)å¸¦äºŒ";
 			getscore=1055;
 		}
 		else if(c3==1)
 		{
-			dest="ÎåÖ÷(Îå)´øÈı";
+			dest="äº”ä¸»(äº”)å¸¦ä¸‰";
 			getscore=1065;
 		}
 		else if(c4==1)
 		{
-			dest="ÎåÖ÷(Îå)´øËÄ";
+			dest="äº”ä¸»(äº”)å¸¦å››";
 			getscore=1075;
 		}
 		else if(c6==1)
 		{
-			dest="ÎåÖ÷(Îå)´øÁù";
+			dest="äº”ä¸»(äº”)å¸¦å…­";
 			getscore=1096;
 		}
 	}
@@ -694,27 +694,27 @@ void do_yao(string arg)
 		getaward=6;
 		if(c1==1)
 		{
-			dest="ÎåÖ÷(Èı)´øÒ»";
+			dest="äº”ä¸»(ä¸‰)å¸¦ä¸€";
 			getscore=1043;
 		}
 		else if(c2==1)
 		{
-			dest="ÎåÖ÷(Èı)´ø¶ş";
+			dest="äº”ä¸»(ä¸‰)å¸¦äºŒ";
 			getscore=1053;
 		}
 		else if(c4==1)
 		{
-			dest="ÎåÖ÷(Èı)´øËÄ";
+			dest="äº”ä¸»(ä¸‰)å¸¦å››";
 			getscore=1073;
 		}
 		else if(c5==1)
 		{
-			dest="ÎåÖ÷(Èı )´øÎå";
+			dest="äº”ä¸»(ä¸‰ )å¸¦äº”";
 			getscore=1083;
 		}
 		else if(c6==1)
 		{
-			dest="ÎåÖ÷(Èı)´øÁù";
+			dest="äº”ä¸»(ä¸‰)å¸¦å…­";
 			getscore=1093;
 		}
 	}
@@ -723,27 +723,27 @@ void do_yao(string arg)
 		getaward=6;
 		if(c1==1)
 		{
-			dest="ÎåÖ÷(¶ş)´øÒ»";
+			dest="äº”ä¸»(äºŒ)å¸¦ä¸€";
 			getscore=1042;
 		}
 		else if(c3==1)
 		{
-			dest="ÎåÖ÷(¶ş)´øÈı";
+			dest="äº”ä¸»(äºŒ)å¸¦ä¸‰";
 			getscore=1062;
 		}
 		else if(c4==1)
 		{
-			dest="ÎåÖ÷(¶ş)´øËÄ";
+			dest="äº”ä¸»(äºŒ)å¸¦å››";
 			getscore=1072;
 		}
 		else if(c5==1)
 		{
-			dest="ÎåÖ÷(¶ş)´øÎå";
+			dest="äº”ä¸»(äºŒ)å¸¦äº”";
 			getscore=1082;
 		}
 		else if(c6==1)
 		{
-			dest="ÎåÖ÷(¶ş)´øÁù";
+			dest="äº”ä¸»(äºŒ)å¸¦å…­";
 			getscore=1092;
 		}
 	}
@@ -752,27 +752,27 @@ void do_yao(string arg)
 		getaward=6;
 		if(c2==1)
 		{
-			dest="ÎåÖ÷(Ò»)´ø¶ş";
+			dest="äº”ä¸»(ä¸€)å¸¦äºŒ";
 			getscore=1051;
 		}
 		else if(c3==1)
 		{
-			dest="ÎåÖ÷(Ò»)´øÈı";
+			dest="äº”ä¸»(ä¸€)å¸¦ä¸‰";
 			getscore=1061;
 		}
 		else if(c4==1)
 		{
-			dest="ÎåÖ÷(Ò»)´øËÄ";
+			dest="äº”ä¸»(ä¸€)å¸¦å››";
 			getscore=1071;
 		}
 		else if(c5==1)
 		{
-			dest="ÎåÖ÷(Ò»)´øÎå";
+			dest="äº”ä¸»(ä¸€)å¸¦äº”";
 			getscore=1081;
 		}
 		else if(c6==1)
 		{
-			dest="ÎåÖ÷(Ò»)´øÁù";
+			dest="äº”ä¸»(ä¸€)å¸¦å…­";
 			getscore=1091;
 		}
 	}
@@ -781,57 +781,57 @@ void do_yao(string arg)
 		getaward=6;
 		if((s1+s2+s3+s4+s5+s6-16)==2)
 		{
-			dest="×´Ôª²å½ğ»¨";
+			dest="çŠ¶å…ƒæ’é‡‘èŠ±";
 			getscore=1206;
 		}
 		else if((s1+s2+s3+s4+s5+s6-16)==12)
 		{
-			dest="×´Ôª´øÊ®¶ş";
+			dest="çŠ¶å…ƒå¸¦åäºŒ";
 			getscore=512;
 		}
 		else if((s1+s2+s3+s4+s5+s6-16)==11)
 		{
-			dest="×´Ôª´øÊ®Ò»";
+			dest="çŠ¶å…ƒå¸¦åä¸€";
 			getscore=511;
 		}
 		else if((s1+s2+s3+s4+s5+s6-16)==10)
 		{
-			dest="×´Ôª´øÊ®";
+			dest="çŠ¶å…ƒå¸¦å";
 			getscore=510;
 		}
 		else if((s1+s2+s3+s4+s5+s6-16)==9)
 		{
-			dest="×´Ôª´ø¾Å";
+			dest="çŠ¶å…ƒå¸¦ä¹";
 			getscore=509;
 		}
 		else if((s1+s2+s3+s4+s5+s6-16)==8)
 		{
-			dest="×´Ôª´ø°Ë";
+			dest="çŠ¶å…ƒå¸¦å…«";
 			getscore=508;
 		}
 		else if((s1+s2+s3+s4+s5+s6-16)==7)
 		{
-			dest="×´Ôª´øÆß";
+			dest="çŠ¶å…ƒå¸¦ä¸ƒ";
 			getscore=507;
 		}
 		else if((s1+s2+s3+s4+s5+s6-16)==6)
 		{
-			dest="×´Ôª´øÁù";
+			dest="çŠ¶å…ƒå¸¦å…­";
 			getscore=506;
 		}
 		else if((s1+s2+s3+s4+s5+s6-16)==5)
 		{
-			dest="×´Ôª´øÎå";
+			dest="çŠ¶å…ƒå¸¦äº”";
 			getscore=505;
 		}
 		else if((s1+s2+s3+s4+s5+s6-16)==4)
 		{
-			dest="×´Ôª´øËÄ";
+			dest="çŠ¶å…ƒå¸¦å››";
 			getscore=504;
 		}
 		else if((s1+s2+s3+s4+s5+s6-16)==3)
 		{
-			dest="×´Ôª´øÈı";
+			dest="çŠ¶å…ƒå¸¦ä¸‰";
 			getscore=503;
 		}
 	}
@@ -841,24 +841,24 @@ void do_yao(string arg)
 		if (c4==2)
 		{
 			getscore=302;
-			dest="ËÄ½ø´ø¶ş¾Ù";
+			dest="å››è¿›å¸¦äºŒä¸¾";
 		}
 		else if(c4==1)
 		{
 			getscore=301;
-			dest="ËÄ½ø´øÒ»Ğã";
+			dest="å››è¿›å¸¦ä¸€ç§€";
 		}
 		else if(c4==0)
 		{
 			getscore=300;
-			dest="ËÄ½ø";
+			dest="å››è¿›";
 		}
 	}
 	else if(c4==3)
 	{
 		getaward=4;
 		getscore=400;
-		dest="Èıºì";
+		dest="ä¸‰çº¢";
 	}
 	else if(c4==2)
 	{
@@ -866,9 +866,9 @@ void do_yao(string arg)
 		getscore=200;
 		if (c1==2)
 		{
-			dest="¶ş¾Ù²å½ğ»¨";
+			dest="äºŒä¸¾æ’é‡‘èŠ±";
 		}
-		dest="¶ş¾Ù";
+		dest="äºŒä¸¾";
 	}
 	else if (c4==1)
 	{
@@ -876,31 +876,31 @@ void do_yao(string arg)
 		{
 			getaward=5;
 			getscore=500;
-			dest="¶ÔÌÃ";
+			dest="å¯¹å ‚";
 		}
 		else if (c1==2)
 		{
 			getaward=1;
 			getscore=100;
-			dest="Ò»Ğã²å½ğ»¨";
+			dest="ä¸€ç§€æ’é‡‘èŠ±";
 		}
 		else
 		{
 			getaward=1;
 			getscore=100;
-			dest="Ò»Ğã";
+			dest="ä¸€ç§€";
 		}
 	}
 	else
 	{
 		getaward=0;
 		getscore=0;
-		dest=NOR"¡­¡­¡­ÍÛÈû£¡¾ÓÈ»Ê²Ã´¶¼²»ÊÇÒ®£¡£¿ºÇºÇºÇºÇ£¬ÕæÍ¬ÇéÄãÅ¶";
+		dest=NOR"â€¦â€¦â€¦å“‡å¡ï¼å±…ç„¶ä»€ä¹ˆéƒ½ä¸æ˜¯è€¶ï¼ï¼Ÿå‘µå‘µå‘µå‘µï¼ŒçœŸåŒæƒ…ä½ å“¦";
 	}
 	result=display_item(s1,s2,s3,s4,s5,s6);
 	msgno = random(sizeof(sha_msg));
-	if (msgno != 3) result=result+"\n¾ÓÈ»ÊÇ¸ö"HIR+dest+NOR"£¿¼ÓÓÍ°¡£¡\n";
-	else result=result+"\nÌø²ÛÁË£¬ÈÃ±ğÈËÖÀ£¡\n";
+	if (msgno != 3) result=result+"\nå±…ç„¶æ˜¯ä¸ª"HIR+dest+NOR"ï¼ŸåŠ æ²¹å•Šï¼\n";
+	else result=result+"\nè·³æ§½äº†ï¼Œè®©åˆ«äººæ·ï¼\n";
 	message_vision(HIC"$N"+sha_msg[msgno]+NOR+result,ob);
 	if (msgno != 3) getit(ob,getaward,getscore,dest);
 }
@@ -946,9 +946,9 @@ string getit(object ob,int getaward,int getscore,string dest)
 			ob->set_temp("bobing/g1",ob->query_temp("bobing/g1")+1);
 			Max1=(Max1==0)?0:Max1-1;
 			if (Realmode)
-				message_vision(HIY"$N²«µ½Ò»ĞãÒ»¸ö£¬½±Ò»Ğã±ıÒ»¿é£¡\n"NOR, ob);
+				message_vision(HIY"$Næåˆ°ä¸€ç§€ä¸€ä¸ªï¼Œå¥–ä¸€ç§€é¥¼ä¸€å—ï¼\n"NOR, ob);
 			else
-				message_vision(CYN"$N²«µ½Ò»ĞãÒ»¸ö£¬ÕæÊÇ¿ÉÏ§Î×Ê¦²»ÔÚ£¬Ã»ÓĞ½±Æ·¡­¡­\n"NOR, ob);
+				message_vision(CYN"$Næåˆ°ä¸€ç§€ä¸€ä¸ªï¼ŒçœŸæ˜¯å¯æƒœå·«å¸ˆä¸åœ¨ï¼Œæ²¡æœ‰å¥–å“â€¦â€¦\n"NOR, ob);
 		}
 	}
 	if (getaward==2)
@@ -962,9 +962,9 @@ string getit(object ob,int getaward,int getscore,string dest)
 			ob->set_temp("bobing/g2",ob->query_temp("bobing/g2")+1);
 			Max2=(Max2==0)?0:Max2-1;
 			if (Realmode)
-				message_vision(HIY"$N²«µ½¶ş¾ÙÒ»¸ö£¬½±¶ş¾Ù±ıÒ»¿é£¡\n"NOR,ob);
+				message_vision(HIY"$Næåˆ°äºŒä¸¾ä¸€ä¸ªï¼Œå¥–äºŒä¸¾é¥¼ä¸€å—ï¼\n"NOR,ob);
 			else
-				message_vision(CYN"$N²«µ½¶ş¾ÙÒ»¸ö£¬ÕæÊÇ¿ÉÏ§Î×Ê¦²»ÔÚ£¬Ã»ÓĞ½±Æ·¡­¡­\n"NOR,ob);
+				message_vision(CYN"$Næåˆ°äºŒä¸¾ä¸€ä¸ªï¼ŒçœŸæ˜¯å¯æƒœå·«å¸ˆä¸åœ¨ï¼Œæ²¡æœ‰å¥–å“â€¦â€¦\n"NOR,ob);
 		}
 	}
 	if (getaward==3)
@@ -978,9 +978,9 @@ string getit(object ob,int getaward,int getscore,string dest)
 			ob->set_temp("bobing/g3",ob->query_temp("bobing/g3")+1);
 			Max3=(Max3==0)?0:Max3-1;
 			if (Realmode)
-				message_vision(HIY"$N²«µ½ËÄ½øÒ»¸ö£¬½±ËÄ½ø±ıÒ»¿é£¡\n"NOR,ob);
+				message_vision(HIY"$Næåˆ°å››è¿›ä¸€ä¸ªï¼Œå¥–å››è¿›é¥¼ä¸€å—ï¼\n"NOR,ob);
 			else
-				message_vision(CYN"$N²«µ½ËÄ½øÒ»¸ö£¬ÕæÊÇ¿ÉÏ§Î×Ê¦²»ÔÚ£¬Ã»ÓĞ½±Æ·¡­¡­\n"NOR,ob);
+				message_vision(CYN"$Næåˆ°å››è¿›ä¸€ä¸ªï¼ŒçœŸæ˜¯å¯æƒœå·«å¸ˆä¸åœ¨ï¼Œæ²¡æœ‰å¥–å“â€¦â€¦\n"NOR,ob);
 		}
 	}
 	if (getaward==4)
@@ -994,9 +994,9 @@ string getit(object ob,int getaward,int getscore,string dest)
 			ob->set_temp("bobing/g4",ob->query_temp("bobing/g4")+1);
 			Max4=(Max4==0)?0:Max4-1;
 			if (Realmode)
-				message_vision(HIY"$N²«µ½ÈıºìÒ»¸ö£¬½±Èıºì±ıÒ»¿é£¡\n"NOR,ob);
+				message_vision(HIY"$Næåˆ°ä¸‰çº¢ä¸€ä¸ªï¼Œå¥–ä¸‰çº¢é¥¼ä¸€å—ï¼\n"NOR,ob);
 			else
-				message_vision(CYN"$N²«µ½ÈıºìÒ»¸ö£¬ÕæÊÇ¿ÉÏ§Î×Ê¦²»ÔÚ£¬Ã»ÓĞ½±Æ·¡­¡­\n"NOR,ob);
+				message_vision(CYN"$Næåˆ°ä¸‰çº¢ä¸€ä¸ªï¼ŒçœŸæ˜¯å¯æƒœå·«å¸ˆä¸åœ¨ï¼Œæ²¡æœ‰å¥–å“â€¦â€¦\n"NOR,ob);
 		}
 	}
 	if (getaward==5)
@@ -1010,16 +1010,16 @@ string getit(object ob,int getaward,int getscore,string dest)
 			ob->set_temp("bobing/g5",ob->query_temp("bobing/g5")+1);
 			Max5=(Max5==0)?0:Max5-1;
 			if (Realmode)
-				message_vision(HIY"$N²«µ½¶ÔÌÃÒ»¸ö£¬½±¶ÔÌÃ±ıÒ»¿é£¡\n"NOR,ob);
+				message_vision(HIY"$Næåˆ°å¯¹å ‚ä¸€ä¸ªï¼Œå¥–å¯¹å ‚é¥¼ä¸€å—ï¼\n"NOR,ob);
 			else
-				message_vision(CYN"$N²«µ½¶ÔÌÃÒ»¸ö£¬ÕæÊÇ¿ÉÏ§Î×Ê¦²»ÔÚ£¬Ã»ÓĞ½±Æ·¡­¡­\n"NOR,ob);
+				message_vision(CYN"$Næåˆ°å¯¹å ‚ä¸€ä¸ªï¼ŒçœŸæ˜¯å¯æƒœå·«å¸ˆä¸åœ¨ï¼Œæ²¡æœ‰å¥–å“â€¦â€¦\n"NOR,ob);
 		}
 	}
 	if (getaward==6)
 	{
 		if(Realmode) Max6=(Max6==0)?0:Max6-1;
 		else
-			message_vision(CYN"$N²«µ½×´ÔªÒ»¸ö£¬ÕæÊÇ¿ÉÏ§Î×Ê¦²»ÔÚ£¬Ã»ÓĞ½±Æ·¡­¡­\n"NOR,ob);
+			message_vision(CYN"$Næåˆ°çŠ¶å…ƒä¸€ä¸ªï¼ŒçœŸæ˜¯å¯æƒœå·«å¸ˆä¸åœ¨ï¼Œæ²¡æœ‰å¥–å“â€¦â€¦\n"NOR,ob);
 	}
 	if(getaward>=6)
 	{
@@ -1028,7 +1028,7 @@ string getit(object ob,int getaward,int getscore,string dest)
 			winner=ob;
 			ob->set_temp("bobing/g6",1);
 			play=users();
-			message("vision", HIY"\n\n[²«±ı×îĞÂÏûÏ¢]\n©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤\n¹§Ï²£¡ ¹§Ï²£¡" + ob->query("name") + "²«µ½ÁË" + dest + "£¡³ÉÎª " + roomname+"µÄ×´Ôª£¡£¡£¡\n"NOR, play);
+			message("vision", HIY"\n\n[æé¥¼æœ€æ–°æ¶ˆæ¯]\nâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€\næ­å–œï¼ æ­å–œï¼" + ob->query("name") + "æåˆ°äº†" + dest + "ï¼æˆä¸º " + roomname+"çš„çŠ¶å…ƒï¼ï¼ï¼\n"NOR, play);
 		}
 		else
 		{
@@ -1039,10 +1039,10 @@ string getit(object ob,int getaward,int getscore,string dest)
 				winner=ob;
 				winner->set_temp("bobing/g6",1);
 				play=users();
-				message("vision", HIY"\n\n[²«±ı×îĞÂÏûÏ¢]\n©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤\n¹§Ï²£¡ ¹§Ï²£¡" + ob->query("name") + "²«µ½ÁË" + dest + "£¡³ÉÎª " + roomname+"µÄ×´Ôª£¡£¡£¡\n"NOR, play);
+				message("vision", HIY"\n\n[æé¥¼æœ€æ–°æ¶ˆæ¯]\nâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€\næ­å–œï¼ æ­å–œï¼" + ob->query("name") + "æåˆ°äº†" + dest + "ï¼æˆä¸º " + roomname+"çš„çŠ¶å…ƒï¼ï¼ï¼\n"NOR, play);
 			}
 			else
-				message_vision(CYN"$N²«µ½×´ÔªÒ»¸ö£¬ÕæÊÇ¿ÉÏ§ÄãµÄ×´ÔªÃ»ÓĞ½±Æ·¡­¡­\n"NOR,ob);
+				message_vision(CYN"$Næåˆ°çŠ¶å…ƒä¸€ä¸ªï¼ŒçœŸæ˜¯å¯æƒœä½ çš„çŠ¶å…ƒæ²¡æœ‰å¥–å“â€¦â€¦\n"NOR,ob);
 		}
 	}
 }
@@ -1066,7 +1066,7 @@ int qianbing(object ob,int getaward)
 						{
 							member[i]->add_temp("bobing/g1",-1);
 							ob->add_temp("bobing/g1",1);
-							message_vision(HIY "$N²«µ½Ò»ĞãÒ»¸ö£¬ÇÀÁË$nÒ»Ğã±ıÒ»¿é£¡\n"NOR,ob,member[i]);
+							message_vision(HIY "$Næåˆ°ä¸€ç§€ä¸€ä¸ªï¼ŒæŠ¢äº†$nä¸€ç§€é¥¼ä¸€å—ï¼\n"NOR,ob,member[i]);
 							return 1;
 						}
 						break;
@@ -1075,7 +1075,7 @@ int qianbing(object ob,int getaward)
 						{
 							member[i]->add_temp("bobing/g2",-1);
 							ob->add_temp("bobing/g2",1);
-							message_vision(HIY "$N²«µ½¶ş¾ÙÒ»¸ö£¬ÇÀÁË$n¶ş¾Ù±ıÒ»¿é£¡\n"NOR,ob,member[i]);
+							message_vision(HIY "$Næåˆ°äºŒä¸¾ä¸€ä¸ªï¼ŒæŠ¢äº†$näºŒä¸¾é¥¼ä¸€å—ï¼\n"NOR,ob,member[i]);
 							return 1;
 						}
 						break;
@@ -1084,7 +1084,7 @@ int qianbing(object ob,int getaward)
 						{
 							member[i]->add_temp("bobing/g3",-1);
 							ob->add_temp("bobing/g3",1);
-							message_vision(HIY "$N²«µ½ËÄ½øÒ»¸ö£¬ÇÀÁË$nËÄ½ø±ıÒ»¿é£¡\n"NOR,ob,member[i]);
+							message_vision(HIY "$Næåˆ°å››è¿›ä¸€ä¸ªï¼ŒæŠ¢äº†$nå››è¿›é¥¼ä¸€å—ï¼\n"NOR,ob,member[i]);
 							return 1;
 						}
 						break;
@@ -1093,7 +1093,7 @@ int qianbing(object ob,int getaward)
 						{
 							member[i]->add_temp("bobing/g4",-1);
 							ob->add_temp("bobing/g4",1);
-							message_vision(HIY "$N²«µ½ÈıºìÒ»¸ö£¬ÇÀÁË$nÈıºì±ıÒ»¿é£¡\n"NOR,ob,member[i]);
+							message_vision(HIY "$Næåˆ°ä¸‰çº¢ä¸€ä¸ªï¼ŒæŠ¢äº†$nä¸‰çº¢é¥¼ä¸€å—ï¼\n"NOR,ob,member[i]);
 							return 1;
 						}
 						break;
@@ -1102,336 +1102,336 @@ int qianbing(object ob,int getaward)
 						{
 							member[i]->add_temp("bobing/g5",-1);
 							ob->add_temp("bobing/g5",1);
-							message_vision(HIY "$N²«µ½¶ÔÌÃÒ»¸ö£¬ÇÀÁË$n¶ÔÌÃ±ıÒ»¿é£¡\n"NOR,ob,member[i]);
+							message_vision(HIY "$Næåˆ°å¯¹å ‚ä¸€ä¸ªï¼ŒæŠ¢äº†$nå¯¹å ‚é¥¼ä¸€å—ï¼\n"NOR,ob,member[i]);
 							return 1;
 						}
 						break;
 					default:
-						message_vision(HIY "$N²«µ½Ò»¿éÃ»ÓĞÓÃµÄ±ı£¡\n"NOR,ob);
+						message_vision(HIY "$Næåˆ°ä¸€å—æ²¡æœ‰ç”¨çš„é¥¼ï¼\n"NOR,ob);
 						break;
 				}
 			}
-			message_vision(HIY"$NÇÀ²»µ½Ò»¿éÓĞÓÃµÄ±ı£¡\n"NOR,ob);
+			message_vision(HIY"$NæŠ¢ä¸åˆ°ä¸€å—æœ‰ç”¨çš„é¥¼ï¼\n"NOR,ob);
 			return 0;
 		}
 	}
-	message_vision(HIY"$N¾ÓÈ»ÕÒ²»µ½×Ô¼º×ùÎ»£¡\n"NOR,ob);
+	message_vision(HIY"$Nå±…ç„¶æ‰¾ä¸åˆ°è‡ªå·±åº§ä½ï¼\n"NOR,ob);
 	return 0;
 }
 
 string display_item(int i1, int i2, int i3, int i4, int i5, int i6)
 {
 	string str;
-	str = "©°©¤©¤©¤©´ ©°©¤©¤©¤©´ ©°©¤©¤©¤©´ ©°©¤©¤©¤©´ ©°©¤©¤©¤©´ ©°©¤©¤©¤©´\n";
+	str = "â”Œâ”€â”€â”€â” â”Œâ”€â”€â”€â” â”Œâ”€â”€â”€â” â”Œâ”€â”€â”€â” â”Œâ”€â”€â”€â” â”Œâ”€â”€â”€â”\n";
 	switch (i1)
 	{
 		case 1:
 		case 2:
-			str = str+"©¦¡¡¡¡¡¡©¦";
+			str = str+"â”‚ã€€ã€€ã€€â”‚";
 			break;
 		case 3:
-			str = str+"©¦"GRN"¡ñ¡¡¡¡"NOR"©¦";
+			str = str+"â”‚"GRN"â—ã€€ã€€"NOR"â”‚";
 			break;
 		case 4:
-			str = str+"©¦"HIR"¡ñ¡¡¡ñ"NOR"©¦";
+			str = str+"â”‚"HIR"â—ã€€â—"NOR"â”‚";
 			break;
 		case 5:
 		case 6:
-			str = str+"©¦"GRN"¡ñ¡¡¡ñ"NOR"©¦";
+			str = str+"â”‚"GRN"â—ã€€â—"NOR"â”‚";
 			break;
 	}
 	switch (i2)
 	{
 		case 1:
 		case 2:
-			str = str+" ©¦¡¡¡¡¡¡©¦";
+			str = str+" â”‚ã€€ã€€ã€€â”‚";
 			break;
 		case 3:
-			str = str+" ©¦"GRN"¡ñ¡¡¡¡"NOR"©¦";
+			str = str+" â”‚"GRN"â—ã€€ã€€"NOR"â”‚";
 			break;
 		case 4:
-			str = str+" ©¦"HIR"¡ñ¡¡¡ñ"NOR"©¦";
+			str = str+" â”‚"HIR"â—ã€€â—"NOR"â”‚";
 			break;
 		case 5:
 		case 6:
-			str = str+" ©¦"GRN"¡ñ¡¡¡ñ"NOR"©¦";
+			str = str+" â”‚"GRN"â—ã€€â—"NOR"â”‚";
 			break;
 	}
 	switch (i3)
 	{
 		case 1:
 		case 2:
-			str = str+" ©¦¡¡¡¡¡¡©¦";
+			str = str+" â”‚ã€€ã€€ã€€â”‚";
 			break;
 		case 3:
-			str = str+" ©¦"GRN"¡ñ¡¡¡¡"NOR"©¦";
+			str = str+" â”‚"GRN"â—ã€€ã€€"NOR"â”‚";
 			break;
 		case 4:
-			str = str+" ©¦"HIR"¡ñ¡¡¡ñ"NOR"©¦";
+			str = str+" â”‚"HIR"â—ã€€â—"NOR"â”‚";
 			break;
 		case 5:
 		case 6:
-			str = str+" ©¦"GRN"¡ñ¡¡¡ñ"NOR"©¦";
+			str = str+" â”‚"GRN"â—ã€€â—"NOR"â”‚";
 			break;
 	}
 	switch (i4)
 	{
 		case 1:
 		case 2:
-			str = str+" ©¦¡¡¡¡¡¡©¦";
+			str = str+" â”‚ã€€ã€€ã€€â”‚";
 			break;
 		case 3:
-			str = str+" ©¦"GRN"¡ñ¡¡¡¡"NOR"©¦";
+			str = str+" â”‚"GRN"â—ã€€ã€€"NOR"â”‚";
 			break;
 		case 4:
-			str = str+" ©¦"HIR"¡ñ¡¡¡ñ"NOR"©¦";
+			str = str+" â”‚"HIR"â—ã€€â—"NOR"â”‚";
 			break;
 		case 5:
 		case 6:
-			str = str+" ©¦"GRN"¡ñ¡¡¡ñ"NOR"©¦";
+			str = str+" â”‚"GRN"â—ã€€â—"NOR"â”‚";
 			break;
 	}
 	switch (i5)
 	{
 		case 1:
 		case 2:
-			str = str+" ©¦¡¡¡¡¡¡©¦";
+			str = str+" â”‚ã€€ã€€ã€€â”‚";
 			break;
 		case 3:
-			str = str+" ©¦"GRN"¡ñ¡¡¡¡"NOR"©¦";
+			str = str+" â”‚"GRN"â—ã€€ã€€"NOR"â”‚";
 			break;
 		case 4:
-			str = str+" ©¦"HIR"¡ñ¡¡¡ñ"NOR"©¦";
+			str = str+" â”‚"HIR"â—ã€€â—"NOR"â”‚";
 			break;
 		case 5:
 		case 6:
-			str = str+" ©¦"GRN"¡ñ¡¡¡ñ"NOR"©¦";
+			str = str+" â”‚"GRN"â—ã€€â—"NOR"â”‚";
 			break;
 	}
 	switch (i6)
 	{
 		case 1:
 		case 2:
-			str = str+" ©¦¡¡¡¡¡¡©¦\n";
+			str = str+" â”‚ã€€ã€€ã€€â”‚\n";
 			break;
 		case 3:
-			str = str+" ©¦"GRN"¡ñ¡¡¡¡"NOR"©¦\n";
+			str = str+" â”‚"GRN"â—ã€€ã€€"NOR"â”‚\n";
 			break;
 		case 4:
-			str = str+" ©¦"HIR"¡ñ¡¡¡ñ"NOR"©¦\n";
+			str = str+" â”‚"HIR"â—ã€€â—"NOR"â”‚\n";
 			break;
 		case 5:
 		case 6:
-			str = str+" ©¦"GRN"¡ñ¡¡¡ñ"NOR"©¦\n";
+			str = str+" â”‚"GRN"â—ã€€â—"NOR"â”‚\n";
 			break;
 	}
-/* µÚÒ»ĞĞ. ÕæÀÛ! */
+/* ç¬¬ä¸€è¡Œ. çœŸç´¯! */
 	switch (i1)
 	{
 		case 1:
-			str = str+"©¦"HIR"¡¡¡ñ¡¡"NOR"©¦";
+			str = str+"â”‚"HIR"ã€€â—ã€€"NOR"â”‚";
 			break;
 		case 3:
 		case 5:
-			str = str+"©¦"GRN"¡¡¡ñ¡¡"NOR"©¦";
+			str = str+"â”‚"GRN"ã€€â—ã€€"NOR"â”‚";
 			break;
 		case 2:
 		case 6:
-			str = str+"©¦"GRN"¡ñ¡¡¡ñ"NOR"©¦";
+			str = str+"â”‚"GRN"â—ã€€â—"NOR"â”‚";
 			break;
 		case 4:
-			str = str+"©¦¡¡¡¡¡¡©¦";
+			str = str+"â”‚ã€€ã€€ã€€â”‚";
 			break;
 	}
 	switch (i2)
 	{
 		case 1:
-			str = str+" ©¦"HIR"¡¡¡ñ¡¡"NOR"©¦";
+			str = str+" â”‚"HIR"ã€€â—ã€€"NOR"â”‚";
 			break;
 		case 3:
 		case 5:
-			str = str+" ©¦"GRN"¡¡¡ñ¡¡"NOR"©¦";
+			str = str+" â”‚"GRN"ã€€â—ã€€"NOR"â”‚";
 			break;
 		case 2:
 		case 6:
-			str = str+" ©¦"GRN"¡ñ¡¡¡ñ"NOR"©¦";
+			str = str+" â”‚"GRN"â—ã€€â—"NOR"â”‚";
 			break;
 		case 4:
-			str = str+" ©¦¡¡¡¡¡¡©¦";
+			str = str+" â”‚ã€€ã€€ã€€â”‚";
 			break;
 	}
 	switch (i3)
 	{
 		case 1:
-			str = str+" ©¦"HIR"¡¡¡ñ¡¡"NOR"©¦";
+			str = str+" â”‚"HIR"ã€€â—ã€€"NOR"â”‚";
 			break;
 		case 3:
 		case 5:
-			str = str+" ©¦"GRN"¡¡¡ñ¡¡"NOR"©¦";
+			str = str+" â”‚"GRN"ã€€â—ã€€"NOR"â”‚";
 			break;
 		case 2:
 		case 6:
-			str = str+" ©¦"GRN"¡ñ¡¡¡ñ"NOR"©¦";
+			str = str+" â”‚"GRN"â—ã€€â—"NOR"â”‚";
 			break;
 		case 4:
-			str = str+" ©¦¡¡¡¡¡¡©¦";
+			str = str+" â”‚ã€€ã€€ã€€â”‚";
 			break;
 	}
 	switch (i4)
 	{
 		case 1:
-			str = str+" ©¦"HIR"¡¡¡ñ¡¡"NOR"©¦";
+			str = str+" â”‚"HIR"ã€€â—ã€€"NOR"â”‚";
 			break;
 		case 3:
 		case 5:
-			str = str+" ©¦"GRN"¡¡¡ñ¡¡"NOR"©¦";
+			str = str+" â”‚"GRN"ã€€â—ã€€"NOR"â”‚";
 			break;
 		case 2:
 		case 6:
-			str = str+" ©¦"GRN"¡ñ¡¡¡ñ"NOR"©¦";
+			str = str+" â”‚"GRN"â—ã€€â—"NOR"â”‚";
 			break;
 		case 4:
-			str = str+" ©¦¡¡¡¡¡¡©¦";
+			str = str+" â”‚ã€€ã€€ã€€â”‚";
 			break;
 	}
 	switch (i5)
 	{
 		case 1:
-			str = str+" ©¦"HIR"¡¡¡ñ¡¡"NOR"©¦";
+			str = str+" â”‚"HIR"ã€€â—ã€€"NOR"â”‚";
 			break;
 		case 3:
 		case 5:
-			str = str+" ©¦"GRN"¡¡¡ñ¡¡"NOR"©¦";
+			str = str+" â”‚"GRN"ã€€â—ã€€"NOR"â”‚";
 			break;
 		case 2:
 		case 6:
-			str = str+" ©¦"GRN"¡ñ¡¡¡ñ"NOR"©¦";
+			str = str+" â”‚"GRN"â—ã€€â—"NOR"â”‚";
 			break;
 		case 4:
-			str = str+" ©¦¡¡¡¡¡¡©¦";
+			str = str+" â”‚ã€€ã€€ã€€â”‚";
 			break;
 	}
 	switch (i6)
 	{
 		case 1:
-			str = str+" ©¦"HIR"¡¡¡ñ¡¡"NOR"©¦\n";
+			str = str+" â”‚"HIR"ã€€â—ã€€"NOR"â”‚\n";
 			break;
 		case 3:
 		case 5:
-			str = str+" ©¦"GRN"¡¡¡ñ¡¡"NOR"©¦\n";
+			str = str+" â”‚"GRN"ã€€â—ã€€"NOR"â”‚\n";
 			break;
 		case 2:
 		case 6:
-			str = str+" ©¦"GRN"¡ñ¡¡¡ñ"NOR"©¦\n";
+			str = str+" â”‚"GRN"â—ã€€â—"NOR"â”‚\n";
 			break;
 		case 4:
-			str = str+" ©¦¡¡¡¡¡¡©¦\n";
+			str = str+" â”‚ã€€ã€€ã€€â”‚\n";
 			break;
 	}
-/* µÚ¶şĞĞ. ÀÛËÀÎÒÁË! */
+/* ç¬¬äºŒè¡Œ. ç´¯æ­»æˆ‘äº†! */
 	switch (i1)
 	{
 		case 1:
 		case 2:
-			str = str+"©¦¡¡¡¡¡¡©¦";
+			str = str+"â”‚ã€€ã€€ã€€â”‚";
 			break;
 		case 3:
-			str = str+"©¦"GRN"¡¡¡¡¡ñ"NOR"©¦";
+			str = str+"â”‚"GRN"ã€€ã€€â—"NOR"â”‚";
 			break;
 		case 4:
-			str = str+"©¦"HIR"¡ñ¡¡¡ñ"NOR"©¦";
+			str = str+"â”‚"HIR"â—ã€€â—"NOR"â”‚";
 			break;
 		case 5:
 		case 6:
-			str = str+"©¦"GRN"¡ñ¡¡¡ñ"NOR"©¦"NOR;
+			str = str+"â”‚"GRN"â—ã€€â—"NOR"â”‚"NOR;
 			break;
 	}
 	switch (i2)
 	{
 		case 1:
 		case 2:
-			str = str+" ©¦¡¡¡¡¡¡©¦";
+			str = str+" â”‚ã€€ã€€ã€€â”‚";
 			break;
 		case 3:
-			str = str+" ©¦"GRN"¡¡¡¡¡ñ"NOR"©¦";
+			str = str+" â”‚"GRN"ã€€ã€€â—"NOR"â”‚";
 			break;
 		case 4:
-			str = str+" ©¦"HIR"¡ñ¡¡¡ñ"NOR"©¦";
+			str = str+" â”‚"HIR"â—ã€€â—"NOR"â”‚";
 			break;
 		case 5:
 		case 6:
-			str = str+" ©¦"GRN"¡ñ¡¡¡ñ"NOR"©¦"NOR;
+			str = str+" â”‚"GRN"â—ã€€â—"NOR"â”‚"NOR;
 			break;
 	}
 	switch (i3)
 	{
 		case 1:
 		case 2:
-			str = str+" ©¦¡¡¡¡¡¡©¦";
+			str = str+" â”‚ã€€ã€€ã€€â”‚";
 			break;
 		case 3:
-			str = str+" ©¦"GRN"¡¡¡¡¡ñ"NOR"©¦";
+			str = str+" â”‚"GRN"ã€€ã€€â—"NOR"â”‚";
 			break;
 		case 4:
-			str = str+" ©¦"HIR"¡ñ¡¡¡ñ"NOR"©¦";
+			str = str+" â”‚"HIR"â—ã€€â—"NOR"â”‚";
 			break;
 		case 5:
 		case 6:
-			str = str+" ©¦"GRN"¡ñ¡¡¡ñ"NOR"©¦"NOR;
+			str = str+" â”‚"GRN"â—ã€€â—"NOR"â”‚"NOR;
 			break;
 	}
 	switch (i4)
 	{
 		case 1:
 		case 2:
-			str = str+" ©¦¡¡¡¡¡¡©¦";
+			str = str+" â”‚ã€€ã€€ã€€â”‚";
 			break;
 		case 3:
-			str = str+" ©¦"GRN"¡¡¡¡¡ñ"NOR"©¦";
+			str = str+" â”‚"GRN"ã€€ã€€â—"NOR"â”‚";
 			break;
 		case 4:
-			str = str+" ©¦"HIR"¡ñ¡¡¡ñ"NOR"©¦";
+			str = str+" â”‚"HIR"â—ã€€â—"NOR"â”‚";
 			break;
 		case 5:
 		case 6:
-			str = str+" ©¦"GRN"¡ñ¡¡¡ñ"NOR"©¦"NOR;
+			str = str+" â”‚"GRN"â—ã€€â—"NOR"â”‚"NOR;
 			break;
 	}
 	switch (i5)
 	{
 		case 1:
 		case 2:
-			str = str+" ©¦¡¡¡¡¡¡©¦";
+			str = str+" â”‚ã€€ã€€ã€€â”‚";
 			break;
 		case 3:
-			str = str+" ©¦"GRN"¡¡¡¡¡ñ"NOR"©¦";
+			str = str+" â”‚"GRN"ã€€ã€€â—"NOR"â”‚";
 			break;
 		case 4:
-			str = str+" ©¦"HIR"¡ñ¡¡¡ñ"NOR"©¦";
+			str = str+" â”‚"HIR"â—ã€€â—"NOR"â”‚";
 			break;
 		case 5:
 		case 6:
-			str = str+" ©¦"GRN"¡ñ¡¡¡ñ"NOR"©¦"NOR;
+			str = str+" â”‚"GRN"â—ã€€â—"NOR"â”‚"NOR;
 			break;
 	}
 	switch (i6)
 	{
 		case 1:
 		case 2:
-			str = str+" ©¦¡¡¡¡¡¡©¦\n";
+			str = str+" â”‚ã€€ã€€ã€€â”‚\n";
 			break;
 		case 3:
-			str = str+" ©¦"GRN"¡¡¡¡¡ñ"NOR"©¦\n";
+			str = str+" â”‚"GRN"ã€€ã€€â—"NOR"â”‚\n";
 			break;
 		case 4:
-			str = str+" ©¦"HIR"¡ñ¡¡¡ñ"NOR"©¦\n";
+			str = str+" â”‚"HIR"â—ã€€â—"NOR"â”‚\n";
 			break;
 		case 5:
 		case 6:
-			str = str+" ©¦"GRN"¡ñ¡¡¡ñ"NOR"©¦\n"NOR;
+			str = str+" â”‚"GRN"â—ã€€â—"NOR"â”‚\n"NOR;
 			break;
 	}
-/* µÚÈıĞĞ. ×ÜËã¸ãÍêÁË! */
-	str = str+"©¸©¤©¤©¤©¼ ©¸©¤©¤©¤©¼ ©¸©¤©¤©¤©¼ ©¸©¤©¤©¤©¼ ©¸©¤©¤©¤©¼ ©¸©¤©¤©¤©¼\n";
+/* ç¬¬ä¸‰è¡Œ. æ€»ç®—æå®Œäº†! */
+	str = str+"â””â”€â”€â”€â”˜ â””â”€â”€â”€â”˜ â””â”€â”€â”€â”˜ â””â”€â”€â”€â”˜ â””â”€â”€â”€â”˜ â””â”€â”€â”€â”˜\n";
 	return str;
 }

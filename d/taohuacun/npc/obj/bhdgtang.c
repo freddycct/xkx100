@@ -4,25 +4,25 @@ inherit F_LIQUID;
 
 void create()
 {
-	set_name(HIG "°ÙºÏ¶¬¹ÏÌÀ" NOR, ({"bhdgtang"}));
+	set_name(HIG "ç™¾åˆå†¬ç“œæ±¤" NOR, ({"bhdgtang"}));
 	set_weight(700);
 	if (clonep())
 		set_default_object(__FILE__);
 	else {
-		set("long", "Ò»ÍëÇåĞÂË¬¿Ú£¬ÏûÊîÈ¥Ö¬·¾µÄ°ÙºÏ¶¬¹ÏÌÀ¡£\n");
-		set("unit", "Íë");
+		set("long", "ä¸€ç¢—æ¸…æ–°çˆ½å£ï¼Œæ¶ˆæš‘å»è„‚è‚ªçš„ç™¾åˆå†¬ç“œæ±¤ã€‚\n");
+		set("unit", "ç¢—");
 		set("value", 120);
 		set("max_liquid", 20);
 		set("cook_msg", "
-$N°Ñ¶¬¹ÏÈ¥ºËÏ´¾»Á¬Æ¤ÇĞ¼ş£¬ÏÊ°ÙºÏÇĞ¿ªÈ¥ĞÄ£¬ÇåË®°ËÍë£¬
-ìÒÔ¼Ò»Ğ¡Ê±£¬¼ÓÑÎÉÙĞí¡£\n\n"
+$NæŠŠå†¬ç“œå»æ ¸æ´—å‡€è¿çš®åˆ‡ä»¶ï¼Œé²œç™¾åˆåˆ‡å¼€å»å¿ƒï¼Œæ¸…æ°´å…«ç¢—ï¼Œ
+ç…²çº¦ä¸€å°æ—¶ï¼ŒåŠ ç›å°‘è®¸ã€‚\n\n"
 		);		
 	}
 
 	// because a container can contain different liquid
 	// we set it to contain wine at the beginning
 	set("liquid", ([
-		"name": "°ÙºÏ¶¬¹ÏÌÀ",
+		"name": "ç™¾åˆå†¬ç“œæ±¤",
 		"remaining": 20,
 		"drunk_apply": 6,
 	]));

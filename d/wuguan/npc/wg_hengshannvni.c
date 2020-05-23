@@ -3,11 +3,11 @@ inherit NPC;
 
 void create()
 {
-       set_name("��ɽŮ��", ({ "hengshan nvni", "nvni" }) );
-       set("gender", "Ů��" );
+       set_name("恒山女尼", ({ "hengshan nvni", "nvni" }) );
+       set("gender", "女性" );
        set("age", 26);
        set("long",
-               "������һλ��ɽ��Сʦ̫������ü��Ŀ�㡣\n");
+               "这是是一位恒山的小师太，长的眉清目秀。\n");
        set("combat_exp", 12500);
        set("attitude", "friendly");
  
@@ -31,16 +31,16 @@ void greeting(object ob)
 	if (!ob || !present(ob, environment())) return;
 	switch( random(3) ) {
 		case 0:
-			say( "��ɽŮ��΢Ц��˵������λ" + RANK_D->query_respect(ob)
-            + "�����Һ�ɽ���𣬿��Կ�"BRED"(help hengshan)"NOR"��\n");
+			say( "恒山女尼微笑着说道：这位" + RANK_D->query_respect(ob)
+            + "想入我恒山派吗，可以看"BRED"(help hengshan)"NOR"。\n");
 			break;
 		case 1:
-			say( "��ɽŮ��˵������ɽ��Ϊ���������е�һ֧���书�Խ���Ϊ����
-���Ϲ����Ϊ����һ����\n");
+			say( "恒山女尼说道：恒山派为五岳剑派中的一支，武功以剑法为主，
+手上功夫更为武林一绝。\n");
 			break;
 		case 2:
-			say( "��ɽŮ�����յ�������ɽ���������򽭺�����С֮���޲��ŷ���ӡ�
-��ɽ����������λʦ̫�洫��ѧ��֮�ն��ܰ������֡�\n");
+			say( "恒山女尼正颜道：“恒山三定”威镇江湖，宵小之辈无不闻风而逃。
+恒山弟子若得三位师太真传，学成之日定能傲视武林。\n");
 			break;
 	}
 

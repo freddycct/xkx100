@@ -3,12 +3,12 @@ inherit ITEM;
 
 void create()
 {
-	set_name(HIG "Ëñ¼â" NOR,({"sunjian"}));
+	set_name(HIG "ç¬‹å°–" NOR,({"sunjian"}));
 	set_weight(300);
 	if( clonep() )
                 set_default_object(__FILE__);
         else {
-                set("long", "Ò»´üËñ¼â¡£\n");
-                set("unit", "´ü");
+                set("long", "ä¸€è¢‹ç¬‹å°–ã€‚\n");
+                set("unit", "è¢‹");
         }
 }

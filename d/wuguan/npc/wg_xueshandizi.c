@@ -3,11 +3,11 @@ inherit NPC;
 
 void create()
 {
-       set_name("ѩɽ����", ({ "xueshan dizi", "dizi" }) );
-       set("gender", "����" );
+       set_name("雪山弟子", ({ "xueshan dizi", "dizi" }) );
+       set("gender", "男性" );
        set("age", 26);
        set("long",
-               "����һ�������ѩɽ���ӡ�\n");
+               "他是一个年青的雪山弟子。\n");
        set("combat_exp", 12500);
        set("attitude", "friendly");
  
@@ -31,14 +31,14 @@ void greeting(object ob)
 	if (!ob || !present(ob, environment())) return;
 	switch( random(3) ) {
 		case 0:
-			say( "ѩɽ�ɵ���˵������λ" + RANK_D->query_respect(ob)
-            + "�����ѩɽ���𣬿��Կ�"BRED"(help mizong)"NOR"��\n");
+			say( "雪山派弟子说道：这位" + RANK_D->query_respect(ob)
+            + "想加入雪山派吗，可以看"BRED"(help mizong)"NOR"。\n");
 			break;
 		case 1:
-			say( "ѩɽ�ɵ���˵�������ŵĻ��浶�����¼���Ե��Ĺ���\n");
+			say( "雪山派弟子说道：本门的火焰刀是天下间最霸道的功夫。\n");
 			break;
 		case 2:
-			say( "ѩɽ�ɵ���˵��������ѩɽ�书�����������ѧ��һ�������ܳ���ͷ���ˡ�\n");
+			say( "雪山派弟子说道：我们雪山武功博大精深，你如能学得一二，就能出人头地了。\n");
 			break;
 	}
 

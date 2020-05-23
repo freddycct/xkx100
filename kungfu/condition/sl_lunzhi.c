@@ -10,7 +10,7 @@ int update_condition(object me, int duration)
         seteuid(getuid());
         if (duration < 1)
 	{
-		tell_object(me,HIY"ÄãÂÖÖµµÄÊ±¼äÒÑµ½£¬¿ì»ØÈ¥¸´Ãü(lunzhi ok)°É£¡\n" NOR);
+		tell_object(me,HIY"ä½ è½®å€¼çš„æ—¶é—´å·²åˆ°ï¼Œå¿«å›žåŽ»å¤å‘½(lunzhi ok)å§ï¼\n" NOR);
                 return 0;
         }
 	if (!duration) return 0;

@@ -7,43 +7,43 @@ int exert(object me, object target)
 {
 /*
 	if ((!target) || target->query("id")!=me->query("id"))
-		return notify_fail("ÄãÒªÓÃÕæÆøÎªË­»¤¾«£¿\n");
+		return notify_fail("ä½ è¦ç”¨çœŸæ°”ä¸ºè°æŠ¤ç²¾ï¼Ÿ\n");
 */
   if ( userp(me) && !wizardp(me) && 
   !me->query("can_perform/shenzhao-jing/jingheal") && 
   !me->query_temp("murong/xingyi"))
-   return notify_fail("ÄãËùÊ¹ÓÃµÄÄÚ¹¦ÖĞÃ»ÓĞÕâÖÖ¹¦ÄÜ¡£");
+   return notify_fail("ä½ æ‰€ä½¿ç”¨çš„å†…åŠŸä¸­æ²¡æœ‰è¿™ç§åŠŸèƒ½ã€‚");
 
 	if (!target) target = me;
 
 	if( me->is_fighting() || target->is_fighting())
-		return notify_fail("Õ½¶·ÖĞÎŞ·¨ÔË¹¦»¤¾«£¡\n");
+		return notify_fail("æˆ˜æ–—ä¸­æ— æ³•è¿åŠŸæŠ¤ç²¾ï¼\n");
 
 	if( (int)me->query_skill("shenzhao-jing",1) < 50 )
-		return notify_fail("ÄãµÄÉñÕÕ¾­ÄÚ¹¦ĞŞÎª²»¹»¡£\n");
+		return notify_fail("ä½ çš„ç¥ç…§ç»å†…åŠŸä¿®ä¸ºä¸å¤Ÿã€‚\n");
 
 	if( me->is_busy() )
-		return notify_fail("ÄãÏÖÔÚÕıÃ¦×ÅÄØ£¬ÄÄÓĞ¿ÕÔË¹¦£¿\n");
+		return notify_fail("ä½ ç°åœ¨æ­£å¿™ç€å‘¢ï¼Œå“ªæœ‰ç©ºè¿åŠŸï¼Ÿ\n");
 
 	if( target->is_busy())
-		return notify_fail(target->name()+"ÏÖÔÚÕıÃ¦×ÅÄØ£¡\n");
+		return notify_fail(target->name()+"ç°åœ¨æ­£å¿™ç€å‘¢ï¼\n");
 
 	if( (int)me->query("max_neili") < 200)
-		return notify_fail("ÄãµÄÄÚÁ¦ĞŞÎª²»¹»¡£\n");
+		return notify_fail("ä½ çš„å†…åŠ›ä¿®ä¸ºä¸å¤Ÿã€‚\n");
 
 	if( (int)me->query("neili") < 200)
-		return notify_fail("ÄãµÄÕæÆø²»¹»¡£\n");
+		return notify_fail("ä½ çš„çœŸæ°”ä¸å¤Ÿã€‚\n");
 
 	if( (int)target->query("eff_jing") >= (int)target->query("max_jing"))
-		return notify_fail("Ö»ÓĞ¾«ÆøÊÜËğ²ÅĞèÒª»¤¾«¡£\n");
+		return notify_fail("åªæœ‰ç²¾æ°”å—æŸæ‰éœ€è¦æŠ¤ç²¾ã€‚\n");
 
 	if( (int)target->query("eff_jing") < (int)target->query("max_jing") / 5)
-		return notify_fail("¾«ÆøÊÜËğ¹ıÖØ£¬¾­ÊÜ²»ÆğÕæÆøÕğµ´£¡\n");
+		return notify_fail("ç²¾æ°”å—æŸè¿‡é‡ï¼Œç»å—ä¸èµ·çœŸæ°”éœ‡è¡ï¼\n");
 
   if ( me != target)
-	message_combatd( HIC "$N×øÁËÏÂÀ´ÔËÆğÉñÕÕ¾­ÄÚ¹¦£¬½«×óÊÖÕÆÌùÔÚ$nºó±³ÃüÃÅ£¬ÓÒÕÆÎæ×¡$nµ¤Ìï£¬»º»ºµØ½«ÔË×ªÕæÆø....\n\n"HIY "¹ıÁË²»¾Ã£¬$n¶îÍ·ÉÏÃ°³ö¶¹´óµÄº¹Öé£¬Á³ÉÏµÄÆ£±¹Ä£ÑùÒ²¼õÇá¶àÁË¡£\n" NOR, me, target);
+	message_combatd( HIC "$Nåäº†ä¸‹æ¥è¿èµ·ç¥ç…§ç»å†…åŠŸï¼Œå°†å·¦æ‰‹æŒè´´åœ¨$nåèƒŒå‘½é—¨ï¼Œå³æŒæ‚ä½$nä¸¹ç”°ï¼Œç¼“ç¼“åœ°å°†è¿è½¬çœŸæ°”....\n\n"HIY "è¿‡äº†ä¸ä¹…ï¼Œ$né¢å¤´ä¸Šå†’å‡ºè±†å¤§çš„æ±—ç ï¼Œè„¸ä¸Šçš„ç–²æƒ«æ¨¡æ ·ä¹Ÿå‡è½»å¤šäº†ã€‚\n" NOR, me, target);
   else 
- 	message_combatd( HIC "$N×øÁËÏÂÀ´ÔËÆğÉñÕÕ¾­ÄÚ¹¦£¬½«×óÊÖÕÆÌùÔÚºó±³ÃüÃÅ£¬ÓÒÕÆÎæ×¡µ¤Ìï£¬»º»ºµØ½«ÔË×ªÕæÆø....\n\n"HIY "¹ıÁË²»¾Ã£¬$N¶îÍ·ÉÏÃ°³ö¶¹´óµÄº¹Öé£¬Á³ÉÏµÄÆ£±¹Ä£ÑùÒ²¼õÇá¶àÁË¡£\n" NOR, me);
+ 	message_combatd( HIC "$Nåäº†ä¸‹æ¥è¿èµ·ç¥ç…§ç»å†…åŠŸï¼Œå°†å·¦æ‰‹æŒè´´åœ¨åèƒŒå‘½é—¨ï¼Œå³æŒæ‚ä½ä¸¹ç”°ï¼Œç¼“ç¼“åœ°å°†è¿è½¬çœŸæ°”....\n\n"HIY "è¿‡äº†ä¸ä¹…ï¼Œ$Né¢å¤´ä¸Šå†’å‡ºè±†å¤§çš„æ±—ç ï¼Œè„¸ä¸Šçš„ç–²æƒ«æ¨¡æ ·ä¹Ÿå‡è½»å¤šäº†ã€‚\n" NOR, me);
 
   
 	target->receive_curing("jing", 10 + (int)me->query_skill("force")/2 );
@@ -58,15 +58,15 @@ int exert(object me, object target)
 
 int help(object me)
 {
-	write(WHT"\nÉñÕÕ¾­Ö®ÁÆ¾«"NOR"\n");
+	write(WHT"\nç¥ç…§ç»ä¹‹ç–—ç²¾"NOR"\n");
 	write(@HELP
 
-	Ê¹ÓÃ¹¦Ğ§£º
-		Îª×Ô¼º»òËûÈË»¤¾«
+	ä½¿ç”¨åŠŸæ•ˆï¼š
+		ä¸ºè‡ªå·±æˆ–ä»–äººæŠ¤ç²¾
 
-	³öÊÖÒªÇó£º
-		ÉñÕÕ¾­50¼¶
-		ÄÚÁ¦200
+	å‡ºæ‰‹è¦æ±‚ï¼š
+		ç¥ç…§ç»50çº§
+		å†…åŠ›200
 HELP
 	);
 	return 1;

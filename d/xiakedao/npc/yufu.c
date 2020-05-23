@@ -6,10 +6,10 @@ void accept_object(object me, object ob);
 
 void create()
 {
-        set_name("Óæ·ò", ({ "yu fu" }) );
-        set("gender", "ÄĞĞÔ" );
+        set_name("æ¸”å¤«", ({ "yu fu" }) );
+        set("gender", "ç”·æ€§" );
         set("age", 22);
-        create_family("ÏÀ¿Íµº", 2, "µÜ×Ó");
+        create_family("ä¾ å®¢å²›", 2, "å¼Ÿå­");
         setup();
 }
 int accept_object(object me, object ob)
@@ -22,12 +22,12 @@ int accept_object(object me, object ob)
         ling1=new("/d/xiakedao/obj/tongpai1");
         ling1->set_temp("own", (string)me->query("name"));
         ling1->move(me);
-        message_vision("Óæ·ò¸ø$NÒ»¿éÍ­ÖıÁîÅÆ¡£\n", me);
+        message_vision("æ¸”å¤«ç»™$Nä¸€å—é“œé“¸ä»¤ç‰Œã€‚\n", me);
 
         ling2=new("/d/xiakedao/obj/tongpai2");
         ling2->set_temp("own", (string)me->query("name"));
         ling2->move(me);
-        message_vision("Óæ·ò¸ø$NÒ»¿éÍ­ÖıÁîÅÆ¡£\n", me);
+        message_vision("æ¸”å¤«ç»™$Nä¸€å—é“œé“¸ä»¤ç‰Œã€‚\n", me);
 
         return 1;
 }

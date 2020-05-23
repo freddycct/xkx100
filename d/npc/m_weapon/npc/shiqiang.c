@@ -6,14 +6,14 @@ inherit NPC;
 
 void create()
 {
-	set_name("ÊÌÇ¹", ({ "shiqiang"}) );
-	set("nickname", HIC "Ç¹" NOR );
-	set("gender", "ÄĞĞÔ" );
-	set("type","Ç¹");
+	set_name("ä¾æª", ({ "shiqiang"}) );
+	set("nickname", HIC "æª" NOR );
+	set("gender", "ç”·æ€§" );
+	set("type","æª");
 	set("age", 20);
 	set("no_get", 1);
 	set("long", 	
-		"ËûÍ·ÉÏ°ü×Å×Ï²¼Í·½í£¬Ò»Ï®×ÏÉÀ£¬Ã»ÓĞÒ»Ë¿ñŞÖå¡£\n");
+		"ä»–å¤´ä¸ŠåŒ…ç€ç´«å¸ƒå¤´å·¾ï¼Œä¸€è¢­ç´«è¡«ï¼Œæ²¡æœ‰ä¸€ä¸è¤¶çš±ã€‚\n");
 	set("str", 25);
 	set("dex", 20);
 	set("con", 17);
@@ -33,8 +33,8 @@ void create()
 	set("score",0);
 	set("attitude", "peaceful");
 	set("inquiry", ([
-		"ÖıÇ¹" : "Ê¦¸µÃüÎÒ°ïÖú±ğÈËÖıÇ¹£¬µ«µ½ÏÖÔÚÒ²²»¼ûÒ»¸öÈËÓ°¡£Ë­ÒªÖı½£ÄØ£¿\n",
-		"Ô­ÁÏ" : "Öı½£¿ÉÓÃº®Ë¿ÓğÖñ£¬º£µ×½ğÄ¸£¬Ç§ÄêÉñÄ¾£¬ÔÉĞÇÌúÊ¯¡£µ«Ğ§¹û¸÷²»Ò»Ñù¡£\n",
+		"é“¸æª" : "å¸ˆå‚…å‘½æˆ‘å¸®åŠ©åˆ«äººé“¸æªï¼Œä½†åˆ°ç°åœ¨ä¹Ÿä¸è§ä¸€ä¸ªäººå½±ã€‚è°è¦é“¸å‰‘å‘¢ï¼Ÿ\n",
+		"åŸæ–™" : "é“¸å‰‘å¯ç”¨å¯’ä¸ç¾½ç«¹ï¼Œæµ·åº•é‡‘æ¯ï¼Œåƒå¹´ç¥æœ¨ï¼Œé™¨æ˜Ÿé“çŸ³ã€‚ä½†æ•ˆæœå„ä¸ä¸€æ ·ã€‚\n",
 	]) );
 	setup();
 	carry_object("/clone/misc/cloth")->wear();
@@ -45,11 +45,11 @@ int accept_object(object who, object ob)
 {	
 	if(!(who->query_temp("spear") ) )
 	{
-		message_vision(HIC"Ê¦¸µÃ»ÓĞÍ¬ÒâÎªÄãÖıÇ¹£¬ÄúÇë»Ø°É£¡\n"NOR, who);
+		message_vision(HIC"å¸ˆå‚…æ²¡æœ‰åŒæ„ä¸ºä½ é“¸æªï¼Œæ‚¨è¯·å›å§ï¼\n"NOR, who);
 		return 0;
 	}
 	who->delete_temp("spear");
-	who->set_temp("m_make","Ç¹");
+	who->set_temp("m_make","æª");
 	switch ((string)ob->query("id") ) 
 	{
 		case "shen mu": 
@@ -65,12 +65,12 @@ int accept_object(object who, object ob)
 			who->add_temp("ironstone",1);
 			break;
 		default :
-			message("vision","ÕâÊÇÊ²Ã´£¡Ê¦¸µËµÕâ²»ÄÜÓÃÀ´´òÔì±øÆ÷£¡\n",who);
+			message("vision","è¿™æ˜¯ä»€ä¹ˆï¼å¸ˆå‚…è¯´è¿™ä¸èƒ½ç”¨æ¥æ‰“é€ å…µå™¨ï¼\n",who);
 			return 0;
 	}
-	message("vision", "ÊÌÇ¹µÍÍ·¼ìÊÓÁËÒ»ÏÂÊÖÖĞµÄ"+(string)ob->query("name")+"µãÁËµãÍ·Ëµ£º\n", who);
-	message("vision", "¡£¡£¡£ºÃÎÒÃÇÏÖÔÚ¾Í¿ªÊ¼ÖıÇ¹¡£\n", who);
-	write("ÇëÕâÎ»"+RANK_D->query_respect(who)+"¸øÇ¹ÆğÃû×Ö°É£¡(zhu Ç¹µÄÃû×Ö Ó¢ÎÄ´úºÅ)\n");
+	message("vision", "ä¾æªä½å¤´æ£€è§†äº†ä¸€ä¸‹æ‰‹ä¸­çš„"+(string)ob->query("name")+"ç‚¹äº†ç‚¹å¤´è¯´ï¼š\n", who);
+	message("vision", "ã€‚ã€‚ã€‚å¥½æˆ‘ä»¬ç°åœ¨å°±å¼€å§‹é“¸æªã€‚\n", who);
+	write("è¯·è¿™ä½"+RANK_D->query_respect(who)+"ç»™æªèµ·åå­—å§ï¼(zhu æªçš„åå­— è‹±æ–‡ä»£å·)\n");
 	destruct(ob);
 	return 1;
 }

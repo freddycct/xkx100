@@ -1,4 +1,4 @@
-// huo.c »ôÇàÍ©
+// huo.c éœé’æ¡
 
 #include <ansi.h>
 
@@ -9,14 +9,14 @@ void create()
 {
 	object ma;
 	seteuid(getuid());
-	set_name("»ôÇàÍ©", ({ "huo qingtong", "huo","qingtong" }));
+	set_name("éœé’æ¡", ({ "huo qingtong", "huo","qingtong" }));
 	set("long", 
-"ÕâÅ®ÀÉÐãÃÀÖÐÍ¸×ÅÒ»¹ÉÓ¢Æø£¬¹â²ÉÕÕÈË£¬µ±ÕæÊÇÀöÈô´ºÃ·ÕÀÑ©£¬ÉñÈç
-ÇïÞ¥ÅûËª£¬Á½¼ÕÈÚÈÚ£¬Ï¼Ó³³ÎÌÁ£¬Ë«Ä¿¾§¾§£¬ÔÂÉäº®½­¡£Ñü²åØ°Ê×£¬
-³¤±æ´¹¼ç£¬Ò»Éí¶ì»ÆÉÀ×Ó£¬Í·´÷½ðË¿ÐåµÄÐ¡Ã±£¬Ã±±ß²åÁËÒ»¸ù³¤³¤µÄ
-´äÂÌÓðÃ«£¬¸ïÂÄÇàÂí£¬ì½ì»Èç»­¡£\n");
-	set("nickname", HIG"´äÓð"HIY"»ÆÉÀ"NOR);
-	set("gender", "Å®ÐÔ");
+"è¿™å¥³éƒŽç§€ç¾Žä¸­é€ç€ä¸€è‚¡è‹±æ°”ï¼Œå…‰é‡‡ç…§äººï¼Œå½“çœŸæ˜¯ä¸½è‹¥æ˜¥æ¢…ç»½é›ªï¼Œç¥žå¦‚
+ç§‹è•™æŠ«éœœï¼Œä¸¤é¢Šèžèžï¼Œéœžæ˜ æ¾„å¡˜ï¼ŒåŒç›®æ™¶æ™¶ï¼Œæœˆå°„å¯’æ±Ÿã€‚è…°æ’åŒ•é¦–ï¼Œ
+é•¿è¾¨åž‚è‚©ï¼Œä¸€èº«é¹…é»„è¡«å­ï¼Œå¤´æˆ´é‡‘ä¸ç»£çš„å°å¸½ï¼Œå¸½è¾¹æ’äº†ä¸€æ ¹é•¿é•¿çš„
+ç¿ ç»¿ç¾½æ¯›ï¼Œé©å±¥é’é©¬ï¼Œæ—–æ—Žå¦‚ç”»ã€‚\n");
+	set("nickname", HIG"ç¿ ç¾½"HIY"é»„è¡«"NOR);
+	set("gender", "å¥³æ€§");
 	set("class", "swordsman");
 	set("age", 18);
 	set("attitude", "friendly");

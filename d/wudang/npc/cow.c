@@ -1,4 +1,4 @@
-// cow.c ´ó»ÆÅ£
+// cow.c å¤§é»„ç‰›
 
 #include <command.h>
 #include <dbase.h>
@@ -9,9 +9,9 @@ inherit NPC;
 
 void create()
 {
-	set_name(HIW"´ó»ÆÅ£"NOR, ({ "cow" }));
-	set("long","Ò»Í·´ó»ÆÅ£¡£\n");
-	set("race", "×ßÐó");
+	set_name(HIW"å¤§é»„ç‰›"NOR, ({ "cow" }));
+	set("long","ä¸€å¤´å¤§é»„ç‰›ã€‚\n");
+	set("race", "èµ°ç•œ");
 	set("age", 5);
 	set("int", 30);
 	set("qi", 300);
@@ -32,7 +32,7 @@ void create()
 void die()
 {
 	object ob, corpse;
-	message_vision("$NßèµØÒ»Éù£¬¾²¾²µ¹ÔÚµØÉÏ£¬ËÀÈ¥ÁË¡£\n", this_object());
+	message_vision("$Nå“žåœ°ä¸€å£°ï¼Œé™é™å€’åœ¨åœ°ä¸Šï¼Œæ­»åŽ»äº†ã€‚\n", this_object());
 	if( objectp(corpse = CHAR_D->make_corpse(this_object())) )
 		ob = new("/clone/medicine/vegetable/niuhuang");
 	ob->move(corpse);

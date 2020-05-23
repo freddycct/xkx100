@@ -3,11 +3,11 @@
 
 inherit NPC;
 void create()
-{       set_name("³¤½­", ({ "yzjiang"}));
-	set("gender", "ÄĞĞÔ");
+{       set_name("é•¿æ±Ÿ", ({ "yzjiang"}));
+	set("gender", "ç”·æ€§");
 	set("class", "fighter");
-	set("title", "°×ÍÕÉ½ÅÉµÚ¶ş´úµÜ×Ó");
-	set("nickname", HIY"ÎôÊ±ÈËÒÑÃ» "NOR HIR" ½ñÈÕË®ÓÌº®"NOR);
+	set("title", "ç™½é©¼å±±æ´¾ç¬¬äºŒä»£å¼Ÿå­");
+	set("nickname", HIY"æ˜”æ—¶äººå·²æ²¡ "NOR HIR" ä»Šæ—¥æ°´çŠ¹å¯’"NOR);
 	set("age", 28);
 	set("attitude", "friendly");
 
@@ -18,7 +18,7 @@ void create()
 	set("con", 20);
 	set("str", 20);
 	set("weiwang", 80);
-	create_family("°×ÍÕÉ½ÅÉ" ,2, "µÜ×Ó");	
+	create_family("ç™½é©¼å±±æ´¾" ,2, "å¼Ÿå­");	
 	setup();
 	carry_object(CLOTH_DIR"male-cloth")->wear();
         carry_object(CLOTH_DIR"male-shoe")->wear();

@@ -5,10 +5,10 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "����С��");
+	set("short", "碧玉小桥");
 	set("long", @LONG
-����С�ź������Ϫ֮�ϡ�����Ϫˮ������䣬�������񡣺�����
-С�����������٣���Ŀ���̣�ʮ�ֿ��ˡ�
+碧玉小桥横跨在清溪之上。桥下溪水清如翡翠，温如润玉。汉白玉
+小桥上爬满青藤，满目生绿，十分可人。
 LONG );
 	set("outdoors", "mantuo");
 	set("exits", ([

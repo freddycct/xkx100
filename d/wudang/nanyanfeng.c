@@ -1,15 +1,15 @@
-//Room: nanyanfeng.c ÄÏÑÒ·å
+//Room: nanyanfeng.c å—å²©å³°
 //Date: Sep 22 1997
 
 inherit ROOM;
 
 void create()
 {
-      set("short","ÄÏÑÒ·å");
+      set("short","å—å²©å³°");
       set("long",@LONG
-ÕâÀïÊÇÎäµ±ÈıÊ®ÁùÑÒÖ®×î£¬ËÉÊ÷ôèÌì£¬Ä¾Ê¯ÕùÆæ£¬ÇÍ±ÚÍòØğ¡£ÔÚĞü
-ÑÂÖ®°ëÖşÓĞÒ»¹¬Óî£¬ÏÂÁÙÉîÔ¨£¬¹¤³ÌºÆ´ó¡£¹¬Ç°ÓĞÒ»Ê¯Öù£¬×ÔÇÍ±ÚÉÏºá
-³ö¡£
+è¿™é‡Œæ˜¯æ­¦å½“ä¸‰åå…­å²©ä¹‹æœ€ï¼Œæ¾æ ‘ç¿³å¤©ï¼Œæœ¨çŸ³äº‰å¥‡ï¼Œå³­å£ä¸‡ä»ã€‚åœ¨æ‚¬
+å´–ä¹‹åŠç­‘æœ‰ä¸€å®«å®‡ï¼Œä¸‹ä¸´æ·±æ¸Šï¼Œå·¥ç¨‹æµ©å¤§ã€‚å®«å‰æœ‰ä¸€çŸ³æŸ±ï¼Œè‡ªå³­å£ä¸Šæ¨ª
+å‡ºã€‚
 LONG);
       set("objects", ([
 	   CLASS_D("wudang") +"/mo": 1,
@@ -33,10 +33,10 @@ int valid_leave(object me, string dir)
 	mapping myfam;
 	myfam = (mapping)me->query("family");
 
-	if ((!myfam || myfam["family_name"] != "Îäµ±ÅÉ") &&
+	if ((!myfam || myfam["family_name"] != "æ­¦å½“æ´¾") &&
 		dir == "southdown" &&
 		objectp(present("mo shenggu", environment(me))))
-		return notify_fail("ÄªÉù¹ÈÀ¹×¡ÄãËµ£º´Ë´¦ÄË±¾ÅÉ½ûµØ£¬ÇëÖ¹²½¡£\n");
+		return notify_fail("è«å£°è°·æ‹¦ä½ä½ è¯´ï¼šæ­¤å¤„ä¹ƒæœ¬æ´¾ç¦åœ°ï¼Œè¯·æ­¢æ­¥ã€‚\n");
 
 	return ::valid_leave(me, dir);
 }

@@ -16,7 +16,7 @@ int main(object me, string arg)
                 return 1;
         }
         if (! wizardp(me))
-                return notify_fail("ÄãÃ»ÓÐÈ¨Á¦Ê¹ÓÃµêÆÌ¹ÜÀíÖ¸Áî¡£\n");
+                return notify_fail("ä½ æ²¡æœ‰æƒåŠ›ä½¿ç”¨åº—é“ºç®¡ç†æŒ‡ä»¤ã€‚\n");
 
         switch (arg)
         {
@@ -55,18 +55,18 @@ int help (object me)
 {
 	write(@HELP
 
-Ö¸Áî¸ñÊ½£ºshop [ open [µêÆÌÃû³Æ] ]  | [ close [µêÆÌÃû³Æ] ] |
-               [ reset [µêÆÌÃû³Æ] ] | [ owner <µêÆÌÃû³Æ> <µêÖ÷ID> ]
+æŒ‡ä»¤æ ¼å¼ï¼šshop [ open [åº—é“ºåç§°] ]  | [ close [åº—é“ºåç§°] ] |
+               [ reset [åº—é“ºåç§°] ] | [ owner <åº—é“ºåç§°> <åº—ä¸»ID> ]
                [ all ]
 
-Íæ¼Ò²é¿´µ±Ç°ÓÎÏ·ÖÐµÄµêÆÌ¾­Óª×´¿ö¡£
+çŽ©å®¶æŸ¥çœ‹å½“å‰æ¸¸æˆä¸­çš„åº—é“ºç»è¥çŠ¶å†µã€‚
 
-Î×Ê¦¿ÉÒÔÓÃÓÚ¹ÜÀíµêÆÌ£º
-Ê¹ÓÃ open ²ÎÊý¿ª·ÅÖ¸¶¨µÄÒ»¸öµêÆÌ»òÕßËùÓÐµêÆÌ¡£
-Ê¹ÓÃ close ²ÎÊý½«¹Ø±ÕÖ¸¶¨µÄÒ»¸öµêÆÌ»òÕßËùÓÐµêÆÌ¡£
-Ê¹ÓÃ reset ²ÎÊýÖØÐÂ³õÊ¼»¯Ö¸¶¨µÄÒ»¸öµêÆÌ»òÕßËùÓÐµêÆÌ¡£
-¶øÊ¹ÓÃowner ²ÎÊýÔòÊÇÉèÖÃµêÖ÷µÄ id¡£
-Ê¹ÓÃ all ÔòÏÔÊ¾ËùÓÐÉÌµê»õÎï¡£
+å·«å¸ˆå¯ä»¥ç”¨äºŽç®¡ç†åº—é“ºï¼š
+ä½¿ç”¨ open å‚æ•°å¼€æ”¾æŒ‡å®šçš„ä¸€ä¸ªåº—é“ºæˆ–è€…æ‰€æœ‰åº—é“ºã€‚
+ä½¿ç”¨ close å‚æ•°å°†å…³é—­æŒ‡å®šçš„ä¸€ä¸ªåº—é“ºæˆ–è€…æ‰€æœ‰åº—é“ºã€‚
+ä½¿ç”¨ reset å‚æ•°é‡æ–°åˆå§‹åŒ–æŒ‡å®šçš„ä¸€ä¸ªåº—é“ºæˆ–è€…æ‰€æœ‰åº—é“ºã€‚
+è€Œä½¿ç”¨owner å‚æ•°åˆ™æ˜¯è®¾ç½®åº—ä¸»çš„ idã€‚
+ä½¿ç”¨ all åˆ™æ˜¾ç¤ºæ‰€æœ‰å•†åº—è´§ç‰©ã€‚
 
 HELP);
         return 1;

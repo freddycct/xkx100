@@ -9,10 +9,10 @@ int ask_poison();
 
 void create()
 {
-	set_name("ÇàÍÜ", ({ "afrog" }));
-	set("title", "ÕïËùÒ½Éú");
-	set("gender", "ÄĞĞÔ");
-	set("long", "ÇàÍÜÌ§Í·¿´ÁËÄãÒ»ÑÛ£¬ÑÛ½ÇÁ÷Â¶³öÆ½ºÍµÄĞ¦Èİ£¬ÈÃÔÙ½ôÕÅµÄ²¡ÈË¼ûµ½ĞÄÇéÒ²ËæÖ®Æ½¾²ÁËĞí¶à¡£\n");
+	set_name("é’è›™", ({ "afrog" }));
+	set("title", "è¯Šæ‰€åŒ»ç”Ÿ");
+	set("gender", "ç”·æ€§");
+	set("long", "é’è›™æŠ¬å¤´çœ‹äº†ä½ ä¸€çœ¼ï¼Œçœ¼è§’æµéœ²å‡ºå¹³å’Œçš„ç¬‘å®¹ï¼Œè®©å†ç´§å¼ çš„ç—…äººè§åˆ°å¿ƒæƒ…ä¹Ÿéšä¹‹å¹³é™äº†è®¸å¤šã€‚\n");
 	set("age", 25);
 	set("per", 30);
 	set("attitude", "friendly");		
@@ -36,14 +36,14 @@ void create()
 	set_temp("apply/damage", 50);
 	set("count", 30);
 	set("inquiry", ([
-		"ÁÆÉË"   : (: ask_me :),
-		"ÖÎ²¡"   : (: ask_heal :),
-		"½â¶¾"   : (: ask_poison :),
+		"ç–—ä¼¤"   : (: ask_me :),
+		"æ²»ç—…"   : (: ask_heal :),
+		"è§£æ¯’"   : (: ask_poison :),
 	]));
 
-	set("party/party_name", HIB"»ªÉ½ÅÉ"NOR);
-	set("party/rank", HIW"µÚ¶ş´úµÜ×Ó"NOR);
-	create_family("»ªÉ½ÅÉ", 2, "µÜ×Ó");
+	set("party/party_name", HIB"åå±±æ´¾"NOR);
+	set("party/rank", HIW"ç¬¬äºŒä»£å¼Ÿå­"NOR);
+	create_family("åå±±æ´¾", 2, "å¼Ÿå­");
 	setup();
 
 	carry_object(CLOTH_DIR"male-cloth")->wear();
@@ -58,29 +58,29 @@ int ask_me()
 
 	if(me->is_fighting())
 	{
-		command("say ÎÒÏÖÔÚÃ»¿Õ£¡\n");
+		command("say æˆ‘ç°åœ¨æ²¡ç©ºï¼\n");
 		return 1;
 	}
 	if(me->query("count") < 1)
 	{
-		command("say ÉËÒ©¶¼ÓÃÍêÁË£¬ÎÒ»¹Ã»À´µÃ¼°Åä£¬ÄãÒ»»áÔÙÀ´°É¡£\n");
+		command("say ä¼¤è¯éƒ½ç”¨å®Œäº†ï¼Œæˆ‘è¿˜æ²¡æ¥å¾—åŠé…ï¼Œä½ ä¸€ä¼šå†æ¥å§ã€‚\n");
 		return 1;
 	}
 	if(ob->query("score")<300&&ob->query("combat_exp")>100000)
 	{
-		command("say ÄãÕâµã½­ºşÔÄÀú£¬Ò²ÏëÈÃÎÒÎªÄãÁÆÉË£¿\n");
+		command("say ä½ è¿™ç‚¹æ±Ÿæ¹–é˜…å†ï¼Œä¹Ÿæƒ³è®©æˆ‘ä¸ºä½ ç–—ä¼¤ï¼Ÿ\n");
 		return 1;
 	}
 		
 	if ((int)ob->query("eff_qi") == (int)ob->query("max_qi"))
 	{
 		command("?"+ob->query("id"));
-		command("say ÄãÃ»ÓĞÊÜÈÎºÎÉË°¡£¿\n");
+		command("say ä½ æ²¡æœ‰å—ä»»ä½•ä¼¤å•Šï¼Ÿ\n");
 		return 1;
 	}
 	else
 	{
-		message_vision("ÇàÍÜÎ¹$N·şÏÂÒ»¿ÅÒ©Íè£¬È»ºóÅÌÏ¥×øÏÂ£¬Ë«ÕÆÌù×Å$NµÄ±³ĞÄ¡£\n", ob);
+		message_vision("é’è›™å–‚$Næœä¸‹ä¸€é¢—è¯ä¸¸ï¼Œç„¶åç›˜è†åä¸‹ï¼ŒåŒæŒè´´ç€$Nçš„èƒŒå¿ƒã€‚\n", ob);
 		if (ob->query("combat_exp")>100000)
 		{
 		        ob->add("score",-100);    
@@ -103,8 +103,8 @@ int recover(object ob)
 {
 	ob->set("eff_qi", (int)ob->query("max_qi"));
 	ob->set("eff_jing", (int)ob->query("max_jing"));
-	message_vision("´óÔ¼¹ıÁËÒ»ÖÑ²èµÄÊ±·İ£¬ÇàÍÜÂıÂıµØÕ¾ÁËÆğÀ´¡£\n",ob);
-	command("say ÄãµÄÉËÊÆÒÑ¾­È«ºÃÁË,¿ÉÒÔ×ßÀ²¡£\n");
+	message_vision("å¤§çº¦è¿‡äº†ä¸€ç›…èŒ¶çš„æ—¶ä»½ï¼Œé’è›™æ…¢æ…¢åœ°ç«™äº†èµ·æ¥ã€‚\n",ob);
+	command("say ä½ çš„ä¼¤åŠ¿å·²ç»å…¨å¥½äº†,å¯ä»¥èµ°å•¦ã€‚\n");
 	return 1;
 }
 
@@ -123,13 +123,13 @@ int ask_heal()
 
         if(me->is_fighting())
         {
-		command("say ÎÒÏÖÔÚÃ»¿Õ£¡\n");
+		command("say æˆ‘ç°åœ¨æ²¡ç©ºï¼\n");
 		return 1;
 	}
 
 	if(ob->query("score")<300&&ob->query("combat_exp")>100000)
 	{       
-		command("say ÄãÕâµã½­ºşÔÄÀú£¬Ò²ÏëÈÃÎÒÎªÄãÖÎ²¡£¿\n");
+		command("say ä½ è¿™ç‚¹æ±Ÿæ¹–é˜…å†ï¼Œä¹Ÿæƒ³è®©æˆ‘ä¸ºä½ æ²»ç—…ï¼Ÿ\n");
 		return 1;
 	}
 		
@@ -139,7 +139,7 @@ int ask_heal()
 		ob->query_condition("ill_dongshang") ||
 		ob->query_condition("ill_fashao"))
 	{
-		message_vision("Æ½Ò»Ö¸Çá¿Û$NÂöÃÅ£¬ÂÔÒ»Ë¼Ë÷£¬Ëæºó×ªÉí´ÓÒ©Â¨ÀïÈ¡³ö¼¸Î¶²İÒ©£¬¿ªÊ¼Îª$N°¾Ò©¡£\n", ob);
+		message_vision("å¹³ä¸€æŒ‡è½»æ‰£$Nè„‰é—¨ï¼Œç•¥ä¸€æ€ç´¢ï¼Œéšåè½¬èº«ä»è¯ç¯“é‡Œå–å‡ºå‡ å‘³è‰è¯ï¼Œå¼€å§‹ä¸º$Nç†¬è¯ã€‚\n", ob);
 		if (ob->query("combat_exp")>100000)
 		{
 			ob->add("score",-100);    
@@ -154,7 +154,7 @@ int ask_heal()
 	else
 	{
 		command("?"+ob->query("id"));
-		command("say ¿´ÄãµÄÆøÉ«£¬²¢Ã»ÓĞÉú²¡°¡£¿\n");
+		command("say çœ‹ä½ çš„æ°”è‰²ï¼Œå¹¶æ²¡æœ‰ç”Ÿç—…å•Šï¼Ÿ\n");
 		return 1;
 	}
 	
@@ -171,8 +171,8 @@ int recover_II(object ob)
 		ob->clear_condition("ill_dongshang",0);
 	if (ob->query_condition("ill_fashao"))
 		ob->clear_condition("ill_fashao",0);
-	message_vision("´óÔ¼Ò»ÖùÏã¹ıºó£¬ÇàÍÜÈÃÄãºÈÏÂÒ»Íë¸Õ°¾ºÃµÄÈÈÆøÌÚÌÚµÄÖĞÒ©¡£\n",ob);
-	command("say ÄãµÄÉíÌåÒÑÎŞ´ó°­,¿ÉÒÔ×ßÀ²¡£\n");
+	message_vision("å¤§çº¦ä¸€æŸ±é¦™è¿‡åï¼Œé’è›™è®©ä½ å–ä¸‹ä¸€ç¢—åˆšç†¬å¥½çš„çƒ­æ°”è…¾è…¾çš„ä¸­è¯ã€‚\n",ob);
+	command("say ä½ çš„èº«ä½“å·²æ— å¤§ç¢,å¯ä»¥èµ°å•¦ã€‚\n");
 	return 1;
 }
 
@@ -184,13 +184,13 @@ int ask_poison()
 
         if(me->is_fighting())
 	{
-		command("say ÎÒÏÖÔÚÃ»¿Õ£¡\n");
+		command("say æˆ‘ç°åœ¨æ²¡ç©ºï¼\n");
 		return 1;
 	}
 
 	if(ob->query("score")<500&&ob->query("combat_exp")>100000)
 	{
-		command("say ÄãÕâµã½­ºşÔÄÀú£¬Ò²ÏëÈÃÎÒÎªÄã½â¶¾£¿\n");
+		command("say ä½ è¿™ç‚¹æ±Ÿæ¹–é˜…å†ï¼Œä¹Ÿæƒ³è®©æˆ‘ä¸ºä½ è§£æ¯’ï¼Ÿ\n");
 		return 1;
 	}
 		
@@ -211,7 +211,7 @@ int ask_poison()
 		ob->query_condition("zhua_poison") ||
 		ob->query_condition("ice_sting"))
 	{
-		message_vision("ÇàÍÜÇá¿Û$NÂöÃÅ£¬Ë«Ã¼ÉîËø£¬ËæºóÎ¹$N·şÏÂÒ»¿ÅÒ©Íè£¬ÅÌÏ¥×øÏÂ£¬Ë«ÕÆÌù×Å$NµÄ±³ĞÄ£¬¿ªÊ¼Îª$N½â¶¾¡£\n", ob);
+		message_vision("é’è›™è½»æ‰£$Nè„‰é—¨ï¼ŒåŒçœ‰æ·±é”ï¼Œéšåå–‚$Næœä¸‹ä¸€é¢—è¯ä¸¸ï¼Œç›˜è†åä¸‹ï¼ŒåŒæŒè´´ç€$Nçš„èƒŒå¿ƒï¼Œå¼€å§‹ä¸º$Nè§£æ¯’ã€‚\n", ob);
 		if (ob->query("combat_exp")>100000)
 		{
 			ob->add("score",-200);    
@@ -225,7 +225,7 @@ int ask_poison()
 	else
 	{
 		command("?"+ob->query("id"));
-		command("say ¿´À´ÎÒ°ï²»ÁËÄãÊ²Ã´Ã¦ÁË£¡\n");
+		command("say çœ‹æ¥æˆ‘å¸®ä¸äº†ä½ ä»€ä¹ˆå¿™äº†ï¼\n");
 		return 1;
 	}
 }
@@ -263,7 +263,7 @@ int recover_III(object ob)
 		ob->clear_condition("zhua_poison",0);
 	if (ob->query_condition("ice_sting"))
 		ob->clear_condition("ice_sting", 0);
-	message_vision("´óÔ¼Ò»ÖùÏã¹ıºó£¬$NÍÂ³öÒ»¿Ú×ÏÑª£¬ÇàÍÜÂıÂıµØÕ¾ÁËÆğÀ´¡£\n",ob);
-	command("say ÄãÌåÄÚ¶¾ËØÒÑÇå£¬¿ÉÒÔ×ßÀ²¡£\n");
+	message_vision("å¤§çº¦ä¸€æŸ±é¦™è¿‡åï¼Œ$Nåå‡ºä¸€å£ç´«è¡€ï¼Œé’è›™æ…¢æ…¢åœ°ç«™äº†èµ·æ¥ã€‚\n",ob);
+	command("say ä½ ä½“å†…æ¯’ç´ å·²æ¸…ï¼Œå¯ä»¥èµ°å•¦ã€‚\n");
 	return 1;
 }

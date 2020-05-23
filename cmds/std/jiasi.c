@@ -6,20 +6,20 @@ inherit F_CLEAN_UP;
 int main(object me, string arg)
 {
 //	if(me->query("class") != "bandit")
-//		return notify_fail("ÃûÃÅÕıÅÉµÄÈË²»¿ÉÒÔ×°ËÀ£¡\n");
+//		return notify_fail("åé—¨æ­£æ´¾çš„äººä¸å¯ä»¥è£…æ­»ï¼\n");
 //	if(me->query("shen") > 10000 )
-//		return notify_fail("ÃûÃÅÕıÅÉµÄÈËÔõÃ´¿ÉÒÔ×°ËÀ£¡\n");
+//		return notify_fail("åé—¨æ­£æ´¾çš„äººæ€ä¹ˆå¯ä»¥è£…æ­»ï¼\n");
 	seteuid(getuid());
 	if( !me->is_fighting() )
-		return notify_fail("Äã²»ÔÚÕ½¶·ÖĞ£¬²»ĞèÒª¼Ù×°ËÀ¡£\n");
+		return notify_fail("ä½ ä¸åœ¨æˆ˜æ–—ä¸­ï¼Œä¸éœ€è¦å‡è£…æ­»ã€‚\n");
 	if(me->query("qi")/me->query("max_qi")*100>20 &&
 		me->query("jing")/me->query("max_jing")*100>20)
-		return notify_fail("Ã»ÊÜÊ²Ã´ÉË¾ÍÏë×°¼ÙËÀ£¬Éµ×ÓÒ²¿´µÃ³öÀ´¡£\n");
+		return notify_fail("æ²¡å—ä»€ä¹ˆä¼¤å°±æƒ³è£…å‡æ­»ï¼Œå‚»å­ä¹Ÿçœ‹å¾—å‡ºæ¥ã€‚\n");
 	if(me->query_temp("jiasi"))
 			return 1;
-//		return notify_fail("ÄãÕıÔÚÎª¼ÙËÀ×ö×¼±¸¡£\n");
+//		return notify_fail("ä½ æ­£åœ¨ä¸ºå‡æ­»åšå‡†å¤‡ã€‚\n");
 //	if(me->query_temp("sleepd")) 
-//		return notify_fail("ÄãÏÖÔÚÃ»°ì·¨¼ÙËÀ¡£\n");
+//		return notify_fail("ä½ ç°åœ¨æ²¡åŠæ³•å‡æ­»ã€‚\n");
 	me->set_temp("jiasi",1);
 	me->add_temp("no_sleep",1);
 	me->start_call_out((: call_other, __FILE__, "begin_jiasi",me :),3);
@@ -36,11 +36,11 @@ void begin_jiasi(object me)
 		return;
 	}
 	wimpy = (int)me->query("env/wimpy");
-	message_vision("$N²Ò½ĞÒ»Éù£¬Ò»Í·ÔÔµ¹ÔÚµØÏÂ¡£$NËÀÁË¡£\n",me);
+	message_vision("$Næƒ¨å«ä¸€å£°ï¼Œä¸€å¤´æ ½å€’åœ¨åœ°ä¸‹ã€‚$Næ­»äº†ã€‚\n",me);
 	me->set_temp("disable_inputs",1);
 	me->set_temp("block_msg/all",1);
 	if(userp(me)) me->set_temp("noliving/fakedie", 1);
-	else me->disable_player(HIG "<×°ËÀÖĞ>" NOR);
+	else me->disable_player(HIG "<è£…æ­»ä¸­>" NOR);
 	me->set("no_put",1);
 	me->set("no_get",1);
 	me->set("no_get_from",1);
@@ -63,7 +63,7 @@ void remove_jiasi(object me, int wimpy)
 	if(userp(me)) me->delete_temp("noliving");
 	else me->enable_player();
 	me->delete_temp("block_msg/all");
-	message_vision("$NÔÚµØÉÏÇÄÇÄµØ·­ÁË¸öÉí£¬Ğ¡ĞÄÒíÒíµØÕö¿ªÁËÑÛ¡£\n",me);
+	message_vision("$Nåœ¨åœ°ä¸Šæ‚„æ‚„åœ°ç¿»äº†ä¸ªèº«ï¼Œå°å¿ƒç¿¼ç¿¼åœ°çå¼€äº†çœ¼ã€‚\n",me);
 	while(environment(me) && environment(environment(me)) && t<10 )
 	{
 			me->move(environment(environment(me)),1);
@@ -74,9 +74,9 @@ void remove_jiasi(object me, int wimpy)
 int help(object me)
 {
 	write(@HELP
-Ö¸Áî¸ñÊ½ : jiasi
+æŒ‡ä»¤æ ¼å¼ : jiasi
 
-    ÈÃÄãÔÚÕ½¶·ÖĞ×°ËÀ£¬´´ÔìÌÓÉúµÄ»ú»á¡£
+    è®©ä½ åœ¨æˆ˜æ–—ä¸­è£…æ­»ï¼Œåˆ›é€ é€ƒç”Ÿçš„æœºä¼šã€‚
 
 HELP
 	);

@@ -1,7 +1,7 @@
 // xingyi.c
 
 #include <ansi.h>
-#define PNAME "ĞÇÒÆ"
+#define PNAME "æ˜Ÿç§»"
 inherit F_SSERVER;
 inherit F_CLEAN_UP;
 
@@ -17,24 +17,24 @@ int perform(object me)
    !me->query("can_perform/"+sskill+"/"+pfname) &&
    !me->query_temp("murong/xingyi") &&
    !SCBORN_D->valid_perform(me,sskill,pfname) )
-   return notify_fail("ÄãËùÊ¹ÓÃµÄÍâ¹¦ÖĞÃ»ÓĞÕâÖÖ¹¦ÄÜ¡£\n");
+   return notify_fail("ä½ æ‰€ä½¿ç”¨çš„å¤–åŠŸä¸­æ²¡æœ‰è¿™ç§åŠŸèƒ½ã€‚\n");
 	return 1;
 }
-string name() {return replace_string(replace_string(PNAME,"¡¸",""),"¡¹","");}
+string name() {return replace_string(replace_string(PNAME,"ã€Œ",""),"ã€","");}
 
 int help(object me)
 {
-	write(WHT"\n"+to_chinese(explode(__FILE__,"/")[<2])+"Ö®"+name()+WHT"£º"NOR"\n");
+	write(WHT"\n"+to_chinese(explode(__FILE__,"/")[<2])+"ä¹‹"+name()+WHT"ï¼š"NOR"\n");
 	write(@HELP
 
-	Ê¹ÓÃ¹¦Ğ§£º
-		ÀûÓÃ¶ÔÊÖÎä¹¦µÄ¾øÕĞ¸üºİ¸ü¿ìµØ³öÊÖ
+	ä½¿ç”¨åŠŸæ•ˆï¼š
+		åˆ©ç”¨å¯¹æ‰‹æ­¦åŠŸçš„ç»æ‹›æ›´ç‹ æ›´å¿«åœ°å‡ºæ‰‹
 
-	³öÊÖÒªÇó£º
-		»ù±¾ÕĞ¼Ü120¼¶
-		¶·×ªĞÇÒÆ120¼¶
-		ÉñÔª¹¦120¼¶
-		ÄÚÁ¦500
+	å‡ºæ‰‹è¦æ±‚ï¼š
+		åŸºæœ¬æ‹›æ¶120çº§
+		æ–—è½¬æ˜Ÿç§»120çº§
+		ç¥å…ƒåŠŸ120çº§
+		å†…åŠ›500
 HELP
 	);
 	return 1;

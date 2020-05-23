@@ -10,14 +10,14 @@ int main(object me, string arg)
         object ob;
 
         cname = me->query_temp("snoopee");
-        if( cname == 0 ) return notify_fail("ÄãÃ»ÓĞ¼àÌıÈÎºÎÈË¡£\n");
+        if( cname == 0 ) return notify_fail("ä½ æ²¡æœ‰ç›‘å¬ä»»ä½•äººã€‚\n");
         ob = find_player(cname);
         if( !ob )
                 ob = find_living(cname);
         if( !ob )
-                return notify_fail("ÕÒ²»µ½ÄãËù¼àÌıµÄÈË¡£\n");
+                return notify_fail("æ‰¾ä¸åˆ°ä½ æ‰€ç›‘å¬çš„äººã€‚\n");
         if( !arg )
-        return notify_fail(sprintf("ÄãÒªÈÃ%s×÷Ê²÷áÊÂ£¿\n",ob->name()));
+        return notify_fail(sprintf("ä½ è¦è®©%sä½œä»€éº½äº‹ï¼Ÿ\n",ob->name()));
         if( arg == "e" ) arg = "east";
         if( arg == "w" ) arg = "west";
         if( arg == "s" ) arg = "south";
@@ -36,7 +36,7 @@ int main(object me, string arg)
 int help(object me)
 {
    write( @HELP
-Ö¸Áî¸ñÊ½: % <commands> ¸øÄãËù¼àÌıµÄÈË·¢ÃüÁî.
+æŒ‡ä»¤æ ¼å¼: % <commands> ç»™ä½ æ‰€ç›‘å¬çš„äººå‘å‘½ä»¤.
 HELP
    );
    return 1;

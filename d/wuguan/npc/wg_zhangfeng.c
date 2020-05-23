@@ -1,23 +1,23 @@
-// wg_zongguan.c Îä¹İ×Ü¹Ü
+// wg_zongguan.c æ­¦é¦†æ€»ç®¡
 
 #include <ansi.h>
 
 inherit NPC;
-string *names = ({"´òÉ¨Âí·¿","¾âÄ¾Í·","Åü²ñ","½½²ËµØ","³ú²İ","ÌôË®",});
+string *names = ({"æ‰“æ‰«é©¬æˆ¿","é”¯æœ¨å¤´","åŠˆæŸ´","æµ‡èœåœ°","é”„è‰","æŒ‘æ°´",});
 string ask_job();
 
 void create()
 {
-	set_name("ÕÅ·ç", ({ "zhang feng","zhang","feng", "zongguan" }));
-	set("title", "ÑïÖİÎä¹İ×Ü¹Ü");
-	set("gender", "ÄĞĞÔ");
+	set_name("å¼ é£", ({ "zhang feng","zhang","feng", "zongguan" }));
+	set("title", "æ‰¬å·æ­¦é¦†æ€»ç®¡");
+	set("gender", "ç”·æ€§");
 	set("age", 45);
 	set("str", 27);
 	set("dex", 26);
 	set("int", 20);
 	set("con", 20);
 	set("per", 16);
-	set("long", "ÕâÈËÏàÃ²ºÍ°ª£¬Ğ¦ºÇºÇµÄ£¬Ò»ÊÖÄÃ¸öºµÑÌ´ü¡£\n");
+	set("long", "è¿™äººç›¸è²Œå’Œè”¼ï¼Œç¬‘å‘µå‘µçš„ï¼Œä¸€æ‰‹æ‹¿ä¸ªæ—±çƒŸè¢‹ã€‚\n");
 	set("combat_exp", 700000);
 	set("shen_type", 1);
 	set("attitude", "friendly");
@@ -45,9 +45,9 @@ void create()
 	set("max_neili", 2500);
 	set("jiali", 150);
 	set("inquiry", ([
-		"¹¤×÷" : (: ask_job :),
+		"å·¥ä½œ" : (: ask_job :),
 		"job" : (: ask_job :),
-		"¹¤¾ß" : "ÄãÈ¥ÎïÆ··¿ÕÒÀÏÀîÒª°É£¡",
+		"å·¥å…·" : "ä½ å»ç‰©å“æˆ¿æ‰¾è€æè¦å§ï¼",
 	]));
 	setup();
 	carry_object("clone/cloth/cloth")->wear();
@@ -79,12 +79,12 @@ string ask_job()
 
 	target = names[random(sizeof(names))];
 	if (ob->query_temp("job_name"))
-		return ("Äã²»ÊÇÒÑ¾­ÁìÁË¹¤×÷Âğ£¿»¹²»¿ìÈ¥×ö¡£\n");
+		return ("ä½ ä¸æ˜¯å·²ç»é¢†äº†å·¥ä½œå—ï¼Ÿè¿˜ä¸å¿«å»åšã€‚\n");
 	if (ob->query("combat_exp") >= 100000)
-		return ("Äã¹¦·òÒÑ¾­×ã¹»´³µ´½­ºş£¬ÕâÀïÃ»ÓĞÊ²Ã´ÊÊºÏÄãµÄ¹¤×÷ÁË¡£\n");
+		return ("ä½ åŠŸå¤«å·²ç»è¶³å¤Ÿé—¯è¡æ±Ÿæ¹–ï¼Œè¿™é‡Œæ²¡æœ‰ä»€ä¹ˆé€‚åˆä½ çš„å·¥ä½œäº†ã€‚\n");
 	ob->set_temp("job_name",target);
 	ob->apply_condition("wuguan_job",random(3)+4);
-	return "ÕıºÃÏÖÔÚÓĞºÃ¶àÊÂÒª×ö£¬ÄãÏÈÈ¥¶«ÎïÆ··¿Áì¹¤¾ß£¬È»ºóÈ¥ºóÔº"+ target+ "°É¡£";
+	return "æ­£å¥½ç°åœ¨æœ‰å¥½å¤šäº‹è¦åšï¼Œä½ å…ˆå»ä¸œç‰©å“æˆ¿é¢†å·¥å…·ï¼Œç„¶åå»åé™¢"+ target+ "å§ã€‚";
 }
 int do_job(string arg)
 {
@@ -95,25 +95,25 @@ int do_job(string arg)
 	if(!arg || arg!="ok") return 0;
 
 	if(!ob->query_temp("job_name"))
-		return notify_fail("Ã»¸øÄã¹¤×÷£¬ÄãÔõÃ´ÅÜÀ´¸²ÃüÁË£¿\n");
+		return notify_fail("æ²¡ç»™ä½ å·¥ä½œï¼Œä½ æ€ä¹ˆè·‘æ¥è¦†å‘½äº†ï¼Ÿ\n");
 	if (interactive(ob) && (int)ob->query_condition("wuguan_job"))
 	{
 		command("hmm "+ob->query("id"));
-		return notify_fail(RED "ÄãÕâÃ´¿ì»ØÀ´ÁË£¬ÊÇ²»ÊÇ»¹Ã»×öÍê°¡£¬·Ô¸ÀÄã»ØÀ´ÁËÂğ£¿"NOR);
+		return notify_fail(RED "ä½ è¿™ä¹ˆå¿«å›æ¥äº†ï¼Œæ˜¯ä¸æ˜¯è¿˜æ²¡åšå®Œå•Šï¼Œå©å’ä½ å›æ¥äº†å—ï¼Ÿ"NOR);
 	}
-	if(!ob->query_temp("mark/»¹ÁË"))
-		return notify_fail("ÄãÏÈ°Ñ¹¤¾ß»¹µ½ÀÏÀîÄÇÔÙÀ´¸²Ãü°É¡£\n");
+	if(!ob->query_temp("mark/è¿˜äº†"))
+		return notify_fail("ä½ å…ˆæŠŠå·¥å…·è¿˜åˆ°è€æé‚£å†æ¥è¦†å‘½å§ã€‚\n");
 
-	if(!(ob->query_temp("mark/ÅüÍêÁË") || 
-		ob->query_temp("mark/½½ÍêÁË") ||
-		ob->query_temp("mark/³úÍêÁË") ||
-		ob->query_temp("mark/¾âÍêÁË") ||
-		ob->query_temp("mark/É¨ÍêÁË") ||
-		ob->query_temp("mark/ÌôÍêÁË")))
-		return notify_fail("ÄãÍµÀÁ°¡£¬½ĞÄã¸É»îÄã²»È¥¸É£¬ÅÜÀ´Áì¹¦£¡\n");
+	if(!(ob->query_temp("mark/åŠˆå®Œäº†") || 
+		ob->query_temp("mark/æµ‡å®Œäº†") ||
+		ob->query_temp("mark/é”„å®Œäº†") ||
+		ob->query_temp("mark/é”¯å®Œäº†") ||
+		ob->query_temp("mark/æ‰«å®Œäº†") ||
+		ob->query_temp("mark/æŒ‘å®Œäº†")))
+		return notify_fail("ä½ å·æ‡’å•Šï¼Œå«ä½ å¹²æ´»ä½ ä¸å»å¹²ï¼Œè·‘æ¥é¢†åŠŸï¼\n");
 
 	command("smile "+ob->query("id"));
-	command("say ºÃ£¬"+RANK_D->query_respect(ob)+"£¬×öµÃºÃ£¬ÕâÊÇ¸øÄãµÄ½±ÉÍ£¡");
+	command("say å¥½ï¼Œ"+RANK_D->query_respect(ob)+"ï¼Œåšå¾—å¥½ï¼Œè¿™æ˜¯ç»™ä½ çš„å¥–èµï¼");
 	if (random(10)<7)
 	{
 		me->add_money("coin",(int)(ob->query_skill("force",1)/2)+65);
@@ -132,12 +132,12 @@ int do_job(string arg)
 	pot= pot + add_pot;
 	ob->set("combat_exp",exp);
 	ob->set("potential",pot);
-	tell_object(ob,HIW"ÄãµÃµ½ÁË:"
-		+ chinese_number(add_exp) + "µãÊµÕ½¾­Ñé£¬"
-		+ chinese_number(add_pot) + "µãÇ±ÄÜ£¬\n"NOR);
+	tell_object(ob,HIW"ä½ å¾—åˆ°äº†:"
+		+ chinese_number(add_exp) + "ç‚¹å®æˆ˜ç»éªŒï¼Œ"
+		+ chinese_number(add_pot) + "ç‚¹æ½œèƒ½ï¼Œ\n"NOR);
 	ob->delete_temp("job_name");
 	ob->delete_temp("mark");
-	ob->set_temp("prize_reason","Îä¹İ");
+	ob->set_temp("prize_reason","æ­¦é¦†");
 	ob->set_temp("can_give_prize",1);
 	ob->set_temp("prize_exp",add_exp);
 	ob->set_temp("prize_pot",add_pot);
@@ -151,6 +151,6 @@ void greeting(object ob)
 		return;
 
 	command("bow "+ob->query("id"));
-	command("say ÕâÎ»"+RANK_D->query_respect(ob)+"£¬ÎÒÃÇÕâÈ±ÈËÊÖ£¬Äã¿ÉÒÔÕÒÎÒÁì¹¤×÷À´×ö¡£\n");
+	command("say è¿™ä½"+RANK_D->query_respect(ob)+"ï¼Œæˆ‘ä»¬è¿™ç¼ºäººæ‰‹ï¼Œä½ å¯ä»¥æ‰¾æˆ‘é¢†å·¥ä½œæ¥åšã€‚\n");
 }
 

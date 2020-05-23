@@ -5,8 +5,8 @@
 #include <dbase.h>
 #include <ansi.h>
 
-static int weight = 0;
-static int encumb = 0, max_encumb = 0;
+protected int weight = 0;
+protected int encumb = 0, max_encumb = 0;
 string listob(object *inv);
 nomask int query_encumbrance() { return encumb; }
 nomask int over_encumbranced() { return encumb > max_encumb; }
@@ -25,7 +25,7 @@ nomask void add_encumbrance(int w)
 void over_encumbrance()
 {
 	if( !interactive(this_object()) ) return;
-	tell_object(this_object(), "ÄãµÄ¸ººÉ¹ıÖØÁË£¡\n");
+	tell_object(this_object(), "ä½ çš„è´Ÿè·è¿‡é‡äº†ï¼\n");
 }
 
 nomask int query_weight() { return weight; }
@@ -53,7 +53,7 @@ varargs int move(mixed dest, int silently)
 
 	// If we are equipped, unequip first.
 	if( query("equipped") && !me->unequip() )
-		return notify_fail("ÄãÃ»ÓĞ°ì·¨È¡ÏÂÕâÑù¶«Î÷¡£\n");
+		return notify_fail("ä½ æ²¡æœ‰åŠæ³•å–ä¸‹è¿™æ ·ä¸œè¥¿ã€‚\n");
 
 	// Find the destination ob for moving.
 	if( objectp(dest) )
@@ -77,9 +77,9 @@ varargs int move(mixed dest, int silently)
 		> (int)ob->query_max_encumbrance() )
 	{
 		if( ob==this_object() )
-			return notify_fail(me->name() + "¶ÔÄã¶øÑÔÌ«ÖØÁË¡£\n");
+			return notify_fail(me->name() + "å¯¹ä½ è€Œè¨€å¤ªé‡äº†ã€‚\n");
 		else
-			return notify_fail(me->name() + "¶Ô" + ob->name() +"¶øÑÔÌ«ÖØÁË¡£\n");
+			return notify_fail(me->name() + "å¯¹" + ob->name() +"è€Œè¨€å¤ªé‡äº†ã€‚\n");
 	}
 
 	// Move the object and update encumbrance
@@ -143,18 +143,18 @@ varargs int move(mixed dest, int silently)
 				if ( environment()->query("outdoors") &&
 					!present("fire", this_object()) &&
 					!wizardp(this_object()) &&
-					((strsrch(time, "º¥Ê±") >= 0) ||
-					 (strsrch(time, "×ÓÊ±") >= 0) ||
-					 (strsrch(time, "³óÊ±") >= 0) ||
-					 (strsrch(time, "ÒúÊ±") >= 0) ))
-					str += "    ÌìÉ«Ì«ºÚÁË£¬Äã¿´²»ÇåÃ÷ÏÔµÄ³öÂ·¡£\n";
+					((strsrch(time, "äº¥æ—¶") >= 0) ||
+					 (strsrch(time, "å­æ—¶") >= 0) ||
+					 (strsrch(time, "ä¸‘æ—¶") >= 0) ||
+					 (strsrch(time, "å¯…æ—¶") >= 0) ))
+					str += "    å¤©è‰²å¤ªé»‘äº†ï¼Œä½ çœ‹ä¸æ¸…æ˜æ˜¾çš„å‡ºè·¯ã€‚\n";
 				else if( sizeof(dirs)==0 )
-					str += "    ÕâÀïÃ»ÓĞÈÎºÎÃ÷ÏÔµÄ³öÂ·¡£\n";
+					str += "    è¿™é‡Œæ²¡æœ‰ä»»ä½•æ˜æ˜¾çš„å‡ºè·¯ã€‚\n";
 				else if( sizeof(dirs)==1 )
-					str += "    ÕâÀïÎ¨Ò»µÄ³ö¿ÚÊÇ " + BOLD + dirs[0] + NOR + "¡£\n";
+					str += "    è¿™é‡Œå”¯ä¸€çš„å‡ºå£æ˜¯ " + BOLD + dirs[0] + NOR + "ã€‚\n";
 				else
-					str += sprintf("    ÕâÀïÃ÷ÏÔµÄ³ö¿ÚÊÇ " + BOLD + "%s" + NOR + " ºÍ " + BOLD + "%s" + NOR + "¡£\n",
-					implode(dirs[0..sizeof(dirs)-2], "¡¢"), dirs[sizeof(dirs)-1]);
+					str += sprintf("    è¿™é‡Œæ˜æ˜¾çš„å‡ºå£æ˜¯ " + BOLD + "%s" + NOR + " å’Œ " + BOLD + "%s" + NOR + "ã€‚\n",
+					implode(dirs[0..sizeof(dirs)-2], "ã€"), dirs[sizeof(dirs)-1]);
 			}
 			tell_object(me, str);
 		}
@@ -176,7 +176,7 @@ void remove(string euid)
 	if( userp(this_object()) && euid!=ROOT_UID ) {
 		log_file("destruct", sprintf("%s attempt to destruct user object %s (%s)\n",
 			euid, this_object()->query("id"), ctime(time())));
-		error("Äã(" + euid + ")²»ÄÜ´İ»ÙÆäËûµÄÊ¹ÓÃÕß¡£\n");
+		error("ä½ (" + euid + ")ä¸èƒ½æ‘§æ¯å…¶ä»–çš„ä½¿ç”¨è€…ã€‚\n");
 	} else if( this_object()->query("equipped")) {
 		if(	!this_object()->unequip() )
 			log_file("destruct", sprintf("Failed to unequip %s when destructed.\n",file_name(this_object())));
@@ -193,7 +193,7 @@ void remove(string euid)
 int move_or_destruct( object dest )
 {
 	if( userp(this_object()) ) {
-		tell_object(this_object(), "Ò»ÕóÊ±¿ÕµÄÅ¤Çú½«Äã´«ËÍµ½ÁíÒ»¸öµØ·½....\n");
+		tell_object(this_object(), "ä¸€é˜µæ—¶ç©ºçš„æ‰­æ›²å°†ä½ ä¼ é€åˆ°å¦ä¸€ä¸ªåœ°æ–¹....\n");
 		move(VOID_OB);
 	}
 }

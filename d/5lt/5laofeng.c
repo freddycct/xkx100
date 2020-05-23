@@ -6,10 +6,10 @@ int do_jump();
 
 void create()
 {
-        set("short", "ÎåÀÏ·å");
+        set("short", "äº”è€å³°");
         set("long", @LONG
-Äã¸Ğµ½º®ÒâÕóÕó£¬Ô­À´ÒÑµ½ÁËÎåÀÏ·åµÄ·å¶¥¡£ÕâÀï¹ÖÊ¯á×á¾£¬×î¸ß
-µÄµØ·½Ò»Ê¯×¿Á¢£¬ÄãÍ»È»ÓĞÖÖÏëÌøÉÏÈ¥(jump)Ò»ÊÔÉíÊÖµÄ³å¶¯¡£
+ä½ æ„Ÿåˆ°å¯’æ„é˜µé˜µï¼ŒåŸæ¥å·²åˆ°äº†äº”è€å³°çš„å³°é¡¶ã€‚è¿™é‡Œæ€ªçŸ³å¶™å³‹ï¼Œæœ€é«˜
+çš„åœ°æ–¹ä¸€çŸ³å“ç«‹ï¼Œä½ çªç„¶æœ‰ç§æƒ³è·³ä¸Šå»(jump)ä¸€è¯•èº«æ‰‹çš„å†²åŠ¨ã€‚
 LONG );
         set("exits", ([ /* sizeof() == 1 */
 	    "westdown"  : __DIR__"shanlu",
@@ -40,22 +40,22 @@ int do_jump()
 	
 	if (me->is_busy() || me->is_fighting())
         	{
-        		tell_object(me,"ÄãÕıÃ¦×ÅÄØ¡£\n");
+        		tell_object(me,"ä½ æ­£å¿™ç€å‘¢ã€‚\n");
         		return 1;
         	}
 
 	if(((int)me->query("jing") < ging_cost) || ((int)me->query("qi") < qi_cost))
 		i = 0;
 
-	message_vision("$N×İÉíÒ»Ô¾£¬ÔÚ¿ÕÖĞ°ÚÁË¸ö¿á±ĞÁËµÄ×ËÊÆ¡£\n", me);
+	message_vision("$Nçºµèº«ä¸€è·ƒï¼Œåœ¨ç©ºä¸­æ‘†äº†ä¸ªé…·æ¯™äº†çš„å§¿åŠ¿ã€‚\n", me);
 	me->start_busy(5);
-	message_vision("Ö»Ìı¡ºÅé¡»µØÒ»Éù$N´Ó¿ÕÖĞÌøÁËÏÂÀ´¡£\n", me);
+	message_vision("åªå¬ã€ç °ã€åœ°ä¸€å£°$Nä»ç©ºä¸­è·³äº†ä¸‹æ¥ã€‚\n", me);
 	if ( i < 60)
 		me->die();
 	else if( i < 135)
 		me->unconcious();
 	else {
-		message_vision("$NÒÑÎÈÎÈµØÕ¾ÔÚµØÉÏ¡£\n", me);
+		message_vision("$Nå·²ç¨³ç¨³åœ°ç«™åœ¨åœ°ä¸Šã€‚\n", me);
 		if( i > 210 && me->query_skill("dodge",1)<230)
 			me->improve_skill("dodge", 2*(int)me->query_skill("dodge", 1));
 		me->receive_damage("jing", ging_cost );

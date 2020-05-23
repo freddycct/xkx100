@@ -4,9 +4,9 @@
 inherit NPC;
 void create()
 {
-	set_name("¹ù¾¸",({"guo jing","guo","jing"}));
-	set("gender","ÄĞĞÔ");
-	set("long","¹ù¾¸³öÉúÔÚÃÉ¹Å£¬ÏÖÔÚÕıËæ½­ÄÏÁù¹ÖÑ§ÒÕ¡£\n");
+	set_name("éƒ­é–",({"guo jing","guo","jing"}));
+	set("gender","ç”·æ€§");
+	set("long","éƒ­é–å‡ºç”Ÿåœ¨è’™å¤ï¼Œç°åœ¨æ­£éšæ±Ÿå—å…­æ€ªå­¦è‰ºã€‚\n");
 	set("combat_exp", 100000);
 	
 	set("age",17);

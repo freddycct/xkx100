@@ -1,4 +1,4 @@
-// gangkui.c ¸Ö¿ø
+// gangkui.c é’¢ç›”
  
 #include <armor.h>
  
@@ -6,14 +6,14 @@ inherit HEAD;
  
 void create()
 {
-	set_name("¸Ö¿ø", ({ "helmet", "gangkui" }) );
+	set_name("é’¢ç›”", ({ "helmet", "gangkui" }) );
 	set_weight(2000);
 	if( clonep() )
 		set_default_object(__FILE__);
 	else {
 		set("material", "steel");
-		set("unit", "¶¥");
-		set("long", "ÕâÊÇÒ»¶¥Õ¸ĞÂµÄ¸Ö¿ø£¬ÓÃÒÔ±£»¤Í·²¿¡£\n");
+		set("unit", "é¡¶");
+		set("long", "è¿™æ˜¯ä¸€é¡¶å´­æ–°çš„é’¢ç›”ï¼Œç”¨ä»¥ä¿æŠ¤å¤´éƒ¨ã€‚\n");
 		set("value", 10000);
 		set("armor_prop/armor", 30);
 	}

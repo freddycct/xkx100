@@ -4,10 +4,10 @@ inherit ROOM;
 
 void create()
 {
-        set("short", "��ʯ·");
+        set("short", "碎石路");
         set("long", @LONG
-����һ�������Ĵ��ӣ�һ���������ٵľ�����������һ���������
-��ʯ·�ϡ�
+这是一个繁华的村子，一派欣欣向荣的景象。你正走在一条东西向的
+碎石路上。
 LONG );
         set("exits", ([ /* sizeof() == 2 */
             "west"  : __DIR__"wroad3",

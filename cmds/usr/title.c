@@ -1,5 +1,5 @@
 // title.c (Mon 09-04-95)
-// Ôö¼ÓÎ×Ê¦²ì¿´ÔÚÏß»ò²»ÔÚÏßÍæ¼Ò½×¼¶ºÍÍ·ÏÎµÄ¹¦ÄÜ¡£
+// å¢åŠ å·«å¸ˆå¯Ÿçœ‹åœ¨çº¿æˆ–ä¸åœ¨çº¿ç©å®¶é˜¶çº§å’Œå¤´è¡”çš„åŠŸèƒ½ã€‚
 // Modified by Spacenet@FXLT 1.16.2000
 inherit F_CLEAN_UP;
  
@@ -29,10 +29,10 @@ int main(object me, string name)
     	if (!ob->restore())
     	{
     		destruct(ob);
-    		return notify_fail("Ã»ÓĞÕâ¸öÍæ¼Ò¡£\n");
+    		return notify_fail("æ²¡æœ‰è¿™ä¸ªç©å®¶ã€‚\n");
     	}
     	printf(BOLD "%s" NOR "%s\n", RANK_D->query_rank(ob), ob->short(1));
-	printf("%s \n\n", "¸ÃÍæ¼ÒÄ¿Ç°²»ÔÚÏß¡£");	
+	printf("%s \n\n", "è¯¥ç©å®¶ç›®å‰ä¸åœ¨çº¿ã€‚");	
 	destruct(ob);
 	return 1;
     	
@@ -41,10 +41,10 @@ int main(object me, string name)
 int help(object me)
 {
     write(@HELP
-Ö¸Áî¸ñÊ½: title [Íæ¼ÒÃû]
+æŒ‡ä»¤æ ¼å¼: title [ç©å®¶å]
  
-    Íæ¼ÒÓÃ title ¿ÉÒÔÏÔÊ¾Ä¿Ç°×Ô¼ºµÄ½×¼¶ºÍÍ·ÏÎ¡£
-    Î×Ê¦ÓÃ title + Íæ¼ÒÃû ¿ÉÒÔÏÔÊ¾¸ÃÍæ¼ÒµÄ½×¼¶ºÍÍ·ÏÎ¡£
+    ç©å®¶ç”¨ title å¯ä»¥æ˜¾ç¤ºç›®å‰è‡ªå·±çš„é˜¶çº§å’Œå¤´è¡”ã€‚
+    å·«å¸ˆç”¨ title + ç©å®¶å å¯ä»¥æ˜¾ç¤ºè¯¥ç©å®¶çš„é˜¶çº§å’Œå¤´è¡”ã€‚
  
 HELP
     );

@@ -7,10 +7,10 @@ string ask_me();
 
 void create()
 {
-	set_name("ÎÚÀÏ´ó", ({ "wu laoda", "wu"}));
-	set("long", @LONG Ëû¾ÍÊÇÃû¶¯½­ºşµÄÎÚÀÏ´ó£¬ÓÉÓÚÄ±·´Í¯ÀÑÎ´Ëì¶ø±»Çô½ûÓÚ´Ë¡£
+	set_name("ä¹Œè€å¤§", ({ "wu laoda", "wu"}));
+	set("long", @LONG ä»–å°±æ˜¯ååŠ¨æ±Ÿæ¹–çš„ä¹Œè€å¤§ï¼Œç”±äºè°‹åç«¥å§¥æœªé‚è€Œè¢«å›šç¦äºæ­¤ã€‚
 LONG );
-	set("gender", "ÄĞĞÔ");
+	set("gender", "ç”·æ€§");
 	set("age", 40);
 	set("shen_type",-1);
 	set("attitude", "peaceful");
@@ -33,11 +33,11 @@ LONG );
 	set("score", 100000);
 
 	set("inquiry", ([
-		"°×ÔÆĞÜµ¨Íè" : (: ask_me :),
+		"ç™½äº‘ç†Šèƒ†ä¸¸" : (: ask_me :),
 	]));
 	set("chat_chance", 3);
 	set("chat_msg", ({
-		"ÎÚÀÏ´óà«à«µÀ£º°×ÔÆĞÜµ¨Íè¿ÉÕæÊÇºÃ¶«Î÷£¡\n",
+		"ä¹Œè€å¤§å–ƒå–ƒé“ï¼šç™½äº‘ç†Šèƒ†ä¸¸å¯çœŸæ˜¯å¥½ä¸œè¥¿ï¼\n",
 	}) );
 	set("wan_count", 1);
 	setup();
@@ -48,13 +48,13 @@ string ask_me()
 	mapping fam; 
 	object ob;
 	
-	if (!(fam=this_player()->query("family")) || fam["family_name"] != "ÁéğÕ¹¬")
+	if (!(fam=this_player()->query("family")) || fam["family_name"] != "çµé¹«å®«")
 		return RANK_D->query_respect(this_player()) + 
-		"ÄãÔõ¸ÒÒªÁéğÕ¹¬Ö®ÕòÅÉ±¦ÎïÄØ£¿";
+		"ä½ æ€æ•¢è¦çµé¹«å®«ä¹‹é•‡æ´¾å®ç‰©å‘¢ï¼Ÿ";
 	if (query("wan_count") < 1)
-		return "²»ºÃÒâË¼£¬ÒÑ¾­ÓĞÈË½İ×ãÏÈµÇÁË£¬ÄãÏÂ´ÎÔÙÀ´°É¡£";
+		return "ä¸å¥½æ„æ€ï¼Œå·²ç»æœ‰äººæ·è¶³å…ˆç™»äº†ï¼Œä½ ä¸‹æ¬¡å†æ¥å§ã€‚";
 	add("wan_count", -1);
 	ob = new(__DIR__"obj/baiyunwan");
 	ob->move(this_player());
-	return "°¦£¬¿´ÔÚÄãÉáÉí¾ÈÎÒµÄ·İÉÏ£¬Õâ¿Å°×ÔÆĞÜµ¨Íè¾Í¸øÄã°É¡£";
+	return "å”‰ï¼Œçœ‹åœ¨ä½ èˆèº«æ•‘æˆ‘çš„ä»½ä¸Šï¼Œè¿™é¢—ç™½äº‘ç†Šèƒ†ä¸¸å°±ç»™ä½ å§ã€‚";
 }

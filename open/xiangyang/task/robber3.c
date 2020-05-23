@@ -5,9 +5,9 @@ inherit NPC;
 #include "mgb2.h"
 void create()
 { 
-	set_name("ÃÉ¹Å¸ßÊÖ",({"menggu gaoshou","gaoshou"}));
-	set("long","ÕâÊÇÒ»Î»ÇÖ·¸ÖĞÔ­µÄÃÉ¹ÅÎä¹¦¸ßÊÖ¡£\n");
-	set("gender", "ÄĞĞÔ" );
+	set_name("è’™å¤é«˜æ‰‹",({"menggu gaoshou","gaoshou"}));
+	set("long","è¿™æ˜¯ä¸€ä½ä¾µçŠ¯ä¸­åŸçš„è’™å¤æ­¦åŠŸé«˜æ‰‹ã€‚\n");
+	set("gender", "ç”·æ€§" );
 	set("age", random(30)+14);
 	
 	set("vendetta/authority", 1);
@@ -143,7 +143,7 @@ void die()
           switch( random(5) )
 	{
 		case 0:
-			message_vision(HIR"³ÇÏÂÓÖÅÀÉÏÀ´Ò»¸öÃÉ¹Å±øÊ¿¡£\n"NOR,ob);
+			message_vision(HIR"åŸä¸‹åˆçˆ¬ä¸Šæ¥ä¸€ä¸ªè’™å¤å…µå£«ã€‚\n"NOR,ob);
 			robber=new(__DIR__"robber1");
                         robber->set("owner",ob->query("id"));
 			robber->do_change(ob);
@@ -152,7 +152,7 @@ void die()
 			ob->kill_ob(robber);
 			break;
 		case 1:
-			message_vision(HIR"³ÇÏÂÓÖÅÀÉÏÀ´Ò»¸öÃÉ¹Å½«Áì¡£\n"NOR,ob);
+			message_vision(HIR"åŸä¸‹åˆçˆ¬ä¸Šæ¥ä¸€ä¸ªè’™å¤å°†é¢†ã€‚\n"NOR,ob);
 			robber=new(__DIR__"robber2");
                         robber->set("owner",ob->query("id"));
 			robber->do_change(ob);
@@ -161,7 +161,7 @@ void die()
 			ob->kill_ob(robber);
 			break;
 		case 2:
-			message_vision(HIR"³ÇÏÂÓÖÅÀÉÏÀ´Ò»¸öÃÉ¹Å¸ßÊÖ¡£\n"NOR,ob);
+			message_vision(HIR"åŸä¸‹åˆçˆ¬ä¸Šæ¥ä¸€ä¸ªè’™å¤é«˜æ‰‹ã€‚\n"NOR,ob);
 			robber=new(__DIR__"robber3");
                         robber->set("owner",ob->query("id"));
 			robber->do_change(ob);
@@ -170,7 +170,7 @@ void die()
 			ob->kill_ob(robber);
 			break;
 		case 3:
-			message_vision(HIR"³ÇÏÂÓÖÅÀÉÏÀ´Ò»¸öÃÉ¹Å±øÊ¿¡£\n"NOR,ob);
+			message_vision(HIR"åŸä¸‹åˆçˆ¬ä¸Šæ¥ä¸€ä¸ªè’™å¤å…µå£«ã€‚\n"NOR,ob);
 			robber=new(__DIR__"robber1");
                         robber->set("owner",ob->query("id"));
 			robber->do_change(ob);
@@ -179,7 +179,7 @@ void die()
 			ob->kill_ob(robber);
 			break;
 		case 4:
-			message_vision(HIR"³ÇÏÂÓÖÅÀÉÏÀ´Ò»¸öÃÉ¹Å½«Áì¡£\n"NOR,ob);
+			message_vision(HIR"åŸä¸‹åˆçˆ¬ä¸Šæ¥ä¸€ä¸ªè’™å¤å°†é¢†ã€‚\n"NOR,ob);
 			robber=new(__DIR__"robber2");
                         robber->set("owner",ob->query("id"));
 			robber->do_change(ob);
@@ -189,7 +189,7 @@ void die()
 			break;
 	}
          }	
-	message_vision("$NÆËÔÚµØÉÏÕõÔúÁË¼¸ÏÂ£¬¿ÚÖĞÅç³ö¼¸¿Ú"HIR"ÏÊÑª"NOR"£¬ËÀÁË£¡\n",this_object());
+	message_vision("$Næ‰‘åœ¨åœ°ä¸ŠæŒ£æ‰äº†å‡ ä¸‹ï¼Œå£ä¸­å–·å‡ºå‡ å£"HIR"é²œè¡€"NOR"ï¼Œæ­»äº†ï¼\n",this_object());
 	destruct(this_object());
 	return;
 }

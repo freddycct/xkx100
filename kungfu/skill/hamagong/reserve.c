@@ -1,4 +1,4 @@
-// reserve.c ¸òó¡¹¦¾­Âöµ¹×ª
+// reserve.c è›¤èŸ†åŠŸç»è„‰å€’è½¬
 // Last Modified by winder on Mar. 10 2000
 
 #include <ansi.h>
@@ -17,22 +17,22 @@ int exert(object me, object target)
   !me->query("perform/reserve") &&
   !me->query("can_perform/hamagong/reserve") && 
   !me->query_temp("murong/xingyi"))
-   return notify_fail("ÄãËùÊ¹ÓÃµÄÄÚ¹¦ÖĞÃ»ÓĞÕâÖÖ¹¦ÄÜ¡£");
+   return notify_fail("ä½ æ‰€ä½¿ç”¨çš„å†…åŠŸä¸­æ²¡æœ‰è¿™ç§åŠŸèƒ½ã€‚");
 
         if ( me->query("family/master_id") != "ouyang feng" )
-		return notify_fail("ÄãÄ¿Ç°»¹Ã»ÓĞÕâ¸ö¹¦Á¦£¬Ğ¡ĞÄ×ß»ğÈëÄ§¡£\n");
+		return notify_fail("ä½ ç›®å‰è¿˜æ²¡æœ‰è¿™ä¸ªåŠŸåŠ›ï¼Œå°å¿ƒèµ°ç«å…¥é­”ã€‚\n");
 		
 	if( (int)me->query_skill("hamagong", 1) < 160 )
-		return notify_fail("ÄãµÄ¸òó¡¹¦²»¹»æµÊì£¬²»»á¾­Âöµ¹×ª¡£\n");
+		return notify_fail("ä½ çš„è›¤èŸ†åŠŸä¸å¤Ÿå¨´ç†Ÿï¼Œä¸ä¼šç»è„‰å€’è½¬ã€‚\n");
 
 	if( (int)me->query("neili") < 200  ) 
-		return notify_fail("ÄãµÄÄÚÁ¦²»¹»¡£\n");
+		return notify_fail("ä½ çš„å†…åŠ›ä¸å¤Ÿã€‚\n");
 
 	if( (int)me->query_temp("hmg_dzjm") ) 
-		return notify_fail("ÄãÒÑ¾­µ¹×ª¾­ÂöÁË¡£\n");
+		return notify_fail("ä½ å·²ç»å€’è½¬ç»è„‰äº†ã€‚\n");
 
 	skill = me->query_skill("hamagong",1);
-	msg = HIB "$NºöµØË«ÊÖ³ÅµØµ¹Á¢£¬ÄæÔË¾­Âö£¬¶ÙÊ±ÄÚÏ¢°µÉú£¬·ÀÓùÁ¦´óÔö¡£\n"NOR;
+	msg = HIB "$Nå¿½åœ°åŒæ‰‹æ’‘åœ°å€’ç«‹ï¼Œé€†è¿ç»è„‰ï¼Œé¡¿æ—¶å†…æ¯æš—ç”Ÿï¼Œé˜²å¾¡åŠ›å¤§å¢ã€‚\n"NOR;
 	message_combatd(msg, me, target);
 
 	me->add_temp("apply/attack", -skill/6);
@@ -52,19 +52,19 @@ void remove_effect(object me, int a_amount, int d_amount)
 	me->add_temp("apply/attack", a_amount);
 	me->add_temp("apply/dodge", - d_amount);
 	me->delete_temp("hmg_dzjm");
-	tell_object(me, HIY "ÄãË«ÊÖÒ»³Å£¬Ò»Ô¾¶øÆğ£¬½«ÄÚÁ¦ÊÕ»Øµ¤Ìï¡£\n"NOR);
+	tell_object(me, HIY "ä½ åŒæ‰‹ä¸€æ’‘ï¼Œä¸€è·ƒè€Œèµ·ï¼Œå°†å†…åŠ›æ”¶å›ä¸¹ç”°ã€‚\n"NOR);
 }
 int help(object me)
 {
-	write(WHT"\n¸òó¡¹¦Ö®¾­Âöµ¹×ª£º"NOR"\n");
+	write(WHT"\nè›¤èŸ†åŠŸä¹‹ç»è„‰å€’è½¬ï¼š"NOR"\n");
 	write(@HELP
 
-	Ê¹ÓÃ¹¦Ğ§£º
-		µ¹×ª¾­Âö£¬¹æ±ÜµãÑ¨
+	ä½¿ç”¨åŠŸæ•ˆï¼š
+		å€’è½¬ç»è„‰ï¼Œè§„é¿ç‚¹ç©´
 
-	³öÊÖÒªÇó£º
-		¸òó¡¹¦160¼¶
-		ÄÚÁ¦200
+	å‡ºæ‰‹è¦æ±‚ï¼š
+		è›¤èŸ†åŠŸ160çº§
+		å†…åŠ›200
 HELP
 	);
 	return 1;

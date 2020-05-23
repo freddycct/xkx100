@@ -1,4 +1,4 @@
-// count.c ÒõÑô°ËØÔ
+// count.c é˜´é˜³å…«å¦
 // Last Modified by winder on Mar. 10 2000
 
 #include <ansi.h>
@@ -18,30 +18,30 @@ int valid_learn(object me)
 
 	mapping myfam;
 	myfam = (mapping)me->query("family");
-	if(!myfam || myfam["family_name"] != "ÌÒ»¨µº"|| myfam["master_id"] != "huang yaoshi")
-		return notify_fail("Ö»ÓĞ»ÆÒ©Ê¦µÄµÜ×Ó²ÅÄÜÑ§ÒõÑô°ËØÔ¡£\n");
+	if(!myfam || myfam["family_name"] != "æ¡ƒèŠ±å²›"|| myfam["master_id"] != "huang yaoshi")
+		return notify_fail("åªæœ‰é»„è¯å¸ˆçš„å¼Ÿå­æ‰èƒ½å­¦é˜´é˜³å…«å¦ã€‚\n");
 	if( (int)me->query_skill("literate",1) < 50 )
-		return notify_fail("ÄãµÄ¶ÁÊéĞ´×ÖÌ«µÍ£¬Ã»ÓĞ°ì·¨Ñ§ÒõÑô°ËØÔ¡£\n");
+		return notify_fail("ä½ çš„è¯»ä¹¦å†™å­—å¤ªä½ï¼Œæ²¡æœ‰åŠæ³•å­¦é˜´é˜³å…«å¦ã€‚\n");
 
 	return 1;
 }
 
 int practice_skill(object me)
 {
-	return notify_fail("ÒõÑô°ËØÔÖ»ÄÜÓÃÑ§(learn)µÄÀ´Ôö¼ÓÊìÁ·¶È¡£\n");
+	return notify_fail("é˜´é˜³å…«å¦åªèƒ½ç”¨å­¦(learn)çš„æ¥å¢åŠ ç†Ÿç»ƒåº¦ã€‚\n");
 }
 int help(object me)
 {
-	write(HIC"\nÒõÑô°ËØÔ£º"NOR"\n");
+	write(HIC"\né˜´é˜³å…«å¦ï¼š"NOR"\n");
 	write(@HELP
 
-    ÌÒ»¨µºµÜ×Ó¿ÉÒÔÆ¾´Ë¼¼ÄÜ²éÖªÍæ¼ÒÄ¿Ç°ËùÔÚµÄÎ»ÖÃ¡£¿ÉÒÔÍ¨¹ı
-ÔÄ¶Á¡¶ºÓÍ¼¡·¡¢¡¶ÂåÊé¡·Ìá¸ß¡£
-    Çëhelp location¡£
+    æ¡ƒèŠ±å²›å¼Ÿå­å¯ä»¥å‡­æ­¤æŠ€èƒ½æŸ¥çŸ¥ç©å®¶ç›®å‰æ‰€åœ¨çš„ä½ç½®ã€‚å¯ä»¥é€šè¿‡
+é˜…è¯»ã€Šæ²³å›¾ã€‹ã€ã€Šæ´›ä¹¦ã€‹æé«˜ã€‚
+    è¯·help locationã€‚
 
-	Ñ§Ï°ÒªÇó£º
-		¶ÁÊéĞ´×Ö50¼¶
-		ÉíÎª»ÆÒ©Ê¦µÕ´«µÜ×Ó
+	å­¦ä¹ è¦æ±‚ï¼š
+		è¯»ä¹¦å†™å­—50çº§
+		èº«ä¸ºé»„è¯å¸ˆå«¡ä¼ å¼Ÿå­
 HELP
 	);
 	return 1;

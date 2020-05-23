@@ -8,11 +8,11 @@ inherit F_UNIQUE;
 
 void create()
 {
-	set_name("Î¤Ò»Ğ¦", ({"wei yixiao", "wei", "yixiao",}));
-	set("long", "Ëû³¤µÃ»îÏóÊÇÒ»Ö»ÇàÒí´óòùòğ¡£\nËûµÄÁ³É«»ÒÆËÆËµÄ¡£\n");
-	set("nickname", HIB "ÇàÒíòğÍõ" NOR);
+	set_name("éŸ¦ä¸€ç¬‘", ({"wei yixiao", "wei", "yixiao",}));
+	set("long", "ä»–é•¿å¾—æ´»è±¡æ˜¯ä¸€åªé’ç¿¼å¤§è™è ã€‚\nä»–çš„è„¸è‰²ç°æ‰‘æ‰‘çš„ã€‚\n");
+	set("nickname", HIB "é’ç¿¼è ç‹" NOR);
 	set("level",9);
-	set("gender", "ÄĞĞÔ");
+	set("gender", "ç”·æ€§");
 	set("attitude", "peaceful");
 
 	set("age", 48);
@@ -55,9 +55,9 @@ void create()
 	set("chat_msg_combat", ({
 		(: command("perform strike.xixueqingfu") :),
 	}) );
-	set("party/party_name",HIG"Ã÷½Ì"NOR);
-	set("party/rank",HIW"»¤½Ì·¨Íõ"NOR);
-	create_family("Ã÷½Ì", 34, "µÜ×Ó");
+	set("party/party_name",HIG"æ˜æ•™"NOR);
+	set("party/rank",HIW"æŠ¤æ•™æ³•ç‹"NOR);
+	create_family("æ˜æ•™", 34, "å¼Ÿå­");
 	setup();
 
 	carry_object("/d/mingjiao/obj/baipao")->wear();

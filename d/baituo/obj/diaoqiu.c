@@ -7,14 +7,14 @@ inherit NECK;
  
 void create()
 {
-	set_name("õõôÃ", ({ "diao qiu", "qiu" }) );
+	set_name("è²‚è£˜", ({ "diao qiu", "qiu" }) );
 	set_weight(1000);
 	if( clonep() )
 		set_default_object(__FILE__);
 	else {
 		set("material", "silk");
-		set("unit", "Ï®");
-		set("long", "ÕâÊÇÒ»Ï®Õä¹óµÄ×ÏõõÆ¤Ã«×öµÄõõôÃ¡£\n");
+		set("unit", "è¢­");
+		set("long", "è¿™æ˜¯ä¸€è¢­çè´µçš„ç´«è²‚çš®æ¯›åšçš„è²‚è£˜ã€‚\n");
 		set("value", 20000);
 		set("armor_prop/dodge", 5);
 	}

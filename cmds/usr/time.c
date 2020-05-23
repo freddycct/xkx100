@@ -6,76 +6,76 @@ inherit F_CLEAN_UP;
 #include <localtime.h>
 
 mapping *lunarfete = ({
-	([	"month" :  1, "day" :  1, "name" : RED"´º½Ú"NOR]),
-	([	"month" :  1, "day" : 15, "name" : RED"ÔªÏü½Ú"NOR]),
-	([	"month" :  5, "day" :  5, "name" : GRN"¶ËÎç½Ú"NOR]),
-	([	"month" :  7, "day" :  7, "name" : CYN"ÆßÏ¦ÆòÇÉ½Ú"NOR]),
-	([	"month" :  8, "day" : 15, "name" : CYN"ÖÐÇï½Ú"NOR]),
-	([	"month" :  9, "day" :  9, "name" : MAG"ÖØÑô½Ú"NOR]),
-	([	"month" : 12, "day" :  8, "name" : BLU"À°°Ë½Ú"NOR]),
-	([	"month" : 12, "day" : 23, "name" : RED"Ð¡Äê"NOR]),
-	([	"month" : 12, "day" : 30, "name" : RED"³ýÏ¦"NOR]),
+	([	"month" :  1, "day" :  1, "name" : RED"æ˜¥èŠ‚"NOR]),
+	([	"month" :  1, "day" : 15, "name" : RED"å…ƒå®µèŠ‚"NOR]),
+	([	"month" :  5, "day" :  5, "name" : GRN"ç«¯åˆèŠ‚"NOR]),
+	([	"month" :  7, "day" :  7, "name" : CYN"ä¸ƒå¤•ä¹žå·§èŠ‚"NOR]),
+	([	"month" :  8, "day" : 15, "name" : CYN"ä¸­ç§‹èŠ‚"NOR]),
+	([	"month" :  9, "day" :  9, "name" : MAG"é‡é˜³èŠ‚"NOR]),
+	([	"month" : 12, "day" :  8, "name" : BLU"è…Šå…«èŠ‚"NOR]),
+	([	"month" : 12, "day" : 23, "name" : RED"å°å¹´"NOR]),
+	([	"month" : 12, "day" : 30, "name" : RED"é™¤å¤•"NOR]),
 });
 mapping *solarfete = ({
-	([	"month" :  1, "day" :  1, "name" : RED"Ôªµ©"NOR]),
-	([	"month" :  2, "day" : 14, "name" : MAG"ÇéÈË½Ú"NOR]),
-	([	"month" :  3, "day" :  5, "name" : RED"Ñ§À×·æ¼ÍÄîÈÕ"NOR]),
-	([	"month" :  3, "day" :  8, "name" : YEL"¹ú¼Ê¸¾Å®½Ú"NOR]),
-	([	"month" :  3, "day" : 12, "name" : GRN"Ö²Ê÷½Ú"NOR]),
-	([	"month" :  3, "day" : 15, "name" : YEL"Ïû·ÑÕßÈ¨ÒæÈÕ"NOR]),
-	([	"month" :  3, "day" : 23, "name" : YEL"ÊÀ½çÆøÏóÈÕ"NOR]),
-	([	"month" :  3, "day" : 31, "name" : YEL"°²È«½ÌÓýÈÕ"NOR]),
-	([	"month" :  4, "day" :  1, "name" : GRN"ÓÞÈË½Ú"NOR]),
-	([	"month" :  4, "day" :  5, "name" : CYN"ÇåÃ÷½Ú"NOR]),
-	([	"month" :  4, "day" :  6, "name" : RED"ÏÃÃÅ´óÑ§Ð£Çì"NOR]),
-	([	"month" :  4, "day" :  7, "name" : CYN"ÊÀ½çÎÀÉúÈÕ"NOR]),
-	([	"month" :  4, "day" :  9, "name" : CYN"Ò®ËÖÊÜÄÑÈÕ"NOR]),
-	([	"month" :  4, "day" : 12, "name" : CYN"¸´»î½ÚÐÇÆÚÒ»"NOR]),
-	([	"month" :  4, "day" : 22, "name" : CYN"ÊÀ½çµØÇòÈÕ"NOR]),
-	([	"month" :  5, "day" :  1, "name" : WHT"¹ú¼ÊÀÍ¶¯½Ú"NOR]),
-	([	"month" :  5, "day" :  4, "name" : GRN"ÖÐ¹úÇàÄê½Ú"NOR]),
-	([	"month" :  5, "day" :  8, "name" : GRN"¹ú¼ÊºìÊ®×ÖÈÕ"NOR]),
-	([	"month" :  5, "day" : 10, "name" : HIR"Ä¸Ç×½Ú"NOR]),
-	([	"month" :  5, "day" : 12, "name" : GRN"¹ú¼Ê»¤Ê¿½Ú"NOR]),
-	([	"month" :  5, "day" : 15, "name" : GRN"¹ú¼Ê¼ÒÍ¥ÈÕ"NOR]),
-	([	"month" :  5, "day" : 17, "name" : GRN"ÊÀ½çµçÐÅÈÕ"NOR]),
-	([	"month" :  5, "day" : 19, "name" : GRN"È«¹úÖú²ÐÈÕ"NOR]),
-	([	"month" :  5, "day" : 26, "name" : HIY"·ðµ®ÈÕ"NOR]),
-	([	"month" :  5, "day" : 31, "name" : GRN"ÊÀ½çÎÞÑÌÈÕ"NOR]),
-	([	"month" :  6, "day" :  1, "name" : MAG"¹ú¼Ê¶ùÍ¯½Ú"NOR]),
-	([	"month" :  6, "day" :  5, "name" : MAG"ÊÀ½ç»·¾³½Ú"NOR]),
-	([	"month" :  6, "day" :  6, "name" : MAG"È«¹ú°®ÑÛÈÕ"NOR]),
-	([	"month" :  6, "day" : 21, "name" : HIG"¸¸Ç×½Ú"NOR]),
-	([	"month" :  6, "day" : 25, "name" : MAG"È«¹úÍÁµØÈÕ"NOR]),
-	([	"month" :  6, "day" : 26, "name" : MAG"¹ú¼Ê½û¶¾ÈÕ"NOR]),
-	([	"month" :  7, "day" :  1, "name" : RED"ÖÐ¹²½¨µ³½Ú"NOR]),
-	([	"month" :  7, "day" :  1, "name" : HIR"Ïã¸Û»Ø¹éÈÕ"NOR]),
-	([	"month" :  7, "day" :  1, "name" : HIY"ÊÀ½ç½¨ÖþÈÕ"NOR]),
-	([	"month" :  7, "day" :  7, "name" : RED"¿¹Õ½¼ÍÄîÈÕ"NOR]),
-	([	"month" :  7, "day" : 11, "name" : GRN"ÊÀ½çÈË¿ÚÈÕ"NOR]),
-	([	"month" :  8, "day" :  1, "name" : GRN"½¨¾ü½Ú"NOR]),
-	([	"month" :  9, "day" :  8, "name" : YEL"¹ú¼ÊÉ¨Ã¤ÈÕ"NOR]),
-	([	"month" :  9, "day" :  8, "name" : YEL"¹ú¼ÊÐÂÎÅÈËÍÅ½áÈÕ"NOR]),
-	([	"month" :  9, "day" : 10, "name" : YEL"ÖÐ¹ú½ÌÊ¦½Ú"NOR]),
-	([	"month" :  9, "day" : 16, "name" : HIG"¹ú¼ÊºÍÆ½½Ú"NOR]),
-	([	"month" :  9, "day" : 20, "name" : YEL"ÖÐ¹ú°®ÑÀÈÕ"NOR]),
-	([	"month" :  9, "day" : 27, "name" : YEL"ÊÀ½çÂÃÓÎÈÕ"NOR]),
-	([	"month" : 10, "day" :  1, "name" : RED"ÖÐ¹ú¹úÇì½Ú"NOR]),
-	([	"month" : 10, "day" :  1, "name" : RED"ÊÀ½çÒôÀÖ½Ú"NOR]),
-	([	"month" : 10, "day" :  5, "name" : RED"ÊÀ½ç×¡·¿ÈÕ"NOR]),
-	([	"month" : 10, "day" :  9, "name" : RED"ÊÀ½çÓÊÕþÈÕ"NOR]),
-	([	"month" : 10, "day" : 14, "name" : RED"ÊÀ½ç±ê×¼ÈÕ"NOR]),
-	([	"month" : 10, "day" : 16, "name" : RED"ÊÀ½çÁ¸Ê³ÈÕ"NOR]),
-	([	"month" : 10, "day" : 24, "name" : RED"ÁªºÏ¹úÈÕ"NOR]),
-	([	"month" : 10, "day" : 31, "name" : RED"ÊÀ½çÇÚ¼óÈÕ"NOR]),
-	([	"month" : 11, "day" :  1, "name" : HIB"ÍòÊ¥½Ú"NOR]),
-	([	"month" : 11, "day" : 17, "name" : HIY"¹ú¼ÊÑ§ÉúÈÕ"NOR]),
-	([	"month" : 11, "day" : 25, "name" : HIY"¸Ð¶÷½Ú"NOR]),
-	([	"month" : 12, "day" :  5, "name" : BLU"¹ú¼ÊÖ¾Ô¸ÈËÔ±ÈÕ"NOR]),
-	([	"month" : 12, "day" : 10, "name" : BLU"ÊÀ½çÈËÈ¨ÈÕ"NOR]),
-	([	"month" : 12, "day" : 20, "name" : HIG"°ÄÃÅ»Ø¹éÈÕ"NOR]),
-	([	"month" : 12, "day" : 24, "name" : BLU"Ê¥µ®Ò¹"NOR]),
-	([	"month" : 12, "day" : 25, "name" : BLU"Ê¥µ®½Ú"NOR]),
+	([	"month" :  1, "day" :  1, "name" : RED"å…ƒæ—¦"NOR]),
+	([	"month" :  2, "day" : 14, "name" : MAG"æƒ…äººèŠ‚"NOR]),
+	([	"month" :  3, "day" :  5, "name" : RED"å­¦é›·é”‹çºªå¿µæ—¥"NOR]),
+	([	"month" :  3, "day" :  8, "name" : YEL"å›½é™…å¦‡å¥³èŠ‚"NOR]),
+	([	"month" :  3, "day" : 12, "name" : GRN"æ¤æ ‘èŠ‚"NOR]),
+	([	"month" :  3, "day" : 15, "name" : YEL"æ¶ˆè´¹è€…æƒç›Šæ—¥"NOR]),
+	([	"month" :  3, "day" : 23, "name" : YEL"ä¸–ç•Œæ°”è±¡æ—¥"NOR]),
+	([	"month" :  3, "day" : 31, "name" : YEL"å®‰å…¨æ•™è‚²æ—¥"NOR]),
+	([	"month" :  4, "day" :  1, "name" : GRN"æ„šäººèŠ‚"NOR]),
+	([	"month" :  4, "day" :  5, "name" : CYN"æ¸…æ˜ŽèŠ‚"NOR]),
+	([	"month" :  4, "day" :  6, "name" : RED"åŽ¦é—¨å¤§å­¦æ ¡åº†"NOR]),
+	([	"month" :  4, "day" :  7, "name" : CYN"ä¸–ç•Œå«ç”Ÿæ—¥"NOR]),
+	([	"month" :  4, "day" :  9, "name" : CYN"è€¶é…¥å—éš¾æ—¥"NOR]),
+	([	"month" :  4, "day" : 12, "name" : CYN"å¤æ´»èŠ‚æ˜ŸæœŸä¸€"NOR]),
+	([	"month" :  4, "day" : 22, "name" : CYN"ä¸–ç•Œåœ°çƒæ—¥"NOR]),
+	([	"month" :  5, "day" :  1, "name" : WHT"å›½é™…åŠ³åŠ¨èŠ‚"NOR]),
+	([	"month" :  5, "day" :  4, "name" : GRN"ä¸­å›½é’å¹´èŠ‚"NOR]),
+	([	"month" :  5, "day" :  8, "name" : GRN"å›½é™…çº¢åå­—æ—¥"NOR]),
+	([	"month" :  5, "day" : 10, "name" : HIR"æ¯äº²èŠ‚"NOR]),
+	([	"month" :  5, "day" : 12, "name" : GRN"å›½é™…æŠ¤å£«èŠ‚"NOR]),
+	([	"month" :  5, "day" : 15, "name" : GRN"å›½é™…å®¶åº­æ—¥"NOR]),
+	([	"month" :  5, "day" : 17, "name" : GRN"ä¸–ç•Œç”µä¿¡æ—¥"NOR]),
+	([	"month" :  5, "day" : 19, "name" : GRN"å…¨å›½åŠ©æ®‹æ—¥"NOR]),
+	([	"month" :  5, "day" : 26, "name" : HIY"ä½›è¯žæ—¥"NOR]),
+	([	"month" :  5, "day" : 31, "name" : GRN"ä¸–ç•Œæ— çƒŸæ—¥"NOR]),
+	([	"month" :  6, "day" :  1, "name" : MAG"å›½é™…å„¿ç«¥èŠ‚"NOR]),
+	([	"month" :  6, "day" :  5, "name" : MAG"ä¸–ç•ŒçŽ¯å¢ƒèŠ‚"NOR]),
+	([	"month" :  6, "day" :  6, "name" : MAG"å…¨å›½çˆ±çœ¼æ—¥"NOR]),
+	([	"month" :  6, "day" : 21, "name" : HIG"çˆ¶äº²èŠ‚"NOR]),
+	([	"month" :  6, "day" : 25, "name" : MAG"å…¨å›½åœŸåœ°æ—¥"NOR]),
+	([	"month" :  6, "day" : 26, "name" : MAG"å›½é™…ç¦æ¯’æ—¥"NOR]),
+	([	"month" :  7, "day" :  1, "name" : RED"ä¸­å…±å»ºå…šèŠ‚"NOR]),
+	([	"month" :  7, "day" :  1, "name" : HIR"é¦™æ¸¯å›žå½’æ—¥"NOR]),
+	([	"month" :  7, "day" :  1, "name" : HIY"ä¸–ç•Œå»ºç­‘æ—¥"NOR]),
+	([	"month" :  7, "day" :  7, "name" : RED"æŠ—æˆ˜çºªå¿µæ—¥"NOR]),
+	([	"month" :  7, "day" : 11, "name" : GRN"ä¸–ç•Œäººå£æ—¥"NOR]),
+	([	"month" :  8, "day" :  1, "name" : GRN"å»ºå†›èŠ‚"NOR]),
+	([	"month" :  9, "day" :  8, "name" : YEL"å›½é™…æ‰«ç›²æ—¥"NOR]),
+	([	"month" :  9, "day" :  8, "name" : YEL"å›½é™…æ–°é—»äººå›¢ç»“æ—¥"NOR]),
+	([	"month" :  9, "day" : 10, "name" : YEL"ä¸­å›½æ•™å¸ˆèŠ‚"NOR]),
+	([	"month" :  9, "day" : 16, "name" : HIG"å›½é™…å’Œå¹³èŠ‚"NOR]),
+	([	"month" :  9, "day" : 20, "name" : YEL"ä¸­å›½çˆ±ç‰™æ—¥"NOR]),
+	([	"month" :  9, "day" : 27, "name" : YEL"ä¸–ç•Œæ—…æ¸¸æ—¥"NOR]),
+	([	"month" : 10, "day" :  1, "name" : RED"ä¸­å›½å›½åº†èŠ‚"NOR]),
+	([	"month" : 10, "day" :  1, "name" : RED"ä¸–ç•ŒéŸ³ä¹èŠ‚"NOR]),
+	([	"month" : 10, "day" :  5, "name" : RED"ä¸–ç•Œä½æˆ¿æ—¥"NOR]),
+	([	"month" : 10, "day" :  9, "name" : RED"ä¸–ç•Œé‚®æ”¿æ—¥"NOR]),
+	([	"month" : 10, "day" : 14, "name" : RED"ä¸–ç•Œæ ‡å‡†æ—¥"NOR]),
+	([	"month" : 10, "day" : 16, "name" : RED"ä¸–ç•Œç²®é£Ÿæ—¥"NOR]),
+	([	"month" : 10, "day" : 24, "name" : RED"è”åˆå›½æ—¥"NOR]),
+	([	"month" : 10, "day" : 31, "name" : RED"ä¸–ç•Œå‹¤ä¿­æ—¥"NOR]),
+	([	"month" : 11, "day" :  1, "name" : HIB"ä¸‡åœ£èŠ‚"NOR]),
+	([	"month" : 11, "day" : 17, "name" : HIY"å›½é™…å­¦ç”Ÿæ—¥"NOR]),
+	([	"month" : 11, "day" : 25, "name" : HIY"æ„Ÿæ©èŠ‚"NOR]),
+	([	"month" : 12, "day" :  5, "name" : BLU"å›½é™…å¿—æ„¿äººå‘˜æ—¥"NOR]),
+	([	"month" : 12, "day" : 10, "name" : BLU"ä¸–ç•Œäººæƒæ—¥"NOR]),
+	([	"month" : 12, "day" : 20, "name" : HIG"æ¾³é—¨å›žå½’æ—¥"NOR]),
+	([	"month" : 12, "day" : 24, "name" : BLU"åœ£è¯žå¤œ"NOR]),
+	([	"month" : 12, "day" : 25, "name" : BLU"åœ£è¯žèŠ‚"NOR]),
 });
 mixed LunarCal = ({ 
 	({ 23,  3, 2, 17, 1, 0, 0, 1, 0, 0, 1, 1, 0, 1, 1, 1, 0 }),  /* 1936 */ 
@@ -184,8 +184,8 @@ mixed SolarDays = ({
 }); 
 int Source, SolarYear, SolarMonth, SolarDate; 
 int LunarYear, LunarMonth, LunarDate, Weekday, Gan, Zhi;
-static string *sym_tian=({ "¼×","ÒÒ","±û","¶¡","Îì","¼º","¸ý","ÐÁ","ÈÉ","¹ï" });
-static string *sym_di=({ "×Ó","³ó","Òú","Ã®","³½","ËÈ","Îç","Î´","Éê","ÓÏ","Ðç","º¥" }); 
+protected string *sym_tian=({ "ç”²","ä¹™","ä¸™","ä¸","æˆŠ","å·±","åºš","è¾›","å£¬","ç™¸" });
+protected string *sym_di=({ "å­","ä¸‘","å¯…","å¯","è¾°","å·³","åˆ","æœª","ç”³","é…‰","æˆŒ","äº¥" }); 
 string lunar(string arg);
 void prepare();
 
@@ -199,7 +199,7 @@ int main(object me, string arg)
 	{
 		string yy,mm,dd;
 		sscanf(arg, "%d-%d-%d", yy, mm, dd);
-		write( "»»ËãµÄÈÕÆÚ "+HIC"»ÆµÛÀú"+lunar(yy+" "+mm+" "+dd+NOR));
+		write( "æ¢ç®—çš„æ—¥æœŸ "+HIC"é»„å¸åŽ†"+lunar(yy+" "+mm+" "+dd+NOR));
 		return 1;
 	}
 	now = localtime(time());
@@ -209,23 +209,23 @@ int main(object me, string arg)
 	h = t % 24; t /= 24;
 	d = t;
 
-	if(d) time = chinese_number(d) + "Ìì";
+	if(d) time = chinese_number(d) + "å¤©";
 	else time = "";
 
-	if(h) time += chinese_number(h) + "Ð¡Ê±";
-	if(m) time += chinese_number(m) + "·Ö";
-	time += chinese_number(s) + "Ãë\n";
+	if(h) time += chinese_number(h) + "å°æ—¶";
+	if(m) time += chinese_number(m) + "åˆ†";
+	time += chinese_number(s) + "ç§’\n";
 
-	write( "ÏÀ¿ÍÐÐÒ»°ÙÒÑÔËÐÐ "HIR + time + NOR);
-	write( "ÏÖÔÚµÄÏÀ¿ÍÐÐÊ±¼ä "HIG + NATURE_D->game_time() + "\n"NOR);
-	printf("ÏÖÔÚµÄ ±±¾© Ê±¼ä "HIY"%sÄê%sÔÂ%sÈÕ%sÊ±%s·Ö%sÃë£¬ÐÇÆÚ%s "NOR,
+	write( "ä¾ å®¢è¡Œä¸€ç™¾å·²è¿è¡Œ "HIR + time + NOR);
+	write( "çŽ°åœ¨çš„ä¾ å®¢è¡Œæ—¶é—´ "HIG + NATURE_D->game_time() + "\n"NOR);
+	printf("çŽ°åœ¨çš„ åŒ—äº¬ æ—¶é—´ "HIY"%så¹´%sæœˆ%sæ—¥%sæ—¶%såˆ†%sç§’ï¼Œæ˜ŸæœŸ%s "NOR,
 		chinese_number(now[LT_YEAR]),
 		chinese_number(now[LT_MON] + 1),
 		chinese_number(now[LT_MDAY]),
 		chinese_number(now[LT_HOUR]),
 		chinese_number(now[LT_MIN]),
 		chinese_number(now[LT_SEC]),
-		now[LT_WDAY] == 0 ? "Ìì" : chinese_number(now[LT_WDAY]));
+		now[LT_WDAY] == 0 ? "å¤©" : chinese_number(now[LT_WDAY]));
 	for ( i=0; i<sizeof(solarfete); i++)
 	{
 		if(solarfete[i]["month"] == now[LT_MON]+1 &&
@@ -233,7 +233,7 @@ int main(object me, string arg)
 			printf(solarfete[i]["name"]+NOR);
 	}
 	write("\n");
-	write( "ÏÖÔÚµÄ Å©Àú ÈÕÆÚ "+HIC"»ÆµÛÀú"+lunar(now[LT_YEAR]+" "+(string)(now[LT_MON]+1)+" "+now[LT_MDAY])+NOR);
+	write( "çŽ°åœ¨çš„ å†œåŽ† æ—¥æœŸ "+HIC"é»„å¸åŽ†"+lunar(now[LT_YEAR]+" "+(string)(now[LT_MON]+1)+" "+now[LT_MDAY])+NOR);
 
 	prepare();
 	return 1;
@@ -335,7 +335,7 @@ int CalConv()
 	} 
 	return 0; 
 } 
-// ÏÞÖÆÔÚ1937-2031Äê
+// é™åˆ¶åœ¨1937-2031å¹´
 string lunar(string arg)
 { 
 	int yy, mm, dd, i, OK=0; 
@@ -349,7 +349,7 @@ string lunar(string arg)
 		SolarDate  = dd;
 		Source = 0;
 		CalConv();
-		lunarmsg = sprintf("%sÄê%sÔÂ%sÈÕ%s%s ", chinese_number(2697+LunarYear), LunarMonth<0 ? "Èò"+chinese_number(-LunarMonth) : chinese_number(LunarMonth), chinese_number(LunarDate), sym_tian[Gan], sym_di[Zhi]);
+		lunarmsg = sprintf("%så¹´%sæœˆ%sæ—¥%s%s ", chinese_number(2697+LunarYear), LunarMonth<0 ? "é—°"+chinese_number(-LunarMonth) : chinese_number(LunarMonth), chinese_number(LunarDate), sym_tian[Gan], sym_di[Zhi]);
 		for ( i=0; i<sizeof(lunarfete); i++)
 		{
 			if(lunarfete[i]["month"] == LunarMonth &&
@@ -370,12 +370,12 @@ void prepare()
 	for( days=1; days<8; days++)
 	{
 		if (days == 1)
-			msg = "Ã÷ÌìÊÇ";
+			msg = "æ˜Žå¤©æ˜¯";
 		else
 			if (days == 2)
-				msg = "ºóÌìÊÇ";
+				msg = "åŽå¤©æ˜¯";
 			else
-				msg = "ÔÙ¹ý"+chinese_number(days)+"ÌìÊÇ";
+				msg = "å†è¿‡"+chinese_number(days)+"å¤©æ˜¯";
 		now = localtime(time() + days * 86400);
 		for ( i=0; i<sizeof(solarfete); i++)
 		{
@@ -404,12 +404,12 @@ void prepare()
 int help(object me)
 {
 	write(@HELP
-Ö¸Áî¸ñÊ½: time
+æŒ‡ä»¤æ ¼å¼: time
 
-    Õâ¸öÖ¸ÁîÈÃÄãÖªµÀÏÖÔÚµÄÓÎÏ·Ê±¼ä¡¢ÏÖÊµµÄ±±¾©Ê±¼äºÍÅ©Àú¡¢½ÚÈÕ£¬ÒÔ
-¼°ÓÎÏ·ÒÑ¾­Á¬Ðø½øÐÐµÄÊ±¼ä¡£
-    Õâ¸öÖ¸Áî»¹ÄÜÈÃÄã»»ËãÅ©Àú¡£Èç£º time 1999-12-31£¬½«µÃµ½µ±ÌìµÄÅ©
-ÀúÈÕÆÚ¡£
+    è¿™ä¸ªæŒ‡ä»¤è®©ä½ çŸ¥é“çŽ°åœ¨çš„æ¸¸æˆæ—¶é—´ã€çŽ°å®žçš„åŒ—äº¬æ—¶é—´å’Œå†œåŽ†ã€èŠ‚æ—¥ï¼Œä»¥
+åŠæ¸¸æˆå·²ç»è¿žç»­è¿›è¡Œçš„æ—¶é—´ã€‚
+    è¿™ä¸ªæŒ‡ä»¤è¿˜èƒ½è®©ä½ æ¢ç®—å†œåŽ†ã€‚å¦‚ï¼š time 1999-12-31ï¼Œå°†å¾—åˆ°å½“å¤©çš„å†œ
+åŽ†æ—¥æœŸã€‚
 
 HELP
 	);

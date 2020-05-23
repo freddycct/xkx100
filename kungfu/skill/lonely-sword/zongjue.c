@@ -1,4 +1,4 @@
-// zongjue.c ¡¸×Ü¾÷Ê½¡¹
+// zongjue.c ã€Œæ€»è¯€å¼ã€
 // Last Modified by winder on Mar. 10 2000
 
 #include <ansi.h>
@@ -16,32 +16,32 @@ int perform(object me)
 	jing_cost = (int)me->query("int") - 45;
 
 	if(!my_fam || my_fam["master_id"] != "feng qingyang")
-		return notify_fail("Äã²»ÊÇ·çÇåÑïµÕ´«µÜ×Ó£¬²»ÄÜÊ¹ÓÃ×Ü¾÷Ê½¡£\n");
+		return notify_fail("ä½ ä¸æ˜¯é£æ¸…æ‰¬å«¡ä¼ å¼Ÿå­ï¼Œä¸èƒ½ä½¿ç”¨æ€»è¯€å¼ã€‚\n");
   if ( userp(me) && !wizardp(me) && 
   !me->query("perform/zongjue") &&
   !me->query("can_perform/lonely-sword/zongjue") && 
   !me->query_temp("murong/xingyi"))
-   return notify_fail("ÄãËùÊ¹ÓÃµÄÍâ¹¦ÖĞÃ»ÓĞÕâÖÖ¹¦ÄÜ¡£");
-   	if(environment(me)->is_chat_room()) return notify_fail("ÕâÀï²»×¼´ò¶·¡£\n");
+   return notify_fail("ä½ æ‰€ä½¿ç”¨çš„å¤–åŠŸä¸­æ²¡æœ‰è¿™ç§åŠŸèƒ½ã€‚");
+   	if(environment(me)->is_chat_room()) return notify_fail("è¿™é‡Œä¸å‡†æ‰“æ–—ã€‚\n");
 	if( me->is_fighting() )
-		return notify_fail("¡¸×Ü¾÷Ê½¡¹²»ÄÜÔÚÕ½¶·ÖĞÑİÁ·¡£\n");
+		return notify_fail("ã€Œæ€»è¯€å¼ã€ä¸èƒ½åœ¨æˆ˜æ–—ä¸­æ¼”ç»ƒã€‚\n");
 	myint = me->query("int");
 	if (!objectp(weapon = me->query_temp("weapon")) ||
 		(string)weapon->query("skill_type") != "sword")
-		return notify_fail("Äã±ØĞëÏÈÈ¥ÕÒÒ»°Ñ½£¡£\n");
+		return notify_fail("ä½ å¿…é¡»å…ˆå»æ‰¾ä¸€æŠŠå‰‘ã€‚\n");
 
 	if( !skill || (skill < 20))
-		return notify_fail("ÄãµÄ¶À¹Â¾Å½£µÈ¼¶²»¹», ²»ÄÜÑİÁ·×Ü¾÷Ê½£¡\n");
+		return notify_fail("ä½ çš„ç‹¬å­¤ä¹å‰‘ç­‰çº§ä¸å¤Ÿ, ä¸èƒ½æ¼”ç»ƒæ€»è¯€å¼ï¼\n");
 	if( me->query("neili") < 50 )
-		return notify_fail("ÄãµÄÄÚÁ¦²»¹»£¬Ã»ÓĞÁ¦ÆøÑİÁ·¡¸×Ü¾÷Ê½¡¹£¡\n");
+		return notify_fail("ä½ çš„å†…åŠ›ä¸å¤Ÿï¼Œæ²¡æœ‰åŠ›æ°”æ¼”ç»ƒã€Œæ€»è¯€å¼ã€ï¼\n");
 	if( me->query("jing") < -jing_cost )
-		return notify_fail("ÄãÏÖÔÚÌ«ÀÛÁË£¬ÎŞ·¨¼¯ÖĞ¾«ÉñÑİÁ·×Ü¾÷Ê½£¡\n");
+		return notify_fail("ä½ ç°åœ¨å¤ªç´¯äº†ï¼Œæ— æ³•é›†ä¸­ç²¾ç¥æ¼”ç»ƒæ€»è¯€å¼ï¼\n");
 
 	exp= (int)me->query("combat_exp");
 	if( skill*skill*skill/10>exp )
-		return notify_fail("ÄãµÄÊµÕ½¾­Ñé²»¹»£¬ÎŞ·¨Ìå»á¡¸×Ü¾÷Ê½¡¹£¡\n");
+		return notify_fail("ä½ çš„å®æˆ˜ç»éªŒä¸å¤Ÿï¼Œæ— æ³•ä½“ä¼šã€Œæ€»è¯€å¼ã€ï¼\n");
 
-	msg= HIG"$NÊ¹³ö¶À¹Â¾Å½£Ö®¡¸×Ü¾÷Ê½¡¹£¬½«ÊÖÖĞ"+weapon->name()+HIG"ËæÒâ»ÓÎè»÷´Ì¡£\n"NOR;
+	msg= HIG"$Nä½¿å‡ºç‹¬å­¤ä¹å‰‘ä¹‹ã€Œæ€»è¯€å¼ã€ï¼Œå°†æ‰‹ä¸­"+weapon->name()+HIG"éšæ„æŒ¥èˆå‡»åˆºã€‚\n"NOR;
 	message_combatd(msg, me);
 	me->add("neili", -50);
 	me->add("jing", jing_cost);
@@ -54,23 +54,23 @@ int perform(object me)
 		me->improve_skill("lonely-sword",10+random(myint*4-9),skill_basic > skill? 0: 1);
 	else me->improve_skill("lonely-sword",10+random(myint*8-9),skill_basic > skill? 0: 1);
 
-	msg = MAG"$PµÄ¡¸¶À¹Â¾Å½£¡¹½ø²½ÁË£¡\n"NOR;
+	msg = MAG"$Pçš„ã€Œç‹¬å­¤ä¹å‰‘ã€è¿›æ­¥äº†ï¼\n"NOR;
 	me->start_busy(random(2));
 	message_combatd(msg, me);
 	return 1;
 }
 int help(object me)
 {
-	write(WHT"\n¶À¹Â¾Å½£Ö®×Ü¾÷Ê½£º"NOR"\n");
+	write(WHT"\nç‹¬å­¤ä¹å‰‘ä¹‹æ€»è¯€å¼ï¼š"NOR"\n");
 	write(@HELP
 
-	Ê¹ÓÃ¹¦Ğ§£º
-		ÑİÊ¾×Ü¾÷£¬Ìá¸ß¶À¹Â¾Å½£µÄĞŞÎª
+	ä½¿ç”¨åŠŸæ•ˆï¼š
+		æ¼”ç¤ºæ€»è¯€ï¼Œæé«˜ç‹¬å­¤ä¹å‰‘çš„ä¿®ä¸º
 
-	³öÊÖÒªÇó£º
-		ÉíÎª·çÇåÑïµÕ´«µÜ×Ó
-		¶À¹Â¾Å½£20¼¶
-		ÄÚÁ¦50
+	å‡ºæ‰‹è¦æ±‚ï¼š
+		èº«ä¸ºé£æ¸…æ‰¬å«¡ä¼ å¼Ÿå­
+		ç‹¬å­¤ä¹å‰‘20çº§
+		å†…åŠ›50
 HELP
 	);
 	return 1;

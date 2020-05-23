@@ -1,14 +1,14 @@
-// Room: chaopath2.c ³¯Ñô·åĞ¡Â·
+// Room: chaopath2.c æœé˜³å³°å°è·¯
 //Date: Oct. 2 1997 by Venus
 
 inherit ROOM;
 
 void create()
 {
-	set("short","³¯Ñô·åĞ¡Â·");
+	set("short","æœé˜³å³°å°è·¯");
 	set("long",@LONG
-ÕâÀïÊÇ³¯Ñô·åĞ¡Â·£¬É½ÊÆ¶¸ÇÍ£¬Á½±ßÏÂÁÙÉî¹È£¬Ò»²»Ğ¡ĞÄ¶¼»áµôÁË
-ÏÂÈ¥¡£Î÷ÃæÓĞÒ»ÌõĞ¡Â·£¬³¤²İÃ»¾¶¡£
+è¿™é‡Œæ˜¯æœé˜³å³°å°è·¯ï¼Œå±±åŠ¿é™¡å³­ï¼Œä¸¤è¾¹ä¸‹ä¸´æ·±è°·ï¼Œä¸€ä¸å°å¿ƒéƒ½ä¼šæ‰äº†
+ä¸‹å»ã€‚è¥¿é¢æœ‰ä¸€æ¡å°è·¯ï¼Œé•¿è‰æ²¡å¾„ã€‚
 LONG);
 	set("outdoors", "huashan");
 	set("exits",([ /* sizeof() == 1 */
@@ -38,6 +38,6 @@ int valid_leave(object me, string dir)
 		objectp(present("shi daizi", environment(me))) &&
 		(me->query("family/master_id")!="gao laozhe") &&
 		(me->query("family/master_id")!="ai laozhe"))
-		return notify_fail("Ê©´÷×ÓºÈµÀ£ºÉÏÃæÊÇÁ½Î»³¤ÀÏÇåĞŞÖ®´¦£¬ÕâÎ»" + RANK_D->query_respect(me) + "ÇëÖ¹²½£¡\n");
+		return notify_fail("æ–½æˆ´å­å–é“ï¼šä¸Šé¢æ˜¯ä¸¤ä½é•¿è€æ¸…ä¿®ä¹‹å¤„ï¼Œè¿™ä½" + RANK_D->query_respect(me) + "è¯·æ­¢æ­¥ï¼\n");
 	return ::valid_leave(me, dir);
 }

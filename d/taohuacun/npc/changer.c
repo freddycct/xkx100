@@ -3,7 +3,7 @@ inherit NPC;
 
 void  create()
 {
-	set_name("Ğ¡··",({"changer"}));
+	set_name("å°è´©",({"changer"}));
 	setup();
 }	
 
@@ -13,9 +13,9 @@ int  do_list()
 	int i;
 	
 	if ( !arrayp(goods=this_object()->query("exchangeable_goods")) || !sizeof(goods) )
-		return notify_fail( "Ä¿Ç°Ã»ÓĞ¿É½»»»µÄ¶«Î÷¡£\n" );
+		return notify_fail( "ç›®å‰æ²¡æœ‰å¯äº¤æ¢çš„ä¸œè¥¿ã€‚\n" );
 			
-	printf( "Äã¿ÉÒÔÏò%s½»»»ÏÂÁĞÎïÆ·£º\n", query("name") );
+	printf( "ä½ å¯ä»¥å‘%säº¤æ¢ä¸‹åˆ—ç‰©å“ï¼š\n", query("name") );
 	for ( i = 0; i < sizeof(goods); i++ )
 	  printf( "%s\n", goods[i]->short() );
 	return 1;
@@ -29,29 +29,29 @@ int do_change( string arg )
 	int i;
 	
 	if (!stringp(arg))
-		return notify_fail( "ÄãÒªÄÃÊ²Ã´»»£¿\n" );
+		return notify_fail( "ä½ è¦æ‹¿ä»€ä¹ˆæ¢ï¼Ÿ\n" );
 	str = explode( arg, " " );
 	if ( sizeof( str ) != 3  || str[1] != "to" )
-		return notify_fail( "ÃüÁî¸ñÊ½ÊÇ£ºchange sth. to sth.\n" );
+		return notify_fail( "å‘½ä»¤æ ¼å¼æ˜¯ï¼šchange sth. to sth.\n" );
 	if ( !objectp( ob1 = present(str[0],me) ) )
-		return notify_fail( "ÄãÉíÉÏÃ»ÓĞÕâÑù¶«Î÷¡£\n" );					
+		return notify_fail( "ä½ èº«ä¸Šæ²¡æœ‰è¿™æ ·ä¸œè¥¿ã€‚\n" );					
 	egoods = query( "exchangeable_goods" );		
 	if ( !arrayp(egoods) )
-		return notify_fail( "Ä¿Ç°»¹Ã»ÓĞÎïÆ·¿É¹©½»»»¡£\n" );
+		return notify_fail( "ç›®å‰è¿˜æ²¡æœ‰ç‰©å“å¯ä¾›äº¤æ¢ã€‚\n" );
 	wgoods = query( "want_goods" );
 	if ( !arrayp(wgoods) )
-		return notify_fail( "Ëû²¢²»ĞèÒªÊ²Ã´¶«Î÷¡£\n" );		
+		return notify_fail( "ä»–å¹¶ä¸éœ€è¦ä»€ä¹ˆä¸œè¥¿ã€‚\n" );		
 	for ( i = 0; i < sizeof(wgoods); i++ )
 	  if ( wgoods[i]->query("id") == str[0] )  break;
 	if ( i >= sizeof(wgoods) )
-		return notify_fail( "Ëû²¢²»ĞèÒªÕâÑù¶«Î÷¡£\n" );
+		return notify_fail( "ä»–å¹¶ä¸éœ€è¦è¿™æ ·ä¸œè¥¿ã€‚\n" );
 	for ( i = 0; i < sizeof(egoods); i++ )
 	  if ( egoods[i]->query("id") == str[2] )  break;
 	if ( i >= sizeof(egoods) )
-		return notify_fail( "ËûÃ»ÓĞÕâÑù¶«Î÷ºÍÄã½»»»¡£\n" );
+		return notify_fail( "ä»–æ²¡æœ‰è¿™æ ·ä¸œè¥¿å’Œä½ äº¤æ¢ã€‚\n" );
 	ob2 = new( egoods[i] );
-	message_vision( "$NÄÃ³öÒ»" + ob1->query("unit") + ob1->query("name") + 
-			"ºÍ" + query("name") + "»»ÁËÒ»" + ob2->query("unit") + ob2->query("name") + "¡£\n", me );
+	message_vision( "$Næ‹¿å‡ºä¸€" + ob1->query("unit") + ob1->query("name") + 
+			"å’Œ" + query("name") + "æ¢äº†ä¸€" + ob2->query("unit") + ob2->query("name") + "ã€‚\n", me );
 	destruct( ob1 );
 	ob2->move( me );
 	return 1;

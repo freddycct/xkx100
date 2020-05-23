@@ -11,8 +11,8 @@ int  erduo = 1;
 
 void  create()
 {
-	set_name("Èâ··", ({ "rou fan" }));
-	set("gender", "ÄĞĞÔ");
+	set_name("è‚‰è´©", ({ "rou fan" }));
+	set("gender", "ç”·æ€§");
 	set("age", 25);
 	set("per", 15);
 	set("combat_exp", 100);
@@ -29,9 +29,9 @@ void  create()
         	__DIR__"obj/qingcai",
         }));	
         set("inquiry", ([
-        	"Ñò¸á×øÍÎ"  :  (: ask_for_y :),
-        	"Ğ¡Å£Ñü×Ó"  :  (: ask_for_n :),
-        	"Ğ¡Öí¶ú¶ä"  :  (: ask_for_z :),
+        	"ç¾Šç¾”åè‡€"  :  (: ask_for_y :),
+        	"å°ç‰›è…°å­"  :  (: ask_for_n :),
+        	"å°çŒªè€³æœµ"  :  (: ask_for_z :),
         ]));
         setup();
         carry_object("/clone/misc/cloth")->wear();	
@@ -48,14 +48,14 @@ int  ask_for_y()
 	object me = this_player(), ob;
 	
 	if ( zuotun == 1 && random(me->query("kar")) > 10 ) {
-		command( "say ËãÄã×ßÔË£¬ÎÒÕâ¶ù»¹Ê£ÏÂÒ»¿é£¬ËÍ¸øÄã°É¡£" );
-		message_vision( this_object()->query("name") + "ÄÃ³öÒ»¿éÑò¸á×øÍÎµİ¸ø$N¡£\n", me );
+		command( "say ç®—ä½ èµ°è¿ï¼Œæˆ‘è¿™å„¿è¿˜å‰©ä¸‹ä¸€å—ï¼Œé€ç»™ä½ å§ã€‚" );
+		message_vision( this_object()->query("name") + "æ‹¿å‡ºä¸€å—ç¾Šç¾”åè‡€é€’ç»™$Nã€‚\n", me );
 		ob = new( __DIR__"obj/zuotun" );
 		ob->move( me );
 		zuotun = 0;
 	}	
 	else 
-		command( "say ÄúÀ´µÃÌ«³Ù£¬Ñò¸á×øÍÎ°³¸øËÍÈËÁË¡£" );
+		command( "say æ‚¨æ¥å¾—å¤ªè¿Ÿï¼Œç¾Šç¾”åè‡€ä¿ºç»™é€äººäº†ã€‚" );
 	return 1;
 }
 
@@ -64,14 +64,14 @@ int  ask_for_n()
 	object me = this_player(), ob;
 	
 	if ( yaozi == 1 && random(me->query("kar")) > 10 ) {
-		command( "say Õâ¶«Î÷¿É²»ºÃÅªµ½£¬¿´ÔÚÀÏÖ÷¹ËµÄ·İÉÏ¾Í¸øÄãÒ»¸ö°É¡£" );
-		message_vision( this_object()->query("name") + "ÄÃ³öÒ»¸öĞ¡Å£Ñü×Óµİ¸ø$N¡£\n", me );
+		command( "say è¿™ä¸œè¥¿å¯ä¸å¥½å¼„åˆ°ï¼Œçœ‹åœ¨è€ä¸»é¡¾çš„ä»½ä¸Šå°±ç»™ä½ ä¸€ä¸ªå§ã€‚" );
+		message_vision( this_object()->query("name") + "æ‹¿å‡ºä¸€ä¸ªå°ç‰›è…°å­é€’ç»™$Nã€‚\n", me );
 		ob = new( __DIR__"obj/yaozi" );
 		ob->move( me );
 		yaozi = 0;
 	}	
 	else 
-		command( "say ÄúÀ´µÃÌ«³Ù£¬Ğ¡Å£Ñü×Ó°³¸øËÍÈËÁË¡£" );
+		command( "say æ‚¨æ¥å¾—å¤ªè¿Ÿï¼Œå°ç‰›è…°å­ä¿ºç»™é€äººäº†ã€‚" );
 	return 1;
 }
 
@@ -80,13 +80,13 @@ int  ask_for_z()
 	object me = this_player(), ob;
 	
 	if ( erduo == 1 && random(me->query("kar")) > 10 ) {
-		command( "say ÎÒÁô×ÅÕâÍæÒâ¶ùÒ²Ã»ÓÃ£¬ÄãÒª¾ÍÄÃÈ¥¡£" );
-		message_vision( this_object()->query("name") + "ÄÃ³öÒ»¿éĞ¡Öí¶ú¶äµİ¸ø$N¡£\n", me );
+		command( "say æˆ‘ç•™ç€è¿™ç©æ„å„¿ä¹Ÿæ²¡ç”¨ï¼Œä½ è¦å°±æ‹¿å»ã€‚" );
+		message_vision( this_object()->query("name") + "æ‹¿å‡ºä¸€å—å°çŒªè€³æœµé€’ç»™$Nã€‚\n", me );
 		ob = new( __DIR__"obj/erduo" );
 		ob->move( me );
 		erduo = 0;
 	}	
 	else 
-		command( "say ÄúÀ´µÃÌ«³Ù£¬Ğ¡Öí¶ú¶ä°³¸øËÍÈËÁË¡£" );
+		command( "say æ‚¨æ¥å¾—å¤ªè¿Ÿï¼Œå°çŒªè€³æœµä¿ºç»™é€äººäº†ã€‚" );
 	return 1;
 }

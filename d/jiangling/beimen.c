@@ -3,10 +3,10 @@
 inherit ROOM;
 void create()
 {
-	set("short", "����");
+	set("short", "北门");
 	set("long", @LONG
-���Ǿ��ݱ����š���ǽ��Ȼ�����Ƶģ�ȴҲ��ΰ׳�ۡ�����������
-�ߣ��������ֵľ��������ˡ�������һ������·��
+这是荆州北城门。城墙虽然是土制的，却也雄伟壮观。从这里往南
+走，就是热闹的荆州西街了。北方是一条黄土路。
 LONG );
 	set("exits", ([
 		"south" : __DIR__"xijie1",

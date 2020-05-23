@@ -1,5 +1,5 @@
 // score.c
-// Ôö¼ÓÎ×Ê¦²ì¿´²»ÔÚÏßÍæ¼ÒÊı¾İµÄ¹¦ÄÜ¡£
+// å¢åŠ å·«å¸ˆå¯Ÿçœ‹ä¸åœ¨çº¿ç©å®¶æ•°æ®çš„åŠŸèƒ½ã€‚
 // Added by Spacenet@FXLT 1.18.2000
 inherit F_CLEAN_UP;
 
@@ -8,13 +8,13 @@ inherit F_CLEAN_UP;
 #include <combat.h>
 
 
-//string *gift_ranking = ({"ÏÂÏÂÖ®Ñ¡","ÏÂµÈ", "ÖĞÏÂ", "ÖĞµÈ", "ÖĞÉÏ", "ÉÏµÈ",
-//	"ÉÏÉÏÖ®Ñ¡"});
+//string *gift_ranking = ({"ä¸‹ä¸‹ä¹‹é€‰","ä¸‹ç­‰", "ä¸­ä¸‹", "ä¸­ç­‰", "ä¸­ä¸Š", "ä¸Šç­‰",
+//	"ä¸Šä¸Šä¹‹é€‰"});
 
-string bar_string = "¡ö¡ö¡ö¡ö¡ö¡ö¡ö¡ö¡ö¡ö¡ö¡ö¡ö¡ö¡ö¡ö¡ö¡ö¡ö¡ö¡ö¡ö¡ö¡ö¡ö";
-string blank_string = "¡õ¡õ¡õ¡õ¡õ¡õ¡õ¡õ¡õ¡õ¡õ¡õ¡õ¡õ¡õ¡õ¡õ¡õ¡õ¡õ¡õ¡õ¡õ¡õ¡õ";
-//string bar_string = "¡ñ¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş¡ş";
-//string blank_string= "¡ñ¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª";
+string bar_string = "â– â– â– â– â– â– â– â– â– â– â– â– â– â– â– â– â– â– â– â– â– â– â– â– â– ";
+string blank_string = "â–¡â–¡â–¡â–¡â–¡â–¡â–¡â–¡â–¡â–¡â–¡â–¡â–¡â–¡â–¡â–¡â–¡â–¡â–¡â–¡â–¡â–¡â–¡â–¡â–¡";
+//string bar_string = "â—ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“ã€“";
+//string blank_string= "â—â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”";
 
 string display_attr(int gift, int value);
 string status_color(int current, int max);
@@ -45,25 +45,25 @@ int main(object me, string arg)
 			export_uid(ob);
 			flag = 1;
 			if (!ob->restore())
-				return notify_fail("Ã»ÓĞÕâ¸öÍæ¼Ò¡£\n");
+				return notify_fail("æ²¡æœ‰è¿™ä¸ªç©å®¶ã€‚\n");
 		}
 	} else
-		return notify_fail("Ö»ÓĞÎ×Ê¦ÄÜ²ì¿´±ğÈËµÄ×´Ì¬¡£\n");
+		return notify_fail("åªæœ‰å·«å¸ˆèƒ½å¯Ÿçœ‹åˆ«äººçš„çŠ¶æ€ã€‚\n");
 
 	my = ob->query_entire_dbase();
 
 	line = sprintf( BOLD "%s" NOR "%s\n\n", RANK_D->query_rank(ob), ob->short(1) );
 	if (userp(ob) || flag)
-	line += sprintf(" ÄãÊÇ%s%sËê%s¸öÔÂµÄ%s%s£¬%sÉú¡£\n",
-		flag?"":"Ò»" + ob->query("unit"),
+	line += sprintf(" ä½ æ˜¯%s%så²%sä¸ªæœˆçš„%s%sï¼Œ%sç”Ÿã€‚\n",
+		flag?"":"ä¸€" + ob->query("unit"),
 		chinese_number(ob->query("age")), 
 		chinese_number((ob->query("mud_age")-(ob->query("age")-14)*86400)/7200 + 1 ), 
 		ob->query("gender"),
 		ob->query("race"),
 		CHINESE_D->chinese_date(((int)ob->query("birthday") - 14*365*24*60) * 60) );
 	else
-	line += sprintf(" ÄãÊÇ%s%sËêµÄ%s%s£¬%sÉú¡£\n",
-		flag?"":"Ò»" + ob->query("unit"),
+	line += sprintf(" ä½ æ˜¯%s%så²çš„%s%sï¼Œ%sç”Ÿã€‚\n",
+		flag?"":"ä¸€" + ob->query("unit"),
 		chinese_number(ob->query("age")), 
 		ob->query("gender"),
 		ob->query("race"),
@@ -71,7 +71,7 @@ int main(object me, string arg)
 
 	if( 1 || wizardp(me) || (int)ob->query("age") >= 18 ) {
 		line += sprintf(
-			" ëöÁ¦£º[%s]  ÎòĞÔ£º[%s]  ¸ù¹Ç£º[%s]  Éí·¨£º[%s]\n\n", 
+			" è†‚åŠ›ï¼š[%s]  æ‚Ÿæ€§ï¼š[%s]  æ ¹éª¨ï¼š[%s]  èº«æ³•ï¼š[%s]\n\n", 
 			display_attr(my["str"], ob->query("str")),
 			display_attr(my["int"], ob->query("int")),
 			display_attr(my["con"], ob->query("con")),
@@ -81,7 +81,7 @@ int main(object me, string arg)
         if( wizardp(me) || (int)ob->query("age") >= 18 )
         {
                 line += sprintf(
-                " ÄÍÁ¦£º[%s]  ¸£Ôµ£º[%s]  ¶¨Á¦£º[%s]  ÈİÃ²£º[%s]\n\n",
+                " è€åŠ›ï¼š[%s]  ç¦ç¼˜ï¼š[%s]  å®šåŠ›ï¼š[%s]  å®¹è²Œï¼š[%s]\n\n",
                 display_attr(my["sta"], ob->query_sta()),
                 display_attr(my["kar"], ob->query_kar()),
                 display_attr(my["cps"], ob->query_cps()),
@@ -92,28 +92,28 @@ int main(object me, string arg)
 	{
 		if( mapp(my["family"]) ) {
 			if( my["family"]["master_name"] )
-				line = sprintf("%s ÄãµÄÊ¦¸¸ÊÇ%s¡£",
+				line = sprintf("%s ä½ çš„å¸ˆçˆ¶æ˜¯%sã€‚",
 					line, my["family"]["master_name"] );
 		}
 		if ((int)ob->query("balance") > 0)
-			line += "             ´æ¿î£º" + MONEY_D->money_str((int)ob->query("balance")) + "¡£\n";
+			line += "             å­˜æ¬¾ï¼š" + MONEY_D->money_str((int)ob->query("balance")) + "ã€‚\n";
 		else
-			line += "             ÄãÃ»ÓĞ´æ¿î¡£\n";
+			line += "             ä½ æ²¡æœ‰å­˜æ¬¾ã€‚\n";
 		if (!ob->query("couple/couple_name"))
 		{
-			if (ob->query("gender")=="Å®ĞÔ")
-				if (ob->query("age")<30) line += " ÄãÏÖÔÚ´ı×Ö¹ëÖĞ¡£\n\n";
-				else line += " ÄãÏÖÔÚ»¹ÊÇ¸öµ¥Éí¹ó×å¡£\n\n";
+			if (ob->query("gender")=="å¥³æ€§")
+				if (ob->query("age")<30) line += " ä½ ç°åœ¨å¾…å­—é—ºä¸­ã€‚\n\n";
+				else line += " ä½ ç°åœ¨è¿˜æ˜¯ä¸ªå•èº«è´µæ—ã€‚\n\n";
 			else
-			line += " Äã»¹ÊÇ¸ö¹â¹÷¡£\n\n";
+			line += " ä½ è¿˜æ˜¯ä¸ªå…‰æ£ã€‚\n\n";
 		}
 		else
-			line += " ÄãµÄ°éÂÂÊÇ "+ob->query("couple/couple_name")+"¡£\n\n";
+			line += " ä½ çš„ä¼´ä¾£æ˜¯ "+ob->query("couple/couple_name")+"ã€‚\n\n";
 	}
 
-	line += " <¾«>  " + tribar_graph(my["jing"], my["eff_jing"], my["max_jing"], GRN) + "\n";
-	line += " <Æø>  " + tribar_graph(my["qi"], my["eff_qi"], my["max_qi"], HIR) + "\n";
-//	line += " <Éñ>  " + tribar_graph(my["sen"], my["eff_sen"], my["max_sen"], HIB) + "\n";
+	line += " <ç²¾>  " + tribar_graph(my["jing"], my["eff_jing"], my["max_jing"], GRN) + "\n";
+	line += " <æ°”>  " + tribar_graph(my["qi"], my["eff_qi"], my["max_qi"], HIR) + "\n";
+//	line += " <ç¥>  " + tribar_graph(my["sen"], my["eff_sen"], my["max_sen"], HIB) + "\n";
 
 	if( objectp(weapon = ob->query_temp("weapon")) )
 		skill_type = weapon->query("skill_type");
@@ -125,39 +125,39 @@ int main(object me, string arg)
 	dodge_points = COMBAT_D->skill_power(ob, "dodge", SKILL_USAGE_DEFENSE);
 
     if (!flag) {
-	line += sprintf("\n Õ½¶·¹¥»÷Á¦ " HIW "%8d" NOR "\t\tÕ½¶··ÀÓùÁ¦ " HIW "%8d\n" NOR,
+	line += sprintf("\n æˆ˜æ–—æ”»å‡»åŠ› " HIW "%8d" NOR "\t\tæˆ˜æ–—é˜²å¾¡åŠ› " HIW "%8d\n" NOR,
 		attack_points/100 + 1, (dodge_points + (weapon? parry_points: (parry_points/10)))/100 + 1,);
-	line += sprintf(" Õ½¶·ÉËº¦Á¦ " HIW "%8d" NOR "\t\tÕ½¶·±£»¤Á¦ " HIW "%8d\n\n" NOR,
+	line += sprintf(" æˆ˜æ–—ä¼¤å®³åŠ› " HIW "%8d" NOR "\t\tæˆ˜æ–—ä¿æŠ¤åŠ› " HIW "%8d\n\n" NOR,
 		ob->query_temp("apply/damage"), ob->query_temp("apply/armor"));
 //    else line += "\n";
 
-	line += " Ê³Îï£º" + tribar_graph(my["food"], ob->max_food_capacity(), ob->max_food_capacity(), YEL) + "\n";
-	line += " ÒûË®£º" + tribar_graph(my["water"], ob->max_water_capacity(), ob->max_water_capacity(), CYN) + "\n";
+	line += " é£Ÿç‰©ï¼š" + tribar_graph(my["food"], ob->max_food_capacity(), ob->max_food_capacity(), YEL) + "\n";
+	line += " é¥®æ°´ï¼š" + tribar_graph(my["water"], ob->max_water_capacity(), ob->max_water_capacity(), CYN) + "\n";
       }
 
-	line += sprintf("\n Äãµ½Ä¿Ç°ÎªÖ¹×Ü¹²É±ÁË %d ¸öÈË£¬ÆäÖĞÓĞ %d ¸öÊÇÆäËûÍæ¼Ò¡£\n",
+	line += sprintf("\n ä½ åˆ°ç›®å‰ä¸ºæ­¢æ€»å…±æ€äº† %d ä¸ªäººï¼Œå…¶ä¸­æœ‰ %d ä¸ªæ˜¯å…¶ä»–ç©å®¶ã€‚\n",
 		my["MKS"] + my["PKS"], my["PKS"]);
-	line += sprintf(" Äãµ½Ä¿Ç°ÎªÖ¹×Ü¹²ËÀÁË %d ´ÎÁË£¬ÆäÖĞÓĞ %d ´ÎÊÇ·ÇÕı³£ËÀÍö¡£\n\n",
+	line += sprintf(" ä½ åˆ°ç›®å‰ä¸ºæ­¢æ€»å…±æ­»äº† %d æ¬¡äº†ï¼Œå…¶ä¸­æœ‰ %d æ¬¡æ˜¯éæ­£å¸¸æ­»äº¡ã€‚\n\n",
 		my["dietimes"] + my["normal_die"], my["dietimes"]);
 
-//	line += sprintf("     ¡¡Éñ£º " RED "%d\n" NOR, ob->query("shen") );
+//	line += sprintf("     ã€€ç¥ï¼š " RED "%d\n" NOR, ob->query("shen") );
 	if (ob->query("shen") >=0)
-		line += sprintf(" Õı    Æø£º " RED "%8d\t" NOR, ob->query("shen") );
+		line += sprintf(" æ­£    æ°”ï¼š " RED "%8d\t" NOR, ob->query("shen") );
 	else
-		line += sprintf(" ìå    Æø£º " RED "%8d\t" NOR, ob->query("shen") );
+		line += sprintf(" æˆ¾    æ°”ï¼š " RED "%8d\t" NOR, ob->query("shen") );
 
-	line += sprintf(" Ç±    ÄÜ£º " HIY "%3d (%3d%%)\t" NOR,
+	line += sprintf(" æ½œ    èƒ½ï¼š " HIY "%3d (%3d%%)\t" NOR,
 		(int)ob->query("potential") - (int)ob->query("learned_points"),
 		(1 + (int)ob->query("learned_points")) * 100 / (1 + (int)ob->query("potential")) );
-	line += sprintf(" ÊµÕ½¾­Ñé£º " HIM "%8d\n" NOR, ob->query("combat_exp") );
-	line += sprintf(" ÷È    Á¦£º " HIC "%8d\t" NOR, ob->query("meili") );
-	line += sprintf(" ½­ºşÔÄÀú£º " HIC "%8d\t" NOR, ob->query("score") );
-	line += sprintf(" ½­ºşÍşÍû£º " HIC "%8d\n" NOR, ob->query("weiwang") );
+	line += sprintf(" å®æˆ˜ç»éªŒï¼š " HIM "%8d\n" NOR, ob->query("combat_exp") );
+	line += sprintf(" é­…    åŠ›ï¼š " HIC "%8d\t" NOR, ob->query("meili") );
+	line += sprintf(" æ±Ÿæ¹–é˜…å†ï¼š " HIC "%8d\t" NOR, ob->query("score") );
+	line += sprintf(" æ±Ÿæ¹–å¨æœ›ï¼š " HIC "%8d\n" NOR, ob->query("weiwang") );
 
 	write(line);
 
 	if (flag) {
-		printf("¸ÃÍæ¼ÒÄ¿Ç°²»ÔÚÏß¡£\n");
+		printf("è¯¥ç©å®¶ç›®å‰ä¸åœ¨çº¿ã€‚\n");
 		destruct(ob);
 	}
 	return 1;
@@ -196,11 +196,11 @@ string tribar_graph(int val, int eff, int max, string color)
 int help(object me)
 {
 	write(@HELP
-Ö¸Áî¸ñÊ½ : score
-           score <¶ÔÏóÃû³Æ>                   (Î×Ê¦×¨ÓÃ)
+æŒ‡ä»¤æ ¼å¼ : score
+           score <å¯¹è±¡åç§°>                   (å·«å¸ˆä¸“ç”¨)
 
-Õâ¸öÖ¸Áî¿ÉÒÔÏÔÊ¾Äã(Äã)»òÖ¸¶¨¶ÔÏó(º¬¹ÖÎï)µÄ»ù±¾×ÊÁÏ¡£
-»ù±¾×ÊÁÏµÄÉè¶¨Çë²ÎÔÄ 'help setup'¡£
+è¿™ä¸ªæŒ‡ä»¤å¯ä»¥æ˜¾ç¤ºä½ (ä½ )æˆ–æŒ‡å®šå¯¹è±¡(å«æ€ªç‰©)çš„åŸºæœ¬èµ„æ–™ã€‚
+åŸºæœ¬èµ„æ–™çš„è®¾å®šè¯·å‚é˜… 'help setup'ã€‚
 
 see also : hp
 HELP

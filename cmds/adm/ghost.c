@@ -11,11 +11,11 @@ int main(object me, string arg)
 	if (!arg || arg!="-p")
 	{
 		me->set_ghost(1);
-		write("Äã³É¹¦µØ±ä³ÉÁËÒ»Ö»¹í£¡\n");
+		write("ä½ æˆåŠŸåœ°å˜æˆäº†ä¸€åªé¬¼ï¼\n");
 	}
 	else {
 		me->set_ghost(0);
-		write("ÄãÓÖÍ¶Ì¥×öÈËÁË£¡\n");
+		write("ä½ åˆæŠ•èƒåšäººäº†ï¼\n");
 	}
 	return 1;
 }
@@ -23,9 +23,9 @@ int main(object me, string arg)
 int help(object me)
 {
 write(@HELP
-Ö¸Áî¸ñÊ½ : ghost [-p]
+æŒ‡ä»¤æ ¼å¼ : ghost [-p]
  
-Õâ¸öÖ¸ÁîÈÃÄãÔÚÈË¹íÖ®¼äÇĞ»»¡£
+è¿™ä¸ªæŒ‡ä»¤è®©ä½ åœ¨äººé¬¼ä¹‹é—´åˆ‡æ¢ã€‚
 HELP	);
 	return 1;
 }

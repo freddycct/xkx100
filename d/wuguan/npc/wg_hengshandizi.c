@@ -3,11 +3,11 @@ inherit NPC;
 
 void create()
 {
-       set_name("��ɽ����", ({ "hengshan dizi", "dizi" }) );
-       set("gender", "����" );
+       set_name("衡山弟子", ({ "hengshan dizi", "dizi" }) );
+       set("gender", "男性" );
        set("age", 26);
        set("long",
-               "����һ������ĺ�ɽ���ӡ�\n");
+               "他是一个清秀的衡山弟子。\n");
        set("combat_exp", 12500);
        set("attitude", "friendly");
  
@@ -31,15 +31,15 @@ void greeting(object ob)
 	if (!ob || !present(ob, environment())) return;
 	switch( random(3) ) {
 		case 0:
-			say( "��ɽ�ɵ���˵������λ" + RANK_D->query_respect(ob)
-            + "������ɽ���𣬿��Կ�"BRED"(help henshan)"NOR"��\n");
+			say( "衡山派弟子说道：这位" + RANK_D->query_respect(ob)
+            + "想加入衡山派吗，可以看"BRED"(help henshan)"NOR"。\n");
 			break;
 		case 1:
-			say( "��ɽ�ɵ���˵����������ϰ��ɽ�������ľ�ѧ--�ٱ�ǧ�ú�ɽ����ʮ��ʽ��һ������
-���ɴ˾�������Ц�����ֵ����벻Զ�ӣ�\n");
+			say( "衡山派弟子说道：若能修习衡山派最高深的绝学--百变千幻衡山云雾十三式，一旦有日
+练成此绝技，则笑傲武林的梦想不远矣！\n");
 			break;
 		case 2:
-			say( "��ɽ�ɵ���˵�������Ǻ�ɽ����������ף�Ī�����Ÿ�������̩����\n");
+			say( "衡山派弟子说道：我们衡山剑法精妙绝伦，莫大掌门更是武林泰斗。\n");
 			break;
 	}
 

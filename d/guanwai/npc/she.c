@@ -6,11 +6,11 @@ inherit NPC;
 
 void create()
 {
-	set_name(HIY"÷ê"NOR, ({ "she"}) );
-	set("race", "×ßÐó");
-	set("gender", "ÐÛÐÔ");
+	set_name(HIY"éº"NOR, ({ "she"}) );
+	set("race", "èµ°ç•œ");
+	set("gender", "é›„æ€§");
 	set("age", 20);
-	set("long", "Ò»Ö»ÎÂÑ±µÄ÷ê£¬ÕýÔÚµÍÍ·³Ô²Ý¡£\n");
+	set("long", "ä¸€åªæ¸©é©¯çš„éºï¼Œæ­£åœ¨ä½Žå¤´åƒè‰ã€‚\n");
 	set("attitude", "peace");
 	set("shen_type", -1);
 
@@ -25,7 +25,7 @@ void create()
 void die()
 {
 	object ob, corpse;
-	message_vision("$NÍ·Ò»Íá£¬¾²¾²µ¹ÔÚµØÉÏ£¬ËÀÈ¥ÁË¡£\n", this_object());
+	message_vision("$Nå¤´ä¸€æ­ªï¼Œé™é™å€’åœ¨åœ°ä¸Šï¼Œæ­»åŽ»äº†ã€‚\n", this_object());
 	if( objectp(corpse = CHAR_D->make_corpse(this_object())) )
 		ob = new("/clone/medicine/vegetable/shexiang");
 	ob->move(corpse);

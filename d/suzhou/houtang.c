@@ -3,13 +3,13 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "ºóÌÃ");
+	set("short", "åå ‚");
 	set("long", @long
-ÕâÀïÊÇÊé³¡µÄºóÌÃ£¬ÀïÃæÓĞÒ»ÕÅ×À×ÓºÍÒ»ÕÅ°«´²£¬Ç½ÉÏµÄ´°»§°ëÑÚ
-×Å£¬Ç½ÉÏ¹Ò×ÅÒ»¸±Äê»­(picture)¡£
+è¿™é‡Œæ˜¯ä¹¦åœºçš„åå ‚ï¼Œé‡Œé¢æœ‰ä¸€å¼ æ¡Œå­å’Œä¸€å¼ çŸ®åºŠï¼Œå¢™ä¸Šçš„çª—æˆ·åŠæ©
+ç€ï¼Œå¢™ä¸ŠæŒ‚ç€ä¸€å‰¯å¹´ç”»(picture)ã€‚
 long);
 	set("item_desc", ([
-		"picture" : "ÕâÒ»ÕÅÑ°³£Å©¼Ò¹ıÄêÊ±ÌùµÄÄê»­¡£\n",
+		"picture" : "è¿™ä¸€å¼ å¯»å¸¸å†œå®¶è¿‡å¹´æ—¶è´´çš„å¹´ç”»ã€‚\n",
 	]));
 	set("exits", ([
 		"out" : __DIR__"shuchang",
@@ -17,7 +17,7 @@ long);
 	set("coor/x", 830);
 	set("coor/y", -995);
 	set("coor/z", 0);
-        create_door("out", "Ğ¡ÃÅ", "enter", DOOR_CLOSED);
+        create_door("out", "å°é—¨", "enter", DOOR_CLOSED);
 	setup();
 }
 void init()
@@ -34,8 +34,8 @@ int do_jie(string arg)
 	if (arg !="picture") return 0;
 	if (arg=="picture")
 	{
-		write("Äã½Ò¿ªÄê»­£¬·¢ÏÖÇ½ÉÏÓĞ¸ö¶´£¬Ç¡ºÃÄÜÈİÄÉÒ»¸öÈË£¬ÄãÈÌ²»×¡ÏëÌø(jump)ÏÂÈ¥¡£\n");
-		me->set_temp("marks/½Ò1", 1);
+		write("ä½ æ­å¼€å¹´ç”»ï¼Œå‘ç°å¢™ä¸Šæœ‰ä¸ªæ´ï¼Œæ°å¥½èƒ½å®¹çº³ä¸€ä¸ªäººï¼Œä½ å¿ä¸ä½æƒ³è·³(jump)ä¸‹å»ã€‚\n");
+		me->set_temp("marks/æ­1", 1);
 		return 1;
 	}
 }
@@ -43,12 +43,12 @@ int do_jump(string arg)
 {
 	object me;
 	me=this_player();
-	if (me->query_temp("marks/½Ò1"))
+	if (me->query_temp("marks/æ­1"))
 	{
-		message("vision", me->name() + "×ê½øÁËÇ½ÉÏµÄ¶´£¬ÌøÁËÏÂÈ¥£¬Ö»ÌıµÄ¡°Æ¹¡±µÄÒ»ÉùÏì¡£\n", environment(me), ({me}) );
+		message("vision", me->name() + "é’»è¿›äº†å¢™ä¸Šçš„æ´ï¼Œè·³äº†ä¸‹å»ï¼Œåªå¬çš„â€œä¹’â€çš„ä¸€å£°å“ã€‚\n", environment(me), ({me}) );
 		me->move(__DIR__"szyunhe");
-		message("vision", me->name() + "Í»È»¼ä´ÓÉÏÃæË¤ÁËÏÂÀ´¡£\n", environment(me), ({me}) );
-		me->delete_temp("marks/½Ò1");
+		message("vision", me->name() + "çªç„¶é—´ä»ä¸Šé¢æ‘”äº†ä¸‹æ¥ã€‚\n", environment(me), ({me}) );
+		me->delete_temp("marks/æ­1");
 		return 1;
 	}
 }

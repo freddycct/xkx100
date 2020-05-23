@@ -3,11 +3,11 @@ int do_search();
 void end(object);
 void create()
 {
-        set("short", "É½¶´");
+        set("short", "å±±æ´");
         set("long", @LONG
-´ÓÍâ¶´½øÈëÕâÀïÑÛÇ°Ò»°µ£¬×ĞÏ¸¿´Ê±·¢¾õÕâÊÇÒ»¸ö±È
-Íâ¶´»¹Òª´óºÜ¶àµÄ¶´Ñ¨£¬ËÄ±ÚÉÏ¹ÒÂúÁËÁò»Ç¾§Ìå£¬¿ÕÆøÖĞ
-µÄÁò»ÇÎ¶µÀËÆÒªÊ¹ÈËÖÏÏ¢¡£
+ä»å¤–æ´è¿›å…¥è¿™é‡Œçœ¼å‰ä¸€æš—ï¼Œä»”ç»†çœ‹æ—¶å‘è§‰è¿™æ˜¯ä¸€ä¸ªæ¯”
+å¤–æ´è¿˜è¦å¤§å¾ˆå¤šçš„æ´ç©´ï¼Œå››å£ä¸ŠæŒ‚æ»¡äº†ç¡«ç£ºæ™¶ä½“ï¼Œç©ºæ°”ä¸­
+çš„ç¡«ç£ºå‘³é“ä¼¼è¦ä½¿äººçª’æ¯ã€‚
 LONG
         );
         set("exits", ([ /* sizeof() == 1 */
@@ -31,11 +31,11 @@ int do_search()
         object ob ;
         int jing;
         if( me->is_busy() )
-                return notify_fail("ÄãÉÏÒ»¸ö¶¯×÷»¹Ã»ÓĞÍê³ÉÄØ¡£\n");
+                return notify_fail("ä½ ä¸Šä¸€ä¸ªåŠ¨ä½œè¿˜æ²¡æœ‰å®Œæˆå‘¢ã€‚\n");
         jing=me->query("jing");
         if(jing<30)
-                return notify_fail("ÄãÎŞ·¨¼¯ÖĞ¾«Á¦²é¿´£¡\n");
-        message_vision("$N¿ªÊ¼²é¿´ÕâÀïµÄÊ¯±Ú£¬Ï£ÍûÄÜÕÒµ½Ò»¿éÁò»Ç¡£\n",me);
+                return notify_fail("ä½ æ— æ³•é›†ä¸­ç²¾åŠ›æŸ¥çœ‹ï¼\n");
+        message_vision("$Nå¼€å§‹æŸ¥çœ‹è¿™é‡Œçš„çŸ³å£ï¼Œå¸Œæœ›èƒ½æ‰¾åˆ°ä¸€å—ç¡«ç£ºã€‚\n",me);
         me->start_busy(2);
         me->set("jing", jing-20);
         call_out("end",3,me);
@@ -45,11 +45,11 @@ void end(object me)
 {
         object ob;
         if(random(2)==0)
-                message_vision("$NÀÛÁË¸ö°ëËÀ£¬½á¹ûÊ²Ã´¶¼Ã»ÓĞÕÒµ½¡£\n",me);
+                message_vision("$Nç´¯äº†ä¸ªåŠæ­»ï¼Œç»“æœä»€ä¹ˆéƒ½æ²¡æœ‰æ‰¾åˆ°ã€‚\n",me);
         else
         {
                 ob=new(__DIR__"npc/obj/liuhuang");
                 ob->move(me);
-                message_vision("$NÕÒµ½ÁËÒ»¿éÁò»Ç£¬·ÅÔÚÉíÉÏ¡£\n",me);
+                message_vision("$Næ‰¾åˆ°äº†ä¸€å—ç¡«ç£ºï¼Œæ”¾åœ¨èº«ä¸Šã€‚\n",me);
         }
  }

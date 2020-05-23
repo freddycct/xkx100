@@ -24,48 +24,48 @@ int main(object me, string arg)
 	if( !arg || sscanf(arg, "%s %s", target, msg)!=2 ) return help(me);
 /*
 	if(me->query("channel/tell_block"))
-		return notify_fail("ÄãµÄÆµµÀ±»¹ØÁË£¡\n");
+		return notify_fail("ä½ çš„é¢‘é“è¢«å…³äº†ï¼\n");
 	if((int)me->query("mud_age") < NEW_PERIOD)
-		return notify_fail("ÄãÖ»¿ÉÒÔÊ¹ÓÃ£¨say£©¡£\n");
+		return notify_fail("ä½ åªå¯ä»¥ä½¿ç”¨ï¼ˆsayï¼‰ã€‚\n");
 */
-//added by lion,Ê×ÏÈÅĞ¶ÏÇëÇó·¢ËÍµÄMUD²»ÄÜÊÇ×Ô¼º,¶øÇÒÒÑ¾­Á¬½Ó.
+//added by lion,é¦–å…ˆåˆ¤æ–­è¯·æ±‚å‘é€çš„MUDä¸èƒ½æ˜¯è‡ªå·±,è€Œä¸”å·²ç»è¿æ¥.
 
 	if( sscanf(target, "%s@%s", target, mud)==2 ) 
 	if(mud!=INTERMUD_NAME)
 	{
 		if( !find_object(DNS_MASTER) )
-		return notify_fail("ÍøÂ·¾«Áé²¢Ã»ÓĞ±»ÔØÈë£¬²»ÄÜÏòÍâ·¢ĞÅÏ¢¡£\n");
+		return notify_fail("ç½‘è·¯ç²¾çµå¹¶æ²¡æœ‰è¢«è½½å…¥ï¼Œä¸èƒ½å‘å¤–å‘ä¿¡æ¯ã€‚\n");
 		mud_list = (mapping)DNS_MASTER->query_muds();
 		if(!mud_list)
-			return notify_fail( MUD_NAME + "Ä¿Ç°»¹Ã»ÓĞ¸úÍøÂ·ÉÏÆäËû Mud È¡µÃÁªÏµ¡£\n");		
+			return notify_fail( MUD_NAME + "ç›®å‰è¿˜æ²¡æœ‰è·Ÿç½‘è·¯ä¸Šå…¶ä»– Mud å–å¾—è”ç³»ã€‚\n");		
 		mud = htonn(mud);
 		if(!mapp( mud_list[mud] )) 
-			return notify_fail(MUD_NAME + "²¢Ã»ÓĞºÍ"+mud+"È¡µÃÁªÏµ£¬ÇëÓÃmudlistÃüÁî²é¿´¡£\n");
+			return notify_fail(MUD_NAME + "å¹¶æ²¡æœ‰å’Œ"+mud+"å–å¾—è”ç³»ï¼Œè¯·ç”¨mudlistå‘½ä»¤æŸ¥çœ‹ã€‚\n");
     if (mud != mud_nname())      
-//ÅĞ¶ÏÍê±Ï,¿ªÊ¼Ïòmud·¢ÇëÇó.		
+//åˆ¤æ–­å®Œæ¯•,å¼€å§‹å‘mudå‘è¯·æ±‚.		
 		{
 			GTELL->send_gtell(mud, target, me, msg);
-		  write("ÍøÂ·Ñ¶Ï¢ÒÑËÍ³ö£¬¿ÉÄÜÒªÉÔºò²ÅÄÜµÃµ½»ØÓ¦¡£\n");
+		  write("ç½‘è·¯è®¯æ¯å·²é€å‡ºï¼Œå¯èƒ½è¦ç¨å€™æ‰èƒ½å¾—åˆ°å›åº”ã€‚\n");
 		 return 1;
     }
 	}
 
 	obj = find_player(target);
 	if(!obj || !me->visible(obj))
-		return notify_fail("Ã»ÓĞÕâ¸öÈË....¡£\n");
+		return notify_fail("æ²¡æœ‰è¿™ä¸ªäºº....ã€‚\n");
 	name = (string) me->query("id");
 	refuse_name = (string) obj->query("env/no_tell");
 	if (stringp(obj->query("env/can_tell")))
 	clist = explode(obj->query("env/can_tell"),",");
 	if( !wizardp(me) && (refuse_name == "all" || refuse_name == name)
 	 && (!arrayp(clist) || member_array(name,clist)==-1))
-		return notify_fail(obj->query("name")+"²»ÏëÌıÄãß´ß´ÍáÍá¡£\n");
-	write(HIG "Äã¸æËß" + obj->name(1) + "£º" + msg + "\n" NOR);
-	tell_object(obj, sprintf( HIG "%s¸æËßÄã£º%s\n" NOR,
+		return notify_fail(obj->query("name")+"ä¸æƒ³å¬ä½ å½å½æ­ªæ­ªã€‚\n");
+	write(HIG "ä½ å‘Šè¯‰" + obj->name(1) + "ï¼š" + msg + "\n" NOR);
+	tell_object(obj, sprintf( HIG "%så‘Šè¯‰ä½ ï¼š%s\n" NOR,
 		me->name(1)+"("+me->query("id")+")", msg));
 	if (stringp(obj->query("env/auto_reply")) && query_idle(obj) > 60)
-	tell_object(me,HIW"(×Ô¶¯»Ø¸´)"NOR+obj->name()+"»Ø´ğÄã£º"+obj->query("env/auto_reply")+"\n");
-	message("channel:snp", HIB"¡¾¼àÌı¡¿"+me->query("name")+"¸æËß"+obj->query("name")+"£º"+msg+"\n"NOR, users());
+	tell_object(me,HIW"(è‡ªåŠ¨å›å¤)"NOR+obj->name()+"å›ç­”ä½ ï¼š"+obj->query("env/auto_reply")+"\n");
+	message("channel:snp", HIB"ã€ç›‘å¬ã€‘"+me->query("name")+"å‘Šè¯‰"+obj->query("name")+"ï¼š"+msg+"\n"NOR, users());
 
 	obj->set_temp("reply", me->query("id"));
 	return 1;
@@ -79,30 +79,30 @@ string remote_tell(string cname, string from, string mud, string to, string msg)
 	if( ob = find_player(to) )
 	{
 		if(wizardp(ob) && ob->query("env/invisibility"))
-			return "ÏÖÔÚÕÒ²»µ½Õâ¸öÈË¡£"; //respond no such user.
+			return "ç°åœ¨æ‰¾ä¸åˆ°è¿™ä¸ªäººã€‚"; //respond no such user.
 		if( ob->query("env/no_tell") ) return
-			ob->query("name")+"ÏÖÔÚ²»ÏëÌıÄãß´ß´ÍáÍá¡£";
+			ob->query("name")+"ç°åœ¨ä¸æƒ³å¬ä½ å½å½æ­ªæ­ªã€‚";
 		if(!living(ob) || ob->query_temp("noliving") ||
 			ob->query_temp("netdead")) 
-			return ob->query("name")+"ÏÖÔÚÌı²»¼ûÄãËµµÄ»°¡£\n";
+			return ob->query("name")+"ç°åœ¨å¬ä¸è§ä½ è¯´çš„è¯ã€‚\n";
 		if( cname )
-			tell_object(ob, sprintf(HIG "%s(%s@%s)¸æËßÄã£º%s\n" NOR, cname, capitalize(from), mud, msg ));
+			tell_object(ob, sprintf(HIG "%s(%s@%s)å‘Šè¯‰ä½ ï¼š%s\n" NOR, cname, capitalize(from), mud, msg ));
 		else
-			tell_object(ob, sprintf(HIG "%s@%s ¸æËßÄã£º%s\n" NOR, capitalize(from), mud, msg ));
+			tell_object(ob, sprintf(HIG "%s@%s å‘Šè¯‰ä½ ï¼š%s\n" NOR, capitalize(from), mud, msg ));
 		ob->set_temp("reply", lower_case(from) + "@" + mud);
-		return ob->query("name")+"ÊÕµ½ÁËÄãµÄÏûÏ¢¡£";
+		return ob->query("name")+"æ”¶åˆ°äº†ä½ çš„æ¶ˆæ¯ã€‚";
 // if succeed, return target's name.
-	} else return "ÏÖÔÚÕÒ²»µ½Õâ¸öÈË¡£";
+	} else return "ç°åœ¨æ‰¾ä¸åˆ°è¿™ä¸ªäººã€‚";
 }
 
 int help(object me)
 {
 	write(@HELP
-Ö¸Áî¸ñÊ½£ºtell <Ä³ÈË> <Ñ¶Ï¢>
+æŒ‡ä»¤æ ¼å¼ï¼štell <æŸäºº> <è®¯æ¯>
 
-    Äã¿ÉÒÔÓÃÕâ¸öÖ¸ÁîºÍÆäËûµØ·½µÄÊ¹ÓÃÕßËµ»°¡£
+    ä½ å¯ä»¥ç”¨è¿™ä¸ªæŒ‡ä»¤å’Œå…¶ä»–åœ°æ–¹çš„ä½¿ç”¨è€…è¯´è¯ã€‚
 
-ÆäËûÏà¹ØÖ¸Áî£ºreply
+å…¶ä»–ç›¸å…³æŒ‡ä»¤ï¼šreply
 HELP
 	);
 	return 1;

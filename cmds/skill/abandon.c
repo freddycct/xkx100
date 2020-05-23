@@ -6,9 +6,9 @@ inherit F_CLEAN_UP;
 
 mapping valid_skill = ([
 /*
-        "jiuyin-baiguzhao":  "¾ÅÒõ°×¹Ç×¥",
-        "bixie-jian":        "±ÙÐ°½£·¨",
-        "zhengqijue":        "ÕýÆø¾÷",
+        "jiuyin-baiguzhao":  "ä¹é˜´ç™½éª¨æŠ“",
+        "bixie-jian":        "è¾Ÿé‚ªå‰‘æ³•",
+        "zhengqijue":        "æ­£æ°”è¯€",
 */
 ]);
 int main(object me, string arg)
@@ -24,11 +24,11 @@ int main(object me, string arg)
 		skl = me->query_skills();
 		if(!sizeof(skl))
 		{
-			write("ÄãÄ¿Ç°²¢Ã»ÓÐÑ§»áÈÎºÎ¼¼ÄÜ¡£\n");
+			write("ä½ ç›®å‰å¹¶æ²¡æœ‰å­¦ä¼šä»»ä½•æŠ€èƒ½ã€‚\n");
 			return 1;
 		}
 		sname = sort_array( keys(skl), (: strcmp :) );
-		write("Äã¾ö¶¨·ÅÆúÑ§Ï°ËùÓÐ¼¼ÄÜ¡£\n");
+		write("ä½ å†³å®šæ”¾å¼ƒå­¦ä¹ æ‰€æœ‰æŠ€èƒ½ã€‚\n");
 		for( i = sizeof(skl)-1; i >= 0; i--)
 		{
 			me->delete_skill(sname[i]);
@@ -42,39 +42,39 @@ int main(object me, string arg)
 	}
 	if(!arg || arg == "" || sscanf(arg, "%s %d", skill, lvl)!=2 &&
 		sscanf(arg, "%s", skill)!=1)
-		return notify_fail("ÄãÒª·ÅÆúÄÄÒ»Ïî¼¼ÄÜ£¿\n");
+		return notify_fail("ä½ è¦æ”¾å¼ƒå“ªä¸€é¡¹æŠ€èƒ½ï¼Ÿ\n");
 	if( !undefinedp(valid_skill[skill]) )
-		return notify_fail(to_chinese(skill)+"Èç¸½¹ÇÖ®Çù£¬ÈÃÄãÎÞ·¨·ÅÆú£¡\n");
+		return notify_fail(to_chinese(skill)+"å¦‚é™„éª¨ä¹‹è›†ï¼Œè®©ä½ æ— æ³•æ”¾å¼ƒï¼\n");
 	skill_lvl = me->query_skill(skill,1);
 	if( lvl <0 )
-		return notify_fail("¼¼ÄÜ¼¶±ð²»ÄÜÎª¸º¡£\n");
+		return notify_fail("æŠ€èƒ½çº§åˆ«ä¸èƒ½ä¸ºè´Ÿã€‚\n");
 	if( lvl == skill_lvl && lvl>0)
-		return notify_fail("ÄãÓÐÎÊÌâ°¡¡£Äã²»¾ÍÊÇÕâ¼¶±ðÃ´£¿\n");
+		return notify_fail("ä½ æœ‰é—®é¢˜å•Šã€‚ä½ ä¸å°±æ˜¯è¿™çº§åˆ«ä¹ˆï¼Ÿ\n");
 	if( lvl > skill_lvl || lvl > 800)
-		return notify_fail("ÄãÕâÏî¼¼ÄÜ²¢Ã»ÓÐÑ§µ½Õâ¸ö¼¶±ð¡£\n");
+		return notify_fail("ä½ è¿™é¡¹æŠ€èƒ½å¹¶æ²¡æœ‰å­¦åˆ°è¿™ä¸ªçº§åˆ«ã€‚\n");
 	if( undefinedp((me->query_skills())[skill]) )
-		return notify_fail("Äã²¢Ã»ÓÐÑ§¹ýÕâÏî¼¼ÄÜ¡£\n");
+		return notify_fail("ä½ å¹¶æ²¡æœ‰å­¦è¿‡è¿™é¡¹æŠ€èƒ½ã€‚\n");
 	if ((int)skill_lvl >= 100)
   {
-  	write(HIW"È·¶¨½«"+to_chinese(skill)+"("+skill+")"+
-           "´Ó"+HIR+chinese_number(skill_lvl)+HIW+"¼¶·ÅÆúµ½"+
-           HIR+chinese_number(lvl)+HIW+"¼¶£¿(y/n)\n"NOR
+  	write(HIW"ç¡®å®šå°†"+to_chinese(skill)+"("+skill+")"+
+           "ä»Ž"+HIR+chinese_number(skill_lvl)+HIW+"çº§æ”¾å¼ƒåˆ°"+
+           HIR+chinese_number(lvl)+HIW+"çº§ï¼Ÿ(y/n)\n"NOR
            );
   	input_to("check_input",1,me,skill,lvl);
   }
   else
   {
 		if( !me->delete_skill(skill) )
-	    	return notify_fail("Äã²¢Ã»ÓÐÑ§¹ýÕâÏî¼¼ÄÜ¡£\n");
-  	write("Äã¾ö¶¨·ÅÆú¼ÌÐøÑ§Ï°" + to_chinese(skill) + "¡£\n");
+	    	return notify_fail("ä½ å¹¶æ²¡æœ‰å­¦è¿‡è¿™é¡¹æŠ€èƒ½ã€‚\n");
+  	write("ä½ å†³å®šæ”¾å¼ƒç»§ç»­å­¦ä¹ " + to_chinese(skill) + "ã€‚\n");
 		if( lvl > 0 ) me->set_skill(skill, lvl);
-// Ôö¼ÓÈçÏÂÓï¾ä£¬µ±ÍêÈ«·ÅÆúÄ³Ò»Ïî¼¼ÄÜÊ±£¬×Ô¶¯´ÓenableÁÐ±íÖÐÉ¾³ýÖ®£¬±ÜÃâÕ½¶·ÖÐµÄBad action¡£ Added by Spacenet@FXLT
+// å¢žåŠ å¦‚ä¸‹è¯­å¥ï¼Œå½“å®Œå…¨æ”¾å¼ƒæŸä¸€é¡¹æŠ€èƒ½æ—¶ï¼Œè‡ªåŠ¨ä»Ženableåˆ—è¡¨ä¸­åˆ é™¤ä¹‹ï¼Œé¿å…æˆ˜æ–—ä¸­çš„Bad actionã€‚ Added by Spacenet@FXLT
 		else 
 		{
 			for (i = sizeof(smap)-1; i >= 0; i --)
 				if ((string)smap[keys(smap)[i]] == skill)
 					me->map_skill(keys(smap)[i]);
-// ·ÅÆúÊ±Ò²´Óprepare±íÖÐÉ¾³ý£¬Added by zeratul
+// æ”¾å¼ƒæ—¶ä¹Ÿä»Žprepareè¡¨ä¸­åˆ é™¤ï¼ŒAdded by zeratul
 			for (i = sizeof(pmap)-1; i >= 0; i -- )
 				if ( ( string ) values(pmap)[i] == skill )
 					me->prepare_skill(keys(pmap)[i]);
@@ -93,18 +93,18 @@ int check_input(string arg,object me,string skill,int lvl)
 	if (strsrch(arg,"y")>=0)
 	{
 		if( !me->delete_skill(skill) )
-	    	return notify_fail("Äã²¢Ã»ÓÐÑ§¹ýÕâÏî¼¼ÄÜ¡£\n");
+	    	return notify_fail("ä½ å¹¶æ²¡æœ‰å­¦è¿‡è¿™é¡¹æŠ€èƒ½ã€‚\n");
 		if( lvl > 0 ) {
-  		write(HIW"Äã¾ö¶¨·ÅÆú²¿·ÖµÄ" + to_chinese(skill)+"¡£\n"NOR);
+  		write(HIW"ä½ å†³å®šæ”¾å¼ƒéƒ¨åˆ†çš„" + to_chinese(skill)+"ã€‚\n"NOR);
 			me->set_skill(skill, lvl);
 		}
-	// Ôö¼ÓÈçÏÂÓï¾ä£¬µ±ÍêÈ«·ÅÆúÄ³Ò»Ïî¼¼ÄÜÊ±£¬×Ô¶¯´ÓenableÁÐ±íÖÐÉ¾³ýÖ®£¬±ÜÃâÕ½¶·ÖÐµÄBad action¡£ Added by Spacenet@FXLT
+	// å¢žåŠ å¦‚ä¸‹è¯­å¥ï¼Œå½“å®Œå…¨æ”¾å¼ƒæŸä¸€é¡¹æŠ€èƒ½æ—¶ï¼Œè‡ªåŠ¨ä»Ženableåˆ—è¡¨ä¸­åˆ é™¤ä¹‹ï¼Œé¿å…æˆ˜æ–—ä¸­çš„Bad actionã€‚ Added by Spacenet@FXLT
 		else {
-		write(HIW"Äã¾öÐÄ¾¡ÆúËùÑ§Ö®" + to_chinese(skill) + "¡£\n"NOR);
+		write(HIW"ä½ å†³å¿ƒå°½å¼ƒæ‰€å­¦ä¹‹" + to_chinese(skill) + "ã€‚\n"NOR);
 			for (i = sizeof(smap)-1; i >= 0; i --)
 				if ((string)smap[keys(smap)[i]] == skill)
 					me->map_skill(keys(smap)[i]);
-	// ·ÅÆúÊ±Ò²´Óprepare±íÖÐÉ¾³ý£¬Added by zeratul
+	// æ”¾å¼ƒæ—¶ä¹Ÿä»Žprepareè¡¨ä¸­åˆ é™¤ï¼ŒAdded by zeratul
 			for (i = sizeof(pmap)-1; i >= 0; i -- )
 				if ( ( string ) values(pmap)[i] == skill )
 					me->prepare_skill(keys(pmap)[i]);
@@ -113,23 +113,23 @@ int check_input(string arg,object me,string skill,int lvl)
 	return 1;
 	}
 	else
-//  	write("Äã¾ö¶¨·ÅÆú¼ÌÐøÑ§Ï°" + to_chinese(skill) + "¡£\n");
+//  	write("ä½ å†³å®šæ”¾å¼ƒç»§ç»­å­¦ä¹ " + to_chinese(skill) + "ã€‚\n");
 	return 1;
 }
 int help()
 {
 	write(@TEXT
-Ö¸Áî¸ñÊ½£ºabandon | fangqi <¼¼ÄÜÃû³Æ> [¼¶±ð]
+æŒ‡ä»¤æ ¼å¼ï¼šabandon | fangqi <æŠ€èƒ½åç§°> [çº§åˆ«]
 
-    Õâ¸öÖ¸ÁîÓÃÀ´ÍêÈ«»ò²¿·Ö·ÅÆúÒ»ÏîÄãËùÑ§¹ýµÄ¼¼ÄÜ£¬Èç¹û²»´ø¼¶±ðÊýÕâ¸ö
-²ÎÊýÔò±íÊ¾ÊÇÍêÈ«·ÅÆúÒ»Ïî¼¼ÄÜ£¬½«ÕâÏî¼¼ÄÜ´ÓÄãÈËÎïµÄ×ÊÁÏÖÐÉ¾³ý£¬Èç¹ûÄã
-ÒÔºó»¹ÒªÁ·£¬±ØÐë´Ó£°¿ªÊ¼ÖØÁ·£¬ÇëÎñ±Ø¿¼ÂÇÇå³þ¡£Èç¹û´øÁË¼¶±ðÊýÕâ¸ö²ÎÊý
-Ôò±íÊ¾²¿·Ö·ÅÆúÄ³¼¼ÄÜ£¬·ÅÆúµ½ÄÄÒ»¼¶¡£
+    è¿™ä¸ªæŒ‡ä»¤ç”¨æ¥å®Œå…¨æˆ–éƒ¨åˆ†æ”¾å¼ƒä¸€é¡¹ä½ æ‰€å­¦è¿‡çš„æŠ€èƒ½ï¼Œå¦‚æžœä¸å¸¦çº§åˆ«æ•°è¿™ä¸ª
+å‚æ•°åˆ™è¡¨ç¤ºæ˜¯å®Œå…¨æ”¾å¼ƒä¸€é¡¹æŠ€èƒ½ï¼Œå°†è¿™é¡¹æŠ€èƒ½ä»Žä½ äººç‰©çš„èµ„æ–™ä¸­åˆ é™¤ï¼Œå¦‚æžœä½ 
+ä»¥åŽè¿˜è¦ç»ƒï¼Œå¿…é¡»ä»Žï¼å¼€å§‹é‡ç»ƒï¼Œè¯·åŠ¡å¿…è€ƒè™‘æ¸…æ¥šã€‚å¦‚æžœå¸¦äº†çº§åˆ«æ•°è¿™ä¸ªå‚æ•°
+åˆ™è¡¨ç¤ºéƒ¨åˆ†æ”¾å¼ƒæŸæŠ€èƒ½ï¼Œæ”¾å¼ƒåˆ°å“ªä¸€çº§ã€‚
 
-    ÀýÈç£º£æ£á£î£ç£ñ£é£| £ì£é£ô£å£ò£á£ô£å£| £µ£°  ±íÊ¾·ÅÆúºóÖ»Ê£ÏÂ£µ£°
-¼¶¶ÁÊéÐ´×Ö£¬Õâ¸öÖ¸ÁîÊ¹ÓÃµÄ³¡ºÏÍ¨³£ÊÇÓÃÀ´É¾³ýÒ»Ð©²»Ð¡ÐÄÁ·³öÀ´µÄ¼¼ÄÜ£¬
-ÓÉÓÚÃ¿¸öÈËÓÐ×Å²»Í¬µÄÌì¸³£¬ËùÐÞÏ°µÄÎä¹¦Ò²²»»áÏàÍ¬¡£Èç¹ûÑùÑù¶¼Ñ§£¬µ½Í·
-À´Ö»»áÑùÑù²»¾«¡£
+    ä¾‹å¦‚ï¼šï½†ï½ï½Žï½‡ï½‘ï½‰î—‚ ï½Œï½‰ï½”ï½…ï½’ï½ï½”ï½…î—‚ ï¼•ï¼  è¡¨ç¤ºæ”¾å¼ƒåŽåªå‰©ä¸‹ï¼•ï¼
+çº§è¯»ä¹¦å†™å­—ï¼Œè¿™ä¸ªæŒ‡ä»¤ä½¿ç”¨çš„åœºåˆé€šå¸¸æ˜¯ç”¨æ¥åˆ é™¤ä¸€äº›ä¸å°å¿ƒç»ƒå‡ºæ¥çš„æŠ€èƒ½ï¼Œ
+ç”±äºŽæ¯ä¸ªäººæœ‰ç€ä¸åŒçš„å¤©èµ‹ï¼Œæ‰€ä¿®ä¹ çš„æ­¦åŠŸä¹Ÿä¸ä¼šç›¸åŒã€‚å¦‚æžœæ ·æ ·éƒ½å­¦ï¼Œåˆ°å¤´
+æ¥åªä¼šæ ·æ ·ä¸ç²¾ã€‚
 
 TEXT
 	);

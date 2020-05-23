@@ -14,10 +14,10 @@ inherit F_SAVE;
 
 
 // some constatns
-static string *c_digit = ({ "Áã","Ê®","°Ù","Ç§","Íò","ÒÚ","Õ×" });
-static string *c_num = ({"Áã","Ò»","¶ş","Èı","ËÄ","Îå","Áù","Æß","°Ë","¾Å","Ê®"});
-static string *sym_tian = ({ "¼×","ÒÒ","±û","¶¡","Îì","¼º","¸ı","ĞÁ","ÈÉ","¹ï" });
-static string *sym_di = ({ "×Ó","³ó","Òú","Ã®","³½","ËÈ","Îç","Î´","Éê","ÓÏ","Ğç","º¥" });
+protected string *c_digit = ({ "é›¶","å","ç™¾","åƒ","ä¸‡","äº¿","å…†" });
+protected string *c_num = ({"é›¶","ä¸€","äºŒ","ä¸‰","å››","äº”","å…­","ä¸ƒ","å…«","ä¹","å"});
+protected string *sym_tian = ({ "ç”²","ä¹™","ä¸™","ä¸","æˆŠ","å·±","åºš","è¾›","å£¬","ç™¸" });
+protected string *sym_di = ({ "å­","ä¸‘","å¯…","å¯","è¾°","å·³","åˆ","æœª","ç”³","é…‰","æˆŒ","äº¥" });
 
 mapping dict = ([]);
 
@@ -38,7 +38,7 @@ void remove()
 string chinese_number(int i)
 {
 	if (i < 0)
-		return "¸º" + chinese_number(-i);
+		return "è´Ÿ" + chinese_number(-i);
 	if (i < 11)
 		return c_num[i];
 	if (i < 20)
@@ -146,7 +146,7 @@ string chinese_date(int date)
 	if (date <=0) date=1;
 	local = localtime(date);
 	
-	return sprintf("%s%sÄê%sÔÂ%sÈÕ%sÊ±%s¿Ì",
+	return sprintf("%s%så¹´%sæœˆ%sæ—¥%sæ—¶%såˆ»",
 		sym_tian[local[LT_YEAR] % 10], sym_di[local[LT_YEAR] % 12],
 		chinese_number(local[LT_MON] + 1),
 		chinese_number(local[LT_MDAY] + (local[LT_HOUR] > 23 ? 1 : 0)),
@@ -166,7 +166,7 @@ string chinese_monthday(int date)
 {
 	mixed *local;
 	local = localtime(date);
-	return sprintf("%sÔÂ%sÈÕ",chinese_number(local[LT_MON] + 1),
+	return sprintf("%sæœˆ%sæ—¥",chinese_number(local[LT_MON] + 1),
 		chinese_number(local[LT_MDAY]+(local[LT_HOUR] > 23 ? 1 : 0)));
 /*		chinese_number(local[LT_MDAY]+1));*/
 }

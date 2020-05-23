@@ -2,13 +2,13 @@ inherit ITEM;
 
 void create()
 {
-	set_name("ÖÖ×Ó",({"seed","zhongzi"}));
+	set_name("ç§å­",({"seed","zhongzi"}));
 	set_weight(50);
 	if( clonep() )
                 set_default_object(__FILE__);
         else {
-//                set("long", "Ò»°ü" + ob->query("name") + "¡£\n");
-                set("unit", "°ü");
+//                set("long", "ä¸€åŒ…" + ob->query("name") + "ã€‚\n");
+                set("unit", "åŒ…");
         }
 }
 

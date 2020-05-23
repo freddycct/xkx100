@@ -1,14 +1,14 @@
-// Room: xiuxishi.c ĞİÏ¢ÊÒ
+// Room: xiuxishi.c ä¼‘æ¯å®¤
 // By Marz
 
 inherit RESTROOM_IN;
 
 void create()
 {
-        set("short", "ĞİÏ¢ÊÒ");
+        set("short", "ä¼‘æ¯å®¤");
         set("long", @LONG
-ÕâÊÇ¼äÕû½àµÄÏá·¿£¬ÒòÃÅ´°³£±Õ×Å£¬¹âÏßºÜ»è°µ¡£·¿Àï±ğÎŞËûÎï£¬
-Ö»ÓĞÖĞ¼ä·Å×ÅÒ»ÕÅÊÕÊ°µÃÊæÊæ·ş·şµÄ´ó´²£¬¿´×Å¾ÍÈÃÈËÏëË¯¾õ¡£
+è¿™æ˜¯é—´æ•´æ´çš„å¢æˆ¿ï¼Œå› é—¨çª—å¸¸é—­ç€ï¼Œå…‰çº¿å¾ˆæ˜æš—ã€‚æˆ¿é‡Œåˆ«æ— ä»–ç‰©ï¼Œ
+åªæœ‰ä¸­é—´æ”¾ç€ä¸€å¼ æ”¶æ‹¾å¾—èˆ’èˆ’æœæœçš„å¤§åºŠï¼Œçœ‹ç€å°±è®©äººæƒ³ç¡è§‰ã€‚
 LONG );
         set("no_clean_up", 0);
         set("sleep_room", 1);
@@ -16,9 +16,9 @@ LONG );
         set("coor/x", -2030);
 	set("coor/y", -910);
 	set("coor/z", 90);
-  set("door_name","ÃÅ");
+  set("door_name","é—¨");
 	set("door_dir","south");
-	set("force_name","ÕÅËÉÏª");
+	set("force_name","å¼ æ¾æºª");
   set("outroom",__DIR__"donglang2");
 	setup();
 }

@@ -4,13 +4,13 @@ inherit ITEM;
 
 void create()
 {
-	set_name(HIR"¾ü»úÃÜ¼þ"NOR, ({ "mi jian"}));
+	set_name(HIR"å†›æœºå¯†ä»¶"NOR, ({ "mi jian"}));
 	set_weight(10);
 	if( clonep() )
 		set_default_object(__FILE__);
 	else {
-		set("unit", "·â");
-		set("long", "Ò»·â¾ü»úÃÜ¼þ£¬¼ÇÔØ×ÅÏåÑô³ÇÊØ¾üµÄ±øÁ¦²¿Êð¡£\n");
+		set("unit", "å°");
+		set("long", "ä¸€å°å†›æœºå¯†ä»¶ï¼Œè®°è½½ç€è¥„é˜³åŸŽå®ˆå†›çš„å…µåŠ›éƒ¨ç½²ã€‚\n");
 		set("value", 0);
 		set("material", "paper");
 	}
@@ -25,14 +25,14 @@ int do_xiaohui(string arg)
 	object ob,me,*team;
 	me=this_player();
 	ob=this_object();
-	if(!arg||arg!="mi jian") return notify_fail("ÄãÒªÏú»ÙÊ²Ã´£¿\n");
+	if(!arg||arg!="mi jian") return notify_fail("ä½ è¦é”€æ¯ä»€ä¹ˆï¼Ÿ\n");
 	if(ob->query_temp("host")!= me->query("id") ||
 		!me->query_condition("guojx_mis") ||
 		!me->query_temp("guojx_mis_tcount"))
-		return notify_fail("Õâ¼þÊÂºÃÏñºÍÄãÃ»¹ØÏµ°É£¿\n");
+		return notify_fail("è¿™ä»¶äº‹å¥½åƒå’Œä½ æ²¡å…³ç³»å§ï¼Ÿ\n");
 	if (!present("mi jian",me) )
-		return notify_fail("ÄãÉíÉÏÃ»ÓÐÃÜ¼þ¡£\n"); 
-	message_vision("$N´Ó»³ÖÐÌÍ³öÒ»Ö»»ðÕÛµãÈ¼ÁËÃÜ¼þ¡£\n"+HIR"Ö»Ìý¡¸ºä¡¹µÄÒ»Éù£¬ÃÜ¼þÔÚ»ðÖÐÂýÂý»¯Îª»Ò½ý¡£\n"NOR, me);
+		return notify_fail("ä½ èº«ä¸Šæ²¡æœ‰å¯†ä»¶ã€‚\n"); 
+	message_vision("$Nä»Žæ€€ä¸­æŽå‡ºä¸€åªç«æŠ˜ç‚¹ç‡ƒäº†å¯†ä»¶ã€‚\n"+HIR"åªå¬ã€Œè½°ã€çš„ä¸€å£°ï¼Œå¯†ä»¶åœ¨ç«ä¸­æ…¢æ…¢åŒ–ä¸ºç°çƒ¬ã€‚\n"NOR, me);
 	count=me->query_temp("guojx_mis_tcount");
 	if (count<2) count=2;	
 	base_exp=300;
@@ -47,16 +47,16 @@ int do_xiaohui(string arg)
 			{
 				exp=base_exp*time + random(300);
 				pot=exp/3+random(100);
-        log_file("mission/guo_team",sprintf("%-20s ×ö×è½Ø¼éÏ¸ÈÎÎñ»ñµÃ %-5s ¾­Ñé %-5s Ç±ÄÜ",team[i]->query("name")+"("+team[i]->query("id")+")",exp,pot));
+        log_file("mission/guo_team",sprintf("%-20s åšé˜»æˆªå¥¸ç»†ä»»åŠ¡èŽ·å¾— %-5s ç»éªŒ %-5s æ½œèƒ½",team[i]->query("name")+"("+team[i]->query("id")+")",exp,pot));
 				team[i]->add("potential",pot);
 				team[i]->add("combat_exp",exp);
-	team[i]->set_temp("prize_reason","¾Ñ»÷");
+	team[i]->set_temp("prize_reason","ç‹™å‡»");
 	team[i]->set_temp("can_give_prize",1);
 	team[i]->set_temp("prize_exp",exp);
 	team[i]->set_temp("prize_pot",pot);
-				tell_object(team[i],HIW"Äã±»½±ÀøÁË£º" + 
-				chinese_number(exp) + "µãÊµÕ½¾­Ñé£¬" +
-				chinese_number(pot) + "µãÇ±ÄÜ¡£\n"+ NOR);
+				tell_object(team[i],HIW"ä½ è¢«å¥–åŠ±äº†ï¼š" + 
+				chinese_number(exp) + "ç‚¹å®žæˆ˜ç»éªŒï¼Œ" +
+				chinese_number(pot) + "ç‚¹æ½œèƒ½ã€‚\n"+ NOR);
 				team[i]->delete_temp("guojx_mis_tcount");
 				team[i]->delete_temp("guojx_mis_where");
 				team[i]->delete_temp("guojx_mis_flag");

@@ -13,17 +13,17 @@ int main(object me)
 	inv = all_inventory(environment(me));
 	while( i < sizeof(inv) && i >= 0 )
 	{
-		if( inv[i]->query_temp("owner") == me->query("id") && //ѱ��
-			inv[i]->query("owner") != me->query("id"))    //����
+		if( inv[i]->query_temp("owner") == me->query("id") && //驯养
+			inv[i]->query("owner") != me->query("id"))    //宠物
 		{
-			message_vision("$N�ܴȱ��ذ�$n���룬����ع���Ȼ�ˡ�\n", me, inv[i]);
+			message_vision("$N很慈悲地把$n放离，任其回归自然了。\n", me, inv[i]);
 			inv[i]->delete_temp("owner");
 			inv[i]->delete_temp("ownername");
 			j=1;
 		}
 		i++;
 	}
-	if (j == 0) message_vision("$N�����������ûɶ�ɷŵġ�\n", me);
+	if (j == 0) message_vision("$N想放生，可是没啥可放的。\n", me);
 	
 	return 1;
 }
@@ -31,24 +31,24 @@ int main(object me)
 int help(object me)
 {
 	write(@HELP
-ָ���ʽ : release
+指令格式 : release
 
-    ��ָ���������ĳ���������ū״̬����������롣���ﲻ�ܷ�����
+    此指令可用于让某动物结束主奴状态，将动物放离。宠物不能放生。
 
-    �����Ѿ�ѱ���Ķ�����Խ�������ָ�
+    对于已经驯服的动物，可以进行下述指令：
 
-����ָ�
-        come <������>:                  �ö�����������ж���
-        stay:                           ֹͣ����ĸ���״̬��
-        attack <ĳ��>:                  �ö��﹥�����ˡ�
-        stop <������>:                  �ö���ֹͣ���˵Ĺ�����
-        release:                        ������ū״̬����������롣
+基本指令：
+        come <动物名>:                  让动物跟随主人行动。
+        stay:                           停止动物的跟随状态。
+        attack <某物>:                  让动物攻击敌人。
+        stop <动物名>:                  让动物停止对人的攻击。
+        release:                        结束主奴状态，将动物放离。
 
-����ָ���ֻ��ĳЩ�������ã�
-        ride <������>:                  �����������������ȡ�
-        unride <������>:                �£��뿪���
-        feed <����> to <������>:        �涯��ιʳ��
-        imbibe <������>:                ��������ˮ��
+特殊指令：（只对某些动物适用）
+        ride <动物名>:                  骑，如骑马，虎，雕，鲨等。
+        unride <动物名>:                下，离开坐骑。
+        feed <饲料> to <动物名>:        替动物喂食。
+        imbibe <动物名>:                给动物饮水。
 
 HELP
 	);

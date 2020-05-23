@@ -4,11 +4,11 @@ inherit NPC;
 
 void create()
 {
-       set_name("Ľ�ݵ���", ({ "murong dizi", "dizi" }) );
-       set("gender", "����" );
+       set_name("慕容弟子", ({ "murong dizi", "dizi" }) );
+       set("gender", "男性" );
        set("age", 16);
        set("long",
-               "����һ������������꣬������ǿ��׳��\n");
+               "他是一个很年青的少年，但是身强力壮。\n");
        set("combat_exp", 30000);
        set("attitude", "friendly");
  
@@ -32,16 +32,16 @@ void greeting(object ob)
 	if (!ob || !present(ob, environment())) return;
 	switch( random(3) ) {
 		case 0:
-			say( "Ľ�ݵ������յ���Ľ��ɽׯ���������˾����ĵط�����λ" + RANK_D->query_respect(ob)
-             + "���β���Ͷ��Ľ��ɽׯ�����Կ�"BRED"(help murong)"NOR"��\n");
+			say( "慕容弟子正颜道：慕容山庄是武林人人景仰的地方。这位" + RANK_D->query_respect(ob)
+             + "，何不来投我慕容山庄，可以看"BRED"(help murong)"NOR"。\n");
 			break;
 		case 1:
-			say( "Ľ�ݵ������յ�����������Ľ��ɽׯ�Ļ�ʩˮ��������񶴣�����ѧ��
-�������׵��书��\n");
+			say( "慕容弟子正颜道：若能入我慕容山庄的还施水阁和琅缳玉洞，定可学到
+惊世骇俗的武功。\n");
 			break;
 		case 2:
-			say( "Ľ�ݵ������յ���Ľ��ɽׯ���������˾����ĵط�����λ" + RANK_D->query_respect(ob)
-             + "���β�����Ľ��ɽׯ�����ն���ѧ�ɶ�ת���Ƶľ����书���������֡�\n");
+			say( "慕容弟子正颜道：慕容山庄是武林人人景仰的地方。这位" + RANK_D->query_respect(ob)
+             + "，何不来我慕容山庄，他日定能学成斗转星移的绝世武功，独步武林。\n");
 			break;	
 	}
 

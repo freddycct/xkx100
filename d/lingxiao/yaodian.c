@@ -4,16 +4,16 @@
 inherit ROOM;
 void create()
 {
-	set("short", "�ش���");
+	set("short", "回春居");
 	set("long", @LONG 
-�������������ҽ��������Ĵ���������Ļش��ӣ�һ�������
-�ŵ�һ�ɴ̱ǵ�ҩζ��ֻ�����а����˴��СС��������ҩ��һ����
-���԰׵������������ԣ�������һ�˰������Աߵ�ǽ������һ��������
-(tiaofu)�����Ǳ�������κ��˵Ĳ����͵ġ�
+这就是凌霄城中医术最高明的戴大夫所开的回春居，一进这里，就
+闻到一股刺鼻的药味，只见房中摆满了大大小小的箱笼、药柜。一名须
+发皆白的老人坐在桌旁，正在替一人把脉。旁边的墙上贴着一张张条幅
+(tiaofu)，都是被戴大夫治好了的病人送的。
 LONG );
 	set("no_fight",1);
 	set("item_desc", ([
-		"tiaofu" : "��٢��������ȵ������\n",
+		"tiaofu" : "华佗再世，扁鹊重生。\n",
 	]));
 	set("objects", ([
 		__DIR__"npc/daifu" : 1,

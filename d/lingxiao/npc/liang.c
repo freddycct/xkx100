@@ -6,10 +6,10 @@ inherit NPC;
 
 void create()
 {
-	set_name("Áº×Ô½ø",({"liang zijin","liang"}));
-	set("gender", "ÄĞĞÔ");
+	set_name("æ¢è‡ªè¿›",({"liang zijin","liang"}));
+	set("gender", "ç”·æ€§");
 	set("age", 40);
-	set("long", "Áº×Ô½øÊÇÑ©É½ÅÉÕÆÃÅÈËÍşµÂÏÈÉú°××ÔÔÚµÄÊ¦µÜ¡£\n");
+	set("long", "æ¢è‡ªè¿›æ˜¯é›ªå±±æ´¾æŒé—¨äººå¨å¾·å…ˆç”Ÿç™½è‡ªåœ¨çš„å¸ˆå¼Ÿã€‚\n");
 	set("attitude", "peaceful");
 
 	set("str", 30);
@@ -53,7 +53,7 @@ void create()
 	map_skill("dodge", "snowstep");
 	prepare_skill("strike", "snow-strike");
 
-	create_family("ÁèÏö³Ç", 5, "µÜ×Ó");
+	create_family("å‡Œéœ„åŸ", 5, "å¼Ÿå­");
 	setup();
 	
 	carry_object("/clone/weapon/changjian")->wield();
@@ -63,6 +63,6 @@ void create()
 
 void attempt_apprentice(object ob)
 {
-	command("say ÎÒÊÇ²»ÊÕÍ½µÄ£¬ÄãÈ¥ÕÒÎÒÄÇĞ©Í½µÜ°É¡£");
+	command("say æˆ‘æ˜¯ä¸æ”¶å¾’çš„ï¼Œä½ å»æ‰¾æˆ‘é‚£äº›å¾’å¼Ÿå§ã€‚");
 }
 

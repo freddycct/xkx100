@@ -5,11 +5,11 @@ inherit ROOM;
 
 void create()
 {
-	set ("short", "É½ÑÂ¶¥");
+	set ("short", "å±±å´–é¡¶");
 	set ("long", @LONG
-ÑÂ¶¥ÊÇ¸ö¾Ş´óµÄÆ½Ì¨£¬»ıÂúÁË°¨°¨°×Ñ©¡£¼¸¿é¾Ş´óµÄÊ¯Í·°ëÎÔÔÚÒ»
-±ß£¬ĞÎ×´Ç§Ææ°Ù¹Ö£¬ÉÏÃæÓĞĞí¶à¶´´©µÄĞ¡¿×£¬·ç¹ı´¦£¬ÈçÆüÈçËß¡£ËÄ±ß
-µÄÉ½ÑÂÆ½Æ½ÈçÏ÷£¬¼¸¿Ã°«Ê÷¾ÍĞ±³¤ÓÚÑÂ±ß¡£
+å´–é¡¶æ˜¯ä¸ªå·¨å¤§çš„å¹³å°ï¼Œç§¯æ»¡äº†çš‘çš‘ç™½é›ªã€‚å‡ å—å·¨å¤§çš„çŸ³å¤´åŠå§åœ¨ä¸€
+è¾¹ï¼Œå½¢çŠ¶åƒå¥‡ç™¾æ€ªï¼Œä¸Šé¢æœ‰è®¸å¤šæ´ç©¿çš„å°å­”ï¼Œé£è¿‡å¤„ï¼Œå¦‚æ³£å¦‚è¯‰ã€‚å››è¾¹
+çš„å±±å´–å¹³å¹³å¦‚å‰Šï¼Œå‡ æ£µçŸ®æ ‘å°±æ–œé•¿äºå´–è¾¹ã€‚
 LONG);
 	set("no_clean_up", 0);
 	set("outdoors","mobei");
@@ -27,13 +27,13 @@ int do_jump(string arg)
 {
 	object me = this_player();
 
-	if (arg !="down") return notify_fail("ÄãÒªÌøµ½ÄÇÈ¥£¿\n");
+	if (arg !="down") return notify_fail("ä½ è¦è·³åˆ°é‚£å»ï¼Ÿ\n");
 	if( arg=="down")
 	{
-		write("Äã×İÉíÌøÏÂÁËÉ½ÑÂ¡£\n");
-		message("vision", me->name() + "Ò»×İÉíÌøÏÂÁËÉ½ÑÂ¡£\n", environment(me), ({me}) );
+		write("ä½ çºµèº«è·³ä¸‹äº†å±±å´–ã€‚\n");
+		message("vision", me->name() + "ä¸€çºµèº«è·³ä¸‹äº†å±±å´–ã€‚\n", environment(me), ({me}) );
 		me->move(__DIR__"downxuanya");
-		message("vision", me->name() + "´ÓÉ½ÑÂÉÏÃæÌøÁËÏÂÀ´¡£\n", environment(me), ({me}) );
+		message("vision", me->name() + "ä»å±±å´–ä¸Šé¢è·³äº†ä¸‹æ¥ã€‚\n", environment(me), ({me}) );
 	}
 	return 1;
 }

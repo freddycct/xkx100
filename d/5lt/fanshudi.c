@@ -4,9 +4,9 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "·¬ÊíµØ");
+	set("short", "ç•ªè–¯åœ°");
 	set("long", @LONG
-ÕâÊÇÒ»¿é·¬ÊíµØ£¬ÂúÄ¿´äÂÌ£¬³¤ÊÆÊ®·ÖÍúÊ¢¡£
+è¿™æ˜¯ä¸€å—ç•ªè–¯åœ°ï¼Œæ»¡ç›®ç¿ ç»¿ï¼Œé•¿åŠ¿ååˆ†æ—ºç››ã€‚
 LONG );
 	set("exits", ([
 		"westup"    : __DIR__"fenghuanglin",

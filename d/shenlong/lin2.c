@@ -12,10 +12,10 @@ string* npcs = ({
  
 void create()
 {
-	set("short", "��ľ��");
+	set("short", "灌木林");
 	set("long",@LONG
-������Ƭ��ľ�֡���Χ��������֣����������һ��Ī���Ŀ־��
-�����㡣���˲�Զ����Ϳ��Կ��ü�ǰ��Ŀյ��ˡ�
+这是连片灌木林。周围安静得奇怪，让你觉得有一股莫名的恐惧伴
+随着你。走了不远，你就可以看得见前面的空地了。
 LONG);
 	set("exits", ([
 		"northdown" : __DIR__"kongdi",

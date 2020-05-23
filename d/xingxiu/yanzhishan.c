@@ -4,11 +4,11 @@ inherit ROOM;
 #include <ansi.h>
 void create()
 {
-	set("short", RED"ëÙÖ¬É½"NOR);
+	set("short", RED"èƒ­è„‚å±±"NOR);
 	set("long", @LONG
-ëÙÖ¬É½ÒòÉ½Ê¯ô÷ºìËÆëÙÖ¬¶øµÃÃû¡£ÕâÀïË®²Ý·áÃÀ£¬ÒËÓÚÐóÄÁ¡£±ùÑ©
-ÈÚ»¯£¬ÇåÁ÷»º»º¶øÏÂ£¬»ã¼¯³ÉÇþ¡£É½ÏÂÂÌ²ÝÈçÒðµÄÂíÓª²Ý³¡Ì²£¬ÊÇ¾Ã¸º
-Ê¢ÃûµÄÄÁ³¡¡£
+èƒ­è„‚å±±å› å±±çŸ³èµ­çº¢ä¼¼èƒ­è„‚è€Œå¾—åã€‚è¿™é‡Œæ°´è‰ä¸°ç¾Žï¼Œå®œäºŽç•œç‰§ã€‚å†°é›ª
+èžåŒ–ï¼Œæ¸…æµç¼“ç¼“è€Œä¸‹ï¼Œæ±‡é›†æˆæ¸ ã€‚å±±ä¸‹ç»¿è‰å¦‚èŒµçš„é©¬è¥è‰åœºæ»©ï¼Œæ˜¯ä¹…è´Ÿ
+ç››åçš„ç‰§åœºã€‚
 LONG);
 	set("outdoors", "silu");
 	set("exits", ([

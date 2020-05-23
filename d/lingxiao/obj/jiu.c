@@ -1,4 +1,4 @@
-// Obj: /d/lingxiao/obj/jiu.c ²ÎÑôÓñ¾Æ
+// Obj: /d/lingxiao/obj/jiu.c å‚é˜³ç‰é…’
 // Last Modified by winder on Jul. 15 2001
 
 #include <ansi.h>
@@ -12,9 +12,9 @@ void init()
 {
 	if (!wizardp(this_player()))
 	{
-		set("no_give","ÕâÃ´Õä¹óµÄ¾Æ£¬ÄÄÄÜËæ±ã¸øÈË£¿\n");
-		set("no_drop","ÕâÃ´±¦¹óµÄÃÀ¾Æ£¬ÈÓÁË¶à¿ÉÏ§Ñ½£¡\n");
-		set("no_sell","ÕâÑùµÄÃÀ¾Æ¶¼ÒªÂô,ÄãÌ«²»½â·çÇéÁË°É¡£\n");
+		set("no_give","è¿™ä¹ˆçè´µçš„é…’ï¼Œå“ªèƒ½éšä¾¿ç»™äººï¼Ÿ\n");
+		set("no_drop","è¿™ä¹ˆå®è´µçš„ç¾é…’ï¼Œæ‰”äº†å¤šå¯æƒœå‘€ï¼\n");
+		set("no_sell","è¿™æ ·çš„ç¾é…’éƒ½è¦å–,ä½ å¤ªä¸è§£é£æƒ…äº†å§ã€‚\n");
 		set("no_put",1);
 	}
 	add_action("do_drink", "drink");
@@ -22,15 +22,15 @@ void init()
 
 void create()
 {
-	set_name( YEL "²ÎÑôÓñ¾Æ" NOR , ({"shenyang yujiu", "jiu"}));
+	set_name( YEL "å‚é˜³ç‰é…’" NOR , ({"shenyang yujiu", "jiu"}));
 	set_weight(90);
 	if (clonep())
 		set_default_object(__FILE__);
 	else {
-		set("unit", "ºø");
-		set("long","Ò»ºø½ğ»ÆµÄÕ³³íÒ©¾Æ£¬ÊÇÁèÏö³ÇµÄÕä²Ø£¬ÒûÖ®ÓÚÑ§Îä´óÓĞñÔÒæ¡£\n");
+		set("unit", "å£¶");
+		set("long","ä¸€å£¶é‡‘é»„çš„ç²˜ç¨ è¯é…’ï¼Œæ˜¯å‡Œéœ„åŸçš„çè—ï¼Œé¥®ä¹‹äºå­¦æ­¦å¤§æœ‰è£¨ç›Šã€‚\n");
 		set("value", 0);
-		set("drug_type", "²¹Æ·");
+		set("drug_type", "è¡¥å“");
 	}
 	set("is_monitored",1);
 	setup();
@@ -40,18 +40,18 @@ int do_drink(string arg)
 {
 	object me = this_player();
 
-	if(!id(arg)) return notify_fail("ÄãÒª³ÔÊ²Ã´£¿\n");
+	if(!id(arg)) return notify_fail("ä½ è¦åƒä»€ä¹ˆï¼Ÿ\n");
 	if(!present(this_object(), me))
-		return notify_fail("ÄãÒª³ÔÊ²Ã´£¿\n");
+		return notify_fail("ä½ è¦åƒä»€ä¹ˆï¼Ÿ\n");
 	if( me->is_busy() )
-		return notify_fail("±ğ¼±£¬ÂıÂı³Ô£¬Ğ¡ĞÄ±ğÒ­×ÅÁË¡£\n");
+		return notify_fail("åˆ«æ€¥ï¼Œæ…¢æ…¢åƒï¼Œå°å¿ƒåˆ«å™ç€äº†ã€‚\n");
 
 	me->set("eff_jing", (int)me->query("max_jing"));
 	me->set("jing", (int)me->query("max_jing"));
 	me->set("eff_qi", (int)me->query("max_qi"));
 	me->set("qi", (int)me->query("max_qi"));
 	me->set("neili", (int)me->query("max_neili"));
-	message_vision(HIW "$N¾Ù±­ÒûÏÂ²ÎÑôÓñ¾Æ£¬Ö»¾õĞ¡¸¹¼äÈÈÆøÉÏ³å£¬¸ú×ÅĞØ¿Ú¼ä±ã\nÈç»ğÉÕ°ãÈÈÁËÆğÀ´£¬Ö»¾õÍ¨ÌåÈÚºÍ£¬ËÄº¡¾ãÌ©¡£\n" NOR, me);
+	message_vision(HIW "$Nä¸¾æ¯é¥®ä¸‹å‚é˜³ç‰é…’ï¼Œåªè§‰å°è…¹é—´çƒ­æ°”ä¸Šå†²ï¼Œè·Ÿç€èƒ¸å£é—´ä¾¿\nå¦‚ç«çƒ§èˆ¬çƒ­äº†èµ·æ¥ï¼Œåªè§‰é€šä½“èå’Œï¼Œå››éª¸ä¿±æ³°ã€‚\n" NOR, me);
 	destruct(this_object());
 	return 1;
 }

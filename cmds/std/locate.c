@@ -8,12 +8,12 @@ int main(object me, string str)
 {
 	string output = "";
 	
-	if (!str) return notify_fail("Ö¸Áî¸ñÊ½: locate <ÎïÆ·>\n");
+	if (!str) return notify_fail("æŒ‡ä»¤æ ¼å¼: locate <ç‰©å“>\n");
 	if(me->query("jing") < 10)
-		return notify_fail("±§Ç¸£¬ÄãÃ»ÓĞ¾«ÆøÌ½Öª´ËÎï·½Î»¡£\n");
+		return notify_fail("æŠ±æ­‰ï¼Œä½ æ²¡æœ‰ç²¾æ°”æ¢çŸ¥æ­¤ç‰©æ–¹ä½ã€‚\n");
 	me->receive_damage("jing", 10+random(10));
 	output = TASK_D->locate_obj(me, str);
-	if (output=="") return notify_fail("±§Ç¸£¬ÎŞ·¨Ì½Öª´ËÎï·½Î»¡£\n");
+	if (output=="") return notify_fail("æŠ±æ­‰ï¼Œæ— æ³•æ¢çŸ¥æ­¤ç‰©æ–¹ä½ã€‚\n");
 	write(output);
 	return 1;
 }
@@ -21,9 +21,9 @@ int main(object me, string str)
 int help(object me)
 {
 	write(@HELP
-Ö¸Áî¸ñÊ½: locate <ÎïÆ·>
+æŒ‡ä»¤æ ¼å¼: locate <ç‰©å“>
 
-    ÓÃÀ´µÃÖªÈÎÎñÎïÆ·µÄ´óÖÂÎ»ÖÃ¡£
+    ç”¨æ¥å¾—çŸ¥ä»»åŠ¡ç‰©å“çš„å¤§è‡´ä½ç½®ã€‚
 
 HELP
 	);

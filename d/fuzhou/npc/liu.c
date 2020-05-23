@@ -5,9 +5,9 @@ inherit NPC;
 int ask_jiaobiao();
 void create()
 {
-	set_name("ΑυοΪΝ·", ({ "liu biaotou", "liu" }));
-	set("title", HIR"Έ£"HIC"Νώ"YEL"οΪΎΦ"HIY"΄σοΪΝ·"NOR);
-	set("gender", "ΔΠΠΤ");
+	set_name("ει•–ε¤΄", ({ "liu biaotou", "liu" }));
+	set("title", HIR"η¦"HIC"ε¨"YEL"ι•–ε±€"HIY"ε¤§ι•–ε¤΄"NOR);
+	set("gender", "η”·ζ€§");
 	set("age", 45);
 
 	set("combat_exp", 50000);
@@ -18,7 +18,7 @@ void create()
 	set_skill("parry", 50);
 	set_skill("dodge", 50);
 	set("inquiry", ([
-		"½»οΪ"   : (: ask_jiaobiao :),
+		"δΊ¤ι•–"   : (: ask_jiaobiao :),
 		"finish" : (: ask_jiaobiao :),
 	]));
 	set_temp("apply/attack", 25);
@@ -45,7 +45,7 @@ void greeting(object ob)
 {
 	if( ob->query_temp("fuwei_ready"))
 	{
-		say( this_object()->query("name")+"Π¦ίδίδµΨ¶Τ"+ob->query("name")+"Λµµΐ£ΊΥβΞ»" + RANK_D->query_respect(ob) + "£¬ΚΗΐ΄½»οΪµΔ°Ι΅£ΔγµΔοΪ¶ΣΊΝοΪ³µ¶ΌΖλΘ«°Ι£Ώ\n");
+		say( this_object()->query("name")+"η¬‘ε’ªε’ªε°ε―Ή"+ob->query("name")+"θ―΄ι“οΌθΏ™δ½" + RANK_D->query_respect(ob) + "οΌζ―ζ¥δΊ¤ι•–η„ε§γ€‚δ½ η„ι•–ιε’ι•–θ½¦ιƒ½ι½ε…¨ε§οΌ\n");
 	}
 }
 

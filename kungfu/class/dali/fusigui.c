@@ -1,4 +1,4 @@
-// fusigui.c ¸µË¼¹é
+// fusigui.c å‚…æ€å½’
 
 #include <ansi.h>
 inherit NPC;
@@ -10,10 +10,10 @@ string ask_join();
 int ask_me();
 void create()
 {
-	set_name("¸µË¼¹é", ({ "fu sigui", "fu" }));
-	set("title",  "´óÀí»¤ÎÀ" );
-	set("long", "ËûÊÇ´óÀí¹úËÄ´ó»¤ÎÀÖ®Ò»¡£\n");
-	set("gender", "ÄĞĞÔ");
+	set_name("å‚…æ€å½’", ({ "fu sigui", "fu" }));
+	set("title",  "å¤§ç†æŠ¤å«" );
+	set("long", "ä»–æ˜¯å¤§ç†å›½å››å¤§æŠ¤å«ä¹‹ä¸€ã€‚\n");
+	set("gender", "ç”·æ€§");
 	set("age", 40);
 	set("class", "officer");
 	set("attitude", "friendly");
@@ -60,8 +60,8 @@ void create()
 	}) );
 
 	set("inquiry", ([
-		"Ö¸µãÎä¹¦" : (: ask_me :),
-		"Èë¹Ù¸®" : (: ask_join :),
+		"æŒ‡ç‚¹æ­¦åŠŸ" : (: ask_me :),
+		"å…¥å®˜åºœ" : (: ask_join :),
 		"join" : (: ask_join :),
 	]));
 	setup();
@@ -69,7 +69,7 @@ void create()
 	carry_object("/clone/weapon/changjian")->wield();
 	add_money("silver", 10);
 
-	create_family("´óÀí¶Î¼Ò",19,"»¤ÎÀ");
+	create_family("å¤§ç†æ®µå®¶",19,"æŠ¤å«");
 }
 string ask_join()
 {
@@ -77,17 +77,17 @@ string ask_join()
 	string *applied_id;
 
 	if (ob->query("combat_exp")<10000)
-		return ("ÄãµÄÎä¹¦Ì«²î£¬Ê²Ã´Ò²×ö²»ÁËµÄ¡£\n");
+		return ("ä½ çš„æ­¦åŠŸå¤ªå·®ï¼Œä»€ä¹ˆä¹Ÿåšä¸äº†çš„ã€‚\n");
 
 	if (ob->query_temp("dali_join"))
 		return RANK_D->query_respect(ob) + 
-		"£¬ÄãÒÑ¾­ÊÇ±¾Íõ¸®Ëæ´ÓÁË£¬ºÎ¹Ê»¹Òª¿ªÕâÖÖÍæĞ¦£¿";
+		"ï¼Œä½ å·²ç»æ˜¯æœ¬ç‹åºœéšä»äº†ï¼Œä½•æ•…è¿˜è¦å¼€è¿™ç§ç©ç¬‘ï¼Ÿ";
 	ob->set_temp("dali_join",1);
 	if( pointerp(applied_id=ob->query_temp("apply/id")) && sizeof(applied_id) )
-		ob->set_temp("apply/short", ({HIY"´óÀí¹úÕòÄÏÍõ¸®Ëæ´Ó"NOR+" "+ob->name()+"("+applied_id[0]+")"}));
+		ob->set_temp("apply/short", ({HIY"å¤§ç†å›½é•‡å—ç‹åºœéšä»"NOR+" "+ob->name()+"("+applied_id[0]+")"}));
 	else
-	       ob->set_temp("apply/short", ({HIY"´óÀí¹úÕòÄÏÍõ¸®Ëæ´Ó"NOR+" "+ob->name()+"("+ob->query("id")+")"}));       
+	       ob->set_temp("apply/short", ({HIY"å¤§ç†å›½é•‡å—ç‹åºœéšä»"NOR+" "+ob->name()+"("+ob->query("id")+")"}));       
 	command("look "+ob->query("id"));
-	return "ºÃ£¬²»´í£¬ÕâÎ»ĞÖµÜ¿ÉÒÔÎª±¾Íõ¸®¹¤×÷ÁË¡£";
+	return "å¥½ï¼Œä¸é”™ï¼Œè¿™ä½å…„å¼Ÿå¯ä»¥ä¸ºæœ¬ç‹åºœå·¥ä½œäº†ã€‚";
 }
 #include "/kungfu/class/dali/weishi.h"; 

@@ -20,9 +20,9 @@ int main(object me, string arg)
 	{
 		who = find_player( arg );
 		if ( !objectp(who) || !me->visible(who))
-			return notify_fail( "ÄãÏë²é¿´Ë­µÄÈÎÎñ£¿\n" );
+			return notify_fail( "ä½ æƒ³æŸ¥çœ‹è°çš„ä»»åŠ¡ï¼Ÿ\n" );
 		if ( who->query("id") != me->query("id") && !wizardp(me) )
-			return notify_fail( "Ö»ÓĞÎ×Ê¦²ÅÄÜ²é¿´±ğÈËµÄÈÎÎñ£¡\n" );
+			return notify_fail( "åªæœ‰å·«å¸ˆæ‰èƒ½æŸ¥çœ‹åˆ«äººçš„ä»»åŠ¡ï¼\n" );
 	}
 
 	msg = quest_msg( who, "wei" );
@@ -30,7 +30,7 @@ int main(object me, string arg)
 	if ( msg != "" && !quest["finished"] && !quest["lock"] )
 	{
 		quest_list += HIC;
-		quest_list += quest["quest_type"]+"¡º"+quest["quest"]+"¡»¡£\n		";
+		quest_list += quest["quest_type"]+"ã€"+quest["quest"]+"ã€ã€‚\n		";
 		nowtime = quest["time"] - time();
 		quest_list += time_period( nowtime );
 		quest_list += "\n\n"NOR;
@@ -41,7 +41,7 @@ int main(object me, string arg)
 	if ( msg != "" && !quest["finished"] && !quest["lock"] )
 	{
 		quest_list += HIC;
-		quest_list += quest["quest_type"] + "¡º" + quest["quest"] + "¡»¡£\n		";
+		quest_list += quest["quest_type"] + "ã€" + quest["quest"] + "ã€ã€‚\n		";
 		nowtime = quest["time"] - time();
 		quest_list += time_period( nowtime );
 		quest_list += "\n\n"NOR;
@@ -52,7 +52,7 @@ int main(object me, string arg)
 	if ( msg != "" && !quest["finished"] && !quest["lock"] )
 	{
 		quest_list += HIC;
-		quest_list += quest["quest_type"] + "¡º" + quest["quest"] + "¡»¡£\n		";
+		quest_list += quest["quest_type"] + "ã€" + quest["quest"] + "ã€ã€‚\n		";
 		nowtime = quest["time"] - time();
 		quest_list += time_period( nowtime );
 		quest_list += "\n\n"NOR;
@@ -63,7 +63,7 @@ int main(object me, string arg)
 	if ( msg != "" && !quest["finished"] && !quest["lock"] )
 	{
 		quest_list += HIC;
-		quest_list += "²éÕÒÔÚ¡º" + quest["dest"] + "¡»Ò»´øµÄ" + quest["book"] + "¡£\n		";
+		quest_list += "æŸ¥æ‰¾åœ¨ã€" + quest["dest"] + "ã€ä¸€å¸¦çš„" + quest["book"] + "ã€‚\n		";
 		nowtime = quest["time"] - time();
 		quest_list += time_period( nowtime );
 		quest_list += "\n\n"NOR;
@@ -74,7 +74,7 @@ int main(object me, string arg)
 	if ( msg != "" && !quest["finished"] && !quest["lock"] )
 	{
 		quest_list += HIC;
-		quest_list += "²ù³ıÔÚ¡º" + quest["dest"] + "¡»Ò»´ø»î¶¯µÄ¡º" + quest["name"] + "¡»¡£\n		";
+		quest_list += "é“²é™¤åœ¨ã€" + quest["dest"] + "ã€ä¸€å¸¦æ´»åŠ¨çš„ã€" + quest["name"] + "ã€ã€‚\n		";
 		nowtime = quest["time"] - time();
 		quest_list += time_period( nowtime );
 		quest_list += "\n\n"NOR;
@@ -95,7 +95,7 @@ int main(object me, string arg)
 	if ( msg != "" && !quest["finished"] && !quest["lock"] )
 	{
 		quest_list += HIC;
-		quest_list += "É±ÁËÔÚ¡º" + quest["place"] + "¡»Ò»´ø³öÏÖµÄ¡º" + quest["name"] + "¡»¡£\n		";
+		quest_list += "æ€äº†åœ¨ã€" + quest["place"] + "ã€ä¸€å¸¦å‡ºç°çš„ã€" + quest["name"] + "ã€ã€‚\n		";
 		nowtime = quest["time"] - time();
 		quest_list += time_period( nowtime );
 		quest_list += "\n\n"NOR;
@@ -103,13 +103,13 @@ int main(object me, string arg)
 
 	if ( quest_list != "" )
 	{
-		write( "\nÄãÄ¿Ç°µÄ²¿·ÖÈÎÎñ£º\n\n" );
-		write( HIC"¡Ô"HIY"©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤"HIC"¡Ô\n\n"NOR );
+		write( "\nä½ ç›®å‰çš„éƒ¨åˆ†ä»»åŠ¡ï¼š\n\n" );
+		write( HIC"â‰¡"HIY"â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€"HIC"â‰¡\n\n"NOR );
  		write( quest_list );
- 		write( HIC"¡Ô"HIY"©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤"HIC"¡Ô\n\n"NOR ); 		
+ 		write( HIC"â‰¡"HIY"â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€"HIC"â‰¡\n\n"NOR ); 		
  	}
  	else
- 		write( HIW"\nÄãÏÖÔÚÃ»ÓĞÈÎºÎÈÎÎñ£¡\n\n"NOR );
+ 		write( HIW"\nä½ ç°åœ¨æ²¡æœ‰ä»»ä½•ä»»åŠ¡ï¼\n\n"NOR );
 
 	return 1;
 }
@@ -125,14 +125,14 @@ string time_period( int timep )
 	d = t;
  
  	if ( timep <= 0 )
- 		return WHT"ÄãÒÑ¾­Ã»ÓĞ×ã¹»µÄÊ±¼äÀ´Íê³ÉËüÁË¡£"NOR;
-	if(d) time = chinese_number(d) + "Ìì";
+ 		return WHT"ä½ å·²ç»æ²¡æœ‰è¶³å¤Ÿçš„æ—¶é—´æ¥å®Œæˆå®ƒäº†ã€‚"NOR;
+	if(d) time = chinese_number(d) + "å¤©";
 	else time = "";
  
-	if(h) time += chinese_number(h) + "Ğ¡Ê±";
-	if(m) time += chinese_number(m) + "·Ö";
-	time += chinese_number(s) + "Ãë";
-	return "Äã»¹ÓĞ" + time + "È¥Íê³ÉËü¡£";
+	if(h) time += chinese_number(h) + "å°æ—¶";
+	if(m) time += chinese_number(m) + "åˆ†";
+	time += chinese_number(s) + "ç§’";
+	return "ä½ è¿˜æœ‰" + time + "å»å®Œæˆå®ƒã€‚";
 }
 
 string quest_msg( object who, string quest_id )
@@ -141,12 +141,12 @@ string quest_msg( object who, string quest_id )
 	
 	if ( quest = who->query( "quest/" + quest_id ) )
 	{
-		msg += HIY"¡¼" + quest_name[quest_id] + "¡½	"NOR;
+		msg += HIY"ã€–" + quest_name[quest_id] + "ã€—	"NOR;
 		if ( quest["lock"] )
-			msg += "ÄãµÃÏÈÍê³ÉÈô¸É¸ö"HIY + quest_name[quest["lock"]] + NOR"ÈÎÎñ²ÅÄÜ¼ÌĞøÕâ¸öÈÎÎñ¡£\n\n";
+			msg += "ä½ å¾—å…ˆå®Œæˆè‹¥å¹²ä¸ª"HIY + quest_name[quest["lock"]] + NOR"ä»»åŠ¡æ‰èƒ½ç»§ç»­è¿™ä¸ªä»»åŠ¡ã€‚\n\n";
 		else
 			if ( quest["finished"] )
-				msg += "¹§Ï²Äã£¬ÄãÒÑ¾­Íê³ÉÁËÕâÏîÈÎÎñ£¡\n\n";
+				msg += "æ­å–œä½ ï¼Œä½ å·²ç»å®Œæˆäº†è¿™é¡¹ä»»åŠ¡ï¼\n\n";
 	}
 	return msg;		
 }
@@ -154,10 +154,10 @@ string quest_msg( object who, string quest_id )
 int help(object me)
 {
 	write(@HELP
-Ö¸Áî¸ñÊ½ : quest
-	   quest <¶ÔÏóÃû³Æ>		(Î×Ê¦×¨ÓÃ)
+æŒ‡ä»¤æ ¼å¼ : quest
+	   quest <å¯¹è±¡åç§°>		(å·«å¸ˆä¸“ç”¨)
 
-    Õâ¸öÖ¸Áî¿ÉÒÔÏÔÊ¾³ö×Ô¼º»òÖ¸¶¨¶ÔÏóµ±Ç°ÈÎÎñµÄÏà¹ØĞÅÏ¢¡£
+    è¿™ä¸ªæŒ‡ä»¤å¯ä»¥æ˜¾ç¤ºå‡ºè‡ªå·±æˆ–æŒ‡å®šå¯¹è±¡å½“å‰ä»»åŠ¡çš„ç›¸å…³ä¿¡æ¯ã€‚
 HELP
 	);
 	return 1;

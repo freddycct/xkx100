@@ -1,4 +1,4 @@
-// throwing.c »ù±¾°µÆ÷
+// throwing.c åŸºæœ¬æš—å™¨
 // Last Modified by winder on Mar. 10 2000
 
 #include <ansi.h>
@@ -13,13 +13,13 @@ int power_point(object me) { return 1; }
 
 int help(object me)
 {
-	write(HIC"\n»ù±¾°µÆ÷£º"NOR"\n");
+	write(HIC"\nåŸºæœ¬æš—å™¨ï¼š"NOR"\n");
 	write(@HELP
 
-    °µÆ÷ÀàÎä¼¼µÄ»ù±¾¹¦¡£
+    æš—å™¨ç±»æ­¦æŠ€çš„åŸºæœ¬åŠŸã€‚
 
-	Ñ§Ï°ÒªÇó£º
-		ÎŞ
+	å­¦ä¹ è¦æ±‚ï¼š
+		æ— 
 HELP
 	);
 	return 1;

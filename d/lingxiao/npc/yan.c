@@ -6,12 +6,12 @@ inherit NPC;
 
 void create()
 {
-	set_name("ÑàÍòÅô",({"yan wanpeng","yan"}));
-	set("gender", "ÄÐÐÔ");
+	set_name("ç‡•ä¸‡é¹",({"yan wanpeng","yan"}));
+	set("gender", "ç”·æ€§");
 	set("age", 20);
 	set("long", 
-		"ËûÊÇÁèÏö³ÇµÚÁù´úµÜ×ÓÑàÍòÅô£¬µÚÁù´úµÜ×ÓÖÐ£¬ÎªÈËÊýËû×î\n"
-		"Îª¹£Ö±£¬ËØÓÐÌúÃæÖ®³Æ£¬ËùÒÔÔÚ´ËÕòÓü¡£\n");
+		"ä»–æ˜¯å‡Œéœ„åŸŽç¬¬å…­ä»£å¼Ÿå­ç‡•ä¸‡é¹ï¼Œç¬¬å…­ä»£å¼Ÿå­ä¸­ï¼Œä¸ºäººæ•°ä»–æœ€\n"
+		"ä¸ºæ¢—ç›´ï¼Œç´ æœ‰é“é¢ä¹‹ç§°ï¼Œæ‰€ä»¥åœ¨æ­¤é•‡ç‹±ã€‚\n");
 	set("attitude", "peaceful");
 
 	set("str", 25);
@@ -55,7 +55,7 @@ void create()
 	map_skill("dodge", "snowstep");
 	prepare_skill("strike", "snow-strike");
 
-	create_family("ÁèÏö³Ç", 6, "µÜ×Ó");
+	create_family("å‡Œéœ„åŸŽ", 6, "å¼Ÿå­");
 	setup();
 	carry_object("/clone/weapon/changjian")->wield();
 	carry_object(CLOTH_DIR+"bai")->wear();
@@ -65,14 +65,14 @@ int accept_object(object me, object ob)
 {
 	object nowords;
 
-	if ((string)ob->query("name")!=HIW"º®ÓñÅÆ"NOR)
+	if ((string)ob->query("name")!=HIW"å¯’çŽ‰ç‰Œ"NOR)
 	{
-		command("say Äã¸øÎÒÕâ¸ö¸ÉÊ²Ã´£¡ÄãÏë»ßÂ¸ÎÒÂð£¿");
+		command("say ä½ ç»™æˆ‘è¿™ä¸ªå¹²ä»€ä¹ˆï¼ä½ æƒ³è´¿èµ‚æˆ‘å—ï¼Ÿ");
 		return 1;
 	}
 	else
 	{
-		command("say Ê¦µÜÇëÏÂÈ¥°É£¬ÀÏÒ¯×ÓÔÚÏÂÃæ¡£\n");
+		command("say å¸ˆå¼Ÿè¯·ä¸‹åŽ»å§ï¼Œè€çˆ·å­åœ¨ä¸‹é¢ã€‚\n");
 		me->move("/d/lingxiao/laolang");
 		return 1;
 	}

@@ -4,13 +4,13 @@
 inherit ITEM;
 void create()
 {
-	set_name("÷¼÷ÃÍ·¹Ç", ({ "kulou tougu" }) );
+	set_name("éª·é«…å¤´éª¨", ({ "kulou tougu" }) );
 	set_weight(900);
 	if( clonep() )
 		set_default_object(__FILE__);
 	else {
-		set("unit", "¸ö");
-		set("long", "°×¹Ç²Ò²Ò£¬Ã¿¸öÍ·¹ÇµÄ¶¥ÉÏ¶¼ÓĞÎå¸öÖ¸¿×¡£\n");
+		set("unit", "ä¸ª");
+		set("long", "ç™½éª¨æƒ¨æƒ¨ï¼Œæ¯ä¸ªå¤´éª¨çš„é¡¶ä¸Šéƒ½æœ‰äº”ä¸ªæŒ‡å­”ã€‚\n");
 	}
 }
 

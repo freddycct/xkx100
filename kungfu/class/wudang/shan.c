@@ -1,4 +1,4 @@
-// shan.c ’≈¥‰…Ω
+// shan.c Âº†Áø†Â±±
 
 #include <ansi.h>
 
@@ -7,10 +7,10 @@ inherit F_MASTER;
 
 void create()
 {
-	set_name("’≈¥‰…Ω", ({ "zhang cuishan", "zhang" }));
-	set("nickname", "Œ‰µ±ŒÂœ¿");
-	set("long","À˚æÕ «’≈»˝∑·µƒ◊Ó¥œ√˜µƒµ‹◊”°¢Œ‰µ±∆ﬂœ¿÷ÆŒÂµƒ’≈¥‰…Ω°£\n…Ì¥©“ªº˛∏…∏…æªæªµƒ«‡≤º≥§…¿°£\nÀ˚≤ªπ˝∂˛ Æ≥ˆÕ∑ƒÍºÕ£¨‰Ï»˜”¢ø°°£\n");
-	set("gender", "ƒ––‘");
+	set_name("Âº†Áø†Â±±", ({ "zhang cuishan", "zhang" }));
+	set("nickname", "Ê≠¶ÂΩì‰∫î‰æ†");
+	set("long","‰ªñÂ∞±ÊòØÂº†‰∏â‰∏∞ÁöÑÊúÄËÅ™ÊòéÁöÑÂºüÂ≠ê„ÄÅÊ≠¶ÂΩì‰∏É‰æ†‰πã‰∫îÁöÑÂº†Áø†Â±±„ÄÇ\nË∫´Á©ø‰∏Ä‰ª∂Âπ≤Âπ≤ÂáÄÂáÄÁöÑÈùíÂ∏ÉÈïøË°´„ÄÇ\n‰ªñ‰∏çËøá‰∫åÂçÅÂá∫Â§¥Âπ¥Á∫™ÔºåÊΩáÊ¥íËã±‰øä„ÄÇ\n");
+	set("gender", "Áî∑ÊÄß");
 	set("age", 25);
 	set("attitude", "peaceful");
 	set("class", "scholar");
@@ -59,7 +59,7 @@ void create()
 	map_skill("parry", "liangyi-jian");
 	map_skill("sword", "liangyi-jian");
 
-	create_family("Œ‰µ±≈…", 2, "µ‹◊”");
+	create_family("Ê≠¶ÂΩìÊ¥æ", 2, "ÂºüÂ≠ê");
 
 	setup();
 	carry_object(WEAPON_DIR"changjian")->wield();
@@ -81,7 +81,7 @@ void greeting(object ob)
 	if (((int)ob->query("shen") < 0) &&
 		(file_name(environment())=="/d/wudang/jiejianyan"))
 	{
-		message_vision("’≈¥‰…Ω¡≥œ÷≈≠»›£∫°∞–∞ƒßÕ‚µ¿£¨≥‘¡À±™◊”µ®¡À£¨∏“«ø¥≥Œ‰µ±£°°±\n’≈¥‰…Ωæ”∏ﬂ¡Ÿœ¬£¨∆ ÷“ª’∆£¨$N÷ªµ√”≤Ω”£¨…Ì◊”ªŒ¡À“ªœ¬°£’≈¥‰…Ω”“ ÷≥§Ω£ÀÊº¥µ›≥ˆ£¨$NŒﬁ∑®’–º‹£¨ÕÀ¡À“ª≤Ω°£\n\n\n"NOR,ob);
+		message_vision("Âº†Áø†Â±±ËÑ∏Áé∞ÊÄíÂÆπÔºö‚ÄúÈÇ™È≠îÂ§ñÈÅìÔºåÂêÉ‰∫ÜË±πÂ≠êËÉÜ‰∫ÜÔºåÊï¢Âº∫ÈóØÊ≠¶ÂΩìÔºÅ‚Äù\nÂº†Áø†Â±±Â±ÖÈ´ò‰∏¥‰∏ãÔºåËµ∑Êâã‰∏ÄÊéåÔºå$NÂè™ÂæóÁ°¨Êé•ÔºåË∫´Â≠êÊôÉ‰∫Ü‰∏Ä‰∏ã„ÄÇÂº†Áø†Â±±Âè≥ÊâãÈïøÂâëÈöèÂç≥ÈÄíÂá∫Ôºå$NÊó†Ê≥ïÊãõÊû∂ÔºåÈÄÄ‰∫Ü‰∏ÄÊ≠•„ÄÇ\n\n\n"NOR,ob);
 		ob->move("/d/wudang/slxl2");
 	}
 }

@@ -1,4 +1,4 @@
-//hanxing-bada.c º®ĞÇ°Ë´ò
+//hanxing-bada.c å¯’æ˜Ÿå…«æ‰“
 // Last Modified by sega on Mar. 10 2000
 
 #include <ansi.h>
@@ -7,76 +7,76 @@ string type() { return "martial"; }
 string martialtype() { return "skill"; }
 
 mapping *action = ({
-([	"action":"$NÊ¹Ò»ÕĞ¡¸ÔÉĞÇÕ§ÏÖ¡¹£¬ÊÖÖĞ$w¼²Éä$nµÄ$l",
+([	"action":"$Nä½¿ä¸€æ‹›ã€Œé™¨æ˜Ÿä¹ç°ã€ï¼Œæ‰‹ä¸­$wç–¾å°„$nçš„$l",
 	"force": 20,
 	"dodge": 20,
 	"damage":90,
 	"lvl" : 0,
-	"skill_name" : "ÔÉĞÇÕ§ÏÖ",
-	"damage_type": "´ÌÉË",
+	"skill_name" : "é™¨æ˜Ÿä¹ç°",
+	"damage_type": "åˆºä¼¤",
 	"post_action": (: call_other, WEAPON_D, "throw_weapon" :),
 ]),
-([	"action":"$NÊ¹³ö¡¸ÓñöÀ»÷¿Õ¡¹£¬Ë«ÊÖÏÂ³Á$w¶¸µÄÏòÉÏ·É³öÖ±Ï®$nµÄ$l",
+([	"action":"$Nä½¿å‡ºã€Œç‰éš¼å‡»ç©ºã€ï¼ŒåŒæ‰‹ä¸‹æ²‰$wé™¡çš„å‘ä¸Šé£å‡ºç›´è¢­$nçš„$l",
 	"force": 25,
 	"dodge": 20,
 	"damage": 70,
 	"lvl" : 10,
-	"skill_name": "ÓñöÀ»÷¿Õ",
-	"damage_type": "´ÌÉË",
+	"skill_name": "ç‰éš¼å‡»ç©º",
+	"damage_type": "åˆºä¼¤",
 	"post_action": (: call_other, WEAPON_D, "throw_weapon" :),
 ]),
-([	"action":"$NÒ»ÕĞ¡¸Äºö°³Á³Á¡¹£¬³¤ĞäÒ»»Ó£¬ÊÖÖĞ$w´ÓÒ¸ÏÂ¼¤Éä$nµÄ$l",
+([	"action":"$Nä¸€æ‹›ã€Œæš®éœ­æ²‰æ²‰ã€ï¼Œé•¿è¢–ä¸€æŒ¥ï¼Œæ‰‹ä¸­$wä»è…‹ä¸‹æ¿€å°„$nçš„$l",
 	"force":35,
 	"dodge": 30,
 	"damage":40,
 	"lvl" : 120,
-	"skill_name": "Äºö°³Á³Á",
-	"damage_type": "´ÌÉË",
+	"skill_name": "æš®éœ­æ²‰æ²‰",
+	"damage_type": "åˆºä¼¤",
 	"post_action": (: call_other, WEAPON_D, "throw_weapon" :),
 ]),
-([	"action":"$NÊÖÖĞ$wÒ»Ê½¡¸³¤µçÁÑ¿Õ¡¹£¬$w»Ã×÷Ò»µÀ°×¹âÖ±±¼$nµÄ$l",
+([	"action":"$Næ‰‹ä¸­$wä¸€å¼ã€Œé•¿ç”µè£‚ç©ºã€ï¼Œ$wå¹»ä½œä¸€é“ç™½å…‰ç›´å¥”$nçš„$l",
 	"force":80,
 	"dodge": 40,
 	"damage":90,
 	"lvl" : 30,
-	"skill_name": "³¤µçÁÑ¿Õ",
-	"damage_type": "´ÌÉË",
+	"skill_name": "é•¿ç”µè£‚ç©º",
+	"damage_type": "åˆºä¼¤",
 	"post_action": (: call_other, WEAPON_D, "throw_weapon" :),
 ]),
-([	"action":"$N×İÉíÒ»Ô¾£¬ÊÖÖĞ$wÒ»ÕĞ¡¸²ÔÁúÈëº£¡¹ÉäÏò$nµÄ$l",
+([	"action":"$Nçºµèº«ä¸€è·ƒï¼Œæ‰‹ä¸­$wä¸€æ‹›ã€Œè‹é¾™å…¥æµ·ã€å°„å‘$nçš„$l",
 	"force":120,
 	"dodge": 45,
 	"damage":170,
 	"lvl" : 40,
-	"skill_name":"²ÔÁúÈëº£",
-	"damage_type": "´ÌÉË",
+	"skill_name":"è‹é¾™å…¥æµ·",
+	"damage_type": "åˆºä¼¤",
 	"post_action": (: call_other, WEAPON_D, "throw_weapon" :),
 ]),
-([	"action":"$NÊÖ¿Û$w,Æ¾¿ÕÒ»Ö¸£¬Ò»ÕĞ¡¸°ÍÉ½Ò¹Óê¡¹È÷Ïò$nµÄ$l",
+([	"action":"$Næ‰‹æ‰£$w,å‡­ç©ºä¸€æŒ‡ï¼Œä¸€æ‹›ã€Œå·´å±±å¤œé›¨ã€æ´’å‘$nçš„$l",
 	"force":160,
 	"dodge": 20,
 	"damage":50,
 	"lvl" : 50,
-	"skill_name": "°ÍÉ½Ò¹Óê",
-	"damage_type": "´ÌÉË",
+	"skill_name": "å·´å±±å¤œé›¨",
+	"damage_type": "åˆºä¼¤",
 	"post_action": (: call_other, WEAPON_D, "throw_weapon" :),
 ]),
-([	"action":"$NÉíĞÎÒ»»Î£¬Ê¹Ò»ÕĞ¡¸åçĞÇºá¿Õ¡¹$wÍÑÊÖ¶ø³ö£¬Ï®Ïò$nµÄ$l",
+([	"action":"$Nèº«å½¢ä¸€æ™ƒï¼Œä½¿ä¸€æ‹›ã€Œå½—æ˜Ÿæ¨ªç©ºã€$wè„±æ‰‹è€Œå‡ºï¼Œè¢­å‘$nçš„$l",
 	"force":220,
 	"dodge": 50,
 	"damage":60,
 	"lvl" : 60,
-	"skill_name": "åçĞÇºá¿Õ",
-	"damage_type": "´ÌÉË",
+	"skill_name": "å½—æ˜Ÿæ¨ªç©º",
+	"damage_type": "åˆºä¼¤",
 	"post_action": (: call_other, WEAPON_D, "throw_weapon" :),
 ]),
-([	"action":"$NÉíĞÎÒ»×ªÊÖÖĞ$wÊ¹Ò»ÕĞ¡¸ºóŞÄÉäÈÕ¡¹»­³öÒ»µÀ¹â»¡Ï®Ïò$nµÄ$l",
+([	"action":"$Nèº«å½¢ä¸€è½¬æ‰‹ä¸­$wä½¿ä¸€æ‹›ã€Œåå¼ˆå°„æ—¥ã€ç”»å‡ºä¸€é“å…‰å¼§è¢­å‘$nçš„$l",
 	"force":135,
 	"dodge": 55,
 	"damage":140,
 	"lvl" : 100,
-	"skill_name": "ºóôàÉäÈÕ",
-	"damage_type": "´ÌÉË",
+	"skill_name": "åç¾¿å°„æ—¥",
+	"damage_type": "åˆºä¼¤",
 	"post_action": (: call_other, WEAPON_D, "throw_weapon" :),
 ]),
 });
@@ -87,12 +87,12 @@ int valid_learn(object me)
 	object ob;
 
 	if( (int)me->query("max_neili") < 100 )
-		return notify_fail("ÄãµÄÄÚÁ¦²»¹»£¬Ã»ÓĞ°ì·¨Á·º®ĞÇ°Ë´ò¡£\n");
+		return notify_fail("ä½ çš„å†…åŠ›ä¸å¤Ÿï¼Œæ²¡æœ‰åŠæ³•ç»ƒå¯’æ˜Ÿå…«æ‰“ã€‚\n");
 	if ((int)me->query_skill("honghua-shengong", 1) < 50)
-                return notify_fail("ÄãµÄºì»¨Éñ¹¦»ğºò²»¹»£¬Ã»·¨Ñ§º®ĞÇ°Ë´ò!\n");         
+                return notify_fail("ä½ çš„çº¢èŠ±ç¥åŠŸç«å€™ä¸å¤Ÿï¼Œæ²¡æ³•å­¦å¯’æ˜Ÿå…«æ‰“!\n");         
         if( !(ob = me->query_temp("weapon"))
 		|| (string)ob->query("skill_type") != "throwing" )
-		return notify_fail("Äã±ØĞëÏÈÕÒÒ»Ğ©·ÉïÚÖ®ÀàµÄ¶«Î÷²ÅÄÜÁ·°µÆ÷¡£\n");
+		return notify_fail("ä½ å¿…é¡»å…ˆæ‰¾ä¸€äº›é£é•–ä¹‹ç±»çš„ä¸œè¥¿æ‰èƒ½ç»ƒæš—å™¨ã€‚\n");
 	return 1;
 }
 int practice_skill(object me)
@@ -101,12 +101,12 @@ int practice_skill(object me)
 
 	if (!objectp(weapon = me->query_temp("weapon"))
 	|| (string)weapon->query("skill_type") != "throwing")
-		return notify_fail("ÄãÊ¹ÓÃµÄÎäÆ÷²»¶Ô¡£\n");
+		return notify_fail("ä½ ä½¿ç”¨çš„æ­¦å™¨ä¸å¯¹ã€‚\n");
 	if( (int)me->query("qi") < 30 ||(int)me->query("neili") < 3 )
-		return notify_fail("ÄãµÄÄÚÁ¦»òÆø²»¹»£¬Ã»ÓĞ°ì·¨Á·Ï°º®ĞÇ°Ë´ò¡£\n");
+		return notify_fail("ä½ çš„å†…åŠ›æˆ–æ°”ä¸å¤Ÿï¼Œæ²¡æœ‰åŠæ³•ç»ƒä¹ å¯’æ˜Ÿå…«æ‰“ã€‚\n");
 	me->receive_damage("qi", 30);
 	me->add("neili", -3);
-//	write("Äã°´×ÅËùÑ§Á·ÁËÒ»±éº®ĞÇ°Ë´ò¡£\n");
+//	write("ä½ æŒ‰ç€æ‰€å­¦ç»ƒäº†ä¸€éå¯’æ˜Ÿå…«æ‰“ã€‚\n");
 	return 1;
 }
 string query_skill_name(int level)
@@ -136,14 +136,14 @@ string perform_action_file(string action)
 
 int help(object me)
 {
-	write(HIC"\nº®ĞÇ°Ë´ò£º"NOR"\n");
+	write(HIC"\nå¯’æ˜Ÿå…«æ‰“ï¼š"NOR"\n");
 	write(@HELP
 
-    ºì»¨»áÕÔ°ëÉ½µÄ¾ø¼¼¡£
+    çº¢èŠ±ä¼šèµµåŠå±±çš„ç»æŠ€ã€‚
 
-	Ñ§Ï°ÒªÇó£º
-		ºì»¨ĞÄ·¨50¼¶
-		ÄÚÁ¦ĞŞÎª100
+	å­¦ä¹ è¦æ±‚ï¼š
+		çº¢èŠ±å¿ƒæ³•50çº§
+		å†…åŠ›ä¿®ä¸º100
 HELP
 	);
 	return 1;

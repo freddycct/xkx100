@@ -5,10 +5,10 @@ inherit NPC;
 
 void create()
 {
-	set_name("òþÉß", ({ "mang she", "she" }) );
-	set("race", "ÅÀÉß");
+	set_name("èŸ’è›‡", ({ "mang she", "she" }) );
+	set("race", "çˆ¬è›‡");
 	set("age", 5);
-	set("long", "Ò»Ö»°ºÊ×Ö±Á¢£¬ÍÂ×Å³¤ÉàÐ¾µÄ´óòþÉß¡£\n");
+	set("long", "ä¸€åªæ˜‚é¦–ç›´ç«‹ï¼Œåç€é•¿èˆŒèŠ¯çš„å¤§èŸ’è›‡ã€‚\n");
 	set("attitude", "peaceful");
 
 	set("str", 26);
@@ -16,8 +16,8 @@ void create()
 	set("combat_exp", 5000);
 	set("chat_chance",50);
 	set("chat_msg", ({
-		"´óòþÉß»¢ÊÓíñíñµØ×¢ÊÓ×ÅÄã£¬Ïë°ÑÄãÒ»¿ÚÍÌÏÂ£¡\n",
-		"´óòþÉßÕÅÁËÒ»ÏÂÑªÅè´ó¿Ú£¬ºÃÏó¶öÁË¡£\n"
+		"å¤§èŸ’è›‡è™Žè§†çœˆçœˆåœ°æ³¨è§†ç€ä½ ï¼Œæƒ³æŠŠä½ ä¸€å£åžä¸‹ï¼\n",
+		"å¤§èŸ’è›‡å¼ äº†ä¸€ä¸‹è¡€ç›†å¤§å£ï¼Œå¥½è±¡é¥¿äº†ã€‚\n"
 	}) );
 	set_temp("apply/attack", 100);
 	set_temp("apply/defence", 100);
@@ -29,7 +29,7 @@ void create()
 void die()
 {
 	object ob;
-	message_vision("$Nµ¹ÔÚµØÉÏ£¬ËÀÁË£¡\n", this_object());
+	message_vision("$Nå€’åœ¨åœ°ä¸Šï¼Œæ­»äº†ï¼\n", this_object());
 	ob = new("/d/baituo/obj/shepi");
 	ob->move(environment(this_object()));
 	destruct(this_object());

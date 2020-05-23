@@ -5,12 +5,12 @@ inherit NPC;
 int shang_ya();
 void create()
 {
-	set_name("ÕÅ³Ë·ç", ({"zhang chengfeng", "zhang", "chengfeng"}));
-	set("nickname", HIY "½ğºïÉñÄ§" NOR );
-	set("gender", "ÄĞĞÔ");
+	set_name("å¼ ä¹˜é£", ({"zhang chengfeng", "zhang", "chengfeng"}));
+	set("nickname", HIY "é‡‘çŒ´ç¥é­”" NOR );
+	set("gender", "ç”·æ€§");
 	set("age", 42);
 	set("shen_type", -1);
-	set("long", "ËûÊÇÈÕÔÂÉñ½ÌÇ°±²³¤ÀÏ¡£\n");
+	set("long", "ä»–æ˜¯æ—¥æœˆç¥æ•™å‰è¾ˆé•¿è€ã€‚\n");
 	set("attitude", "peaceful");
 	set("env/wimpy", 40);
 
@@ -31,11 +31,11 @@ void create()
 	set("combat_exp", 1500000);
 	set("score", 0);
 	set("inquiry", ([
-		"ºÚÄ¾ÑÂ"   : "ºÚÄ¾ÑÂµÜ×Ó»ò³Ö½ÌÖ÷ÁîÅÆ·½ÄÜ¡°ÉÏÑÂ¡±£¡\n",
-		"ÈÕÔÂÉñ½Ì" : "ÄãÏë¼ÓÈëÎÒÈÕÔÂÉñ½Ì£¬¾ÍµÃÕÒËÄ´óÌÃ³¤ÀÏ¡£",
-		"ºÚÄ¾Áî"   : "ÄÇÊÇ±¾½Ì½ÌÖ÷ÁîÅÆ£¬¼ûÅÆÈç¼û½ÌÖ÷Ç×ÁÙ£¡\n",
-		"Èë½Ì"     : "ÄãÏë¼ÓÈëÎÒÈÕÔÂÉñ½Ì£¬¾ÍµÃÕÒËÄ´óÌÃ³¤ÀÏ¡£",
-		"ÉÏÑÂ"     : (: shang_ya :),
+		"é»‘æœ¨å´–"   : "é»‘æœ¨å´–å¼Ÿå­æˆ–æŒæ•™ä¸»ä»¤ç‰Œæ–¹èƒ½â€œä¸Šå´–â€ï¼\n",
+		"æ—¥æœˆç¥æ•™" : "ä½ æƒ³åŠ å…¥æˆ‘æ—¥æœˆç¥æ•™ï¼Œå°±å¾—æ‰¾å››å¤§å ‚é•¿è€ã€‚",
+		"é»‘æœ¨ä»¤"   : "é‚£æ˜¯æœ¬æ•™æ•™ä¸»ä»¤ç‰Œï¼Œè§ç‰Œå¦‚è§æ•™ä¸»äº²ä¸´ï¼\n",
+		"å…¥æ•™"     : "ä½ æƒ³åŠ å…¥æˆ‘æ—¥æœˆç¥æ•™ï¼Œå°±å¾—æ‰¾å››å¤§å ‚é•¿è€ã€‚",
+		"ä¸Šå´–"     : (: shang_ya :),
 	]) );
 
 	set_skill("force", 150);
@@ -54,9 +54,9 @@ void create()
 	map_skill("unarmed", "changquan");
 	map_skill("dodge", "lingxu-bu");
 
-	set("party/party_name", HIB"ÈÕÔÂÉñ½Ì"NOR);
-	set("party/rank", HIR"Ç°±²³¤ÀÏ"NOR);
-	create_family("ºÚÄ¾ÑÂ", 4, "µÜ×Ó");
+	set("party/party_name", HIB"æ—¥æœˆç¥æ•™"NOR);
+	set("party/rank", HIR"å‰è¾ˆé•¿è€"NOR);
+	create_family("é»‘æœ¨å´–", 4, "å¼Ÿå­");
 
 	setup();
 	carry_object("/d/heimuya/npc/obj/shutonggun")->wield();
@@ -67,17 +67,17 @@ int shang_ya()
 {
 	object ob, myenv ;
 	ob = this_player ( ) ;
-	if (ob->query("family/family_name") == "ºÚÄ¾ÑÂ")
+	if (ob->query("family/family_name") == "é»‘æœ¨å´–")
 	{
-		message_vision("ÕÅ³Ë·çÒ»ÕĞÊÖ£¬ÑÂÉÏÂäÏÂÒ»¸ö´óµõÀº¡£\n",ob);
-		message_vision("$NÒ»ÍäÑü½øÁËµõÀº£¬µõÀº»º»ºµØ½ÂÉÏÑÂÈ¥......\n",ob);
+		message_vision("å¼ ä¹˜é£ä¸€æ‹›æ‰‹ï¼Œå´–ä¸Šè½ä¸‹ä¸€ä¸ªå¤§åŠç¯®ã€‚\n",ob);
+		message_vision("$Nä¸€å¼¯è…°è¿›äº†åŠç¯®ï¼ŒåŠç¯®ç¼“ç¼“åœ°é“°ä¸Šå´–å»......\n",ob);
 		myenv = environment (ob) ;
 		ob->move ("/d/heimuya/basket");
 		call_out("goto_heimuya", 10, ob) ;
 	   	return 1;
 	}
 	else  
-		message_vision("ÕÅ³Ë·çÉÏÉÏÏÂÏÂ´òÁ¿ÁË$NÒ»ÏÂ£ºÊ²Ã´£¡ÉÏÑÂ£¿ÄãµÄºÚÄ¾ÁîÄØ£¿£¡\n",ob);
+		message_vision("å¼ ä¹˜é£ä¸Šä¸Šä¸‹ä¸‹æ‰“é‡äº†$Nä¸€ä¸‹ï¼šä»€ä¹ˆï¼ä¸Šå´–ï¼Ÿä½ çš„é»‘æœ¨ä»¤å‘¢ï¼Ÿï¼\n",ob);
 	return 1;
 }
 
@@ -86,9 +86,9 @@ int accept_object(object who, object ob)
 	object myenv ;
 	if (ob->query("id") == "heimu ling")
 	{
-		message_vision("ÕÅ³Ë·ç¶Ô$NËµ£ººÃ£¡ÕâÎ»" + RANK_D->query_respect(who) + "²»´í£¬ÄÇ¾ÍÇë°É£¡\n" , who);
-		message_vision("ÕÅ³Ë·çÒ»ÕĞÊÖ£¬ÑÂÉÏÂäÏÂÒ»¸ö´óµõÀº¡£\n", who);
-		message_vision("$NÒ»ÍäÑü½øÁËµõÀº£¬µõÀº»º»ºµØ½ÂÉÏÑÂÈ¥......\n", who);
+		message_vision("å¼ ä¹˜é£å¯¹$Nè¯´ï¼šå¥½ï¼è¿™ä½" + RANK_D->query_respect(who) + "ä¸é”™ï¼Œé‚£å°±è¯·å§ï¼\n" , who);
+		message_vision("å¼ ä¹˜é£ä¸€æ‹›æ‰‹ï¼Œå´–ä¸Šè½ä¸‹ä¸€ä¸ªå¤§åŠç¯®ã€‚\n", who);
+		message_vision("$Nä¸€å¼¯è…°è¿›äº†åŠç¯®ï¼ŒåŠç¯®ç¼“ç¼“åœ°é“°ä¸Šå´–å»......\n", who);
 		myenv = environment (who) ;
 		who->move ("/d/heimuya/basket");
 		call_out("goto_heimuya",10,who) ;
@@ -96,7 +96,7 @@ int accept_object(object who, object ob)
 	}
 	else  
 	{
-		message_vision("ÕÅ³Ë·ç¶Ô$NËµ£ºÄã¸ÒË£ÎÒ£¿£¡\n", who);
+		message_vision("å¼ ä¹˜é£å¯¹$Nè¯´ï¼šä½ æ•¢è€æˆ‘ï¼Ÿï¼\n", who);
 		this_object()->kill_ob(who);
 	}
 	return 0;
@@ -104,13 +104,13 @@ int accept_object(object who, object ob)
 
 void goto_heimuya (object ob)
 {
-	tell_object(ob , "ÄãÑÛÇ°Ò»ÁÁ£¬Ò»´±´±°×É«½¨ÖşÒÙÁ¢ÑÛÇ°£¬ö®ÊÇ»Ô»Í¡£\n");
+	tell_object(ob , "ä½ çœ¼å‰ä¸€äº®ï¼Œä¸€å¹¢å¹¢ç™½è‰²å»ºç­‘å±¹ç«‹çœ¼å‰ï¼Œéœæ˜¯è¾‰ç…Œã€‚\n");
 	ob->move ("/d/heimuya/chengdedian") ;
 }
 
 void attempt_apprentice(object ob)
 {
-	command("say ÀÏ·ò²»ÊÕµÜ×Ó¡£\n");
+	command("say è€å¤«ä¸æ”¶å¼Ÿå­ã€‚\n");
 	return;
 }
 

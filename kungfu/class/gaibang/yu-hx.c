@@ -6,12 +6,12 @@ inherit F_MASTER;
 
 void create()
 {
-	set_name("ÓàºéÐË", ({"yu hongxing", "yu", "hongxing"}));
-	set("gender", "ÄÐÐÔ");
-	set("nickname", "Ð¡ÎâÓÃ");
+	set_name("ä½™æ´ªå…´", ({"yu hongxing", "yu", "hongxing"}));
+	set("gender", "ç”·æ€§");
+	set("nickname", "å°å´ç”¨");
 	set("age", 30);
 	set("long", 
-		"ÕâÊÇÎ»Ð¦ÃÐÃÐµÄØ¤°ïÆß´üµÜ×Ó£¬ÉúÐÔ¶àÖÇ£¬ÍâºÅÐ¡ÎâÓÃ¡£\n");
+		"è¿™æ˜¯ä½ç¬‘çœ¯çœ¯çš„ä¸å¸®ä¸ƒè¢‹å¼Ÿå­ï¼Œç”Ÿæ€§å¤šæ™ºï¼Œå¤–å·å°å´ç”¨ã€‚\n");
 	set("attitude", "peaceful");
 	set("class", "beggar");
 	set("beggarlvl", 7);
@@ -52,10 +52,10 @@ void create()
 	map_skill("parry", "liuhe-blade");
 	map_skill("dodge", "xiaoyaoyou");
 	
-	set("party/party_name", HIC"Ø¤°ï"NOR);
-	set("party/rank", GRN"Æß´üµÜ×Ó"NOR);
+	set("party/party_name", HIC"ä¸å¸®"NOR);
+	set("party/rank", GRN"ä¸ƒè¢‹å¼Ÿå­"NOR);
 	set("party/level", 7);
-	create_family("Ø¤°ï", 19, "µÜ×Ó");
+	create_family("ä¸å¸®", 19, "å¼Ÿå­");
 
 	setup();
 
@@ -66,8 +66,8 @@ void create()
 void attempt_apprentice(object ob)
 {
 	if( ob->query("int") < 25 ) return;
-	command("say °¦£¬±¾°ï³ÏÐÅÎª±¾£¬Ö»ÓÐÆß¹«ËûÀÏÈË¼ÒºÍÎÒ²ÅÌØ±ðÊÕÐ©´ÏÃ÷Í½¶ù£¬");
-	command("say ´ó¼Ò¶¼ÒªÎª³¤Ô¶×ÅÏë°¡£¡");
+	command("say å”‰ï¼Œæœ¬å¸®è¯šä¿¡ä¸ºæœ¬ï¼Œåªæœ‰ä¸ƒå…¬ä»–è€äººå®¶å’Œæˆ‘æ‰ç‰¹åˆ«æ”¶äº›èªæ˜Žå¾’å„¿ï¼Œ");
+	command("say å¤§å®¶éƒ½è¦ä¸ºé•¿è¿œç€æƒ³å•Šï¼");
 	command("recruit " + ob->query("id"));
 }
 #include "/kungfu/class/gaibang/gaibang.h"

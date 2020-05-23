@@ -6,13 +6,13 @@ inherit ITEM;
 
 void create()
 {
-	set_name(GRN"Ìú°ËØÔ"NOR, ({ "tie bagua", "bagua" }) );
+	set_name(GRN"é“å…«å¦"NOR, ({ "tie bagua", "bagua" }) );
 	set_weight(10000);
 	if( clonep() )
 		set_default_object(__FILE__);
 	else {
-		set("long","Ìú°ËØÔÊÇ´¿ÌúËùÖı£¬·ÖÁ¿¼«ÖØ£¬ÉÏÓĞ°ËØÔÍ¼°¸¡£\nÊÇÌÒ»¨µºµÜ×ÓÓÃÀ´Õ¼²·¡¢ÍÆËã(location)ËûÈËÇøÎ»µÄµÀ¾ß¡£\n");
-		set("unit", "Ã¶");
+		set("long","é“å…«å¦æ˜¯çº¯é“æ‰€é“¸ï¼Œåˆ†é‡æé‡ï¼Œä¸Šæœ‰å…«å¦å›¾æ¡ˆã€‚\næ˜¯æ¡ƒèŠ±å²›å¼Ÿå­ç”¨æ¥å åœã€æ¨ç®—(location)ä»–äººåŒºä½çš„é“å…·ã€‚\n");
+		set("unit", "æš");
 		set("value", 1600);
 	}
 	setup();

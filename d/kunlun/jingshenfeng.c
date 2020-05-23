@@ -1,4 +1,4 @@
-// Room: /d/kunlun/jingshenfeng.c �����
+// Room: /d/kunlun/jingshenfeng.c 惊神峰
 // Last Modified by winder on Nov. 14 2000
 
 #include <ansi.h>
@@ -7,14 +7,14 @@ inherit ROOM;
 
 void create()
 {
-	set("short","�����"NOR);
+	set("short","惊神峰"NOR);
 	set("long",@long
-�۶��򱱣�����һ�룬ֻ���Ű����Ѱ����£���ֱͦ���㣬������
-�����ԣ������ض���������ݱ���߳�ʮ���ɣ�ֻ��������֮����������
-���ϸϸ�������������ƺ����ﻥ��Ӧ�𣬼��عأ���ת������ֻ
-�������������һ���������ӱ��������ϥ�Ϸ���һ�Ž�β�٣����Ե�
-�ࡣ��������ľ��ͣ������ȸ����ݺ���ž飬ϲȵ���˸磬�������಻
-֪�����ģ���������һ��һ�𣬻������ͳ���
+折而向北，过了一岭，只见古柏三把百余章，皆挺直端秀，凌霄托
+根树旁，作花柏顶，灿若云荼。走出十余丈，只听得琴声之中杂有无数
+鸟语，细细听来，琴声竟似和鸟语互相应答，间间关关，宛转啼鸣。只
+见三株大松树下一个白衣男子背向而坐，膝上放着一张焦尾琴，整自弹
+奏。他身周树木上停满了鸟雀，黄莺，杜鹃，喜鹊，八哥，还有许多不
+知其名的，和琴声或一问一答，或齐声和唱。
 long );
 	set("objects",([
 		CLASS_D("kunlun")+"/hezudao" : 1,

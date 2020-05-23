@@ -4,7 +4,7 @@
 #include <ansi.h>
 
 inherit F_SSERVER;
-#define PNAME "≥™œ…∑®∫◊÷æˆ"
+#define PNAME "Âî±‰ªôÊ≥ïÂêºÂ≠óÂÜ≥"
 int perform(object me, object target)
 {
 	int skill, ap, dp,i,neili,damage;
@@ -19,14 +19,14 @@ int perform(object me, object target)
    !me->query("can_perform/"+sskill+"/"+pfname) &&
    !me->query_temp("murong/xingyi") &&
    !SCBORN_D->valid_perform(me,sskill,pfname))
-   return notify_fail("ƒ„À˘ π”√µƒÕ‚π¶÷–√ª”–’‚÷÷π¶ƒ‹°£\n");
+   return notify_fail("‰Ω†ÊâÄ‰ΩøÁî®ÁöÑÂ§ñÂäü‰∏≠Ê≤°ÊúâËøôÁßçÂäüËÉΩ„ÄÇ\n");
 
 	if( !objectp(target) ) {flag =1;target = offensive_target(me);}
 	
 	if( !target || !target->is_character() || target == me ||	
 	  	!me->is_fighting(target) ||
   	!living(target) || target->query_temp("noliving") )
-		return notify_fail(PNAME"÷ªƒ‹∂‘’Ω∂∑÷–µƒ∂‘ ÷ π”√°£\n");
+		return notify_fail(PNAME"Âè™ËÉΩÂØπÊàòÊñó‰∏≠ÁöÑÂØπÊâã‰ΩøÁî®„ÄÇ\n");
 		
 	fskill = "dulong-dafa";
 	bskill = "staff";
@@ -40,23 +40,23 @@ int perform(object me, object target)
 	}
 
 	if( (int)me->query_skill(fskill, 1) < 90 )
-		return notify_fail("ƒ„µƒ"+to_chinese(fskill)+"≤ªπªÊµ Ï£¨≤ªª· π”√"+PNAME+"°£\n");
+		return notify_fail("‰Ω†ÁöÑ"+to_chinese(fskill)+"‰∏çÂ§üÂ®¥ÁÜüÔºå‰∏ç‰ºö‰ΩøÁî®"+PNAME+"„ÄÇ\n");
 
 	if( (int)me->query_skill(sskill, 1) < 100 )
-		return notify_fail("ƒ„µƒ"+to_chinese(sskill)+"≤ªπªÊµ Ï£¨≤ªª· π”√"+PNAME+"°£\n");
+		return notify_fail("‰Ω†ÁöÑ"+to_chinese(sskill)+"‰∏çÂ§üÂ®¥ÁÜüÔºå‰∏ç‰ºö‰ΩøÁî®"+PNAME+"„ÄÇ\n");
 
 	if( (int)me->query("neili") < 500 )
-		return notify_fail("ƒ„“—æ≠≥™µ√æ´∆£¡¶Ωﬂ,ƒ⁄¡¶≤ªπª¡À°£\n");
+		return notify_fail("‰Ω†Â∑≤ÁªèÂî±ÂæóÁ≤æÁñ≤ÂäõÁ´≠,ÂÜÖÂäõ‰∏çÂ§ü‰∫Ü„ÄÇ\n");
 
 	neili = me->query("neili");	
 	if( neili/2 + random(neili/2) < (int)target->query("neili")/10) 
-		return notify_fail("µ–»Àµƒƒ⁄¡¶±»ƒ„∏ﬂ≥ˆÃ´∂‡£¨…À≤ª¡À£°\n");
+		return notify_fail("Êïå‰∫∫ÁöÑÂÜÖÂäõÊØî‰Ω†È´òÂá∫Â§™Â§öÔºå‰º§‰∏ç‰∫ÜÔºÅ\n");
 
 	me->receive_damage("qi", 10);
 
 	me->start_busy(random(5));
 
-	message_combatd(HIY"$N…Ó…ÓµÿŒ¸“ª‡Ì∆¯£¨∫ˆ»ª—ˆÃÏ≥§–•£¨∏ﬂ…˘øÒΩ–£∫≤ªÀ¿…Ò¡˙£¨Œ®Œ“≤ª∞‹£°\n" NOR, me);
+	message_combatd(HIY"$NÊ∑±Ê∑±Âú∞Âê∏‰∏ÄÂõóÊ∞îÔºåÂøΩÁÑ∂‰ª∞Â§©ÈïøÂï∏ÔºåÈ´òÂ£∞ÁãÇÂè´Ôºö‰∏çÊ≠ªÁ•ûÈæôÔºåÂîØÊàë‰∏çË¥•ÔºÅ\n" NOR, me);
 
 	damage = me->query("max_neili") / 5;
 	ap = me->query_skill(bskill) * 2;
@@ -69,11 +69,11 @@ int perform(object me, object target)
 		target->receive_wound("jing", damage/3,me);
 		target->receive_wound("qi", damage,me);
 		if (userp(me)) me->add("neili", -500);
-		message_combatd( HIR "$N÷ªæıƒ‘÷–“ª’ÛæÁÕ¥£¨Ω–«¬“√∞£¨”Ã»Á”–ÕÚÃıΩ¡˙‘⁄—€«∞ŒË∂Ø°£\n" NOR, target);
+		message_combatd( HIR "$NÂè™ËßâËÑë‰∏≠‰∏ÄÈòµÂâßÁóõÔºåÈáëÊòü‰π±ÂÜíÔºåÁäπÂ¶ÇÊúâ‰∏áÊù°ÈáëÈæôÂú®ÁúºÂâçËàûÂä®„ÄÇ\n" NOR, target);
 	}
 	else
 	{
-		message_combatd(HIR "$N÷ªæıƒ‘÷–Œ¢Õ¥£¨À∆∫ı ‹¡À“ªµ„«·…À°£\n" NOR, target);
+		message_combatd(HIR "$NÂè™ËßâËÑë‰∏≠ÂæÆÁóõÔºå‰ºº‰πéÂèó‰∫Ü‰∏ÄÁÇπËΩª‰º§„ÄÇ\n" NOR, target);
 		target->receive_damage("jing", 50 ,me);
 		target->receive_damage("qi", 50 ,me);
 		target->receive_wound("qi", 10 ,me);
@@ -82,20 +82,20 @@ int perform(object me, object target)
 	if( !target->is_killing(me) ) target->kill_ob(me);
 	return 1;
 }
-string name() {return replace_string(replace_string(PNAME,"°∏",""),"°π","");}
+string name() {return replace_string(replace_string(PNAME,"„Äå",""),"„Äç","");}
 
 int help(object me)
 {
-	write(WHT"\n"+to_chinese(explode(__FILE__,"/")[<2])+"÷Æ"+name()+WHT"£∫"NOR"\n");
+	write(WHT"\n"+to_chinese(explode(__FILE__,"/")[<2])+"‰πã"+name()+WHT"Ôºö"NOR"\n");
 	write(@HELP
 
-	 π”√π¶–ß£∫
-		À…À∂‘ ÷æ´∆¯∫Õ∆¯—™
+	‰ΩøÁî®ÂäüÊïàÔºö
+		Êçü‰º§ÂØπÊâãÁ≤æÊ∞îÂíåÊ∞îË°Ä
 
-	≥ˆ ÷“™«Û£∫
-		∂æ¡˙¥Û∑®90º∂
-		…Ò¡˙’»∑®100º∂
-		ƒ⁄¡¶500
+	Âá∫ÊâãË¶ÅÊ±ÇÔºö
+		ÊØíÈæôÂ§ßÊ≥ï90Á∫ß
+		Á•ûÈæôÊùñÊ≥ï100Á∫ß
+		ÂÜÖÂäõ500
 HELP
 	);
 	return 1;

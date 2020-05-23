@@ -1,4 +1,4 @@
-// sword.c »ù±¾½£·¨
+// sword.c åŸºæœ¬å‰‘æ³•
 // Last Modified by winder on Mar. 10 2000
 
 #include <ansi.h>
@@ -13,16 +13,16 @@ int power_point(object me) { return 1; }
 
 int help(object me)
 {
-	write(HIC"\n»ù±¾½£·¨£º"NOR"\n");
+	write(HIC"\nåŸºæœ¬å‰‘æ³•ï¼š"NOR"\n");
 	write(@HELP
 
-    ½£ÀàÎä¼¼µÄ»ù±¾¹¦¡£
-    ½££¬ºÅ³Æ¡¸°Ù±øÖ®¾ý¡¹¡£½£¾÷ÔÆ£º¡¸½£ÊÇÇàÁú½£×ß½£ÒªÆ½ÉÆ£¬
-ÆøÒªËæ½£ÐÐ£¬Á½ÑÛ¹Ë½£¼â£¬Æø³ÁÁ½×ãÎÈ£¬Éí·¨Ðè×ÔÈ»£¬½£ÐÐÈç·ÉÑà£¬
-½£ÂäÈçÍ£·ç£¬½£ÊÕÈç»¨Ðõ£¬½£´ÌÈç¸Ö¶¤¡£¡¹
+    å‰‘ç±»æ­¦æŠ€çš„åŸºæœ¬åŠŸã€‚
+    å‰‘ï¼Œå·ç§°ã€Œç™¾å…µä¹‹å›ã€ã€‚å‰‘è¯€äº‘ï¼šã€Œå‰‘æ˜¯é’é¾™å‰‘èµ°å‰‘è¦å¹³å–„ï¼Œ
+æ°”è¦éšå‰‘è¡Œï¼Œä¸¤çœ¼é¡¾å‰‘å°–ï¼Œæ°”æ²‰ä¸¤è¶³ç¨³ï¼Œèº«æ³•éœ€è‡ªç„¶ï¼Œå‰‘è¡Œå¦‚é£žç‡•ï¼Œ
+å‰‘è½å¦‚åœé£Žï¼Œå‰‘æ”¶å¦‚èŠ±çµ®ï¼Œå‰‘åˆºå¦‚é’¢é’‰ã€‚ã€
 
-	Ñ§Ï°ÒªÇó£º
-		ÎÞ
+	å­¦ä¹ è¦æ±‚ï¼š
+		æ— 
 HELP
 	);
 	return 1;

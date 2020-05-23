@@ -6,14 +6,14 @@ inherit F_UNIQUE;
 
 void create()
 {
-	set_name("ÖÜµß", ({ "zhou dian", "zhou", "dian", }));
+	set_name("å‘¨é¢ ", ({ "zhou dian", "zhou", "dian", }));
 	set("long",
-	"ËûÊÇÒ»Î»·è·èµßµßµÄÀÏÕß£¬Éí´©Ò»¼ş°×²¼³¤ÅÛ¡£\n"
-	"Ëû×ÜÊÇ»Å»ÅÕÅÕÅµÄ£¬ÏÈÌìÏÂÖ®¼±¶ø¼±¡£\n"
+	"ä»–æ˜¯ä¸€ä½ç–¯ç–¯é¢ é¢ çš„è€è€…ï¼Œèº«ç©¿ä¸€ä»¶ç™½å¸ƒé•¿è¢ã€‚\n"
+	"ä»–æ€»æ˜¯æ…Œæ…Œå¼ å¼ çš„ï¼Œå…ˆå¤©ä¸‹ä¹‹æ€¥è€Œæ€¥ã€‚\n"
 	);
 
-	set("nickname", "Ã»ÊÂ²»µßÓĞÊÂµß");
-	set("gender", "ÄĞĞÔ");
+	set("nickname", "æ²¡äº‹ä¸é¢ æœ‰äº‹é¢ ");
+	set("gender", "ç”·æ€§");
 	set("attitude", "friendly");
 	set("class", "scholar");
 
@@ -47,9 +47,9 @@ void create()
 	map_skill("parry", "jingang-quan");
 	prepare_skill("cuff", "jingang-quan");
 
-	set("party/party_name",HIG"Ã÷½Ì"NOR);
-	set("party/rank",HIY"ÎåÉ¢ÈË"NOR);
-	create_family("Ã÷½Ì", 35, "µÜ×Ó");
+	set("party/party_name",HIG"æ˜æ•™"NOR);
+	set("party/rank",HIY"äº”æ•£äºº"NOR);
+	create_family("æ˜æ•™", 35, "å¼Ÿå­");
 	setup();
 
 	carry_object("/d/mingjiao/obj/baipao")->wear();

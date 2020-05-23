@@ -12,13 +12,13 @@ string *blocks_name = ({
 	"family",
 });
 mapping ch_str = ([
-	"all"	:	"ËùÓĞ",
-	"rumor"	:	"Ò¥ÑÔ",
-	"chat"	:	"ÁÄÌì",
-	"xkx"	:	"ÏÀ¿ÍĞĞ",
-	"sing"	:	"¸è³ª",
-	"party"	:	"°ï»á",
-	"family":	"ÃÅÅÉ",
+	"all"	:	"æ‰€æœ‰",
+	"rumor"	:	"è°£è¨€",
+	"chat"	:	"èŠå¤©",
+	"xkx"	:	"ä¾ å®¢è¡Œ",
+	"sing"	:	"æ­Œå”±",
+	"party"	:	"å¸®ä¼š",
+	"family":	"é—¨æ´¾",
 ]);
 
 int main(object me, string arg)
@@ -37,16 +37,16 @@ int main(object me, string arg)
 			return notify_fail("<Syntax>: unchblk <player id> <channel name>\n");
 		}
 	}
-// ´ò¿ªËùÓĞÍæ¼ÒµÄÆµµÀ 	
+// æ‰“å¼€æ‰€æœ‰ç©å®¶çš„é¢‘é“ 	
     	ob = LOGIN_D->find_body(who);
 	if (ch_name == "" && !ob && (member_array(who, blocks_name) == -1))
-		return notify_fail("ÄãÎŞ·¨´ò¿ª´ËÆµµÀ»ò´ËÈË²»ÔÚÏß£¡\n");
-//	if (!ob) return notify_fail("´ËÈË²»ÔÚÏß£¡\n");
+		return notify_fail("ä½ æ— æ³•æ‰“å¼€æ­¤é¢‘é“æˆ–æ­¤äººä¸åœ¨çº¿ï¼\n");
+//	if (!ob) return notify_fail("æ­¤äººä¸åœ¨çº¿ï¼\n");
 	if (who == "all")
 	{
 		for (i = 0;i < sizeof(blocks_name);i ++)
 			CHANNEL_D->set_block(blocks_name[i],0);
-		CHANNEL_D->do_channel(me,"sys","ËùÓĞÆµµÀ	£ï£ë£á£ù£¡\n");
+		CHANNEL_D->do_channel(me,"sys","æ‰€æœ‰é¢‘é“	ï½ï½‹ï½ï½™ï¼\n");
 		return 1;
 	}	
     	for (i = 1;i < sizeof(blocks_name);i ++)
@@ -54,7 +54,7 @@ int main(object me, string arg)
 		if (who	== blocks_name[i])
 		{
 			CHANNEL_D->set_block(who, 0);
-			CHANNEL_D->do_channel(me, "sys", ch_str[who] + "ÆµµÀ£ï£ë£á£ù£¡\n");
+			CHANNEL_D->do_channel(me, "sys", ch_str[who] + "é¢‘é“ï½ï½‹ï½ï½™ï¼\n");
 			return 1;
 		}
 	}			
@@ -71,9 +71,9 @@ int main(object me, string arg)
 			ob->delete("chblk_on");
 			for (i = 1;i < sizeof(blocks_name);i ++)
 				ob->delete("chblk_" + blocks_name[i]);
-			tell_object(me,(string)ob->query("name") + "µÄËùÓĞÆµµÀ±»´ò¿ªÁË¡£\n");
+			tell_object(me,(string)ob->query("name") + "çš„æ‰€æœ‰é¢‘é“è¢«æ‰“å¼€äº†ã€‚\n");
 		}
-		else tell_object(me, (string)ob->query("name") + "µÄËùÓĞÆµµÀ±¾À´¾ÍÊÇ¿ª×ÅµÄ¡£\n");	
+		else tell_object(me, (string)ob->query("name") + "çš„æ‰€æœ‰é¢‘é“æœ¬æ¥å°±æ˜¯å¼€ç€çš„ã€‚\n");	
 	}
 	else
 		if (member_array(ch_name, blocks_name, 1) != -1)
@@ -82,9 +82,9 @@ int main(object me, string arg)
 			{
 				ob->delete("chblk_on");
 				ob->delete("chblk_" + ch_name);
-				tell_object(me, (string)ob->query("name") + "µÄ" + ch_str[ch_name] + "ÆµµÀ±»´ò¿ªÁË¡£\n");
+				tell_object(me, (string)ob->query("name") + "çš„" + ch_str[ch_name] + "é¢‘é“è¢«æ‰“å¼€äº†ã€‚\n");
 			}
-			else tell_object(me, (string)ob->query("name") + "µÄ" + ch_str[ch_name] + "ÆµµÀ±¾À´¾ÍÊÇ¿ª×ÅµÄ¡£\n");	
+			else tell_object(me, (string)ob->query("name") + "çš„" + ch_str[ch_name] + "é¢‘é“æœ¬æ¥å°±æ˜¯å¼€ç€çš„ã€‚\n");	
 		}
 		else 
 		{
@@ -96,11 +96,11 @@ int main(object me, string arg)
 int help(object me)
 {
 write(@HELP
-    Ö¸Áî¸ñÊ½ : unchblk <Ä³ÈË> <ÆµµÀÃû>
+    æŒ‡ä»¤æ ¼å¼ : unchblk <æŸäºº> <é¢‘é“å>
 
-    ´ËÃüÁî½«´ò¿ªÄ³ÈËµÄÆµµÀ¡£Èç¹ûÃ»ÓĞÆµµÀÃû¾Í´ò¿ªËùÓĞºÏ·¨ÆµµÀ¡£
-    <Ä³ÈË>¡¡Ò²¿ÉÒÔÊÇÆµµÀÃû¡£Õâ½«´ò¿ªËùÓĞÍæ¼ÒµÄÄ³¸öÆµµÀ¡£
-    <ÆµµÀÃû> ¿ÉÒÔÊÇrumor£¬ chat£¬ xkx£¬ sing£¬ party£¬family»òÕßall
+    æ­¤å‘½ä»¤å°†æ‰“å¼€æŸäººçš„é¢‘é“ã€‚å¦‚æœæ²¡æœ‰é¢‘é“åå°±æ‰“å¼€æ‰€æœ‰åˆæ³•é¢‘é“ã€‚
+    <æŸäºº>ã€€ä¹Ÿå¯ä»¥æ˜¯é¢‘é“åã€‚è¿™å°†æ‰“å¼€æ‰€æœ‰ç©å®¶çš„æŸä¸ªé¢‘é“ã€‚
+    <é¢‘é“å> å¯ä»¥æ˜¯rumorï¼Œ chatï¼Œ xkxï¼Œ singï¼Œ partyï¼Œfamilyæˆ–è€…all
 
 HELP
     );

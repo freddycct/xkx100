@@ -1,4 +1,4 @@
-// duanzc.c ¶ÎÕı´¾
+// duanzc.c æ®µæ­£æ·³
 //last modified 01/05/05
 
 #include <ansi.h>
@@ -10,10 +10,10 @@ string ask_me();
 void create()
 {
 	object ob;
-	set_name("¶ÎÕı´¾", ({ "duan zhengchun", "duan" }));
-	set("title",  "´óÀíÕòÄÏÍõ" );
-	set("long", "Ëû¾ÍÊÇ´óÀí¹úµÄÕòÄÏÍõ£¬µ±½ñ»ÊÌ«µÜ£¬ÊÇÓĞÃûµÄ°®ÇéÊ¥ÊÖ¡£\n");
-	set("gender", "ÄĞĞÔ");
+	set_name("æ®µæ­£æ·³", ({ "duan zhengchun", "duan" }));
+	set("title",  "å¤§ç†é•‡å—ç‹" );
+	set("long", "ä»–å°±æ˜¯å¤§ç†å›½çš„é•‡å—ç‹ï¼Œå½“ä»Šçš‡å¤ªå¼Ÿï¼Œæ˜¯æœ‰åçš„çˆ±æƒ…åœ£æ‰‹ã€‚\n");
+	set("gender", "ç”·æ€§");
 	set("age", 45);
 	set("class", "officer");
 	set("attitude", "friendly");
@@ -25,8 +25,8 @@ void create()
 	set("no_get",1);
 
         set("inquiry", ([
-                  "ÃØ¼®"     : (: ask_me :),
-                  "¶Î¼Ò¸«·¨"  : (: ask_me :),
+                  "ç§˜ç±"     : (: ask_me :),
+                  "æ®µå®¶æ–§æ³•"  : (: ask_me :),
                   "shu" : (: ask_me :),
                        ]));
 	
@@ -93,7 +93,7 @@ void create()
  }
 add_money("silver", 50);
 
-	create_family("´óÀí¶Î¼Ò",18,"ÕòÄÏÍõ");
+	create_family("å¤§ç†æ®µå®¶",18,"é•‡å—ç‹");
 }
 
 void init()
@@ -105,21 +105,21 @@ void attempt_apprentice(object ob)
 {
 	if ((int)ob->query_skill("kurong-changong",1) < 100 )
 	{
-		command("say ÄãµÄ±¾ÃÅÄÚ¹¦ĞÄ·¨Ì«µÍÁË£¬»¹ÊÇÅ¬Å¬Á¦ÏÈÌá¸ßÒ»ÏÂ°É¡£");
+		command("say ä½ çš„æœ¬é—¨å†…åŠŸå¿ƒæ³•å¤ªä½äº†ï¼Œè¿˜æ˜¯åŠªåŠªåŠ›å…ˆæé«˜ä¸€ä¸‹å§ã€‚");
 		return;
 	}
 	if ((int)ob->query("shen") < 10000  ) {
-		command("say ÎÒ´óÀí¶ÎÊÏÏòÀ´ĞĞÏÀÕÌÒå£¬ÄúÇë»Ø°É£¡");
+		command("say æˆ‘å¤§ç†æ®µæ°å‘æ¥è¡Œä¾ ä»—ä¹‰ï¼Œæ‚¨è¯·å›å§ï¼");
 		return;
 	}
-	if (strsrch(ob->query("guard"), "ÕòÄÏÍõ¸®") >= 0) 
+	if (strsrch(ob->query("guard"), "é•‡å—ç‹åºœ") >= 0) 
 	{
-		command("say ºÜºÃ£¬¼ÈÈ»ÈëÎÒÃÅÀ´¾ÍµÃÖÒĞÄÎªÖ÷¡£");
+		command("say å¾ˆå¥½ï¼Œæ—¢ç„¶å…¥æˆ‘é—¨æ¥å°±å¾—å¿ å¿ƒä¸ºä¸»ã€‚");
 		command("recruit " + ob->query("id"));
 	}
 	else
 	{
-		command("say ÄãÊÇºÎÈË£¬Èç´Ë´óµ¨£¬¼ÙÃ°ÎÒ¸®ÖĞØËÆÍ£¡");
+		command("say ä½ æ˜¯ä½•äººï¼Œå¦‚æ­¤å¤§èƒ†ï¼Œå‡å†’æˆ‘åºœä¸­å®ä»†ï¼");
 		return;
 	}
 }
@@ -129,12 +129,12 @@ string ask_me()
 	
 	if (this_player()->query("family/master_id")!="duan zhengchun")
 		return RANK_D->query_respect(this_player()) + 
-		"·ÇÎÒµÜ×Ó£¬²»Öª´Ë»°´ÓºÎÌ¸Æğ£¿";
+		"éæˆ‘å¼Ÿå­ï¼Œä¸çŸ¥æ­¤è¯ä»ä½•è°ˆèµ·ï¼Ÿ";
 	if (query("book_count") < 1)
-		return "ÄãÀ´ÍíÁË£¬±¾ÅÉµÄÃØ¼®²»ÔÚ´Ë´¦¡£";
+		return "ä½ æ¥æ™šäº†ï¼Œæœ¬æ´¾çš„ç§˜ç±ä¸åœ¨æ­¤å¤„ã€‚";
 	add("book_count", -1);
 	ob = new("/clone/book/axe");
 	ob->move(this_player());
-	command("rumor "+this_player()->query("name")+"ÄÃµ½¶Î¼Ò¸«·¨À²¡£\n");
-	return "ºÃ°É£¬Õâ±¾¡¸¶Î¼Ò¸«·¨¡¹ÄãÄÃ»ØÈ¥ºÃºÃ×êÑĞ£¬¹â´óÎÒ´óÀí¶Î¼ÒÎäÑ§¡£";
+	command("rumor "+this_player()->query("name")+"æ‹¿åˆ°æ®µå®¶æ–§æ³•å•¦ã€‚\n");
+	return "å¥½å§ï¼Œè¿™æœ¬ã€Œæ®µå®¶æ–§æ³•ã€ä½ æ‹¿å›å»å¥½å¥½é’»ç ”ï¼Œå…‰å¤§æˆ‘å¤§ç†æ®µå®¶æ­¦å­¦ã€‚";
 }

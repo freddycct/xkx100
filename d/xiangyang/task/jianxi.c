@@ -7,8 +7,8 @@ int do_copy(int maxpot);
 int do_back(object me);
 void create()
 {
-	set_name("ÃÉÃæÈË", ({ "menggu jianxi","jianxi"}));
-	set("gender", "ÄĞĞÔ");
+	set_name("è’™é¢äºº", ({ "menggu jianxi","jianxi"}));
+	set("gender", "ç”·æ€§");
 	seteuid(getuid());
 	set("age", random(30) + 25);
 	set("str", 26);
@@ -28,7 +28,7 @@ int do_go(string arg)
 {
 	if (this_player()->query_condition("guojx_mis"))
 	{
-		write(HIR"ÃÉ¹Å¼éÏ¸¾ÍÔÚÑÛÇ°£¬Ôõ¿ÉÁÙÕóÍÑÌÓ£¡\n"NOR);
+		write(HIR"è’™å¤å¥¸ç»†å°±åœ¨çœ¼å‰ï¼Œæ€å¯ä¸´é˜µè„±é€ƒï¼\n"NOR);
 		return 1;
 	}
 }
@@ -38,12 +38,12 @@ int accept_hit(object who)
 	object me=this_object();
 	if (who->query_condition("guojx_mis")) 
 	{
-		message_vision(CYN"$N¼ÓÓÍ£¡$N¼ÓÓÍ£¡\n"NOR,who);
+		message_vision(CYN"$NåŠ æ²¹ï¼$NåŠ æ²¹ï¼\n"NOR,who);
 		me->kill_ob(who);
 		who->kill_ob(me);
 		return 1;
 	}
-	else return notify_fail(HIY"Ïë¶Ô¸¶"HIR"ÃÉ¹Å¼éÏ¸"HIY"£¿¿ìÈ¥ÕÒ¹ù¾¸´óÏÀ£¡\n"NOR);
+	else return notify_fail(HIY"æƒ³å¯¹ä»˜"HIR"è’™å¤å¥¸ç»†"HIY"ï¼Ÿå¿«å»æ‰¾éƒ­é–å¤§ä¾ ï¼\n"NOR);
 }
 int accept_fight(object who)	{return accept_hit(who);}
 int accept_kill(object who)		{return accept_hit(who);}
@@ -197,7 +197,7 @@ int do_copy( int maxexp )
 }
 int do_back(object me)
 {			
-	tell_room(environment(me), me->query("name")+"´Ò´ÒÃ¦Ã¦µÄÀë¿ªÁË¡£\n", ({me}));	
+	tell_room(environment(me), me->query("name")+"åŒ†åŒ†å¿™å¿™çš„ç¦»å¼€äº†ã€‚\n", ({me}));	
 	destruct(me); 
 	return 1;
 }

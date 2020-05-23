@@ -1,11 +1,11 @@
-// chen.c ³ÂÖ¾Òæ
+// chen.c é™ˆå¿—ç›Š
 
 inherit NPC;
 
 void create()
 {
-        set_name("³ÂÖ¾Òæ", ({"chen zhiyi", "chen"}));
-        set("gender", "ÄĞĞÔ");
+        set_name("é™ˆå¿—ç›Š", ({"chen zhiyi", "chen"}));
+        set("gender", "ç”·æ€§");
         set("class", "quanzhen");
         set("age", 24);
         set("attitude", "friendly");
@@ -42,17 +42,17 @@ void create()
 
         set_skill("array", 40);
         set_skill("force", 80);
-        set_skill("xiantian-qigong", 80);    //ÏÈÌìÆø¹¦
+        set_skill("xiantian-qigong", 80);    //å…ˆå¤©æ°”åŠŸ
         set_skill("sword", 80);
-        set_skill("quanzhen-jian",120);  //È«Õæ½£
+        set_skill("quanzhen-jian",120);  //å…¨çœŸå‰‘
         set_skill("dodge", 70);
-        set_skill("jinyan-gong", 100);   //½ğÑã¹¦
+        set_skill("jinyan-gong", 100);   //é‡‘é›åŠŸ
         set_skill("parry", 80);
         set_skill("unarmed", 80);
         set_skill("strike", 80);
-        set_skill("haotian-zhang", 120);    //ê»ÌìÕÆ
+        set_skill("haotian-zhang", 120);    //æ˜Šå¤©æŒ
         set_skill("cuff", 80);
-        set_skill("chunyang-quan", 120);    //´¿ÑôÈ­
+        set_skill("chunyang-quan", 120);    //çº¯é˜³æ‹³
         set_skill("literate", 60);
         set_skill("taoism", 60);
 
@@ -65,10 +65,10 @@ void create()
         prepare_skill("cuff", "chunyang-quan");
         prepare_skill("strike", "haotian-zhang");
 
-        create_family("È«Õæ½Ì", 3, "µÜ×Ó");
+        create_family("å…¨çœŸæ•™", 3, "å¼Ÿå­");
 
         set("inquiry", ([
-                "È«Õæ½Ì" :  "ÎÒÈ«Õæ½ÌÊÇÌìÏÂµÀ¼ÒĞşÃÅÕı×Ú¡£\n",
+                "å…¨çœŸæ•™" :  "æˆ‘å…¨çœŸæ•™æ˜¯å¤©ä¸‹é“å®¶ç„é—¨æ­£å®—ã€‚\n",
         ]) );
 
         setup();

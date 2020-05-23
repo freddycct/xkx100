@@ -7,7 +7,7 @@ inherit F_CLEAN_UP;
 #include <ansi.h>
 
 int do_give(object me, object obj, object who);
-object i_have(object env,string name); // envÖÐÈ¡°üº¬ nameµÄÎïÆ·
+object i_have(object env,string name); // envä¸­å–åŒ…å« nameçš„ç‰©å“
 string filter_color(string arg);
 
 void create() { seteuid(getuid()); }
@@ -18,30 +18,30 @@ int main(object me, string arg)
 	object obj, who, *inv, obj2;
 	int i, amount;
 
-	if(!arg) return notify_fail("ÄãÒª¸øË­Ê²Ã´¶«Î÷£¿\n");
-	if( me->is_busy() ) return notify_fail("ÄãÉÏÒ»¸ö¶¯×÷»¹Ã»ÓÐÍê³É£¡\n");
+	if(!arg) return notify_fail("ä½ è¦ç»™è°ä»€ä¹ˆä¸œè¥¿ï¼Ÿ\n");
+	if( me->is_busy() ) return notify_fail("ä½ ä¸Šä¸€ä¸ªåŠ¨ä½œè¿˜æ²¡æœ‰å®Œæˆï¼\n");
 	if( sscanf(arg, "%s to %s", item, target)==2 ||
 		sscanf(arg, "%s %s", target, item)==2 );
-	else return notify_fail("ÄãÒª¸øË­Ê²Ã´¶«Î÷£¿\n");
+	else return notify_fail("ä½ è¦ç»™è°ä»€ä¹ˆä¸œè¥¿ï¼Ÿ\n");
 //	if(!objectp(who = present(target, environment(me))) ||
 	if(!objectp(who = i_have( environment(me),target )) ||
 		!living(who) || who->query_temp("noliving") )
-		return notify_fail("ÕâÀïÃ»ÓÐÕâ¸ö»îÈË¡£\n");
+		return notify_fail("è¿™é‡Œæ²¡æœ‰è¿™ä¸ªæ´»äººã€‚\n");
 	if( who->query("env/no_accept") )
-		return notify_fail("ÈË¼ÒÏÖÔÚ²»ÏëÒªÊ²Ã´¶«Î÷¡£\n");
+		return notify_fail("äººå®¶çŽ°åœ¨ä¸æƒ³è¦ä»€ä¹ˆä¸œè¥¿ã€‚\n");
 	if(sscanf(item, "%d %s", amount, item)==2)
 	{
 	//	if( !objectp(obj = present(item, me)) )	
 		if( !objectp(obj = i_have( me,item )) ) // me have item	
-			return notify_fail("ÄãÉíÉÏÃ»ÓÐÕâÑù¶«Î÷¡£\n");
+			return notify_fail("ä½ èº«ä¸Šæ²¡æœ‰è¿™æ ·ä¸œè¥¿ã€‚\n");
 		if( obj->query("no_drop") )
-			return notify_fail("ÕâÑù¶«Î÷²»ÄÜËæ±ã¸øÈË¡£\n");
+			return notify_fail("è¿™æ ·ä¸œè¥¿ä¸èƒ½éšä¾¿ç»™äººã€‚\n");
 		if( !obj->query_amount() )	
-			return notify_fail( obj->name() + "²»ÄÜ±»·Ö¿ª¸øÈË¡£\n");
+			return notify_fail( obj->name() + "ä¸èƒ½è¢«åˆ†å¼€ç»™äººã€‚\n");
 		if( amount < 1 )
-			return notify_fail("¶«Î÷µÄÊýÁ¿ÖÁÉÙÊÇÒ»¸ö¡£\n");
+			return notify_fail("ä¸œè¥¿çš„æ•°é‡è‡³å°‘æ˜¯ä¸€ä¸ªã€‚\n");
 		if( amount > obj->query_amount() ) 
-			return notify_fail("ÄãÃ»ÓÐÄÇÃ´¶àµÄ"+obj->name()+"¡£\n");
+			return notify_fail("ä½ æ²¡æœ‰é‚£ä¹ˆå¤šçš„"+obj->name()+"ã€‚\n");
 		else if( amount == (int)obj->query_amount() )
 			return do_give(me, obj, who);
 		else
@@ -64,12 +64,12 @@ int main(object me, string arg)
 		{
 			do_give(me, inv[i], who);
 		}
-		write("¸øºÃÁË¡£\n");
+		write("ç»™å¥½äº†ã€‚\n");
 		return 1;
 	}
 //	if(!objectp(obj = present(item, me)))
 	if(!objectp(obj = i_have( me,item)))
-		return notify_fail("ÄãÉíÉÏÃ»ÓÐÕâÑù¶«Î÷¡£\n");
+		return notify_fail("ä½ èº«ä¸Šæ²¡æœ‰è¿™æ ·ä¸œè¥¿ã€‚\n");
 	return do_give(me, obj, who);
 }
 
@@ -77,15 +77,15 @@ int do_give(object me, object obj, object who)
 {
 
 	if( obj->query("no_drop") )
-		return notify_fail("ÕâÑù¶«Î÷²»ÄÜËæ±ã¸øÈË¡£\n");
+		return notify_fail("è¿™æ ·ä¸œè¥¿ä¸èƒ½éšä¾¿ç»™äººã€‚\n");
 	if( obj->query_temp("is_rided_by") )
-		return notify_fail("°Ñ×øÆï¸ø±ðÈË£¬Äã²»¾ÍµôµØÉÏÁË£¿\n");
+		return notify_fail("æŠŠåéª‘ç»™åˆ«äººï¼Œä½ ä¸å°±æŽ‰åœ°ä¸Šäº†ï¼Ÿ\n");
 	if( userp(obj) )
-		return notify_fail("ÄãÖ»ÄÜÂôÍæ¼Ò¡£\n");
-	// Ôö¼Ó¶ÔÈÎÎñÎïÆ·½±ÀøµÄÅÐ¶Ï¡£
+		return notify_fail("ä½ åªèƒ½å–çŽ©å®¶ã€‚\n");
+	// å¢žåŠ å¯¹ä»»åŠ¡ç‰©å“å¥–åŠ±çš„åˆ¤æ–­ã€‚
 	// Added by Constant Jan 5 2001
 	if (obj->query("owner") != me->query("id") && (obj->query("taskobj")))
-		return notify_fail("ÈÎÎñ±ØÐë×Ô¼ºÍê³É¡£\n");
+		return notify_fail("ä»»åŠ¡å¿…é¡»è‡ªå·±å®Œæˆã€‚\n");
 	if (obj->query("dynamic_quest") && TASK_D->quest_reward(me, who, obj))
 		return 1;
 	if ((strsrch(obj->query("name"), me->query("quest/betrayer/name")) >= 0)
@@ -101,19 +101,19 @@ int do_give(object me, object obj, object who)
 		&& who->accept_quest_kill(me, obj))
 		return 1;
 	if( !interactive(who) && !who->accept_object(me, obj) )
-		return notify_fail("¶Ô·½²»Ïë½ÓÊÜÕâÑù¶«Î÷¡£\n");
+		return notify_fail("å¯¹æ–¹ä¸æƒ³æŽ¥å—è¿™æ ·ä¸œè¥¿ã€‚\n");
 	if (!objectp(obj)) return 1;
 	if (obj->query("id") == "bao wu")
 	{
 		destruct(obj);
 		return 1;
 	}
-// Èë°ï»áµÄÍ¶Ãû×´
+// å…¥å¸®ä¼šçš„æŠ•åçŠ¶
 	if( obj->query("id") == "head")
 		who->set_temp("party/toumingzhuang", me->query("id"));
 	if( !userp(who) && obj->value() )
 	{
-		message_vision("$NÄÃ³ö" + obj->short() + "¸ø$n¡£\n", me, who);
+		message_vision("$Næ‹¿å‡º" + obj->short() + "ç»™$nã€‚\n", me, who);
 		destruct(obj);
         	me->save();
 	        if (userp(who)) who->save();
@@ -121,9 +121,9 @@ int do_give(object me, object obj, object who)
 	}
 	else if( obj->move(who) )
 		{
-			printf("Äã¸ø%sÒ»%s%s¡£\n", who->name(), obj->query("unit"), obj->name());
-			message("vision", sprintf("%s¸øÄãÒ»%s%s¡£\n", me->name(), obj->query("unit"), obj->name()), who );
-			message("vision", sprintf("%s¸ø%sÒ»%s%s¡£\n", me->name(), who->name(),
+			printf("ä½ ç»™%sä¸€%s%sã€‚\n", who->name(), obj->query("unit"), obj->name());
+			message("vision", sprintf("%sç»™ä½ ä¸€%s%sã€‚\n", me->name(), obj->query("unit"), obj->name()), who );
+			message("vision", sprintf("%sç»™%sä¸€%s%sã€‚\n", me->name(), who->name(),
 			obj->query("unit"), obj->name()), environment(me), ({me, who}) );
 			me->save();
 			if (userp(who)) who->save();
@@ -186,10 +186,10 @@ int help(object me)
 {
 write(@HELP
 
-Ö¸Áî¸ñÊ½ : give <ÎïÆ·Ãû³Æ> to <Ä³ÈË>
-      »ò : give <Ä³ÈË> <ÎïÆ·Ãû³Æ>
+æŒ‡ä»¤æ ¼å¼ : give <ç‰©å“åç§°> to <æŸäºº>
+      æˆ– : give <æŸäºº> <ç‰©å“åç§°>
  
-    Õâ¸öÖ¸Áî¿ÉÒÔÈÃÄã½«Ä³ÑùÎïÆ·¸ø±ðÈË£¬µ±È»£¬Ê×ÏÈÄãÒªÓµÓÐÕâÑùÎïÆ·¡£
+    è¿™ä¸ªæŒ‡ä»¤å¯ä»¥è®©ä½ å°†æŸæ ·ç‰©å“ç»™åˆ«äººï¼Œå½“ç„¶ï¼Œé¦–å…ˆä½ è¦æ‹¥æœ‰è¿™æ ·ç‰©å“ã€‚
  
 HELP
     );

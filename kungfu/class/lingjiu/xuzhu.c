@@ -8,15 +8,15 @@ inherit F_MANAGER;
 
 void create()
 {
-	set_name("ĞéÖñ", ({ "xu zhu", "xu", "zhu" }));
+	set_name("è™šç«¹", ({ "xu zhu", "xu", "zhu" }));
 	set("long",
-		"ÕâÊÇÒ»¸ö¶şÊ®ÎåÁùËêµÄÄêÇáÈË£¬Å¨Ã¼´óÑÛ£¬´ó´óµÄ±Ç×Ó±âÆ½ÏÂËú£¬ÈİÃ²
-ÆÄÎª³óÂª¡£Éí´©Ò»¼ş»ª¹óÑÅÖÂµÄ³¤ÅÛ£¬µ¹Ê¹Ëû¸üÏÔ¼¸·Ö¾«Éñ¡£
-Ëû¾ÍÊÇÌìÉ½Í¯ÀÑµÄ¾ÈÃü¶÷ÈË¡£\n");
-	set("title", "ÁéğÕ¹¬µÚ¶ş´úÕÆÃÅÈË");
-	set("gender", "ÄĞĞÔ");
+		"è¿™æ˜¯ä¸€ä¸ªäºŒåäº”å…­å²çš„å¹´è½»äººï¼Œæµ“çœ‰å¤§çœ¼ï¼Œå¤§å¤§çš„é¼»å­æ‰å¹³ä¸‹å¡Œï¼Œå®¹è²Œ
+é¢‡ä¸ºä¸‘é™‹ã€‚èº«ç©¿ä¸€ä»¶åè´µé›…è‡´çš„é•¿è¢ï¼Œå€’ä½¿ä»–æ›´æ˜¾å‡ åˆ†ç²¾ç¥ã€‚
+ä»–å°±æ˜¯å¤©å±±ç«¥å§¥çš„æ•‘å‘½æ©äººã€‚\n");
+	set("title", "çµé¹«å®«ç¬¬äºŒä»£æŒé—¨äºº");
+	set("gender", "ç”·æ€§");
 	set("age", 26);
-	set("nickname", HIR "ÃÎÀÉ" NOR);
+	set("nickname", HIR "æ¢¦éƒ" NOR);
 	set("shen_type",1);
 	set("attitude", "peaceful");
 
@@ -69,11 +69,11 @@ void create()
 		(: exert_function, "recover" :),
 	}) );	
 	set("no_teach", ([
-		"beiming-shengong" : "°¦¡­¡­ÕâÊÇÊ¦×ğ×¢ÈçÎÒÌåÄÚµÄ£¬½ÌÎÒÔõÃ´½Ì¸øÄã£¿",
-                "hunyuan-yiqi"     : "¡­Õâ¡­Õâ¶«Î÷ÎÒ¶¼Ã»Ñ§ºÃ¡£",
-                "shaolin-shenfa"   : "¡­Õâ¸ö¡­àÅ¡­ÎÒ»¹ÊÇ½ÌÄã±¾ÃÅµÄÇá¹¦ºÃÁË¡£",
+		"beiming-shengong" : "å”‰â€¦â€¦è¿™æ˜¯å¸ˆå°Šæ³¨å¦‚æˆ‘ä½“å†…çš„ï¼Œæ•™æˆ‘æ€ä¹ˆæ•™ç»™ä½ ï¼Ÿ",
+                "hunyuan-yiqi"     : "â€¦è¿™â€¦è¿™ä¸œè¥¿æˆ‘éƒ½æ²¡å­¦å¥½ã€‚",
+                "shaolin-shenfa"   : "â€¦è¿™ä¸ªâ€¦å—¯â€¦æˆ‘è¿˜æ˜¯æ•™ä½ æœ¬é—¨çš„è½»åŠŸå¥½äº†ã€‚",
 	]));
-	create_family("åĞÒ£ÅÉ",2,"ÕÆÃÅ");
+	create_family("é€é¥æ´¾",2,"æŒé—¨");
 	setup();
 	carry_object("/d/lingjiu/obj/changpao")->wear();
 	carry_object("/clone/weapon/sword")->wield();
@@ -90,20 +90,20 @@ void attempt_apprentice(object ob)
 {
 	if ((int)ob->query_skill("bahuang-gong", 1) < 50) 
 	{
-		command("say " + RANK_D->query_respect(ob) + "ÊÇ·ñ»¹Ó¦¸Ã¶àÁ·Á·°Ë»ÄÁùºÏÎ¨ÎÒ¶À×ğ¹¦£¿");
+		command("say " + RANK_D->query_respect(ob) + "æ˜¯å¦è¿˜åº”è¯¥å¤šç»ƒç»ƒå…«è’å…­åˆå”¯æˆ‘ç‹¬å°ŠåŠŸï¼Ÿ");
 		return;
 	}  
-	if ((string)ob->query("gender")=="Å®ĞÔ")
+	if ((string)ob->query("gender")=="å¥³æ€§")
 	{
   	      command("nod");
-  	      command("say ½ñÈÕĞ¡É®¡­ÔÚÏÂ¾ÍÊÕÏÂÄã£¬ÒÔºóÄãÒª¶à×öºÃÊÂ¡£");
-  	      command("say ÁíÍâ£¬ÒÔºóÈôÓöµ½ÁËÉÙÁÖËÂµÄ´óÊ¦£¬¿ÉÇ§Íò²»ÄÜºÍËûÃÇÎªÄÑ¡£");
+  	      command("say ä»Šæ—¥å°åƒ§â€¦åœ¨ä¸‹å°±æ”¶ä¸‹ä½ ï¼Œä»¥åä½ è¦å¤šåšå¥½äº‹ã€‚");
+  	      command("say å¦å¤–ï¼Œä»¥åè‹¥é‡åˆ°äº†å°‘æ—å¯ºçš„å¤§å¸ˆï¼Œå¯åƒä¸‡ä¸èƒ½å’Œä»–ä»¬ä¸ºéš¾ã€‚");
 		command("recruit " + ob->query("id"));
 		return;
 	}
 	else
 	{
-		message_vision("ĞéÖñµÉ×ÅÄã¿´ÁË°ëÌì,ËµµÀ£º¡°¸óÏÂ²»»áÊÇÏëÀ´ÇÀÎÒµÄÉúÒâ°É?¡±\n",ob);
+		message_vision("è™šç«¹çªç€ä½ çœ‹äº†åŠå¤©,è¯´é“ï¼šâ€œé˜ä¸‹ä¸ä¼šæ˜¯æƒ³æ¥æŠ¢æˆ‘çš„ç”Ÿæ„å§?â€\n",ob);
 		return;
 	}
 }
@@ -113,6 +113,6 @@ int recruit_apprentice(object ob)
         {
 		if((string)ob->query("class") != "dancer")
 			ob->set("class", "dancer");
-		ob->set("title","ÁéğÕ¹¬µÚÈı´úµÜ×Ó");
+		ob->set("title","çµé¹«å®«ç¬¬ä¸‰ä»£å¼Ÿå­");
 	}
 }

@@ -4,9 +4,9 @@ inherit NPC;
 
 void create()
 {
-	set_name("Çå·ç", ({ "qing feng", "qing", "feng" }));
-	set("long", "ËûÊÇÎäµ±É½µÄĞ¡µÀÍ¯¡£\n");
-	set("gender", "ÄĞĞÔ");
+	set_name("æ¸…é£", ({ "qing feng", "qing", "feng" }));
+	set("long", "ä»–æ˜¯æ­¦å½“å±±çš„å°é“ç«¥ã€‚\n");
+	set("gender", "ç”·æ€§");
 	set("age", 16);
 	set("attitude", "peaceful");
 	set("shen_type", 1);
@@ -36,14 +36,14 @@ void create()
 	set_temp("apply/defense", 15);
 	set_temp("apply/damage", 5);
 	set("inquiry", ([
-		"Çå·ç" : "Æ¶µÀ±ãÊÇÇå·ç£¬²»ÖªÕâÎ»"+ RANK_D->query_respect(this_player())+"ÓĞºÎ¼û½Ì£¿",
-		"Îäµ±" : "Æ¶µÀ±ãÊÇÎäµ±ÅÉµÜ×Ó£¬²»ÖªÕâÎ»"+ RANK_D->query_respect(this_player())+"ÓĞºÎ¼û½Ì£¿",
-		"Îäµ±ÅÉ" : "Æ¶µÀ±ãÊÇÎäµ±ÅÉµÜ×Ó£¬²»ÖªÕâÎ»"+ RANK_D->query_respect(this_player())+"ÓĞºÎ¼û½Ì£¿",
-		"ÕÅÎŞ¼É" : "Ğ¡Ê¦Êå£¿°¦£¬²»ÖªµÀËûÏÖÔÚ²¡ºÃÁËÃ»ÓĞ£¬´ó¼Ò¶¼ºÃÉú¹ÒÄîËû¡£",
-		"ÕÅÈı·á" : "×æÊ¦Ò¯¾ÍÔÚÀïÃæ£¬²»ÖªÕâÎ»"+ RANK_D->query_respect(this_player())+"ÊÇ·ñÓĞÒªÊÂÕÒÎÒÃÇ×æÊ¦Ò¯?",
+		"æ¸…é£" : "è´«é“ä¾¿æ˜¯æ¸…é£ï¼Œä¸çŸ¥è¿™ä½"+ RANK_D->query_respect(this_player())+"æœ‰ä½•è§æ•™ï¼Ÿ",
+		"æ­¦å½“" : "è´«é“ä¾¿æ˜¯æ­¦å½“æ´¾å¼Ÿå­ï¼Œä¸çŸ¥è¿™ä½"+ RANK_D->query_respect(this_player())+"æœ‰ä½•è§æ•™ï¼Ÿ",
+		"æ­¦å½“æ´¾" : "è´«é“ä¾¿æ˜¯æ­¦å½“æ´¾å¼Ÿå­ï¼Œä¸çŸ¥è¿™ä½"+ RANK_D->query_respect(this_player())+"æœ‰ä½•è§æ•™ï¼Ÿ",
+		"å¼ æ— å¿Œ" : "å°å¸ˆå”ï¼Ÿå”‰ï¼Œä¸çŸ¥é“ä»–ç°åœ¨ç—…å¥½äº†æ²¡æœ‰ï¼Œå¤§å®¶éƒ½å¥½ç”ŸæŒ‚å¿µä»–ã€‚",
+		"å¼ ä¸‰ä¸°" : "ç¥–å¸ˆçˆ·å°±åœ¨é‡Œé¢ï¼Œä¸çŸ¥è¿™ä½"+ RANK_D->query_respect(this_player())+"æ˜¯å¦æœ‰è¦äº‹æ‰¾æˆ‘ä»¬ç¥–å¸ˆçˆ·?",
 	]));
 
-	create_family("Îäµ±ÅÉ", 5, "µÜ×Ó");
+	create_family("æ­¦å½“æ´¾", 5, "å¼Ÿå­");
 	setup();
 	carry_object(CLOTH_DIR"dao-cloth")->wear();
 	carry_object(CLOTH_DIR"dao-shoe")->wear();

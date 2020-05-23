@@ -4,11 +4,11 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "���鴦");
+	set("short", "秘书处");
 	set("long", @LONG
-�����ǵ���̨�����鴦���������۵ذ������Ŵ��İ칫��������
-����������λ���顣��ְλ��С������̨���СС����������϶���
-���ǰѳ֡�������̨���칫�ҡ�
+这里是电视台的秘书处，屋内显眼地摆着两张大大的办公桌，桌子
+后面坐着两位秘书。别看职位虽小，电视台大大小小的事务基本上都由
+她们把持。东面是台长办公室。
 LONG);
 	set("outdoors", "5lt");
 	set("exits", ([

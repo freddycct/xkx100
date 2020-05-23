@@ -21,19 +21,19 @@ int main(object me, string arg)
         	write("MudOS v22pre32\n");
           return 1;
         }
-        //ÆäÊµÊÇÒ»¸ökickoutÃüÁî 
-        // by qingyun Å¼¶û»á³ö´í ¿ª¸öºóÃÅÈÃ´óÃ×kickout :P
+        //å…¶å®æ˜¯ä¸€ä¸ªkickoutå‘½ä»¤ 
+        // by qingyun å¶å°”ä¼šå‡ºé”™ å¼€ä¸ªåé—¨è®©å¤§ç±³kickout :P
         if( !arg || sscanf(arg, "%s", arg)!=1 )
                 return notify_fail("argument error!\n");
 
 
         wiz_status=SECURITY_D->get_status(me) ;
 
-//      if (wiz_status != "(admin)" && !me->query("marks/ÌßÈË") )
+//      if (wiz_status != "(admin)" && !me->query("marks/è¸¢äºº") )
 //              return notify_fail("you r not admin!\n");
 
         ob = LOGIN_D->find_body(arg);
-        if (!ob) return notify_fail("ß×... ÓĞÕâ¸öÈËÂğ?\n");
+        if (!ob) return notify_fail("å’¦... æœ‰è¿™ä¸ªäººå—?\n");
 
 //              if (    !living(ob)
 //              ||      !ob->is_character()
@@ -42,8 +42,8 @@ int main(object me, string arg)
 	      return notify_fail("ob error!\n");
         log_file("kickout_player", sprintf("[%s] %s kickout %s\n",
                         ctime(time()), geteuid(me), geteuid(ob)));
-//      message_vision( HIW "\n$N°Ñ$nÌßÁË³öÈ¥\n\n" NOR, me,ob);
-        tell_object( me, "Äã°Ñ " + ob->query("name") + " ÌßÁË³öÈ¥!\n");
+//      message_vision( HIW "\n$NæŠŠ$nè¸¢äº†å‡ºå»\n\n" NOR, me,ob);
+        tell_object( me, "ä½ æŠŠ " + ob->query("name") + " è¸¢äº†å‡ºå»!\n");
 //      seteuid(getuid(ob));
 //      command("quit");
 //me->save();
@@ -64,9 +64,9 @@ int main(object me, string arg)
 int help(object me)
 {
 	write(@HELP
-Ö¸Áî¸ñÊ½ : version
+æŒ‡ä»¤æ ¼å¼ : version
  
-    Õâ¸öÖ¸Áî»áÏÔÊ¾ÓÎÏ·Ä¿Ç°ËùÓÃµÄ MudOS driver °æ±¾¡£
+    è¿™ä¸ªæŒ‡ä»¤ä¼šæ˜¾ç¤ºæ¸¸æˆç›®å‰æ‰€ç”¨çš„ MudOS driver ç‰ˆæœ¬ã€‚
  
 HELP
 	);

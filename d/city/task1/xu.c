@@ -1,13 +1,13 @@
-// xu.c Ğì³¤ÀÏ
+// xu.c å¾é•¿è€
  
 inherit NPC;
  
 void create()
 {
-	set_name("Ğì³¤ÀÏ", ({ "xu  zhanglao"}));
-	set("nickname", "Ø¤°ïÅÑÍ½");
-	set("long", "Ø¤°ïµÄÅÑÍ½£¬¾İËµØ¤°ïµÜ×ÓÕıÔÚËÄ´¦´òÌ½ËûµÄ×Ù¼£¡£\n");
-	set("gender", "ÄĞĞÔ");
+	set_name("å¾é•¿è€", ({ "xu  zhanglao"}));
+	set("nickname", "ä¸å¸®å›å¾’");
+	set("long", "ä¸å¸®çš„å›å¾’ï¼Œæ®è¯´ä¸å¸®å¼Ÿå­æ­£åœ¨å››å¤„æ‰“æ¢ä»–çš„è¸ªè¿¹ã€‚\n");
+	set("gender", "ç”·æ€§");
 	set("age", 66);
 	set("attitude", "peaceful");
 	set("str", 28);

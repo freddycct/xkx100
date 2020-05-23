@@ -6,9 +6,9 @@ inherit NPC;
 
 void create()
 {
-	set_name(HIG"ÖñÒ¶Çà"NOR, ({ "zhuye qing", "snake" }) );
-	set("long", "Ò»Ö»°ºÊ×ÍÂ×Å"HIR"ºìĞÅ"NOR"µÄ"HIG"ÖñÒ¶Çà"NOR"Õı»¢ÊÓíñíñµØ¶¢ÖøÄã¡£\n");
-	set("race", "ÅÀÉß");
+	set_name(HIG"ç«¹å¶é’"NOR, ({ "zhuye qing", "snake" }) );
+	set("long", "ä¸€åªæ˜‚é¦–åç€"HIR"çº¢ä¿¡"NOR"çš„"HIG"ç«¹å¶é’"NOR"æ­£è™è§†çœˆçœˆåœ°ç›¯è‘—ä½ ã€‚\n");
+	set("race", "çˆ¬è›‡");
 	set("age", 3);
 	set("attitude", "peaceful");
 	set("max_jing", 80);
@@ -45,7 +45,7 @@ int hit_ob(object me, object ob, int damage)
 	if( random(damage) > (int)ob->query_temp("apply/armor")
 	&&	(int)ob->query_condition("snake_poison") < 10 ) {
 		ob->apply_condition("snake_poison", 20);
-        tell_object(ob, HIG "Äã¾õµÃ±»Ò§ÖĞµÄµØ·½Ò»ÕóÂéÄ¾£¡\n" NOR );
+        tell_object(ob, HIG "ä½ è§‰å¾—è¢«å’¬ä¸­çš„åœ°æ–¹ä¸€é˜µéº»æœ¨ï¼\n" NOR );
 	}
 }
 void killob(object ob)

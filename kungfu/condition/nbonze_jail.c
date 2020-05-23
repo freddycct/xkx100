@@ -1,4 +1,4 @@
-// nbonze_jail.c ÄÏÉÙÁÖ¼àÓü
+// nbonze_jail.c å—å°‘æ—ç›‘ç‹±
 
 #include <ansi.h>
 #include <login.h>
@@ -7,8 +7,8 @@ int update_condition(object me, int duration)
 {
 	if (duration < 1) {
 		me->move("/d/nanshaolin/shanmen");
-		message("vision", HIY"Ö»ÌıÆ¹µØÒ»Éù£¬ÄãÏÅÁËÒ»Ìø£¬¶¨¾¦Ò»¿´£¬\nÔ­À´ÊÇÒ»¸ö»è»è³Á³ÁµÄ¼Ò»ï´Ó´óÃÅÀï±»ÈÓÁË³öÀ´£¡\n" NOR, environment(me), me);
-		tell_object(me, HIY"Ö»¾õÒ»ÕóÌÚÔÆ¼İÎí°ã£¬Äã»è»è³Á³ÁµØ±»ÈÓ³öÁËÄÏÉÙÁÖËÂ£¡\n" NOR);
+		message("vision", HIY"åªå¬ä¹’åœ°ä¸€å£°ï¼Œä½ å“äº†ä¸€è·³ï¼Œå®šç›ä¸€çœ‹ï¼Œ\nåŸæ¥æ˜¯ä¸€ä¸ªæ˜æ˜æ²‰æ²‰çš„å®¶ä¼™ä»å¤§é—¨é‡Œè¢«æ‰”äº†å‡ºæ¥ï¼\n" NOR, environment(me), me);
+		tell_object(me, HIY"åªè§‰ä¸€é˜µè…¾äº‘é©¾é›¾èˆ¬ï¼Œä½ æ˜æ˜æ²‰æ²‰åœ°è¢«æ‰”å‡ºäº†å—å°‘æ—å¯ºï¼\n" NOR);
 		me->set("startroom", START_ROOM);
 		return 0;
 	}

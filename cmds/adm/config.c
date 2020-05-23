@@ -10,10 +10,10 @@ int main(object me, string arg)
 	int num;
 
 	if( !arg || sscanf(arg, "%d", num)!=1 ) {
-		write("Mud Ãû³Æ£º\t\t" + get_config(__MUD_NAME__) + "\n"); 
-		write("ÍøÂçµØÖ·Ãû³Æ·şÎñÆ÷²ººÅ£º" + get_config(__ADDR_SERVER_IP__) + "\n"); 
-		write("Mudlib Â·¾¶£º\t\t" + get_config(__MUD_LIB_DIR__) + "\n"); 
-		write("MudOS ¿ÉÖ´ĞĞÎÄ¼şÂ·¾¶£º\t" + get_config(__BIN_DIR__) + "\n"); 
+		write("Mud åç§°ï¼š\t\t" + get_config(__MUD_NAME__) + "\n"); 
+		write("ç½‘ç»œåœ°å€åç§°æœåŠ¡å™¨åŸ å·ï¼š" + get_config(__ADDR_SERVER_IP__) + "\n"); 
+		write("Mudlib è·¯å¾„ï¼š\t\t" + get_config(__MUD_LIB_DIR__) + "\n"); 
+		write("MudOS å¯æ‰§è¡Œæ–‡ä»¶è·¯å¾„ï¼š\t" + get_config(__BIN_DIR__) + "\n"); 
 		return 1;
 	}
 
@@ -24,9 +24,9 @@ int main(object me, string arg)
 int help(object me)
 {
 write(@HELP
-Ö¸Áî¸ñÊ½ : config
+æŒ‡ä»¤æ ¼å¼ : config
 
-ÏÔÊ¾±¾ÄàÌ¶µÄÆô¶¯ÅäÖÃ¡£
+æ˜¾ç¤ºæœ¬æ³¥æ½­çš„å¯åŠ¨é…ç½®ã€‚
 HELP
      );
      return 1;

@@ -11,14 +11,14 @@ int main(object me, string arg)
 	object ob,link_ob;
 	string id,password;
 	if(!arg||sscanf(arg,"%s %s",id,password)!=2)
-		return notify_fail("ÇÆÄãÒª¸ü¸ÄË­µÄÃÜÂë£¿¸ü¸ÄÃÜÂëÖ®Ç°ÇëÈıË¼Ò»¶¨ÒªµÃµ½Æä±¾ÈËÍ¬Òâ¡£\n");
+		return notify_fail("ç§ä½ è¦æ›´æ”¹è°çš„å¯†ç ï¼Ÿæ›´æ”¹å¯†ç ä¹‹å‰è¯·ä¸‰æ€ä¸€å®šè¦å¾—åˆ°å…¶æœ¬äººåŒæ„ã€‚\n");
 	ob=find_player(id);
 
 	if(!ob)
 	{
 		ob = new(LOGIN_OB);
 		ob->set("id",id);
-		if( !ob->restore() ) return notify_fail("Ã»ÓĞÕâ¸öÍæ¼Ò¡£\n");
+		if( !ob->restore() ) return notify_fail("æ²¡æœ‰è¿™ä¸ªç©å®¶ã€‚\n");
 		else
 		{
 			ob->set("password",crypt(password,0));
@@ -35,7 +35,7 @@ int main(object me, string arg)
 		return 1;
 	}
 	else
-		return notify_fail("´íÎó¡£ÎŞ·¨½øĞĞĞŞ¸Ä¡£\n");
+		return notify_fail("é”™è¯¯ã€‚æ— æ³•è¿›è¡Œä¿®æ”¹ã€‚\n");
 	return 1;
 }
 
@@ -43,9 +43,9 @@ int main(object me, string arg)
 int help(object me)
 {
 	write(@HELP
-Ö¸Áî¸ñÊ½ : passwd
+æŒ‡ä»¤æ ¼å¼ : passwd
 
-Õâ¸öÖ¸Áî¿ÉÒÔĞŞ¸ÄÄãµÄÈËÎïÃÜÂë¡£
+è¿™ä¸ªæŒ‡ä»¤å¯ä»¥ä¿®æ”¹ä½ çš„äººç‰©å¯†ç ã€‚
 
 HELP
     );

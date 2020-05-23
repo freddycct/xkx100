@@ -1,4 +1,4 @@
-// fanye.c ·¶æè
+// fanye.c èŒƒéª…
 
 #include <ansi.h>
 inherit NPC;
@@ -6,10 +6,10 @@ inherit F_MASTER;
 
 void create()
 {
-	set_name("·¶æè", ({ "fan ye", "fan" }));
-	set("title",  "´óÀíË¾Âí" );
-	set("long", "ËûÊÇ´óÀí¹úÈı¹«Ö®Ò»¡£\n");
-	set("gender", "ÄĞĞÔ");
+	set_name("èŒƒéª…", ({ "fan ye", "fan" }));
+	set("title",  "å¤§ç†å¸é©¬" );
+	set("long", "ä»–æ˜¯å¤§ç†å›½ä¸‰å…¬ä¹‹ä¸€ã€‚\n");
+	set("gender", "ç”·æ€§");
 	set("age", 40);
 	set("class", "officer");
 	set("attitude", "friendly");
@@ -60,6 +60,6 @@ void create()
 	carry_object("/clone/weapon/changjian")->wield();
 	add_money("silver", 20);
 
-	create_family("´óÀí¶Î¼Ò",19,"Îä½«");
+	create_family("å¤§ç†æ®µå®¶",19,"æ­¦å°†");
 }
 

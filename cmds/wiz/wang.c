@@ -6,11 +6,11 @@ inherit F_CLEAN_UP;
 #include <ansi.h>
 
 string *dd= ({
-/* ³ÇÊĞ */
+/* åŸå¸‚ */
 	"/mobei/", "/guanwai/", "/huijiang/", "/city/", "/beijing/", "/chengdu/", "/changan/", "/wuxi/", "/suzhou/", "/hangzhou/", "/fuzhou/", "/quanzhou/", "/lingzhou/", "/lanzhou/", "/luoyang/", "/xiangyang/", "/jiangling/", "/foshan/", "/jiaxing/", "/dali/", "/gaochang/", "/yixing/", "/hanzhong/", "/kaifeng/", "/nanyang/", "/yueyang/", "/yanping/", "/taiwan/",
-/* ·ç¾° */
+/* é£æ™¯ */
 	"/hasake/", "/shaolin/", "/nanshaolin/", "/wudang/", "/emei/", "/kunlun/", "/qingcheng/", "/huangshan/", "/taishan/", "/huashan/", "/henshan/", "/hengshan/", "/songshan/", "/qilian/", "/wuyi/", "/wuliang/", "/huanghe/", "/changcheng/", "/huanggong/", "/shouxihu/", "/beihai/",
-/* ÃÅÅÉ */
+/* é—¨æ´¾ */
 	"/gaibang/", "/quanzhen/", "/gumu/", "/yanziwu/", "/tianlongsi/", "/xueshan/", "/xuedao/", "/baihuagu/", "/jueqinggu/", "/wanjiegu/", "/meizhuang/", "/guiyun/", "/village/", "/taohuacun/", "/taohua/", "/xiakedao/", "/binghuo/", "/shenlong/", "/xiaoyao/", "/lingjiu/", "/tiezhang/", "/heimuya/", "/mingjiao/", "/xingxiu/", "/baituo/", "/wudujiao/", "/heizhao/", "/jianzhong/", "/jinshe/", "lingxiao", "/shiliang/", "/yubifeng/",
 	"/death/","/wuguan/","/wizard/",
 });
@@ -27,7 +27,7 @@ int main(object me, string file)
 
 	if(!file)
 	{
-		str = HIM"                            Íæ¼ÒµØÓò·Ö²¼±í\n                            ==============\n\n";
+		str = HIM"                            ç©å®¶åœ°åŸŸåˆ†å¸ƒè¡¨\n                            ==============\n\n";
 		user = users();
 		u2 = sizeof(user);
 		d2 = sizeof(dd);
@@ -45,9 +45,9 @@ int main(object me, string file)
 				   if (flag==0)
 				   {
 				   	flag=1;
-    			  str+=HIY+to_chinese(replace_string(dd[d1],"/",""))+HIC"£º";
+    			  str+=HIY+to_chinese(replace_string(dd[d1],"/",""))+HIC"ï¼š";
 				   }
-				    str += user[u1]->query("name")+"¡¢";
+				    str += user[u1]->query("name")+"ã€";
 					}
 				}
 			}
@@ -62,11 +62,11 @@ int main(object me, string file)
 		env=find_object(file);
 		if(!env) env=find_player(file);
 		if(!env) env=find_living(file);
-		if(!env) return notify_fail("Ã»ÓĞÕâ¸öµØ·½»òÍæ¼Ò£¡\n");
+		if(!env) return notify_fail("æ²¡æœ‰è¿™ä¸ªåœ°æ–¹æˆ–ç©å®¶ï¼\n");
 //		if( !me->visible(env) )
-//			return notify_fail("Ã»ÓĞÕâ¸öµØ·½»òÍæ¼Ò£¡\n");
+//			return notify_fail("æ²¡æœ‰è¿™ä¸ªåœ°æ–¹æˆ–ç©å®¶ï¼\n");
 		if (living(env)) env=environment(env);
-		if(!env) return notify_fail("Õâ¸ö»·¾³²»´æÔÚ£¡\n");
+		if(!env) return notify_fail("è¿™ä¸ªç¯å¢ƒä¸å­˜åœ¨ï¼\n");
 	}
 	else
 	{
@@ -82,11 +82,11 @@ int main(object me, string file)
 				dirs[i] = 0;
 		dirs -= ({ 0 });
 		if( sizeof(dirs)==0 )
-			str += "    ÕâÀïÃ»ÓĞÈÎºÎÃ÷ÏÔµÄ³öÂ·¡£\n";
+			str += "    è¿™é‡Œæ²¡æœ‰ä»»ä½•æ˜æ˜¾çš„å‡ºè·¯ã€‚\n";
 		else if( sizeof(dirs)==1 )
-				str +="    ÕâÀïÎ¨Ò»µÄ³ö¿ÚÊÇ " + BOLD HIY + dirs[0] + NOR + "¡£\n";
+				str +="    è¿™é‡Œå”¯ä¸€çš„å‡ºå£æ˜¯ " + BOLD HIY + dirs[0] + NOR + "ã€‚\n";
 			else
-				str += sprintf("    ÕâÀïÃ÷ÏÔµÄ³ö¿ÚÊÇ " + BOLD HIY+ "%s" + NOR + " ºÍ " + BOLD HIY+ "%s" + NOR + "¡£\n", implode(dirs[0..sizeof(dirs)-2], "¡¢"), dirs[sizeof(dirs)-1]);
+				str += sprintf("    è¿™é‡Œæ˜æ˜¾çš„å‡ºå£æ˜¯ " + BOLD HIY+ "%s" + NOR + " å’Œ " + BOLD HIY+ "%s" + NOR + "ã€‚\n", implode(dirs[0..sizeof(dirs)-2], "ã€"), dirs[sizeof(dirs)-1]);
 	}
 	inv = all_inventory(env);
 	for(i=0; i<sizeof(inv); i++)
@@ -103,9 +103,9 @@ int main(object me, string file)
 int help (object me)
 {
 	write(@HELP
-Ö¸Áî¸ñÊ½: wang [place or sb.]
+æŒ‡ä»¤æ ¼å¼: wang [place or sb.]
  
-Õâ¸öÖ¸ÁîÈÃÄã²é¿´Ô¶´¦¾°Îï¡£
+è¿™ä¸ªæŒ‡ä»¤è®©ä½ æŸ¥çœ‹è¿œå¤„æ™¯ç‰©ã€‚
  
 HELP
 );

@@ -6,11 +6,11 @@ int ask_me();
 
 void create()
 {
-	set_name("÷è÷ë»¨ÎÆ", ({ "picture"}) );
-	set("gender", "ÄÐÐÔ" );
+	set_name("éº’éºŸèŠ±çº¹", ({ "picture"}) );
+	set("gender", "ç”·æ€§" );
 	set("age", 34);
 	set("long",
-	"ÕâÊÇÒ»Î»Î÷ÏÄÒ»Æ·ÌÃÖÐ¾«Ñ¡³öÀ´µÄ¸ßÊÖ£¬ËûÃÇµÄÎä¹¦¸ö¸ö¶¼Í»³öÒ»¸öºÝ×Ö¡£\n");
+	"è¿™æ˜¯ä¸€ä½è¥¿å¤ä¸€å“å ‚ä¸­ç²¾é€‰å‡ºæ¥çš„é«˜æ‰‹ï¼Œä»–ä»¬çš„æ­¦åŠŸä¸ªä¸ªéƒ½çªå‡ºä¸€ä¸ªç‹ å­—ã€‚\n");
 	set("max_qi", 5000);
 	set("max_jing", 5000);
 	set("max_neili", 5000);
@@ -93,9 +93,9 @@ ited"))
 		set_skill("xiaowuxiang", maxskill);
 		if (!present("fa lun",obj))
 			carry_object("/d/xueshan/obj/falun")->wield();
-		obj->set("title","Ò»Æ·ÌÃÉ±ÊÖ");
+		obj->set("title","ä¸€å“å ‚æ€æ‰‹");
 		obj->set_weight(500000);
-		set_name("Î÷ÏÄÏ¸×÷", ({ "xi zuo","xz"}) );
+		set_name("è¥¿å¤ç»†ä½œ", ({ "xi zuo","xz"}) );
 		if (ob->query("id") == obj->query_temp("bt_ownname"))
 			obj->kill_ob(ob);
 		remove_call_out ("destroy_npc");
@@ -104,7 +104,7 @@ ited"))
 }
 void destroy_npc()
 {
-	message_vision("" + (string)this_object()->query("name") + "ºöÈ»´òÁË¸ö¶ßàÂ£¬²»ÓÉÐÄÉú¾åÒâ£¬ÉíÐÎÒ»»Î£¬¶ÙÊ±»ìÈëÃ§Ã§ÈËº£Ö®ÖÐ¡£\n", environment(this_object()));
+	message_vision("" + (string)this_object()->query("name") + "å¿½ç„¶æ‰“äº†ä¸ªå“†å—¦ï¼Œä¸ç”±å¿ƒç”Ÿæƒ§æ„ï¼Œèº«å½¢ä¸€æ™ƒï¼Œé¡¿æ—¶æ··å…¥èŽ½èŽ½äººæµ·ä¹‹ä¸­ã€‚\n", environment(this_object()));
 	destruct(this_object());
 }
 //int active_died()
@@ -112,7 +112,7 @@ void die()
 {
 	object ob,me;
 	string own;
-	message_vision("$Nµ¹ÔÚµØÉÏ£¬ËÀÁË£¡\n", this_object());
+	message_vision("$Nå€’åœ¨åœ°ä¸Šï¼Œæ­»äº†ï¼\n", this_object());
 	ob = this_object();
 	own = ob->query_temp("bt_ownname");
 	if(own) me = find_player(own);

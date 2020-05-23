@@ -1,13 +1,13 @@
-// xian.c ÏÊÓÚÍ¨
+// xian.c é²œäºé€š
  
 inherit NPC;
  
 void create()
 {
-	set_name("ÏÊÓÚÍ¨", ({ "xianyu  tong", "xian" }));
-	set("nickname", "»ªÉ½ÅÑÍ½");
-	set("long", "³¤µÄÃ¼Ä¿ÇåĞã£¬¿¡ÑÅäìÈ÷£¬µ«ÊÇÊµ¼ÊÉÏÊÇ¸öÒõºİ´õ¶¾µÄÈË¡£\n");
-	set("gender", "ÄĞĞÔ");
+	set_name("é²œäºé€š", ({ "xianyu  tong", "xian" }));
+	set("nickname", "åå±±å›å¾’");
+	set("long", "é•¿çš„çœ‰ç›®æ¸…ç§€ï¼Œä¿Šé›…æ½‡æ´’ï¼Œä½†æ˜¯å®é™…ä¸Šæ˜¯ä¸ªé˜´ç‹ æ­¹æ¯’çš„äººã€‚\n");
+	set("gender", "ç”·æ€§");
 	set("age", 45);
 	set("attitude", "peaceful");
 	set("str", 25);

@@ -1,4 +1,4 @@
-// sun.c Ëï²»¶ş
+// sun.c å­™ä¸äºŒ
 
 #include <ansi.h>
 inherit NPC;
@@ -7,14 +7,14 @@ string ask_me();
 
 void create()
 {
-        set_name("Ëï²»¶ş", ({"sun buer", "sun"}));
-        set("gender", "Å®ĞÔ");
+        set_name("å­™ä¸äºŒ", ({"sun buer", "sun"}));
+        set("gender", "å¥³æ€§");
         set("age", 33);
         set("class", "quanzhen");
-        set("nickname",CYN"Çå¾»É¢ÈË"NOR);
+        set("nickname",CYN"æ¸…å‡€æ•£äºº"NOR);
         set("long",
-                "Ëı¾ÍÊÇÈ«Õæ½Ì¶ş´úµÜ×ÓÖĞÎ¨Ò»µÄÅ®µÜ×ÓËï²»¶şËïÕæÈË¡£Ëı±¾ÊÇ\n"
-                "ÂíîÚÈëµÀÇ°µÄÆŞ×Ó£¬µÀÅÛÉÏĞå×ÅÒ»¸ö÷¼÷ÃÍ·¡£\n");
+                "å¥¹å°±æ˜¯å…¨çœŸæ•™äºŒä»£å¼Ÿå­ä¸­å”¯ä¸€çš„å¥³å¼Ÿå­å­™ä¸äºŒå­™çœŸäººã€‚å¥¹æœ¬æ˜¯\n"
+                "é©¬é’°å…¥é“å‰çš„å¦»å­ï¼Œé“è¢ä¸Šç»£ç€ä¸€ä¸ªéª·é«…å¤´ã€‚\n");
         set("attitude", "peaceful");
         set("shen_type",1);
         set("str", 30);
@@ -22,7 +22,7 @@ void create()
         set("con", 29);
         set("dex", 29);
 
-        set("title","È«ÕæÆß×ÓÖ®Ä©");
+        set("title","å…¨çœŸä¸ƒå­ä¹‹æœ«");
 //       set("env/wimpy", 60);
         set("chat_chance_combat", 60);
         set("chat_msg_combat", ({
@@ -47,17 +47,17 @@ void create()
 
         set_skill("array", 80);
         set_skill("force", 130);
-        set_skill("xiantian-qigong", 130);    //ÏÈÌìÆø¹¦
+        set_skill("xiantian-qigong", 130);    //å…ˆå¤©æ°”åŠŸ
         set_skill("sword", 130);
-        set_skill("quanzhen-jian", 200);  //È«Õæ½£
+        set_skill("quanzhen-jian", 200);  //å…¨çœŸå‰‘
         set_skill("dodge", 110);
-        set_skill("jinyan-gong", 170);   //½ğÑã¹¦
+        set_skill("jinyan-gong", 170);   //é‡‘é›åŠŸ
         set_skill("parry", 140);
         set_skill("unarmed", 150);
         set_skill("strike", 120);
-        set_skill("haotian-zhang", 200);    //ê»ÌìÕÆ
+        set_skill("haotian-zhang", 200);    //æ˜Šå¤©æŒ
         set_skill("cuff", 120);
-        set_skill("chunyang-quan", 180);    //´¿ÑôÈ­
+        set_skill("chunyang-quan", 180);    //çº¯é˜³æ‹³
         set_skill("literate", 100);
         set_skill("taoism", 100);
 
@@ -70,13 +70,13 @@ void create()
         prepare_skill("cuff", "chunyang-quan");
         prepare_skill("strike", "haotian-zhang");
 
-        create_family("È«Õæ½Ì", 2, "µÜ×Ó");
+        create_family("å…¨çœŸæ•™", 2, "å¼Ÿå­");
 
         set("book_count",1);
         set("inquiry", ([
-                "È«Õæ½Ì" :  "ÎÒÈ«Õæ½ÌÊÇÌìÏÂµÀ¼ÒĞşÃÅÕı×Ú¡£\n",
-                "ê»ÌìÕÆ" :  (: ask_me :),
-                "ê»ÌìÕÆ·¨" :  (: ask_me :),
+                "å…¨çœŸæ•™" :  "æˆ‘å…¨çœŸæ•™æ˜¯å¤©ä¸‹é“å®¶ç„é—¨æ­£å®—ã€‚\n",
+                "æ˜Šå¤©æŒ" :  (: ask_me :),
+                "æ˜Šå¤©æŒæ³•" :  (: ask_me :),
         ]) );
 
         setup();
@@ -90,15 +90,15 @@ string ask_me()
         mapping fam;
         object ob;
 
-        if (!(fam = this_player()->query("family")) || fam["family_name"] != "È«Õæ½Ì")
+        if (!(fam = this_player()->query("family")) || fam["family_name"] != "å…¨çœŸæ•™")
                 return RANK_D->query_respect(this_player()) +
-                "Óë±¾½ÌºÁÎŞ¹Ï¸ğ£¬ÎÒ½ÌµÄÎä¹¦µä¼®¿É²»ÄÜ½»¸øÄã¡£";
+                "ä¸æœ¬æ•™æ¯«æ— ç“œè‘›ï¼Œæˆ‘æ•™çš„æ­¦åŠŸå…¸ç±å¯ä¸èƒ½äº¤ç»™ä½ ã€‚";
         if (query("book_count") < 1)
-                return "ÄãÀ´ÍíÁË£¬ê»ÌìÕÆÆ×ÒÑ¾­±»ÈËÈ¡×ßÁË¡£";
+                return "ä½ æ¥æ™šäº†ï¼Œæ˜Šå¤©æŒè°±å·²ç»è¢«äººå–èµ°äº†ã€‚";
         add("book_count", -1);
         ob = new("/clone/book/zhangfapu");
         ob->move(this_player());
-        return "ºÃ°É£¬Õâ±¾¡¸ê»ÌìÕÆÆ×¡¹ÄãÄÃ»ØÈ¥ºÃºÃÑĞ¶Á¡£";
+        return "å¥½å§ï¼Œè¿™æœ¬ã€Œæ˜Šå¤©æŒè°±ã€ä½ æ‹¿å›å»å¥½å¥½ç ”è¯»ã€‚";
 
 }
 

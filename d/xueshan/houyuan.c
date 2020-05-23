@@ -1,13 +1,13 @@
-//      houyuan.c ��Ժ
+//      houyuan.c 后院
 
 inherit ROOM;
 
 void create()
 {
-        set("short","��Ժ");
+        set("short","后院");
         set("long",@LONG
-������ѩɽ�µĺ�Ժ����Ժ�������˼������ѩ�ɣ��ڰ׻λε�
-ѩɽ�����£�����ƮȻ�������Ķ����ϱ������䳡�������Ǻ��š�
+这里是雪山寺的后院，后院不大，栽了几株参天雪松，在白晃晃的
+雪山背景下，竟是飘然出世的心动。南边是练武场，北边是后门。
 LONG );
         set("outdoors","xueshansi");
         set("exits",([

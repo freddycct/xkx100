@@ -3,12 +3,12 @@ inherit ITEM;
 
 void create()
 {
-	set_name(MAG "ÏºÈÊ" NOR,({"xiaren"}));
+	set_name(MAG "è™¾ä»" NOR,({"xiaren"}));
 	set_weight(20);
 	if( clonep() )
                 set_default_object(__FILE__);
         else {
-                set("long", "Ò»ÅÌĞÂÏÊµÄºÓÏºÏºÈÊ¡£\n");
-                set("unit", "ÅÌ");
+                set("long", "ä¸€ç›˜æ–°é²œçš„æ²³è™¾è™¾ä»ã€‚\n");
+                set("unit", "ç›˜");
         }
 }

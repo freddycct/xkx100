@@ -1,4 +1,4 @@
-// batianshi.c °ÍÌìÊ¯
+// batianshi.c å·´å¤©çŸ³
 
 #include <ansi.h>
 inherit NPC;
@@ -6,10 +6,10 @@ inherit F_MASTER;
 
 void create()
 {
-	set_name("°ÍÌìÊ¯", ({ "ba tianshi", "ba" }));
-	set("title",  "´óÀíË¾¿Õ" );
-	set("long", "ËûÊÇ´óÀí¹úÈı¹«Ö®Ò»¡£Ò»¸öÓÖÊİÓÖºÚµÄºº×Ó£¬µ«ËûµÄÉÃ³¤Çá¹¦¡£\n");
-	set("gender", "ÄĞĞÔ");
+	set_name("å·´å¤©çŸ³", ({ "ba tianshi", "ba" }));
+	set("title",  "å¤§ç†å¸ç©º" );
+	set("long", "ä»–æ˜¯å¤§ç†å›½ä¸‰å…¬ä¹‹ä¸€ã€‚ä¸€ä¸ªåˆç˜¦åˆé»‘çš„æ±‰å­ï¼Œä½†ä»–çš„æ“…é•¿è½»åŠŸã€‚\n");
+	set("gender", "ç”·æ€§");
 	set("age", 40);
 	set("class", "officer");
 	set("attitude", "friendly");
@@ -59,6 +59,6 @@ void create()
 	carry_object("/clone/weapon/changjian")->wield();
 	add_money("silver", 20);
 
-	create_family("´óÀí¶Î¼Ò",19,"Îä½«");
+	create_family("å¤§ç†æ®µå®¶",19,"æ­¦å°†");
 }
 

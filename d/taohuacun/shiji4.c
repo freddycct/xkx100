@@ -5,11 +5,11 @@ inherit ROOM;
 
 void  create()
 {
-	set( "short", "�м�" );
+	set( "short", "市集" );
 	set( "long", @LONG
-�������м��У�������ͷ�ܶ���ߺ�Ƚ���֮�������ڶ����������
-�룬�����ͷ�е�ʲô��ˮ�����Ϳ��Ժ�����㷷��(change)�㶫����
-ȥ���
+你身处市集中，身边人头攒动，吆喝叫卖之声不绝于耳。于是你就
+想，如果手头有点什么货水，不就可以和这个鱼贩换(change)点东西回
+去嘛？！
 LONG
 	);
 	set( "exits", ([

@@ -7,10 +7,10 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "ʯ��·");
+	set("short", "石板路");
 	set("long",@long
-����һ���̵�ʮ��ƽ����ʯ��·��·���ɨ�ĸɸɾ����������ȥ
-�Ǹ���԰�����������㡣
+这是一条铺的十分平整的石板路，路面打扫的干干净净，北面过去
+是个花园，传来阵阵花香。
 long);
 	set("exits",([
 		"south" : __DIR__"qianting",

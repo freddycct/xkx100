@@ -6,19 +6,19 @@ inherit F_MASTER;
 
 void create()
 {
-	set_name("·ÉÌì×Ó", ({ "feitian zi", "feitian", "zi" }) );
-	set("gender", "ÄĞĞÔ" );
-	set("nickname", "ĞÇËŞÅÉÆßÊ¦ĞÖ");
+	set_name("é£å¤©å­", ({ "feitian zi", "feitian", "zi" }) );
+	set("gender", "ç”·æ€§" );
+	set("nickname", "æ˜Ÿå®¿æ´¾ä¸ƒå¸ˆå…„");
 	set("age", 28);
 	set("long", 
-"Ëû´ÂºÅ·ÉÌì£¬Çá¹¦µÄÔìÒèÒÑ¾­µ½ÁËºÜ¸ßµÄµØ²½¡£\n");
+"ä»–ç»°å·é£å¤©ï¼Œè½»åŠŸçš„é€ è¯£å·²ç»åˆ°äº†å¾ˆé«˜çš„åœ°æ­¥ã€‚\n");
 	set("env/wimpy", 40);
 	set("str", 20);
 	set("dex", 30);
 	set("con", 19);
 	set("int", 15);
 	set("shen", -1400);
-	create_family("ĞÇËŞÅÉ", 2, "µÜ×Ó");
+	create_family("æ˜Ÿå®¿æ´¾", 2, "å¼Ÿå­");
 
 	set_skill("huagong-dafa", 40);
 	set_skill("strike", 30);
@@ -56,7 +56,7 @@ void init()
 void greeting(object me)
 {
 	mapping myfam = (mapping)me->query("family");
-	if(myfam && myfam["family_name"] == "ĞÇËŞÅÉ")
+	if(myfam && myfam["family_name"] == "æ˜Ÿå®¿æ´¾")
 		command("bow " + me->query("id"));
 	else if(me->query("combat_exp") < 100000)
 		command("hmm " + me->query("id"));
@@ -65,7 +65,7 @@ void greeting(object me)
 void attempt_apprentice(object ob)
 {
 	command("hehe");
-	command("say ÎÒ¿ÉÃ»¹¦·òÀ´½ÌÄã¡£");
+	command("say æˆ‘å¯æ²¡åŠŸå¤«æ¥æ•™ä½ ã€‚");
 	return;
 }
 

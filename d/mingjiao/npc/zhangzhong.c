@@ -6,14 +6,14 @@ inherit F_UNIQUE;
 
 void create()
 {
-	set_name("ÕÅÖĞ", ({ "zhang zhong", "zhang", "zhong", }));
+	set_name("å¼ ä¸­", ({ "zhang zhong", "zhang", "zhong", }));
 	set("long",
-	"ËûÊÇÒ»Î»¸ß¸ßÊİÊİµÄµÀÈË£¬Éí´©Ò»¼ş°×²¼³¤ÅÛ¡£\n"
+	"ä»–æ˜¯ä¸€ä½é«˜é«˜ç˜¦ç˜¦çš„é“äººï¼Œèº«ç©¿ä¸€ä»¶ç™½å¸ƒé•¿è¢ã€‚\n"
 	"\n"
 	);
 
-	set("nickname", "Ìú¹ÚµÀÈË");
-	set("gender", "ÄĞĞÔ");
+	set("nickname", "é“å† é“äºº");
+	set("gender", "ç”·æ€§");
 	set("attitude", "friendly");
 	set("class", "taoist");
 
@@ -46,9 +46,9 @@ void create()
 	map_skill("cuff", "jingang-quan");
 	map_skill("parry", "jingang-quan");
 	prepare_skill("cuff", "jingang-quan");
-	set("party/party_name",HIG"Ã÷½Ì"NOR);
-	set("party/rank",HIY"ÎåÉ¢ÈË"NOR);
-	create_family("Ã÷½Ì", 35, "µÜ×Ó");
+	set("party/party_name",HIG"æ˜æ•™"NOR);
+	set("party/rank",HIY"äº”æ•£äºº"NOR);
+	create_family("æ˜æ•™", 35, "å¼Ÿå­");
 
 	setup();
 

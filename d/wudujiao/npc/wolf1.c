@@ -2,8 +2,8 @@
 inherit NPC;
 #include <ansi.h>
 
-string *first_name = ({ "°×ÑÛ", "¶ö", "¹«", "Ä¸"});
-string *name_words = ({ "ÀÇ"});
+string *first_name = ({ "ç™½çœ¼", "é¥¿", "å…¬", "æ¯"});
+string *name_words = ({ "ç‹¼"});
 
 
 void create()
@@ -14,8 +14,8 @@ void create()
 
         set_name(name,({"wolf"}));
 
-	set("race", "×ßÊŞ");
-        set("long", "Ò»Ö»Ğ×ºİ²Ğ±©µÄÀÇ£¬ÕıµÉ×Å»ğºìµÄÀÇÑÛ¶¢×ÅÄã¡£\n");
+	set("race", "èµ°å…½");
+        set("long", "ä¸€åªå‡¶ç‹ æ®‹æš´çš„ç‹¼ï¼Œæ­£çªç€ç«çº¢çš„ç‹¼çœ¼ç›¯ç€ä½ ã€‚\n");
         set("age", 3);
         set("attitude", "peaceful");
 

@@ -6,13 +6,13 @@ int do_score();
 int do_skills();
 void create()
 {
-	set_name("¹ÂÓ¥", ({ "eagleg"}));
-	set("gender", "ÄÐÐÔ");
-	set("long","±¾Ì¶×îÔçµÄÍæ¼ÒÖ®Ò»¡£ÌÒ»¨µºµÚÒ»´óÏÀ¡£ËûÊ¯µñËÆµÄ·½Á³Åä×Å
-Ó¥öÀ°ãÈñÀûµÄË«ÑÛ£¬²»Ê±ÉÁÉä³öº®±ùËÆµÄÉ±»ú£»»ëÉíÉÏÏÂÃ¿´ç
-¼¡Èâ¶¼ÏÔÊ¾³öÎÞÇîµÄÁ¦Á¿£¬Ïó×ðÕÆ¹ÜÉúËÀµÄµØÓüÖ®Ä§¡£\n");
-	set("title", HIW"Ê¥ÈË"NOR"ÌÒ»¨µºµÚ¶þ´úµÜ×Ó");
-	set("nickname", HIB"ºÚÓðÂÓ¿Õ"HIW"ÁËÎÞºÛ"NOR);
+	set_name("å­¤é¹°", ({ "eagleg"}));
+	set("gender", "ç”·æ€§");
+	set("long","æœ¬æ½­æœ€æ—©çš„çŽ©å®¶ä¹‹ä¸€ã€‚æ¡ƒèŠ±å²›ç¬¬ä¸€å¤§ä¾ ã€‚ä»–çŸ³é›•ä¼¼çš„æ–¹è„¸é…ç€
+é¹°éš¼èˆ¬é”åˆ©çš„åŒçœ¼ï¼Œä¸æ—¶é—ªå°„å‡ºå¯’å†°ä¼¼çš„æ€æœºï¼›æµ‘èº«ä¸Šä¸‹æ¯å¯¸
+è‚Œè‚‰éƒ½æ˜¾ç¤ºå‡ºæ— ç©·çš„åŠ›é‡ï¼Œè±¡å°ŠæŽŒç®¡ç”Ÿæ­»çš„åœ°ç‹±ä¹‹é­”ã€‚\n");
+	set("title", HIW"åœ£äºº"NOR"æ¡ƒèŠ±å²›ç¬¬äºŒä»£å¼Ÿå­");
+	set("nickname", HIB"é»‘ç¾½æŽ ç©º"HIW"äº†æ— ç—•"NOR);
 	set("age", 47);
 	set("class", "eunach");
 	set("attitude", "friendly");
@@ -74,10 +74,10 @@ void create()
 		"hp"    : (: do_hp :),
 		"score" : (: do_score :),
 		"skill" : (: do_skills :),
-		"Îä¹¦"  : (: do_skills :),
+		"æ­¦åŠŸ"  : (: do_skills :),
 	]));
 
-	create_family("ÌÒ»¨µº",2, "µÜ×Ó");
+	create_family("æ¡ƒèŠ±å²›",2, "å¼Ÿå­");
 	setup();
 	carry_object(__DIR__"eagleg_sword")->wield();
 	carry_object(CLOTH_DIR"male-cloth")->wear();
@@ -86,67 +86,67 @@ void create()
 
 int do_skills()
 {
-message_vision("$NËµ£º ÎÒËùÓÐµÄ»ù±¾Îä¹¦ÈçÏÂ£º\n"+
-"  »ù±¾Õó·¨ (array)                         - Éî²»¿É²â 250/    0\n"+
-"¡õ±Ì²¨Éñ¹¦ (bibo-shengong)                 - Éî²»¿É²â 204/    0\n"+
-"  »ù±¾Çá¹¦ (dodge)                         - Éî²»¿É²â 268/    0\n"+
-"  »ù±¾ÄÚ¹¦ (force)                         - Éî²»¿É²â 253/    0\n"+
-"  ÒõÑô°ËØÔ (count)                         - Éî²»¿É²â 250/    0\n"+
-"  »ù±¾Ö¸·¨ (finger)                        - Éî²»¿É²â 250/    0\n"+
-"  º®±ùÃàÕÆ (hanbing-mianzhang)             - Éî²»¿É²â 372/    0\n"+
-"  »ù±¾ÊÖ·¨ (hand)                          - Éî²»¿É²â 250/    0\n"+
-"  ¶ÁÊéÐ´×Ö (literate)                      - ÁËÈ»ì¶ÐØ 206/    0\n"+
-"  »ù±¾ÕÐ¼Ü (parry)                         - Éî²»¿É²â 278/    0\n"+
-"¡õÀ¼»¨·÷Ñ¨ÊÖ (lanhua-shou)                 - Éî²»¿É²â 375/    0\n"+
-"  ÉñÐÐ°Ù±ä (shenxing-baibian)              - ´ÖÍ¨Æ¤Ã« 375/    0\n"+
-"  ÂäÓ¢Éñ½£ (luoying-shenjian)              - Éî²»¿É²â 375/    0\n"+
-"  »ù±¾½£·¨ (sword)                         - Éî²»¿É²â 250/    0\n"+
-"  ÂäÓ¢Éñ½£ÕÆ (luoying-zhang)               - Éî²»¿É²â 259/    0\n"+
-"  »ù±¾È­½Å (unarmed)                       - ³öÉñÈë»¯ 250/    0\n"+
-"  ÆæÃÅÎåÐÐ (qimen-wuxing)                  - ÐÄÁìÉñ»á 102/    0\n"+
-"  »ù±¾ÕÆ·¨ (strike)                        - Éî²»¿É²â 250/    0\n"+
-"¡õÐý·çÉ¨Ò¶ÍÈ (xuanfeng-leg)                - Éî²»¿É²â 273/    0\n"+
-"¡õÓñóï½£·¨ (yuxiao-jian)                   - Éî²»¿É²â 376/    0\n"+
-"¡õµ¯Ö¸ÉñÍ¨ (tanzhi-shentong)               - Éî²»¿É²â 370/    0\n", this_object());
+message_vision("$Nè¯´ï¼š æˆ‘æ‰€æœ‰çš„åŸºæœ¬æ­¦åŠŸå¦‚ä¸‹ï¼š\n"+
+"  åŸºæœ¬é˜µæ³• (array)                         - æ·±ä¸å¯æµ‹ 250/    0\n"+
+"â–¡ç¢§æ³¢ç¥žåŠŸ (bibo-shengong)                 - æ·±ä¸å¯æµ‹ 204/    0\n"+
+"  åŸºæœ¬è½»åŠŸ (dodge)                         - æ·±ä¸å¯æµ‹ 268/    0\n"+
+"  åŸºæœ¬å†…åŠŸ (force)                         - æ·±ä¸å¯æµ‹ 253/    0\n"+
+"  é˜´é˜³å…«å¦ (count)                         - æ·±ä¸å¯æµ‹ 250/    0\n"+
+"  åŸºæœ¬æŒ‡æ³• (finger)                        - æ·±ä¸å¯æµ‹ 250/    0\n"+
+"  å¯’å†°ç»µæŽŒ (hanbing-mianzhang)             - æ·±ä¸å¯æµ‹ 372/    0\n"+
+"  åŸºæœ¬æ‰‹æ³• (hand)                          - æ·±ä¸å¯æµ‹ 250/    0\n"+
+"  è¯»ä¹¦å†™å­— (literate)                      - äº†ç„¶æ–¼èƒ¸ 206/    0\n"+
+"  åŸºæœ¬æ‹›æž¶ (parry)                         - æ·±ä¸å¯æµ‹ 278/    0\n"+
+"â–¡å…°èŠ±æ‹‚ç©´æ‰‹ (lanhua-shou)                 - æ·±ä¸å¯æµ‹ 375/    0\n"+
+"  ç¥žè¡Œç™¾å˜ (shenxing-baibian)              - ç²—é€šçš®æ¯› 375/    0\n"+
+"  è½è‹±ç¥žå‰‘ (luoying-shenjian)              - æ·±ä¸å¯æµ‹ 375/    0\n"+
+"  åŸºæœ¬å‰‘æ³• (sword)                         - æ·±ä¸å¯æµ‹ 250/    0\n"+
+"  è½è‹±ç¥žå‰‘æŽŒ (luoying-zhang)               - æ·±ä¸å¯æµ‹ 259/    0\n"+
+"  åŸºæœ¬æ‹³è„š (unarmed)                       - å‡ºç¥žå…¥åŒ– 250/    0\n"+
+"  å¥‡é—¨äº”è¡Œ (qimen-wuxing)                  - å¿ƒé¢†ç¥žä¼š 102/    0\n"+
+"  åŸºæœ¬æŽŒæ³• (strike)                        - æ·±ä¸å¯æµ‹ 250/    0\n"+
+"â–¡æ—‹é£Žæ‰«å¶è…¿ (xuanfeng-leg)                - æ·±ä¸å¯æµ‹ 273/    0\n"+
+"â–¡çŽ‰ç®«å‰‘æ³• (yuxiao-jian)                   - æ·±ä¸å¯æµ‹ 376/    0\n"+
+"â–¡å¼¹æŒ‡ç¥žé€š (tanzhi-shentong)               - æ·±ä¸å¯æµ‹ 370/    0\n", this_object());
 
 	return 1;
 }
 int do_hp()
 {
-message_vision("$NËµ£º ÎÒµÄ»ù±¾×´Ì¬ÈçÏÂ£º\n\n"+
-"¡Ô©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤¡Ô\n"+
-"¡¾ ¾« Æø ¡¿  548/  548 (100%)    ¡¾ ¾« Á¦ ¡¿    0 /    0 (+0)\n"+
-"¡¾ Æø Ñª ¡¿ 1501/ 1501 (100%)    ¡¾ ÄÚ Á¦ ¡¿ 3300 / 3300 (+0)\n"+
-"¡¾ Ê³ Îï ¡¿    0/  360           ¡¾ Ç± ÄÜ ¡¿  0\n"+
-"¡¾ Òû Ë® ¡¿    0/  360           ¡¾ ¾­ Ñé ¡¿  5455577\n"+
-"¡Ô©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤¡Ô\n", this_object());
+message_vision("$Nè¯´ï¼š æˆ‘çš„åŸºæœ¬çŠ¶æ€å¦‚ä¸‹ï¼š\n\n"+
+"â‰¡â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â‰¡\n"+
+"ã€ ç²¾ æ°” ã€‘  548/  548 (100%)    ã€ ç²¾ åŠ› ã€‘    0 /    0 (+0)\n"+
+"ã€ æ°” è¡€ ã€‘ 1501/ 1501 (100%)    ã€ å†… åŠ› ã€‘ 3300 / 3300 (+0)\n"+
+"ã€ é£Ÿ ç‰© ã€‘    0/  360           ã€ æ½œ èƒ½ ã€‘  0\n"+
+"ã€ é¥® æ°´ ã€‘    0/  360           ã€ ç» éªŒ ã€‘  5455577\n"+
+"â‰¡â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â‰¡\n", this_object());
 	return 1;
 }
 
 int do_score()
 {
-message_vision("$NËµ£º ÎÒµÄ»ù±¾×´¿öÈçÏÂ£º\n\n"+
-"¡¾¿õÊÀ´óÏÀ¡¿Ê¥ÈË ÌÒ»¨µºµÚ¶þ´úµÜ×Ó ¹ÂÓ¥(Eagleg)\n"+
+message_vision("$Nè¯´ï¼š æˆ‘çš„åŸºæœ¬çŠ¶å†µå¦‚ä¸‹ï¼š\n\n"+
+"ã€æ—·ä¸–å¤§ä¾ ã€‘åœ£äºº æ¡ƒèŠ±å²›ç¬¬äºŒä»£å¼Ÿå­ å­¤é¹°(Eagleg)\n"+
 "\n"+
-" ÄãÊÇÒ»Î»ËÄÊ®ÆßËêÎå¸öÔÂµÄÄÐÐÔÈËÀà£¬Îì×ÓÄêÆßÔÂÊ®ÈÕËÈÊ±ËÄ¿ÌÉú¡£\n"+
-" ëöÁ¦£º[ 51]  ÎòÐÔ£º[ 48]  ¸ù¹Ç£º[ 61]  Éí·¨£º[ 58]\n"+
+" ä½ æ˜¯ä¸€ä½å››åä¸ƒå²äº”ä¸ªæœˆçš„ç”·æ€§äººç±»ï¼ŒæˆŠå­å¹´ä¸ƒæœˆåæ—¥å·³æ—¶å››åˆ»ç”Ÿã€‚\n"+
+" è†‚åŠ›ï¼š[ 51]  æ‚Ÿæ€§ï¼š[ 48]  æ ¹éª¨ï¼š[ 61]  èº«æ³•ï¼š[ 58]\n"+
 "\n"+
-" ÄãµÄÊ¦¸¸ÊÇ »ÆÒ©Ê¦¡£             ÄãÃ»ÓÐ´æ¿î¡£\n"+
-" ÄãµÄ°éÂÂÊÇ ×ß×ß¡£\n"+
+" ä½ çš„å¸ˆçˆ¶æ˜¯ é»„è¯å¸ˆã€‚             ä½ æ²¡æœ‰å­˜æ¬¾ã€‚\n"+
+" ä½ çš„ä¼´ä¾£æ˜¯ èµ°èµ°ã€‚\n"+
 "\n"+
-" <¾«>  ¡ö¡ö¡ö¡ö¡ö¡ö¡ö¡ö¡ö¡ö¡ö¡ö¡ö¡ö¡ö¡ö¡ö¡ö¡ö¡ö¡ö¡ö¡ö¡ö¡ö\n"+
-" <Æø>  ¡ö¡ö¡ö¡ö¡ö¡ö¡ö¡ö¡ö¡ö¡ö¡ö¡ö¡ö¡ö¡ö¡ö¡ö¡ö¡ö¡ö¡ö¡ö¡ö¡ö\n"+
+" <ç²¾>  â– â– â– â– â– â– â– â– â– â– â– â– â– â– â– â– â– â– â– â– â– â– â– â– â– \n"+
+" <æ°”>  â– â– â– â– â– â– â– â– â– â– â– â– â– â– â– â– â– â– â– â– â– â– â– â– â– \n"+
 "\n"+
-" Õ½¶·¹¥»÷Á¦   448204            Õ½¶··ÀÓùÁ¦  1045272\n"+
-" Õ½¶·ÉËº¦Á¦       30            Õ½¶·±£»¤Á¦        1\n"+
+" æˆ˜æ–—æ”»å‡»åŠ›   448204            æˆ˜æ–—é˜²å¾¡åŠ›  1045272\n"+
+" æˆ˜æ–—ä¼¤å®³åŠ›       30            æˆ˜æ–—ä¿æŠ¤åŠ›        1\n"+
 "\n"+
-" Ê³Îï£º¡õ¡õ¡õ¡õ¡õ¡õ¡õ¡õ¡õ¡õ¡õ¡õ¡õ¡õ¡õ¡õ¡õ¡õ¡õ¡õ¡õ¡õ¡õ¡õ¡õ\n"+
-" ÒûË®£º¡õ¡õ¡õ¡õ¡õ¡õ¡õ¡õ¡õ¡õ¡õ¡õ¡õ¡õ¡õ¡õ¡õ¡õ¡õ¡õ¡õ¡õ¡õ¡õ¡õ\n"+
+" é£Ÿç‰©ï¼šâ–¡â–¡â–¡â–¡â–¡â–¡â–¡â–¡â–¡â–¡â–¡â–¡â–¡â–¡â–¡â–¡â–¡â–¡â–¡â–¡â–¡â–¡â–¡â–¡â–¡\n"+
+" é¥®æ°´ï¼šâ–¡â–¡â–¡â–¡â–¡â–¡â–¡â–¡â–¡â–¡â–¡â–¡â–¡â–¡â–¡â–¡â–¡â–¡â–¡â–¡â–¡â–¡â–¡â–¡â–¡\n"+
 "\n"+
-" Äãµ½Ä¿Ç°ÎªÖ¹×Ü¹²É±ÁË 6628 ¸öÈË£¬ÆäÖÐÓÐ 4 ¸öÊÇÆäËûÍæ¼Ò¡£\n"+
+" ä½ åˆ°ç›®å‰ä¸ºæ­¢æ€»å…±æ€äº† 6628 ä¸ªäººï¼Œå…¶ä¸­æœ‰ 4 ä¸ªæ˜¯å…¶ä»–çŽ©å®¶ã€‚\n"+
 "\n"+
-" Õý    Æø£º  6217202     Ç±    ÄÜ£º   0 (100%)   ÊµÕ½¾­Ñé£º  5455577\n"+
-" ÷È    Á¦£º       60     ½­ºþÔÄÀú£º      172     ½­ºþÍþÍû£º       70\n"+
+" æ­£    æ°”ï¼š  6217202     æ½œ    èƒ½ï¼š   0 (100%)   å®žæˆ˜ç»éªŒï¼š  5455577\n"+
+" é­…    åŠ›ï¼š       60     æ±Ÿæ¹–é˜…åŽ†ï¼š      172     æ±Ÿæ¹–å¨æœ›ï¼š       70\n"+
 "\n", this_object());
 	return 1;
 }

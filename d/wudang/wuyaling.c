@@ -1,15 +1,15 @@
-//Room: wuyaling.c ÎÚÑ»Áë
+//Room: wuyaling.c ä¹Œé¸¦å²­
 //Date: Sep 22 1997
 
 inherit ROOM;
 
 void create()
 {
-      set("short","ÎÚÑ»Áë");
+      set("short","ä¹Œé¸¦å²­");
       set("long",@LONG
-ÕâÊÇÒ»ÏÁ³¤µÄ¼¹Áë£¬Á½²àÐüÏ÷£¬Ò»ÎÞËù°ø£¬µ«¼û°×ÔÆ¶ä¶ä£¬È½È½¶ø
-¹ý£¬É½·ç·÷·÷£¬ÕóÕóÏ®À´¡£Êý°ÙÖ»ÎÚÑ»Õý°¿ÏèÔÆ¼Ê£¬ºÚ°×·ÖÃ÷£¬Îµ³ÉÆæ
-¹Û¡£
+è¿™æ˜¯ä¸€ç‹­é•¿çš„è„Šå²­ï¼Œä¸¤ä¾§æ‚¬å‰Šï¼Œä¸€æ— æ‰€å‚ï¼Œä½†è§ç™½äº‘æœµæœµï¼Œå†‰å†‰è€Œ
+è¿‡ï¼Œå±±é£Žæ‹‚æ‹‚ï¼Œé˜µé˜µè¢­æ¥ã€‚æ•°ç™¾åªä¹Œé¸¦æ­£ç¿±ç¿”äº‘é™…ï¼Œé»‘ç™½åˆ†æ˜Žï¼Œè”šæˆå¥‡
+è§‚ã€‚
 LONG);
       set("objects", ([
                 __DIR__"npc/wuya" : 5,

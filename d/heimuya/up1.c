@@ -11,14 +11,14 @@ int do_enter(string arg);
 
 void create()
 {
-	set("short", "ÈÕÔÂÆº");
+	set("short", "æ—¥æœˆåª");
 	set("long", @TEXT
-ÕâÀïÊÇ°ëÉ½µÄÒ»Æ¬Ð¡ÍÁÆº£¬ÀëÑÂ¶¥»¹ÓÐÒ»¶ÎÂ·Í¾£¬¿Éµ½ÕâÒÑ¾­Ã»ÓÐ
-Â·ÉÏÈ¥£¬ÃæÇ°ÊÇÈç¾³°ãµÄÇÍ±Ú£¬ÑöÍ·¶øÍû£¬µ«¼ûÑÂ¶¥ÒÀÏ¡ËÊÁ¢×ÅÂ¥¸ó£¬
-ÍðÈçÏÉ¾³¡£¿ÉÔÆÑÌçÔÈÆ£¬¿´²»ÇåÎú¡£´ÓÐüÑÂÉÏ´¹ÏÂÒ»ÌõÉþË÷(rope)£¬¿´
-ÉÏÈ¥ÏóÊÇÐüÑÂÉÏÏÂ»¥Í¨ÏûÏ¢µÄ¹¤¾ß£¬ÉþË÷µÄÉÏÃæËÆºõÒþÔ¼¹ÒÓÐÒ»¸öµõÀº
-(basket)¡£ÐüÑÂµÄÇ½ÉÏËÆºõÓÐÒ»¸öÏ»×Ó(xiazi) £¬ÄãËÆºõ×ßÈëÒ»¸öÎíÕ¬£¬
-Õæ²»ÖªÈçºÎÊÇºÃ¡£
+è¿™é‡Œæ˜¯åŠå±±çš„ä¸€ç‰‡å°åœŸåªï¼Œç¦»å´–é¡¶è¿˜æœ‰ä¸€æ®µè·¯é€”ï¼Œå¯åˆ°è¿™å·²ç»æ²¡æœ‰
+è·¯ä¸ŠåŽ»ï¼Œé¢å‰æ˜¯å¦‚å¢ƒèˆ¬çš„å³­å£ï¼Œä»°å¤´è€Œæœ›ï¼Œä½†è§å´–é¡¶ä¾ç¨€è€¸ç«‹ç€æ¥¼é˜ï¼Œ
+å®›å¦‚ä»™å¢ƒã€‚å¯äº‘çƒŸç¼­ç»•ï¼Œçœ‹ä¸æ¸…æ™°ã€‚ä»Žæ‚¬å´–ä¸Šåž‚ä¸‹ä¸€æ¡ç»³ç´¢(rope)ï¼Œçœ‹
+ä¸ŠåŽ»è±¡æ˜¯æ‚¬å´–ä¸Šä¸‹äº’é€šæ¶ˆæ¯çš„å·¥å…·ï¼Œç»³ç´¢çš„ä¸Šé¢ä¼¼ä¹Žéšçº¦æŒ‚æœ‰ä¸€ä¸ªåŠç¯®
+(basket)ã€‚æ‚¬å´–çš„å¢™ä¸Šä¼¼ä¹Žæœ‰ä¸€ä¸ªåŒ£å­(xiazi) ï¼Œä½ ä¼¼ä¹Žèµ°å…¥ä¸€ä¸ªé›¾å®…ï¼Œ
+çœŸä¸çŸ¥å¦‚ä½•æ˜¯å¥½ã€‚
 TEXT);
 
 	set("exits", ([
@@ -30,9 +30,9 @@ TEXT);
 	]));
 
 	set("item_desc", ([
-		"basket" : "ÄÇÊÇÒ»¸öµõÀº£¬¿´Ñù×ÓÓÐÐ©¹Å¹Ö¡£ºÃÏóÊÇ×°ÈËµÄ£¬Äã¿ÉÒÔ×ê(enter)½øÈ¥ÊÔÊÔ¡£\n",
-		"rope"   : "Éþ×Ó¾ÍÊÇÉþ×Ó£¬¿ÉÄÜÊÇÏòÉÏµÄ¹¤¾ß¡£\n",
-		"xiazi"  : "ÕâÊÇÒ»¸öÏ»×Ó£¬¿´Ñù×ÓÊÇÒ»¸ö¿ª¹Ø£¬Ï»×ÓµÄ²àÃæÓÐÒ»¸ö²å¿×¡£\n",
+		"basket" : "é‚£æ˜¯ä¸€ä¸ªåŠç¯®ï¼Œçœ‹æ ·å­æœ‰äº›å¤æ€ªã€‚å¥½è±¡æ˜¯è£…äººçš„ï¼Œä½ å¯ä»¥é’»(enter)è¿›åŽ»è¯•è¯•ã€‚\n",
+		"rope"   : "ç»³å­å°±æ˜¯ç»³å­ï¼Œå¯èƒ½æ˜¯å‘ä¸Šçš„å·¥å…·ã€‚\n",
+		"xiazi"  : "è¿™æ˜¯ä¸€ä¸ªåŒ£å­ï¼Œçœ‹æ ·å­æ˜¯ä¸€ä¸ªå¼€å…³ï¼ŒåŒ£å­çš„ä¾§é¢æœ‰ä¸€ä¸ªæ’å­”ã€‚\n",
 	]));
 	set("coor/x", -3260);
 	set("coor/y", 4200);
@@ -61,15 +61,15 @@ void check_trigger()
 				room->set("insert_trigger", 1);
 				set("exits/enter", __DIR__"basket");
 				room->set("exits/out", __FILE__);
-				message("vision","Ö»¼ûÒ»¸öµôÀº(basket)´ÓÌì¶ø½µ£¬Äã²»½ûÒ»Õú£¡\n" , this_object() );
+				message("vision","åªè§ä¸€ä¸ªæŽ‰ç¯®(basket)ä»Žå¤©è€Œé™ï¼Œä½ ä¸ç¦ä¸€æ€”ï¼\n" , this_object() );
 				set("item_desc", ([
-					"basket" : "ÕâÊÇÒ»¸öµôÀº£¬ÊÇ´«ËµÖÐµÄ½»Í¨¹¤¾ß¡£\n",
+					"basket" : "è¿™æ˜¯ä¸€ä¸ªæŽ‰ç¯®ï¼Œæ˜¯ä¼ è¯´ä¸­çš„äº¤é€šå·¥å…·ã€‚\n",
 				]));
 				remove_call_out("on_board");
 				call_out("on_board", 15);
 			}
 			else
-				message("vision", "¿´Ñù×ÓÄãµÃµÈÏÂ²¦¶ù¡£\n",this_object() );
+				message("vision", "çœ‹æ ·å­ä½ å¾—ç­‰ä¸‹æ‹¨å„¿ã€‚\n",this_object() );
 		}
 		else
 			message("vision", "ERROR: basket not found\n", this_object() );
@@ -80,7 +80,7 @@ void on_board()
 {
 	object room;
 	if( !query("exits/enter") ) return;
-	message("vision","Ö»¼ûµôÀº»º»ºÏòÉÏ£¬ËÄÖÜÎÞÏÞÃÀºÃ£¬\nÄãËÆºõÖÃÉíÓÚÒ»´¦ÈË¼äÏÉ¾³ÎÞÒì¡£\n", this_object() );
+	message("vision","åªè§æŽ‰ç¯®ç¼“ç¼“å‘ä¸Šï¼Œå››å‘¨æ— é™ç¾Žå¥½ï¼Œ\nä½ ä¼¼ä¹Žç½®èº«äºŽä¸€å¤„äººé—´ä»™å¢ƒæ— å¼‚ã€‚\n", this_object() );
 	if( room = find_object(__DIR__"basket") )
 	{
 		room->delete("exits/out");
@@ -96,7 +96,7 @@ void arrive()
 	if( room = find_object(__DIR__"basket") )
 	{
 		room->set("exits/out", __DIR__"up2");
-		message("vision","àâµÄÒ»Éù£¬ÄãËÆºõÒ»ÏÂ´ÓÌìÉÏµ½ÁËµØÉÏ¡£\n",room);
+		message("vision","å™”çš„ä¸€å£°ï¼Œä½ ä¼¼ä¹Žä¸€ä¸‹ä»Žå¤©ä¸Šåˆ°äº†åœ°ä¸Šã€‚\n",room);
 	}
 	remove_call_out("close_passage");
 	call_out("close_passage", 20);
@@ -118,11 +118,11 @@ int do_insert(string arg)
 	object ob, me = this_player();
 
 	if( !arg || arg=="" ) return 0;
-	if( arg=="¿¨" ) arg = "card1";   
+	if( arg=="å¡" ) arg = "card1";   
 	if( arg=="card1")
 	{
 		if( !objectp(ob = present(arg, me)) )
-			return notify_fail("ÄãÉíÉÏÃ»ÓÐÕâÑù¶«Î÷¡£\n");
+			return notify_fail("ä½ èº«ä¸Šæ²¡æœ‰è¿™æ ·ä¸œè¥¿ã€‚\n");
 		if( !me->query_temp("mark/cards") )
 			me->set_temp("mark/cards",1);
 		if( me->query_temp("mark/cards")==4)
@@ -133,7 +133,7 @@ int do_insert(string arg)
 		else
 		{
 			me->add_temp("mark/cards",1);
-			message("vision","àâµÄÒ»Éù£¬Äã¿´µ½µôÀºÏòÏÂÒ»½Ú¡£\n",me);
+			message("vision","å™”çš„ä¸€å£°ï¼Œä½ çœ‹åˆ°æŽ‰ç¯®å‘ä¸‹ä¸€èŠ‚ã€‚\n",me);
 		}
 	}
 	return 1;
@@ -143,10 +143,10 @@ int do_enter(string arg)
 	object me = this_player();
 
 	if( arg != "basket")
-		return notify_fail("ÄãÒªÍùÄÇÀï×ê£¿\n");
+		return notify_fail("ä½ è¦å¾€é‚£é‡Œé’»ï¼Ÿ\n");
 	if( me->query("family/master_id") != "dongfang bubai")
-		return notify_fail("ÑÂÉÏ´«À´Ò»Õó¹Ö½Ð£º²»ÊÇ¶«·½½ÌÖ÷×ùÏÂµÜ×Ó£¬²»µÃµ½´¦ÂÒ×ê£¡\n");
-	message_vision("$N¹þÑü×ê½øÖñÀº£¬Ö»Ìý¡°à²¡±µØÒ»Éù£¬ÖñÀº±»¼±ËÙÀ­ÉÏÑÂÈ¥¡£\n", me);
+		return notify_fail("å´–ä¸Šä¼ æ¥ä¸€é˜µæ€ªå«ï¼šä¸æ˜¯ä¸œæ–¹æ•™ä¸»åº§ä¸‹å¼Ÿå­ï¼Œä¸å¾—åˆ°å¤„ä¹±é’»ï¼\n");
+	message_vision("$Nå“ˆè…°é’»è¿›ç«¹ç¯®ï¼Œåªå¬â€œå—–â€åœ°ä¸€å£°ï¼Œç«¹ç¯®è¢«æ€¥é€Ÿæ‹‰ä¸Šå´–åŽ»ã€‚\n", me);
 	me->move(__DIR__"chengdedian");
 	return 1;
 }

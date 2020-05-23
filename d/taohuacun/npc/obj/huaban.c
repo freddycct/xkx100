@@ -1,4 +1,4 @@
-// huaban.c »¨°ê
+// huaban.c èŠ±ç“£
 
 inherit ITEM;
 #include <ansi.h>
@@ -11,12 +11,12 @@ void init()
 
 void create()
 {
-	set_name(HIM"»¨°ê"NOR, ({"huaban"}));
+	set_name(HIM"èŠ±ç“£"NOR, ({"huaban"}));
 	set_weight(500);
 	set("vegetable", 16);
 	set("value", 100);
-	set("unit", "Æ¬");
-	set("long", "ÕâÊÇÒ»Æ¬·ÛºìµÄ»¨°ê£¬¿´À´¸ÕÕªÏÂ²»¾Ã¡£\n");
+	set("unit", "ç‰‡");
+	set("long", "è¿™æ˜¯ä¸€ç‰‡ç²‰çº¢çš„èŠ±ç“£ï¼Œçœ‹æ¥åˆšæ‘˜ä¸‹ä¸ä¹…ã€‚\n");
 	set("pour_type", "1");
 	setup();
 }
@@ -25,12 +25,12 @@ int do_eat(string arg)
 {
 	object me = this_player();
 
-	if(!id(arg)) return notify_fail("ÄãÒª³ÔÊ²Ã´£¿\n");
+	if(!id(arg)) return notify_fail("ä½ è¦åƒä»€ä¹ˆï¼Ÿ\n");
 	if(!present(this_object(), me))
-		return notify_fail("ÄãÒª³ÔÊ²Ã´£¿\n");
+		return notify_fail("ä½ è¦åƒä»€ä¹ˆï¼Ÿ\n");
 	if( me->is_busy() )
-		return notify_fail("±ğ¼±£¬ÂıÂı³Ô£¬Ğ¡ĞÄ±ğÒ­×ÅÁË¡£\n");
+		return notify_fail("åˆ«æ€¥ï¼Œæ…¢æ…¢åƒï¼Œå°å¿ƒåˆ«å™ç€äº†ã€‚\n");
 
-	write("ÈË¼ÒÖ»ÓĞÃÛ·äºÍºûµû¶Ô»¨°êÓĞĞËÈ¤£¬Ô­À´ÄãÒ²......\n");
+	write("äººå®¶åªæœ‰èœœèœ‚å’Œè´è¶å¯¹èŠ±ç“£æœ‰å…´è¶£ï¼ŒåŸæ¥ä½ ä¹Ÿ......\n");
 	return 1;
 }

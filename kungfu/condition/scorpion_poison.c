@@ -5,9 +5,9 @@
 int update_condition(object me, int duration)
 {
   if (me->is_ghost()) return 1;
-	tell_object(me, HIG "Äã¸Ðµ½ºôÎüÀ§ÄÑ£¬ËÄÖ«½¥½¥Ö×ÁËÆðÀ´¡£\n" NOR );
-	me->receive_wound("jing", 10,"Ð«×Ó¶¾·¢×÷");
-	me->receive_damage("qi", 10,"Ð«×Ó¶¾·¢×÷");
+	tell_object(me, HIG "ä½ æ„Ÿåˆ°å‘¼å¸å›°éš¾ï¼Œå››è‚¢æ¸æ¸è‚¿äº†èµ·æ¥ã€‚\n" NOR );
+	me->receive_wound("jing", 10,"èŽå­æ¯’å‘ä½œ");
+	me->receive_damage("qi", 10,"èŽå­æ¯’å‘ä½œ");
 	me->apply_condition("scorpion_poison", duration - 1);
 	if ((int)me->query("eff_jing")<0 || (int)me->query("eff_qi")<0) return 0;
 	if( duration < 1 ) return 0;

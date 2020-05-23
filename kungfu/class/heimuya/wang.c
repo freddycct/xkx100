@@ -7,10 +7,10 @@ void init();
 
 void create()
 {
-	set_name("Íõ³Ï", ({ "wang cheng","wang"}) );
-	set("gender", "ÄĞĞÔ" );
+	set_name("ç‹è¯š", ({ "wang cheng","wang"}) );
+	set("gender", "ç”·æ€§" );
 	set("age", 65);
-	set("long", "´ËÈËÉí²Ä°«ÅÖ£¬ÂúÁ³¶ÑĞ¦£¬ÆäÊµÎªÈËÊ®·Öºİ¶¾¡£\n");
+	set("long", "æ­¤äººèº«æçŸ®èƒ–ï¼Œæ»¡è„¸å †ç¬‘ï¼Œå…¶å®ä¸ºäººååˆ†ç‹ æ¯’ã€‚\n");
 	set("attitude", "friendly");
 	set("shen_type", -1);
 	set("env/wimpy", 40);
@@ -45,13 +45,13 @@ void create()
 	map_skill("sword", "taiji-jian");
 
 	set("inquiry", ([
-		"ÈÕÔÂÉñ½Ì" :    (: ask_me :),
-		"Èë½Ì"     :    (: ask_me :),
+		"æ—¥æœˆç¥æ•™" :    (: ask_me :),
+		"å…¥æ•™"     :    (: ask_me :),
 	]));
 
-	set("party/party_name", HIB"ÈÕÔÂÉñ½Ì"NOR);
-	set("party/rank", HIC"·çÀ×ÌÃÆìÖ÷"NOR);
-	create_family("ºÚÄ¾ÑÂ", 10, "µÜ×Ó");
+	set("party/party_name", HIB"æ—¥æœˆç¥æ•™"NOR);
+	set("party/rank", HIC"é£é›·å ‚æ——ä¸»"NOR);
+	create_family("é»‘æœ¨å´–", 10, "å¼Ÿå­");
 
 	setup();
         carry_object("/clone/weapon/gangjian")->wield();
@@ -60,13 +60,13 @@ void create()
 
 void attempt_apprentice(object ob)
 {
-	command("say ÎÒ²»ÊÕµÜ×Ó¡£\n");
+	command("say æˆ‘ä¸æ”¶å¼Ÿå­ã€‚\n");
 	return;
 }
 
 string ask_me()
 {
-	return "ÄãÏë¼ÓÈëÎÒÈÕÔÂÉñ½Ì¾ÍµÃÈ¥ÕÒËÄ´ó³¤ÀÏ¡£";
+	return "ä½ æƒ³åŠ å…¥æˆ‘æ—¥æœˆç¥æ•™å°±å¾—å»æ‰¾å››å¤§é•¿è€ã€‚";
 }
 void init()
 {

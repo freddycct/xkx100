@@ -5,12 +5,12 @@ inherit ROOM;
 #include <ansi.h> 
 void create()
 {
-	set("short","Æøº®Ðù");
+	set("short","æ°”å¯’è½©");
 	set("long",@LONG
-ÕâÀïÊÇÁèÏö³Ç´óµÜ×Ó°×Íò½£¼°Æä¼ÒÈËµÄ×¡Ëù¡£Ç½ÉÏ¹Ò×ÅÒ»¸±ÖÐÌÃ£¬
-ÉÏÊé¡°Æøº®Î÷±±¡±£¬±Ê·¨´Öáî£¬ÏÔÊÇÃû¼ÒÊÖ¼£¡£×ÀÉÏ·Å×ÅÒ»ºø²ÎÑôÓñ¾Æ£¬
-¾ÆÏãËÄÒç£¬Ò»Î»ÃæÃ²Ó¢¿¡µÄÄÐ×Ó×øÔÚ×ÀÅÔ£¬ÕýÓÆÏÐ×ÔµÃµØÐÞ¼ô×ÀÉÏµÄÒ»
-ÅèÃ·»¨¡£
+è¿™é‡Œæ˜¯å‡Œéœ„åŸŽå¤§å¼Ÿå­ç™½ä¸‡å‰‘åŠå…¶å®¶äººçš„ä½æ‰€ã€‚å¢™ä¸ŠæŒ‚ç€ä¸€å‰¯ä¸­å ‚ï¼Œ
+ä¸Šä¹¦â€œæ°”å¯’è¥¿åŒ—â€ï¼Œç¬”æ³•ç²—çŠ·ï¼Œæ˜¾æ˜¯åå®¶æ‰‹è¿¹ã€‚æ¡Œä¸Šæ”¾ç€ä¸€å£¶å‚é˜³çŽ‰é…’ï¼Œ
+é…’é¦™å››æº¢ï¼Œä¸€ä½é¢è²Œè‹±ä¿Šçš„ç”·å­ååœ¨æ¡Œæ—ï¼Œæ­£æ‚ é—²è‡ªå¾—åœ°ä¿®å‰ªæ¡Œä¸Šçš„ä¸€
+ç›†æ¢…èŠ±ã€‚
 LONG);
 	set("exits",([ /* sizeof() == 1 */
 		"east" : __DIR__"houyuan2", 

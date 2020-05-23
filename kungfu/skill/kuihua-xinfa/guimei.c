@@ -1,4 +1,4 @@
-// guimei.c ¹í÷ÈÉí·¨
+// guimei.c é¬¼é­…èº«æ³•
 // Last Modified by winder on Oct. 28 2000
 
 #include <ansi.h>
@@ -14,25 +14,25 @@ int exert(object me, object target)
   !me->query("perform/guimei") &&
   !me->query("can_perform/kuihua-xinfa/guimei") && 
   !me->query_temp("murong/xingyi"))
-   return notify_fail("ÄãËùÊ¹ÓÃµÄÄÚ¹¦ÖĞÃ»ÓĞÕâÖÖ¹¦ÄÜ¡£");
+   return notify_fail("ä½ æ‰€ä½¿ç”¨çš„å†…åŠŸä¸­æ²¡æœ‰è¿™ç§åŠŸèƒ½ã€‚");
 
 	if( me->query_temp("bixie/guimei"))
-		return notify_fail("ÄãÒÑ¾­ÔÚÔËÓÃ¹í÷ÈÉí·¨ÁË°É£¿\n");
+		return notify_fail("ä½ å·²ç»åœ¨è¿ç”¨é¬¼é­…èº«æ³•äº†å§ï¼Ÿ\n");
 
 //	if( !target || !target->is_character() || !me->is_fighting(target) )
-//		return notify_fail("ÄãÒ»¸öÈËÌøÀ´ÌøÈ¥¸ÉÊ²Ã´£¿\n");
+//		return notify_fail("ä½ ä¸€ä¸ªäººè·³æ¥è·³å»å¹²ä»€ä¹ˆï¼Ÿ\n");
 
 	if( !me->query_temp("murong/xingyi") )
 	{
 		if((int)me->query_skill("kuihua-xinfa", 1) < 100)
-			return notify_fail(HIY "ÄãµÄ¿û»¨ĞÄ·¨ĞŞÎª²»¹»¡£\n" NOR);
+			return notify_fail(HIY "ä½ çš„è‘µèŠ±å¿ƒæ³•ä¿®ä¸ºä¸å¤Ÿã€‚\n" NOR);
 		if((int)me->query_skill("bixie-jian", 1) < 120)
-			return notify_fail(HIY "ÄãµÄ±ÙĞ°½£·¨²»¹»ÊìÁ·¡£\n" NOR);
+			return notify_fail(HIY "ä½ çš„è¾Ÿé‚ªå‰‘æ³•ä¸å¤Ÿç†Ÿç»ƒã€‚\n" NOR);
 	}
 	if((int)me->query("neili") < 200)
-		return notify_fail(HIY "ÄãÏÖÔÚÕæÆø²»×ã¡£\n" NOR);
+		return notify_fail(HIY "ä½ ç°åœ¨çœŸæ°”ä¸è¶³ã€‚\n" NOR);
 
-	msg = HIC"µ«¼û$NµÄÉíĞÎÈç¹íÈç÷È£¬Æ®ºöÀ´È¥£¬Ö±ËÆÇáÑÌ¡£ÒÂĞä´ø·ç£¬È´²»·¢³ö°ëµãÉùÏ¢¡£\n"NOR;
+	msg = HIC"ä½†è§$Nçš„èº«å½¢å¦‚é¬¼å¦‚é­…ï¼Œé£˜å¿½æ¥å»ï¼Œç›´ä¼¼è½»çƒŸã€‚è¡£è¢–å¸¦é£ï¼Œå´ä¸å‘å‡ºåŠç‚¹å£°æ¯ã€‚\n"NOR;
 	message_combatd(msg, me);
 	me->add("neili", -200);
 	me->set_temp("bixie/guimei", 1);
@@ -46,21 +46,21 @@ void remove_effect(object me, int count)
 //	me->delete_temp("apply/dexerity");
   me->add_temp("apply/dexerity",-count);
 	me->delete_temp("bixie/guimei");
-	tell_object(me,HIY"Äã¾õµÃÒ»¹É×ÇÆø³ÁÏÂµ¤Ìï£¬ÄãµÄ¹í÷ÈÉí·¨ÊÕ¹¦ÁË£¡\n" NOR);
+	tell_object(me,HIY"ä½ è§‰å¾—ä¸€è‚¡æµŠæ°”æ²‰ä¸‹ä¸¹ç”°ï¼Œä½ çš„é¬¼é­…èº«æ³•æ”¶åŠŸäº†ï¼\n" NOR);
 }
 
 int help(object me)
 {
-	write(WHT"\n¿û»¨ĞÄ·¨Ö®¹í÷ÈÉí·¨£º"NOR"\n");
+	write(WHT"\nè‘µèŠ±å¿ƒæ³•ä¹‹é¬¼é­…èº«æ³•ï¼š"NOR"\n");
 	write(@HELP
 
-	Ê¹ÓÃ¹¦Ğ§£º
-		ÔİÊ±Ìá¸ßÉí·¨
+	ä½¿ç”¨åŠŸæ•ˆï¼š
+		æš‚æ—¶æé«˜èº«æ³•
 
-	³öÊÖÒªÇó£º
-		¿û»¨ĞÄ·¨100¼¶
-		±ÙĞ°½£·¨120¼¶
-		ÄÚÁ¦200
+	å‡ºæ‰‹è¦æ±‚ï¼š
+		è‘µèŠ±å¿ƒæ³•100çº§
+		è¾Ÿé‚ªå‰‘æ³•120çº§
+		å†…åŠ›200
 HELP
 	);
 	return 1;

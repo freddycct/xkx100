@@ -4,10 +4,10 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "������");
+	set("short", "演武桥");
 	set("long", @LONG
-����һ�����µ�С�ţ������ϵ�������໨�ݶ��������������
-����װ�˺ü�յ�۹�ƣ����ϵ���������ʱ�򣬼�ֱ����ˮ�������š�
+这是一座别致的小桥，桥栏上雕刻了许多花草动物，栩栩如生。桥
+边新装了好几盏聚光灯，晚上灯亮起来的时候，简直是座水晶做的桥。
 LONG);
 	set("exits", ([
 		"south"   : __DIR__"sroad2",

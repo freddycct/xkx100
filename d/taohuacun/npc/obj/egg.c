@@ -3,12 +3,12 @@ inherit ITEM;
 
 void create()
 {
-	set_name(YEL "¼¦µ°" NOR,({"egg"}));
+	set_name(YEL "é¸¡è›‹" NOR,({"egg"}));
 	set_weight(50);
 	if( clonep() )
                 set_default_object(__FILE__);
         else {
-                set("long", "Ò»¸ö¼¦µ°¡£\n");
-                set("unit", "¸ö");
+                set("long", "ä¸€ä¸ªé¸¡è›‹ã€‚\n");
+                set("unit", "ä¸ª");
         }
 }

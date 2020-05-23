@@ -10,39 +10,39 @@ int main(object me, string arg)
 	int oexp,mexp;
 	seteuid(getuid());
 
-	if (me->query("gender") =="Å®ĞÔ")
-		return notify_fail("Å®ÈË×öÕâÖÖÊÂµ±È»Ì«¿÷ÁË¡£\n");
+	if (me->query("gender") =="å¥³æ€§")
+		return notify_fail("å¥³äººåšè¿™ç§äº‹å½“ç„¶å¤ªäºäº†ã€‚\n");
 
 	if (!environment(me)->query("piao_room"))
-		return notify_fail("ÏëæÎæ½µ±È»ÒªÈ¥¼ËÔºÁË£¡\n");
+		return notify_fail("æƒ³å«–å¨¼å½“ç„¶è¦å»å¦“é™¢äº†ï¼\n");
 	if (!arg || !objectp(obj = present(arg, environment(me))))
-		return notify_fail("ÄãÏÖÔÚºÜ³å¶¯£¬¿ÉÊÇ¹ÃÄïÃÇ¶¼²»ÔÚ£¡\n");
-	if (me->query("gender") =="ÎŞĞÔ")
-		return notify_fail("ÄãÁ¬ÄÇ¸öÍæÒâ¶¼Ã»ÓĞ£¬»¹ÏëÓ²ÉÏ¹­£¿\n");
+		return notify_fail("ä½ ç°åœ¨å¾ˆå†²åŠ¨ï¼Œå¯æ˜¯å§‘å¨˜ä»¬éƒ½ä¸åœ¨ï¼\n");
+	if (me->query("gender") =="æ— æ€§")
+		return notify_fail("ä½ è¿é‚£ä¸ªç©æ„éƒ½æ²¡æœ‰ï¼Œè¿˜æƒ³ç¡¬ä¸Šå¼“ï¼Ÿ\n");
 	if (me->query("age") < 17)
-		return notify_fail("Ğ¡ĞÖµÜ£¬ÒªÕÒ¹ÃÄï¹ı¼¸ÄêÔÙÀ´°É£¡\n");
+		return notify_fail("å°å…„å¼Ÿï¼Œè¦æ‰¾å§‘å¨˜è¿‡å‡ å¹´å†æ¥å§ï¼\n");
 	if (obj->query("age") < 17)
-		return notify_fail("ÈË¼ÒĞ¡¹ÃÄï»¹Ã»ÓĞÊ®ÆßËêÄØ£¡\n");
+		return notify_fail("äººå®¶å°å§‘å¨˜è¿˜æ²¡æœ‰åä¸ƒå²å‘¢ï¼\n");
 	if(query_ip_name(obj)==query_ip_name(me))
-		return notify_fail("æÎ×Ô¼º£¿Ã»ÌıËµ¹ı£¬¹»²»×ÅÂï¡£\n");
-	if (obj==me) return notify_fail("×Ô¼º°²Î¿×Ô¼º£¿²»ÒªÕâÃ´Âé·³µÄÂï¡£\n");
+		return notify_fail("å«–è‡ªå·±ï¼Ÿæ²¡å¬è¯´è¿‡ï¼Œå¤Ÿä¸ç€å˜›ã€‚\n");
+	if (obj==me) return notify_fail("è‡ªå·±å®‰æ…°è‡ªå·±ï¼Ÿä¸è¦è¿™ä¹ˆéº»çƒ¦çš„å˜›ã€‚\n");
 	if (!obj->is_character())
-		return notify_fail("ÍÛ£¬ËÀµÄ¶«Î÷¶¼²»·Å¹ı£¡\n");
+		return notify_fail("å“‡ï¼Œæ­»çš„ä¸œè¥¿éƒ½ä¸æ”¾è¿‡ï¼\n");
 	if (!living(obj) || obj->query_temp("noliving") )
-		return notify_fail(obj->name() + "Á¢Âí±»õåõïÁË¡£\n");
+		return notify_fail(obj->name() + "ç«‹é©¬è¢«è¹‚èºäº†ã€‚\n");
 	if (!wizardp(me) && wizardp(obj) )
-		return notify_fail("Î×Ê¦²»×öÕâÖÖÊÂµÄ¡£\n");
+		return notify_fail("å·«å¸ˆä¸åšè¿™ç§äº‹çš„ã€‚\n");
 	if (obj->query("eff_jing")<20)
-		return notify_fail("·¢·¢ÉÆĞÄ°É£¬ËıÔÙ±»õåõï»áËÀµÄ£¡\n");
+		return notify_fail("å‘å‘å–„å¿ƒå§ï¼Œå¥¹å†è¢«è¹‚èºä¼šæ­»çš„ï¼\n");
 	if (obj->query_condition("prostitute") < 1)
-		return notify_fail("Ëı²»ÊÇ¼ËÅ®°¡£¡\n");
-	tell_object(me,"Äã¹Ê×öÎÂÈáµØ×ßÏò" + obj->name() + "£¬ÉìÊÖÈı°ÑÁ½°Ñ³¶È¥" + obj->query("name") + "µÄÒÂ·ş£¬\n\n");
-	tell_object(obj,me->name()+"Ò»¸±ÎÂÎÄ¶ûÑÅµÄÄ£Ñù×ß¹ıÀ´£¬Ò»µ½ÄãÉí±ßÁ¢ÂíÂ¶³öÒ»¸±ºï¼±Ñù£¬ÉìÊÖ¾ÍÍÑÄãµÄÒÂ·ş¡£\n\n");
-	message("vision","Ö»¼û" + me->name() + "Ò»¸±ÎÂÎÄ¶ûÑÅµÄÄ£Ñù×ßÏò"+obj->name() + "\nÈ»ºóºï¼±ºï¼±µØÉìÊÖÍÑÈ¥"+obj->name()+"µÄÒÂ·ş£¡\n\n\n", environment(me), ({ me,obj }) );
+		return notify_fail("å¥¹ä¸æ˜¯å¦“å¥³å•Šï¼\n");
+	tell_object(me,"ä½ æ•…åšæ¸©æŸ”åœ°èµ°å‘" + obj->name() + "ï¼Œä¼¸æ‰‹ä¸‰æŠŠä¸¤æŠŠæ‰¯å»" + obj->query("name") + "çš„è¡£æœï¼Œ\n\n");
+	tell_object(obj,me->name()+"ä¸€å‰¯æ¸©æ–‡å°”é›…çš„æ¨¡æ ·èµ°è¿‡æ¥ï¼Œä¸€åˆ°ä½ èº«è¾¹ç«‹é©¬éœ²å‡ºä¸€å‰¯çŒ´æ€¥æ ·ï¼Œä¼¸æ‰‹å°±è„±ä½ çš„è¡£æœã€‚\n\n");
+	message("vision","åªè§" + me->name() + "ä¸€å‰¯æ¸©æ–‡å°”é›…çš„æ¨¡æ ·èµ°å‘"+obj->name() + "\nç„¶åçŒ´æ€¥çŒ´æ€¥åœ°ä¼¸æ‰‹è„±å»"+obj->name()+"çš„è¡£æœï¼\n\n\n", environment(me), ({ me,obj }) );
 	me->start_busy(3);
-	message_vision("ÔÚÒ»¸ö·çÓêÈç»ŞµÄÒ¹Íí£¬$NºÍ$nË«Ë«³É¾ÍÒ»¶ÔÂ¶Ë®Ô§Ñì¡£\n",obj,me);
-	message_vision("$NºÍ$nÎªÈËÀàµÄ½ø»¯ºÍ·±ÑÜ×÷³öÁË²»¿ÉÄ¥ÃğµÄ¹±Ï×¡£\n",obj,me);
-// ×ö¼ÇÂ¼
+	message_vision("åœ¨ä¸€ä¸ªé£é›¨å¦‚æ™¦çš„å¤œæ™šï¼Œ$Nå’Œ$nåŒåŒæˆå°±ä¸€å¯¹éœ²æ°´é¸³é¸¯ã€‚\n",obj,me);
+	message_vision("$Nå’Œ$nä¸ºäººç±»çš„è¿›åŒ–å’Œç¹è¡ä½œå‡ºäº†ä¸å¯ç£¨ç­çš„è´¡çŒ®ã€‚\n",obj,me);
+// åšè®°å½•
 	if (!me->query("sex/number"))
 		me->set("sex/first",obj->query("id"));
 	me->add("sex/number",1);
@@ -51,7 +51,7 @@ int main(object me, string arg)
 		obj->set("sex/first",me->query("id"));
 	obj->add("sex/number",1);
 	obj->add("sex/"+me->query("id"),1);
-// ¼ÇÂ¼½áÊø
+// è®°å½•ç»“æŸ
 	me->receive_damage("jing", 3);
 	me->receive_wound("jing", 3);
 	me->add("mud_age", 240);
@@ -67,9 +67,9 @@ int main(object me, string arg)
 int help(object me)
 {
 	write(@HELP
-Ö¸Áî¸ñÊ½ : piao <Ä³ÈË>
+æŒ‡ä»¤æ ¼å¼ : piao <æŸäºº>
 
-    æÎ¡£Àö´ºÔº×¨ÓÃÃüÁî¡£
+    å«–ã€‚ä¸½æ˜¥é™¢ä¸“ç”¨å‘½ä»¤ã€‚
 
 HELP
 	);

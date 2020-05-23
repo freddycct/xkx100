@@ -1,4 +1,4 @@
-// mahayana.c ´ó³ËÄùÅÍ¹¦
+// mahayana.c å¤§ä¹˜æ¶…ç£åŠŸ
 //Last Modified by winder on Mar. 10 2000
 
 #include <ansi.h>
@@ -15,41 +15,41 @@ int valid_learn(object me)
 	mapping myfam;
 	myfam = (mapping)me->query("family");
 /*
-	if (!myfam || (myfam["family_name"] != "¶ëáÒÅÉ"))
-		return notify_fail("Äã²»ÊÇ¶ëáÒµÜ×Ó£¬²»ÄÜÐÞÁ¶´ó³ËÄùÅÍ¹¦¡£\n");
+	if (!myfam || (myfam["family_name"] != "å³¨åµ‹æ´¾"))
+		return notify_fail("ä½ ä¸æ˜¯å³¨åµ‹å¼Ÿå­ï¼Œä¸èƒ½ä¿®ç‚¼å¤§ä¹˜æ¶…ç£åŠŸã€‚\n");
 	if (me->query_skill("linji-zhuang",1) < me->query_skill("mahayana",1))
-		return notify_fail("ÄãµÄ±¾ÃÅÄÚ¹¦ÐÞÎªÌ«ÉÙ£¬ÐÞÁ¶´ó³ËÄùÅÍ¹¦Ò²Ã»ÓÃ¡£\n");
+		return notify_fail("ä½ çš„æœ¬é—¨å†…åŠŸä¿®ä¸ºå¤ªå°‘ï¼Œä¿®ç‚¼å¤§ä¹˜æ¶…ç£åŠŸä¹Ÿæ²¡ç”¨ã€‚\n");
 */
 	if ((int)me->query("shen") < 0 )
-		return notify_fail("ÄãµÄÐ°ÆøÌ«ÖØ£¬ÎÞ·¨ÐÞÁ¶´ó³ËÄùÅÍ¹¦¡£\n");
+		return notify_fail("ä½ çš„é‚ªæ°”å¤ªé‡ï¼Œæ— æ³•ä¿®ç‚¼å¤§ä¹˜æ¶…ç£åŠŸã€‚\n");
 //	if (me->query_skill("persuading",1) <= me->query_skill("mahayana",1))
-//		return notify_fail("ÄãµÄÉÆÐÐÌ«ÉÙ£¬ÐÞÁ¶´ó³ËÄùÅÍ¹¦Ò²Ã»ÓÃ¡£\n");
+//		return notify_fail("ä½ çš„å–„è¡Œå¤ªå°‘ï¼Œä¿®ç‚¼å¤§ä¹˜æ¶…ç£åŠŸä¹Ÿæ²¡ç”¨ã€‚\n");
 	if( (int)me->query_skill("taoism",1) > 1 )
-		return notify_fail("ÄãÑ§ÁËÅ£±Ç×ÓµÄÐÄ·¨£¬ÎÞ·¨ÐÞÁ¶´ó³ËÄùÅÍ¹¦¡£\n");
+		return notify_fail("ä½ å­¦äº†ç‰›é¼»å­çš„å¿ƒæ³•ï¼Œæ— æ³•ä¿®ç‚¼å¤§ä¹˜æ¶…ç£åŠŸã€‚\n");
 	if ((me->query_skill("lamaism",1) > 1))
-		return notify_fail("ÄãÐÄ´æÃÜ×Ú£¬ÎÞ·¨ÐÞÁ¶´ó³ËÄùÅÍ¹¦¡£\n");
+		return notify_fail("ä½ å¿ƒå­˜å¯†å®—ï¼Œæ— æ³•ä¿®ç‚¼å¤§ä¹˜æ¶…ç£åŠŸã€‚\n");
 	if (me->query_skill("mahayana", 1) >= 200)
-		return notify_fail("ÏÞÓÚ×ÊÖÊ£¬Äã¶Ô´ó³ËÄùÅÍ¹¦µÄÀí½âÒ²¾Íµ½´ËÎªÖ¹ÁË¡£\n");
+		return notify_fail("é™äºŽèµ„è´¨ï¼Œä½ å¯¹å¤§ä¹˜æ¶…ç£åŠŸçš„ç†è§£ä¹Ÿå°±åˆ°æ­¤ä¸ºæ­¢äº†ã€‚\n");
 
 	return 1;
 }
 
 int practice_skill(object me)
 {
-	return notify_fail("´ó³ËÄùÅÍ¹¦Ö»ÄÜ¿¿Ñ§Ï°À´Ìá¸ß¡£\n");
+	return notify_fail("å¤§ä¹˜æ¶…ç£åŠŸåªèƒ½é å­¦ä¹ æ¥æé«˜ã€‚\n");
 }
 int help(object me)
 {
-	write(HIC"\n´ó³ËÄùÅÍ¹¦£º"NOR"\n");
+	write(HIC"\nå¤§ä¹˜æ¶…ç£åŠŸï¼š"NOR"\n");
 	write(@HELP
 
-    ¶ëáÒÅÉËØ²»Ï²ÓëÈËÕù¶·£¬µÜ×ÓÃÅÈË³£³£±ÕÃÅÐÞÁ¶ÒÔÔö³¤ÈËÌåÇ±
-ÄÜ£¬ÆäÓÐÐ§³Ì¶ÈÄËÈ¡¾öÓÚ·ð·¨ÐÞÎª£¨¼´´ó³ËÄùÅÍ¹¦µÄµÈ¼¶£©¡£´ò×ø
-¾²ÐÞ¿ÉÔÚ¶ëáÒìø·¿Ê¹ÓÃÃüÁîjingzuo¡£Çëhelp jingzuo¡£
+    å³¨åµ‹æ´¾ç´ ä¸å–œä¸Žäººäº‰æ–—ï¼Œå¼Ÿå­é—¨äººå¸¸å¸¸é—­é—¨ä¿®ç‚¼ä»¥å¢žé•¿äººä½“æ½œ
+èƒ½ï¼Œå…¶æœ‰æ•ˆç¨‹åº¦ä¹ƒå–å†³äºŽä½›æ³•ä¿®ä¸ºï¼ˆå³å¤§ä¹˜æ¶…ç£åŠŸçš„ç­‰çº§ï¼‰ã€‚æ‰“å
+é™ä¿®å¯åœ¨å³¨åµ‹ç¦…æˆ¿ä½¿ç”¨å‘½ä»¤jingzuoã€‚è¯·help jingzuoã€‚
 
-	Ñ§Ï°ÒªÇó£º
-		ÏàÓ¦µÄÁÙ¼ÃÊ®¶þ×¯
-		²»ÄÜÑ§ìø×ÚÐÄ·¨ÍâµÄÆäËû×Ú½ÌÐÄ·¨
+	å­¦ä¹ è¦æ±‚ï¼š
+		ç›¸åº”çš„ä¸´æµŽåäºŒåº„
+		ä¸èƒ½å­¦ç¦…å®—å¿ƒæ³•å¤–çš„å…¶ä»–å®—æ•™å¿ƒæ³•
 HELP
 	);
 	return 1;

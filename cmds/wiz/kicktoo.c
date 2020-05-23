@@ -1,4 +1,4 @@
-// kickto.c ÌßÄ³ÈËÖÁÒõ¼ä
+// kickto.c è¸¢æŸäººè‡³é˜´é—´
 inherit F_CLEAN_UP;
 
 
@@ -13,16 +13,16 @@ int main(object me, string arg)
 
 	if( me!=this_player(1) ) return 0;
 	if( !arg )
-		return notify_fail("ÄãÒªÌßË­£¿\n");
+		return notify_fail("ä½ è¦è¸¢è°ï¼Ÿ\n");
 	wiz_status=SECURITY_D->get_status(me) ;
 //	if (wiz_status != "(admin)" )
-//		return notify_fail("ÌßÊ²Ã´Ìß£¿\n");
+//		return notify_fail("è¸¢ä»€ä¹ˆè¸¢ï¼Ÿ\n");
 	ob = LOGIN_D->find_body(arg);
-	if (!ob) return notify_fail("ß×... ÓĞÕâ¸öÈËÂğ£¿\n");
+	if (!ob) return notify_fail("å’¦... æœ‰è¿™ä¸ªäººå—ï¼Ÿ\n");
 	if ( !living(ob) || !ob->is_character() || ob==me )
 		return notify_fail("ob error!\n");
-	message_vision(HIW"\n$NÒ»½ÅõßÔÚ$nµÄÆ¨¹ÉÉÏ£¬$n¶ÙÊ±ºá×Å·ÉÁË³öÈ¥¡£\n\n"NOR, me,ob);
-	tell_object( me, "Äã°Ñ " + ob->query("name") + " õßµ½¼àÓüÈ¥ÁË¡£\n");
+	message_vision(HIW"\n$Nä¸€è„šè¸¹åœ¨$nçš„å±è‚¡ä¸Šï¼Œ$né¡¿æ—¶æ¨ªç€é£äº†å‡ºå»ã€‚\n\n"NOR, me,ob);
+	tell_object( me, "ä½ æŠŠ " + ob->query("name") + " è¸¹åˆ°ç›‘ç‹±å»äº†ã€‚\n");
 	seteuid(getuid(ob));
 	me->save();
 	seteuid(ROOT_UID);
@@ -35,8 +35,8 @@ int main(object me, string arg)
 int help(object me)
 {
 	write(@HELP
-Ö¸Áî¸ñÊ½ : kickto <Ä³ÈË>
-×÷    ÓÃ : ·ÀÖ¹Ä³Ğ©Íæ¼Òµ·ÂÒ¡£
+æŒ‡ä»¤æ ¼å¼ : kickto <æŸäºº>
+ä½œ    ç”¨ : é˜²æ­¢æŸäº›ç©å®¶æ£ä¹±ã€‚
 HELP);
 	return 1;
 }

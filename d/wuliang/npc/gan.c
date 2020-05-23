@@ -5,8 +5,8 @@ inherit NPC;
 string ask_me();
 void create()
 {
-	set_name("¸É¹âºÀ", ({ "gan guanghao", "gan", "guanghao"}));
-	set("gender", "ÄÐÐÔ");
+	set_name("å¹²å…‰è±ª", ({ "gan guanghao", "gan", "guanghao"}));
+	set("gender", "ç”·æ€§");
 	set("attitude", "friendly");
 
 	set("age", 20);
@@ -36,14 +36,14 @@ void create()
 	map_skill("sword", "damo-jian");
 	map_skill("parry", "damo-jian");
 	set("inquiry", ([
-		"¸ð¹âÅå"    : (: ask_me :),
-		"¹·ÄÐÅ®"    : (: ask_me :),
-		"¼é·òÒù¸¾"  : (: ask_me :),
-		"Íü°Ë"      : (: ask_me :),
-		"ÎÞÁ¿Óñ±Ú"  : "ÄÇÊÇ±¾ÅÉ½ûµØ£¬ÈÎºÎÍâÈË²»µÃÉÃÈë¡£¸É·¸½û¼É£¬¿É½ÐÄãËÀÔáÉíÖ®µØ¡£",
+		"è‘›å…‰ä½©"    : (: ask_me :),
+		"ç‹—ç”·å¥³"    : (: ask_me :),
+		"å¥¸å¤«æ·«å¦‡"  : (: ask_me :),
+		"å¿˜å…«"      : (: ask_me :),
+		"æ— é‡çŽ‰å£"  : "é‚£æ˜¯æœ¬æ´¾ç¦åœ°ï¼Œä»»ä½•å¤–äººä¸å¾—æ“…å…¥ã€‚å¹²çŠ¯ç¦å¿Œï¼Œå¯å«ä½ æ­»è‘¬èº«ä¹‹åœ°ã€‚",
 	]));
 
-	create_family("ÎÞÁ¿½£¶«×Ú", 5, "µÜ×Ó");
+	create_family("æ— é‡å‰‘ä¸œå®—", 5, "å¼Ÿå­");
 	setup();
 
         carry_object("/clone/cloth/cloth")->wear();
@@ -53,7 +53,7 @@ void create()
 string ask_me()
 {
 	this_player()->set_temp("marks/wuliang", 1);
-	return "¼ÈÈ»±»Äã×²ÆÆÁËÎÒÃÇµÄºÃÊÂ£¬Ò²²»ÓÃÎÒÃÇ¶¯ÊÖ£¬×Ô¼ºµ½ÐüÑÂÁË¶Ï°É¡£";
+	return "æ—¢ç„¶è¢«ä½ æ’žç ´äº†æˆ‘ä»¬çš„å¥½äº‹ï¼Œä¹Ÿä¸ç”¨æˆ‘ä»¬åŠ¨æ‰‹ï¼Œè‡ªå·±åˆ°æ‚¬å´–äº†æ–­å§ã€‚";
 }
 
 void init()
@@ -71,7 +71,7 @@ void greeting(object ob)
 {
         if( !ob || environment(ob) != environment() ) return;
         tell_object(ob,
-"\n¸É¹âºÀµÀ£º¡°ÄãÒÀÁËÎÒ£¬ÈôÊÇÎÒÈÕºó¸ºÐÄ£¬¾ÍµôÔÚÕâË®Àï£¬±ä¸ö´óÍü°Ë¡£¡±
-¸ð¹âÅå¸ñ¸ñ½¿Ð¦£¬ÄåÉùµÀ£º¡°Äã×öÍü°Ë£¬¿É²»ÊÇÂîÎÒ²»¹æ¾ØÂð£¿¡±\n");
+"\nå¹²å…‰è±ªé“ï¼šâ€œä½ ä¾äº†æˆ‘ï¼Œè‹¥æ˜¯æˆ‘æ—¥åŽè´Ÿå¿ƒï¼Œå°±æŽ‰åœ¨è¿™æ°´é‡Œï¼Œå˜ä¸ªå¤§å¿˜å…«ã€‚â€
+è‘›å…‰ä½©æ ¼æ ¼å¨‡ç¬‘ï¼Œè…»å£°é“ï¼šâ€œä½ åšå¿˜å…«ï¼Œå¯ä¸æ˜¯éª‚æˆ‘ä¸è§„çŸ©å—ï¼Ÿâ€\n");
 }
 

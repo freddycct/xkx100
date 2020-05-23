@@ -4,12 +4,12 @@ inherit ITEM;
 
 void create()
 {
-	set_name("²İÓã",({"caoyu"}));
+	set_name("è‰é±¼",({"caoyu"}));
 	set_weight(80);
 	if( clonep() )
                 set_default_object(__FILE__);
         else {
-                set("long", "Ò»Î²»î±ÄÂÒÌøµÄ²İÓã¡£\n");
-                set("unit", "Î²");
+                set("long", "ä¸€å°¾æ´»è¹¦ä¹±è·³çš„è‰é±¼ã€‚\n");
+                set("unit", "å°¾");
         }
 }

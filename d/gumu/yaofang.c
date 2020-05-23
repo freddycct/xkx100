@@ -6,11 +6,11 @@ inherit ROOM;
 
 void create()
 {
-	set("short",HIG"Ò©·¿"NOR);
+	set("short",HIG"è¯æˆ¿"NOR);
 	set("long", @LONG
-ÕâÀïÊÇÒ»¼äÊ¯ÊÒ£¬ÖÜÎ§µÄ»ğ°Ñ½«Ê¯ÊÒÕÕµÄµÆ»ğÍ¨Ã÷£¬Ê¯ÊÒÀïÃæ°ÚÂú
-ÁËºÜ¶àÆ¿Æ¿¹Ş¹Ş£¬ÉÏÃæ¶¼ÌùºÃÁË±êÇ©£¬Ò»Æ¿Æ¿Óñ·ä½¬±»¹ÅÄ¹µÜ×ÓÖÆ³Éºó
-·ÅÔÚ´Ë´¦¡£ÄãÄÜ¿´¼û¼¸¸ö¹ÅÄ¹µÜ×ÓÕıÔÚÃ¦ÂµµÄ¸É»î¡£
+è¿™é‡Œæ˜¯ä¸€é—´çŸ³å®¤ï¼Œå‘¨å›´çš„ç«æŠŠå°†çŸ³å®¤ç…§çš„ç¯ç«é€šæ˜ï¼ŒçŸ³å®¤é‡Œé¢æ‘†æ»¡
+äº†å¾ˆå¤šç“¶ç“¶ç½ç½ï¼Œä¸Šé¢éƒ½è´´å¥½äº†æ ‡ç­¾ï¼Œä¸€ç“¶ç“¶ç‰èœ‚æµ†è¢«å¤å¢“å¼Ÿå­åˆ¶æˆå
+æ”¾åœ¨æ­¤å¤„ã€‚ä½ èƒ½çœ‹è§å‡ ä¸ªå¤å¢“å¼Ÿå­æ­£åœ¨å¿™ç¢Œçš„å¹²æ´»ã€‚
 LONG	);
 	set("exits", ([
 		"north" : __DIR__"mudao10",
@@ -37,16 +37,16 @@ int do_make(string arg)
 	ob= present("feng mi", me);
 	name1= me->query("id");
 	if (me->is_busy() || me->is_fighting())
-		return notify_fail("ÄãÕıÃ¦×ÅÄØ¡£\n");	
+		return notify_fail("ä½ æ­£å¿™ç€å‘¢ã€‚\n");	
 	if ( arg =="jiang")
 	{
 		if ( ! me->query_temp("gm_job1"))
-			return notify_fail("Äã»¹Ã»È¥²ÉÃÛÄØ£¬ÔõÃ´À´ÖÆÓñ·ä½¬£¿\n");
+			return notify_fail("ä½ è¿˜æ²¡å»é‡‡èœœå‘¢ï¼Œæ€ä¹ˆæ¥åˆ¶ç‰èœ‚æµ†ï¼Ÿ\n");
 		if (!objectp(present("feng mi", me)))
-			return notify_fail("ÄãÓÃÊ²Ã´À´ÖÆ³ÉÓñ·ä½¬£¿\n");
+			return notify_fail("ä½ ç”¨ä»€ä¹ˆæ¥åˆ¶æˆç‰èœ‚æµ†ï¼Ÿ\n");
 		if ( ob->query_temp("gm/make") != name1 )
-			return notify_fail("Õâ·äÃÛºÃÏó²»ÊÇÄã²ÉÀ´µÄ°É£¿\n");	
-		message_vision(HIY"$N×ĞÏ¸µØ½«·äÃÛµ÷ºÍ¾ùÔÈ£¬ÖÆ³ÉÓñ·ä½¬£¬·ÅÔÚ¼ÜÉÏ¡£\n"NOR,me);
+			return notify_fail("è¿™èœ‚èœœå¥½è±¡ä¸æ˜¯ä½ é‡‡æ¥çš„å§ï¼Ÿ\n");	
+		message_vision(HIY"$Nä»”ç»†åœ°å°†èœ‚èœœè°ƒå’Œå‡åŒ€ï¼Œåˆ¶æˆç‰èœ‚æµ†ï¼Œæ”¾åœ¨æ¶ä¸Šã€‚\n"NOR,me);
 		me->delete_temp("gm_job1");
 		exp=40+random(20);
 		me->add("combat_exp",exp);
@@ -55,10 +55,10 @@ int do_make(string arg)
 		score=2+random(5);
 		me->add("score",score);
 		call_out("destroying", 1, ob);
-		tell_object(me,HIW"ÒòÎªÀÍ×÷£¬ÄãÔö³¤ÁË£º" + chinese_number(exp) + "µãÊµÕ½¾­Ñé" + chinese_number(pot) + "µãÇ±ÄÜ" + chinese_number(score) + "µã½­ºşÔÄÀú¡£\n"NOR); 
+		tell_object(me,HIW"å› ä¸ºåŠ³ä½œï¼Œä½ å¢é•¿äº†ï¼š" + chinese_number(exp) + "ç‚¹å®æˆ˜ç»éªŒ" + chinese_number(pot) + "ç‚¹æ½œèƒ½" + chinese_number(score) + "ç‚¹æ±Ÿæ¹–é˜…å†ã€‚\n"NOR); 
 		return 1;
 	}
-	return notify_fail("ÄãÏë°Ñ·äÃÛÖÆ³ÉÊ²Ã´°¡£¿\n");
+	return notify_fail("ä½ æƒ³æŠŠèœ‚èœœåˆ¶æˆä»€ä¹ˆå•Šï¼Ÿ\n");
 }
 
 void destroying(object ob)

@@ -5,12 +5,12 @@ inherit NPC;
 string ask_me();
 void create()
 {
-	set_name("Ë®óÏ", ({ "shui sheng", "shui" }));
+	set_name("æ°´ç¬™", ({ "shui sheng", "shui" }));
 	set("long", 
-	"ËıÊÇ¸öÉúµÃÊ®·ÖĞãÃÀÇåÀö¶¯ÈËµÄ½­ÄÏ¼ÑÀö¡£\n"
-	"ËıºÍËıµÄ±í¸çÍôĞ¥·çºÅ³Æ¡°Áå½£Ë«ÏÀ¡±£¬Ãû¶¯¶«ÄÏ¡£\n");
-	set("gender", "Å®ĞÔ");
-	set("nickname", HIM"Áå½£Å®ÏÀ"NOR);
+	"å¥¹æ˜¯ä¸ªç”Ÿå¾—ååˆ†ç§€ç¾æ¸…ä¸½åŠ¨äººçš„æ±Ÿå—ä½³ä¸½ã€‚\n"
+	"å¥¹å’Œå¥¹çš„è¡¨å“¥æ±ªå•¸é£å·ç§°â€œé“ƒå‰‘åŒä¾ â€ï¼ŒååŠ¨ä¸œå—ã€‚\n");
+	set("gender", "å¥³æ€§");
+	set("nickname", HIM"é“ƒå‰‘å¥³ä¾ "NOR);
 	set("age", 16);
 	set("attitude", "peaceful");
 	set("shen_type", 0);
@@ -45,7 +45,7 @@ void create()
 	map_skill("parry", "huashan-jianfa");
 	map_skill("sword", "huashan-jianfa");
 	set("inquiry", ([
-		"µÒÔÆ" : (: ask_me :),
+		"ç‹„äº‘" : (: ask_me :),
 	]));
 	set("chang_count", 1);
 
@@ -59,10 +59,10 @@ string ask_me()
 	object ob;
 	
 	if (query("chang_count") < 1)
-		return "µÒ´ó¸ç»¹ºÃÂğ£¿ÎÒÔÚÕâÀïµÈÁËËûÕâÃ´¾Ã£¡ÎÒÖªµÀËûÖÕÓÚ»á»ØÀ´µÄ¡£";
+		return "ç‹„å¤§å“¥è¿˜å¥½å—ï¼Ÿæˆ‘åœ¨è¿™é‡Œç­‰äº†ä»–è¿™ä¹ˆä¹…ï¼æˆ‘çŸ¥é“ä»–ç»ˆäºä¼šå›æ¥çš„ã€‚";
 	add("chang_count", -1);
 	ob = new("/d/xuedao/obj/dachang");
 	ob->move(this_object());
 	command("give da chang to "+this_player()->query("id"));
-	return "µÒ´ó¸ç»¹ºÃÂğ£¿ÎÒÔÚÕâÒ»Ö±µÈ×ÅËû¡£Âé·³Äã£¬°ÑÕâÁì´óë©½»¸øËû°É¡£";
+	return "ç‹„å¤§å“¥è¿˜å¥½å—ï¼Ÿæˆ‘åœ¨è¿™ä¸€ç›´ç­‰ç€ä»–ã€‚éº»çƒ¦ä½ ï¼ŒæŠŠè¿™é¢†å¤§æ°…äº¤ç»™ä»–å§ã€‚";
 }

@@ -8,10 +8,10 @@ string ask_me();
 void init();
 void create()
 {
-	set_name("±«´ó³ş", ({ "bao dachu","bao","dachu"}) );
-	set("gender", "ÄĞĞÔ" );
+	set_name("é²å¤§æ¥š", ({ "bao dachu","bao","dachu"}) );
+	set("gender", "ç”·æ€§" );
 	set("age", 40);
-	set("long", "Ò»¸ö¾«¸ÉµÄÀÏÕß¡£\n");
+	set("long", "ä¸€ä¸ªç²¾å¹²çš„è€è€…ã€‚\n");
 	set("attitude", "friendly");
 	set("shen_type", -1);
 	set("env/wimpy", 40);
@@ -45,13 +45,13 @@ void create()
 	map_skill("staff", "lingshe-zhangfa");
 
 	set("inquiry", ([
-		"ÈÕÔÂÉñ½Ì" :    (: ask_me :),
-		"Èë½Ì"     :    (: ask_me :),
+		"æ—¥æœˆç¥æ•™" :    (: ask_me :),
+		"å…¥æ•™"     :    (: ask_me :),
 	]));
 
-	set("party/party_name", HIB"ÈÕÔÂÉñ½Ì"NOR);
-	set("party/rank", HIR"ÖìÈ¸ÌÃ³¤ÀÏ"NOR);
-	create_family("ºÚÄ¾ÑÂ", 9, "µÜ×Ó");
+	set("party/party_name", HIB"æ—¥æœˆç¥æ•™"NOR);
+	set("party/rank", HIR"æœ±é›€å ‚é•¿è€"NOR);
+	create_family("é»‘æœ¨å´–", 9, "å¼Ÿå­");
 
 	setup();
 	carry_object("/clone/weapon/gangzhang")->wield();
@@ -61,7 +61,7 @@ void create()
 
 void attempt_apprentice(object ob)
 {
-	command("say ÎÒÖ»¹Ü½ÓÒıÈë½Ì£¬²»ÊÕµÜ×Ó¡£\n");
+	command("say æˆ‘åªç®¡æ¥å¼•å…¥æ•™ï¼Œä¸æ”¶å¼Ÿå­ã€‚\n");
 	return;
 }
 
@@ -83,7 +83,7 @@ void init()
 
 string ask_me()
 {
-	return "ÄãÏë¼ÓÈëÎÒÈÕÔÂÉñ½Ì(join riyuejiao)Âğ£¿";
+	return "ä½ æƒ³åŠ å…¥æˆ‘æ—¥æœˆç¥æ•™(join riyuejiao)å—ï¼Ÿ";
 }
 
 #include "riyuejiao.h"

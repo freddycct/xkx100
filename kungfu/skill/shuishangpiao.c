@@ -1,4 +1,4 @@
-// shuishangpiao.c ÌúÕÆË®ÉÏÆ®
+// shuishangpiao.c é“æŒæ°´ä¸Šé£˜
 // Last Modified by sir on 10.18.2001
 
 #include <ansi.h>
@@ -7,23 +7,23 @@ string type() { return "martial"; }
 string martialtype() { return "dodge"; }
 
 string *dodge_msg = ({
-"$n×ã¸úÒ»Ö§£¬È«ÉíºóÑö£¬Ò»ÕĞ"BLU"¡¸ÀğÓãµ¹´©²¨¡¹"NOR"£¬·´´Ü³öÕÉÓà£¬¶ã¹ıÁË$NµÄ¹¥»÷¡£\n",
-"$nÉíÌåºöÈ»ÈáÈôÎŞ¹Ç£¬×óÓÒÒ¡°Ú£¬Ê¹³öÒ»ÕĞ"BLU"¡¸Óê´òÆ¯Æ¼¡¹"NOR"£¬±Ü¹ıÁË$NµÄ¹¥»÷¡£\n",
-"$nÊ¹³ö"HIB"¡¸Îï»»ĞÇÒÆ¡¹"NOR"£¬µÎÁïÁïÒ»¸ö×ªÉí£¬´Ó$NÉíÅÔ²ÁÉí¶ø¹ı£¬·´¶øµ½ÁË$NÉíºó¡£\n",
-"$nÒ»ÕĞ"HIY"¡¸ÂäÒ¶Ëæ·ç¡¹"NOR"£¬ÉíÌåÈçÒ»Æ¬ÂäÒ¶Ò»°ãÆ®ÁË³öÈ¥£¬ÉíĞĞÖ®äìÈ÷£¬Ñ¸ËÙµ½ÁË¼«´¦¡£\n",
+"$nè¶³è·Ÿä¸€æ”¯ï¼Œå…¨èº«åä»°ï¼Œä¸€æ‹›"BLU"ã€Œé²¤é±¼å€’ç©¿æ³¢ã€"NOR"ï¼Œåçªœå‡ºä¸ˆä½™ï¼Œèº²è¿‡äº†$Nçš„æ”»å‡»ã€‚\n",
+"$nèº«ä½“å¿½ç„¶æŸ”è‹¥æ— éª¨ï¼Œå·¦å³æ‘‡æ‘†ï¼Œä½¿å‡ºä¸€æ‹›"BLU"ã€Œé›¨æ‰“æ¼‚èã€"NOR"ï¼Œé¿è¿‡äº†$Nçš„æ”»å‡»ã€‚\n",
+"$nä½¿å‡º"HIB"ã€Œç‰©æ¢æ˜Ÿç§»ã€"NOR"ï¼Œæ»´æºœæºœä¸€ä¸ªè½¬èº«ï¼Œä»$Nèº«æ—æ“¦èº«è€Œè¿‡ï¼Œåè€Œåˆ°äº†$Nèº«åã€‚\n",
+"$nä¸€æ‹›"HIY"ã€Œè½å¶éšé£ã€"NOR"ï¼Œèº«ä½“å¦‚ä¸€ç‰‡è½å¶ä¸€èˆ¬é£˜äº†å‡ºå»ï¼Œèº«è¡Œä¹‹æ½‡æ´’ï¼Œè¿…é€Ÿåˆ°äº†æå¤„ã€‚\n",
 });
 
 int valid_enable(string usage) { return (usage=="dodge") || (usage=="move"); }
 int valid_learn(object me) 
 {      	
 	if( (int)me->query_skill("guiyuan-tunafa", 1) < 10 )
-	return notify_fail("ÄãµÄ¹éÔªÍÂÄÉ·¨²»¹»¾«Êì£¬ÎŞ·¨Áì»áÌúÕÆË®ÉÏÆ®¡£\n");
+	return notify_fail("ä½ çš„å½’å…ƒåçº³æ³•ä¸å¤Ÿç²¾ç†Ÿï¼Œæ— æ³•é¢†ä¼šé“æŒæ°´ä¸Šé£˜ã€‚\n");
 	return 1;
 }
 int practice_skill(object me)
 {
 	if( (int)me->query("qi") < 30 || (int)me->query("neili") < 6 )
-		return notify_fail("ÄãµÄÌåÁ¦Ì«²îÁË£¬ÎŞ·¨Á·Ï°ÌúÕÆË®ÉÏÆ®¡£\n");
+		return notify_fail("ä½ çš„ä½“åŠ›å¤ªå·®äº†ï¼Œæ— æ³•ç»ƒä¹ é“æŒæ°´ä¸Šé£˜ã€‚\n");
 	me->receive_damage("qi", 30);
 	me->add("neili", -6);
 	return 1;
@@ -37,19 +37,19 @@ int learn_bonus() { return 15; }
 int practice_bonus() { return 15; }
 int success() { return 15; }
 int power_point(object me) { return 1.3; }
-int river_point() {return 1.5;} // ¹ıºÓ±ÈÆÕÍ¨ÈİÒ× Ô½¸ßÔ½ºÃ
-string river_go_msg() {	return HIW"$N·ÉÉíÔ¾ÔÚË®Ãæ£¬ÉíĞÎÎÈÄı£¬ºÓË®Ö»¼°Ğ¡ÍÈ£¬Ò»²½²½×ßÁË¹ıÈ¥¡£\n"NOR;}
-string river_come_msg() {	return HIW"Ö»¼ûË®ÃæÉÏÈËÓ°ÉÁ¶¯£¬$NÈçÆ®ÔÚÉÏÃæÒ»°ã£¬Ö±×ß¹ıÀ´¡£\n"NOR;}
+int river_point() {return 1.5;} // è¿‡æ²³æ¯”æ™®é€šå®¹æ˜“ è¶Šé«˜è¶Šå¥½
+string river_go_msg() {	return HIW"$Né£èº«è·ƒåœ¨æ°´é¢ï¼Œèº«å½¢ç¨³å‡ï¼Œæ²³æ°´åªåŠå°è…¿ï¼Œä¸€æ­¥æ­¥èµ°äº†è¿‡å»ã€‚\n"NOR;}
+string river_come_msg() {	return HIW"åªè§æ°´é¢ä¸Šäººå½±é—ªåŠ¨ï¼Œ$Nå¦‚é£˜åœ¨ä¸Šé¢ä¸€èˆ¬ï¼Œç›´èµ°è¿‡æ¥ã€‚\n"NOR;}
 
 int help(object me)
 {
-	write(HIC"\nÌúÕÆË®ÉÏÆ®£º"NOR"\n");
+	write(HIC"\né“æŒæ°´ä¸Šé£˜ï¼š"NOR"\n");
 	write(@HELP
 
-    ÌúÕÆ°ïµÄ¶ÀÃÅÇá¹¦Éí·¨¡£
+    é“æŒå¸®çš„ç‹¬é—¨è½»åŠŸèº«æ³•ã€‚
 
-	Ñ§Ï°ÒªÇó£º
-	  ¹éÔªÍÂÄÉ·¨10¼¶
+	å­¦ä¹ è¦æ±‚ï¼š
+	  å½’å…ƒåçº³æ³•10çº§
 HELP
 	);
 	return 1;

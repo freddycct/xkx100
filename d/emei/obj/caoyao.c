@@ -1,4 +1,4 @@
-// caoyao.c ²İÒ©
+// caoyao.c è‰è¯
 inherit ITEM;
 #include <ansi.h>
 void setup()
@@ -9,12 +9,12 @@ void init()
 }
 void create()
 {
-	set_name(HIG"²İÒ©"NOR, ({"caoyao", "yao"}));
+	set_name(HIG"è‰è¯"NOR, ({"caoyao", "yao"}));
 	if (clonep())
 		set_default_object(__FILE__);
 	else {
-		set("unit", "Æ¬");
-		set("long", "ÕâÊÇÒ»Æ¬·óÁËÁÆÉËµÄÆÕÍ¨²İÒ©¡£\n");
+		set("unit", "ç‰‡");
+		set("long", "è¿™æ˜¯ä¸€ç‰‡æ•·äº†ç–—ä¼¤çš„æ™®é€šè‰è¯ã€‚\n");
 		set("value", 100);
 	}
 	setup();
@@ -22,17 +22,17 @@ void create()
 int do_fu(string arg)
 {
 	object me=this_player();
-	if(!id(arg)) return notify_fail("ÄãÒª·óÊ²Ã´Ò©£¿\n");
+	if(!id(arg)) return notify_fail("ä½ è¦æ•·ä»€ä¹ˆè¯ï¼Ÿ\n");
 	if(!present(this_object(), me))
-		return notify_fail("ÄãÒª·óÊ²Ã´Ò©£¿\n");
+		return notify_fail("ä½ è¦æ•·ä»€ä¹ˆè¯ï¼Ÿ\n");
 	if( me->is_busy() )
-		return notify_fail("±ğ¼±£¬ÂıÂı·ó¡£\n");
+		return notify_fail("åˆ«æ€¥ï¼Œæ…¢æ…¢æ•·ã€‚\n");
 
 	if (this_player()->query("eff_qi") == this_player()->query("max_qi"))
-		return notify_fail("ÄãÏÖÔÚ²»ĞèÒª·ó²İÒ©¡£\n");
+		return notify_fail("ä½ ç°åœ¨ä¸éœ€è¦æ•·è‰è¯ã€‚\n");
 	else {
 		this_player()->receive_curing("qi", 5);
-		message_vision("$N·óÁËÒ»Æ¬²İÒ©ÔÚÉË¿ÚÉÏ£¬¸Ğµ½ÉËÊÆºÃ¶àÁË¡£\n", this_player());
+		message_vision("$Næ•·äº†ä¸€ç‰‡è‰è¯åœ¨ä¼¤å£ä¸Šï¼Œæ„Ÿåˆ°ä¼¤åŠ¿å¥½å¤šäº†ã€‚\n", this_player());
 		destruct(this_object());
 		return 1;
 	}

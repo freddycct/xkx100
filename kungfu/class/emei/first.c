@@ -12,9 +12,9 @@ void create()
 string zm_apply()
 {
 	object ob = this_player();
-	if (ob->query("gender") != "Å®ĞÔ" || ob->query("class") != "bonze")
+	if (ob->query("gender") != "å¥³æ€§" || ob->query("class") != "bonze")
 	{
-		return "±¾ÃÅÀúÀ´ÓÉÅ®Äá½ÓÈÎÕÆÃÅ£¡\n";
+		return "æœ¬é—¨å†æ¥ç”±å¥³å°¼æ¥ä»»æŒé—¨ï¼\n";
 	}
 	return ::zm_apply();
 }

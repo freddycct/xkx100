@@ -4,11 +4,11 @@ inherit NPC;
 
 void create()
 {
-	set_name("Ğ¡ÃÛ·ä", ({ "little bee", "bee"}) );
-	set("race", "À¥³æ");
-	set("subrace", "·É³æ");
+	set_name("å°èœœèœ‚", ({ "little bee", "bee"}) );
+	set("race", "æ˜†è™«");
+	set("subrace", "é£è™«");
 	set("age", 2);
-	set("long", "Ò»Ö»·ÉÀ´·ÉÈ¥µÄĞ¡ÃÛ·ä¡£\n");
+	set("long", "ä¸€åªé£æ¥é£å»çš„å°èœœèœ‚ã€‚\n");
 	set("str", 30);
 	set("dex", 40);
 	set_temp("apply/attack", 10);
@@ -17,7 +17,7 @@ void create()
 	set("chat_chance", 2);
 	set("chat_msg", ({
 		(: this_object(), "random_move" :),
-		"Ğ¡ÃÛ·äÎËÎËÎË·É¹ıÀ´£¬ÔÚÄãÍ·ÉÏ×ªÁËÒ»È¦£¬ÓĞ·É×ßÁË¡£\n",
+		"å°èœœèœ‚å—¡å—¡å—¡é£è¿‡æ¥ï¼Œåœ¨ä½ å¤´ä¸Šè½¬äº†ä¸€åœˆï¼Œæœ‰é£èµ°äº†ã€‚\n",
 	}) );
 
 	setup();

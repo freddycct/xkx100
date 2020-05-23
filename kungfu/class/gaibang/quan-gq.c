@@ -6,11 +6,11 @@ inherit F_MASTER;
 
 void create()
 {
-	set_name("È«¹ÚÇå", ({"quan guanqing", "quan", "guanqing"}));
-	set("gender", "ÄÐÐÔ");
-	set("nickname", "Ê®·½Ðã²Å");
+	set_name("å…¨å† æ¸…", ({"quan guanqing", "quan", "guanqing"}));
+	set("gender", "ç”·æ€§");
+	set("nickname", "åæ–¹ç§€æ‰");
 	set("age", 35);
-	set("long","ÕâÊÇÎ»³ÁÄ¬¹ÑÑÔÈ´ÆÄÓÐÐÄ¼ÆµÄÒõ¶¾µÄØ¤°ï°Ë´üµÜ×Ó¡£ËûÎªÈË×ãÖÇ¶àÄ±£¬Îä¹¦¸ßÇ¿£¬µ«Éí²Ä¸ßÊÝ£¬ÏàÃ²Ò²ÉõÊÇÇåÐã¡£\n");
+	set("long","è¿™æ˜¯ä½æ²‰é»˜å¯¡è¨€å´é¢‡æœ‰å¿ƒè®¡çš„é˜´æ¯’çš„ä¸å¸®å…«è¢‹å¼Ÿå­ã€‚ä»–ä¸ºäººè¶³æ™ºå¤šè°‹ï¼Œæ­¦åŠŸé«˜å¼ºï¼Œä½†èº«æé«˜ç˜¦ï¼Œç›¸è²Œä¹Ÿç”šæ˜¯æ¸…ç§€ã€‚\n");
 	set("attitude", "peaceful");
 	set("class", "beggar");
  	set("beggarlvl", 8);
@@ -50,10 +50,10 @@ void create()
 	map_skill("staff", "fengmo-staff");
 	map_skill("dodge", "xiaoyaoyou");
 	
-	set("party/party_name", HIC"Ø¤°ï"NOR);
-	set("party/rank", HIG"´óÖÇ·Ö¶æ"HIY"°Ë´ü¶æÖ÷"NOR);
+	set("party/party_name", HIC"ä¸å¸®"NOR);
+	set("party/rank", HIG"å¤§æ™ºåˆ†èˆµ"HIY"å…«è¢‹èˆµä¸»"NOR);
 	set("party/level", 8);
-	create_family("Ø¤°ï", 11, "µÜ×Ó");
+	create_family("ä¸å¸®", 11, "å¼Ÿå­");
 
 	setup();
 
@@ -64,7 +64,7 @@ void create()
 void attempt_apprentice(object ob)
 {
 	if( ob->query("con") < 20 ) return;
-	command("say Äã°ÝÎÒÎªÊ¦£¬¿ÉÒª×öºÃ³Ô¿àµÄ×¼±¸£¬ºÃºÃ×ö¸öØ¤°ïµÜ×Ó£¡");
+	command("say ä½ æ‹œæˆ‘ä¸ºå¸ˆï¼Œå¯è¦åšå¥½åƒè‹¦çš„å‡†å¤‡ï¼Œå¥½å¥½åšä¸ªä¸å¸®å¼Ÿå­ï¼");
 	command("recruit " + ob->query("id"));
 }
 #include "/kungfu/class/gaibang/gaibang.h"

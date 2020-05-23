@@ -1,4 +1,4 @@
-// xiaoer.c ¾ÆµêÐ¡¶þ
+// xiaoer.c é…’åº—å°äºŒ
 // Last Modified by Winder on May. 15 2001
 
 inherit NPC;
@@ -6,11 +6,11 @@ inherit F_DEALER;
 
 void create()
 {
-	set_name("µêÐ¡¶þ", ({ "xiao er", "xiao", "waiter" }) );
-	set("gender", "ÄÐÐÔ" );
+	set_name("åº—å°äºŒ", ({ "xiao er", "xiao", "waiter" }) );
+	set("gender", "ç”·æ€§" );
 	set("age", 20);
 	set("long",
-		"ÕâÎ»µêÐ¡¶þÕýÐ¦ßäßäµØÃ¦ÖøÕÐºô¿ÍÈË¡£\n");
+		"è¿™ä½åº—å°äºŒæ­£ç¬‘å’ªå’ªåœ°å¿™è‘—æ‹›å‘¼å®¢äººã€‚\n");
 	set("combat_exp", 100);
 	set("attitude", "friendly");
 	set("vendor_goods", ({
@@ -42,10 +42,10 @@ void greeting(object ob)
 	switch( random(2) )
 	{
 		case 0:
-			say( "µêÐ¡¶þÐ¦ßäßäµØËµµÀ£ºÕâÎ»" + RANK_D->query_respect(ob) + "£¬½øÀ´ºÈ±­¾Æ£¬ÐªÐªÍÈ°É¡£\n");
+			say( "åº—å°äºŒç¬‘å’ªå’ªåœ°è¯´é“ï¼šè¿™ä½" + RANK_D->query_respect(ob) + "ï¼Œè¿›æ¥å–æ¯é…’ï¼Œæ­‡æ­‡è…¿å§ã€‚\n");
 			break;
 		case 1:
-			say( "µêÐ¡¶þÓÃ²±×ÓÉÏµÄÃ«½íÄ¨ÁËÄ¨ÊÖ£¬ËµµÀ£ºÕâÎ»" + RANK_D->query_respect(ob) + "£¬Çë½øÇë½ø£¬»¹ÓÐÑÅ×ù¡£\n");
+			say( "åº—å°äºŒç”¨è„–å­ä¸Šçš„æ¯›å·¾æŠ¹äº†æŠ¹æ‰‹ï¼Œè¯´é“ï¼šè¿™ä½" + RANK_D->query_respect(ob) + "ï¼Œè¯·è¿›è¯·è¿›ï¼Œè¿˜æœ‰é›…åº§ã€‚\n");
 			break;
 	}
 }

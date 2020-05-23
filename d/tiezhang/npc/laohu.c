@@ -5,10 +5,10 @@ inherit NPC;
 
 void create()
 {
-	set_name("ÀÏ»¢", ({ "lao hu", "hu" }) );
-	set("race", "×ßÊÞ");
+	set_name("è€è™Ž", ({ "lao hu", "hu" }) );
+	set("race", "èµ°å…½");
 	set("age", 5);
-	set("long", "Ò»Ö»Ð×ÃÍµÄ´óÀÏ»¢¡£\n");
+	set("long", "ä¸€åªå‡¶çŒ›çš„å¤§è€è™Žã€‚\n");
 	set("combat_exp", 100000);
 
       	set("chat_chance", 6);
@@ -33,7 +33,7 @@ void init()
 void die()
 {
 	object ob;
-	message_vision("$N²Òº¿Ò»Éù£¬ËÀÁË£¡\n", this_object());
+	message_vision("$Næƒ¨åšŽä¸€å£°ï¼Œæ­»äº†ï¼\n", this_object());
 	ob = new("/d/tiezhang/obj/hupi");
 	ob->move(environment(this_object()));
 	destruct(this_object());

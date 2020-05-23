@@ -9,7 +9,7 @@ int exert(object me, object target)
   !me->query("perform/bidu") &&
   !me->query("can_perform/xiantian-qigong/bidu") && 
   !me->query_temp("murong/xingyi"))
-   return notify_fail("ÄãËùÊ¹ÓÃµÄÄÚ¹¦ÖĞÃ»ÓĞÕâÖÖ¹¦ÄÜ¡£");
+   return notify_fail("ä½ æ‰€ä½¿ç”¨çš„å†…åŠŸä¸­æ²¡æœ‰è¿™ç§åŠŸèƒ½ã€‚");
 
 	con1 = me->query_condition("snake_poison");
 	con2 = me->query_condition("scorpion_poison");
@@ -19,21 +19,21 @@ int exert(object me, object target)
 	con6 = me->query_condition("ice_poison");
 
 	if(con1< 1 && con2< 1 && con3< 1 &&con4 < 1 && con5< 1 && con6< 1)
-		return notify_fail("Äã×øÏÂÔË¹¦±Æ¶¾¡£²»¹ıºÃÏóÃ»·¨±Æ³öÊ²Ã´À´¡£\n");
+		return notify_fail("ä½ åä¸‹è¿åŠŸé€¼æ¯’ã€‚ä¸è¿‡å¥½è±¡æ²¡æ³•é€¼å‡ºä»€ä¹ˆæ¥ã€‚\n");
 	if( me->is_fighting() )
-		return notify_fail("Õ½¶·ÖĞÔË¹¦±Æ¶¾£¿ÏÓËÀ²»¿ìÊÇÂğ£¿\n");
+		return notify_fail("æˆ˜æ–—ä¸­è¿åŠŸé€¼æ¯’ï¼Ÿå«Œæ­»ä¸å¿«æ˜¯å—ï¼Ÿ\n");
 
 	if( (int)me->query("neili") < 500 )
-		return notify_fail("ÄãµÄÕæÆø²»¹»¡£\n");
+		return notify_fail("ä½ çš„çœŸæ°”ä¸å¤Ÿã€‚\n");
 
 	if( (int)me->query("eff_qi") < (int)me->query("max_qi") / 2 )
-		return notify_fail("ÄãÒÑ¾­ÊÜÉË¹ıÖØ£¬Ö»ÅÂÒ»ÔËÕæÆø±ãÓĞÉúÃüÎ£ÏÕ£¡\n");
+		return notify_fail("ä½ å·²ç»å—ä¼¤è¿‡é‡ï¼Œåªæ€•ä¸€è¿çœŸæ°”ä¾¿æœ‰ç”Ÿå‘½å±é™©ï¼\n");
 
 	if ((int)me->query_skill("xiantian-qigong", 1) < 80)
-		return notify_fail("ÄãµÄÏÈÌìÆø¹¦ĞŞÎª»¹²»¹»¡£\n");
+		return notify_fail("ä½ çš„å…ˆå¤©æ°”åŠŸä¿®ä¸ºè¿˜ä¸å¤Ÿã€‚\n");
 
 	message("vision", 
-	HIY+me->name()+"ÅÌÏ¥×øÏÂ£¬»ºÒıÕæÆø£¬ÔË¹¦±Æ¶¾¡£Ö»¼ûÒ»ÍÅ"HIW"°×Îí"HIY"½¥½¥Áı×¡"+me->name()+"µÄÃæÄ¿¡£\nÁ¼¾Ã£¬Ò»µÎ"HIM"×ÏÑª"HIY"´Ó"+me->name()+"µÄÓÒÊÖĞ¡Ö¸¼â»º»ºµÎÁËÏÂÀ´¡£\n" NOR,
+	HIY+me->name()+"ç›˜è†åä¸‹ï¼Œç¼“å¼•çœŸæ°”ï¼Œè¿åŠŸé€¼æ¯’ã€‚åªè§ä¸€å›¢"HIW"ç™½é›¾"HIY"æ¸æ¸ç¬¼ä½"+me->name()+"çš„é¢ç›®ã€‚\nè‰¯ä¹…ï¼Œä¸€æ»´"HIM"ç´«è¡€"HIY"ä»"+me->name()+"çš„å³æ‰‹å°æŒ‡å°–ç¼“ç¼“æ»´äº†ä¸‹æ¥ã€‚\n" NOR,
 		environment(me));
 
 	me->add("neili", -300);
@@ -51,16 +51,16 @@ int exert(object me, object target)
 }
 int help(object me)
 {
-	write(WHT"\nÏÈÌìÆø¹¦Ö®±Æ¶¾"NOR"\n");
+	write(WHT"\nå…ˆå¤©æ°”åŠŸä¹‹é€¼æ¯’"NOR"\n");
 	write(@HELP
 
-	Ê¹ÓÃ¹¦Ğ§£º
-		ÔË¹¦±Æ³öÌåÄÚ¶¾ËØ£¬¶ÔÏÂÁĞ¶¾ÓĞĞ§£º
-		Éß¶¾¡¢Ğ«×Ó¶¾¡¢ĞÇËŞÕÆ¶¾¡¢ÄıÑªÉñ×¥
+	ä½¿ç”¨åŠŸæ•ˆï¼š
+		è¿åŠŸé€¼å‡ºä½“å†…æ¯’ç´ ï¼Œå¯¹ä¸‹åˆ—æ¯’æœ‰æ•ˆï¼š
+		è›‡æ¯’ã€èå­æ¯’ã€æ˜Ÿå®¿æŒæ¯’ã€å‡è¡€ç¥æŠ“
 
-	³öÊÖÒªÇó£º
-		ÏÈÌìÆø¹¦80¼¶
-		ÄÚÁ¦500
+	å‡ºæ‰‹è¦æ±‚ï¼š
+		å…ˆå¤©æ°”åŠŸ80çº§
+		å†…åŠ›500
 HELP
 	);
 	return 1;

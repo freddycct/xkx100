@@ -12,7 +12,7 @@ void create()
 string zm_apply()
 {
 	object ob = this_player();
-	if ( ob->query("party/party_name")!= HIC"Ø¤°ï"NOR )
-	  return "·ÇØ¤°ïÓĞ´üµÜ×Ó£¬²»ÄÜÊ¤ÈÎÕÆÃÅµÜ×ÓÒ»Ö°¡£";
+	if ( ob->query("party/party_name")!= HIC"ä¸å¸®"NOR )
+	  return "éä¸å¸®æœ‰è¢‹å¼Ÿå­ï¼Œä¸èƒ½èƒœä»»æŒé—¨å¼Ÿå­ä¸€èŒã€‚";
 	return ::zm_apply();
 }

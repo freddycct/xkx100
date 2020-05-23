@@ -1,10 +1,10 @@
-// lingbo.c ÂåÉñÁè²¨
+// lingbo.c æ´›ç¥å‡Œæ³¢
 // Last Modified by winder on Mar. 10 2000
 
 #include <ansi.h>
 #include <xiaoyao.h>
 inherit F_SSERVER;
-#define PNAME "ÂåÉñÁè²¨"
+#define PNAME "æ´›ç¥å‡Œæ³¢"
 int perform(object me, object target)
 {
 	string msg;
@@ -18,19 +18,19 @@ int perform(object me, object target)
    !me->query("can_perform/"+sskill+"/"+pfname) &&
    !me->query_temp("murong/xingyi") &&
    !SCBORN_D->valid_perform(me,sskill,pfname))
-   return notify_fail("ÄãËùÊ¹ÓÃµÄÍâ¹¦ÖĞÃ»ÓĞÕâÖÖ¹¦ÄÜ¡£\n");
+   return notify_fail("ä½ æ‰€ä½¿ç”¨çš„å¤–åŠŸä¸­æ²¡æœ‰è¿™ç§åŠŸèƒ½ã€‚\n");
 
 	if( !objectp(target) ) {flag =1;target = offensive_target(me);}
 	
 	if( !target || !target->is_character() || target == me ||	
 	  	!me->is_fighting(target) ||
   	!living(target) || target->query_temp("noliving") )
-	return notify_fail("ÄãÒ»¸öÈËÌøÉõÃ´£¿\n");
+	return notify_fail("ä½ ä¸€ä¸ªäººè·³ç”šä¹ˆï¼Ÿ\n");
 
-	if( me->query("gender") == "ÎŞĞÔ")
-		return notify_fail(HIY "Ò»¸ö¹«¹«£¬Âú³¡ÂÒÌø£¬ĞßÒ²²»Ğß£¿\n" NOR);
+	if( me->query("gender") == "æ— æ€§")
+		return notify_fail(HIY "ä¸€ä¸ªå…¬å…¬ï¼Œæ»¡åœºä¹±è·³ï¼Œç¾ä¹Ÿä¸ç¾ï¼Ÿ\n" NOR);
 	
-	//¿ÕÊÖ±øÆ÷¾ù¿É
+	//ç©ºæ‰‹å…µå™¨å‡å¯
 
 	fskill = "beiming-shengong";
 	bskill = "dodge";
@@ -44,26 +44,26 @@ int perform(object me, object target)
 	}
 
 	if( (int)me->query_skill(fskill, 1) < 100 )
-		return notify_fail(HIY"ÄãµÄ"+to_chinese(fskill)+"ĞŞÎª²»¹»¡£\n"NOR);
+		return notify_fail(HIY"ä½ çš„"+to_chinese(fskill)+"ä¿®ä¸ºä¸å¤Ÿã€‚\n"NOR);
 
 	if( (int)me->query_skill(sskill, 1) < 100 )
-		return notify_fail(HIY"ÄãµÄ"+to_chinese(sskill)+"²»¹»ÊìÁ·¡£\n"NOR);
+		return notify_fail(HIY"ä½ çš„"+to_chinese(sskill)+"ä¸å¤Ÿç†Ÿç»ƒã€‚\n"NOR);
 
 	if((int)me->query("neili") < 400)
-		return notify_fail(HIY "ÄãÏÖÔÚÕæÆø²»×ã¡£\n" NOR);
+		return notify_fail(HIY "ä½ ç°åœ¨çœŸæ°”ä¸è¶³ã€‚\n" NOR);
 
 	if( target->is_busy() )
-		return notify_fail(target->name() + "Ä¿Ç°Õı×Ô¹Ë²»Ï¾£¬·Åµ¨¹¥»÷°É£¡\n");
+		return notify_fail(target->name() + "ç›®å‰æ­£è‡ªé¡¾ä¸æš‡ï¼Œæ”¾èƒ†æ”»å‡»å§ï¼\n");
 
-	if( me->query("gender") == "ÄĞĞÔ")
+	if( me->query("gender") == "ç”·æ€§")
 	       {msg = HIC 
-"$NÌáÆğÕæÆø£¬ÒÀÕÕÏÈÌì·üôËÁùÊ®ËÄØÔ£¬²»Àí$nÈçºÎ³öÕĞ£¬×Ô¹Ë×ÔµÄ½«
-Áè²¨Î¢²½ÓÉÍ·µ½Î²Ñ¸ËÙÎŞ±ÈµÄ×ßÁËÒ»´Î¡£Ö»¼û$NÒâÌ¬Æ®Òİ£¬Ó°×ÓÂÒ·É£¬
-$nÈ´ÊÇÒ»µãÆ¤Ã«Ò²Õ´²»ÉÏ¡£$NÕæ¸ö½«åĞÒ£¶ş×Ö·¢»ÓµÃÁÜÀì¾¡ÖÁ¡£\n" NOR;}
+"$Næèµ·çœŸæ°”ï¼Œä¾ç…§å…ˆå¤©ä¼ç¾²å…­åå››å¦ï¼Œä¸ç†$nå¦‚ä½•å‡ºæ‹›ï¼Œè‡ªé¡¾è‡ªçš„å°†
+å‡Œæ³¢å¾®æ­¥ç”±å¤´åˆ°å°¾è¿…é€Ÿæ— æ¯”çš„èµ°äº†ä¸€æ¬¡ã€‚åªè§$Næ„æ€é£˜é€¸ï¼Œå½±å­ä¹±é£ï¼Œ
+$nå´æ˜¯ä¸€ç‚¹çš®æ¯›ä¹Ÿæ²¾ä¸ä¸Šã€‚$NçœŸä¸ªå°†é€é¥äºŒå­—å‘æŒ¥å¾—æ·‹æ¼“å°½è‡³ã€‚\n" NOR;}
 	else   {msg = HIG 
-"$NÌáÆğÕæÆø£¬ÒÀÕÕÏÈÌì·üôËÁùÊ®ËÄØÔ£¬²»Àí$nÈçºÎ³öÕĞ£¬×Ô¹Ë×ÔµÄ½«
-Áè²¨Î¢²½ÓÉÍ·µ½Î²Ñ¸ËÙÎŞ±ÈµÄ×ßÁËÒ»´Î¡£$N·ÂÈçÂåÉñÔÙÉú£¬Î¢²½Áè²¨£¬
-$nÈ´ÊÇÒ»µãÆ¤Ã«Ò²Õ´²»ÉÏ¡£$NÕæ¸ö½«åĞÒ£¶ş×Ö·¢»ÓµÃÁÜÀì¾¡ÖÁ¡£\n" NOR;}
+"$Næèµ·çœŸæ°”ï¼Œä¾ç…§å…ˆå¤©ä¼ç¾²å…­åå››å¦ï¼Œä¸ç†$nå¦‚ä½•å‡ºæ‹›ï¼Œè‡ªé¡¾è‡ªçš„å°†
+å‡Œæ³¢å¾®æ­¥ç”±å¤´åˆ°å°¾è¿…é€Ÿæ— æ¯”çš„èµ°äº†ä¸€æ¬¡ã€‚$Nä»¿å¦‚æ´›ç¥å†ç”Ÿï¼Œå¾®æ­¥å‡Œæ³¢ï¼Œ
+$nå´æ˜¯ä¸€ç‚¹çš®æ¯›ä¹Ÿæ²¾ä¸ä¸Šã€‚$NçœŸä¸ªå°†é€é¥äºŒå­—å‘æŒ¥å¾—æ·‹æ¼“å°½è‡³ã€‚\n" NOR;}
 
 	if(
 	(fam_type(me)=="xiaoyao" &&
@@ -71,12 +71,12 @@ $nÈ´ÊÇÒ»µãÆ¤Ã«Ò²Õ´²»ÉÏ¡£$NÕæ¸ö½«åĞÒ£¶ş×Ö·¢»ÓµÃÁÜÀì¾¡ÖÁ¡£\n" NOR;}
 	(fam_type(me)!="xiaoyao" &&
 	random((int)me->query("combat_exp"))>(int)target->query("combat_exp")/3))
 	{
-		msg += HIW "½á¹û$p±»$PÎ§×Å×ªµÃÍ·ÔÎÑÛ»¨£¡\n" NOR;
+		msg += HIW "ç»“æœ$pè¢«$På›´ç€è½¬å¾—å¤´æ™•çœ¼èŠ±ï¼\n" NOR;
 		target->start_busy( (int)me->query_skill(bskill, 1) / 30);
 		me->add("neili", -100);
 		me->start_busy(1);
 	} else {
-		msg += HIG "$pÖ»ÊÇÃãÇ¿µÄÌÓÁË¿ªÈ¥¡£\n" NOR;
+		msg += HIG "$påªæ˜¯å‹‰å¼ºçš„é€ƒäº†å¼€å»ã€‚\n" NOR;
 		me->add("neili", -100);
 		me->start_busy(2);
 	}
@@ -84,21 +84,21 @@ $nÈ´ÊÇÒ»µãÆ¤Ã«Ò²Õ´²»ÉÏ¡£$NÕæ¸ö½«åĞÒ£¶ş×Ö·¢»ÓµÃÁÜÀì¾¡ÖÁ¡£\n" NOR;}
 
 	return 1;
 }
-string name() {return replace_string(replace_string(PNAME,"¡¸",""),"¡¹","");}
+string name() {return replace_string(replace_string(PNAME,"ã€Œ",""),"ã€","");}
 
 int help(object me)
 {
-	write(WHT"\n"+to_chinese(explode(__FILE__,"/")[<2])+"Ö®"+name()+WHT"£º"NOR"\n");
+	write(WHT"\n"+to_chinese(explode(__FILE__,"/")[<2])+"ä¹‹"+name()+WHT"ï¼š"NOR"\n");
 	write(@HELP
 
-	Ê¹ÓÃ¹¦Ğ§£º
-		³ÙÖÍ¶Ô·½³öÊÖ
+	ä½¿ç”¨åŠŸæ•ˆï¼š
+		è¿Ÿæ»å¯¹æ–¹å‡ºæ‰‹
 
-	³öÊÖÒªÇó£º
-		±±Ú¤Éñ¹¦100¼¶
-		Áè²¨Î¢²½100¼¶
-		ÄÚÁ¦400
-		²»ÄÜ×öÌ«¼à
+	å‡ºæ‰‹è¦æ±‚ï¼š
+		åŒ—å†¥ç¥åŠŸ100çº§
+		å‡Œæ³¢å¾®æ­¥100çº§
+		å†…åŠ›400
+		ä¸èƒ½åšå¤ªç›‘
 HELP
 	);
 	return 1;

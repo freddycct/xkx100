@@ -5,11 +5,11 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "��ԭ");
+	set("short", "草原");
 	set("long", @LONG
-��������������ݣ��������糿��¶�飬����ͬһ����ɫ�Ĵ�̺��
-�㡣��Ⱥ��ţ��������̺�������ŵĵ�㻨�䡣����Ĺ�������Ӷ�
-���е�Ƥ�ޣ����Ų�ԭ�ϵ����衣
+脚下是软软的青草，还留着早晨的露珠，便如同一块绿色的大毯子
+般。成群的牛羊就是这块毯子上绣着的点点花朵。牧羊的姑娘轻轻挥动
+手中的皮鞭，唱着草原上的牧歌。
 LONG );
 	set("outdoors", "huijiang");
 	set("objects", ([ /* sizeof() == 1 */

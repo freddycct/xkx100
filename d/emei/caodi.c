@@ -4,10 +4,10 @@ int do_search();
 void end(object);
 void create()
 {
-	set("short", "²İµØ");
+	set("short", "è‰åœ°");
 	set("long", @LONG
-ÕâÀï¾ÍÊÇ¹ÅµÂÁÖÖĞµÄÒ»Æ¬²İµØÁË¡£ÕâÀïÒ°²İ´ÓÉú£¬¸ß¹ıÈËÍ·£¬Å¼¶ûÓĞĞ¡ÊŞ
-´Ó²İÖĞ´©¹ı£¬Õû¸öµØ·½ÒõÉ­¿Ö²À£¬ÖÜÎ§ÊÇÒ»ÕûÆ¬ºÚÉ­É­µÄÊ÷ÁÖ¡£
+è¿™é‡Œå°±æ˜¯å¤å¾·æ—ä¸­çš„ä¸€ç‰‡è‰åœ°äº†ã€‚è¿™é‡Œé‡è‰ä»ç”Ÿï¼Œé«˜è¿‡äººå¤´ï¼Œå¶å°”æœ‰å°å…½
+ä»è‰ä¸­ç©¿è¿‡ï¼Œæ•´ä¸ªåœ°æ–¹é˜´æ£®ææ€–ï¼Œå‘¨å›´æ˜¯ä¸€æ•´ç‰‡é»‘æ£®æ£®çš„æ ‘æ—ã€‚
 LONG
 	);
 	set("objects", ([
@@ -30,9 +30,9 @@ int do_search()
 	object me = this_player();
 	object ob ;
 	int jing;
-	if( me->is_busy() ) return notify_fail("ÄãÉÏÒ»¸ö¶¯×÷»¹Ã»ÓĞÍê³ÉÄØ¡£\n");
-	if(jing<30) return notify_fail("ÄãÎŞ·¨¼¯ÖĞ¾«Á¦²é¿´£¡\n");
-	message_vision("$N¿ªÊ¼²é¿´ÕâÀïµÄÒ»²İÒ»Ä¾£¬Ï£ÍûÄÜÕÒµ½Ò»¿Ã²İÒ©Ê²Ã´µÄ¡£\n",me);
+	if( me->is_busy() ) return notify_fail("ä½ ä¸Šä¸€ä¸ªåŠ¨ä½œè¿˜æ²¡æœ‰å®Œæˆå‘¢ã€‚\n");
+	if(jing<30) return notify_fail("ä½ æ— æ³•é›†ä¸­ç²¾åŠ›æŸ¥çœ‹ï¼\n");
+	message_vision("$Nå¼€å§‹æŸ¥çœ‹è¿™é‡Œçš„ä¸€è‰ä¸€æœ¨ï¼Œå¸Œæœ›èƒ½æ‰¾åˆ°ä¸€æ£µè‰è¯ä»€ä¹ˆçš„ã€‚\n",me);
 	me->start_busy(2);
 	me->receive_damage("jing", 10);
 	call_out("end",3,me);
@@ -48,11 +48,11 @@ void end(object me)
 		case 2:
 		case 3:
 		case 4:
-			message_vision("$NÀÛÁË¸ö°ëËÀ£¬½á¹ûÊ²Ã´¶¼Ã»ÓĞÕÒµ½¡£\n",me);
+			message_vision("$Nç´¯äº†ä¸ªåŠæ­»ï¼Œç»“æœä»€ä¹ˆéƒ½æ²¡æœ‰æ‰¾åˆ°ã€‚\n",me);
 			break;
 		default: ob=new(__DIR__"obj/caoyao");
 			ob->move(me);
-			message_vision("$NÕÒµ½ÁËÒ»Æ¬²İÒ©£¬·ÅÔÚ$NµÄÉíÉÏ¡£\n",me);
+			message_vision("$Næ‰¾åˆ°äº†ä¸€ç‰‡è‰è¯ï¼Œæ”¾åœ¨$Nçš„èº«ä¸Šã€‚\n",me);
 			break;
 	}
 }

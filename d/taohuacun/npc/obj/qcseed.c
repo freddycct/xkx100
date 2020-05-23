@@ -4,6 +4,6 @@ inherit __DIR__"seed.c";
 void  create()
 {
 	::create();
-	set_name( "Çà²ËÖÖ", ({"qingcai seed","seed","zhongzi"}));
+	set_name( "é’èœç§", ({"qingcai seed","seed","zhongzi"}));
 	set("value", 100 );
 }

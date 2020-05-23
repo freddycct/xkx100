@@ -4,10 +4,10 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "µØµÀ");
+	set("short", "åœ°é“");
 	set("long", @LONG
-ÕâÊÇÒ»ÌõÔÚÎ÷ºþµ×ÏÂµÄµØµÀ¡£Ç½±ÚÉÏµã×ÅÒ»ÕµÓÍµÆ£¬·¢³öµ­»ÆÉ«¹â
-Ã¢¡£¹âÃ¢ÕÕ×Å¹ÕÍä´¦³¯¶«µÄÒ»¼äÇôÊÒ¡£
+è¿™æ˜¯ä¸€æ¡åœ¨è¥¿æ¹–åº•ä¸‹çš„åœ°é“ã€‚å¢™å£ä¸Šç‚¹ç€ä¸€ç›æ²¹ç¯ï¼Œå‘å‡ºæ·¡é»„è‰²å…‰
+èŠ’ã€‚å…‰èŠ’ç…§ç€æ‹å¼¯å¤„æœä¸œçš„ä¸€é—´å›šå®¤ã€‚
 LONG
 	);
 	set("exits", ([ /* sizeof() == 4 */
@@ -29,19 +29,19 @@ int do_unlock(string arg)
 	object ob, jianyu;
 
 	if (query("exits/east"))
-		return notify_fail("ÕâÉÈÇôÃÅÒÑ¾­ÊÇ´ò¿ªµÄ¡£\n");
+		return notify_fail("è¿™æ‰‡å›šé—¨å·²ç»æ˜¯æ‰“å¼€çš„ã€‚\n");
 	if (!arg || (arg != "men" && arg != "door"))
-		return notify_fail("ÄãÒª´ò¿ªÊ²Ã´£¿\n");
+		return notify_fail("ä½ è¦æ‰“å¼€ä»€ä¹ˆï¼Ÿ\n");
 	if (!(ob = present("gang yaoshi", this_player())))
-		return notify_fail("Äã²»»áÇËËø¡£\n");
+		return notify_fail("ä½ ä¸ä¼šæ’¬é”ã€‚\n");
 	if(!( jianyu = find_object(__DIR__"jianyu")) )
 		jianyu = load_object(__DIR__"jianyu");
 	if(objectp(jianyu))
 	{
 		set("exits/east", __DIR__"jianyu");
-		message_vision("$N°Ñ¸ÖÐ¾Ô¿³×²åÈëÁËÒ»¸ö³×¿×£¬×ªÁË¼¸×ª£¬ÏòÄÚÍÆ¶¯¡£\nÖ»ÌýµÃÒ»ÕóÉúÉ¬µÄÏì¶¯£¬$NÉìÊÖ°ÑÇôÃÅÀ­¿ª¡£\n", this_player());
+		message_vision("$NæŠŠé’¢èŠ¯é’¥åŒ™æ’å…¥äº†ä¸€ä¸ªåŒ™å­”ï¼Œè½¬äº†å‡ è½¬ï¼Œå‘å†…æŽ¨åŠ¨ã€‚\nåªå¬å¾—ä¸€é˜µç”Ÿæ¶©çš„å“åŠ¨ï¼Œ$Nä¼¸æ‰‹æŠŠå›šé—¨æ‹‰å¼€ã€‚\n", this_player());
 		jianyu->set("exits/west", __FILE__);
-                message("vision","Ö»ÌýÒ»ÕóÔ¿³×Ïë£¬ÇôÃÅÄÇ±ßºÃÏóÓÐÈË¿ªÃÅÁË¡£\n", jianyu);
+                message("vision","åªå¬ä¸€é˜µé’¥åŒ™æƒ³ï¼Œå›šé—¨é‚£è¾¹å¥½è±¡æœ‰äººå¼€é—¨äº†ã€‚\n", jianyu);
 		remove_call_out("close_gate");
 		call_out("close_gate", 5);
 	}
@@ -52,11 +52,11 @@ void close_gate()
 	object jianyu;
 
 	if( !query("exits/east") ) return;
-        message("vision","ÌúÃÅÒÁßÞÑ½Ñ½Ò»ÕóÏë£¬ÅéµØÒ»ÉùÓÖ¹ØÉÏÁË¡£\n", this_object
+        message("vision","é“é—¨ä¼Šå’¿å‘€å‘€ä¸€é˜µæƒ³ï¼Œç °åœ°ä¸€å£°åˆå…³ä¸Šäº†ã€‚\n", this_object
 ());
 	if( jianyu = find_object(__DIR__"jianyu") )
 	{
-		message("vision", "ÌúÃÅÒÁßÞÑ½Ñ½Ò»ÕóÏë£¬ÅéµØÒ»ÉùÓÖ¹ØÉÏÁË¡£\n", jianyu);
+		message("vision", "é“é—¨ä¼Šå’¿å‘€å‘€ä¸€é˜µæƒ³ï¼Œç °åœ°ä¸€å£°åˆå…³ä¸Šäº†ã€‚\n", jianyu);
 		jianyu->delete("exits/west");
         }
         delete("exits/east");

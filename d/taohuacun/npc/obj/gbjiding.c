@@ -5,21 +5,21 @@ inherit F_FOOD;
 
 void create()
 {
-        set_name(HIY "¹¬±¬¼¦¶¡" NOR, ({"gbjiding"}));
+        set_name(HIY "å®«çˆ†é¸¡ä¸" NOR, ({"gbjiding"}));
         set_weight(200);
         if (clonep())
                 set_default_object(__FILE__);
         else {
-                set("long", "Ò»ÍëÏÊÏãÏ¸ÄÛ£¬À±¶ø²»±¬£¬ÂÔ´øÌðËáµÄ¹¬±¬¼¦¶¡¡£\n");
-                set("unit", "Íë");
+                set("long", "ä¸€ç¢—é²œé¦™ç»†å«©ï¼Œè¾£è€Œä¸çˆ†ï¼Œç•¥å¸¦ç”œé…¸çš„å®«çˆ†é¸¡ä¸ã€‚\n");
+                set("unit", "ç¢—");
                 set("value", 50);
                 set("food_remaining", 4);
                 set("food_supply", 20);
                 set("cook_msg", "
-$NÈ¡ÄÛ¹«¼¦¸¬Èâ£¬´©ÉÏ»¨µ¶ÇÐ³É·½¶¡£¬ÓÃ½´ÓÍ¡¢¾«ÑÎ¡¢
-Êªµí·ÛÉÏ½¬£¬·ÅÈë¸ÉºìÀ±½·¡¢»¨½·ÓÍÖÐ³´É¢£¬¼ÓÈë´Ð¡¢
-½ª¡¢Ëâ¡¢Êì»¨ÉúÃ×£¬ÔÙÅëÉÏÌÇ¡¢´×¡¢ ÑÎ¡¢Î¶¾«¡¢Èâ
-ÇåÌÀºÍ³ÉµÄÜÍÖ­¡£\n\n"
+$Nå–å«©å…¬é¸¡è„¯è‚‰ï¼Œç©¿ä¸ŠèŠ±åˆ€åˆ‡æˆæ–¹ä¸ï¼Œç”¨é…±æ²¹ã€ç²¾ç›ã€
+æ¹¿æ·€ç²‰ä¸Šæµ†ï¼Œæ”¾å…¥å¹²çº¢è¾£æ¤’ã€èŠ±æ¤’æ²¹ä¸­ç‚’æ•£ï¼ŒåŠ å…¥è‘±ã€
+å§œã€è’œã€ç†ŸèŠ±ç”Ÿç±³ï¼Œå†çƒ¹ä¸Šç³–ã€é†‹ã€ ç›ã€å‘³ç²¾ã€è‚‰
+æ¸…æ±¤å’Œæˆçš„èŠ¡æ±ã€‚\n\n"
 		);                
         }
 }

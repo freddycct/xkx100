@@ -3,10 +3,10 @@
 
 inherit NPC;
 void create()
-{       set_name("°®ÎÒ°®Äã", ({ "aiwoaini"}));
-	set("gender", "Å®ĞÔ");
+{       set_name("çˆ±æˆ‘çˆ±ä½ ", ({ "aiwoaini"}));
+	set("gender", "å¥³æ€§");
 	set("class", "swordman");
-	set("title", HIR"ÄÚ¸ó´óÑ§Ê¿"HIG"Ã÷½ÌµØ×ÖÃÅ½ÌÖÚ"NOR"¹ÅÄ¹ÅÉµÚ¶ş´úµÜ×Ó");	
+	set("title", HIR"å†…é˜å¤§å­¦å£«"HIG"æ˜æ•™åœ°å­—é—¨æ•™ä¼—"NOR"å¤å¢“æ´¾ç¬¬äºŒä»£å¼Ÿå­");	
 	set("age", 48);
 	set("attitude", "friendly");
 
@@ -17,7 +17,7 @@ void create()
 	set("con", 20);
 	set("str", 20);
 	set("weiwang", 20);
-	create_family("¹ÅÄ¹ÅÉ" ,2, "µÜ×Ó");	
+	create_family("å¤å¢“æ´¾" ,2, "å¼Ÿå­");	
 	setup();
 	carry_object(CLOTH_DIR"female-cloth")->wear();
         carry_object(CLOTH_DIR"female-shoe")->wear();

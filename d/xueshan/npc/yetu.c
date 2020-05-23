@@ -1,13 +1,13 @@
-// yetu.c Ò°ÍÃ
+// yetu.c é‡å…”
 
 inherit NPC;
 
 void create()
 {
-	set_name("Ò°ÍÃ", ({ "ye tu", "hare" ,"tu"}) );
-	set("race", "×ßĞó");
+	set_name("é‡å…”", ({ "ye tu", "hare" ,"tu"}) );
+	set("race", "èµ°ç•œ");
 	set("age", 5);
-	set("long", "Ò»Ö»ºÃ¿É°®µÄĞ¡Ò°ÍÃ£¬ÄãËÆºõ¿´µ½ÁËÏãÅçÅçµÄÍÃÈâ¡£\n");
+	set("long", "ä¸€åªå¥½å¯çˆ±çš„å°é‡å…”ï¼Œä½ ä¼¼ä¹çœ‹åˆ°äº†é¦™å–·å–·çš„å…”è‚‰ã€‚\n");
 	set("attitude", "peaceful");
 	set("combat_exp", 500);
 
@@ -22,13 +22,13 @@ void create()
 void die()
 {
 	object ob;
-	message_vision("$NÆà²ÒµÄº¿ÁË¼¸Éù£¬ËÀÁË¡£\n", this_object());
+	message_vision("$Nå‡„æƒ¨çš„åšäº†å‡ å£°ï¼Œæ­»äº†ã€‚\n", this_object());
 	if( random(3) >1 )
 	{
 		ob = new(__DIR__"turou");
 		ob->move(environment(this_object()));
 	}
 	else    
-		message_vision("Ìì¿ÕÖĞÍ»È»³öÏÖÒ»Ö»ÍºğÕ£¬°Ñ$Nµğ×ßÁË¡£\n", this_object());
+		message_vision("å¤©ç©ºä¸­çªç„¶å‡ºç°ä¸€åªç§ƒé¹«ï¼ŒæŠŠ$Nå¼èµ°äº†ã€‚\n", this_object());
 	destruct(this_object());
 }

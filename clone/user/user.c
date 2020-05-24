@@ -8,7 +8,7 @@ inherit CHARACTER;
 inherit F_AUTOLOAD;
 inherit F_SAVE;
 
-protected int last_age_set;
+nosave int last_age_set;
 
 void create()
 {

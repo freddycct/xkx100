@@ -63,12 +63,12 @@
 #define   UDP_PORT   6888
 #define CLIENT_VERSION "mwp 1.2"
 
-protected string mwhod_addr;
-protected string mudname;
-protected string keepalive_message;
-protected string boot_message;
-protected string comments;
-protected int socket;
+nosave string mwhod_addr;
+nosave string mudname;
+nosave string keepalive_message;
+nosave string boot_message;
+nosave string comments;
+nosave int socket;
 
 void
 log_info(string error)
@@ -78,8 +78,7 @@ log_info(string error)
 #endif
 }
 
-protected void
-send_data(string datagram)
+protected void send_data(string datagram)
 {
 #ifdef INTERMUD
    int rc;
@@ -91,29 +90,25 @@ send_data(string datagram)
 #endif /* INTERMUD */
 }
 
-protected string
-header(string op)
+protected string header(string op)
 {
    return op + TAB + mudname + TAB + PASSWORD;
 }
 
-protected void
-set_keepalive_message()
+protected void set_keepalive_message()
 {
    /* uptime() is an efun that returns # of seconds the driver has been up */
    keepalive_message = header("M") + TAB + mudname + TAB +
      (time() - uptime()) + TAB + GENERATION + TAB + comments;
 }
 
-protected void
-set_boot_message()
+protected void set_boot_message()
 {
    boot_message = header("U") + TAB + mudname + TAB +
      (time() - uptime()) + TAB + GENERATION + TAB + comments;
 }
 
-protected void
-set_comments()
+protected void set_comments()
 {
    comments = __VERSION__ + "/" + CLIENT_VERSION;
 }

@@ -16,7 +16,7 @@ inherit F_CLEAN_UP;
 #define PK_DIR		"/d/huashan/pk/"
 
 // 系统主控状态
-protected int state;
+nosave int state;
 
 #define SLEEPING        0
 #define GET_READY       1
@@ -24,10 +24,10 @@ protected int state;
 
 #define GET_READY_TIME  180
 
-protected int start = -2 ;
-protected int ready_time = 0;
+nosave int start = -2 ;
+nosave int ready_time = 0;
 
-protected mapping *tlist = ({
+nosave mapping *tlist = ({
 ([      "name" : ({"华山论剑之少侠试剑","华山论剑之名侠比剑","华山论剑之大侠评剑","华山论剑之宗师论剑"}),
         "time" : ({ 2,4,6,8,10,12,14,16,18,20,22,24 }),
         "minexp" : ({ 100000, 1000000,3000000, 5000000}),
@@ -37,7 +37,7 @@ protected mapping *tlist = ({
         "time_num" : 12,
 ]),
 });
-protected int selected=-2;
+nosave int selected=-2;
 
 void change_state(int new_state);
 int  start_competition();

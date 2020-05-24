@@ -1,6 +1,6 @@
 #include <ansi.h>
 
-protected string dest_addr;
+nosave string dest_addr;
 void icheck(string address);
 void report(string address,int middle);
 string compare(string address,int middle);

@@ -5,7 +5,7 @@ inherit F_CLEAN_UP;
 
 
 
-protected mapping *all_shop = ({
+nosave mapping *all_shop = ({
         ([
                 "id":             "北京",
                 "dealer_id":      "jia laoliu",

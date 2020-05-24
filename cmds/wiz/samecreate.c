@@ -8,7 +8,7 @@ inherit F_CLEAN_UP;
 
 string fname(object ob);
 
-protected object run_user = 0;
+nosave object run_user = 0;
 int all;
 string process_bar(int p)
 {

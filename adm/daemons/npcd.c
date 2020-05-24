@@ -472,7 +472,7 @@ void place_npc(object ob, mixed diff)
 
 	return;
 }
-protected mapping r_dirs = ([
+nosave mapping r_dirs = ([
         "north":        "south",
         "south":        "north",
         "east":         "west",

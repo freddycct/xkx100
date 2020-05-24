@@ -60,8 +60,7 @@ crash(string error, object command_giver, object current_object)
 // Return:          Array of nonblank lines that don't begin with '#'
 // Note:            must be declared static (else a security hole)
 
-protected string *
-update_file(string file)
+protected string * update_file(string file)
 {
 	string *array;
 	string str;

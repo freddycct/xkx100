@@ -6,10 +6,10 @@
 //inherit F_SHADOW;
 inherit __DIR__"shadow";
 
-protected string from_user;        // 用户发送来的信息
-protected int fd;                  // 连接远端机器的套接字
-protected string dest_addr;        // 连接远端机器的地址
-protected int port;                // 连接远端机器的端口号
+nosave string from_user;        // 用户发送来的信息
+nosave int fd;                  // 连接远端机器的套接字
+nosave string dest_addr;        // 连接远端机器的地址
+nosave int port;                // 连接远端机器的端口号
 
 #define MAX_PENDING_INPUT               16384
 

@@ -2,7 +2,7 @@
 // From ES2
 // Adapted for XKX
 
-protected mixed busy, interrupt  ;
+nosave mixed busy, interrupt  ;
 int old_busy = 0;
 
 varargs void start_busy(mixed new_busy, mixed new_interrupt)

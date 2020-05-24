@@ -5,7 +5,7 @@
 
 #define MAX_MSG_BUFFER 500
 
-protected string *msg_buffer = ({});
+nosave string *msg_buffer = ({});
 
 void receive_message(string msgclass, string msg)
 {

@@ -37,7 +37,7 @@ string filter_color(string arg);
 string top;							//最大销售额店铺名(例如清香园)
 int color_len(string arg);
 
-protected mapping *all_shop = ({
+nosave mapping *all_shop = ({
         ([
                 "id":             "北京",
                 "name":           "瑞蚨祥",

@@ -14,10 +14,10 @@ inherit F_SAVE;
 
 
 // some constatns
-protected string *c_digit = ({ "零","十","百","千","万","亿","兆" });
-protected string *c_num = ({"零","一","二","三","四","五","六","七","八","九","十"});
-protected string *sym_tian = ({ "甲","乙","丙","丁","戊","己","庚","辛","壬","癸" });
-protected string *sym_di = ({ "子","丑","寅","卯","辰","巳","午","未","申","酉","戌","亥" });
+nosave string *c_digit = ({ "零","十","百","千","万","亿","兆" });
+nosave string *c_num = ({"零","一","二","三","四","五","六","七","八","九","十"});
+nosave string *sym_tian = ({ "甲","乙","丙","丁","戊","己","庚","辛","壬","癸" });
+nosave string *sym_di = ({ "子","丑","寅","卯","辰","巳","午","未","申","酉","戌","亥" });
 
 mapping dict = ([]);
 

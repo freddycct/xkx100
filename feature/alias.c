@@ -12,9 +12,9 @@
 
 mapping alias;
 
-protected string *history, last_input;
-protected int last_cmd, repeat_cnt = 0;
-protected int last_check, maxcom = 0;
+nosave string *history, last_input;
+nosave int last_cmd, repeat_cnt = 0;
+nosave int last_check, maxcom = 0;
 
 string process_input(string str)
 {

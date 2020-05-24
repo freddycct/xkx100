@@ -7,8 +7,8 @@ inherit F_CLEAN_UP;
 #define MaxY 30
 
 int X=7,Y=10;
-protected mixed m;
-protected string *rfile;
+nosave mixed m;
+nosave string *rfile;
 int draw_room(int,int,object);
 string clean_color(string arg)
 {

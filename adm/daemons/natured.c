@@ -6,7 +6,7 @@
 //#define TIME_TICK ((time()-1111000000)*365)//现实一秒mud365秒
 					   //现实一天mud365天(一年)
 #define TIME_TICK ((time()%(60*24*3600))*365)//mud中60年一轮=现实中60天
-protected int current_day_phase;
+nosave int current_day_phase;
 mapping *day_phase;
 
 //飞贼任务与隐士任务的标识
